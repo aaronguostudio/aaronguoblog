@@ -1,3 +1,5 @@
+import { siteDescription } from '~/app/content'
+
 export const navbarData = {
   homeTitle: 'Aaron Guo Blog',
 }
@@ -5,17 +7,14 @@ export const navbarData = {
 export const footerData = {
   author: 'Aaron Guo',
   aboutAuthor:
-    'Hi! I am Aaron, a Tech enthusiast, problem solver and software engineer. Currently working at FieldNation LLC.',
-  authorInterest:
-    "I have a fair amount of knowledge of Javascript, Typescript, VueJs, and Nuxt. If you have an interesting idea, either open source or paid let's connect.",
-  aboutTheSite:
-    "This is a personal blog site built with Nuxt3, TailwindCSS, NuxtContent, Nuxt Icon. Currently it's deployed in Vercel.",
+    'Hi! I am Aaron, a tech enthusiast, head of products and software engineer. Currently working at Mawer Investment Management.',
+  authorInterest: 'I have a fair amount of knowledge of Javascript, Typescript, VueJs, and Nuxt.',
+  aboutTheSite: `This is a personal blog site built with Nuxt3, TailwindCSS, NuxtContent, Nuxt Icon. I built it based on the <a href="https://github.com/nurRiyad/nuxt-blog" target="_blank" class="text-blue-500">Nuxt Blog template</a>.`,
 }
 
 export const homePage = {
-  title: 'Welcome To My Blog Site',
-  description:
-    'Get Web Development, Javascript, Typescript, NodeJs, Vue, and Nuxt, Related Articles, Tips, Learning resources and more.',
+  title: 'Welcome',
+  description: siteDescription,
 }
 
 export const blogsPage = {
@@ -33,7 +32,7 @@ export const aboutPage = {
   title: 'Aaron Guo',
   description: 'Software Engineer, Problem Solver, Web Enthusiast.',
   aboutMe:
-    "Hello, fellow human! I'm a software wizard who spends most of his day crafting code spells at @FieldNation in the Workplace Operation team. When I'm not crafting code, you can find me summoning solutions to problems on online judges. Just don't ask me to cast any love spells, my magic only works on machines!",
+    "Hi there! I'm Aaron, juggling pixels and product roadmap as a Head of Products & Software Engineer at Mawer Investment Management. By day, I wrangle complex challenges in the investment world; by night (and often weekends!), you'll find me diving deep into the realms of Javascript, Typescript, Vue, and Nuxt, always eager to build something new or solve a tricky puzzle. Welcome to my corner of the web where I share my explorations and insights!",
 }
 
 export const seoData = {
@@ -43,9 +42,9 @@ export const seoData = {
   twitterDescription: `Aaron Guo Blog, where I play around with Nuxt, Vue, and more and showcase my blog, resources, etc - Aaron Guo Blog | Aaron Guo Blog`,
   image:
     'https://res.cloudinary.com/dmecmyphj/image/upload/v1673548905/nuxt-blog/cover_ntgs6u.webp',
-  mySite: 'https://blog-nurriyad.vercel.app',
-  twitterHandle: '@qdnvubp',
-  mailAddress: 'asadnurriyad@gmail.com',
+  mySite: 'https://aaronguostudio.com',
+  twitterHandle: '@aaronguostudio',
+  mailAddress: 'aaronguostudio@gmail.com',
 }
 
 export const socialLinks = {
