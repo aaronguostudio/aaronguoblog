@@ -44,14 +44,14 @@ withDefaults(defineProps<Props>(), {
         </div>
         <div class="flex items-center gap-2 flex-wrap my-5">
           <LogoTag />
-          <template v-for="tag in tags" :key="tag">
-            <NuxtLink :to="`${localePath}/categories/${tag.toLocaleLowerCase()}`">
+          <span v-for="(tag, n) in tags" :key="n">
+            <NuxtLink :to="localePath(`/categories/${tag.toLocaleLowerCase()}`)">
               <span
                 class="bg-gray-200 dark:bg-slate-900 rounded-md px-2 py-1 font-semibold hover:bg-gray-300 dark:hover:bg-slate-800 transition-colors duration-200"
                 >{{ tag }}</span
               >
             </NuxtLink>
-          </template>
+          </span>
         </div>
       </div>
     </div>
