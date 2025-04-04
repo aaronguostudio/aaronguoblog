@@ -10,7 +10,7 @@ import { footerData, socialLinks } from '~/data'
     <p class="py-2 dark:text-zinc-300">
       {{ footerData.aboutAuthor }}
     </p>
-    <div class="my-3 space-x-3 pb-3">
+    <!-- <div class="my-3 space-x-3 pb-3">
       <NuxtLink
         :to="socialLinks.githubLink"
         target="_blank"
@@ -43,6 +43,6 @@ import { footerData, socialLinks } from '~/data'
       >
         <Icon name="fa:stack-overflow" size="1em" />
       </NuxtLink>
-    </div>
+    </div> -->
   </div>
 </template>
