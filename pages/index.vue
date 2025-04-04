@@ -1,13 +1,16 @@
 <script lang="ts" setup>
 import { navbarData } from '~/data'
 import { siteDescription } from '~/app/content'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 useHead({
-  title: 'Home',
+  title: t('navigation.home'),
   meta: [
     {
       name: 'description',
-      content: siteDescription,
+      content: t('home.welcome'),
     },
   ],
 })
@@ -15,8 +18,8 @@ useHead({
 // Generate OG Image
 defineOgImageComponent('About', {
   headline: 'Greetings 👋',
-  title: navbarData.homeTitle,
-  description: siteDescription,
+  title: t('og.homeTitle'),
+  description: t('welcome'),
   link: '/riyad.jpg',
 })
 </script>

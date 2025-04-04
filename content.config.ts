@@ -19,5 +19,33 @@ export default defineContentConfig({
         source: '**/*.md',
       }),
     }),
+    en: defineCollection({
+      ...asRobotsCollection({
+        type: 'page',
+        source: 'blogs/en/*.md',
+      }),
+      ...asSitemapCollection({
+        type: 'page',
+        source: 'blogs/en/*.md',
+      }),
+      ...asOgImageCollection({
+        type: 'page',
+        source: 'blogs/en/*.md',
+      }),
+    }),
+    zh: defineCollection({
+      ...asRobotsCollection({
+        type: 'page',
+        source: 'blogs/zh/*.md',
+      }),
+      ...asSitemapCollection({
+        type: 'page',
+        source: 'blogs/zh/*.md',
+      }),
+      ...asOgImageCollection({
+        type: 'page',
+        source: 'blogs/zh/*.md',
+      }),
+    }),
   },
 })

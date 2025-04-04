@@ -1,0 +1,15 @@
+{
+  "home": {
+    "welcome": "Welcome to the Blog",
+    "title": "Aaron Guo",
+    "description": "Software Engineer, Product Manager, Drummer."
+  },
+  "navigation": {
+    "homeTitle": "Aaron Guo",
+    "home": "Home",
+    "about": "About"
+  },
+  "og": {
+    "homeTitle": "Aaron Guo"
+  }
+}

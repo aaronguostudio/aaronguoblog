@@ -18,6 +18,7 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@formkit/auto-animate',
     '@stefanobartoletti/nuxt-social-share',
+    '@nuxtjs/i18n',
   ],
 
   app: {
@@ -75,5 +76,28 @@ export default defineNuxtConfig({
         },
       },
     },
+  },
+
+  i18n: {
+    locales: [
+      // Define your supported languages
+      {
+        code: 'en',
+        iso: 'en-US',
+        name: 'English',
+        file: 'en-US.json', // Specify translation file
+      },
+      {
+        code: 'zh',
+        iso: 'zh-CN',
+        name: '简体中文',
+        file: 'zh-CN.json', // Specify translation file
+      },
+      // Add more locales as needed
+    ],
+    lazy: true, // Lazy load translation files
+    langDir: 'locales', // Directory where translation files will be stored
+    defaultLocale: 'en', // Your default language
+    strategy: 'prefix_except_default', // Routing strategy (e.g., /about, /zh/about)
   },
 })

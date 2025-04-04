@@ -1,5 +1,8 @@
 <script lang="ts" setup>
+import { useI18n } from 'vue-i18n'
 import type { BlogPost } from '~/types/blog'
+
+const { t, locale } = useI18n()
 
 // Function to parse dates in the format "1st Mar 2023"
 function parseCustomDate(dateStr: string): Date {
@@ -9,9 +12,9 @@ function parseCustomDate(dateStr: string): Date {
   return new Date(cleanDateStr)
 }
 
-// Get Last 6 Publish Post from the content/blog directory
-const { data } = await useAsyncData('recent-post', () =>
-  queryCollection('content')
+// Get Last Publish Posts from the content/blog directory
+const { data, error } = await useAsyncData(`recent-post-${locale}`, () =>
+  queryCollection(locale.value as 'en' | 'zh')
     .all()
     .then((data) => {
       return data
@@ -23,6 +26,11 @@ const { data } = await useAsyncData('recent-post', () =>
         .slice(0, 3)
     }),
 )
+
+// Handle potential errors during fetch
+if (error.value) {
+  console.error('Error fetching recent posts:', error.value)
+}
 
 const formattedData = computed(() => {
   return data.value?.map((articles) => {

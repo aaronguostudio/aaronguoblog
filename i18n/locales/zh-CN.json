@@ -1,0 +1,15 @@
+{
+  "home": {
+    "welcome": "欢迎来到博客",
+    "title": "Aaron Guo",
+    "description": "软件工程师，产品经理，鼓手。"
+  },
+  "navigation": {
+    "homeTitle": "Aaron Guo",
+    "home": "首页",
+    "about": "关于"
+  },
+  "og": {
+    "homeTitle": "Aaron Guo"
+  }
+}

@@ -1,7 +1,7 @@
 import { siteDescription } from '../app/content'
 
 export const navbarData = {
-  homeTitle: 'Aaron Guo Blog',
+  homeTitle: 'Aaron Guo',
 }
 
 export const footerData = {
@@ -36,7 +36,7 @@ export const aboutPage = {
 }
 
 export const seoData = {
-  title: `Aaron Guo Blog | Aaron Guo Blog`,
+  title: `Aaron Guo | Aaron Guo Blog`,
   ogTitle: `Let's learn Javascript, Typescript, Vue, Nuxt, & Problem Solving - Aaron Guo Blog | Aaron Guo Blog`,
   description: `Hi I am Aaron. A Software Engineer at FieldNation, with over 3.5+ years experience in software development. - Aaron Guo Blog | Aaron Guo Blog`,
   twitterDescription: `Aaron Guo Blog, where I play around with Nuxt, Vue, and more and showcase my blog, resources, etc - Aaron Guo Blog | Aaron Guo Blog`,

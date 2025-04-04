@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { navbarData } from '../../data'
+import { useI18n } from 'vue-i18n'
+import { computed } from 'vue'
+const localePath = useLocalePath()
 
 const colorMode = useColorMode()
 function onClick(val: string) {
@@ -9,6 +12,24 @@ function onClick(val: string) {
 const route = useRoute()
 function isActive(path: string) {
   return route.path.startsWith(path)
+}
+
+// Add i18n composables
+const { locale, locales, setLocale } = useI18n()
+
+const availableLocales = computed(() => {
+  // Ensure locales.value is treated as an array
+  const locs = Array.isArray(locales.value) ? locales.value : []
+  // Filter out the current locale if desired (optional)
+  // return locs.filter(i => i.code !== locale.value)
+  return locs
+})
+
+// Helper function to update locale (optional but good practice)
+function changeLocale(event: Event) {
+  const target = event.target as HTMLSelectElement
+  // Assert the type to satisfy setLocale's expectation
+  setLocale(target.value as 'en' | 'zh') // <-- Adjust 'en' | 'zh' if you have different locale codes
 }
 </script>
 
@@ -24,16 +45,18 @@ function isActive(path: string) {
       </ul>
       <ul class="flex items-center space-x-3 sm:space-x-6 text-sm sm:text-lg">
         <li>
-          <NuxtLink to="/blogs" :class="{ underline: isActive('/blogs') }"> Blogs </NuxtLink>
+          <NuxtLink :to="localePath('/blogs')" :class="{ underline: isActive('/blogs') }">
+            Blogs
+          </NuxtLink>
         </li>
         <li>
-          <NuxtLink to="/categories" :class="{ underline: isActive('/categories') }">
+          <NuxtLink :to="localePath('/categories')" :class="{ underline: isActive('/categories') }">
             Categories
           </NuxtLink>
         </li>
         <li title="About Me">
           <NuxtLink
-            to="/about"
+            :to="localePath('/about')"
             aria-label="About me"
             :class="{ underline: $route.path === '/about' }"
           >
@@ -65,6 +88,25 @@ function isActive(path: string) {
               <Icon name="svg-spinners:180-ring" size="20" />
             </template>
           </ClientOnly>
+        </li>
+        <!-- Add Language Switcher Dropdown -->
+        <li title="Change Language">
+          <select
+            v-model="locale"
+            class="bg-transparent dark:bg-slate-950 pl-3 pr-8 py-1 rounded-md hover:cursor-pointer focus:outline-none focus:ring-1 focus:ring-gray-400 dark:focus:ring-gray-600"
+            aria-label="Change Language"
+            @change="changeLocale"
+          >
+            <option
+              v-for="loc in availableLocales"
+              :key="loc.code"
+              :value="loc.code"
+              class="dark:bg-slate-800"
+            >
+              {{ loc.name || loc.code }}
+              <!-- Display name or code -->
+            </option>
+          </select>
         </li>
       </ul>
     </div>
