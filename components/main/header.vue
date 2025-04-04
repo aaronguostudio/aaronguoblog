@@ -2,7 +2,10 @@
 import { navbarData } from '../../data'
 import { useI18n } from 'vue-i18n'
 import { computed } from 'vue'
+
+const { t } = useI18n()
 const localePath = useLocalePath()
+const switchLocalePath = useSwitchLocalePath()
 
 const colorMode = useColorMode()
 function onClick(val: string) {
@@ -24,13 +27,6 @@ const availableLocales = computed(() => {
   // return locs.filter(i => i.code !== locale.value)
   return locs
 })
-
-// Helper function to update locale (optional but good practice)
-function changeLocale(event: Event) {
-  const target = event.target as HTMLSelectElement
-  // Assert the type to satisfy setLocale's expectation
-  setLocale(target.value as 'en' | 'zh') // <-- Adjust 'en' | 'zh' if you have different locale codes
-}
 </script>
 
 <template>
@@ -38,20 +34,20 @@ function changeLocale(event: Event) {
     <div class="flex px-6 container max-w-5xl justify-between mx-auto items-baseline">
       <ul class="flex items-baseline space-x-5">
         <li class="text-base sm:text-2xl font-bold">
-          <NuxtLink to="/" :class="{ underline: $route.path === '/' }">
-            {{ navbarData.homeTitle }}
+          <NuxtLink :to="localePath('/')" :class="{ underline: $route.path === '/' }">
+            {{ t('navigation.homeTitle') }}
           </NuxtLink>
         </li>
       </ul>
       <ul class="flex items-center space-x-3 sm:space-x-6 text-sm sm:text-lg">
         <li>
           <NuxtLink :to="localePath('/blogs')" :class="{ underline: isActive('/blogs') }">
-            Blogs
+            {{ t('navigation.blogs') }}
           </NuxtLink>
         </li>
         <li>
           <NuxtLink :to="localePath('/categories')" :class="{ underline: isActive('/categories') }">
-            Categories
+            {{ t('navigation.categories') }}
           </NuxtLink>
         </li>
         <li title="About Me">
@@ -60,7 +56,25 @@ function changeLocale(event: Event) {
             aria-label="About me"
             :class="{ underline: $route.path === '/about' }"
           >
-            About
+            {{ t('navigation.about') }}
+          </NuxtLink>
+        </li>
+        <li class="flex items-center space-x-2" title="Change Language">
+          <NuxtLink :to="$switchLocalePath('en')">
+            <Icon
+              :name="locale === 'en' ? 'icon-park-outline:english' : 'ri:english-input'"
+              :size="locale === 'en' ? '28' : '16'"
+            />
+          </NuxtLink>
+          <NuxtLink :to="$switchLocalePath('zh')">
+            <Icon
+              :name="
+                locale === 'zh'
+                  ? 'icon-park-outline:chinese'
+                  : 'mdi:ideogram-chinese-japanese-korean-variant'
+              "
+              :size="locale === 'zh' ? '28' : '16'"
+            />
           </NuxtLink>
         </li>
         <li>
@@ -88,25 +102,6 @@ function changeLocale(event: Event) {
               <Icon name="svg-spinners:180-ring" size="20" />
             </template>
           </ClientOnly>
-        </li>
-        <!-- Add Language Switcher Dropdown -->
-        <li title="Change Language">
-          <select
-            v-model="locale"
-            class="bg-transparent dark:bg-slate-950 pl-3 pr-8 py-1 rounded-md hover:cursor-pointer focus:outline-none focus:ring-1 focus:ring-gray-400 dark:focus:ring-gray-600"
-            aria-label="Change Language"
-            @change="changeLocale"
-          >
-            <option
-              v-for="loc in availableLocales"
-              :key="loc.code"
-              :value="loc.code"
-              class="dark:bg-slate-800"
-            >
-              {{ loc.name || loc.code }}
-              <!-- Display name or code -->
-            </option>
-          </select>
         </li>
       </ul>
     </div>

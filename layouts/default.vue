@@ -1,3 +1,9 @@
+<script setup lang="ts">
+import { useI18n } from 'vue-i18n'
+
+const { locale } = useI18n()
+</script>
+
 <template>
   <div class="gd-container font-spacegrotesk">
     <header class="fixed w-full bg-[#F1F2F4] dark:bg-slate-950 z-10">

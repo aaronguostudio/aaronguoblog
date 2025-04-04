@@ -1,5 +1,8 @@
 <script setup lang="ts">
-import { aboutPage, footerData, navbarData, socialLinks } from '~/data'
+import { footerData, navbarData, socialLinks } from '~/data'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 useHead({
   title: 'About',
@@ -26,7 +29,7 @@ defineOgImageComponent('About', {
         <div class="flex justify-between">
           <div>
             <h1 class="text-xl sm:text-4xl pb-2 font-bold">
-              {{ aboutPage.title }}
+              {{ t('about.title') }}
             </h1>
 
             <!-- <div class="my-3 space-x-2 md:space-x-3 pb-10">
@@ -69,10 +72,10 @@ defineOgImageComponent('About', {
           </div>
         </div>
         <h3 class="text-base sm:text-3xl font-semibold pb-7 sm:pb-12">
-          {{ aboutPage.description }}
+          {{ t('about.description') }}
         </h3>
 
-        <p>{{ aboutPage.aboutMe }}</p>
+        <p>{{ t('about.aboutMe') }}</p>
       </div>
       <div class="hidden sm:block col-span-3">
         <!-- <NuxtImg src="/riyad.jpg" width="450" height="500" quality="50" class="rounded-md" /> -->

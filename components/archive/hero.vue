@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { blogsPage } from '~/data'
+const { t } = useI18n()
 </script>
 
 <template>
@@ -9,10 +10,10 @@ import { blogsPage } from '~/data'
         <h1
           class="text-black dark:text-zinc-300 font-semibold leading-tight text-4xl md:text-5xl my-5"
         >
-          {{ blogsPage.title }}
+          {{ t('blogs.title') }}
         </h1>
         <p class="dark:text-zinc-300">
-          {{ blogsPage.description }}
+          {{ t('blogs.description') }}
         </p>
       </div>
       <div class="px-6 justify-self-center">

@@ -1,5 +1,8 @@
 <script lang="ts" setup>
 import { makeFirstCharUpper } from '@/utils/helper'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 const { data } = await useAsyncData('all-blog-post-by-category', () =>
   queryCollection('content').all(),
@@ -20,12 +23,11 @@ data.value?.forEach((blog) => {
 })
 
 useHead({
-  title: 'Categories',
+  title: t('categories.title'),
   meta: [
     {
       name: 'description',
-      content:
-        'Below All the topics are listed on which either I have written a blog or will write a blog in near future.',
+      content: t('categories.description'),
     },
   ],
 })
@@ -34,9 +36,8 @@ useHead({
 const siteData = useSiteConfig()
 defineOgImage({
   props: {
-    title: 'Categories',
-    description:
-      'Below All the topics are listed on which either I have written a blog or will write a blog in near future.',
+    title: t('categories.title'),
+    description: t('categories.description'),
     siteName: siteData.url,
   },
 })

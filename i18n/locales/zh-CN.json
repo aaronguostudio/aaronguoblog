@@ -7,9 +7,24 @@
   "navigation": {
     "homeTitle": "Aaron Guo",
     "home": "首页",
-    "about": "关于"
+    "blogs": "博客",
+    "about": "关于",
+    "categories": "分类"
   },
   "og": {
     "homeTitle": "Aaron Guo"
+  },
+  "blogs": {
+    "title": "所有博客",
+    "description": "在这里，您将找到我在此网站上撰写的所有博客文章。"
+  },
+  "categories": {
+    "title": "所有分类",
+    "description": "在这里，您将找到我在此网站上撰写的所有分类。"
+  },
+  "about": {
+    "title": "Aaron Guo",
+    "description": "软件工程师，产品经理，鼓手。",
+    "aboutMe": "嗨，我是Aaron，一个软件工程师，产品经理，鼓手。我目前是Mawer Investment Management的Head of Products & Software Engineer。白天，我处理投资世界的复杂挑战；晚上（和周末），你会在Javascript、Typescript、Vue和Nuxt的世界里探索，总是渴望构建新事物或解决难题。欢迎来到我的角落，在这里我分享我的探索和见解！"
   }
 }

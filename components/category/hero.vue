@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { categoryPage } from '~/data'
+const { t } = useI18n()
 </script>
 
 <template>
@@ -9,10 +9,10 @@ import { categoryPage } from '~/data'
         <h1
           class="text-black dark:text-zinc-300 font-semibold leading-tight text-4xl md:text-5xl my-5"
         >
-          {{ categoryPage.title }}
+          {{ t('categories.title') }}
         </h1>
         <p class="dark:text-zinc-300">
-          {{ categoryPage.description }}
+          {{ t('categories.description') }}
         </p>
       </div>
       <div class="px-6 justify-self-center">

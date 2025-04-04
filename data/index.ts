@@ -28,12 +28,12 @@ export const categoryPage = {
     'Blow this category is generated from all the tags are mentioned in the different blog post',
 }
 
-export const aboutPage = {
-  title: 'Aaron Guo',
-  description: 'Software Engineer, Problem Solver, Web Enthusiast.',
-  aboutMe:
-    "Hi there! I'm Aaron, juggling pixels and product roadmap as a Head of Products & Software Engineer at Mawer Investment Management. By day, I wrangle complex challenges in the investment world; by night (and often weekends!), you'll find me diving deep into the realms of Javascript, Typescript, Vue, and Nuxt, always eager to build something new or solve a tricky puzzle. Welcome to my corner of the web where I share my explorations and insights!",
-}
+// export const aboutPage = {
+//   title: 'Aaron Guo',
+//   description: 'Software Engineer, Problem Solver, Web Enthusiast.',
+//   aboutMe:
+//     "Hi there! I'm Aaron, juggling pixels and product roadmap as a Head of Products & Software Engineer at Mawer Investment Management. By day, I wrangle complex challenges in the investment world; by night (and often weekends!), you'll find me diving deep into the realms of Javascript, Typescript, Vue, and Nuxt, always eager to build something new or solve a tricky puzzle. Welcome to my corner of the web where I share my explorations and insights!",
+// }
 
 export const seoData = {
   title: `Aaron Guo | Aaron Guo Blog`,
