@@ -1,4 +1,4 @@
-import { siteDescription } from '~/app/content'
+import { siteDescription } from '../app/content'
 
 export const navbarData = {
   homeTitle: 'Aaron Guo Blog',

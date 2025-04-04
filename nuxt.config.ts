@@ -66,4 +66,14 @@ export default defineNuxtConfig({
       },
     },
   },
+
+  vite: {
+    build: {
+      rollupOptions: {
+        output: {
+          sanitizeFileName: true,
+        },
+      },
+    },
+  },
 })
