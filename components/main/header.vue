@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import { navbarData } from '../../data'
+// import { navbarData } from '../../data'
 import { useI18n } from 'vue-i18n'
-import { computed } from 'vue'
 
 const { t } = useI18n()
 const localePath = useLocalePath()
-const switchLocalePath = useSwitchLocalePath()
+// const switchLocalePath = useSwitchLocalePath()
 
 const colorMode = useColorMode()
 function onClick(val: string) {
@@ -18,15 +17,7 @@ function isActive(path: string) {
 }
 
 // Add i18n composables
-const { locale, locales, setLocale } = useI18n()
-
-const availableLocales = computed(() => {
-  // Ensure locales.value is treated as an array
-  const locs = Array.isArray(locales.value) ? locales.value : []
-  // Filter out the current locale if desired (optional)
-  // return locs.filter(i => i.code !== locale.value)
-  return locs
-})
+const { locale } = useI18n()
 </script>
 
 <template>

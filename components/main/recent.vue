@@ -2,7 +2,7 @@
 import { useI18n } from 'vue-i18n'
 import type { BlogPost } from '~/types/blog'
 
-const { t, locale } = useI18n()
+const { locale } = useI18n()
 
 // Function to parse dates in the format "1st Mar 2023"
 function parseCustomDate(dateStr: string): Date {
