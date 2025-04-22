@@ -21,23 +21,29 @@ const { locale } = useI18n()
 </script>
 
 <template>
-  <div class="py-5 border-b dark:border-gray-800 font-semibold">
-    <div class="flex px-6 container max-w-5xl justify-between mx-auto items-baseline">
+  <div class="py-5 border-b dark:border-gray-800">
+    <div class="flex px-6 container max-w-8xl justify-between mx-auto items-baseline">
       <ul class="flex items-baseline space-x-5">
-        <li class="text-base sm:text-2xl font-bold">
-          <NuxtLink :to="localePath('/')" :class="{ underline: $route.path === '/' }">
+        <li class="text-base sm:text-3xl font-bold">
+          <NuxtLink :to="localePath('/')">
             {{ t('navigation.homeTitle') }}
           </NuxtLink>
         </li>
       </ul>
       <ul class="flex items-center space-x-3 sm:space-x-6 text-sm sm:text-lg">
         <li>
-          <NuxtLink :to="localePath('/blogs')" :class="{ underline: isActive('/blogs') }">
+          <NuxtLink
+            :to="localePath('/blogs')"
+            :class="['opacity-50', { '!opacity-100': isActive('/blogs') }]"
+          >
             {{ t('navigation.blogs') }}
           </NuxtLink>
         </li>
         <li>
-          <NuxtLink :to="localePath('/categories')" :class="{ underline: isActive('/categories') }">
+          <NuxtLink
+            :to="localePath('/categories')"
+            :class="['opacity-50', { '!opacity-100': isActive('/categories') }]"
+          >
             {{ t('navigation.categories') }}
           </NuxtLink>
         </li>
@@ -45,7 +51,7 @@ const { locale } = useI18n()
           <NuxtLink
             :to="localePath('/about')"
             aria-label="About me"
-            :class="{ underline: $route.path === '/about' }"
+            :class="['opacity-50', { '!opacity-100': isActive('/about') }]"
           >
             {{ t('navigation.about') }}
           </NuxtLink>

@@ -2,7 +2,7 @@
   "home": {
     "welcome": "Welcome to the Blog",
     "title": "Aaron Guo",
-    "description": "Software Engineer, Product Manager, Drummer."
+    "description": "Software Engineer, Head of Products, Drummer."
   },
   "navigation": {
     "homeTitle": "Aaron Guo",
@@ -24,7 +24,7 @@
   },
   "about": {
     "title": "Aaron Guo",
-    "description": "Software Engineer, Product Manager, Drummer.",
+    "description": "Software Engineer, Head of Products, Drummer.",
     "aboutMe": "Hi there! I'm Aaron, juggling pixels and product roadmap as a Head of Products & Software Engineer at Mawer Investment Management. By day, I wrangle complex challenges in the investment world; by night (and often weekends!), you'll find me diving deep into the realms of Javascript, Typescript, Vue, and Nuxt, always eager to build something new or solve a tricky puzzle. Welcome to my corner of the web where I share my explorations and insights!"
   }
 }

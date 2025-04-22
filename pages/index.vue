@@ -25,7 +25,7 @@ defineOgImageComponent('About', {
 </script>
 
 <template>
-  <main class="container max-w-5xl mx-auto text-zinc-600">
+  <main class="container max-w-8xl mx-auto text-zinc-600 mb-12">
     <MainHero />
     <MainRecent />
     <MainTrending />
