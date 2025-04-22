@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-import { navbarData } from '~/data'
-import { siteDescription } from '~/app/content'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()

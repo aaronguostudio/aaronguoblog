@@ -26,7 +26,7 @@ withDefaults(defineProps<Props>(), {
 
 <template>
   <article
-    class="group border dark:border-gray-800 rounded-lg overflow-hidden shadow-sm text-zinc-700 dark:text-zinc-300"
+    class="group border dark:border-gray-800 rounded-lg overflow-hidden shadow-sm text-zinc-700 dark:text-zinc-300 bg-white dark:bg-gray-900"
   >
     <NuxtLink :to="path" class="grid grid-cols-1 sm:grid-cols-10 gap-1">
       <div class="sm:col-span-2">

@@ -26,7 +26,7 @@ withDefaults(defineProps<Props>(), {
 
 <template>
   <article
-    class="group border dark:border-gray-800 overflow-hidden rounded-lg shadow-sm text-zinc-700 dark:text-zinc-300"
+    class="group border dark:border-gray-800 overflow-hidden rounded-lg shadow-sm text-zinc-700 dark:text-zinc-300 bg-white dark:bg-gray-900"
   >
     <NuxtLink :to="path">
       <NuxtImg
