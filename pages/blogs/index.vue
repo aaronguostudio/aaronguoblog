@@ -1,130 +1,157 @@
 <script lang="ts" setup>
 import Fuse from 'fuse.js'
-import type { BlogPost } from '~/types/blog'
+import { sortByDate } from '~/utils/date'
+import { extractBlogPostMeta } from '~/utils/type-guards'
+import { useSeo } from '~/utils/seo'
 
-const { locale } = useI18n()
+const { t, locale } = useI18n()
 
-// Query blog posts from the collection corresponding to the current locale
+/**
+ * Pagination and search state
+ */
+const elementPerPage = ref(6) // Increased from 5 to 6 for better grid layout
+const pageNumber = ref(1)
+const searchQuery = ref('')
+
+/**
+ * Query blog posts from the collection corresponding to the current locale
+ */
 const { data } = await useAsyncData(`all-blog-post-${locale.value}`, () =>
   queryCollection(locale.value as 'en' | 'zh').all(),
 )
 
-const elementPerPage = ref(5)
-const pageNumber = ref(1)
-const searchTest = ref('')
-
-// Function to parse dates in the format "1st Mar 2023"
-function parseCustomDate(dateStr: string): Date {
-  // Remove ordinal indicators (st, nd, rd, th)
-  const cleanDateStr = dateStr.replace(/(\d+)(st|nd|rd|th)/, '$1')
-  // Parse the date
-  return new Date(cleanDateStr)
-}
-
+/**
+ * Format and process blog post data
+ */
 const formattedData = computed(() => {
-  return (
-    data.value?.map((articles) => {
-      const meta = articles.meta as unknown as BlogPost
+  if (!data.value) return []
 
-      // Extract the blog slug from the content path
-      const contentPath = articles.path
-      const blogSlug = contentPath.replace(`/blogs/${locale.value}/`, '')
+  // Map content data to BlogPost objects
+  const posts = data.value.map((article) => {
+    // Extract metadata using our utility function
+    const meta = extractBlogPostMeta(article)
 
-      // Create the localized URL path
-      const localePath = locale.value === 'en' ? `/blogs/${blogSlug}` : `/zh/blogs/${blogSlug}`
+    // Extract the blog slug from the content path
+    const contentPath = article.path
+    const blogSlug = contentPath.replace(`/blogs/${locale.value}/`, '')
 
-      return {
-        path: localePath,
-        title: articles.title || 'no-title available',
-        description: articles.description || 'no-description available',
-        image: meta.image || '/not-found.jpg',
-        alt: meta.alt || 'no alter data available',
-        ogImage: meta.ogImage || '/not-found.jpg',
-        date: meta.date || 'not-date-available',
-        tags: meta.tags || [],
-        published: meta.published || false,
-      }
-    }) || []
-  ).sort((a, b) => {
-    // Sort by date in reverse order (newest first)
-    const aDate = parseCustomDate(a.date)
-    const bDate = parseCustomDate(b.date)
-    return bDate.getTime() - aDate.getTime()
+    // Create the localized URL path
+    const localePath = locale.value === 'en' ? `/blogs/${blogSlug}` : `/zh/blogs/${blogSlug}`
+
+    return {
+      path: localePath,
+      title: article.title || meta.title,
+      description: article.description || meta.description,
+      image: meta.image,
+      alt: meta.alt,
+      ogImage: meta.ogImage,
+      date: meta.date,
+      tags: meta.tags,
+      published: meta.published,
+    }
   })
+
+  // Filter out unpublished posts in production
+  const publishedPosts =
+    process.env.NODE_ENV === 'production' ? posts.filter((post) => post.published) : posts
+
+  // Sort by date (newest first)
+  return sortByDate(publishedPosts, 'date')
 })
 
+/**
+ * Setup search functionality with Fuse.js
+ */
 const fuse = computed(() => {
   return new Fuse(formattedData.value, {
-    keys: ['title', 'description'],
+    keys: ['title', 'description', 'tags'],
     threshold: 0.4,
     includeScore: false,
   })
 })
 
+/**
+ * Filter data based on search query
+ */
 const searchData = computed(() => {
-  if (!searchTest.value.trim()) {
+  if (!searchQuery.value.trim()) {
     return formattedData.value
   }
 
-  const results = fuse.value.search(searchTest.value)
+  const results = fuse.value.search(searchQuery.value)
   return results.map((result) => result.item)
 })
 
+/**
+ * Paginate the data
+ */
 const paginatedData = computed(() => {
-  const startInd = (pageNumber.value - 1) * elementPerPage.value
-  const endInd = pageNumber.value * elementPerPage.value
+  const startIndex = (pageNumber.value - 1) * elementPerPage.value
+  const endIndex = pageNumber.value * elementPerPage.value
 
-  return searchData.value.slice(startInd, endInd)
+  return searchData.value.slice(startIndex, endIndex)
 })
 
-function onPreviousPageClick() {
+/**
+ * Calculate total pages
+ */
+const totalPages = computed(() => {
+  const totalContent = searchData.value.length || 0
+  return Math.ceil(totalContent / elementPerPage.value)
+})
+
+/**
+ * Pagination controls
+ */
+function onPreviousPage() {
   if (pageNumber.value > 1) pageNumber.value -= 1
 }
 
-const totalPage = computed(() => {
-  const ttlContent = searchData.value.length || 0
-  return Math.ceil(ttlContent / elementPerPage.value)
-})
-
-function onNextPageClick() {
-  if (pageNumber.value < totalPage.value) pageNumber.value += 1
+function onNextPage() {
+  if (pageNumber.value < totalPages.value) pageNumber.value += 1
 }
 
-useHead({
-  title: 'Archive',
-  meta: [
-    {
-      name: 'description',
-      content: 'Here you will find all the blog posts I have written & published on this site.',
-    },
-  ],
+/**
+ * SEO configuration
+ */
+useSeo({
+  title: t('blogs.title'),
+  description: t('blogs.description'),
+  url: '/blogs',
 })
 
 // Generate OG Image
-const siteData = useSiteConfig()
 defineOgImage({
   props: {
-    title: 'Archive',
-    description: 'Here you will find all the blog posts I have written & published on this site.',
-    siteName: siteData.url,
+    title: t('blogs.title'),
+    description: t('blogs.description'),
+    siteName: 'Aaron Guo',
   },
 })
 </script>
 
 <template>
-  <main class="container max-w-8xl mx-auto text-zinc-600">
+  <main class="container max-w-8xl mx-auto">
     <ArchiveHero />
 
-    <div class="p-4">
-      <input
-        v-model="searchTest"
-        placeholder="Search Blog"
-        type="text"
-        class="block w-full bg-[#F1F2F4] dark:bg-slate-900 dark:placeholder-zinc-500 text-zinc-300 rounded-md border-gray-300 dark:border-gray-800 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-      />
+    <!-- Search bar -->
+    <div class="px-4 py-6">
+      <div class="relative max-w-2xl mx-auto">
+        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+          <Icon name="heroicons:magnifying-glass" class="w-5 h-5 text-muted-foreground" />
+        </div>
+        <input
+          v-model="searchQuery"
+          type="search"
+          placeholder="Search blogs by title, description, or tags..."
+          class="block w-full pl-10 pr-4 py-3 bg-background border border-border rounded-lg focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all duration-300"
+          :aria-label="t('blogs.searchPlaceholder')"
+        />
+      </div>
     </div>
 
-    <div v-auto-animate class="space-y-5 my-5 px-4">
+    <!-- Blog posts grid -->
+    <div v-auto-animate class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4 py-6">
       <template v-for="post in paginatedData" :key="post.title">
         <ArchiveCard
           :path="post.path"
@@ -139,24 +166,48 @@ defineOgImage({
         />
       </template>
 
-      <ArchiveCard v-if="paginatedData.length <= 0" title="No Post Found" image="/not-found.jpg" />
+      <!-- Empty state -->
+      <div
+        v-if="paginatedData.length === 0"
+        class="col-span-full flex flex-col items-center justify-center py-12 text-center"
+      >
+        <Icon name="heroicons:document-search" class="w-16 h-16 text-muted-foreground mb-4" />
+        <h2 class="text-xl font-semibold mb-2">No posts found</h2>
+        <p class="text-muted-foreground max-w-md">
+          {{
+            searchQuery
+              ? 'Try a different search term or browse all posts.'
+              : 'No blog posts are available yet.'
+          }}
+        </p>
+        <button
+          v-if="searchQuery"
+          class="mt-4 px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors"
+          @click="searchQuery = ''"
+        >
+          Clear search
+        </button>
+      </div>
     </div>
 
-    <div class="flex justify-center items-center space-x-6">
-      <button :disabled="pageNumber <= 1" @click="onPreviousPageClick">
-        <Icon
-          name="mdi:code-less-than"
-          size="30"
-          :class="{ 'text-sky-700 dark:text-sky-400': pageNumber > 1 }"
-        />
+    <!-- Pagination controls -->
+    <div class="flex justify-center items-center space-x-6 py-8">
+      <button
+        :disabled="pageNumber <= 1"
+        class="p-2 rounded-full hover:bg-secondary disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+        aria-label="Previous page"
+        @click="onPreviousPage"
+      >
+        <Icon name="heroicons:chevron-left" size="24" class="text-foreground" />
       </button>
-      <p>{{ pageNumber }} / {{ totalPage }}</p>
-      <button :disabled="pageNumber >= totalPage" @click="onNextPageClick">
-        <Icon
-          name="mdi:code-greater-than"
-          size="30"
-          :class="{ 'text-sky-700 dark:text-sky-400': pageNumber < totalPage }"
-        />
+      <div class="text-foreground font-medium">{{ pageNumber }} / {{ totalPages || 1 }}</div>
+      <button
+        :disabled="pageNumber >= totalPages"
+        class="p-2 rounded-full hover:bg-secondary disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+        aria-label="Next page"
+        @click="onNextPage"
+      >
+        <Icon name="heroicons:chevron-right" size="24" class="text-foreground" />
       </button>
     </div>
   </main>

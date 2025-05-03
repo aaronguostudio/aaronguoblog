@@ -1,4 +1,9 @@
 <script lang="ts" setup>
+import { formatDate } from '~/utils/date'
+
+/**
+ * Blog card component props
+ */
 interface Props {
   path: string
   title: string
@@ -24,8 +29,18 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const localePath = useLocalePath()
+const { locale } = useI18n()
 
-// Fix the path to ensure it uses the correct language prefix
+/**
+ * Format the date for display
+ */
+const formattedDate = computed(() => {
+  return formatDate(props.date, locale.value === 'zh' ? 'zh-CN' : 'en-US')
+})
+
+/**
+ * Fix the path to ensure it uses the correct language prefix
+ */
 const blogPath = computed(() => {
   // If the path already has the correct format, return it
   if (!props.path.includes('/blogs/zh/') && !props.path.includes('/blogs/en/')) {
@@ -46,27 +61,33 @@ const blogPath = computed(() => {
 
 <template>
   <article
-    class="group border border-border overflow-hidden rounded-lg shadow-sm text-foreground bg-card"
+    class="group border border-border overflow-hidden rounded-lg shadow-sm text-foreground bg-card transition-all duration-300 hover:shadow-md hover:border-primary/20"
   >
-    <NuxtLink :to="blogPath">
-      <div class="p-4 flex flex-col justify-between gap-4">
+    <NuxtLink :to="blogPath" class="block h-full">
+      <div class="p-5 flex flex-col justify-between gap-4 h-full">
         <div class="flex-1">
-          <h2 class="text-lg font-semibold text-foreground pb-1 group-hover:text-primary truncate">
+          <h2
+            class="text-lg font-semibold text-foreground pb-2 group-hover:text-primary truncate transition-colors duration-300"
+          >
             {{ title }}
           </h2>
-          <p class="text-ellipsis line-clamp-2 text-sm">
+          <p class="text-ellipsis line-clamp-2 text-body-sm text-muted-foreground">
             {{ description }}
           </p>
         </div>
-        <div class="text-foreground flex flex-col gap-y-1">
-          <div class="flex items-center">
-            <LogoDate />
-            {{ date }}
+        <div class="text-foreground flex flex-col gap-y-2 pt-2 border-t border-border">
+          <div class="flex items-center text-caption text-muted-foreground">
+            <LogoDate class="mr-1.5 h-4 w-4" />
+            {{ formattedDate }}
           </div>
-          <div class="flex items-center gap-1 flex-wrap">
-            <LogoTag />
+          <div v-if="tags.length > 0" class="flex items-center gap-1.5 flex-wrap">
+            <LogoTag class="h-4 w-4 text-muted-foreground" />
             <template v-for="tag in tags" :key="tag">
-              <span class="bg-secondary text-secondary-foreground rounded-md px-2">{{ tag }}</span>
+              <span
+                class="bg-secondary text-secondary-foreground rounded-md px-2 py-0.5 text-caption transition-colors duration-300 hover:bg-primary/10"
+              >
+                {{ tag }}
+              </span>
             </template>
           </div>
         </div>
