@@ -49,14 +49,14 @@ const blogPath = computed(() => {
     class="group border dark:border-gray-800 rounded-lg overflow-hidden shadow-sm text-zinc-700 dark:text-zinc-300 bg-white dark:bg-gray-900"
   >
     <NuxtLink :to="blogPath" class="grid grid-cols-1 sm:grid-cols-10 gap-1">
-      <div class="sm:col-span-2">
+      <!-- <div class="sm:col-span-2">
         <NuxtImg
           class="h-full w-full object-cover object-center sm:rounded-l-2xl sm:rounded-t-none shadow-lg group-hover:scale-[1.02] transition-all duration-500"
           width="3200"
           :src="image"
           :alt="alt"
         />
-      </div>
+      </div> -->
       <div class="sm:col-span-7 p-5">
         <h2
           class="text-xl font-semibold text-black dark:text-zinc-300 pb-1 group-hover:text-sky-700 dark:group-hover:text-sky-400"
@@ -82,7 +82,7 @@ const blogPath = computed(() => {
             </p>
           </div>
         </div>
-        <div class="flex group-hover:underline text-sky-700 dark:text-sky-400 items-center pt-2">
+        <div class="flex group-hover:underline items-center pt-2">
           <p>Read More</p>
           <LogoArrow />
         </div>

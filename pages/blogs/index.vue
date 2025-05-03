@@ -13,6 +13,14 @@ const elementPerPage = ref(5)
 const pageNumber = ref(1)
 const searchTest = ref('')
 
+// Function to parse dates in the format "1st Mar 2023"
+function parseCustomDate(dateStr: string): Date {
+  // Remove ordinal indicators (st, nd, rd, th)
+  const cleanDateStr = dateStr.replace(/(\d+)(st|nd|rd|th)/, '$1')
+  // Parse the date
+  return new Date(cleanDateStr)
+}
+
 const formattedData = computed(() => {
   return (
     data.value?.map((articles) => {
@@ -37,7 +45,12 @@ const formattedData = computed(() => {
         published: meta.published || false,
       }
     }) || []
-  )
+  ).sort((a, b) => {
+    // Sort by date in reverse order (newest first)
+    const aDate = parseCustomDate(a.date)
+    const bDate = parseCustomDate(b.date)
+    return bDate.getTime() - aDate.getTime()
+  })
 })
 
 const fuse = computed(() => {
@@ -105,7 +118,7 @@ defineOgImage({
     <div class="p-4">
       <input
         v-model="searchTest"
-        placeholder="Search"
+        placeholder="Search Blog"
         type="text"
         class="block w-full bg-[#F1F2F4] dark:bg-slate-900 dark:placeholder-zinc-500 text-zinc-300 rounded-md border-gray-300 dark:border-gray-800 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
       />

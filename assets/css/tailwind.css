@@ -116,9 +116,9 @@ body {
 
 .dark {
   /* Dark mode with a deep blue background */
-  --background: #040f1e; /* Deep blue background */
+  --background: #020b16; /* Deep blue background */
   --foreground: #e6f1ff; /* Light blue-tinted text for better readability */
-  --card: #0a1830; /* Slightly lighter blue for cards */
+  --card: #061124; /* Slightly lighter blue for cards */
   --card-foreground: #e6f1ff;
   --popover: #112240;
   --popover-foreground: #e6f1ff;

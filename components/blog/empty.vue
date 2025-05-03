@@ -19,7 +19,7 @@ const localePath = useLocalePath()
           No Post Available
         </h2>
 
-        <div class="flex group-hover:underline text-sky-700 dark:text-sky-400 items-center pt-2">
+        <div class="flex group-hover:underline items-center pt-2">
           <p>Back To Home</p>
           <LogoArrow />
         </div>
