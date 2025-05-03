@@ -115,40 +115,47 @@ body {
 }
 
 .dark {
-  --background: oklch(0.16 0.03 264.66);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.16 0.03 264.66);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.16 0.03 264.66);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.23 0.034 264.665);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.23 0.034 264.665);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.23 0.034 264.665);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
-  --chart-1: 220 70% 50%;
-  --chart-2: 160 60% 45%;
-  --chart-3: 30 80% 55%;
-  --chart-4: 280 65% 60%;
-  --chart-5: 340 75% 55%;
+  /* Dark mode with a deep blue background */
+  --background: #040f1e; /* Deep blue background */
+  --foreground: #e6f1ff; /* Light blue-tinted text for better readability */
+  --card: #0a1830; /* Slightly lighter blue for cards */
+  --card-foreground: #e6f1ff;
+  --popover: #112240;
+  --popover-foreground: #e6f1ff;
+  --primary: #64ffda; /* Teal accent color */
+  --primary-foreground: #0a192f;
+  --secondary: #172a46; /* Medium blue for secondary elements */
+  --secondary-foreground: #e6f1ff;
+  --muted: #172a46;
+  --muted-foreground: #8892b0;
+  --accent: #a9b3d3; /* Same as primary for consistency */
+  --accent-foreground: #0a192f;
+  --destructive: #ff6b6b; /* Soft red for destructive actions */
+  --border: rgba(230, 241, 255, 0.1);
+  --input: rgba(230, 241, 255, 0.15);
+  --ring: #64ffda;
+
+  /* Chart colors with better contrast on blue background */
+  --chart-1: #64ffda; /* Teal */
+  --chart-2: #f8b500; /* Gold */
+  --chart-3: #ff6b6b; /* Coral */
+  --chart-4: #c792ea; /* Lavender */
+  --chart-5: #82aaff; /* Light blue */
+
+  /* Sidebar colors */
+  --sidebar: #0f2847;
+  --sidebar-foreground: #e6f1ff;
+  --sidebar-primary: #64ffda;
+  --sidebar-primary-foreground: #0a192f;
+  --sidebar-accent: #172a46;
+  --sidebar-accent-foreground: #e6f1ff;
+  --sidebar-border: rgba(230, 241, 255, 0.1);
+  --sidebar-ring: #64ffda;
+
+  /* HSL values for charts (as fallback or for compatibility) */
+  --chart-1: 171 100% 70%; /* Teal */
+  --chart-2: 43 100% 50%; /* Gold */
+  --chart-3: 0 100% 71%; /* Coral */
+  --chart-4: 276 65% 75%; /* Lavender */
+  --chart-5: 219 100% 75%; /* Light blue */
 }

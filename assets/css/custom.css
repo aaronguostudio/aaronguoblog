@@ -1,0 +1,39 @@
+/* Custom CSS to ensure dark mode works correctly */
+
+html, body {
+  background-color: var(--background);
+  color: var(--foreground);
+  min-height: 100vh;
+}
+
+html.dark {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+/* Force dark mode colors */
+.dark .bg-background {
+  background-color: var(--background) !important;
+}
+
+.dark .text-foreground {
+  color: var(--foreground) !important;
+}
+
+.dark .bg-card {
+  background-color: var(--card) !important;
+}
+
+.dark .text-primary {
+  color: var(--primary) !important;
+}
+
+.dark .bg-secondary {
+  background-color: var(--secondary) !important;
+}
+
+.dark .text-secondary-foreground {
+  color: var(--secondary-foreground) !important;
+}
+
+/* Add more overrides as needed */

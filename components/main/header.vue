@@ -12,9 +12,14 @@ function onClick(val: string) {
 }
 
 const route = useRoute()
-function isActive(path: string) {
+function isActive(path: string, exact = false) {
   // Handle both localized and non-localized paths
   const currentPath = route.path
+
+  if (exact) {
+    return currentPath === path || currentPath === `/${locale.value}`
+  }
+
   return (
     currentPath === path ||
     currentPath.startsWith(`/${locale.value}${path}`) ||
@@ -37,7 +42,7 @@ function isActive(path: string) {
         <li>
           <NuxtLink
             :to="localePath('/')"
-            :class="['opacity-50', { '!opacity-100': isActive('/') }]"
+            :class="['opacity-50', { '!opacity-100': isActive('/', true) }]"
           >
             {{ t('navigation.home') }}
           </NuxtLink>

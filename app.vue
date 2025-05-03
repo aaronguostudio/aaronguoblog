@@ -10,7 +10,7 @@ useHead({
 </script>
 
 <template>
-  <div>
+  <div class="min-h-screen bg-background text-foreground">
     <NuxtLoadingIndicator />
     <NuxtLayout>
       <NuxtPage />

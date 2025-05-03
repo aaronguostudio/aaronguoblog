@@ -46,21 +46,19 @@ const blogPath = computed(() => {
 
 <template>
   <article
-    class="group border dark:border-gray-800 overflow-hidden rounded-lg shadow-sm text-zinc-700 dark:text-zinc-300 bg-white dark:bg-gray-900"
+    class="group border border-border overflow-hidden rounded-lg shadow-sm text-foreground bg-card"
   >
     <NuxtLink :to="blogPath">
       <div class="p-4 flex flex-col justify-between gap-4">
         <div class="flex-1">
-          <h2
-            class="text-lg font-semibold text-black dark:text-zinc-300 pb-1 group-hover:text-sky-700 dark:group-hover:text-sky-400 truncate"
-          >
+          <h2 class="text-lg font-semibold text-foreground pb-1 group-hover:text-primary truncate">
             {{ title }}
           </h2>
-          <p class="text-ellipsis line-clamp-2 text-accent">
+          <p class="text-ellipsis line-clamp-2 text-sm">
             {{ description }}
           </p>
         </div>
-        <div class="text-black dark:text-zinc-300 flex flex-col gap-y-1">
+        <div class="text-foreground flex flex-col gap-y-1">
           <div class="flex items-center">
             <LogoDate />
             {{ date }}
@@ -68,7 +66,7 @@ const blogPath = computed(() => {
           <div class="flex items-center gap-1 flex-wrap">
             <LogoTag />
             <template v-for="tag in tags" :key="tag">
-              <span class="bg-gray-200 dark:bg-slate-900 rounded-md px-2">{{ tag }}</span>
+              <span class="bg-secondary text-secondary-foreground rounded-md px-2">{{ tag }}</span>
             </template>
           </div>
         </div>
