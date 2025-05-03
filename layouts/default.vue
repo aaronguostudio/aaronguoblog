@@ -1,16 +1,11 @@
-<script setup lang="ts">
-import { useI18n } from 'vue-i18n'
-
-const { locale } = useI18n()
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  <div class="gd-container font-spacegrotesk">
-    <header class="fixed w-full bg-[#F1F2F4] dark:bg-slate-950 z-10">
+  <div>
+    <header>
       <MainHeader />
     </header>
     <main>
-      <div class="p-9" />
       <slot />
     </main>
     <footer>
@@ -19,10 +14,4 @@ const { locale } = useI18n()
   </div>
 </template>
 
-<style scoped>
-.gd-container {
-  display: grid;
-  grid-template-rows: 1fr auto;
-  min-height: 100vh;
-}
-</style>
+<style scoped></style>

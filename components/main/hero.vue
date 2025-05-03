@@ -5,7 +5,7 @@ const { t, locale } = useI18n()
 </script>
 
 <template>
-  <div class="container mx-auto" :key="locale">
+  <div :key="locale" class="container mx-auto">
     <div class="grid grid-cols-1 sm:grid-cols-2 items-center">
       <div class="px-6">
         <h1

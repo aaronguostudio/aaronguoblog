@@ -18,12 +18,11 @@ defineOgImageComponent('About', {
   headline: 'Greetings 👋',
   title: t('og.homeTitle'),
   description: t('welcome'),
-  link: '/riyad.jpg',
 })
 </script>
 
 <template>
-  <main class="container max-w-8xl mx-auto text-zinc-600 mb-12">
+  <main class="container max-w-8xl mx-auto">
     <MainHero />
     <MainRecent />
     <MainTrending />
