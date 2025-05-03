@@ -48,7 +48,7 @@ const blogPath = computed(() => {
   <article
     class="group border dark:border-gray-800 rounded-lg overflow-hidden shadow-sm text-zinc-700 dark:text-zinc-300 bg-white dark:bg-gray-900"
   >
-    <NuxtLink :to="blogPath" class="grid grid-cols-1 sm:grid-cols-10 gap-1">
+    <NuxtLink :to="blogPath" class="grid grid-cols-1 gap-1">
       <!-- <div class="sm:col-span-2">
         <NuxtImg
           class="h-full w-full object-cover object-center sm:rounded-l-2xl sm:rounded-t-none shadow-lg group-hover:scale-[1.02] transition-all duration-500"

@@ -84,14 +84,26 @@ module.exports = {
         DEFAULT: {
           css: {
             color: 'var(--foreground)',
+            // Link styling
             a: {
               color: 'var(--primary)',
               '&:hover': {
                 color: 'var(--primary)',
+                opacity: '0.8',
               },
               textDecoration: 'none',
               fontWeight: '500',
+              // Special styling for hash links (internal links)
+              '&[href^="#"]': {
+                color: 'var(--foreground)',
+                fontWeight: '600',
+                '&:hover': {
+                  color: 'var(--foreground)',
+                  opacity: '0.8',
+                },
+              },
             },
+            // Headings
             h1: {
               color: 'var(--foreground)',
               fontWeight: '700',
@@ -99,42 +111,93 @@ module.exports = {
             h2: {
               color: 'var(--foreground)',
               fontWeight: '700',
+              scrollMarginTop: '5rem',
             },
             h3: {
               color: 'var(--foreground)',
               fontWeight: '600',
+              scrollMarginTop: '5rem',
             },
             h4: {
               color: 'var(--foreground)',
               fontWeight: '600',
+              scrollMarginTop: '5rem',
             },
+            // Inline code
             code: {
               color: 'var(--primary)',
               backgroundColor: 'var(--muted)',
               borderRadius: '0.25rem',
               padding: '0.125rem 0.25rem',
+              fontFamily: 'var(--font-mono)',
+              fontSize: '0.875em',
+              fontWeight: '500',
+              '&::before': {
+                content: '""',
+              },
+              '&::after': {
+                content: '""',
+              },
             },
+            // Code blocks - always dark regardless of theme
             pre: {
-              backgroundColor: 'var(--card)',
-              color: 'var(--card-foreground)',
+              backgroundColor: '#1e293b', // Slate 800 - dark background for all modes
+              color: '#e2e8f0', // Slate 200 - light text for all modes
               borderRadius: 'var(--radius-md)',
+              padding: '1rem',
+              overflowX: 'auto',
+              border: '1px solid rgba(255, 255, 255, 0.1)',
+              fontFamily: 'var(--font-mono)',
+              fontSize: '0.875em',
+              lineHeight: '1.7',
+              fontWeight: '400',
+              code: {
+                backgroundColor: 'transparent',
+                color: 'inherit',
+                padding: '0',
+                fontWeight: 'inherit',
+                fontSize: 'inherit',
+              },
             },
+            // Blockquotes
             blockquote: {
               borderLeftColor: 'var(--border)',
               color: 'var(--muted-foreground)',
+              fontStyle: 'italic',
+              paddingLeft: '1rem',
             },
+            // Horizontal rule
             hr: {
               borderColor: 'var(--border)',
+              marginTop: '2rem',
+              marginBottom: '2rem',
             },
+            // Strong text
             strong: {
               color: 'var(--foreground)',
               fontWeight: '600',
+            },
+            // Tables
+            table: {
+              fontSize: '0.875em',
+            },
+            // Lists
+            ul: {
+              paddingLeft: '1.625em',
+            },
+            ol: {
+              paddingLeft: '1.625em',
+            },
+            // Images
+            img: {
+              borderRadius: 'var(--radius-md)',
             },
           },
         },
         dark: {
           css: {
             color: 'var(--foreground)',
+            // No need to override pre styles as they're now consistent in both modes
           },
         },
       }),

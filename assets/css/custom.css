@@ -1,6 +1,7 @@
 /* Custom CSS to ensure dark mode works correctly */
 
-html, body {
+html,
+body {
   background-color: var(--background);
   color: var(--foreground);
   min-height: 100vh;
@@ -34,6 +35,84 @@ html.dark {
 
 .dark .text-secondary-foreground {
   color: var(--secondary-foreground) !important;
+}
+
+/* Custom prose styles */
+
+/* Ensure code blocks always have dark background regardless of theme */
+.prose pre {
+  background-color: #1e293b !important; /* Slate 800 */
+  color: #e2e8f0 !important; /* Slate 200 */
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Style for code inside pre blocks */
+.prose pre code {
+  background-color: transparent !important;
+  color: inherit !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+}
+
+/* Style for hash links (internal links) */
+.prose a[href^='#'] {
+  color: var(--foreground) !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+}
+
+.prose a[href^='#']:hover {
+  opacity: 0.8 !important;
+}
+
+/* Add a subtle indicator for hash links */
+.prose a[href^='#']::after {
+  content: '#';
+  opacity: 0.5;
+  margin-left: 0.25rem;
+  font-size: 0.875em;
+}
+
+/* Improve table styles */
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.prose table th {
+  background-color: var(--secondary);
+  font-weight: 600;
+}
+
+.prose table th,
+.prose table td {
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border);
+}
+
+.prose table tr:nth-child(even) {
+  background-color: var(--secondary);
+}
+
+/* Improve blockquote styles */
+.prose blockquote {
+  border-left-width: 4px;
+  border-left-color: var(--primary);
+  font-style: italic;
+  padding: 0.5rem 0 0.5rem 1rem;
+  margin: 1.5rem 0;
+  background-color: var(--secondary);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+/* Improve list styles */
+.prose ul li::marker {
+  color: var(--forground);
+}
+
+.prose ol li::marker {
+  color: var(--forground);
+  font-weight: 600;
 }
 
 /* Add more overrides as needed */

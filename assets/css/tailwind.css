@@ -143,11 +143,11 @@ body {
   --radius-xl: 0.75rem;
 
   /* Base colors - deep blue theme */
-  --background: #0a192f; /* Deep blue background */
+  --background: #020b1a; /* Deep blue background */
   --foreground: #e6f1ff; /* Light blue-tinted text for better readability */
 
   /* Component colors */
-  --card: #112240; /* Slightly lighter blue for cards */
+  --card: #061227; /* Slightly lighter blue for cards */
   --card-foreground: #e6f1ff;
   --popover: #112240;
   --popover-foreground: #e6f1ff;
