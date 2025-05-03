@@ -25,14 +25,14 @@ function toggleMobileMenu() {
 }
 
 /**
- * Navigation items
+ * Navigation items - computed to be reactive to language changes
  */
-const navItems = [
+const navItems = computed(() => [
   { name: t('navigation.home'), path: '/', exact: true },
   { name: t('navigation.blogs'), path: '/blogs', exact: false },
   { name: t('navigation.categories'), path: '/categories', exact: false },
   { name: t('navigation.about'), path: '/about', exact: false },
-]
+])
 
 /**
  * Active route detection
@@ -129,16 +129,16 @@ function isActive(path: string, exact = false) {
           <ClientOnly>
             <button
               aria-label="Toggle dark mode"
-              class="p-2 rounded-md hover:bg-secondary transition-colors"
+              class="px-1 py-1 rounded-md hover:bg-secondary transition-colors"
               @click="toggleColorMode"
             >
               <Icon
                 :name="colorMode.value === 'dark' ? 'heroicons:sun' : 'heroicons:moon'"
-                class="w-5 h-5"
+                class="w-4 h-4"
               />
             </button>
             <template #fallback>
-              <div class="w-5 h-5"></div>
+              <div class="w-4 h-4"></div>
             </template>
           </ClientOnly>
         </div>
@@ -205,7 +205,7 @@ function isActive(path: string, exact = false) {
               >
                 <Icon
                   :name="colorMode.value === 'dark' ? 'heroicons:sun' : 'heroicons:moon'"
-                  class="w-5 h-5"
+                  class="w-4 h-4"
                 />
               </button>
             </ClientOnly>

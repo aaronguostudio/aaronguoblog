@@ -66,12 +66,12 @@ html.dark {
 }
 
 /* Add a subtle indicator for hash links */
-.prose a[href^='#']::after {
+/* .prose a[href^='#']::after {
   content: '#';
   opacity: 0.5;
   margin-left: 0.25rem;
   font-size: 0.875em;
-}
+} */
 
 /* Improve table styles */
 .prose table {
