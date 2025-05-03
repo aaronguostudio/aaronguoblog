@@ -15,7 +15,7 @@ const { t } = useI18n()
           {{ t('categories.description') }}
         </p>
       </div>
-      <div class="px-6 justify-self-center">
+      <div class="px-4 justify-self-center">
         <LogoDogs />
       </div>
     </div>

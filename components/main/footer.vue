@@ -6,7 +6,7 @@
 
 <template>
   <div class="py-5 dark:border-gray-800 mt-2 text-zinc-700 dark:text-zinc-300">
-    <div class="px-6 container max-w-8xl mx-auto">
+    <div class="px-4 container max-w-8xl mx-auto">
       <!-- <div class="grid grid-cols-1 md:grid-cols-3">
         <FooterSite v-if="path === 'about'" />
         <FooterDeveloper v-else />

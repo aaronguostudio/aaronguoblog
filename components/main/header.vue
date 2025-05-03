@@ -55,7 +55,7 @@ function isActive(path: string, exact = false) {
 </script>
 
 <template>
-  <header class="py-4 border-b border-border sticky top-0 z-50 bg-background/95 backdrop-blur-sm">
+  <header class="py-4 sticky top-0 z-50 bg-background/95 backdrop-blur-sm">
     <div class="flex items-center px-4 container max-w-8xl justify-between mx-auto">
       <!-- Logo/Site Title -->
       <div class="flex items-baseline">

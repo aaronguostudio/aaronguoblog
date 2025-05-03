@@ -75,7 +75,7 @@ const blogPath = computed(() => {
             {{ description }}
           </p>
         </div>
-        <div class="text-foreground flex flex-col gap-y-2 pt-2 border-t border-border">
+        <div class="text-foreground flex flex-col gap-y-2 pt-2">
           <div class="flex items-center text-caption text-muted-foreground">
             <LogoDate class="mr-1.5 h-4 w-4" />
             {{ formattedDate }}

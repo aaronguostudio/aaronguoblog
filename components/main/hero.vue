@@ -17,7 +17,7 @@ const { t, locale } = useI18n()
           {{ t('home.description') }}
         </p>
       </div>
-      <div class="px-6 justify-self-center">
+      <div class="px-4 justify-self-center">
         <LogoDog />
       </div>
     </div>
