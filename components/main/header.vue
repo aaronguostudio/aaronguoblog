@@ -2,9 +2,9 @@
 // import { navbarData } from '../../data'
 import { useI18n } from 'vue-i18n'
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
 const localePath = useLocalePath()
-// const switchLocalePath = useSwitchLocalePath()
+const switchLocalePath = useSwitchLocalePath()
 
 const colorMode = useColorMode()
 function onClick(val: string) {
@@ -13,24 +13,35 @@ function onClick(val: string) {
 
 const route = useRoute()
 function isActive(path: string) {
-  return route.path.startsWith(path)
+  // Handle both localized and non-localized paths
+  const currentPath = route.path
+  return (
+    currentPath === path ||
+    currentPath.startsWith(`/${locale.value}${path}`) ||
+    currentPath.startsWith(path)
+  )
 }
-
-// Add i18n composables
-const { locale } = useI18n()
 </script>
 
 <template>
-  <div class="py-5 border-b dark:border-gray-800">
-    <div class="flex px-6 container max-w-8xl justify-between mx-auto items-baseline">
-      <ul class="flex items-baseline space-x-5">
+  <div class="py-6">
+    <div class="flex items-center px-4 container max-w-8xl justify-between mx-auto">
+      <ul class="flex items-baseline">
         <li class="text-base sm:text-3xl font-bold">
           <NuxtLink :to="localePath('/')">
             {{ t('navigation.homeTitle') }}
           </NuxtLink>
         </li>
       </ul>
-      <ul class="flex items-center space-x-3 sm:space-x-6 text-sm sm:text-lg">
+      <ul class="flex items-center space-x-4 sm:space-x-6 text-sm sm:text-lg">
+        <li>
+          <NuxtLink
+            :to="localePath('/')"
+            :class="['opacity-50', { '!opacity-100': isActive('/') }]"
+          >
+            {{ t('navigation.home') }}
+          </NuxtLink>
+        </li>
         <li>
           <NuxtLink
             :to="localePath('/blogs')"
@@ -57,46 +68,48 @@ const { locale } = useI18n()
           </NuxtLink>
         </li>
         <li class="flex items-center space-x-2" title="Change Language">
-          <NuxtLink :to="$switchLocalePath('en')">
-            <Icon
-              :name="locale === 'en' ? 'icon-park-outline:english' : 'ri:english-input'"
-              :size="locale === 'en' ? '28' : '16'"
-            />
+          <NuxtLink
+            :to="switchLocalePath('en')"
+            class="px-2 py-1 text-sm font-medium rounded transition-all"
+            :class="
+              locale === 'en' ? 'bg-gray-200 dark:bg-gray-700' : 'opacity-60 hover:opacity-100'
+            "
+          >
+            EN
           </NuxtLink>
-          <NuxtLink :to="$switchLocalePath('zh')">
-            <Icon
-              :name="
-                locale === 'zh'
-                  ? 'icon-park-outline:chinese'
-                  : 'mdi:ideogram-chinese-japanese-korean-variant'
-              "
-              :size="locale === 'zh' ? '28' : '16'"
-            />
+          <NuxtLink
+            :to="switchLocalePath('zh')"
+            class="px-2 py-1 text-sm font-medium rounded transition-all"
+            :class="
+              locale === 'zh' ? 'bg-gray-200 dark:bg-gray-700' : 'opacity-60 hover:opacity-100'
+            "
+          >
+            中
           </NuxtLink>
         </li>
-        <li>
+        <li class="flex items-center">
           <ClientOnly>
             <button
               v-if="colorMode.value === 'light'"
               name="light-mode"
-              title="Light"
-              class="hover:scale-110 transition-all ease-out hover:cursor-pointer"
+              title="Switch to Dark Mode"
+              class="flex items-center rounded transition-all opacity-60 hover:opacity-100"
               @click="onClick('dark')"
             >
-              <Icon name="icon-park:moon" size="20" />
+              <Icon name="material-symbols:moon-stars" size="18" />
             </button>
             <button
               v-if="colorMode.value === 'dark'"
               name="dark-mode"
-              title="Dark"
-              class="hover:scale-110 transition-all ease-out hover:cursor-pointer"
+              title="Switch to Light Mode"
+              class="flex items-center rounded transition-all opacity-60 hover:opacity-100"
               @click="onClick('light')"
             >
-              <Icon name="noto:sun" size="20" />
+              <Icon name="material-symbols:light-mode-outline-rounded" size="18" />
             </button>
             <template #fallback>
               <!-- this will be rendered on server side -->
-              <Icon name="svg-spinners:180-ring" size="20" />
+              <Icon name="material-symbols:moon-stars" size="18" />
             </template>
           </ClientOnly>
         </li>
