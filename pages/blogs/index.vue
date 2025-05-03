@@ -2,7 +2,12 @@
 import Fuse from 'fuse.js'
 import type { BlogPost } from '~/types/blog'
 
-const { data } = await useAsyncData('all-blog-post', () => queryCollection('content').all())
+const { locale } = useI18n()
+
+// Query blog posts from the collection corresponding to the current locale
+const { data } = await useAsyncData(`all-blog-post-${locale.value}`, () =>
+  queryCollection(locale.value as 'en' | 'zh').all(),
+)
 
 const elementPerPage = ref(5)
 const pageNumber = ref(1)
@@ -12,8 +17,16 @@ const formattedData = computed(() => {
   return (
     data.value?.map((articles) => {
       const meta = articles.meta as unknown as BlogPost
+
+      // Extract the blog slug from the content path
+      const contentPath = articles.path
+      const blogSlug = contentPath.replace(`/blogs/${locale.value}/`, '')
+
+      // Create the localized URL path
+      const localePath = locale.value === 'en' ? `/blogs/${blogSlug}` : `/zh/blogs/${blogSlug}`
+
       return {
-        path: articles.path,
+        path: localePath,
         title: articles.title || 'no-title available',
         description: articles.description || 'no-description available',
         image: meta.image || '/not-found.jpg',

@@ -1,8 +1,12 @@
+<script setup lang="ts">
+const localePath = useLocalePath()
+</script>
+
 <template>
   <article
     class="group border dark:border-gray-800 m-2 rounded-2xl overflow-hidden shadow-lg text-zinc-700"
   >
-    <NuxtLink to="/">
+    <NuxtLink :to="localePath('/')">
       <div
         class="lg:h-48 md:h-36 w-full object-cover object-center group-hover:scale-[1.05] transition-all duration-500"
       >

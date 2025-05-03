@@ -11,7 +11,7 @@ interface Props {
   published: boolean
 }
 
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   path: '/',
   title: 'no-title',
   date: 'no-date',
@@ -22,13 +22,33 @@ withDefaults(defineProps<Props>(), {
   tags: () => [],
   published: false,
 })
+
+const localePath = useLocalePath()
+
+// Fix the path to ensure it uses the correct language prefix
+const blogPath = computed(() => {
+  // If the path already has the correct format, return it
+  if (!props.path.includes('/blogs/zh/') && !props.path.includes('/blogs/en/')) {
+    return localePath(props.path)
+  }
+
+  // Extract the blog slug from the path
+  let blogSlug = props.path
+  if (props.path.includes('/blogs/zh/')) {
+    blogSlug = props.path.replace('/blogs/zh/', '/blogs/')
+  } else if (props.path.includes('/blogs/en/')) {
+    blogSlug = props.path.replace('/blogs/en/', '/blogs/')
+  }
+
+  return localePath(blogSlug)
+})
 </script>
 
 <template>
   <article
     class="group border dark:border-gray-800 overflow-hidden rounded-lg shadow-sm text-zinc-700 dark:text-zinc-300 bg-white dark:bg-gray-900"
   >
-    <NuxtLink :to="path">
+    <NuxtLink :to="blogPath">
       <NuxtImg
         class="lg:h-48 md:h-36 w-full object-cover object-center group-hover:scale-[1.02] transition-all duration-500"
         width="300"

@@ -1,15 +1,27 @@
 <script lang="ts" setup>
 import type { BlogPost } from '~/types/blog'
 
-const { data } = await useAsyncData('trending-post', () =>
-  queryCollection('content').limit(3).all(),
+const { locale } = useI18n()
+
+const { data } = await useAsyncData(`trending-post-${locale.value}`, () =>
+  queryCollection(locale.value as 'en' | 'zh')
+    .limit(3)
+    .all(),
 )
 
 const formattedData = computed(() => {
   return data.value?.map((articles) => {
     const meta = articles.meta as unknown as BlogPost
+
+    // Extract the blog slug from the content path
+    const contentPath = articles.path
+    const blogSlug = contentPath.replace(`/blogs/${locale.value}/`, '')
+
+    // Create the localized URL path
+    const localePath = locale.value === 'en' ? `/blogs/${blogSlug}` : `/zh/blogs/${blogSlug}`
+
     return {
-      path: articles.path,
+      path: localePath,
       title: articles.title || 'no-title available',
       description: articles.description || 'no-description available',
       image: meta.image || '/not-found.jpg',

@@ -1,6 +1,30 @@
 <script setup lang="ts">
-const { path } = useRoute()
-const articles = await queryCollection('content').path(path).first()
+const route = useRoute()
+const { locale } = useI18n()
+const { path } = route
+
+// Determine the correct collection and content path
+const collection = computed(() => locale.value)
+
+// Transform the URL path to the content path
+const contentPath = computed(() => {
+  // Extract the blog slug from the URL path
+  let blogSlug = path
+
+  // Remove language prefix if present
+  if (path.startsWith('/zh/blogs/')) {
+    blogSlug = path.replace('/zh/blogs/', '')
+  } else if (path.startsWith('/blogs/')) {
+    blogSlug = path.replace('/blogs/', '')
+  }
+
+  // Construct the content path based on the collection and slug
+  return `/blogs/${collection.value}/${blogSlug}`
+})
+
+const articles = await queryCollection(collection.value as 'en' | 'zh')
+  .path(contentPath.value)
+  .first()
 
 const links = articles?.body?.toc?.links || []
 </script>

@@ -4,13 +4,20 @@ const basePath = 'https://aaronguo.com'
 
 export default defineEventHandler(async (event) => {
   setHeader(event, 'content-type', 'text/xml')
-  const docs = await queryCollection(event, 'content').all()
+
+  // Get the locale from the URL or default to 'en'
+  const url = getRequestURL(event)
+  const locale = url.pathname.startsWith('/zh') ? 'zh' : 'en'
+
+  // Query the appropriate collection based on locale
+  const docs = await queryCollection(event, locale as 'en' | 'zh').all()
+
   const feed = new Feed({
     title: "Aaron's personal blog site",
     description: "Aaron's personal blog site",
     id: basePath,
     link: basePath,
-    language: 'en',
+    language: locale,
     favicon: `${basePath}/favicon.ico`,
     copyright: 'MIT',
     author: {

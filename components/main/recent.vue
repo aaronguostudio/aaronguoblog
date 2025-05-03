@@ -35,8 +35,16 @@ if (error.value) {
 const formattedData = computed(() => {
   return data.value?.map((articles) => {
     const meta = articles.meta as unknown as BlogPost
+
+    // Extract the blog slug from the content path
+    const contentPath = articles.path
+    const blogSlug = contentPath.replace(`/blogs/${locale.value}/`, '')
+
+    // Create the localized URL path
+    const localePath = locale.value === 'en' ? `/blogs/${blogSlug}` : `/zh/blogs/${blogSlug}`
+
     return {
-      path: articles.path,
+      path: localePath,
       title: articles.title || 'no-title available',
       description: articles.description || 'no-description available',
       image: meta.image || '/not-found.jpg',

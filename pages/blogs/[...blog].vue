@@ -2,10 +2,37 @@
 import type { BlogPost } from '@/types/blog'
 import { navbarData, seoData } from '~/data'
 
-const { path } = useRoute()
+const route = useRoute()
+const { locale } = useI18n()
+
+// Extract the path from the route
+const { path } = route
+
+// Determine the correct collection and content path
+const collection = computed(() => locale.value)
+
+// Transform the URL path to the content path
+const contentPath = computed(() => {
+  // Extract the blog slug from the URL path
+  let blogSlug = path
+
+  // Remove language prefix if present
+  if (path.startsWith('/zh/blogs/')) {
+    blogSlug = path.replace('/zh/blogs/', '')
+  } else if (path.startsWith('/blogs/')) {
+    blogSlug = path.replace('/blogs/', '')
+  }
+
+  // Construct the content path based on the collection and slug
+  return `/blogs/${collection.value}/${blogSlug}`
+})
+
+console.log('Content path:', contentPath.value)
 
 const { data: articles, error } = await useAsyncData(`blog-post-${path}`, () =>
-  queryCollection('content').path(path).first(),
+  queryCollection(collection.value as 'en' | 'zh')
+    .path(contentPath.value)
+    .first(),
 )
 
 if (error.value) navigateTo('/404')
@@ -84,8 +111,8 @@ console.log(articles.value)
 // Generate OG Image
 defineOgImageComponent('Test', {
   headline: 'Aaron Guo Blog 👋',
-  title: articles.value?.seo.title || '',
-  description: articles.value?.seo.description || '',
+  title: data.value.title || '',
+  description: data.value.description || '',
   link: data.value.ogImage,
 })
 </script>
