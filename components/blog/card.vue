@@ -49,14 +49,16 @@ const blogPath = computed(() => {
     class="group border dark:border-gray-800 overflow-hidden rounded-lg shadow-sm text-zinc-700 dark:text-zinc-300 bg-white dark:bg-gray-900"
   >
     <NuxtLink :to="blogPath">
-      <NuxtImg
-        class="lg:h-48 md:h-36 w-full object-cover object-center group-hover:scale-[1.02] transition-all duration-500"
-        width="300"
-        :src="image"
-        :alt="alt"
-      />
-      <div class="px-3 pb-4">
+      <div class="p-4">
         <div class="flex-1">
+          <h2
+            class="text-xl font-semibold text-black dark:text-zinc-300 pb-1 group-hover:text-sky-700 dark:group-hover:text-sky-400 truncate"
+          >
+            {{ title }}
+          </h2>
+          <p class="text-ellipsis line-clamp-2 text-base">
+            {{ description }}
+          </p>
           <div class="text-black dark:text-zinc-300 py-4">
             <div class="flex items-center">
               <LogoDate />
@@ -71,14 +73,6 @@ const blogPath = computed(() => {
               </template>
             </div>
           </div>
-          <h2
-            class="text-xl font-semibold text-black dark:text-zinc-300 pb-1 group-hover:text-sky-700 dark:group-hover:text-sky-400 truncate"
-          >
-            {{ title }}
-          </h2>
-          <p class="text-ellipsis line-clamp-2 text-base">
-            {{ description }}
-          </p>
         </div>
       </div>
     </NuxtLink>

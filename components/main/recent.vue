@@ -23,7 +23,7 @@ const { data, error } = await useAsyncData(`recent-post-${locale}`, () =>
           const bDate = parseCustomDate(b.meta.date as string)
           return bDate.getTime() - aDate.getTime()
         })
-        .slice(0, 4)
+        .slice(0, 12)
     }),
 )
 
