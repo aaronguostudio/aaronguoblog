@@ -48,7 +48,11 @@ export function toBlogPost(obj: unknown): BlogPost {
  * @param content - The content object from Nuxt Content
  * @returns The BlogPost metadata
  */
-export function extractBlogPostMeta(content: any): BlogPost {
+export function extractBlogPostMeta(content: {
+  title?: string
+  description?: string
+  meta?: Partial<BlogPost>
+}): BlogPost {
   if (!content) {
     return toBlogPost({})
   }
