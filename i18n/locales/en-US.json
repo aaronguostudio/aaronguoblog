@@ -2,7 +2,8 @@
   "home": {
     "welcome": "Welcome to the Blog",
     "title": "Aaron Guo",
-    "description": "Software Engineer, Head of Products, Drummer."
+    "description": "Software Engineer, Head of Products, Drummer.",
+    "recent": "Recent"
   },
   "navigation": {
     "homeTitle": "Aaron Guo",
