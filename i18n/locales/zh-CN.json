@@ -17,7 +17,8 @@
   },
   "blogs": {
     "title": "所有博客",
-    "description": "在这里，您将找到我在此网站上撰写的所有博客文章。"
+    "description": "在这里，您将找到我在此网站上撰写的所有博客文章。",
+    "tableOfContent": "目录"
   },
   "categories": {
     "title": "所有分类",

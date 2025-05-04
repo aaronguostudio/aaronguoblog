@@ -9,7 +9,7 @@ const { t, locale } = useI18n()
 /**
  * Pagination and search state
  */
-const elementPerPage = ref(6) // Increased from 5 to 6 for better grid layout
+const elementPerPage = ref(24) // Increased from 5 to 6 for better grid layout
 const pageNumber = ref(1)
 const searchQuery = ref('')
 

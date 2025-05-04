@@ -34,7 +34,7 @@ const links = articles?.body?.toc?.links || []
     <div
       class="flex flex-col gap-2 border dark:border-gray-800 p-4 rounded-md min-w-[200px] dark:bg-slate-900"
     >
-      <h1 class="text-lg font-bold">Table Of Content</h1>
+      <h1 class="text-lg font-bold">{{ $t('blogs.tableOfContent') }}</h1>
       <NuxtLink
         v-for="link in links"
         :key="link.id"

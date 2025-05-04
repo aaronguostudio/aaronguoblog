@@ -17,7 +17,8 @@
   },
   "blogs": {
     "title": "All Blogs",
-    "description": "Here you will find all the blog posts I have written & published on this site."
+    "description": "Here you will find all the blog posts I have written & published on this site.",
+    "tableOfContent": "Table Of Content"
   },
   "categories": {
     "title": "All Categories",
