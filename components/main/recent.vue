@@ -1,43 +1,35 @@
 <script lang="ts" setup>
 import { useI18n } from 'vue-i18n'
-import type { BlogPost } from '~/types/blog'
+import { sortByDate } from '~/utils/date'
+import { extractBlogPostMeta } from '~/utils/type-guards'
 
 const { locale, t } = useI18n()
 
-// Function to parse dates in the format "1st Mar 2023"
-function parseCustomDate(dateStr: string): Date {
-  // Remove ordinal indicators (st, nd, rd, th)
-  const cleanDateStr = dateStr.replace(/(\d+)(st|nd|rd|th)/, '$1')
-  // Parse the date
-  return new Date(cleanDateStr)
-}
-
-// Get Last Publish Posts from the content/blog directory
-const { data, error } = await useAsyncData(`recent-post-${locale}`, () =>
-  queryCollection(locale.value as 'en' | 'zh')
-    .all()
-    .then((data) => {
-      return data
-        .sort((a, b) => {
-          const aDate = parseCustomDate(a.meta.date as string)
-          const bDate = parseCustomDate(b.meta.date as string)
-          return bDate.getTime() - aDate.getTime()
-        })
-        .slice(0, 12)
-    }),
+/**
+ * Query blog posts from the collection corresponding to the current locale
+ * Using a static key to ensure it's pre-rendered during build
+ */
+const { data } = await useAsyncData('all-blog-posts', () =>
+  Promise.all([queryCollection('en').all(), queryCollection('zh').all()]),
 )
 
-// Handle potential errors during fetch
-if (error.value) {
-  console.error('Error fetching recent posts:', error.value)
-}
-
+/**
+ * Format and process blog post data for the current locale
+ */
 const formattedData = computed(() => {
-  return data.value?.map((articles) => {
-    const meta = articles.meta as unknown as BlogPost
+  if (!data.value) return []
+
+  // Get the posts for the current locale (index 0 for English, index 1 for Chinese)
+  const localeIndex = locale.value === 'en' ? 0 : 1
+  const posts = data.value[localeIndex]
+
+  // Map content data to BlogPost objects
+  const formattedPosts = posts.map((article) => {
+    // Extract metadata using our utility function
+    const meta = extractBlogPostMeta(article)
 
     // Extract the blog slug from the content path
-    const contentPath = articles.path
+    const contentPath = article.path
     const blogSlug = contentPath.replace(`/blogs/${locale.value}/`, '')
 
     // Create the localized URL path
@@ -45,31 +37,30 @@ const formattedData = computed(() => {
 
     return {
       path: localePath,
-      title: articles.title || 'no-title available',
-      description: articles.description || 'no-description available',
-      image: meta.image || '/not-found.jpg',
-      alt: meta.alt || 'no alter data available',
-      ogImage: meta.ogImage || '/not-found.jpg',
-      date: meta.date || 'not-date-available',
-      tags: meta.tags || [],
-      published: meta.published || false,
+      title: article.title || meta.title,
+      description: article.description || meta.description,
+      image: meta.image,
+      alt: meta.alt,
+      ogImage: meta.ogImage,
+      date: meta.date,
+      tags: meta.tags,
+      published: meta.published,
     }
   })
-})
 
-useHead({
-  title: t('navigation.home'),
-  meta: [
-    {
-      name: 'description',
-      content: t('home.welcome'),
-    },
-  ],
+  // Filter out unpublished posts in production
+  const publishedPosts =
+    process.env.NODE_ENV === 'production'
+      ? formattedPosts.filter((post) => post.published)
+      : formattedPosts
+
+  // Sort by date (newest first) and take only the first 12
+  return sortByDate(publishedPosts, 'date').slice(0, 12)
 })
 </script>
 
 <template>
-  <div :key="locale" class="pb-10 px-4">
+  <div class="pb-10 px-4">
     <div class="flex flex-row items-center space-x-3 pt-5 pb-3">
       <h2 class="text-4xl font-semibold text-black dark:text-zinc-300">{{ t('home.recent') }}</h2>
     </div>
@@ -88,7 +79,7 @@ useHead({
           :published="post.published"
         />
       </template>
-      <template v-if="data?.length === 0">
+      <template v-if="formattedData.length === 0">
         <BlogEmpty />
       </template>
     </div>
