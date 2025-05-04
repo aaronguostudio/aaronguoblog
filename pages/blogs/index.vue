@@ -188,7 +188,7 @@ defineOgImage({
     <ArchiveHero />
 
     <!-- Search bar -->
-    <div class="px-4 py-6">
+    <div class="px-4 pt-6 pb-8">
       <div class="relative max-w-2xl mx-auto">
         <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
           <Icon name="heroicons:magnifying-glass" class="w-5 h-5 text-muted-foreground" />
@@ -216,7 +216,7 @@ defineOgImage({
       <!-- Blog posts section -->
       <div class="lg:col-span-3">
         <!-- Blog posts grid -->
-        <div v-auto-animate class="grid grid-cols-1 md:grid-cols-2 gap-6 py-6">
+        <div v-auto-animate class="grid grid-cols-1 md:grid-cols-2 gap-6 pb-6">
           <template v-for="post in paginatedData" :key="post.title">
             <ArchiveCard
               :path="post.path"

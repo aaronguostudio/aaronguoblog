@@ -7,6 +7,30 @@ import { useI18n } from 'vue-i18n'
 const { t, locale } = useI18n()
 const localePath = useLocalePath()
 const switchLocalePath = useSwitchLocalePath()
+const route = useRoute()
+
+/**
+ * Determine if the current route is a Chinese route
+ */
+const isChineseRoute = computed(() => {
+  return route.path.startsWith('/zh/') || route.path === '/zh'
+})
+
+/**
+ * Watch for route changes and update locale if needed
+ * This ensures the i18n state stays in sync with the route
+ */
+watch(
+  isChineseRoute,
+  (isChinese) => {
+    if (isChinese && locale.value !== 'zh') {
+      locale.value = 'zh'
+    } else if (!isChinese && locale.value !== 'en') {
+      locale.value = 'en'
+    }
+  },
+  { immediate: true },
+)
 
 /**
  * Color mode toggle
@@ -36,7 +60,6 @@ const navItems = computed(() => [
 /**
  * Active route detection
  */
-const route = useRoute()
 function isActive(path: string, exact = false) {
   // Handle both localized and non-localized paths
   const currentPath = route.path
@@ -101,7 +124,7 @@ function isActive(path: string, exact = false) {
             :to="switchLocalePath('en')"
             class="px-2 py-1 text-sm font-medium rounded-md transition-all"
             :class="
-              locale === 'en'
+              !isChineseRoute
                 ? 'bg-primary/10 text-primary'
                 : 'text-foreground/70 hover:text-foreground hover:bg-secondary'
             "
@@ -113,7 +136,7 @@ function isActive(path: string, exact = false) {
             :to="switchLocalePath('zh')"
             class="px-2 py-1 text-sm font-medium rounded-md transition-all"
             :class="
-              locale === 'zh'
+              isChineseRoute
                 ? 'bg-primary/10 text-primary'
                 : 'text-foreground/70 hover:text-foreground hover:bg-secondary'
             "
@@ -171,7 +194,7 @@ function isActive(path: string, exact = false) {
                 :to="switchLocalePath('en')"
                 class="px-2 py-1 text-sm font-medium rounded-md transition-all"
                 :class="
-                  locale === 'en'
+                  !isChineseRoute
                     ? 'bg-primary/10 text-primary'
                     : 'text-foreground/70 hover:text-foreground hover:bg-secondary'
                 "
@@ -183,7 +206,7 @@ function isActive(path: string, exact = false) {
                 :to="switchLocalePath('zh')"
                 class="px-2 py-1 text-sm font-medium rounded-md transition-all"
                 :class="
-                  locale === 'zh'
+                  isChineseRoute
                     ? 'bg-primary/10 text-primary'
                     : 'text-foreground/70 hover:text-foreground hover:bg-secondary'
                 "
