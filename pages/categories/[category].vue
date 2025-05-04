@@ -14,23 +14,36 @@ const category = computed(() => {
 
 const { locale } = useI18n()
 
-const { data } = await useAsyncData(`category-data-${category.value}-${locale.value}`, () =>
-  queryCollection(locale.value as 'en' | 'zh')
-    .all()
-    .then((articles) =>
-      articles.filter((article) => {
-        const meta = article.meta as unknown as BlogPost
-        return meta.tags.includes(category.value)
-      }),
-    ),
+/**
+ * Query blog posts from the collection corresponding to the current locale
+ * Using a static key to ensure it's pre-rendered during build
+ */
+const { data } = await useAsyncData('all-category-posts', () =>
+  Promise.all([queryCollection('en').all(), queryCollection('zh').all()]),
 )
 
+/**
+ * Filter and format blog posts for the current locale and category
+ */
 const formattedData = computed(() => {
-  return data.value?.map((articles) => {
-    const meta = articles.meta as unknown as BlogPost
+  if (!data.value) return []
+
+  // Get the posts for the current locale (index 0 for English, index 1 for Chinese)
+  const localeIndex = locale.value === 'en' ? 0 : 1
+  const posts = data.value[localeIndex]
+
+  // Filter posts by category
+  const filteredPosts = posts.filter((article) => {
+    const meta = article.meta as unknown as BlogPost
+    return meta.tags && meta.tags.includes(category.value)
+  })
+
+  // Map content data to BlogPost objects
+  return filteredPosts.map((article) => {
+    const meta = article.meta as unknown as BlogPost
 
     // Extract the blog slug from the content path
-    const contentPath = articles.path
+    const contentPath = article.path
     const blogSlug = contentPath.replace(`/blogs/${locale.value}/`, '')
 
     // Create the localized URL path
@@ -38,8 +51,8 @@ const formattedData = computed(() => {
 
     return {
       path: localePath,
-      title: articles.title || 'no-title available',
-      description: articles.description || 'no-description available',
+      title: article.title || 'no-title available',
+      description: article.description || 'no-description available',
       image: meta.image || '/blogs-img/blog.jpg',
       alt: meta.alt || 'no alter data available',
       ogImage: meta.ogImage || '/blogs-img/blog.jpg',
@@ -88,7 +101,7 @@ defineOgImage({
         :tags="post.tags"
         :published="post.published"
       />
-      <BlogEmpty v-if="data?.length === 0" />
+      <BlogEmpty v-if="formattedData.length === 0" />
     </div>
   </main>
 </template>

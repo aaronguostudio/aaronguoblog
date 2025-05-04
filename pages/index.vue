@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { useI18n } from 'vue-i18n'
 
-const { t, locale } = useI18n()
+const { t } = useI18n()
 
 useHead({
   title: t('navigation.home'),
@@ -22,7 +22,7 @@ defineOgImageComponent('About', {
 </script>
 
 <template>
-  <main :key="locale" class="container max-w-8xl mx-auto">
+  <main class="container max-w-8xl mx-auto">
     <MainHero />
     <MainRecent />
     <!-- <MainTrending /> -->

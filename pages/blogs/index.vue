@@ -29,9 +29,10 @@ onMounted(() => {
 
 /**
  * Query blog posts from the collection corresponding to the current locale
+ * Using a static key to ensure it's pre-rendered during build
  */
-const { data } = await useAsyncData(`all-blog-post-${locale.value}`, () =>
-  queryCollection(locale.value as 'en' | 'zh').all(),
+const { data } = await useAsyncData('all-blog-posts-page', () =>
+  Promise.all([queryCollection('en').all(), queryCollection('zh').all()]),
 )
 
 /**
@@ -56,13 +57,17 @@ const allTags = computed(() => {
 })
 
 /**
- * Format and process blog post data
+ * Format and process blog post data for the current locale
  */
 const formattedData = computed(() => {
   if (!data.value) return []
 
+  // Get the posts for the current locale (index 0 for English, index 1 for Chinese)
+  const localeIndex = locale.value === 'en' ? 0 : 1
+  const posts = data.value[localeIndex]
+
   // Map content data to BlogPost objects
-  const posts = data.value.map((article) => {
+  const formattedPosts = posts.map((article) => {
     // Extract metadata using our utility function
     const meta = extractBlogPostMeta(article)
 
@@ -88,7 +93,9 @@ const formattedData = computed(() => {
 
   // Filter out unpublished posts in production
   const publishedPosts =
-    process.env.NODE_ENV === 'production' ? posts.filter((post) => post.published) : posts
+    process.env.NODE_ENV === 'production'
+      ? formattedPosts.filter((post) => post.published)
+      : formattedPosts
 
   // Sort by date (newest first)
   return sortByDate(publishedPosts, 'date')

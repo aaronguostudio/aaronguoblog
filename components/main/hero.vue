@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
 
-const { t, locale } = useI18n()
+const { t } = useI18n()
 </script>
 
 <template>
-  <div :key="locale" class="container mx-auto">
+  <div class="container mx-auto">
     <div class="grid grid-cols-1 sm:grid-cols-2 items-center">
       <div class="px-4">
         <h1

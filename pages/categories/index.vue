@@ -4,22 +4,39 @@ import { useI18n } from 'vue-i18n'
 
 const { t, locale } = useI18n()
 
-const { data } = await useAsyncData(`all-blog-post-by-category-${locale.value}`, () =>
-  queryCollection(locale.value as 'en' | 'zh').all(),
+/**
+ * Query blog posts from the collection corresponding to the current locale
+ * Using a static key to ensure it's pre-rendered during build
+ */
+const { data } = await useAsyncData('all-categories-page', () =>
+  Promise.all([queryCollection('en').all(), queryCollection('zh').all()]),
 )
 
-const allTags = new Map()
+/**
+ * Extract all tags from blog posts for the current locale
+ */
+const allTags = computed(() => {
+  if (!data.value) return new Map()
 
-data.value?.forEach((blog) => {
-  const tags: Array<string> = (blog.meta.tags as string[]) || []
-  tags.forEach((tag) => {
-    if (allTags.has(tag)) {
-      const cnt = allTags.get(tag)
-      allTags.set(tag, cnt + 1)
-    } else {
-      allTags.set(tag, 1)
-    }
+  // Get the posts for the current locale (index 0 for English, index 1 for Chinese)
+  const localeIndex = locale.value === 'en' ? 0 : 1
+  const posts = data.value[localeIndex]
+
+  const tagsMap = new Map()
+
+  posts.forEach((blog) => {
+    const tags: Array<string> = (blog.meta.tags as string[]) || []
+    tags.forEach((tag) => {
+      if (tagsMap.has(tag)) {
+        const cnt = tagsMap.get(tag)
+        tagsMap.set(tag, cnt + 1)
+      } else {
+        tagsMap.set(tag, 1)
+      }
+    })
   })
+
+  return tagsMap
 })
 
 useHead({
