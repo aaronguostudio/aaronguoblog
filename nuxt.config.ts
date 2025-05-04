@@ -9,7 +9,8 @@ export default defineNuxtConfig({
   modules: [
     'nuxt-icon',
     '@nuxt/image',
-    '@nuxt/fonts',
+    // Only include fonts module in development to avoid network errors during build
+    ...(process.env.NODE_ENV === 'production' ? [] : ['@nuxt/fonts']),
     '@nuxt/eslint',
     '@vueuse/nuxt',
     '@nuxtjs/robots',
@@ -35,7 +36,8 @@ export default defineNuxtConfig({
   },
 
   sitemap: {
-    sources: [seoData.mySite],
+    // Disable external sources during build to avoid network errors
+    sources: process.env.NODE_ENV === 'production' ? [] : [seoData.mySite],
   },
 
   site: {
@@ -51,7 +53,13 @@ export default defineNuxtConfig({
     prerender: {
       crawlLinks: true,
       routes: ['/', '/rss.xml'],
+      ignore: ['/__og-image__'], // Ignore OG image generation during build
     },
+  },
+
+  ogImage: {
+    // Disable OG image generation during build
+    skipGeneration: process.env.NODE_ENV === 'production',
   },
 
   colorMode: {

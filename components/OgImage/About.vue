@@ -13,7 +13,7 @@ const props = withDefaults(defineProps<Props>(), {
   link: '',
 })
 
-const title = computed(() => props.title.slice(0, 60))
+const title = computed(() => (props.title ? props.title.slice(0, 60) : 'About'))
 </script>
 
 <template>

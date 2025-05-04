@@ -39,12 +39,14 @@ if (error.value) navigateTo('/404')
 
 const data = computed<BlogPost>(() => {
   const meta = articles?.value?.meta as unknown as BlogPost
+  const defaultImage = '/blogs-img/blog.jpg'
   return {
     title: articles.value?.title || 'no-title available',
     description: articles.value?.description || 'no-description available',
-    image: meta?.image || '/not-found.jpg',
+    image: meta?.image || defaultImage,
     alt: meta?.alt || 'no alter data available',
-    ogImage: (articles?.value?.ogImage as unknown as string) || '/not-found.jpg',
+    // Use defaultImage if ogImage is not provided or doesn't exist
+    ogImage: (articles?.value?.ogImage as unknown as string) || meta?.image || defaultImage,
     date: meta?.date || 'not-date-available',
     tags: meta?.tags || [],
     published: meta?.published || false,
@@ -113,7 +115,8 @@ defineOgImageComponent('Test', {
   headline: 'Aaron Guo Blog 👋',
   title: data.value.title || '',
   description: data.value.description || '',
-  link: data.value.ogImage,
+  // Use a default image if ogImage is not available
+  link: data.value.ogImage || '/blogs-img/blog.jpg',
 })
 </script>
 

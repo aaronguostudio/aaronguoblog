@@ -40,9 +40,9 @@ export const seoData = {
   ogTitle: `Let's learn Javascript, Typescript, Vue, Nuxt, & Problem Solving - Aaron Guo Blog | Aaron Guo Blog`,
   description: `Hi I am Aaron. A Software Engineer at FieldNation, with over 3.5+ years experience in software development. - Aaron Guo Blog | Aaron Guo Blog`,
   twitterDescription: `Aaron Guo Blog, where I play around with Nuxt, Vue, and more and showcase my blog, resources, etc - Aaron Guo Blog | Aaron Guo Blog`,
-  image:
-    'https://res.cloudinary.com/dmecmyphj/image/upload/v1673548905/nuxt-blog/cover_ntgs6u.webp',
-  mySite: 'https://aaronguostudio.com',
+  // image:
+  //   'https://res.cloudinary.com/dmecmyphj/image/upload/v1673548905/nuxt-blog/cover_ntgs6u.webp',
+  mySite: 'https://aaronguo.com',
   twitterHandle: '@aaronguostudio',
   mailAddress: 'aaronguostudio@gmail.com',
 }
@@ -74,10 +74,10 @@ export const siteMetaData = [
     property: 'og:description',
     content: seoData.description,
   },
-  {
-    property: 'og:image',
-    content: seoData.image,
-  },
+  // {
+  //   property: 'og:image',
+  //   content: seoData.image,
+  // },
   // Test on: https://cards-dev.twitter.com/validator or https://socialsharepreview.com/
   { name: 'twitter:site', content: seoData.twitterHandle },
   { name: 'twitter:card', content: 'summary_large_image' },
@@ -93,8 +93,8 @@ export const siteMetaData = [
     name: 'twitter:description',
     content: seoData.twitterDescription,
   },
-  {
-    name: 'twitter:image',
-    content: seoData.image,
-  },
+  // {
+  //   name: 'twitter:image',
+  //   content: seoData.image,
+  // },
 ]

@@ -20,8 +20,12 @@ const formattedDescription = computed(() =>
   props.description.length > 100 ? `${props.description}...` : props.description,
 )
 const formattedLink = computed(() => {
+  // If no link is provided or it's empty, use default image
+  if (!props.link || props.link === '') return '/blogs-img/blog.jpg'
+  // If link is a valid image path, use it
   if (props.link.endsWith('jpg') || props.link.endsWith('png')) return props.link
-  else return '/blogs-img/blog.jpg'
+  // Otherwise use default image
+  return '/blogs-img/blog.jpg'
 })
 </script>
 
@@ -70,8 +74,13 @@ const formattedLink = computed(() => {
       </p>
     </div>
 
-    <div v-if="formattedLink" class="absolute top-[200px] right-[70px]">
-      <img :src="formattedLink" :alt="title" class="w-96 h-52 rounded-lg object-cover" />
+    <div class="absolute top-[200px] right-[70px]">
+      <img
+        :src="formattedLink"
+        :alt="title"
+        class="w-96 h-52 rounded-lg object-cover"
+        onerror="this.style.display='none'"
+      />
     </div>
   </div>
 </template>
