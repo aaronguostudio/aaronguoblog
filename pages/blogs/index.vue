@@ -5,6 +5,7 @@ import { extractBlogPostMeta } from '~/utils/type-guards'
 import { useSeo } from '~/utils/seo'
 
 const { t, locale } = useI18n()
+const route = useRoute()
 
 /**
  * Pagination and search state
@@ -14,11 +15,45 @@ const pageNumber = ref(1)
 const searchQuery = ref('')
 
 /**
+ * Category filter state
+ */
+const selectedCategories = ref<string[]>([])
+
+// Initialize selected categories from URL query parameters
+onMounted(() => {
+  const categoriesParam = route.query.categories as string
+  if (categoriesParam) {
+    selectedCategories.value = categoriesParam.split(',')
+  }
+})
+
+/**
  * Query blog posts from the collection corresponding to the current locale
  */
 const { data } = await useAsyncData(`all-blog-post-${locale.value}`, () =>
   queryCollection(locale.value as 'en' | 'zh').all(),
 )
+
+/**
+ * Extract all tags from blog posts
+ */
+const allTags = computed(() => {
+  const tagsMap = new Map()
+
+  formattedData.value.forEach((post) => {
+    const tags = post.tags || []
+    tags.forEach((tag) => {
+      if (tagsMap.has(tag)) {
+        const count = tagsMap.get(tag)
+        tagsMap.set(tag, count + 1)
+      } else {
+        tagsMap.set(tag, 1)
+      }
+    })
+  })
+
+  return tagsMap
+})
 
 /**
  * Format and process blog post data
@@ -71,15 +106,26 @@ const fuse = computed(() => {
 })
 
 /**
- * Filter data based on search query
+ * Filter data based on search query and selected categories
  */
 const searchData = computed(() => {
-  if (!searchQuery.value.trim()) {
-    return formattedData.value
+  let filteredData = formattedData.value
+
+  // First filter by search query
+  if (searchQuery.value.trim()) {
+    const results = fuse.value.search(searchQuery.value)
+    filteredData = results.map((result) => result.item)
   }
 
-  const results = fuse.value.search(searchQuery.value)
-  return results.map((result) => result.item)
+  // Then filter by selected categories
+  if (selectedCategories.value.length > 0) {
+    filteredData = filteredData.filter((post) => {
+      // Check if post has at least one of the selected categories
+      return selectedCategories.value.some((category) => post.tags && post.tags.includes(category))
+    })
+  }
+
+  return filteredData
 })
 
 /**
@@ -150,65 +196,87 @@ defineOgImage({
       </div>
     </div>
 
-    <!-- Blog posts grid -->
-    <div v-auto-animate class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4 py-6">
-      <template v-for="post in paginatedData" :key="post.title">
-        <ArchiveCard
-          :path="post.path"
-          :title="post.title"
-          :date="post.date"
-          :description="post.description"
-          :image="post.image"
-          :alt="post.alt"
-          :og-image="post.ogImage"
-          :tags="post.tags"
-          :published="post.published"
+    <div class="px-4 grid grid-cols-1 lg:grid-cols-4 gap-8">
+      <!-- Category filter sidebar -->
+      <div class="lg:col-span-1">
+        <BlogCategoryFilter
+          :all-tags="allTags"
+          :selected-categories="selectedCategories"
+          @update:selected-categories="selectedCategories = $event"
         />
-      </template>
-
-      <!-- Empty state -->
-      <div
-        v-if="paginatedData.length === 0"
-        class="col-span-full flex flex-col items-center justify-center py-12 text-center"
-      >
-        <Icon name="heroicons:document-search" class="w-16 h-16 text-muted-foreground mb-4" />
-        <h2 class="text-xl font-semibold mb-2">No posts found</h2>
-        <p class="text-muted-foreground max-w-md">
-          {{
-            searchQuery
-              ? 'Try a different search term or browse all posts.'
-              : 'No blog posts are available yet.'
-          }}
-        </p>
-        <button
-          v-if="searchQuery"
-          class="mt-4 px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors"
-          @click="searchQuery = ''"
-        >
-          Clear search
-        </button>
       </div>
-    </div>
 
-    <!-- Pagination controls -->
-    <div class="flex justify-center items-center space-x-6 py-8">
-      <button
-        :disabled="pageNumber <= 1"
-        class="p-2 rounded-full hover:bg-secondary disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-        aria-label="Previous page"
-        @click="onPreviousPage"
-      >
-        <Icon name="heroicons:chevron-left" size="24" class="text-foreground" />
-      </button>
-      <div class="text-foreground font-medium">{{ pageNumber }} / {{ totalPages || 1 }}</div>
-      <button
-        :disabled="pageNumber >= totalPages"
-        class="p-2 rounded-full hover:bg-secondary disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-        aria-label="Next page"
-        @click="onNextPage"
-      >
-        <Icon name="heroicons:chevron-right" size="24" class="text-foreground" />
-      </button>
+      <!-- Blog posts section -->
+      <div class="lg:col-span-3">
+        <!-- Blog posts grid -->
+        <div v-auto-animate class="grid grid-cols-1 md:grid-cols-2 gap-6 py-6">
+          <template v-for="post in paginatedData" :key="post.title">
+            <ArchiveCard
+              :path="post.path"
+              :title="post.title"
+              :date="post.date"
+              :description="post.description"
+              :image="post.image"
+              :alt="post.alt"
+              :og-image="post.ogImage"
+              :tags="post.tags"
+              :published="post.published"
+            />
+          </template>
+
+          <!-- Empty state -->
+          <div
+            v-if="paginatedData.length === 0"
+            class="col-span-full flex flex-col items-center justify-center py-12 text-center"
+          >
+            <h2 class="text-xl font-semibold mb-2">No posts found</h2>
+            <p class="text-muted-foreground max-w-md">
+              {{
+                searchQuery || selectedCategories.length > 0
+                  ? 'Try different search terms, categories, or browse all posts.'
+                  : 'No blog posts are available yet.'
+              }}
+            </p>
+            <div class="flex gap-4 mt-4">
+              <button
+                v-if="searchQuery"
+                class="px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors"
+                @click="searchQuery = ''"
+              >
+                Clear search
+              </button>
+              <button
+                v-if="selectedCategories.length > 0"
+                class="px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors"
+                @click="selectedCategories = []"
+              >
+                Clear categories
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pagination controls -->
+        <div class="flex justify-center items-center space-x-6 py-8">
+          <button
+            :disabled="pageNumber <= 1"
+            class="p-2 rounded-full hover:bg-secondary disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            aria-label="Previous page"
+            @click="onPreviousPage"
+          >
+            <Icon name="heroicons:chevron-left" size="24" class="text-foreground" />
+          </button>
+          <div class="text-foreground font-medium">{{ pageNumber }} / {{ totalPages || 1 }}</div>
+          <button
+            :disabled="pageNumber >= totalPages"
+            class="p-2 rounded-full hover:bg-secondary disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            aria-label="Next page"
+            @click="onNextPage"
+          >
+            <Icon name="heroicons:chevron-right" size="24" class="text-foreground" />
+          </button>
+        </div>
+      </div>
     </div>
   </main>
 </template>

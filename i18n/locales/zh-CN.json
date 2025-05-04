@@ -23,7 +23,10 @@
   },
   "categories": {
     "title": "所有分类",
-    "description": "在这里，您将找到我在此网站上撰写的所有分类。"
+    "description": "在这里，您将找到我在此网站上撰写的所有分类。",
+    "filterDescription": "选择分类以筛选博客文章。您可以选择多个分类。",
+    "selected": "已选择",
+    "clearAll": "清除全部"
   },
   "about": {
     "title": "Aaron Guo",

@@ -73,13 +73,15 @@ const blogPath = computed(() => {
           </div>
           <div class="flex items-center gap-1 flex-wrap">
             <LogoTag />
-            <p
-              v-for="tag in tags"
-              :key="tag"
-              class="bg-gray-200 dark:bg-slate-900 rounded-md px-2 py-1 font-semibold"
-            >
-              {{ tag }}
-            </p>
+            <span v-for="tag in tags" :key="tag">
+              <NuxtLink :to="localePath(`/blogs?categories=${tag.toLocaleLowerCase()}`)">
+                <span
+                  class="bg-gray-200 dark:bg-slate-900 rounded-md px-2 py-1 font-semibold hover:bg-gray-300 dark:hover:bg-slate-800 transition-colors duration-200"
+                >
+                  {{ tag }}
+                </span>
+              </NuxtLink>
+            </span>
           </div>
         </div>
         <div class="flex group-hover:underline items-center pt-2">

@@ -23,7 +23,10 @@
   },
   "categories": {
     "title": "All Categories",
-    "description": "Here you will find all the categories I have written & published on this site."
+    "description": "Here you will find all the categories I have written & published on this site.",
+    "filterDescription": "Select categories to filter blog posts. You can select multiple categories.",
+    "selected": "selected",
+    "clearAll": "Clear All"
   },
   "about": {
     "title": "Aaron Guo",

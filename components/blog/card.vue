@@ -83,11 +83,13 @@ const blogPath = computed(() => {
           <div v-if="tags.length > 0" class="flex items-center gap-1.5 flex-wrap">
             <LogoTag class="h-4 w-4 text-muted-foreground" />
             <template v-for="tag in tags" :key="tag">
-              <span
-                class="bg-secondary text-secondary-foreground rounded-md px-2 py-0.5 text-caption transition-colors duration-300 hover:bg-primary/10"
-              >
-                {{ tag }}
-              </span>
+              <NuxtLink :to="localePath(`/blogs?categories=${tag.toLocaleLowerCase()}`)">
+                <span
+                  class="bg-secondary text-secondary-foreground rounded-md px-2 py-0.5 text-caption transition-colors duration-300 hover:bg-primary/10"
+                >
+                  {{ tag }}
+                </span>
+              </NuxtLink>
             </template>
           </div>
         </div>
