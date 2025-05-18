@@ -10,7 +10,7 @@ const route = useRoute()
 /**
  * Pagination and search state
  */
-const elementPerPage = ref(24) // Increased from 5 to 6 for better grid layout
+const elementPerPage = ref(24) // Display 24 posts per page for a 4×6 grid
 const pageNumber = ref(1)
 const searchQuery = ref('')
 
