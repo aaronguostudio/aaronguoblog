@@ -24,6 +24,7 @@ defineOgImageComponent('About', {
 <template>
   <main class="container max-w-8xl mx-auto">
     <MainHero />
+    <MainAbout />
     <MainRecent />
     <!-- <MainTrending /> -->
   </main>
