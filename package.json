@@ -9,6 +9,7 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
+    "rebuild": "npm rebuild better-sqlite3 --build-from-source",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --check ./",

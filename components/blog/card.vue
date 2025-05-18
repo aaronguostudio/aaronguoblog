@@ -63,37 +63,37 @@ const blogPath = computed(() => {
   <article
     class="group border border-border overflow-hidden rounded-lg shadow-sm text-foreground bg-card transition-all duration-300 hover:shadow-md hover:border-primary/20"
   >
-    <NuxtLink :to="blogPath" class="block h-full">
-      <div class="p-5 flex flex-col justify-between gap-4 h-full">
-        <div class="flex-1">
+    <div class="p-5 flex flex-col justify-between gap-4 h-full">
+      <div class="flex-1">
+        <NuxtLink :to="blogPath" class="block">
           <h2
             class="text-lg font-semibold text-foreground pb-2 group-hover:text-primary truncate transition-colors duration-300"
           >
             {{ title }}
           </h2>
-          <p class="text-ellipsis line-clamp-2 text-body-sm text-muted-foreground">
-            {{ description }}
-          </p>
+        </NuxtLink>
+        <p class="text-ellipsis line-clamp-2 text-body-sm text-muted-foreground">
+          {{ description }}
+        </p>
+      </div>
+      <div class="text-foreground flex flex-col gap-y-2 pt-2">
+        <div class="flex items-center text-caption text-muted-foreground">
+          <LogoDate class="mr-1.5 h-4 w-4" />
+          {{ formattedDate }}
         </div>
-        <div class="text-foreground flex flex-col gap-y-2 pt-2">
-          <div class="flex items-center text-caption text-muted-foreground">
-            <LogoDate class="mr-1.5 h-4 w-4" />
-            {{ formattedDate }}
-          </div>
-          <div v-if="tags.length > 0" class="flex items-center gap-1.5 flex-wrap">
-            <LogoTag class="h-4 w-4 text-muted-foreground" />
-            <template v-for="tag in tags" :key="tag">
-              <NuxtLink :to="localePath(`/blogs?categories=${tag.toLocaleLowerCase()}`)">
-                <span
-                  class="bg-secondary text-secondary-foreground rounded-md px-2 py-0.5 text-caption transition-colors duration-300 hover:bg-primary/10"
-                >
-                  {{ tag }}
-                </span>
-              </NuxtLink>
-            </template>
-          </div>
+        <div v-if="tags.length > 0" class="flex items-center gap-1.5 flex-wrap">
+          <LogoTag class="h-4 w-4 text-muted-foreground" />
+          <template v-for="tag in tags" :key="tag">
+            <NuxtLink :to="localePath(`/blogs?categories=${tag.toLocaleLowerCase()}`)">
+              <span
+                class="bg-secondary text-secondary-foreground rounded-md px-2 py-0.5 text-caption transition-colors duration-300 hover:bg-primary/10"
+              >
+                {{ tag }}
+              </span>
+            </NuxtLink>
+          </template>
         </div>
       </div>
-    </NuxtLink>
+    </div>
   </article>
 </template>

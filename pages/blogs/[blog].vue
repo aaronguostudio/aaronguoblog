@@ -2,6 +2,11 @@
 import type { BlogPost } from '@/types/blog'
 import { navbarData, seoData } from '~/data'
 
+// Define a custom page name to avoid route name conflicts
+definePageMeta({
+  name: 'blogs-single',
+})
+
 const route = useRoute()
 const { locale } = useI18n()
 
