@@ -10,6 +10,7 @@
     "home": "Home",
     "blogs": "Blogs",
     "about": "About",
+    "aiNative": "AI Native",
     "language": "Language",
     "categories": "Categories"
   },
@@ -32,5 +33,16 @@
     "title": "Aaron Guo",
     "description": "Software Engineer, Head of Products, Drummer.",
     "aboutMe": "Hi there! I'm Aaron, juggling pixels and product roadmap as a Head of Products & Software Engineer at Mawer Investment Management. By day, I wrangle complex challenges in the investment world; by night (and often weekends!), you'll find me diving deep into the realms of Javascript, Typescript, Vue, and Nuxt, always eager to build something new or solve a tricky puzzle. Welcome to my corner of the web where I share my explorations and insights!"
+  },
+  "aiNative": {
+    "title": "AI Native",
+    "description": "Exploring how AI transforms my daily life.",
+    "intro": "This page is a playful showcase of the ways I'm weaving AI into my workflow and creativity.",
+    "dailyHeading": "How AI shapes my day",
+    "daily1": "ChatGPT drafts my ideas and answers random questions.",
+    "daily2": "GitHub Copilot helps finish code faster.",
+    "daily3": "Midjourney turns concepts into visuals.",
+    "visionHeading": "Vision",
+    "vision": "Eventually it'll become my personal branding hub for everything AI – tutorials, projects, and experiences."
   }
 }
