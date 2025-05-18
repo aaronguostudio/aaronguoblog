@@ -45,13 +45,13 @@ withDefaults(defineProps<Props>(), {
           <LogoTag />
           <span v-for="(tag, n) in tags" :key="n" class="inline-block mr-1 mb-1">
             <NuxtLink
+              v-slot="{ navigate }"
               :to="localePath(`/blogs?categories=${tag.toLocaleLowerCase()}`)"
               custom
-              v-slot="{ navigate }"
             >
               <span
-                @click="navigate"
                 class="bg-gray-200 dark:bg-slate-900 rounded-md px-2 py-1 font-semibold hover:bg-gray-300 dark:hover:bg-slate-800 transition-colors duration-200 cursor-pointer"
+                @click="navigate"
                 >{{ tag }}</span
               >
             </NuxtLink>

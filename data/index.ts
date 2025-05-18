@@ -9,7 +9,12 @@ export const footerData = {
   aboutAuthor:
     'Hi! I am Aaron, a tech enthusiast, head of products and software engineer. Currently working at Mawer Investment Management.',
   authorInterest: 'I have a fair amount of knowledge of Javascript, Typescript, VueJs, and Nuxt.',
-  aboutTheSite: `This is a personal blog site built with Nuxt3, TailwindCSS, NuxtContent, Nuxt Icon. I built it based on the <a href="https://github.com/nurRiyad/nuxt-blog" target="_blank" class="text-blue-500">Nuxt Blog template</a>.`,
+  aboutTheSite:
+    'This is a personal blog site built with Nuxt3, TailwindCSS, NuxtContent, Nuxt Icon.',
+  aboutTheSiteLink: {
+    text: 'Nuxt Blog template',
+    href: 'https://github.com/nurRiyad/nuxt-blog',
+  },
 }
 
 export const homePage = {
