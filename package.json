@@ -7,13 +7,15 @@
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
+    "pregenerate": "pnpm run rebuild",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "rebuild": "npm rebuild better-sqlite3 --build-from-source",
+    "rebuild": "npm rebuild better-sqlite3",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --check ./",
-    "format:fix": "prettier --write ./"
+    "format:fix": "prettier --write ./",
+    "test": "vitest"
   },
   "devDependencies": {
     "@formkit/auto-animate": "^0.8.2",
@@ -39,7 +41,8 @@
     "nuxt-og-image": "^5.0.2",
     "prettier": "^3.5.3",
     "typescript": "^5.8.2",
-    "unenv": "^1.10.0"
+    "unenv": "^1.10.0",
+    "vitest": "^1.0.0"
   },
   "volta": {
     "node": "20.9.0"
