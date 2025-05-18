@@ -50,4 +50,3 @@ defineOgImageComponent('AINative', {
     </div>
   </div>
 </template>
-
