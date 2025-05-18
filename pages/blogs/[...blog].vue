@@ -10,22 +10,19 @@ definePageMeta({
 const route = useRoute()
 const { locale } = useI18n()
 
-// Extract the path from the route
-const { path } = route
-
 // Determine the correct collection and content path
 const collection = computed(() => locale.value)
 
 // Transform the URL path to the content path
 const contentPath = computed(() => {
   // Extract the blog slug from the URL path
-  let blogSlug = path
+  let blogSlug = route.path
 
   // Remove language prefix if present
-  if (path.startsWith('/zh/blogs/')) {
-    blogSlug = path.replace('/zh/blogs/', '')
-  } else if (path.startsWith('/blogs/')) {
-    blogSlug = path.replace('/blogs/', '')
+  if (route.path.startsWith('/zh/blogs/')) {
+    blogSlug = route.path.replace('/zh/blogs/', '')
+  } else if (route.path.startsWith('/blogs/')) {
+    blogSlug = route.path.replace('/blogs/', '')
   }
 
   // Construct the content path based on the collection and slug
@@ -34,10 +31,15 @@ const contentPath = computed(() => {
 
 console.log('Content path:', contentPath.value)
 
-const { data: articles, error } = await useAsyncData(`blog-post-${path}`, () =>
-  queryCollection(collection.value as 'en' | 'zh')
-    .path(contentPath.value)
-    .first(),
+const { data: articles, error } = await useAsyncData(
+  `blog-post-${route.path}`,
+  () =>
+    queryCollection(collection.value as 'en' | 'zh')
+      .path(contentPath.value)
+      .first(),
+  {
+    watch: [() => route.path],
+  },
 )
 
 if (error.value) navigateTo('/404')
@@ -71,7 +73,7 @@ useHead({
     { property: 'og:type', content: 'website' },
     {
       property: 'og:url',
-      content: `${seoData.mySite}/${path}`,
+      content: `${seoData.mySite}/${route.path}`,
     },
     {
       property: 'og:title',
@@ -90,7 +92,7 @@ useHead({
     { name: 'twitter:card', content: 'summary_large_image' },
     {
       name: 'twitter:url',
-      content: `${seoData.mySite}/${path}`,
+      content: `${seoData.mySite}/${route.path}`,
     },
     {
       name: 'twitter:title',
@@ -108,7 +110,7 @@ useHead({
   link: [
     {
       rel: 'canonical',
-      href: `${seoData.mySite}/${path}`,
+      href: `${seoData.mySite}/${route.path}`,
     },
   ],
 })
