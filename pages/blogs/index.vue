@@ -19,6 +19,24 @@ const searchQuery = ref('')
  */
 const selectedCategories = ref<string[]>([])
 
+/**
+ * Reset to the first page whenever the search query changes
+ */
+watch(searchQuery, () => {
+  pageNumber.value = 1
+})
+
+/**
+ * Reset to the first page whenever the selected categories change
+ */
+watch(
+  selectedCategories,
+  () => {
+    pageNumber.value = 1
+  },
+  { deep: true },
+)
+
 // Initialize selected categories from URL query parameters
 onMounted(() => {
   const categoriesParam = route.query.categories as string
