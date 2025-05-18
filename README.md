@@ -136,6 +136,14 @@ npm run build
 npm run preview
 ```
 
+### Tests
+
+Run unit tests with:
+
+```bash
+npm test
+```
+
 ## 🔧 Maintenance Guide
 
 ### Adding a New Blog Post
