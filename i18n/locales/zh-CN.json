@@ -10,6 +10,7 @@
     "home": "首页",
     "blogs": "博客",
     "about": "关于",
+    "aiNative": "AI 原生",
     "language": "语言",
     "categories": "分类"
   },
@@ -32,5 +33,16 @@
     "title": "Aaron Guo",
     "description": "软件工程师，产品经理，鼓手。",
     "aboutMe": "嗨，我是Aaron，一个软件工程师，产品经理，鼓手。我目前是Mawer Investment Management的Head of Products & Software Engineer。白天，我处理投资世界的复杂挑战；晚上（和周末），你会在Javascript、Typescript、Vue和Nuxt的世界里探索，总是渴望构建新事物或解决难题。欢迎来到我的角落，在这里我分享我的探索和见解！"
+  },
+  "aiNative": {
+    "title": "AI 原生",
+    "description": "探索 AI 如何改变我的日常生活。",
+    "intro": "这个页面有趣地展示了我如何将 AI 融入工作流程和创造力。",
+    "dailyHeading": "AI 如何融入我的一天",
+    "daily1": "使用 ChatGPT 草拟想法并回答各种问题。",
+    "daily2": "GitHub Copilot 帮助我更快完成代码。",
+    "daily3": "通过 Midjourney 将概念变成视觉效果。",
+    "visionHeading": "愿景",
+    "vision": "最终它将成为我所有 AI 内容的个人品牌中心，包括教程、项目和经历。"
   }
 }
