@@ -9,8 +9,8 @@
     "homeTitle": "Aaron Guo",
     "home": "首页",
     "blogs": "博客",
-    "about": "关于",
     "aiNative": "AI 原生",
+    "drum": "鼓",
     "language": "语言",
     "categories": "分类"
   },
@@ -44,5 +44,9 @@
     "daily3": "通过 Midjourney 将概念变成视觉效果。",
     "visionHeading": "愿景",
     "vision": "最终它将成为我所有 AI 内容的个人品牌中心，包括教程、项目和经历。"
+  },
+  "drum": {
+    "title": "鼓",
+    "description": "正在建设中"
   }
 }

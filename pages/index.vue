@@ -22,8 +22,9 @@ defineOgImageComponent('About', {
 </script>
 
 <template>
-  <main class="container max-w-8xl mx-auto">
+  <main class="container max-w-8xl mx-auto flex flex-col gap-8">
     <MainHero />
+    <!-- <MainAbout /> -->
     <MainRecent />
     <!-- <MainTrending /> -->
   </main>

@@ -9,8 +9,8 @@
     "homeTitle": "Aaron Guo",
     "home": "Home",
     "blogs": "Blogs",
-    "about": "About",
     "aiNative": "AI Native",
+    "drum": "Drum",
     "language": "Language",
     "categories": "Categories"
   },
@@ -44,5 +44,9 @@
     "daily3": "Midjourney turns concepts into visuals.",
     "visionHeading": "Vision",
     "vision": "Eventually it'll become my personal branding hub for everything AI – tutorials, projects, and experiences."
+  },
+  "drum": {
+    "title": "Drum",
+    "description": "Working in progress"
   }
 }

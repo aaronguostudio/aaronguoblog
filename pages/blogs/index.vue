@@ -203,23 +203,9 @@ defineOgImage({
 
 <template>
   <main class="container max-w-8xl mx-auto">
-    <ArchiveHero />
+    <!-- <ArchiveHero /> -->
 
     <!-- Search bar -->
-    <div class="px-4 pt-6 pb-8">
-      <div class="relative max-w-2xl mx-auto">
-        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-          <Icon name="heroicons:magnifying-glass" class="w-5 h-5 text-muted-foreground" />
-        </div>
-        <input
-          v-model="searchQuery"
-          type="search"
-          placeholder="Search blogs by title, description, or tags..."
-          class="block w-full pl-10 pr-4 py-3 bg-background border border-border rounded-lg focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all duration-300"
-          :aria-label="t('blogs.searchPlaceholder')"
-        />
-      </div>
-    </div>
 
     <div class="px-4 grid grid-cols-1 lg:grid-cols-4 gap-8">
       <!-- Category filter sidebar -->
@@ -233,6 +219,20 @@ defineOgImage({
 
       <!-- Blog posts section -->
       <div class="lg:col-span-3">
+        <div class="pb-8">
+          <div class="relative w-full mx-auto">
+            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+              <Icon name="heroicons:magnifying-glass" class="w-5 h-5 text-muted-foreground" />
+            </div>
+            <input
+              v-model="searchQuery"
+              type="search"
+              placeholder="Search blogs by title, description, or tags..."
+              class="block w-full pl-10 pr-4 py-3 bg-background border border-border rounded-lg focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all duration-300"
+              :aria-label="t('blogs.searchPlaceholder')"
+            />
+          </div>
+        </div>
         <!-- Blog posts grid -->
         <div v-auto-animate class="grid grid-cols-1 md:grid-cols-2 gap-6 pb-6">
           <template v-for="post in paginatedData" :key="post.title">
