@@ -15,9 +15,9 @@ const { t } = useI18n()
           {{ t('blogs.description') }}
         </p>
       </div>
-      <div class="px-4 justify-self-center">
+      <!-- <div class="px-4 justify-self-center">
         <LogoDogpow />
-      </div>
+      </div> -->
     </div>
   </div>
 </template>

@@ -96,7 +96,7 @@ const clearAllCategories = () => {
 </script>
 
 <template>
-  <div class="sticky top-20">
+  <div class="sticky">
     <div class="border dark:border-gray-800 p-4 rounded-md dark:bg-slate-900">
       <h2 class="text-xl font-bold mb-4">{{ categoriesTitle }}</h2>
       <p class="text-sm mb-4 text-muted-foreground">{{ filterDescription }}</p>
