@@ -2,6 +2,7 @@
   "name": "@aaronguostudio/nuxt-blog",
   "version": "2.0.0",
   "private": true,
+  "type": "module",
   "license": "MIT",
   "scripts": {
     "build": "nuxt build",
@@ -15,7 +16,8 @@
     "lint:fix": "eslint . --fix",
     "format": "prettier --check ./",
     "format:fix": "prettier --write ./",
-    "test": "vitest"
+    "test": "vitest",
+    "youtube:fetch": "node scripts/fetch-youtube-data.js"
   },
   "devDependencies": {
     "@formkit/auto-animate": "^0.8.2",

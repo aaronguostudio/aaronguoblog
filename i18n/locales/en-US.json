@@ -64,7 +64,23 @@
   },
   "drum": {
     "title": "Drum",
-    "description": "Working in progress"
+    "description": "My drumming journey and Drum Next - an AI-native drumming app",
+    "aboutDrumNext": "About Drum Next",
+    "drumNextDescription": "Drum Next is an AI-native drumming app currently in MVP stage. It helps drummers learn, practice, and share their drumming journey with intelligent features powered by AI.",
+    "tryDrumNext": "Try Drum Next",
+    "watchOnYouTube": "Watch on YouTube",
+    "channelStats": "Channel Stats",
+    "subscribers": "Subscribers",
+    "totalViews": "Total Views",
+    "totalVideos": "Total Videos",
+    "latestVideos": "Latest Videos",
+    "shorts": "Shorts",
+    "drumCovers": "Drum Covers",
+    "viewOnYouTube": "View on YouTube",
+    "views": "views",
+    "noVideos": "No videos available yet. Check back soon!",
+    "noShorts": "No shorts available yet. Check back soon!",
+    "lastUpdated": "Last updated"
   },
   "newsletter": {
     "title": "Subscribe to the Newsletter",

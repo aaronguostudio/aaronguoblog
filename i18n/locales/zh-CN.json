@@ -64,7 +64,23 @@
   },
   "drum": {
     "title": "鼓",
-    "description": "正在建设中"
+    "description": "我的打鼓之旅和 Drum Next - 一个 AI 原生打鼓应用",
+    "aboutDrumNext": "关于 Drum Next",
+    "drumNextDescription": "Drum Next 是一个 AI 原生打鼓应用，目前处于 MVP 阶段。它通过 AI 智能功能帮助鼓手学习、练习和分享他们的打鼓之旅。",
+    "tryDrumNext": "试用 Drum Next",
+    "watchOnYouTube": "在 YouTube 观看",
+    "channelStats": "频道统计",
+    "subscribers": "订阅者",
+    "totalViews": "总观看次数",
+    "totalVideos": "总视频数",
+    "latestVideos": "最新视频",
+    "shorts": "短视频",
+    "drumCovers": "鼓曲翻奏",
+    "viewOnYouTube": "在 YouTube 观看",
+    "views": "次观看",
+    "noVideos": "暂无视频。敬请期待！",
+    "noShorts": "暂无短视频。敬请期待！",
+    "lastUpdated": "最后更新"
   },
   "newsletter": {
     "title": "订阅邮件通讯",
