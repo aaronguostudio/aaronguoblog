@@ -16,43 +16,25 @@ const props = withDefaults(defineProps<Props>(), {
   description: '',
 })
 
-const email = ref('')
-const status = ref<'idle' | 'loading' | 'success' | 'error'>('idle')
-const errorMessage = ref('')
+const copied = ref(false)
+const rssFeedUrl = 'https://aaronguo.com/rss.xml'
 
-const handleSubmit = async () => {
-  if (!email.value || !email.value.includes('@')) {
-    errorMessage.value = 'Please enter a valid email address'
-    status.value = 'error'
-    return
-  }
-
-  status.value = 'loading'
-  
+const copyToClipboard = async () => {
   try {
-    // TODO: Replace with your actual newsletter service endpoint
-    // Examples: Buttondown, ConvertKit, Substack, Mailchimp
-    // For now, this is a placeholder
-    await new Promise(resolve => setTimeout(resolve, 1000))
-    
-    // Simulate success
-    status.value = 'success'
-    email.value = ''
-    
-    // Reset after 3 seconds
+    await navigator.clipboard.writeText(rssFeedUrl)
+    copied.value = true
     setTimeout(() => {
-      status.value = 'idle'
-    }, 3000)
-  } catch (error) {
-    status.value = 'error'
-    errorMessage.value = 'Something went wrong. Please try again.'
+      copied.value = false
+    }, 2000)
+  } catch (err) {
+    console.error('Failed to copy:', err)
   }
 }
 </script>
 
 <template>
   <div
-    id="newsletter"
+    id="subscribe"
     :class="[
       'rounded-lg',
       variant === 'inline' ? 'bg-blue-50 dark:bg-blue-900/10 p-8' : 'bg-zinc-100 dark:bg-zinc-800 p-6',
@@ -65,41 +47,79 @@ const handleSubmit = async () => {
           variant === 'inline' ? 'text-2xl' : 'text-xl',
         ]"
       >
-        {{ title || t('newsletter.title') }}
+        {{ title || t('rss.title') }}
       </h3>
       <p class="text-zinc-700 dark:text-zinc-300 mb-6">
-        {{ description || t('newsletter.description') }}
+        {{ description || t('rss.description') }}
       </p>
 
-      <form @submit.prevent="handleSubmit" class="flex flex-col sm:flex-row gap-3">
+      <!-- RSS Feed URL -->
+      <div class="flex flex-col sm:flex-row gap-3 mb-6">
         <input
-          v-model="email"
-          type="email"
-          :placeholder="t('newsletter.placeholder')"
-          :disabled="status === 'loading' || status === 'success'"
-          class="flex-1 px-4 py-3 rounded-lg border border-zinc-300 dark:border-zinc-600 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50"
+          :value="rssFeedUrl"
+          readonly
+          class="flex-1 px-4 py-3 rounded-lg border border-zinc-300 dark:border-zinc-600 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 font-mono text-sm"
         />
         <button
-          type="submit"
-          :disabled="status === 'loading' || status === 'success'"
-          class="px-6 py-3 font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          @click="copyToClipboard"
+          class="px-6 py-3 font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors flex items-center gap-2 justify-center"
         >
-          <span v-if="status === 'idle'">{{ t('newsletter.subscribe') }}</span>
-          <span v-else-if="status === 'loading'">{{ t('newsletter.subscribing') }}</span>
-          <span v-else-if="status === 'success'">✓ {{ t('newsletter.subscribed') }}</span>
-          <span v-else>{{ t('newsletter.subscribe') }}</span>
+          <Icon v-if="!copied" name="mdi:content-copy" class="w-5 h-5" />
+          <Icon v-else name="mdi:check" class="w-5 h-5" />
+          <span>{{ copied ? t('rss.copied') : t('rss.copy') }}</span>
         </button>
-      </form>
+      </div>
 
-      <p v-if="status === 'error'" class="mt-3 text-sm text-red-600 dark:text-red-400">
-        {{ errorMessage }}
-      </p>
-      <p v-if="status === 'success'" class="mt-3 text-sm text-green-600 dark:text-green-400">
-        {{ t('newsletter.successMessage') }}
-      </p>
-      
+      <!-- RSS Reader Links -->
+      <div class="space-y-3">
+        <p class="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+          {{ t('rss.quickSubscribe') }}
+        </p>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+          <a
+            :href="`https://feedly.com/i/subscription/feed/${encodeURIComponent(rssFeedUrl)}`"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-4 py-2 text-sm font-medium text-zinc-700 dark:text-zinc-300 bg-white dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-600 rounded-lg hover:bg-zinc-50 dark:hover:bg-zinc-700 transition-colors text-center"
+          >
+            Feedly
+          </a>
+          <a
+            :href="`https://www.inoreader.com/?add_feed=${encodeURIComponent(rssFeedUrl)}`"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-4 py-2 text-sm font-medium text-zinc-700 dark:text-zinc-300 bg-white dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-600 rounded-lg hover:bg-zinc-50 dark:hover:bg-zinc-700 transition-colors text-center"
+          >
+            Inoreader
+          </a>
+          <a
+            :href="`https://theoldreader.com/feeds/subscribe?url=${encodeURIComponent(rssFeedUrl)}`"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-4 py-2 text-sm font-medium text-zinc-700 dark:text-zinc-300 bg-white dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-600 rounded-lg hover:bg-zinc-50 dark:hover:bg-zinc-700 transition-colors text-center"
+          >
+            The Old Reader
+          </a>
+          <a
+            :href="rssFeedUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-4 py-2 text-sm font-medium text-zinc-700 dark:text-zinc-300 bg-white dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-600 rounded-lg hover:bg-zinc-50 dark:hover:bg-zinc-700 transition-colors text-center"
+          >
+            {{ t('rss.rawFeed') }}
+          </a>
+        </div>
+      </div>
+
+      <!-- Future Email Notice -->
+      <div class="mt-6 p-4 bg-zinc-100 dark:bg-zinc-800 rounded-lg">
+        <p class="text-sm text-zinc-600 dark:text-zinc-400">
+          {{ t('rss.emailComingSoon') }}
+        </p>
+      </div>
+
       <p class="mt-4 text-xs text-zinc-600 dark:text-zinc-400">
-        {{ t('newsletter.privacy') }}
+        {{ t('rss.privacy') }}
       </p>
     </div>
   </div>

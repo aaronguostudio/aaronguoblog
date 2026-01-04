@@ -82,15 +82,37 @@
     "noShorts": "No shorts available yet. Check back soon!",
     "lastUpdated": "Last updated"
   },
-  "newsletter": {
-    "title": "Subscribe to the Newsletter",
-    "description": "Twice a month: one playbook, one lesson, one tool. Practical insights on product execution, leadership, and AI-native workflows.",
-    "placeholder": "Enter your email",
-    "subscribe": "Subscribe",
-    "subscribing": "Subscribing...",
-    "subscribed": "Subscribed!",
-    "successMessage": "Thanks for subscribing! Check your email to confirm.",
-    "privacy": "No spam. Unsubscribe anytime."
+  "rss": {
+    "title": "Subscribe via RSS",
+    "description": "Get new posts delivered to your RSS reader. Twice a month: one playbook, one lesson, one tool. Practical insights on product execution, leadership, and AI-native workflows.",
+    "copy": "Copy URL",
+    "copied": "Copied!",
+    "quickSubscribe": "Quick subscribe with:",
+    "rawFeed": "Raw Feed",
+    "emailComingSoon": "📧 Email newsletter coming later. For now, RSS is the best way to stay updated.",
+    "privacy": "No tracking. No spam. Pure content."
+  },
+  "subscribe": {
+    "title": "Subscribe to Updates",
+    "description": "Stay updated with new posts via RSS. Email newsletter coming later.",
+    "playbooks": "Playbooks",
+    "playbooksDesc": "Step-by-step guides for product execution and leadership",
+    "lessons": "Lessons Learned",
+    "lessonsDesc": "Real-world insights from building products and teams",
+    "tools": "Tools & Workflows",
+    "toolsDesc": "AI-native workflows and productivity tools",
+    "whatIsRss": "What is RSS?",
+    "rssExplanation": "RSS (Really Simple Syndication) is an open standard for subscribing to content. Instead of checking websites manually, your RSS reader automatically fetches new posts from all your favorite sites in one place.",
+    "rssBenefit1": "No email clutter - read in your dedicated RSS reader",
+    "rssBenefit2": "No tracking or analytics - your privacy is protected",
+    "rssBenefit3": "Own your subscription - not controlled by any platform",
+    "rssBenefit4": "Works offline - download posts to read later",
+    "popularReaders": "Popular RSS Readers",
+    "webMobile": "Web & Mobile",
+    "macIos": "Mac & iOS"
+  },
+  "footer": {
+    "subscribe": "Subscribe"
   },
   "start": {
     "title": "Start Here",

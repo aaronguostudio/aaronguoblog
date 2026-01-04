@@ -1,20 +1,33 @@
 <script setup lang="ts">
-// const route = useRoute()
+import { useI18n } from 'vue-i18n'
 
-// const path = computed(() => route.fullPath.replace('/', ''))
+const { t } = useI18n()
 </script>
 
 <template>
   <div class="py-5 dark:border-gray-800 mt-2 text-zinc-700 dark:text-zinc-300">
     <div class="px-4 container max-w-8xl mx-auto">
-      <!-- <div class="grid grid-cols-1 md:grid-cols-3">
-        <FooterSite v-if="path === 'about'" />
-        <FooterDeveloper v-else />
-        <FooterLink />
-        <FooterConnect />
-      </div> -->
+      <!-- RSS & Subscribe Links -->
+      <div class="flex justify-center items-center gap-6 mb-4">
+        <NuxtLink
+          to="/subscribe"
+          class="text-sm hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-1"
+        >
+          <Icon name="mdi:rss" class="w-4 h-4" />
+          <span>{{ t('footer.subscribe') }}</span>
+        </NuxtLink>
+        <a
+          href="/rss.xml"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-sm hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-1"
+        >
+          <Icon name="mdi:rss-box" class="w-4 h-4" />
+          <span>RSS Feed</span>
+        </a>
+      </div>
 
-      <div class="dark:border-gray-800 mt-5 text-center p-2">© 2020-2025</div>
+      <div class="dark:border-gray-800 text-center p-2 text-sm">© 2020-2025 Aaron Guo</div>
     </div>
   </div>
 </template>

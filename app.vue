@@ -6,6 +6,14 @@ useHead({
     lang: 'en',
   },
   meta: () => siteMetaData,
+  link: [
+    {
+      rel: 'alternate',
+      type: 'application/rss+xml',
+      title: 'Aaron Guo - RSS Feed',
+      href: '/rss.xml',
+    },
+  ],
 })
 </script>
 

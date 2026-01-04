@@ -82,15 +82,37 @@
     "noShorts": "暂无短视频。敬请期待！",
     "lastUpdated": "最后更新"
   },
-  "newsletter": {
-    "title": "订阅邮件通讯",
-    "description": "每月两次：一份实战手册，一个经验教训，一个工具。关于产品执行、领导力和 AI 原生工作流程的实用见解。",
-    "placeholder": "输入您的邮箱",
-    "subscribe": "订阅",
-    "subscribing": "订阅中...",
-    "subscribed": "已订阅！",
-    "successMessage": "感谢订阅！请查看您的邮箱确认。",
-    "privacy": "无垃圾邮件。随时取消订阅。"
+  "rss": {
+    "title": "通过 RSS 订阅",
+    "description": "通过 RSS 阅读器获取新文章。每月两次：一份实战手册，一个经验教训，一个工具。关于产品执行、领导力和 AI 原生工作流程的实用见解。",
+    "copy": "复制链接",
+    "copied": "已复制！",
+    "quickSubscribe": "快速订阅：",
+    "rawFeed": "原始订阅源",
+    "emailComingSoon": "📧 邮件订阅即将推出。目前，RSS 是获取更新的最佳方式。",
+    "privacy": "无追踪。无垃圾邮件。纯粹内容。"
+  },
+  "subscribe": {
+    "title": "订阅更新",
+    "description": "通过 RSS 获取新文章更新。邮件订阅即将推出。",
+    "playbooks": "实战手册",
+    "playbooksDesc": "产品执行和领导力的分步指南",
+    "lessons": "经验教训",
+    "lessonsDesc": "构建产品和团队的真实见解",
+    "tools": "工具与工作流",
+    "toolsDesc": "AI 原生工作流程和生产力工具",
+    "whatIsRss": "什么是 RSS？",
+    "rssExplanation": "RSS（简易信息聚合）是一种订阅内容的开放标准。无需手动检查网站，您的 RSS 阅读器会自动从所有您喜欢的网站获取新文章，集中在一个地方。",
+    "rssBenefit1": "无邮件混乱 - 在专用的 RSS 阅读器中阅读",
+    "rssBenefit2": "无追踪或分析 - 保护您的隐私",
+    "rssBenefit3": "拥有您的订阅 - 不受任何平台控制",
+    "rssBenefit4": "离线工作 - 下载文章稍后阅读",
+    "popularReaders": "流行的 RSS 阅读器",
+    "webMobile": "网页和移动端",
+    "macIos": "Mac 和 iOS"
+  },
+  "footer": {
+    "subscribe": "订阅"
   },
   "start": {
     "title": "从这里开始",
