@@ -1,15 +1,20 @@
 {
   "home": {
     "welcome": "欢迎来到博客",
-    "title": "Aaron Guo",
-    "description": "软件工程师，产品经理，鼓手。",
-    "recent": "最新文章"
+    "title": "AI 原生时代的产品领导力",
+    "description": "我构建务实的战略、协同和交付系统——基于我领导产品和工程团队的经验。我撰写关于执行、领导力和 AI 工作流程的实战手册。",
+    "recent": "最新文章",
+    "featured": "精选文章",
+    "latest": "最新发布"
   },
   "navigation": {
     "homeTitle": "Aaron Guo",
     "home": "首页",
-    "blogs": "博客",
+    "start": "从这里开始",
+    "blogs": "文章",
+    "playbooks": "实战手册",
     "aiNative": "AI 原生",
+    "about": "关于",
     "drum": "鼓",
     "language": "语言",
     "categories": "分类"
@@ -20,7 +25,8 @@
   "blogs": {
     "title": "所有博客",
     "description": "在这里，您将找到我在此网站上撰写的所有博客文章。",
-    "tableOfContent": "目录"
+    "tableOfContent": "目录",
+    "filterByTopic": "按主题筛选"
   },
   "categories": {
     "title": "所有分类",
@@ -32,6 +38,17 @@
   "about": {
     "title": "Aaron Guo",
     "description": "软件工程师，产品经理，鼓手。",
+    "subtitle": "构建 AI 原生执行系统的产品领导者",
+    "bioTitle": "关于我",
+    "bio1": "嗨，我是Aaron，一个软件工程师，产品经理，鼓手。我目前是Mawer Investment Management的Head of Products & Software Engineer。白天，我处理投资世界的复杂挑战；晚上（和周末），你会在Javascript、Typescript、Vue和Nuxt的世界里探索，总是渴望构建新事物或解决难题。",
+    "bio2": "我热衷于构建务实的战略、协同和交付系统。我撰写关于执行、领导力和 AI 工作流程的实战手册，基于我领导产品和工程团队的经验。",
+    "credibilityTitle": "我的工作",
+    "roleTitle": "当前角色",
+    "systemsTitle": "我构建的系统",
+    "nowTitle": "我目前在做什么",
+    "now1": "我目前专注于构建 AI 原生执行系统，帮助产品和工程团队在不牺牲质量的前提下更快地前进。",
+    "now2": "我也在探索如何利用 AI 重新设计生活——在家庭、健康、事业和个人成长之间找到平衡。",
+    "connectTitle": "联系我",
     "aboutMe": "嗨，我是Aaron，一个软件工程师，产品经理，鼓手。我目前是Mawer Investment Management的Head of Products & Software Engineer。白天，我处理投资世界的复杂挑战；晚上（和周末），你会在Javascript、Typescript、Vue和Nuxt的世界里探索，总是渴望构建新事物或解决难题。欢迎来到我的角落，在这里我分享我的探索和见解！"
   },
   "aiNative": {
@@ -48,5 +65,48 @@
   "drum": {
     "title": "鼓",
     "description": "正在建设中"
+  },
+  "newsletter": {
+    "title": "订阅邮件通讯",
+    "description": "每月两次：一份实战手册，一个经验教训，一个工具。关于产品执行、领导力和 AI 原生工作流程的实用见解。",
+    "placeholder": "输入您的邮箱",
+    "subscribe": "订阅",
+    "subscribing": "订阅中...",
+    "subscribed": "已订阅！",
+    "successMessage": "感谢订阅！请查看您的邮箱确认。",
+    "privacy": "无垃圾邮件。随时取消订阅。"
+  },
+  "start": {
+    "title": "从这里开始",
+    "description": "初次访问？从这些精选文章和资源开始。",
+    "subtitle": "如果您是第一次来，这里是最好的起点。我精选了最重要的文章和资源，帮助您从本站获得最大价值。",
+    "aboutTitle": "关于我",
+    "bio1": "嗨，我是Aaron，一个软件工程师，产品经理，鼓手。我目前是Mawer Investment Management的Head of Products & Software Engineer。白天，我处理投资世界的复杂挑战；晚上（和周末），你会在Javascript、Typescript、Vue和Nuxt的世界里探索，总是渴望构建新事物或解决难题。",
+    "bio2": "我热衷于构建务实的战略、协同和交付系统。我撰写关于执行、领导力和 AI 工作流程的实战手册，基于我领导产品和工程团队的经验。",
+    "credibilityTitle": "我的工作",
+    "roleTitle": "当前角色",
+    "systemsTitle": "我构建的系统",
+    "nowTitle": "我目前在做什么",
+    "now1": "我目前专注于构建 AI 原生执行系统，帮助产品和工程团队在不牺牲质量的前提下更快地前进。",
+    "now2": "我也在探索如何利用 AI 重新设计生活——在家庭、健康、事业和个人成长之间找到平衡。",
+    "connectTitle": "联系我",
+    "pathsTitle": "选择您的路径",
+    "path1Title": "我领导产品团队",
+    "path1Description": "关于战略、执行和构建高绩效团队的领导力文章。",
+    "path2Title": "我构建执行系统",
+    "path2Description": "关于路线图、协同和交付的实战手册和案例研究。",
+    "path3Title": "我在探索 AI 原生工作流程",
+    "path3Description": "AI 如何改变日常工作和决策。",
+    "explorePath": "探索此路径",
+    "recommendedTitle": "推荐阅读"
+  },
+  "playbooks": {
+    "title": "实战手册",
+    "description": "关于产品执行、领导力和 AI 原生工作流程的常青指南。您今天就可以实施的实用系统。",
+    "comingSoon": "更多实战手册即将推出",
+    "comingSoonDescription": "我正在编写关于产品战略、执行系统和 AI 原生工作流程的综合实战手册。订阅邮件通讯，在发布时获得通知。",
+    "browseWriting": "浏览所有文章",
+    "newsletterTitle": "在新实战手册发布时获得通知",
+    "newsletterDescription": "每月两次：一份实战手册，一个经验教训，一个工具。"
   }
 }

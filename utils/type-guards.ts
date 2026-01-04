@@ -68,6 +68,8 @@ export function extractBlogPostMeta(content: {
     alt: meta.alt || 'No image description available',
     ogImage: meta.ogImage || '/not-found.jpg',
     tags: Array.isArray(meta.tags) ? meta.tags : [],
+    topics: Array.isArray(meta.topics) ? meta.topics : [],
     published: Boolean(meta.published),
+    featured: Boolean(meta.featured),
   }
 }

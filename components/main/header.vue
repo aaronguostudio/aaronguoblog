@@ -53,8 +53,9 @@ function toggleMobileMenu() {
  */
 const navItems = computed(() => [
   { name: t('navigation.home'), path: '/', exact: true },
-  { name: t('navigation.aiNative'), path: '/ai-native', exact: false },
+  { name: t('navigation.start'), path: '/start', exact: false },
   { name: t('navigation.blogs'), path: '/blogs', exact: false },
+  { name: t('navigation.playbooks'), path: '/playbooks', exact: false },
   { name: t('navigation.drum'), path: '/drum', exact: false },
 ])
 

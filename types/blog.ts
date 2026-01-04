@@ -6,5 +6,7 @@ export interface BlogPost {
   alt: string
   ogImage: string
   tags: string[]
+  topics?: string[]
   published: boolean
+  featured?: boolean
 }

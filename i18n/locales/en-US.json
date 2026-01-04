@@ -1,15 +1,20 @@
 {
   "home": {
     "welcome": "Welcome to the Blog",
-    "title": "Aaron Guo",
-    "description": "Software Engineer, Head of Products, Drummer.",
-    "recent": "Recent"
+    "title": "Product leadership for AI-native execution",
+    "description": "I build pragmatic systems for strategy, alignment, and delivery—based on what I've learned leading product and engineering teams. I write playbooks on execution, leadership, and AI workflows.",
+    "recent": "Recent",
+    "featured": "Featured",
+    "latest": "Latest"
   },
   "navigation": {
     "homeTitle": "Aaron Guo",
     "home": "Home",
-    "blogs": "Blogs",
+    "start": "Start Here",
+    "blogs": "Writing",
+    "playbooks": "Playbooks",
     "aiNative": "AI Native",
+    "about": "About",
     "drum": "Drum",
     "language": "Language",
     "categories": "Categories"
@@ -20,7 +25,8 @@
   "blogs": {
     "title": "All Blogs",
     "description": "Here you will find all the blog posts I have written & published on this site.",
-    "tableOfContent": "Table Of Content"
+    "tableOfContent": "Table Of Content",
+    "filterByTopic": "Filter by Topic"
   },
   "categories": {
     "title": "All Categories",
@@ -32,6 +38,17 @@
   "about": {
     "title": "Aaron Guo",
     "description": "Software Engineer, Head of Products, Drummer.",
+    "subtitle": "Product leader building AI-native execution systems",
+    "bioTitle": "About Me",
+    "bio1": "Hi there! I'm Aaron, juggling pixels and product roadmap as a Head of Products & Software Engineer at Mawer Investment Management. By day, I wrangle complex challenges in the investment world; by night (and often weekends!), you'll find me diving deep into the realms of Javascript, Typescript, Vue, and Nuxt, always eager to build something new or solve a tricky puzzle.",
+    "bio2": "I'm passionate about building pragmatic systems for strategy, alignment, and delivery. I write playbooks on execution, leadership, and AI workflows based on what I've learned leading product and engineering teams.",
+    "credibilityTitle": "What I Do",
+    "roleTitle": "Current Roles",
+    "systemsTitle": "Systems I've Built",
+    "nowTitle": "What I'm Working On Now",
+    "now1": "I'm currently focused on building AI-native execution systems that help product and engineering teams move faster without sacrificing quality.",
+    "now2": "I'm also exploring how to redesign life with AI—finding balance among family, health, career, and personal growth.",
+    "connectTitle": "Connect With Me",
     "aboutMe": "Hi there! I'm Aaron, juggling pixels and product roadmap as a Head of Products & Software Engineer at Mawer Investment Management. By day, I wrangle complex challenges in the investment world; by night (and often weekends!), you'll find me diving deep into the realms of Javascript, Typescript, Vue, and Nuxt, always eager to build something new or solve a tricky puzzle. Welcome to my corner of the web where I share my explorations and insights!"
   },
   "aiNative": {
@@ -48,5 +65,48 @@
   "drum": {
     "title": "Drum",
     "description": "Working in progress"
+  },
+  "newsletter": {
+    "title": "Subscribe to the Newsletter",
+    "description": "Twice a month: one playbook, one lesson, one tool. Practical insights on product execution, leadership, and AI-native workflows.",
+    "placeholder": "Enter your email",
+    "subscribe": "Subscribe",
+    "subscribing": "Subscribing...",
+    "subscribed": "Subscribed!",
+    "successMessage": "Thanks for subscribing! Check your email to confirm.",
+    "privacy": "No spam. Unsubscribe anytime."
+  },
+  "start": {
+    "title": "Start Here",
+    "description": "New to this site? Start with these curated posts and resources.",
+    "subtitle": "If you're new here, this is the best place to begin. I've curated the most important posts and resources to help you get the most value from this site.",
+    "aboutTitle": "About Me",
+    "bio1": "Hi there! I'm Aaron, juggling pixels and product roadmap as a Head of Products & Software Engineer at Mawer Investment Management. By day, I wrangle complex challenges in the investment world; by night (and often weekends!), you'll find me diving deep into the realms of Javascript, Typescript, Vue, and Nuxt, always eager to build something new or solve a tricky puzzle.",
+    "bio2": "I'm passionate about building pragmatic systems for strategy, alignment, and delivery. I write playbooks on execution, leadership, and AI workflows based on what I've learned leading product and engineering teams.",
+    "credibilityTitle": "What I Do",
+    "roleTitle": "Current Roles",
+    "systemsTitle": "Systems I've Built",
+    "nowTitle": "What I'm Working On Now",
+    "now1": "I'm currently focused on building AI-native execution systems that help product and engineering teams move faster without sacrificing quality.",
+    "now2": "I'm also exploring how to redesign life with AI—finding balance among family, health, career, and personal growth.",
+    "connectTitle": "Connect With Me",
+    "pathsTitle": "Choose your path",
+    "path1Title": "I lead product teams",
+    "path1Description": "Leadership posts on strategy, execution, and building high-performing teams.",
+    "path2Title": "I build execution systems",
+    "path2Description": "Playbooks and case studies on roadmaps, alignment, and delivery.",
+    "path3Title": "I'm exploring AI-native workflows",
+    "path3Description": "How AI transforms daily work and decision-making.",
+    "explorePath": "Explore this path",
+    "recommendedTitle": "Top recommended reads"
+  },
+  "playbooks": {
+    "title": "Playbooks",
+    "description": "Evergreen guides on product execution, leadership, and AI-native workflows. Practical systems you can implement today.",
+    "comingSoon": "More playbooks coming soon",
+    "comingSoonDescription": "I'm working on comprehensive playbooks covering product strategy, execution systems, and AI-native workflows. Subscribe to the newsletter to get notified when they're published.",
+    "browseWriting": "Browse all writing",
+    "newsletterTitle": "Get notified when new playbooks are published",
+    "newsletterDescription": "Twice a month: one playbook, one lesson, one tool."
   }
 }

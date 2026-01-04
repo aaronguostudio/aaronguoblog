@@ -20,6 +20,11 @@ const searchQuery = ref('')
 const selectedCategories = ref<string[]>([])
 
 /**
+ * Topic filter state
+ */
+const selectedTopics = ref<string[]>([])
+
+/**
  * Reset to the first page whenever the search query changes
  */
 watch(searchQuery, () => {
@@ -31,6 +36,17 @@ watch(searchQuery, () => {
  */
 watch(
   selectedCategories,
+  () => {
+    pageNumber.value = 1
+  },
+  { deep: true },
+)
+
+/**
+ * Reset to the first page whenever the selected topics change
+ */
+watch(
+  selectedTopics,
   () => {
     pageNumber.value = 1
   },
@@ -105,6 +121,7 @@ const formattedData = computed(() => {
       ogImage: meta.ogImage,
       date: meta.date,
       tags: meta.tags,
+      topics: meta.topics,
       published: meta.published,
     }
   })
@@ -131,7 +148,7 @@ const fuse = computed(() => {
 })
 
 /**
- * Filter data based on search query and selected categories
+ * Filter data based on search query, selected categories, and selected topics
  */
 const searchData = computed(() => {
   let filteredData = formattedData.value
@@ -147,6 +164,14 @@ const searchData = computed(() => {
     filteredData = filteredData.filter((post) => {
       // Check if post has at least one of the selected categories
       return selectedCategories.value.some((category) => post.tags && post.tags.includes(category))
+    })
+  }
+
+  // Then filter by selected topics
+  if (selectedTopics.value.length > 0) {
+    filteredData = filteredData.filter((post) => {
+      // Check if post has at least one of the selected topics
+      return selectedTopics.value.some((topic) => post.topics && post.topics.includes(topic))
     })
   }
 
@@ -202,33 +227,55 @@ defineOgImage({
 </script>
 
 <template>
-  <main class="container max-w-8xl mx-auto">
-    <!-- <ArchiveHero /> -->
+  <main class="container max-w-8xl mx-auto py-8">
+    <!-- Page Header with Gradient -->
+    <div class="px-4 mb-12">
+      <div class="relative">
+        <!-- Decorative gradient background -->
+        <div class="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-purple-500/5 to-pink-500/5 dark:from-blue-500/10 dark:via-purple-500/10 dark:to-pink-500/10 rounded-3xl blur-3xl" />
 
-    <!-- Search bar -->
+        <div class="relative bg-white/50 dark:bg-zinc-900/50 backdrop-blur-sm border border-zinc-200 dark:border-zinc-800 rounded-2xl p-8 shadow-xl">
+          <h1 class="text-4xl md:text-5xl font-bold mb-3 bg-gradient-to-r from-zinc-900 via-zinc-700 to-zinc-900 dark:from-zinc-100 dark:via-zinc-300 dark:to-zinc-100 bg-clip-text text-transparent">
+            Writing
+          </h1>
+          <p class="text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl">
+            Thoughts on AI, execution, leadership, and building products
+          </p>
+        </div>
+      </div>
+    </div>
 
     <div class="px-4 grid grid-cols-1 lg:grid-cols-4 gap-8">
       <!-- Category filter sidebar -->
       <div class="lg:col-span-1">
-        <BlogCategoryFilter
-          :all-tags="allTags"
-          :selected-categories="selectedCategories"
-          @update:selected-categories="selectedCategories = $event"
-        />
+        <div class="sticky top-24">
+          <BlogCategoryFilter
+            :all-tags="allTags"
+            :selected-categories="selectedCategories"
+            @update:selected-categories="selectedCategories = $event"
+          />
+        </div>
       </div>
 
       <!-- Blog posts section -->
       <div class="lg:col-span-3">
+        <!-- Topic Filter -->
+        <BlogTopicFilter
+          :selected-topics="selectedTopics"
+          @update:selected-topics="selectedTopics = $event"
+        />
+
+        <!-- Search bar with enhanced design -->
         <div class="pb-8">
-          <div class="relative w-full mx-auto">
-            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-              <Icon name="heroicons:magnifying-glass" class="w-5 h-5 text-muted-foreground" />
+          <div class="relative w-full mx-auto group">
+            <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
+              <Icon name="heroicons:magnifying-glass" class="w-5 h-5 text-zinc-400 dark:text-zinc-500 group-focus-within:text-blue-500 transition-colors" />
             </div>
             <input
               v-model="searchQuery"
               type="search"
               placeholder="Search blogs by title, description, or tags..."
-              class="block w-full pl-10 pr-4 py-3 bg-background border border-border rounded-lg focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all duration-300"
+              class="block w-full pl-12 pr-4 py-4 bg-white dark:bg-zinc-800/50 border-2 border-zinc-200 dark:border-zinc-700 rounded-xl focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 dark:focus:border-blue-500 transition-all duration-300 text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-500 shadow-sm hover:shadow-md"
               :aria-label="t('blogs.searchPlaceholder')"
             />
           </div>

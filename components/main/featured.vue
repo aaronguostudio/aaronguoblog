@@ -9,12 +9,12 @@ const { locale, t } = useI18n()
  * Query blog posts from the collection corresponding to the current locale
  * Using a static key to ensure it's pre-rendered during build
  */
-const { data } = await useAsyncData('all-blog-posts', () =>
+const { data } = await useAsyncData('featured-blog-posts', () =>
   Promise.all([queryCollection('en').all(), queryCollection('zh').all()]),
 )
 
 /**
- * Format and process blog post data for the current locale
+ * Format and process featured blog post data for the current locale
  */
 const formattedData = computed(() => {
   if (!data.value) return []
@@ -45,17 +45,21 @@ const formattedData = computed(() => {
       date: meta.date,
       tags: meta.tags,
       published: meta.published,
+      featured: meta.featured || false,
     }
   })
+
+  // Filter for featured posts only
+  const featuredPosts = formattedPosts.filter((post) => post.featured)
 
   // Filter out unpublished posts in production
   const publishedPosts =
     process.env.NODE_ENV === 'production'
-      ? formattedPosts.filter((post) => post.published)
-      : formattedPosts
+      ? featuredPosts.filter((post) => post.published)
+      : featuredPosts
 
-  // Sort by date (newest first) and take only the first 3
-  return sortByDate(publishedPosts, 'date').slice(0, 3)
+  // Sort by date (newest first) and take only the first 4
+  return sortByDate(publishedPosts, 'date').slice(0, 4)
 })
 </script>
 
@@ -65,7 +69,7 @@ const formattedData = computed(() => {
     <div class="flex items-center gap-3 pt-5 pb-6">
       <div class="w-1 h-10 bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500 rounded-full" />
       <h2 class="text-4xl font-bold bg-gradient-to-r from-zinc-900 via-zinc-700 to-zinc-900 dark:from-zinc-100 dark:via-zinc-300 dark:to-zinc-100 bg-clip-text text-transparent">
-        {{ t('home.latest') }}
+        {{ t('home.featured') }}
       </h2>
     </div>
 
@@ -89,3 +93,4 @@ const formattedData = computed(() => {
     </div>
   </div>
 </template>
+

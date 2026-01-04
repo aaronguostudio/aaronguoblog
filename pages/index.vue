@@ -24,8 +24,8 @@ defineOgImageComponent('About', {
 <template>
   <main class="container max-w-8xl mx-auto flex flex-col gap-8">
     <MainHero />
-    <!-- <MainAbout /> -->
+    <MainFeatured />
     <MainRecent />
-    <!-- <MainTrending /> -->
+    <NewsletterSignup variant="inline" />
   </main>
 </template>

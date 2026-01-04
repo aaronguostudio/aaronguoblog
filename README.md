@@ -73,7 +73,7 @@ The project uses a consistent design system based on CSS variables defined in `a
 ### Color Themes
 
 - **Light Mode**: Clean white background with blue accents
-- **Dark Mode**: Deep blue background with teal accents
+- **Dark Mode**: Deep blue background with blue accents
 
 ### Typography
 
