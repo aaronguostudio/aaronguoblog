@@ -116,3 +116,8 @@ html.dark {
 }
 
 /* Add more overrides as needed */
+
+/* Hide the auto-generated H1 title from ContentRenderer */
+.prose > h1:first-child {
+  display: none !important;
+}

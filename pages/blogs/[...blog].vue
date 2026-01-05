@@ -139,7 +139,7 @@ defineOgImageComponent('Test', {
         :tags="data.tags"
       />
       <div
-        class="prose prose-pre:max-w-xs sm:prose-pre:max-w-full prose-sm sm:prose-base md:prose-lg max-w-8xl mx-auto prose-zinc dark:prose-invert prose-img:rounded"
+        class="prose prose-pre:max-w-xs sm:prose-pre:max-w-full prose-sm sm:prose-base md:prose-lg prose-h1:hidden max-w-8xl mx-auto prose-zinc dark:prose-invert prose-img:rounded"
       >
         <ContentRenderer v-if="articles" :value="articles">
           <template #empty>
