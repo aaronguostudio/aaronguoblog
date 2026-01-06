@@ -63,6 +63,14 @@ const blogPath = computed(() => {
   <article
     class="group border border-border overflow-hidden rounded-lg shadow-sm text-foreground bg-card transition-all duration-300 hover:shadow-md hover:border-primary/20"
   >
+    <!-- Feature Image - Always shown with default fallback -->
+    <NuxtLink :to="blogPath" class="block">
+      <img
+        :src="image || '/blogs-img/blog.jpg'"
+        :alt="alt"
+        class="w-full h-72 object-cover object-center group-hover:scale-[1.02] transition-all duration-500"
+      />
+    </NuxtLink>
     <div class="p-5 flex flex-col justify-between gap-4 h-full">
       <div class="flex-1">
         <NuxtLink :to="blogPath" class="block">

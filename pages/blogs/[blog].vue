@@ -50,9 +50,9 @@ const data = computed<BlogPost>(() => {
   return {
     title: articles.value?.title || 'no-title available',
     description: articles.value?.description || 'no-description available',
-    image: meta?.image || defaultImage,
+    image: meta?.image || '', // Empty string instead of default - allows conditional display
     alt: meta?.alt || 'no alter data available',
-    // Use defaultImage if ogImage is not provided or doesn't exist
+    // Use defaultImage for ogImage only (for social sharing)
     ogImage: (articles?.value?.ogImage as unknown as string) || meta?.image || defaultImage,
     date: meta?.date || 'not-date-available',
     tags: meta?.tags || [],

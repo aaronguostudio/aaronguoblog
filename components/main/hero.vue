@@ -9,11 +9,15 @@ const { t } = useI18n()
     <div class="px-4 max-w-4xl mx-auto">
       <div class="relative">
         <!-- Decorative gradient background -->
-        <div class="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-purple-500/5 to-pink-500/5 dark:from-blue-500/10 dark:via-purple-500/10 dark:to-pink-500/10 rounded-3xl blur-3xl -z-10" />
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-purple-500/5 to-pink-500/5 dark:from-blue-500/10 dark:via-purple-500/10 dark:to-pink-500/10 rounded-3xl blur-3xl -z-10"
+        />
 
         <div class="flex flex-col gap-6">
           <!-- Headline with gradient text -->
-          <h1 class="font-bold leading-tight text-4xl md:text-6xl bg-gradient-to-r from-zinc-900 via-zinc-700 to-zinc-900 dark:from-zinc-100 dark:via-zinc-300 dark:to-zinc-100 bg-clip-text text-transparent">
+          <h1
+            class="font-bold leading-tight text-4xl md:text-6xl bg-gradient-to-r from-zinc-900 via-zinc-700 to-zinc-900 dark:from-zinc-100 dark:via-zinc-300 dark:to-zinc-100 bg-clip-text text-transparent"
+          >
             {{ t('home.title') }}
           </h1>
 
@@ -39,17 +43,12 @@ const { t } = useI18n()
             >
               <span class="flex items-center gap-2">
                 Start Here
-                <Icon name="heroicons:arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                <Icon
+                  name="heroicons:arrow-right"
+                  class="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300"
+                />
               </span>
             </NuxtLink>
-          </div>
-
-          <!-- Proof strip with enhanced styling -->
-          <div class="flex items-center gap-2 mt-2">
-            <div class="w-1 h-4 bg-gradient-to-b from-blue-500 to-purple-500 rounded-full" />
-            <p class="text-sm text-zinc-600 dark:text-zinc-400">
-              Head of Products • Partner • Builder of MAP / internal execution platforms • Canada
-            </p>
           </div>
         </div>
       </div>

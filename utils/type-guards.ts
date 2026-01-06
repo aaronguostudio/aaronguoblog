@@ -35,9 +35,9 @@ export function toBlogPost(obj: unknown): BlogPost {
     title: 'Untitled',
     date: new Date().toISOString(),
     description: 'No description available',
-    image: '/not-found.jpg',
+    image: '', // Empty string for conditional rendering
     alt: 'No image description available',
-    ogImage: '/not-found.jpg',
+    ogImage: '/blogs-img/blog.jpg', // Use default for social sharing only
     tags: [],
     published: false,
   }
@@ -64,9 +64,9 @@ export function extractBlogPostMeta(content: {
     title: content.title || 'Untitled',
     description: content.description || 'No description available',
     date: meta.date || new Date().toISOString(),
-    image: meta.image || '/not-found.jpg',
+    image: meta.image || '', // Empty string instead of /not-found.jpg for conditional rendering
     alt: meta.alt || 'No image description available',
-    ogImage: meta.ogImage || '/not-found.jpg',
+    ogImage: meta.ogImage || '/blogs-img/blog.jpg', // Use default for social sharing only
     tags: Array.isArray(meta.tags) ? meta.tags : [],
     topics: Array.isArray(meta.topics) ? meta.topics : [],
     published: Boolean(meta.published),
