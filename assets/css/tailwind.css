@@ -8,6 +8,30 @@ body {
   min-height: 100%;
 }
 
+/* Custom scrollbar — black background for both light and dark modes */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #52525b;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #71717a;
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #52525b #000000;
+}
+
 .prose {
   a {
     text-decoration: none;

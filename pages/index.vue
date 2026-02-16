@@ -26,6 +26,5 @@ defineOgImageComponent('About', {
     <MainHero />
     <MainFeatured />
     <MainRecent />
-    <NewsletterSignup variant="inline" />
   </main>
 </template>

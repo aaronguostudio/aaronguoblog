@@ -43,7 +43,7 @@ export const socialLinks = {
   githubLink: 'https://github.com/aaronguostudio',
   linkedinLink: 'https://www.linkedin.com/in/aaron-guo',
   twitterLink: 'https://twitter.com/aaronguostudio',
-  youtubeLink: 'https://www.youtube.com/@aaronguostudio',
+  youtubeLink: 'https://www.youtube.com/@drumnext',
 }
 
 export const siteMetaData = [

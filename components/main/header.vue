@@ -54,7 +54,6 @@ function toggleMobileMenu() {
 const navItems = computed(() => [
   { name: t('navigation.home'), path: '/', exact: true },
   { name: t('navigation.blogs'), path: '/blogs', exact: false },
-  { name: t('navigation.playbooks'), path: '/playbooks', exact: false },
   { name: t('navigation.about'), path: '/about', exact: false },
 ])
 
@@ -116,18 +115,15 @@ function isActive(path: string, exact = false) {
           </li>
         </ul>
 
-        <!-- Language Switcher -->
-        <div
-          class="flex items-center space-x-1 border-l border-border pl-6"
-          title="Change Language"
-        >
+        <!-- Language & Theme Toggle Pill -->
+        <div class="flex items-center rounded-full bg-secondary p-0.5 gap-0.5">
           <NuxtLink
             :to="switchLocalePath('en')"
-            class="px-2 py-1 text-sm font-medium rounded-md transition-all"
+            class="px-2.5 py-1 text-xs font-medium rounded-full transition-all"
             :class="
               !isChineseRoute
-                ? 'bg-primary/10 text-primary'
-                : 'text-foreground/70 hover:text-foreground hover:bg-secondary'
+                ? 'bg-background text-foreground shadow-sm'
+                : 'text-muted-foreground hover:text-foreground'
             "
             aria-label="Switch to English"
           >
@@ -135,33 +131,30 @@ function isActive(path: string, exact = false) {
           </NuxtLink>
           <NuxtLink
             :to="switchLocalePath('zh')"
-            class="px-2 py-1 text-sm font-medium rounded-md transition-all"
+            class="px-2.5 py-1 text-xs font-medium rounded-full transition-all"
             :class="
               isChineseRoute
-                ? 'bg-primary/10 text-primary'
-                : 'text-foreground/70 hover:text-foreground hover:bg-secondary'
+                ? 'bg-background text-foreground shadow-sm'
+                : 'text-muted-foreground hover:text-foreground'
             "
             aria-label="Switch to Chinese"
           >
             中
           </NuxtLink>
-        </div>
-
-        <!-- Theme Toggle -->
-        <div class="flex items-center">
+          <div class="w-px h-3.5 bg-border" />
           <ClientOnly>
             <button
               aria-label="Toggle dark mode"
-              class="px-1 py-1 rounded-md hover:bg-secondary transition-colors"
+              class="px-2 py-1 rounded-full text-muted-foreground hover:text-foreground transition-colors"
               @click="toggleColorMode"
             >
               <Icon
                 :name="colorMode.value === 'dark' ? 'heroicons:sun' : 'heroicons:moon'"
-                class="w-4 h-4"
+                class="w-3.5 h-3.5"
               />
             </button>
             <template #fallback>
-              <div class="w-4 h-4"></div>
+              <div class="w-3.5 h-3.5 px-2 py-1"></div>
             </template>
           </ClientOnly>
         </div>
@@ -187,48 +180,42 @@ function isActive(path: string, exact = false) {
         </ul>
 
         <div class="flex items-center justify-between pt-4 border-t border-border">
-          <!-- Language Switcher -->
-          <div class="flex items-center space-x-2" title="Change Language">
-            <span class="text-sm text-foreground/70">{{ t('navigation.language') }}:</span>
-            <div class="flex space-x-1">
-              <NuxtLink
-                :to="switchLocalePath('en')"
-                class="px-2 py-1 text-sm font-medium rounded-md transition-all"
-                :class="
-                  !isChineseRoute
-                    ? 'bg-primary/10 text-primary'
-                    : 'text-foreground/70 hover:text-foreground hover:bg-secondary'
-                "
-                @click="isMobileMenuOpen = false"
-              >
-                EN
-              </NuxtLink>
-              <NuxtLink
-                :to="switchLocalePath('zh')"
-                class="px-2 py-1 text-sm font-medium rounded-md transition-all"
-                :class="
-                  isChineseRoute
-                    ? 'bg-primary/10 text-primary'
-                    : 'text-foreground/70 hover:text-foreground hover:bg-secondary'
-                "
-                @click="isMobileMenuOpen = false"
-              >
-                中
-              </NuxtLink>
-            </div>
-          </div>
-
-          <!-- Theme Toggle -->
-          <div class="flex items-center">
+          <!-- Language & Theme Toggle Pill -->
+          <div class="flex items-center rounded-full bg-secondary p-0.5 gap-0.5">
+            <NuxtLink
+              :to="switchLocalePath('en')"
+              class="px-3 py-1.5 text-xs font-medium rounded-full transition-all"
+              :class="
+                !isChineseRoute
+                  ? 'bg-background text-foreground shadow-sm'
+                  : 'text-muted-foreground hover:text-foreground'
+              "
+              @click="isMobileMenuOpen = false"
+            >
+              EN
+            </NuxtLink>
+            <NuxtLink
+              :to="switchLocalePath('zh')"
+              class="px-3 py-1.5 text-xs font-medium rounded-full transition-all"
+              :class="
+                isChineseRoute
+                  ? 'bg-background text-foreground shadow-sm'
+                  : 'text-muted-foreground hover:text-foreground'
+              "
+              @click="isMobileMenuOpen = false"
+            >
+              中
+            </NuxtLink>
+            <div class="w-px h-3.5 bg-border" />
             <ClientOnly>
               <button
                 aria-label="Toggle dark mode"
-                class="p-2 rounded-md hover:bg-secondary transition-colors"
+                class="px-2 py-1.5 rounded-full text-muted-foreground hover:text-foreground transition-colors"
                 @click="toggleColorMode"
               >
                 <Icon
                   :name="colorMode.value === 'dark' ? 'heroicons:sun' : 'heroicons:moon'"
-                  class="w-4 h-4"
+                  class="w-3.5 h-3.5"
                 />
               </button>
             </ClientOnly>

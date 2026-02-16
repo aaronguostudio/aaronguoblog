@@ -5,7 +5,7 @@ import { useI18n } from 'vue-i18n'
 const { t } = useI18n()
 
 interface Props {
-  variant?: 'inline' | 'footer'
+  variant?: 'inline' | 'footer' | 'section'
   title?: string
   description?: string
 }
@@ -78,7 +78,10 @@ const copyToClipboard = async () => {
 <template>
   <div
     id="subscribe"
-    :class="['rounded-lg', variant === 'inline' ? 'bg-secondary p-8' : 'bg-muted p-6']"
+    :class="[
+      variant === 'section' ? '' : 'rounded-lg',
+      variant === 'inline' ? 'bg-secondary p-8' : variant === 'section' ? '' : 'bg-muted p-6',
+    ]"
   >
     <div class="max-w-2xl mx-auto">
       <!-- Newsletter Header -->

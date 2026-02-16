@@ -140,14 +140,5 @@ const playbooksData = computed(() => {
         {{ t('playbooks.browseWriting') }}
       </NuxtLink>
     </div>
-
-    <!-- Newsletter CTA -->
-    <div class="mt-16">
-      <NewsletterSignup
-        variant="inline"
-        :title="t('playbooks.newsletterTitle')"
-        :description="t('playbooks.newsletterDescription')"
-      />
-    </div>
   </main>
 </template>

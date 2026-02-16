@@ -348,8 +348,5 @@ defineOgImageComponent('About', {
         </NuxtLink>
       </div>
     </div>
-
-    <!-- Newsletter CTA -->
-    <NewsletterSignup variant="inline" />
   </main>
 </template>
