@@ -7,7 +7,7 @@ const { t } = useI18n()
 <template>
   <div class="py-5 dark:border-gray-800 mt-2 text-zinc-700 dark:text-zinc-300">
     <div class="px-4 container max-w-8xl mx-auto">
-      <!-- RSS & Subscribe Links -->
+      <!-- Footer Links -->
       <div class="flex justify-center items-center gap-6 mb-4">
         <NuxtLink
           to="/subscribe"
@@ -25,9 +25,16 @@ const { t } = useI18n()
           <Icon name="mdi:rss-box" class="w-4 h-4" />
           <span>RSS Feed</span>
         </a>
+        <NuxtLink
+          to="/drum"
+          class="text-sm hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-1"
+        >
+          <Icon name="mdi:music-circle" class="w-4 h-4" />
+          <span>{{ t('navigation.drum') }}</span>
+        </NuxtLink>
       </div>
 
-      <div class="dark:border-gray-800 text-center p-2 text-sm">© 2020-2025 Aaron Guo</div>
+      <div class="dark:border-gray-800 text-center p-2 text-sm">© 2020-2026 Aaron Guo</div>
     </div>
   </div>
 </template>

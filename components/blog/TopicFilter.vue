@@ -17,7 +17,7 @@ const emit = defineEmits<{
 const availableTopics = [
   { id: 'ai-native', label: 'AI Native', icon: '🤖' },
   { id: 'execution', label: 'Execution', icon: '⚡' },
-  { id: 'leadership', label: 'Leadership', icon: '🎯' },
+  { id: 'building-in-public', label: 'Building in Public', icon: '🚀' },
 ]
 
 function toggleTopic(topicId: string) {
@@ -49,8 +49,12 @@ function isSelected(topicId: string) {
     <!-- Header with gradient accent -->
     <div class="flex items-center justify-between mb-6">
       <div class="flex items-center gap-3">
-        <div class="w-1 h-8 bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500 rounded-full" />
-        <h3 class="text-xl font-bold bg-gradient-to-r from-zinc-900 via-zinc-700 to-zinc-900 dark:from-zinc-100 dark:via-zinc-300 dark:to-zinc-100 bg-clip-text text-transparent">
+        <div
+          class="w-1 h-8 bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500 rounded-full"
+        />
+        <h3
+          class="text-xl font-bold bg-gradient-to-r from-zinc-900 via-zinc-700 to-zinc-900 dark:from-zinc-100 dark:via-zinc-300 dark:to-zinc-100 bg-clip-text text-transparent"
+        >
           {{ t('blogs.filterByTopic') }}
         </h3>
       </div>
@@ -59,7 +63,10 @@ function isSelected(topicId: string) {
         class="group flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
         @click="clearAll"
       >
-        <Icon name="heroicons:x-mark" class="w-4 h-4 group-hover:rotate-90 transition-transform duration-300" />
+        <Icon
+          name="heroicons:x-mark"
+          class="w-4 h-4 group-hover:rotate-90 transition-transform duration-300"
+        />
         <span>{{ t('categories.clearAll') }}</span>
       </button>
     </div>
@@ -87,7 +94,7 @@ function isSelected(topicId: string) {
         <span
           :class="[
             'text-lg transition-transform duration-300 relative z-10',
-            isSelected(topic.id) ? 'scale-110' : 'group-hover:scale-110'
+            isSelected(topic.id) ? 'scale-110' : 'group-hover:scale-110',
           ]"
         >
           {{ topic.icon }}
@@ -107,7 +114,9 @@ function isSelected(topicId: string) {
 
     <!-- Selection Counter with Badge -->
     <div v-if="selectedTopics.length > 0" class="mt-4 flex items-center gap-2">
-      <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 rounded-lg">
+      <div
+        class="inline-flex items-center gap-2 px-3 py-1.5 bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 rounded-lg"
+      >
         <div class="w-2 h-2 bg-blue-500 rounded-full animate-pulse" />
         <span class="text-sm font-medium text-blue-700 dark:text-blue-300">
           {{ selectedTopics.length }} {{ t('categories.selected') }}
@@ -116,4 +125,3 @@ function isSelected(topicId: string) {
     </div>
   </div>
 </template>
-

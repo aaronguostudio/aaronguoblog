@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
+import { socialLinks } from '~/data'
 
 const { t } = useI18n()
+const localePath = useLocalePath()
 </script>
 
 <template>
@@ -14,9 +16,26 @@ const { t } = useI18n()
         />
 
         <div class="flex flex-col gap-6">
-          <!-- Headline with gradient text -->
+          <!-- Avatar + Name -->
+          <div class="flex items-center gap-4">
+            <div
+              class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 flex items-center justify-center text-white text-2xl sm:text-3xl font-bold shadow-lg"
+            >
+              AG
+            </div>
+            <div>
+              <h2 class="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-zinc-100">
+                Aaron Guo
+              </h2>
+              <p class="text-sm sm:text-base text-zinc-500 dark:text-zinc-400">
+                Product Builder · Engineer · AI Practitioner
+              </p>
+            </div>
+          </div>
+
+          <!-- Headline -->
           <h1
-            class="font-bold leading-tight text-4xl md:text-6xl bg-gradient-to-r from-zinc-900 via-zinc-700 to-zinc-900 dark:from-zinc-100 dark:via-zinc-300 dark:to-zinc-100 bg-clip-text text-transparent"
+            class="font-bold leading-tight text-3xl md:text-5xl bg-gradient-to-r from-zinc-900 via-zinc-700 to-zinc-900 dark:from-zinc-100 dark:via-zinc-300 dark:to-zinc-100 bg-clip-text text-transparent"
           >
             {{ t('home.title') }}
           </h1>
@@ -26,29 +45,69 @@ const { t } = useI18n()
             {{ t('home.description') }}
           </p>
 
-          <!-- CTAs with enhanced design -->
+          <!-- CTAs -->
           <div class="flex flex-col sm:flex-row gap-4 mt-4">
-            <a
-              href="#newsletter"
+            <NuxtLink
+              to="/subscribe"
               class="group relative inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 rounded-xl transition-all duration-300 shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/40 hover:scale-105 overflow-hidden"
             >
               <span class="relative z-10 flex items-center gap-2">
                 <Icon name="heroicons:envelope" class="w-5 h-5" />
-                Subscribe to Newsletter
+                Subscribe
               </span>
-            </a>
+            </NuxtLink>
             <NuxtLink
-              to="/start"
+              :to="localePath('/about')"
               class="group inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20 hover:bg-blue-100 dark:hover:bg-blue-900/30 rounded-xl transition-all duration-300 border-2 border-blue-200 dark:border-blue-800 hover:border-blue-400 dark:hover:border-blue-600 hover:scale-105"
             >
               <span class="flex items-center gap-2">
-                Start Here
+                {{ t('navigation.about') }}
                 <Icon
                   name="heroicons:arrow-right"
                   class="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300"
                 />
               </span>
             </NuxtLink>
+          </div>
+
+          <!-- Social links row -->
+          <div class="flex items-center gap-4 mt-2">
+            <a
+              :href="socialLinks.githubLink"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+              aria-label="GitHub"
+            >
+              <Icon name="mdi:github" class="w-5 h-5" />
+            </a>
+            <a
+              :href="socialLinks.linkedinLink"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-zinc-400 hover:text-blue-600 transition-colors"
+              aria-label="LinkedIn"
+            >
+              <Icon name="mdi:linkedin" class="w-5 h-5" />
+            </a>
+            <a
+              :href="socialLinks.twitterLink"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+              aria-label="Twitter/X"
+            >
+              <Icon name="mdi:twitter" class="w-5 h-5" />
+            </a>
+            <a
+              :href="socialLinks.youtubeLink"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-zinc-400 hover:text-red-600 transition-colors"
+              aria-label="YouTube"
+            >
+              <Icon name="mdi:youtube" class="w-5 h-5" />
+            </a>
           </div>
         </div>
       </div>

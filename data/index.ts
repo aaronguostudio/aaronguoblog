@@ -7,14 +7,10 @@ export const navbarData = {
 export const footerData = {
   author: 'Aaron Guo',
   aboutAuthor:
-    'Hi! I am Aaron, a tech enthusiast, head of products and software engineer. Currently working at Mawer Investment Management.',
-  authorInterest: 'I have a fair amount of knowledge of Javascript, Typescript, VueJs, and Nuxt.',
+    'Product builder and engineer at a financial firm. I ship with AI daily and write about what works.',
+  authorInterest: 'Real notes on product execution, AI-native systems, and building in public.',
   aboutTheSite:
-    'This is a personal blog site built with Nuxt3, TailwindCSS, NuxtContent, Nuxt Icon.',
-  aboutTheSiteLink: {
-    text: 'Nuxt Blog template',
-    href: 'https://github.com/nurRiyad/nuxt-blog',
-  },
+    'I build with AI and write about what works. Product thinking, AI-native systems, and lessons from the trenches.',
 }
 
 export const homePage = {
@@ -33,30 +29,21 @@ export const categoryPage = {
     'Blow this category is generated from all the tags are mentioned in the different blog post',
 }
 
-// export const aboutPage = {
-//   title: 'Aaron Guo',
-//   description: 'Software Engineer, Problem Solver, Web Enthusiast.',
-//   aboutMe:
-//     "Hi there! I'm Aaron, juggling pixels and product roadmap as a Head of Products & Software Engineer at Mawer Investment Management. By day, I wrangle complex challenges in the investment world; by night (and often weekends!), you'll find me diving deep into the realms of Javascript, Typescript, Vue, and Nuxt, always eager to build something new or solve a tricky puzzle. Welcome to my corner of the web where I share my explorations and insights!",
-// }
-
 export const seoData = {
-  title: `Aaron Guo | Aaron Guo Blog`,
-  ogTitle: `Let's learn Javascript, Typescript, Vue, Nuxt, & Problem Solving - Aaron Guo Blog | Aaron Guo Blog`,
-  description: `Hi I am Aaron. A Software Engineer at FieldNation, with over 3.5+ years experience in software development. - Aaron Guo Blog | Aaron Guo Blog`,
-  twitterDescription: `Aaron Guo Blog, where I play around with Nuxt, Vue, and more and showcase my blog, resources, etc - Aaron Guo Blog | Aaron Guo Blog`,
-  // image:
-  //   'https://res.cloudinary.com/dmecmyphj/image/upload/v1673548905/nuxt-blog/cover_ntgs6u.webp',
+  title: `Aaron Guo — Ship with AI, not about AI`,
+  ogTitle: `Aaron Guo — Product leader who builds AI systems that do the work`,
+  description: `Builder who ships with AI daily. Real notes on product execution, AI-native systems, and what actually works.`,
+  twitterDescription: `Builder who ships with AI daily. Real notes on product execution, AI-native systems, and what actually works.`,
   mySite: 'https://aaronguo.com',
   twitterHandle: '@aaronguostudio',
   mailAddress: 'aaronguostudio@gmail.com',
 }
 
 export const socialLinks = {
-  githubLink: 'https://github.com/nurRiyad',
-  linkedinLink: 'https://www.linkedin.com/in/nur-riyad/',
-  twitterLink: 'https://twitter.com/qdnvubp',
-  stackoverflowLink: 'https://stackoverflow.com/users/16781395/nur-riyad',
+  githubLink: 'https://github.com/aaronguostudio',
+  linkedinLink: 'https://www.linkedin.com/in/aaron-guo',
+  twitterLink: 'https://twitter.com/aaronguostudio',
+  youtubeLink: 'https://www.youtube.com/@aaronguostudio',
 }
 
 export const siteMetaData = [

@@ -13,8 +13,8 @@ export default defineEventHandler(async (event) => {
   const docs = await queryCollection(event, locale as 'en' | 'zh').all()
 
   const feed = new Feed({
-    title: "Aaron's personal blog site",
-    description: "Aaron's personal blog site",
+    title: 'Aaron Guo — Ship with AI, not about AI',
+    description: 'Real notes on product execution, AI-native systems, and building in public.',
     id: basePath,
     link: basePath,
     language: locale,

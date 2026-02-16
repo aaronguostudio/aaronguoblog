@@ -1,2 +1,2 @@
 export const siteDescription =
-  'This blog is for documenting my journey through the tech explosion: Indexing learnings, showcasing work, and keeping pace with AI and beyond.'
+  'I build with AI and write about what works. Product thinking, AI-native systems, and lessons from the trenches.'

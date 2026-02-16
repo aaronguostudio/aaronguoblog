@@ -53,11 +53,15 @@ watch(
   { deep: true },
 )
 
-// Initialize selected categories from URL query parameters
+// Initialize selected categories and topics from URL query parameters
 onMounted(() => {
   const categoriesParam = route.query.categories as string
   if (categoriesParam) {
     selectedCategories.value = categoriesParam.split(',')
+  }
+  const topicParam = route.query.topic as string
+  if (topicParam) {
+    selectedTopics.value = topicParam.split(',')
   }
 })
 
@@ -232,14 +236,20 @@ defineOgImage({
     <div class="px-4 mb-12">
       <div class="relative">
         <!-- Decorative gradient background -->
-        <div class="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-purple-500/5 to-pink-500/5 dark:from-blue-500/10 dark:via-purple-500/10 dark:to-pink-500/10 rounded-3xl blur-3xl" />
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-purple-500/5 to-pink-500/5 dark:from-blue-500/10 dark:via-purple-500/10 dark:to-pink-500/10 rounded-3xl blur-3xl"
+        />
 
-        <div class="relative bg-white/50 dark:bg-zinc-900/50 backdrop-blur-sm border border-zinc-200 dark:border-zinc-800 rounded-2xl p-8 shadow-xl">
-          <h1 class="text-4xl md:text-5xl font-bold mb-3 bg-gradient-to-r from-zinc-900 via-zinc-700 to-zinc-900 dark:from-zinc-100 dark:via-zinc-300 dark:to-zinc-100 bg-clip-text text-transparent">
+        <div
+          class="relative bg-white/50 dark:bg-zinc-900/50 backdrop-blur-sm border border-zinc-200 dark:border-zinc-800 rounded-2xl p-8 shadow-xl"
+        >
+          <h1
+            class="text-4xl md:text-5xl font-bold mb-3 bg-gradient-to-r from-zinc-900 via-zinc-700 to-zinc-900 dark:from-zinc-100 dark:via-zinc-300 dark:to-zinc-100 bg-clip-text text-transparent"
+          >
             Writing
           </h1>
           <p class="text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl">
-            Thoughts on AI, execution, leadership, and building products
+            Thoughts on AI-native systems, product execution, and building in public
           </p>
         </div>
       </div>
@@ -269,7 +279,10 @@ defineOgImage({
         <div class="pb-8">
           <div class="relative w-full mx-auto group">
             <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
-              <Icon name="heroicons:magnifying-glass" class="w-5 h-5 text-zinc-400 dark:text-zinc-500 group-focus-within:text-blue-500 transition-colors" />
+              <Icon
+                name="heroicons:magnifying-glass"
+                class="w-5 h-5 text-zinc-400 dark:text-zinc-500 group-focus-within:text-blue-500 transition-colors"
+              />
             </div>
             <input
               v-model="searchQuery"
