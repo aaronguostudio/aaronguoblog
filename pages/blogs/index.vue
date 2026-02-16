@@ -232,23 +232,12 @@ defineOgImage({
 
 <template>
   <main class="container max-w-8xl mx-auto py-8">
-    <!-- Page Header with Gradient -->
-    <div class="px-4 mb-12">
-      <div class="relative">
-        <!-- Decorative gradient background -->
-        <div
-          class="absolute inset-0 bg-foreground/[0.02] dark:bg-foreground/[0.03] rounded-3xl blur-3xl"
-        />
-
-        <div
-          class="relative bg-card/50 backdrop-blur-sm border border-border rounded-2xl p-8 shadow-xl"
-        >
-          <h1 class="text-4xl md:text-5xl font-bold mb-3 text-foreground">Writing</h1>
-          <p class="text-lg text-muted-foreground max-w-2xl">
-            Thoughts on AI-native systems, product execution, and building in public
-          </p>
-        </div>
-      </div>
+    <!-- Page Header -->
+    <div class="px-4 mb-10">
+      <h1 class="text-4xl md:text-5xl font-bold text-foreground mb-3">Writing</h1>
+      <p class="text-lg text-muted-foreground max-w-2xl">
+        Thoughts on AI-native systems, product execution, and building in public
+      </p>
     </div>
 
     <div class="px-4 grid grid-cols-1 lg:grid-cols-4 gap-8">

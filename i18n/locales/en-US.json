@@ -5,7 +5,9 @@
     "description": "Product thinking, AI-native systems, and lessons from the trenches. Real notes from a builder who ships daily.",
     "recent": "Recent",
     "featured": "Featured",
-    "latest": "Latest"
+    "latest": "Latest",
+    "writing": "Writing",
+    "viewAllWriting": "View all writing"
   },
   "navigation": {
     "homeTitle": "Aaron Guo",

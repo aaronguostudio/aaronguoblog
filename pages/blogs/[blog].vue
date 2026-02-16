@@ -10,6 +10,10 @@ definePageMeta({
 const route = useRoute()
 const { locale } = useI18n()
 
+// Track scroll depth milestones (25%, 50%, 75%, 100%)
+const { useScrollDepthTracking } = useRybbitAnalytics()
+useScrollDepthTracking(route.path)
+
 // Determine the correct collection and content path
 const collection = computed(() => locale.value)
 

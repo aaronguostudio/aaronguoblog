@@ -74,6 +74,9 @@ const localePath = useLocalePath()
               rel="noopener noreferrer"
               class="text-muted-foreground hover:text-foreground transition-colors"
               aria-label="GitHub"
+              data-rybbit-event="outbound_click"
+              data-rybbit-prop-platform="github"
+              data-rybbit-prop-location="hero"
             >
               <Icon name="mdi:github" class="w-5 h-5" />
             </a>
@@ -83,6 +86,9 @@ const localePath = useLocalePath()
               rel="noopener noreferrer"
               class="text-muted-foreground hover:text-foreground transition-colors"
               aria-label="LinkedIn"
+              data-rybbit-event="outbound_click"
+              data-rybbit-prop-platform="linkedin"
+              data-rybbit-prop-location="hero"
             >
               <Icon name="mdi:linkedin" class="w-5 h-5" />
             </a>
@@ -92,6 +98,9 @@ const localePath = useLocalePath()
               rel="noopener noreferrer"
               class="text-muted-foreground hover:text-foreground transition-colors"
               aria-label="Twitter/X"
+              data-rybbit-event="outbound_click"
+              data-rybbit-prop-platform="twitter"
+              data-rybbit-prop-location="hero"
             >
               <Icon name="mdi:twitter" class="w-5 h-5" />
             </a>
@@ -101,6 +110,9 @@ const localePath = useLocalePath()
               rel="noopener noreferrer"
               class="text-muted-foreground hover:text-foreground transition-colors"
               aria-label="YouTube"
+              data-rybbit-event="outbound_click"
+              data-rybbit-prop-platform="youtube"
+              data-rybbit-prop-location="hero"
             >
               <Icon name="mdi:youtube" class="w-5 h-5" />
             </a>

@@ -5,7 +5,9 @@
     "description": "产品思维、AI 原生系统、一线实战经验。来自一个每天都在用 AI 交付的构建者的真实笔记。",
     "recent": "最新文章",
     "featured": "精选文章",
-    "latest": "最新发布"
+    "latest": "最新发布",
+    "writing": "文章",
+    "viewAllWriting": "查看所有文章"
   },
   "navigation": {
     "homeTitle": "Aaron Guo",

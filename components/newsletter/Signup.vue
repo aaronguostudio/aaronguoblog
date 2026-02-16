@@ -3,6 +3,7 @@ import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
+const { trackEvent } = useRybbitAnalytics()
 
 interface Props {
   variant?: 'inline' | 'footer' | 'section'
@@ -50,6 +51,11 @@ const subscribe = async () => {
     } else {
       message.value = t('newsletter.success')
     }
+    // Track successful newsletter subscription
+    trackEvent('newsletter_subscribe', {
+      status: res.status || 'active',
+      location: props.variant,
+    })
     email.value = ''
   } catch (err: any) {
     status.value = 'error'
