@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "better-sqlite3": {
+      "buildScripts": {
+        "safe": true
+      }
+    },
+    "@parcel/watcher": {
+      "buildScripts": {
+        "safe": true
+      }
+    },
+    "esbuild": {
+      "buildScripts": {
+        "safe": true
+      }
+    },
+    "sharp": {
+      "buildScripts": {
+        "safe": true
+      }
+    }
+  }
+}
