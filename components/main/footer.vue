@@ -11,7 +11,7 @@ const { t } = useI18n()
       <div class="flex justify-center items-center gap-6 mb-4">
         <NuxtLink
           to="/subscribe"
-          class="text-sm hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-1"
+          class="text-sm hover:text-foreground transition-colors flex items-center gap-1"
         >
           <Icon name="mdi:rss" class="w-4 h-4" />
           <span>{{ t('footer.subscribe') }}</span>
@@ -20,14 +20,14 @@ const { t } = useI18n()
           href="/rss.xml"
           target="_blank"
           rel="noopener noreferrer"
-          class="text-sm hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-1"
+          class="text-sm hover:text-foreground transition-colors flex items-center gap-1"
         >
           <Icon name="mdi:rss-box" class="w-4 h-4" />
           <span>RSS Feed</span>
         </a>
         <NuxtLink
           to="/drum"
-          class="text-sm hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-1"
+          class="text-sm hover:text-foreground transition-colors flex items-center gap-1"
         >
           <Icon name="mdi:music-circle" class="w-4 h-4" />
           <span>{{ t('navigation.drum') }}</span>

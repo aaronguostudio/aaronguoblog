@@ -10,14 +10,14 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const variantClasses = {
-  default: 'bg-white dark:bg-zinc-900 border-2 border-zinc-200 dark:border-zinc-800',
-  gradient: 'bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-950/20 dark:to-purple-950/20 border-2 border-blue-200 dark:border-blue-800',
-  accent: 'bg-white dark:bg-zinc-900 border-2 border-zinc-200 dark:border-zinc-800',
+  default: 'bg-card border-2 border-border',
+  gradient: 'bg-secondary border-2 border-border',
+  accent: 'bg-card border-2 border-border',
 }
 </script>
 
 <template>
-  <div 
+  <div
     :class="[
       'relative rounded-2xl p-6 shadow-lg transition-all duration-300',
       variantClasses[variant],
@@ -25,11 +25,13 @@ const variantClasses = {
     ]"
   >
     <!-- Decorative corner accent for accent variant -->
-    <div v-if="variant === 'accent'" class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-bl-full rounded-tr-2xl" />
-    
+    <div
+      v-if="variant === 'accent'"
+      class="absolute top-0 right-0 w-20 h-20 bg-foreground/5 rounded-bl-full rounded-tr-2xl"
+    />
+
     <div :class="variant === 'accent' ? 'relative' : ''">
       <slot />
     </div>
   </div>
 </template>
-

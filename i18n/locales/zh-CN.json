@@ -82,19 +82,29 @@
     "noShorts": "暂无短视频。敬请期待！",
     "lastUpdated": "最后更新"
   },
+  "newsletter": {
+    "title": "订阅我的邮件通讯",
+    "description": "用 AI 构建，分享真正有效的方法。订阅即可在新文章发布时收到通知。",
+    "placeholder": "输入您的邮箱",
+    "subscribe": "订阅",
+    "subscribing": "订阅中...",
+    "success": "订阅成功！请查看邮箱中的欢迎邮件。",
+    "alreadySubscribed": "您已经订阅过了——欢迎回来！",
+    "error": "出了点问题，请重试。",
+    "invalidEmail": "请输入有效的邮箱地址。"
+  },
   "rss": {
-    "title": "通过 RSS 订阅",
-    "description": "通过 RSS 阅读器获取新文章。关于产品执行、AI 原生系统和真正有效的方法的真实笔记。",
+    "title": "或通过 RSS 订阅",
+    "description": "偏好 RSS？通过阅读器获取新文章。",
     "copy": "复制链接",
     "copied": "已复制！",
     "quickSubscribe": "快速订阅：",
     "rawFeed": "原始订阅源",
-    "emailComingSoon": "📧 邮件订阅即将推出。目前，RSS 是获取更新的最佳方式。",
     "privacy": "无追踪。无垃圾邮件。纯粹内容。"
   },
   "subscribe": {
-    "title": "订阅更新",
-    "description": "通过 RSS 获取新文章更新。邮件订阅即将推出。",
+    "title": "订阅",
+    "description": "新文章直接发送到您的邮箱。关于产品执行、AI 原生系统和真正有效的方法的真实笔记。",
     "playbooks": "实战手册",
     "playbooksDesc": "产品执行和 AI 原生系统的分步指南",
     "lessons": "经验教训",

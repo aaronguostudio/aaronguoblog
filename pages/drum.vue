@@ -21,12 +21,19 @@ defineOgImageComponent('Drum', {
 })
 
 const formatNumber = (num: number) => num.toLocaleString('en-US')
-const formatDate = (dateString: string) => new Date(dateString).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })
+const formatDate = (dateString: string) =>
+  new Date(dateString).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+  })
 const formatDuration = (seconds: number) => {
   if (seconds < 60) return `${seconds}s`
   const minutes = Math.floor(seconds / 60)
   const remainingSeconds = seconds % 60
-  return remainingSeconds > 0 ? `${minutes}:${remainingSeconds.toString().padStart(2, '0')}` : `${minutes}:00`
+  return remainingSeconds > 0
+    ? `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`
+    : `${minutes}:00`
 }
 const getVideoUrl = (videoId: string) => `https://www.youtube.com/watch?v=${videoId}`
 </script>
@@ -36,15 +43,19 @@ const getVideoUrl = (videoId: string) => `https://www.youtube.com/watch?v=${vide
     <!-- Page Header -->
     <div class="mb-12">
       <div class="relative">
-        <div class="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-purple-500/5 to-pink-500/5 dark:from-blue-500/10 dark:via-purple-500/10 dark:to-pink-500/10 rounded-3xl blur-3xl" />
-        <div class="relative bg-white/50 dark:bg-zinc-900/50 backdrop-blur-sm border border-zinc-200 dark:border-zinc-800 rounded-2xl p-8 shadow-xl">
+        <div
+          class="absolute inset-0 bg-foreground/[0.02] dark:bg-foreground/[0.03] rounded-3xl blur-3xl"
+        />
+        <div
+          class="relative bg-card/50 backdrop-blur-sm border border-border rounded-2xl p-8 shadow-xl"
+        >
           <div class="flex items-center gap-4 mb-4">
             <span class="text-5xl">🥁</span>
-            <h1 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-zinc-900 via-zinc-700 to-zinc-900 dark:from-zinc-100 dark:via-zinc-300 dark:to-zinc-100 bg-clip-text text-transparent">
+            <h1 class="text-4xl md:text-5xl font-bold text-foreground">
               {{ t('drum.title') }}
             </h1>
           </div>
-          <p class="text-lg text-zinc-700 dark:text-zinc-300 leading-relaxed">
+          <p class="text-lg text-muted-foreground leading-relaxed">
             {{ t('drum.description') }}
           </p>
         </div>
@@ -54,15 +65,19 @@ const getVideoUrl = (videoId: string) => `https://www.youtube.com/watch?v=${vide
     <!-- About Drum Next -->
     <div class="mb-12">
       <div class="flex items-center gap-3 mb-6">
-        <div class="w-1 h-10 bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500 rounded-full" />
-        <h2 class="text-3xl font-bold bg-gradient-to-r from-zinc-900 via-zinc-700 to-zinc-900 dark:from-zinc-100 dark:via-zinc-300 dark:to-zinc-100 bg-clip-text text-transparent">
+        <div class="w-1 h-10 bg-foreground rounded-full" />
+        <h2 class="text-3xl font-bold text-foreground">
           {{ t('drum.aboutDrumNext') }}
         </h2>
       </div>
       <div class="relative group">
-        <div class="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 dark:from-blue-500/20 dark:via-purple-500/20 dark:to-pink-500/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300" />
-        <div class="relative bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
-          <p class="text-lg text-zinc-700 dark:text-zinc-300 leading-relaxed mb-6">
+        <div
+          class="absolute inset-0 bg-foreground/[0.05] rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"
+        />
+        <div
+          class="relative bg-card border border-border rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300"
+        >
+          <p class="text-lg text-muted-foreground leading-relaxed mb-6">
             {{ t('drum.drumNextDescription') }}
           </p>
           <div class="flex flex-wrap gap-4">
@@ -70,9 +85,12 @@ const getVideoUrl = (videoId: string) => `https://www.youtube.com/watch?v=${vide
               href="https://www.youtube.com/@drumnext"
               target="_blank"
               rel="noopener noreferrer"
-              class="group inline-flex items-center gap-2 px-6 py-3 bg-red-600 hover:bg-red-700 text-white rounded-xl transition-all duration-300 shadow-lg shadow-red-500/30 hover:shadow-xl hover:scale-105"
+              class="group inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground hover:bg-foreground rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
             >
-              <Icon name="mdi:youtube" class="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
+              <Icon
+                name="mdi:youtube"
+                class="w-5 h-5 group-hover:scale-110 transition-transform duration-300"
+              />
               {{ t('drum.watchOnYouTube') }}
             </a>
           </div>
@@ -83,44 +101,56 @@ const getVideoUrl = (videoId: string) => `https://www.youtube.com/watch?v=${vide
     <!-- Channel Stats -->
     <div v-if="youtubeData.channel.subscriberCount > 0" class="mb-12">
       <div class="flex items-center gap-3 mb-6">
-        <div class="w-1 h-10 bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500 rounded-full" />
-        <h2 class="text-3xl font-bold bg-gradient-to-r from-zinc-900 via-zinc-700 to-zinc-900 dark:from-zinc-100 dark:via-zinc-300 dark:to-zinc-100 bg-clip-text text-transparent">
+        <div class="w-1 h-10 bg-foreground rounded-full" />
+        <h2 class="text-3xl font-bold text-foreground">
           {{ t('drum.channelStats') }}
         </h2>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div class="relative group">
-          <div class="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300" />
-          <div class="relative bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+          <div
+            class="absolute inset-0 bg-foreground/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"
+          />
+          <div
+            class="relative bg-card border border-border rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
+          >
             <div class="flex items-center gap-3 mb-2">
-              <Icon name="mdi:account-multiple" class="w-6 h-6 text-blue-500" />
-              <h3 class="text-sm font-medium text-zinc-600 dark:text-zinc-400">{{ t('drum.subscribers') }}</h3>
+              <Icon name="mdi:account-multiple" class="w-6 h-6 text-foreground" />
+              <h3 class="text-sm font-medium text-muted-foreground">{{ t('drum.subscribers') }}</h3>
             </div>
-            <p class="text-3xl font-bold text-zinc-900 dark:text-zinc-100">
+            <p class="text-3xl font-bold text-foreground">
               {{ formatNumber(youtubeData.channel.subscriberCount) }}
             </p>
           </div>
         </div>
         <div class="relative group">
-          <div class="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300" />
-          <div class="relative bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+          <div
+            class="absolute inset-0 bg-foreground/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"
+          />
+          <div
+            class="relative bg-card border border-border rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
+          >
             <div class="flex items-center gap-3 mb-2">
-              <Icon name="mdi:eye" class="w-6 h-6 text-purple-500" />
-              <h3 class="text-sm font-medium text-zinc-600 dark:text-zinc-400">{{ t('drum.totalViews') }}</h3>
+              <Icon name="mdi:eye" class="w-6 h-6 text-foreground" />
+              <h3 class="text-sm font-medium text-muted-foreground">{{ t('drum.totalViews') }}</h3>
             </div>
-            <p class="text-3xl font-bold text-zinc-900 dark:text-zinc-100">
+            <p class="text-3xl font-bold text-foreground">
               {{ formatNumber(youtubeData.channel.viewCount) }}
             </p>
           </div>
         </div>
         <div class="relative group">
-          <div class="absolute inset-0 bg-gradient-to-br from-pink-500/20 to-red-500/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300" />
-          <div class="relative bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+          <div
+            class="absolute inset-0 bg-foreground/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"
+          />
+          <div
+            class="relative bg-card border border-border rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
+          >
             <div class="flex items-center gap-3 mb-2">
-              <Icon name="mdi:video" class="w-6 h-6 text-pink-500" />
-              <h3 class="text-sm font-medium text-zinc-600 dark:text-zinc-400">{{ t('drum.totalVideos') }}</h3>
+              <Icon name="mdi:video" class="w-6 h-6 text-foreground" />
+              <h3 class="text-sm font-medium text-muted-foreground">{{ t('drum.totalVideos') }}</h3>
             </div>
-            <p class="text-3xl font-bold text-zinc-900 dark:text-zinc-100">
+            <p class="text-3xl font-bold text-foreground">
               {{ formatNumber(youtubeData.channel.videoCount) }}
             </p>
           </div>
@@ -131,8 +161,8 @@ const getVideoUrl = (videoId: string) => `https://www.youtube.com/watch?v=${vide
     <!-- Latest Videos -->
     <div v-if="youtubeData.videos.length > 0" class="mb-12">
       <div class="flex items-center gap-3 mb-6">
-        <div class="w-1 h-10 bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500 rounded-full" />
-        <h2 class="text-3xl font-bold bg-gradient-to-r from-zinc-900 via-zinc-700 to-zinc-900 dark:from-zinc-100 dark:via-zinc-300 dark:to-zinc-100 bg-clip-text text-transparent">
+        <div class="w-1 h-10 bg-foreground rounded-full" />
+        <h2 class="text-3xl font-bold text-foreground">
           {{ t('drum.latestVideos') }}
         </h2>
       </div>
@@ -145,22 +175,28 @@ const getVideoUrl = (videoId: string) => `https://www.youtube.com/watch?v=${vide
           rel="noopener noreferrer"
           class="group relative block"
         >
-          <div class="relative overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+          <div
+            class="relative overflow-hidden rounded-xl border border-border bg-card shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+          >
             <div class="relative aspect-video overflow-hidden">
               <img
                 :src="video.thumbnail"
                 :alt="video.title"
                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+              />
+              <div
+                class="absolute bottom-2 right-2 px-2 py-1 bg-black/80 text-white text-xs rounded"
               >
-              <div class="absolute bottom-2 right-2 px-2 py-1 bg-black/80 text-white text-xs rounded">
                 {{ formatDuration(video.durationSeconds) }}
               </div>
             </div>
             <div class="p-4">
-              <h3 class="font-semibold text-zinc-900 dark:text-zinc-100 line-clamp-2 mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+              <h3
+                class="font-semibold text-foreground line-clamp-2 mb-2 group-hover:text-foreground/70 transition-colors"
+              >
                 {{ video.title }}
               </h3>
-              <div class="flex items-center gap-2 text-sm text-zinc-600 dark:text-zinc-400">
+              <div class="flex items-center gap-2 text-sm text-muted-foreground">
                 <Icon name="mdi:eye" class="w-4 h-4" />
                 <span>{{ formatNumber(video.viewCount) }} {{ t('drum.views') }}</span>
                 <span class="mx-1">•</span>
@@ -171,15 +207,15 @@ const getVideoUrl = (videoId: string) => `https://www.youtube.com/watch?v=${vide
         </a>
       </div>
       <div v-if="youtubeData.videos.length === 0" class="text-center py-12">
-        <p class="text-zinc-600 dark:text-zinc-400">{{ t('drum.noVideos') }}</p>
+        <p class="text-muted-foreground">{{ t('drum.noVideos') }}</p>
       </div>
     </div>
 
     <!-- Shorts -->
     <div v-if="youtubeData.shorts.length > 0" class="mb-12">
       <div class="flex items-center gap-3 mb-6">
-        <div class="w-1 h-10 bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500 rounded-full" />
-        <h2 class="text-3xl font-bold bg-gradient-to-r from-zinc-900 via-zinc-700 to-zinc-900 dark:from-zinc-100 dark:via-zinc-300 dark:to-zinc-100 bg-clip-text text-transparent">
+        <div class="w-1 h-10 bg-foreground rounded-full" />
+        <h2 class="text-3xl font-bold text-foreground">
           {{ t('drum.shorts') }}
         </h2>
       </div>
@@ -192,13 +228,15 @@ const getVideoUrl = (videoId: string) => `https://www.youtube.com/watch?v=${vide
           rel="noopener noreferrer"
           class="group relative block"
         >
-          <div class="relative overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+          <div
+            class="relative overflow-hidden rounded-xl border border-border bg-card shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+          >
             <div class="relative aspect-[9/16] overflow-hidden">
               <img
                 :src="short.thumbnail"
                 :alt="short.title"
                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-              >
+              />
               <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
               <div class="absolute bottom-2 left-2 right-2">
                 <h3 class="text-white text-sm font-semibold line-clamp-2">
@@ -214,12 +252,12 @@ const getVideoUrl = (videoId: string) => `https://www.youtube.com/watch?v=${vide
         </a>
       </div>
       <div v-if="youtubeData.shorts.length === 0" class="text-center py-12">
-        <p class="text-zinc-600 dark:text-zinc-400">{{ t('drum.noShorts') }}</p>
+        <p class="text-muted-foreground">{{ t('drum.noShorts') }}</p>
       </div>
     </div>
 
     <!-- Last Updated -->
-    <div v-if="youtubeData.metadata.fetchedAt" class="text-center text-sm text-zinc-500 dark:text-zinc-500">
+    <div v-if="youtubeData.metadata.fetchedAt" class="text-center text-sm text-muted-foreground">
       {{ t('drum.lastUpdated') }}: {{ formatDate(youtubeData.metadata.fetchedAt) }}
     </div>
   </main>

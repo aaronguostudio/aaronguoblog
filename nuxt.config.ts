@@ -4,6 +4,11 @@ import { seoData } from './data'
 export default defineNuxtConfig({
   compatibilityDate: '2024-09-30',
 
+  runtimeConfig: {
+    beehiivApiKey: process.env.BEEHIIV_API_KEY,
+    beehiivPublicationId: process.env.BEEHIIV_PUBLICATION_ID,
+  },
+
   css: ['~/assets/css/custom.css'],
 
   modules: [
@@ -30,6 +35,13 @@ export default defineNuxtConfig({
       viewport: 'width=device-width,initial-scale=1',
       title: seoData.title,
       titleTemplate: `%s | Aaron Guo`,
+      script: [
+        {
+          src: 'https://app.rybbit.io/api/script.js',
+          'data-site-id': '82289e0e12a1',
+          defer: true,
+        },
+      ],
     },
     pageTransition: { name: 'page', mode: 'out-in' },
     layoutTransition: { name: 'layout', mode: 'out-in' },

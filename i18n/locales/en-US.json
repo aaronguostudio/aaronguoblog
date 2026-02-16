@@ -82,19 +82,29 @@
     "noShorts": "No shorts available yet. Check back soon!",
     "lastUpdated": "Last updated"
   },
+  "newsletter": {
+    "title": "Subscribe to my newsletter",
+    "description": "I build with AI and write about what works. Subscribe to get new posts delivered.",
+    "placeholder": "Enter your email",
+    "subscribe": "Subscribe",
+    "subscribing": "Subscribing...",
+    "success": "You're subscribed! Check your email for a welcome message.",
+    "alreadySubscribed": "You're already subscribed — welcome back!",
+    "error": "Something went wrong. Please try again.",
+    "invalidEmail": "Please enter a valid email address."
+  },
   "rss": {
-    "title": "Subscribe via RSS",
-    "description": "Get new posts delivered to your RSS reader. Real notes on product execution, AI-native systems, and what actually works.",
+    "title": "Or subscribe via RSS",
+    "description": "Prefer RSS? Get new posts delivered to your reader.",
     "copy": "Copy URL",
     "copied": "Copied!",
     "quickSubscribe": "Quick subscribe with:",
     "rawFeed": "Raw Feed",
-    "emailComingSoon": "📧 Email newsletter coming soon. For now, RSS is the best way to stay updated.",
     "privacy": "No tracking. No spam. Pure content."
   },
   "subscribe": {
-    "title": "Subscribe to Updates",
-    "description": "Stay updated with new posts via RSS. Email newsletter coming later.",
+    "title": "Subscribe",
+    "description": "Get new posts delivered to your inbox. Real notes on product execution, AI-native systems, and what actually works.",
     "playbooks": "Playbooks",
     "playbooksDesc": "Step-by-step guides for product execution and AI-native systems",
     "lessons": "Lessons Learned",

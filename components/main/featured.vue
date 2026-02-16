@@ -67,8 +67,8 @@ const formattedData = computed(() => {
   <div class="pb-10 px-4">
     <!-- Section Header with Accent Bar -->
     <div class="flex items-center gap-3 pt-5 pb-6">
-      <div class="w-1 h-10 bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500 rounded-full" />
-      <h2 class="text-4xl font-bold bg-gradient-to-r from-zinc-900 via-zinc-700 to-zinc-900 dark:from-zinc-100 dark:via-zinc-300 dark:to-zinc-100 bg-clip-text text-transparent">
+      <div class="w-1 h-10 bg-foreground rounded-full" />
+      <h2 class="text-4xl font-bold text-foreground">
         {{ t('home.featured') }}
       </h2>
     </div>
@@ -93,4 +93,3 @@ const formattedData = computed(() => {
     </div>
   </div>
 </template>
-

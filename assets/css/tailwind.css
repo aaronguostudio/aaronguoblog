@@ -82,56 +82,49 @@ body {
   --radius-lg: 0.5rem;
   --radius-xl: 0.75rem;
 
-  /* Base colors */
+  /* Base colors — clean white */
   --background: #ffffff;
-  --foreground: #1a1a1a;
+  --foreground: #18181b; /* zinc-900 */
 
   /* Component colors */
   --card: #ffffff;
-  --card-foreground: #1a1a1a;
+  --card-foreground: #18181b;
   --popover: #ffffff;
-  --popover-foreground: #1a1a1a;
+  --popover-foreground: #18181b;
 
-  /* UI colors */
-  --primary: #3b82f6;
+  /* UI colors — zinc accent */
+  --primary: #18181b; /* zinc-900 — main accent */
   --primary-foreground: #ffffff;
-  --secondary: #f3f4f6;
-  --secondary-foreground: #1a1a1a;
-  --muted: #f3f4f6;
-  --muted-foreground: #6b7280;
-  --accent: #3b82f6;
+  --secondary: #f4f4f5; /* zinc-100 */
+  --secondary-foreground: #18181b;
+  --muted: #f4f4f5; /* zinc-100 */
+  --muted-foreground: #71717a; /* zinc-500 */
+  --accent: #27272a; /* zinc-800 */
   --accent-foreground: #ffffff;
 
   /* Functional colors */
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
-  --border: rgba(0, 0, 0, 0.1);
-  --input: rgba(0, 0, 0, 0.15);
-  --ring: #3b82f6;
+  --border: #e4e4e7; /* zinc-200 */
+  --input: #d4d4d8; /* zinc-300 */
+  --ring: #18181b; /* zinc-900 */
 
-  /* Chart colors */
-  --chart-1: #3b82f6;
-  --chart-2: #10b981;
-  --chart-3: #f59e0b;
-  --chart-4: #8b5cf6;
-  --chart-5: #ef4444;
+  /* Chart colors — neutral palette */
+  --chart-1: #18181b;
+  --chart-2: #52525b;
+  --chart-3: #a1a1aa;
+  --chart-4: #d4d4d8;
+  --chart-5: #71717a;
 
   /* Sidebar colors */
   --sidebar: #ffffff;
-  --sidebar-foreground: #1a1a1a;
-  --sidebar-primary: #3b82f6;
+  --sidebar-foreground: #18181b;
+  --sidebar-primary: #18181b;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #f3f4f6;
-  --sidebar-accent-foreground: #1a1a1a;
-  --sidebar-border: rgba(0, 0, 0, 0.1);
-  --sidebar-ring: #3b82f6;
-
-  /* HSL values for charts (as fallback or for compatibility) */
-  --chart-1: 217 91% 60%;
-  --chart-2: 158 64% 40%;
-  --chart-3: 38 92% 50%;
-  --chart-4: 265 83% 63%;
-  --chart-5: 0 84% 60%;
+  --sidebar-accent: #f4f4f5;
+  --sidebar-accent-foreground: #18181b;
+  --sidebar-border: #e4e4e7;
+  --sidebar-ring: #18181b;
 }
 
 .dark {
@@ -142,54 +135,47 @@ body {
   --radius-lg: 0.5rem;
   --radius-xl: 0.75rem;
 
-  /* Base colors - deep blue theme */
-  --background: #020b1a; /* Deep blue background */
-  --foreground: #e6f1ff; /* Light blue-tinted text for better readability */
+  /* Base colors — true dark */
+  --background: #09090b; /* zinc-950 */
+  --foreground: #fafafa; /* zinc-50 */
 
   /* Component colors */
-  --card: #061227; /* Slightly lighter blue for cards */
-  --card-foreground: #e6f1ff;
-  --popover: #112240;
-  --popover-foreground: #e6f1ff;
+  --card: #18181b; /* zinc-900 */
+  --card-foreground: #fafafa;
+  --popover: #27272a; /* zinc-800 */
+  --popover-foreground: #fafafa;
 
-  /* UI colors */
-  --primary: #2563eb; /* Blue accent color */
-  --primary-foreground: #ffffff;
-  --secondary: #172a46; /* Medium blue for secondary elements */
-  --secondary-foreground: #e6f1ff;
-  --muted: #172a46;
-  --muted-foreground: #8892b0;
-  --accent: #2563eb; /* Same as primary for consistency */
-  --accent-foreground: #ffffff;
+  /* UI colors — light zinc accent on dark */
+  --primary: #e4e4e7; /* zinc-200 — inverted accent for dark */
+  --primary-foreground: #09090b; /* zinc-950 */
+  --secondary: #27272a; /* zinc-800 */
+  --secondary-foreground: #fafafa;
+  --muted: #27272a; /* zinc-800 */
+  --muted-foreground: #a1a1aa; /* zinc-400 */
+  --accent: #d4d4d8; /* zinc-300 */
+  --accent-foreground: #09090b;
 
   /* Functional colors */
-  --destructive: #ff6b6b; /* Soft red for destructive actions */
+  --destructive: #ff6b6b;
   --destructive-foreground: #ffffff;
-  --border: rgba(230, 241, 255, 0.1);
-  --input: rgba(230, 241, 255, 0.15);
-  --ring: #2563eb;
+  --border: #27272a; /* zinc-800 */
+  --input: #3f3f46; /* zinc-700 */
+  --ring: #d4d4d8; /* zinc-300 */
 
-  /* Chart colors with better contrast on blue background */
-  --chart-1: #2563eb; /* Blue */
-  --chart-2: #f8b500; /* Gold */
-  --chart-3: #ff6b6b; /* Coral */
-  --chart-4: #c792ea; /* Lavender */
-  --chart-5: #82aaff; /* Light blue */
+  /* Chart colors — neutral palette for dark */
+  --chart-1: #e4e4e7;
+  --chart-2: #a1a1aa;
+  --chart-3: #71717a;
+  --chart-4: #52525b;
+  --chart-5: #d4d4d8;
 
   /* Sidebar colors */
-  --sidebar: #0f2847;
-  --sidebar-foreground: #e6f1ff;
-  --sidebar-primary: #2563eb;
-  --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #172a46;
-  --sidebar-accent-foreground: #e6f1ff;
-  --sidebar-border: rgba(230, 241, 255, 0.1);
-  --sidebar-ring: #2563eb;
-
-  /* HSL values for charts (as fallback or for compatibility) */
-  --chart-1: 217 91% 60%; /* Blue */
-  --chart-2: 43 100% 50%; /* Gold */
-  --chart-3: 0 100% 71%; /* Coral */
-  --chart-4: 276 65% 75%; /* Lavender */
-  --chart-5: 219 100% 75%; /* Light blue */
+  --sidebar: #18181b;
+  --sidebar-foreground: #fafafa;
+  --sidebar-primary: #e4e4e7;
+  --sidebar-primary-foreground: #09090b;
+  --sidebar-accent: #27272a;
+  --sidebar-accent-foreground: #fafafa;
+  --sidebar-border: #27272a;
+  --sidebar-ring: #d4d4d8;
 }
