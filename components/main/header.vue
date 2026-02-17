@@ -40,15 +40,19 @@ watch(
 )
 
 /**
- * Whether the current locale is Chinese.
- * Uses locale.value from @nuxtjs/i18n as the source of truth — the module
- * correctly resolves the locale from the URL during both SSR and client hydration.
+ * Hydration guard: the SSR/pre-render can produce the wrong locale (defaults to 'en'),
+ * causing a class mismatch that Vue's production hydration won't patch.
+ * By deferring the active highlight until after mount, server and client both render
+ * "no highlight" initially → no mismatch. After mount, the correct button lights up.
  */
-const isChinese = computed(() => {
-  const result = locale.value === 'zh'
-  console.log(`[i18n-debug][${env}] isChinese computed: locale="${locale.value}" → ${result}`)
-  return result
+const isHydrated = ref(false)
+onMounted(() => {
+  isHydrated.value = true
 })
+
+const isChinese = computed(() => locale.value === 'zh')
+const showEnActive = computed(() => isHydrated.value && !isChinese.value)
+const showZhActive = computed(() => isHydrated.value && isChinese.value)
 
 /**
  * Color mode toggle
@@ -139,7 +143,7 @@ function isActive(path: string, exact = false) {
             :to="switchLocalePath('en')"
             class="px-2.5 py-1 text-xs font-medium rounded-full transition-all"
             :class="
-              !isChinese
+              showEnActive
                 ? 'bg-background text-foreground shadow-sm'
                 : 'text-muted-foreground hover:text-foreground'
             "
@@ -151,7 +155,7 @@ function isActive(path: string, exact = false) {
             :to="switchLocalePath('zh')"
             class="px-2.5 py-1 text-xs font-medium rounded-full transition-all"
             :class="
-              isChinese
+              showZhActive
                 ? 'bg-background text-foreground shadow-sm'
                 : 'text-muted-foreground hover:text-foreground'
             "
@@ -204,7 +208,7 @@ function isActive(path: string, exact = false) {
               :to="switchLocalePath('en')"
               class="px-3 py-1.5 text-xs font-medium rounded-full transition-all"
               :class="
-                !isChinese
+                showEnActive
                   ? 'bg-background text-foreground shadow-sm'
                   : 'text-muted-foreground hover:text-foreground'
               "
@@ -216,7 +220,7 @@ function isActive(path: string, exact = false) {
               :to="switchLocalePath('zh')"
               class="px-3 py-1.5 text-xs font-medium rounded-full transition-all"
               :class="
-                isChinese
+                showZhActive
                   ? 'bg-background text-foreground shadow-sm'
                   : 'text-muted-foreground hover:text-foreground'
               "
