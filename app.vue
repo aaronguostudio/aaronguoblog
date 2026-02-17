@@ -1,9 +1,12 @@
 <script setup>
+import { useI18n } from 'vue-i18n'
 import { siteMetaData } from './data'
+
+const { locale } = useI18n()
 
 useHead({
   htmlAttrs: {
-    lang: 'en',
+    lang: () => (locale.value === 'zh' ? 'zh-CN' : 'en'),
   },
   meta: () => siteMetaData,
   link: [
@@ -21,7 +24,7 @@ useHead({
   <div class="min-h-screen bg-background text-foreground">
     <NuxtLoadingIndicator />
     <NuxtLayout>
-      <NuxtPage />
+      <NuxtPage :key="locale" />
     </NuxtLayout>
   </div>
 </template>
