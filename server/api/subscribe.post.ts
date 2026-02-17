@@ -54,13 +54,19 @@ export default defineEventHandler(async (event) => {
       message: 'Subscribed successfully',
       status: response?.data?.status || 'active',
     }
-  } catch (error: any) {
-    const statusCode = error?.statusCode || error?.response?.status || 500
-    const responseData = error?.data || error?.response?._data || {}
+  } catch (error: unknown) {
+    const err = error as {
+      statusCode?: number
+      response?: { status?: number; _data?: Record<string, unknown> }
+      data?: { message?: string; errors?: { message?: string }[] }
+      message?: string
+    }
+    const statusCode = err?.statusCode || err?.response?.status || 500
+    const responseData = err?.data || (err?.response?._data as Record<string, unknown>) || {}
     const errorMessage =
-      responseData?.errors?.[0]?.message ||
-      responseData?.message ||
-      error?.message ||
+      (responseData?.errors as { message?: string }[] | undefined)?.[0]?.message ||
+      (responseData?.message as string | undefined) ||
+      err?.message ||
       'Failed to subscribe'
 
     console.error('Beehiiv API error:', {

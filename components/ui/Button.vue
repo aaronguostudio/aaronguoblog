@@ -8,9 +8,12 @@ interface Props {
   to?: string
 }
 
-const props = withDefaults(defineProps<Props>(), {
+withDefaults(defineProps<Props>(), {
   variant: 'primary',
   size: 'md',
+  icon: undefined,
+  href: undefined,
+  to: undefined,
   iconPosition: 'left',
 })
 

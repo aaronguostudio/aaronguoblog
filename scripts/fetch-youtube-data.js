@@ -26,7 +26,7 @@ function loadEnv() {
   try {
     const envPath = join(__dirname, '../.env')
     const envContent = readFileSync(envPath, 'utf-8')
-    envContent.split('\n').forEach(line => {
+    envContent.split('\n').forEach((line) => {
       const trimmedLine = line.trim()
       if (trimmedLine && !trimmedLine.startsWith('#')) {
         const [key, ...valueParts] = trimmedLine.split('=')
@@ -36,7 +36,7 @@ function loadEnv() {
         }
       }
     })
-  } catch (error) {
+  } catch {
     // .env file doesn't exist, that's okay
   }
 }
@@ -115,7 +115,7 @@ async function fetchVideos() {
   const data = await response.json()
 
   // Get video IDs to fetch additional details
-  const videoIds = data.items.map(item => item.id.videoId).join(',')
+  const videoIds = data.items.map((item) => item.id.videoId).join(',')
 
   // Fetch video details (duration, view count, etc.)
   const detailsUrl = new URL('https://www.googleapis.com/youtube/v3/videos')
@@ -133,12 +133,10 @@ async function fetchVideos() {
   const detailsData = await detailsResponse.json()
 
   // Create a map of video details
-  const detailsMap = new Map(
-    detailsData.items.map(item => [item.id, item])
-  )
+  const detailsMap = new Map(detailsData.items.map((item) => [item.id, item]))
 
   // Combine search results with details
-  return data.items.map(item => {
+  return data.items.map((item) => {
     const details = detailsMap.get(item.id.videoId)
     const duration = details?.contentDetails?.duration || 'PT0S'
 
@@ -192,14 +190,11 @@ async function main() {
     console.log('🚀 Starting YouTube data fetch...\n')
 
     // Fetch channel stats and videos in parallel
-    const [channelStats, videos] = await Promise.all([
-      fetchChannelStats(),
-      fetchVideos(),
-    ])
+    const [channelStats, videos] = await Promise.all([fetchChannelStats(), fetchVideos()])
 
     // Separate shorts and regular videos
-    const shorts = videos.filter(v => v.isShort)
-    const regularVideos = videos.filter(v => !v.isShort)
+    const shorts = videos.filter((v) => v.isShort)
+    const regularVideos = videos.filter((v) => !v.isShort)
 
     // Prepare output data
     const outputData = {
@@ -231,7 +226,6 @@ async function main() {
     console.log(`   - Regular Videos: ${regularVideos.length}`)
     console.log(`   - Shorts: ${shorts.length}`)
     console.log('\n🎉 Done! You can now commit and push the changes.')
-
   } catch (error) {
     console.error('\n❌ Error:', error.message)
     process.exit(1)
@@ -240,4 +234,3 @@ async function main() {
 
 // Run the script
 main()
-

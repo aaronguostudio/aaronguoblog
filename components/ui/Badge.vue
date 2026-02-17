@@ -5,7 +5,7 @@ interface Props {
   variant?: 'default' | 'muted' | 'outline'
 }
 
-const props = withDefaults(defineProps<Props>(), {
+withDefaults(defineProps<Props>(), {
   pulse: false,
   variant: 'default',
 })

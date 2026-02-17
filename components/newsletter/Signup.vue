@@ -57,9 +57,10 @@ const subscribe = async () => {
       location: props.variant,
     })
     email.value = ''
-  } catch (err: any) {
+  } catch (err: unknown) {
     status.value = 'error'
-    message.value = err?.data?.message || err?.statusMessage || t('newsletter.error')
+    const e = err as { data?: { message?: string }; statusMessage?: string }
+    message.value = e?.data?.message || e?.statusMessage || t('newsletter.error')
   }
 }
 
@@ -99,7 +100,7 @@ const copyToClipboard = async () => {
       </p>
 
       <!-- Email Subscription Form -->
-      <form @submit.prevent="subscribe" class="flex flex-col sm:flex-row gap-3 mb-4">
+      <form class="flex flex-col sm:flex-row gap-3 mb-4" @submit.prevent="subscribe">
         <input
           v-model="email"
           type="email"
@@ -136,8 +137,8 @@ const copyToClipboard = async () => {
       <!-- RSS Toggle -->
       <div class="mt-6 pt-6 border-t border-border">
         <button
-          @click="showRss = !showRss"
           class="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+          @click="showRss = !showRss"
         >
           <Icon name="mdi:rss" class="w-4 h-4" />
           <span>{{ t('rss.title') }}</span>
@@ -158,8 +159,8 @@ const copyToClipboard = async () => {
               class="flex-1 px-3 py-2 rounded-lg border border-border bg-background text-foreground font-mono text-sm"
             />
             <button
-              @click="copyToClipboard"
               class="px-4 py-2 text-sm font-medium text-foreground bg-card border border-border rounded-lg hover:bg-secondary transition-colors flex items-center gap-2 justify-center"
+              @click="copyToClipboard"
             >
               <Icon v-if="!copied" name="mdi:content-copy" class="w-4 h-4" />
               <Icon v-else name="mdi:check" class="w-4 h-4" />
