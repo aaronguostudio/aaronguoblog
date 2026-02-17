@@ -16,9 +16,15 @@ const route = useRoute()
  * even after the user switches to English.
  */
 const i18nCookie = useCookie('i18n_redirected')
+
+// === DEBUG: i18n locale tracking ===
+const env = import.meta.server ? 'SSR' : 'CLIENT'
+console.log(`[i18n-debug][${env}] setup — locale="${locale.value}", route.path="${route.path}", route.name="${String(route.name)}", cookie="${i18nCookie.value}"`)
+
 watch(
   locale,
-  (newLocale) => {
+  (newLocale, oldLocale) => {
+    console.log(`[i18n-debug][${env}] locale changed: "${oldLocale}" → "${newLocale}", route.path="${route.path}"`)
     if (i18nCookie.value !== newLocale) {
       i18nCookie.value = newLocale
     }
@@ -26,12 +32,23 @@ watch(
   { immediate: true },
 )
 
+watch(
+  () => route.path,
+  (newPath, oldPath) => {
+    console.log(`[i18n-debug][${env}] route.path changed: "${oldPath}" → "${newPath}", locale="${locale.value}"`)
+  },
+)
+
 /**
  * Whether the current locale is Chinese.
  * Uses locale.value from @nuxtjs/i18n as the source of truth — the module
  * correctly resolves the locale from the URL during both SSR and client hydration.
  */
-const isChinese = computed(() => locale.value === 'zh')
+const isChinese = computed(() => {
+  const result = locale.value === 'zh'
+  console.log(`[i18n-debug][${env}] isChinese computed: locale="${locale.value}" → ${result}`)
+  return result
+})
 
 /**
  * Color mode toggle
