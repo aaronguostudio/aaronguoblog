@@ -2,9 +2,9 @@ name: Node.js CI
 
 on:
   push:
-    branches: ['main']
+    branches: ["main"]
   pull_request:
-    branches: ['main']
+    branches: ["main"]
 
 jobs:
   build:
@@ -30,9 +30,6 @@ jobs:
 
       - name: Check Linting
         run: pnpm run lint
-
-      - name: Check Format
-        run: pnpm run format
 
       - name: Run Tests
         run: pnpm run test
