@@ -10,6 +10,23 @@ const switchLocalePath = useSwitchLocalePath()
 const route = useRoute()
 
 /**
+ * Sync the i18n_redirected cookie with the current locale.
+ * The @nuxtjs/i18n module reads this cookie on page load to determine the redirect target.
+ * Without this sync, the cookie can get stuck on a stale value (e.g. 'zh')
+ * even after the user switches to English.
+ */
+const i18nCookie = useCookie('i18n_redirected')
+watch(
+  locale,
+  (newLocale) => {
+    if (i18nCookie.value !== newLocale) {
+      i18nCookie.value = newLocale
+    }
+  },
+  { immediate: true },
+)
+
+/**
  * Determine if the current locale is Chinese
  * Uses locale.value from i18n (more reliable than route path parsing for SSR/hydration)
  */

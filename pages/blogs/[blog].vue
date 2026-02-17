@@ -132,7 +132,7 @@ defineOgImageComponent('Test', {
 </script>
 
 <template>
-  <div class="px-4 container max-w-8xl mx-auto sm:grid grid-cols-12 gap-x-12">
+  <div class="px-4 pb-16 container max-w-8xl mx-auto sm:grid grid-cols-12 gap-x-12">
     <div class="col-span-12 lg:col-span-9">
       <BlogHeader
         :title="data.title"
@@ -150,11 +150,6 @@ defineOgImageComponent('Test', {
             <p>No content found.</p>
           </template>
         </ContentRenderer>
-      </div>
-
-      <!-- End-of-post CTA -->
-      <div class="mt-12 mb-8">
-        <NewsletterSignup variant="inline" />
       </div>
     </div>
     <BlogToc />

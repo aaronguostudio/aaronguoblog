@@ -44,12 +44,12 @@ const localePath = useLocalePath()
           <!-- CTAs -->
           <div class="flex flex-col sm:flex-row gap-4 mt-4">
             <NuxtLink
-              to="/subscribe"
+              :to="localePath('/subscribe')"
               class="group relative inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-primary-foreground bg-primary hover:bg-foreground rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 overflow-hidden"
             >
               <span class="relative z-10 flex items-center gap-2">
                 <Icon name="heroicons:envelope" class="w-5 h-5" />
-                Subscribe
+                {{ t('footer.subscribe') }}
               </span>
             </NuxtLink>
             <NuxtLink

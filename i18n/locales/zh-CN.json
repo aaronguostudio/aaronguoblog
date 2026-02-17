@@ -25,10 +25,12 @@
     "homeTitle": "Aaron Guo"
   },
   "blogs": {
-    "title": "所有博客",
+    "title": "文章",
+    "pageDescription": "关于 AI 原生系统、产品执行和公开构建的思考",
     "description": "在这里，您将找到我在此网站上撰写的所有博客文章。",
     "tableOfContent": "目录",
-    "filterByTopic": "按主题筛选"
+    "filterByTopic": "按主题筛选",
+    "searchPlaceholder": "按标题、描述或标签搜索文章..."
   },
   "categories": {
     "title": "所有分类",

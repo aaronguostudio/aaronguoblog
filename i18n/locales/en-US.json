@@ -25,10 +25,12 @@
     "homeTitle": "Aaron Guo"
   },
   "blogs": {
-    "title": "All Blogs",
+    "title": "Writing",
+    "pageDescription": "Thoughts on AI-native systems, product execution, and building in public",
     "description": "Here you will find all the blog posts I have written & published on this site.",
     "tableOfContent": "Table Of Content",
-    "filterByTopic": "Filter by Topic"
+    "filterByTopic": "Filter by Topic",
+    "searchPlaceholder": "Search blogs by title, description, or tags..."
   },
   "categories": {
     "title": "All Categories",

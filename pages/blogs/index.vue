@@ -234,9 +234,9 @@ defineOgImage({
   <main class="container max-w-8xl mx-auto py-8">
     <!-- Page Header -->
     <div class="px-4 mb-10">
-      <h1 class="text-4xl md:text-5xl font-bold text-foreground mb-3">Writing</h1>
+      <h1 class="text-4xl md:text-5xl font-bold text-foreground mb-3">{{ t('blogs.title') }}</h1>
       <p class="text-lg text-muted-foreground max-w-2xl">
-        Thoughts on AI-native systems, product execution, and building in public
+        {{ t('blogs.pageDescription') }}
       </p>
     </div>
 
@@ -272,7 +272,7 @@ defineOgImage({
             <input
               v-model="searchQuery"
               type="search"
-              placeholder="Search blogs by title, description, or tags..."
+              :placeholder="t('blogs.searchPlaceholder')"
               class="block w-full pl-12 pr-4 py-4 bg-card border-2 border-border rounded-xl focus:ring-4 focus:ring-ring/20 focus:border-ring transition-all duration-300 text-foreground placeholder:text-muted-foreground shadow-sm hover:shadow-md"
               :aria-label="t('blogs.searchPlaceholder')"
             />
