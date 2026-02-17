@@ -10,27 +10,12 @@ const switchLocalePath = useSwitchLocalePath()
 const route = useRoute()
 
 /**
- * Determine if the current route is a Chinese route
+ * Determine if the current locale is Chinese
+ * Uses locale.value from i18n (more reliable than route path parsing for SSR/hydration)
  */
 const isChineseRoute = computed(() => {
-  return route.path.startsWith('/zh/') || route.path === '/zh'
+  return locale.value === 'zh'
 })
-
-/**
- * Watch for route changes and update locale if needed
- * This ensures the i18n state stays in sync with the route
- */
-watch(
-  isChineseRoute,
-  (isChinese) => {
-    if (isChinese && locale.value !== 'zh') {
-      locale.value = 'zh'
-    } else if (!isChinese && locale.value !== 'en') {
-      locale.value = 'en'
-    }
-  },
-  { immediate: true },
-)
 
 /**
  * Color mode toggle
