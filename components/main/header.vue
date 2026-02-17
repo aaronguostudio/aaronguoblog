@@ -27,12 +27,28 @@ watch(
 )
 
 /**
- * Determine if the current locale is Chinese
- * Uses locale.value from i18n (more reliable than route path parsing for SSR/hydration)
+ * Determine if the current locale is Chinese.
+ * Uses route path as the source of truth — it's always correct during both SSR and client hydration,
+ * whereas locale.value may not be initialized correctly on the server.
  */
 const isChineseRoute = computed(() => {
-  return locale.value === 'zh'
+  return route.path.startsWith('/zh/') || route.path === '/zh'
 })
+
+/**
+ * Keep locale.value in sync with the route path.
+ * This ensures i18n translations and the cookie watcher above stay consistent with the actual URL.
+ */
+watch(
+  isChineseRoute,
+  (isChinese) => {
+    const targetLocale = isChinese ? 'zh' : 'en'
+    if (locale.value !== targetLocale) {
+      locale.value = targetLocale
+    }
+  },
+  { immediate: true },
+)
 
 /**
  * Color mode toggle
