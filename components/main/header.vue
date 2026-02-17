@@ -27,28 +27,11 @@ watch(
 )
 
 /**
- * Determine if the current locale is Chinese.
- * Uses route path as the source of truth — it's always correct during both SSR and client hydration,
- * whereas locale.value may not be initialized correctly on the server.
+ * Whether the current locale is Chinese.
+ * Uses locale.value from @nuxtjs/i18n as the source of truth — the module
+ * correctly resolves the locale from the URL during both SSR and client hydration.
  */
-const isChineseRoute = computed(() => {
-  return route.path.startsWith('/zh/') || route.path === '/zh'
-})
-
-/**
- * Keep locale.value in sync with the route path.
- * This ensures i18n translations and the cookie watcher above stay consistent with the actual URL.
- */
-watch(
-  isChineseRoute,
-  (isChinese) => {
-    const targetLocale = isChinese ? 'zh' : 'en'
-    if (locale.value !== targetLocale) {
-      locale.value = targetLocale
-    }
-  },
-  { immediate: true },
-)
+const isChinese = computed(() => locale.value === 'zh')
 
 /**
  * Color mode toggle
@@ -139,7 +122,7 @@ function isActive(path: string, exact = false) {
             :to="switchLocalePath('en')"
             class="px-2.5 py-1 text-xs font-medium rounded-full transition-all"
             :class="
-              !isChineseRoute
+              !isChinese
                 ? 'bg-background text-foreground shadow-sm'
                 : 'text-muted-foreground hover:text-foreground'
             "
@@ -151,7 +134,7 @@ function isActive(path: string, exact = false) {
             :to="switchLocalePath('zh')"
             class="px-2.5 py-1 text-xs font-medium rounded-full transition-all"
             :class="
-              isChineseRoute
+              isChinese
                 ? 'bg-background text-foreground shadow-sm'
                 : 'text-muted-foreground hover:text-foreground'
             "
@@ -204,7 +187,7 @@ function isActive(path: string, exact = false) {
               :to="switchLocalePath('en')"
               class="px-3 py-1.5 text-xs font-medium rounded-full transition-all"
               :class="
-                !isChineseRoute
+                !isChinese
                   ? 'bg-background text-foreground shadow-sm'
                   : 'text-muted-foreground hover:text-foreground'
               "
@@ -216,7 +199,7 @@ function isActive(path: string, exact = false) {
               :to="switchLocalePath('zh')"
               class="px-3 py-1.5 text-xs font-medium rounded-full transition-all"
               :class="
-                isChineseRoute
+                isChinese
                   ? 'bg-background text-foreground shadow-sm'
                   : 'text-muted-foreground hover:text-foreground'
               "
