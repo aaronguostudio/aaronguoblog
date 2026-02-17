@@ -16,27 +16,14 @@ const route = useRoute()
  * even after the user switches to English.
  */
 const i18nCookie = useCookie('i18n_redirected')
-
-// === DEBUG: i18n locale tracking ===
-const env = import.meta.server ? 'SSR' : 'CLIENT'
-console.log(`[i18n-debug][${env}] setup — locale="${locale.value}", route.path="${route.path}", route.name="${String(route.name)}", cookie="${i18nCookie.value}"`)
-
 watch(
   locale,
-  (newLocale, oldLocale) => {
-    console.log(`[i18n-debug][${env}] locale changed: "${oldLocale}" → "${newLocale}", route.path="${route.path}"`)
+  (newLocale) => {
     if (i18nCookie.value !== newLocale) {
       i18nCookie.value = newLocale
     }
   },
   { immediate: true },
-)
-
-watch(
-  () => route.path,
-  (newPath, oldPath) => {
-    console.log(`[i18n-debug][${env}] route.path changed: "${oldPath}" → "${newPath}", locale="${locale.value}"`)
-  },
 )
 
 /**
