@@ -125,5 +125,11 @@ export default defineNuxtConfig({
     langDir: 'locales', // Directory where translation files will be stored
     defaultLocale: 'en', // Your default language
     strategy: 'prefix_except_default', // Routing strategy (e.g., /about, /zh/about)
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      redirectOn: 'root', // Only redirect on root path (/) to avoid hijacking deep links
+      alwaysRedirect: true, // Always redirect based on stored cookie preference
+    },
   },
 })
