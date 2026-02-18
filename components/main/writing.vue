@@ -167,7 +167,7 @@ function compactDate(dateStr: string) {
           <img
             :src="post.image || '/blogs-img/blog.jpg'"
             :alt="post.alt"
-            class="w-full h-40 object-cover object-center group-hover:scale-[1.02] transition-all duration-500"
+            class="w-full h-60 object-cover object-center group-hover:scale-[1.02] transition-all duration-500"
           />
           <div class="p-4">
             <h4
