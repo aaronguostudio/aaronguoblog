@@ -7,7 +7,7 @@ const localePath = useLocalePath()
 </script>
 
 <template>
-  <div class="container mx-auto py-12 sm:py-16">
+  <div class="container mx-auto py-8 sm:py-10">
     <div class="px-4 max-w-4xl mx-auto">
       <div class="relative">
         <!-- Decorative subtle background -->
@@ -16,21 +16,6 @@ const localePath = useLocalePath()
         />
 
         <div class="flex flex-col gap-6">
-          <!-- Avatar + Name -->
-          <div class="flex items-center gap-4">
-            <div
-              class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-foreground flex items-center justify-center text-background text-2xl sm:text-3xl font-bold shadow-lg"
-            >
-              AG
-            </div>
-            <div>
-              <h2 class="text-xl sm:text-2xl font-bold text-foreground">Aaron Guo</h2>
-              <p class="text-sm sm:text-base text-muted-foreground">
-                Product Builder · Engineer · AI Practitioner
-              </p>
-            </div>
-          </div>
-
           <!-- Headline -->
           <h1 class="font-bold leading-tight text-3xl md:text-5xl text-foreground">
             {{ t('home.title') }}
@@ -41,8 +26,8 @@ const localePath = useLocalePath()
             {{ t('home.description') }}
           </p>
 
-          <!-- CTAs -->
-          <div class="flex flex-col sm:flex-row gap-4 mt-4">
+          <!-- CTAs + Social links -->
+          <div class="flex flex-wrap items-center gap-4 mt-4">
             <NuxtLink
               :to="localePath('/subscribe')"
               class="group relative inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-primary-foreground bg-primary hover:bg-foreground rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 overflow-hidden"
@@ -64,58 +49,61 @@ const localePath = useLocalePath()
                 />
               </span>
             </NuxtLink>
-          </div>
 
-          <!-- Social links row -->
-          <div class="flex items-center gap-4 mt-2">
-            <a
-              :href="socialLinks.githubLink"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-muted-foreground hover:text-foreground transition-colors"
-              aria-label="GitHub"
-              data-rybbit-event="outbound_click"
-              data-rybbit-prop-platform="github"
-              data-rybbit-prop-location="hero"
-            >
-              <Icon name="mdi:github" class="w-5 h-5" />
-            </a>
-            <a
-              :href="socialLinks.linkedinLink"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-muted-foreground hover:text-foreground transition-colors"
-              aria-label="LinkedIn"
-              data-rybbit-event="outbound_click"
-              data-rybbit-prop-platform="linkedin"
-              data-rybbit-prop-location="hero"
-            >
-              <Icon name="mdi:linkedin" class="w-5 h-5" />
-            </a>
-            <a
-              :href="socialLinks.twitterLink"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-muted-foreground hover:text-foreground transition-colors"
-              aria-label="Twitter/X"
-              data-rybbit-event="outbound_click"
-              data-rybbit-prop-platform="twitter"
-              data-rybbit-prop-location="hero"
-            >
-              <Icon name="mdi:twitter" class="w-5 h-5" />
-            </a>
-            <a
-              :href="socialLinks.youtubeLink"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-muted-foreground hover:text-foreground transition-colors"
-              aria-label="YouTube"
-              data-rybbit-event="outbound_click"
-              data-rybbit-prop-platform="youtube"
-              data-rybbit-prop-location="hero"
-            >
-              <Icon name="mdi:youtube" class="w-5 h-5" />
-            </a>
+            <!-- Divider -->
+            <div class="hidden sm:block w-px h-6 bg-border" />
+
+            <!-- Social links -->
+            <div class="flex items-center gap-4">
+              <a
+                :href="socialLinks.githubLink"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-muted-foreground hover:text-foreground transition-colors"
+                aria-label="GitHub"
+                data-rybbit-event="outbound_click"
+                data-rybbit-prop-platform="github"
+                data-rybbit-prop-location="hero"
+              >
+                <Icon name="mdi:github" class="w-5 h-5" />
+              </a>
+              <a
+                :href="socialLinks.linkedinLink"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-muted-foreground hover:text-foreground transition-colors"
+                aria-label="LinkedIn"
+                data-rybbit-event="outbound_click"
+                data-rybbit-prop-platform="linkedin"
+                data-rybbit-prop-location="hero"
+              >
+                <Icon name="mdi:linkedin" class="w-5 h-5" />
+              </a>
+              <a
+                :href="socialLinks.twitterLink"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-muted-foreground hover:text-foreground transition-colors"
+                aria-label="Twitter/X"
+                data-rybbit-event="outbound_click"
+                data-rybbit-prop-platform="twitter"
+                data-rybbit-prop-location="hero"
+              >
+                <Icon name="mdi:twitter" class="w-5 h-5" />
+              </a>
+              <a
+                :href="socialLinks.youtubeLink"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-muted-foreground hover:text-foreground transition-colors"
+                aria-label="YouTube"
+                data-rybbit-event="outbound_click"
+                data-rybbit-prop-platform="youtube"
+                data-rybbit-prop-location="hero"
+              >
+                <Icon name="mdi:youtube" class="w-5 h-5" />
+              </a>
+            </div>
           </div>
         </div>
       </div>

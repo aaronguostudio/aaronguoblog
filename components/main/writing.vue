@@ -69,14 +69,6 @@ function compactDate(dateStr: string) {
 
 <template>
   <div class="pb-10 px-4">
-    <!-- Section Header -->
-    <div class="flex items-center gap-3 pt-5 pb-6">
-      <div class="w-1 h-10 bg-foreground rounded-full" />
-      <h2 class="text-4xl font-bold text-foreground">
-        {{ t('home.writing') }}
-      </h2>
-    </div>
-
     <!-- Hero + Compact Sidebar -->
     <div v-if="heroPost" class="grid grid-cols-1 lg:grid-cols-5 gap-6 mb-8">
       <!-- Hero Card (left, 3 cols) -->
@@ -87,7 +79,7 @@ function compactDate(dateStr: string) {
           <img
             :src="heroPost.image || '/blogs-img/blog.jpg'"
             :alt="heroPost.alt"
-            class="w-full h-64 lg:h-80 object-cover object-center group-hover:scale-[1.02] transition-all duration-500"
+            class="w-full h-72 lg:h-[500px] object-cover object-center group-hover:scale-[1.02] transition-all duration-500"
           />
           <div class="p-6">
             <div class="flex items-center gap-2 mb-3">
@@ -124,26 +116,35 @@ function compactDate(dateStr: string) {
           class="group flex-1"
         >
           <article
-            class="h-full flex flex-col justify-center p-5 rounded-xl border border-border bg-card transition-all duration-300 hover:shadow-md hover:border-primary/20"
+            class="h-full flex flex-row overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:shadow-md hover:border-primary/20"
           >
-            <div class="flex items-center gap-2 mb-2">
-              <span
-                v-for="tag in post.tags.slice(0, 1)"
-                :key="tag"
-                class="bg-secondary text-secondary-foreground rounded-md px-2 py-0.5 text-xs font-medium"
-              >
-                {{ tag }}
-              </span>
-              <span class="text-xs text-muted-foreground">{{ compactDate(post.date) }}</span>
+            <div class="w-72 shrink-0 overflow-hidden p-4 rounded-md">
+              <img
+                :src="post.image || '/blogs-img/blog.jpg'"
+                :alt="post.alt"
+                class="w-full h-full rounded-md object-cover object-center group-hover:scale-[1.02] transition-all duration-500"
+              />
             </div>
-            <h4
-              class="text-base font-semibold text-foreground group-hover:text-primary transition-colors duration-300 line-clamp-2 mb-1"
-            >
-              {{ post.title }}
-            </h4>
-            <p class="text-sm text-muted-foreground line-clamp-1">
-              {{ post.description }}
-            </p>
+            <div class="flex flex-col justify-center p-4 flex-1 min-w-0">
+              <div class="flex items-center gap-2 mb-2">
+                <span
+                  v-for="tag in post.tags.slice(0, 1)"
+                  :key="tag"
+                  class="bg-secondary text-secondary-foreground rounded-md px-2 py-0.5 text-xs font-medium"
+                >
+                  {{ tag }}
+                </span>
+                <span class="text-xs text-muted-foreground">{{ compactDate(post.date) }}</span>
+              </div>
+              <h4
+                class="text-base font-semibold text-foreground group-hover:text-primary transition-colors duration-300 line-clamp-2 mb-1"
+              >
+                {{ post.title }}
+              </h4>
+              <p class="text-sm text-muted-foreground line-clamp-2">
+                {{ post.description }}
+              </p>
+            </div>
           </article>
         </NuxtLink>
       </div>

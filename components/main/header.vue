@@ -89,13 +89,16 @@ function isActive(path: string, exact = false) {
   <header class="py-4 sticky top-0 z-50 bg-background/95 backdrop-blur-sm">
     <div class="flex items-center px-4 container max-w-8xl justify-between mx-auto">
       <!-- Logo/Site Title -->
-      <div class="flex items-baseline">
+      <div class="flex flex-col items-start">
         <NuxtLink
           :to="localePath('/')"
-          class="text-base sm:text-2xl font-bold hover:text-primary transition-colors"
+          class="text-base sm:text-2xl font-bold hover:text-primary transition-colors leading-tight"
         >
           {{ t('navigation.homeTitle') }}
         </NuxtLink>
+        <p class="hidden sm:block text-xs text-muted-foreground leading-tight mt-0.5">
+          Product Builder · Engineer · AI Practitioner
+        </p>
       </div>
 
       <!-- Mobile menu button -->

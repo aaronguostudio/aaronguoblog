@@ -21,37 +21,42 @@ withDefaults(defineProps<Props>(), {
 </script>
 
 <template>
-  <header class="flex flex-col gap-4">
+  <header class="flex flex-col gap-4 py-8">
+    <!-- Title -->
+    <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground leading-tight">
+      {{ title }}
+    </h1>
+
+    <!-- Meta: date + tags -->
+    <div class="flex items-center gap-6 text-sm text-muted-foreground flex-wrap">
+      <div class="flex items-center gap-1.5 font-medium">
+        <LogoDate class="w-4 h-4" />
+        <span>{{ date || '' }}</span>
+      </div>
+      <div class="flex items-center gap-2 flex-wrap">
+        <LogoTag class="w-4 h-4" />
+        <span v-for="(tag, n) in tags" :key="n">
+          <NuxtLink
+            v-slot="{ navigate }"
+            :to="localePath(`/blogs?categories=${tag.toLocaleLowerCase()}`)"
+            custom
+          >
+            <span
+              class="bg-secondary text-secondary-foreground rounded-md px-2 py-0.5 font-medium hover:bg-muted transition-colors duration-200 cursor-pointer"
+              @click="navigate"
+              >{{ tag }}</span
+            >
+          </NuxtLink>
+        </span>
+      </div>
+    </div>
+
     <!-- Feature Image - Only shown if image is provided -->
     <img
       v-if="image && image !== '' && image !== '#'"
       :src="image"
       :alt="alt"
-      class="mx-auto rounded-2xl shadow-lg max-w-3xl w-full my-4"
+      class="rounded-2xl shadow-lg w-full mt-2"
     />
-    <div class="flex w-full justify-center text-xs md:text-base">
-      <div class="md:flex text-black dark:text-zinc-300 content-center gap-8 text-xs sm:text-sm">
-        <div class="flex items-center font-semibold">
-          <LogoDate />
-          <p>{{ date || '' }}</p>
-        </div>
-        <div class="flex items-center gap-2 flex-wrap">
-          <LogoTag />
-          <span v-for="(tag, n) in tags" :key="n" class="inline-block mr-1 mb-1">
-            <NuxtLink
-              v-slot="{ navigate }"
-              :to="localePath(`/blogs?categories=${tag.toLocaleLowerCase()}`)"
-              custom
-            >
-              <span
-                class="bg-gray-200 dark:bg-slate-900 rounded-md px-2 py-1 font-semibold hover:bg-gray-300 dark:hover:bg-slate-800 transition-colors duration-200 cursor-pointer"
-                @click="navigate"
-                >{{ tag }}</span
-              >
-            </NuxtLink>
-          </span>
-        </div>
-      </div>
-    </div>
   </header>
 </template>
