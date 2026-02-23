@@ -93,14 +93,14 @@ function isActive(path: string, exact = false) {
         <img
           src="/android-chrome-192x192.png"
           alt="AG Logo"
-          class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl"
+          class="w-11 h-11 sm:w-14 sm:h-14 rounded-xl"
         />
         <div class="flex flex-col items-start">
           <span class="text-base sm:text-2xl font-bold leading-tight">
             {{ t('navigation.homeTitle') }}
           </span>
           <span class="hidden sm:block text-xs text-muted-foreground leading-tight mt-0.5">
-            Product Builder · Engineer · AI Practitioner
+            AI-native builder. Human-first thinker.
           </span>
         </div>
       </NuxtLink>
