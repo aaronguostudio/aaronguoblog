@@ -92,7 +92,7 @@ const copyToClipboard = async () => {
   >
     <div class="max-w-2xl mx-auto">
       <!-- Newsletter Header -->
-      <h3 :class="['font-bold mb-2', variant === 'inline' ? 'text-2xl' : 'text-xl']">
+      <h3 :class="['font-bold mb-2 text-foreground', variant === 'inline' ? 'text-2xl' : 'text-xl']">
         {{ title || t('newsletter.title') }}
       </h3>
       <p class="text-muted-foreground mb-6">
