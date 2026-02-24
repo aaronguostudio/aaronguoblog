@@ -71,5 +71,7 @@ export function extractBlogPostMeta(content: {
     topics: Array.isArray(meta.topics) ? meta.topics : [],
     published: Boolean(meta.published),
     featured: Boolean(meta.featured),
+    youtube: meta.youtube,
+    audio: meta.audio,
   }
 }

@@ -30,7 +30,7 @@ const links = articles?.body?.toc?.links || []
 </script>
 
 <template>
-  <div class="lg:col-span-3 sticky top-20 h-96 hidden lg:block justify-self-end">
+  <div>
     <div
       class="flex flex-col gap-2 border dark:border-gray-800 p-4 rounded-md min-w-[200px] dark:bg-slate-900"
     >

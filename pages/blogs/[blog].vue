@@ -61,6 +61,8 @@ const data = computed<BlogPost>(() => {
     date: meta?.date || 'not-date-available',
     tags: meta?.tags || [],
     published: meta?.published || false,
+    youtube: meta?.youtube,
+    audio: meta?.audio,
   }
 })
 
@@ -152,6 +154,9 @@ defineOgImageComponent('Test', {
         </ContentRenderer>
       </div>
     </div>
-    <BlogToc />
+    <div class="lg:col-span-3 hidden lg:block sticky top-20 self-start">
+      <BlogToc />
+      <BlogMediaLinks :youtube="data.youtube" :audio="data.audio" />
+    </div>
   </div>
 </template>

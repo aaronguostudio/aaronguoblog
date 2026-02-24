@@ -9,4 +9,6 @@ export interface BlogPost {
   topics?: string[]
   published: boolean
   featured?: boolean
+  youtube?: string
+  audio?: string
 }
