@@ -46,7 +46,12 @@
     "unenv": "^1.10.0",
     "vitest": "^1.0.0"
   },
+  "pnpm": {
+    "overrides": {
+      "better-sqlite3": "^12.6.2"
+    }
+  },
   "volta": {
-    "node": "20.9.0"
+    "node": "24.13.1"
   }
 }
