@@ -8,6 +8,7 @@
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
+    "prebuild": "pnpm run rebuild",
     "pregenerate": "pnpm run rebuild",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
