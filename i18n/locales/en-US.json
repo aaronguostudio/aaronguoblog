@@ -152,6 +152,16 @@
     "explorePath": "Read more",
     "recommendedTitle": "Start with these"
   },
+  "build": {
+    "title": "Build",
+    "subtitle": "Projects I'm shipping and building in public.",
+    "description": "Open source projects and tools I'm building.",
+    "shipped": "Shipped",
+    "building": "Building",
+    "viewSource": "Source",
+    "viewDemo": "Demo",
+    "readMore": "Read More"
+  },
   "playbooks": {
     "title": "Playbooks",
     "description": "Evergreen guides on product execution, AI-native systems, and building in public. Practical systems you can implement today.",

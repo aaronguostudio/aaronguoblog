@@ -152,6 +152,16 @@
     "explorePath": "阅读更多",
     "recommendedTitle": "从这些开始"
   },
+  "build": {
+    "title": "构建",
+    "subtitle": "我正在开发和公开构建的项目。",
+    "description": "我正在构建的开源项目和工具。",
+    "shipped": "已发布",
+    "building": "构建中",
+    "viewSource": "源码",
+    "viewDemo": "演示",
+    "readMore": "阅读更多"
+  },
   "playbooks": {
     "title": "实战手册",
     "description": "关于产品执行、AI 原生系统和公开构建的常青指南。您今天就可以实施的实用系统。",
