@@ -22,7 +22,7 @@ defineOgImageComponent('Test', {
 </script>
 
 <template>
-  <main class="container max-w-4xl mx-auto px-4 py-12">
+  <main class="container max-w-5xl mx-auto px-4 py-12">
     <!-- Page Header -->
     <div class="mb-12">
       <h1 class="text-4xl md:text-5xl font-bold text-foreground mb-4">
@@ -79,7 +79,7 @@ defineOgImageComponent('Test', {
 
         <!-- Description -->
         <p class="text-muted-foreground leading-relaxed mb-4">
-          {{ project.description }}
+          {{ t(project.descriptionKey) }}
         </p>
 
         <!-- Tech Stack + Links -->

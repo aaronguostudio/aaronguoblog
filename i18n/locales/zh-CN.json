@@ -160,7 +160,10 @@
     "building": "构建中",
     "viewSource": "源码",
     "viewDemo": "演示",
-    "readMore": "阅读更多"
+    "readMore": "阅读更多",
+    "projects": {
+      "clawmemory": "一个简洁的 UI，用于管理 OpenClaw AI 代理的记忆文件。支持 FTS5 全文搜索、每日筛选和实时索引。"
+    }
   },
   "playbooks": {
     "title": "实战手册",

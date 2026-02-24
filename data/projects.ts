@@ -1,6 +1,6 @@
 export interface Project {
   name: string
-  description: string
+  descriptionKey: string
   status: 'shipped' | 'building'
   tech: string[]
   logo?: string
@@ -13,8 +13,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     name: 'ClawMemory',
-    description:
-      'A clean UI for managing OpenClaw AI agent memory files. FTS5-powered search, daily filters, and real-time indexing.',
+    descriptionKey: 'build.projects.clawmemory',
     status: 'building',
     tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'SQLite'],
     logo: '/claw-memory-logo.png',
