@@ -24,9 +24,8 @@ defineProps({
 </script>
 
 <template>
-  <div>
-    <slot />
-  </div>
+  <pre v-if="language"><slot /></pre>
+  <code v-else><slot /></code>
 </template>
 
 <style>
