@@ -1,8 +1,6 @@
 <script lang="ts" setup>
 import { useI18n } from 'vue-i18n'
 import { socialLinks } from '~/data'
-import { sortByDate } from '~/utils/date'
-import { extractBlogPostMeta } from '~/utils/type-guards'
 
 const { locale, t } = useI18n()
 
@@ -22,45 +20,6 @@ defineOgImageComponent('About', {
   description: t('about.description'),
 })
 
-/**
- * Query featured posts for Recommended Reads
- */
-const { data } = await useAsyncData('about-recommended-posts', () =>
-  Promise.all([queryCollection('en').all(), queryCollection('zh').all()]),
-)
-
-const recommendedPosts = computed(() => {
-  if (!data.value) return []
-
-  const localeIndex = locale.value === 'en' ? 0 : 1
-  const posts = data.value[localeIndex]
-
-  const formattedPosts = posts.map((article) => {
-    const meta = extractBlogPostMeta(article)
-    const contentPath = article.path
-    const blogSlug = contentPath.replace(`/blogs/${locale.value}/`, '')
-    const path = locale.value === 'en' ? `/blogs/${blogSlug}` : `/zh/blogs/${blogSlug}`
-
-    return {
-      path,
-      title: article.title || meta.title,
-      description: article.description || meta.description,
-      date: meta.date,
-      published: meta.published,
-      featured: meta.featured || false,
-    }
-  })
-
-  const publishedPosts =
-    process.env.NODE_ENV === 'production'
-      ? formattedPosts.filter((post) => post.published)
-      : formattedPosts
-
-  // Prefer featured posts, then fall back to most recent
-  const featured = publishedPosts.filter((post) => post.featured)
-  const sorted = sortByDate(featured.length >= 3 ? featured : publishedPosts, 'date')
-  return sorted.slice(0, 3)
-})
 </script>
 
 <template>
@@ -110,15 +69,15 @@ const recommendedPosts = computed(() => {
           <ul class="space-y-2 text-muted-foreground">
             <li class="flex items-start gap-2">
               <span class="text-foreground mt-1">•</span>
-              <span>Product Leader at a Financial Firm</span>
+              <span>{{ t('about.roleItem1') }}</span>
             </li>
             <li class="flex items-start gap-2">
               <span class="text-foreground mt-1">•</span>
-              <span>Software Engineer</span>
+              <span>{{ t('about.roleItem2') }}</span>
             </li>
             <li class="flex items-start gap-2">
               <span class="text-foreground mt-1">•</span>
-              <span>AI Practitioner</span>
+              <span>{{ t('about.roleItem3') }}</span>
             </li>
           </ul>
         </div>
@@ -130,15 +89,15 @@ const recommendedPosts = computed(() => {
           <ul class="space-y-2 text-muted-foreground">
             <li class="flex items-start gap-2">
               <span class="text-foreground mt-1">•</span>
-              <span>AI-native execution systems</span>
+              <span>{{ t('about.systemsItem1') }}</span>
             </li>
             <li class="flex items-start gap-2">
               <span class="text-foreground mt-1">•</span>
-              <span>Internal reporting workflows</span>
+              <span>{{ t('about.systemsItem2') }}</span>
             </li>
             <li class="flex items-start gap-2">
               <span class="text-foreground mt-1">•</span>
-              <span>Product delivery platforms</span>
+              <span>{{ t('about.systemsItem3') }}</span>
             </li>
           </ul>
         </div>
@@ -301,33 +260,6 @@ const recommendedPosts = computed(() => {
             />
           </NuxtLink>
         </div>
-      </div>
-    </div>
-
-    <!-- Recommended Reads -->
-    <div v-if="recommendedPosts.length" class="mb-12">
-      <div class="flex items-center gap-3 mb-8">
-        <div class="w-1 h-10 bg-foreground rounded-full" />
-        <h2 class="text-3xl font-bold text-foreground">
-          {{ t('start.recommendedTitle') }}
-        </h2>
-      </div>
-      <div class="space-y-3">
-        <NuxtLink
-          v-for="post in recommendedPosts"
-          :key="post.path"
-          :to="post.path"
-          class="group block p-5 border border-border rounded-xl hover:border-foreground/20 transition-colors duration-200"
-        >
-          <h3
-            class="text-lg font-semibold text-foreground mb-1 group-hover:text-foreground/70 transition-colors"
-          >
-            {{ post.title }}
-          </h3>
-          <p class="text-muted-foreground text-sm line-clamp-2">
-            {{ post.description }}
-          </p>
-        </NuxtLink>
       </div>
     </div>
   </main>
