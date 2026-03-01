@@ -35,11 +35,11 @@ const { t } = useI18n()
             <span>RSS Feed</span>
           </a>
           <NuxtLink
-            to="/drum"
+            to="/videos"
             class="text-sm hover:text-white transition-colors flex items-center gap-1"
           >
-            <Icon name="mdi:music-circle" class="w-4 h-4" />
-            <span>{{ t('navigation.drum') }}</span>
+            <Icon name="mdi:youtube" class="w-4 h-4" />
+            <span>{{ t('navigation.videos') }}</span>
           </NuxtLink>
         </div>
 

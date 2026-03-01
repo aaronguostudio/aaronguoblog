@@ -18,6 +18,7 @@
     "aiNative": "AI Native",
     "about": "About",
     "drum": "Drum",
+    "videos": "Videos",
     "language": "Language",
     "categories": "Categories"
   },
@@ -71,6 +72,12 @@
     "daily3": "Midjourney turns concepts into visuals.",
     "visionHeading": "Vision",
     "vision": "Eventually it'll become my personal branding hub for everything AI – tutorials, projects, and experiences."
+  },
+  "videos": {
+    "title": "Videos",
+    "description": "Watch AI, drumming, and experimental content across my YouTube channels.",
+    "browseYouTube": "Browse YouTube",
+    "channels": "YouTube Channels"
   },
   "drum": {
     "title": "Drum",

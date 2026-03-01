@@ -7,6 +7,6 @@ const localePath = useLocalePath()
     <p class="text-black dark:text-zinc-300 text-base font-semibold">Quick Link</p>
     <NuxtLink :to="localePath('/')" class="hover:underline"> Home </NuxtLink>
     <NuxtLink :to="localePath('/blogs')" class="hover:underline"> Blogs </NuxtLink>
-    <NuxtLink :to="localePath('/drum')" class="hover:underline"> Drum </NuxtLink>
+    <NuxtLink :to="localePath('/videos')" class="hover:underline"> Videos </NuxtLink>
   </div>
 </template>

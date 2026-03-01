@@ -30,7 +30,6 @@ export const youtubeChannels: YouTubeChannel[] = [
     icon: 'mdi:music-circle',
     iconBgClass: 'bg-amber-600',
     logo: '/drum-next-avatar.jpg',
-    internalPath: '/drum',
   },
   {
     id: 'visual-and-sound',

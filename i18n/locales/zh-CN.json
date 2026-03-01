@@ -18,6 +18,7 @@
     "aiNative": "AI 原生",
     "about": "关于",
     "drum": "鼓",
+    "videos": "视频",
     "language": "语言",
     "categories": "分类"
   },
@@ -71,6 +72,12 @@
     "daily3": "通过 Midjourney 将概念变成视觉效果。",
     "visionHeading": "愿景",
     "vision": "最终它将成为我所有 AI 内容的个人品牌中心，包括教程、项目和经历。"
+  },
+  "videos": {
+    "title": "视频",
+    "description": "在我的 YouTube 频道上观看 AI、打鼓和实验性内容。",
+    "browseYouTube": "浏览 YouTube",
+    "channels": "YouTube 频道"
   },
   "drum": {
     "title": "鼓",
