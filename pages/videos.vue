@@ -23,8 +23,8 @@ defineOgImageComponent('About', {
 
 // Tab definitions mapped to youtube.json channel keys
 const tabs = [
-  { key: 'drumnext', label: 'Aaron - Drum', icon: 'mdi:music-circle' },
   { key: 'ai-native-builder', label: 'AI Native Builder', icon: 'heroicons:cpu-chip' },
+  { key: 'drumnext', label: 'Aaron - Drum', icon: 'mdi:music-circle' },
   { key: 'visual-and-sound', label: 'Visual And Sound', icon: 'heroicons:sparkles' },
 ]
 
