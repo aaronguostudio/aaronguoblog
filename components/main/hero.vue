@@ -8,53 +8,40 @@ const localePath = useLocalePath()
 
 <template>
   <div class="container mx-auto py-8 sm:py-10">
-    <div class="px-4 max-w-4xl mx-auto">
+    <div class="px-4 max-w-6xl mx-auto">
       <div class="relative">
         <!-- Decorative subtle background -->
         <div
           class="absolute inset-0 bg-foreground/[0.02] dark:bg-foreground/[0.03] rounded-3xl blur-3xl -z-10"
         />
 
-        <div class="flex flex-col gap-6">
+        <div class="flex flex-col gap-5">
           <!-- Headline -->
           <h1 class="font-bold leading-tight text-3xl md:text-5xl text-foreground">
             {{ t('home.title') }}
           </h1>
 
-          <!-- Subheadline -->
-          <p class="text-muted-foreground text-lg md:text-xl leading-relaxed max-w-3xl">
-            {{ t('home.description') }}
-          </p>
-
-          <!-- CTAs + Social links -->
-          <div class="flex flex-wrap items-center gap-4 mt-4">
-            <NuxtLink
-              :to="localePath('/subscribe')"
-              class="group relative inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-primary-foreground bg-primary hover:bg-foreground rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 overflow-hidden"
-            >
-              <span class="relative z-10 flex items-center gap-2">
-                <Icon name="heroicons:envelope" class="w-5 h-5" />
+          <!-- Subscribe + Social links -->
+          <div class="flex items-center gap-3">
+              <NuxtLink
+                :to="localePath('/subscribe')"
+                class="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold text-primary-foreground bg-primary hover:bg-foreground rounded-lg transition-all duration-300"
+                data-rybbit-event="subscribe_click"
+                data-rybbit-prop-location="hero"
+              >
+                <Icon name="heroicons:envelope" class="w-4 h-4" />
                 {{ t('footer.subscribe') }}
-              </span>
-            </NuxtLink>
-            <NuxtLink
-              :to="localePath('/about')"
-              class="group inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-foreground bg-secondary hover:bg-muted rounded-xl transition-all duration-300 border-2 border-border hover:border-foreground/20 hover:scale-105"
-            >
-              <span class="flex items-center gap-2">
+              </NuxtLink>
+              <NuxtLink
+                :to="localePath('/about')"
+                class="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-semibold text-foreground hover:text-primary rounded-lg transition-colors duration-300"
+              >
                 {{ t('navigation.about') }}
-                <Icon
-                  name="heroicons:arrow-right"
-                  class="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300"
-                />
-              </span>
-            </NuxtLink>
+                <Icon name="heroicons:arrow-right" class="w-3.5 h-3.5" />
+              </NuxtLink>
 
-            <!-- Divider -->
-            <div class="hidden sm:block w-px h-6 bg-border" />
+              <div class="w-px h-5 bg-border" />
 
-            <!-- Social links -->
-            <div class="flex items-center gap-4">
               <a
                 :href="socialLinks.githubLink"
                 target="_blank"
@@ -89,21 +76,8 @@ const localePath = useLocalePath()
                 data-rybbit-prop-platform="twitter"
                 data-rybbit-prop-location="hero"
               >
-                <Icon name="mdi:twitter" class="w-5 h-5" />
+                <Icon name="ri:twitter-x-fill" class="w-5 h-5" />
               </a>
-              <a
-                :href="socialLinks.youtubeLink"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="text-muted-foreground hover:text-foreground transition-colors"
-                aria-label="YouTube"
-                data-rybbit-event="outbound_click"
-                data-rybbit-prop-platform="youtube"
-                data-rybbit-prop-location="hero"
-              >
-                <Icon name="mdi:youtube" class="w-5 h-5" />
-              </a>
-            </div>
           </div>
         </div>
       </div>

@@ -131,6 +131,23 @@
     "webMobile": "Web & Mobile",
     "macIos": "Mac & iOS"
   },
+  "channels": {
+    "title": "Watch & Listen",
+    "aiNativeBuilder": {
+      "name": "AI Native Builder",
+      "description": "AI learning journey and podcast companion to my blog posts."
+    },
+    "drum": {
+      "name": "Aaron - Drum",
+      "description": "Drum covers, practice sessions, and life sharing from years of drumming."
+    },
+    "visualAndSound": {
+      "name": "Visual And Sound",
+      "description": "Experimental AI-generated video project with automated channel operations."
+    },
+    "watchOnYouTube": "Watch on YouTube",
+    "explore": "Explore"
+  },
   "footer": {
     "subscribe": "Subscribe"
   },

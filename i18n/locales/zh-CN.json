@@ -131,6 +131,23 @@
     "webMobile": "网页和移动端",
     "macIos": "Mac 和 iOS"
   },
+  "channels": {
+    "title": "观看与收听",
+    "aiNativeBuilder": {
+      "name": "AI Native Builder",
+      "description": "AI 学习之旅，也是本站博客文章的播客频道。"
+    },
+    "drum": {
+      "name": "Aaron - Drum",
+      "description": "鼓翻奏、练习和生活分享，多年打鼓历程记录。"
+    },
+    "visualAndSound": {
+      "name": "Visual And Sound",
+      "description": "实验性 AI 生成视频项目，自动化频道运营。"
+    },
+    "watchOnYouTube": "在 YouTube 观看",
+    "explore": "探索"
+  },
   "footer": {
     "subscribe": "订阅"
   },

@@ -150,6 +150,9 @@ function compactDate(dateStr: string) {
       </div>
     </div>
 
+    <!-- Slot for content between hero and grid sections -->
+    <slot />
+
     <!-- Dense Grid for remaining posts -->
     <div
       v-if="gridPosts.length > 0"
