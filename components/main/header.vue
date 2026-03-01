@@ -158,11 +158,10 @@ function isActive(path: string, exact = false) {
           >
             中
           </NuxtLink>
-          <div class="w-px h-3.5 bg-border" />
           <ClientOnly>
             <button
               aria-label="Toggle dark mode"
-              class="px-2 py-1 rounded-full text-muted-foreground hover:text-foreground transition-colors"
+              class="flex items-center justify-center px-2 py-1 rounded-full text-muted-foreground hover:text-foreground transition-colors"
               @click="toggleColorMode"
             >
               <Icon
@@ -223,11 +222,10 @@ function isActive(path: string, exact = false) {
             >
               中
             </NuxtLink>
-            <div class="w-px h-3.5 bg-border" />
             <ClientOnly>
               <button
                 aria-label="Toggle dark mode"
-                class="px-2 py-1.5 rounded-full text-muted-foreground hover:text-foreground transition-colors"
+                class="flex items-center justify-center px-2 py-1.5 rounded-full text-muted-foreground hover:text-foreground transition-colors"
                 @click="toggleColorMode"
               >
                 <Icon
