@@ -90,7 +90,10 @@ function isActive(path: string, exact = false) {
   <header class="py-4 sticky top-0 z-50 bg-background/95 backdrop-blur-sm">
     <div class="flex items-center px-4 container max-w-8xl justify-between mx-auto">
       <!-- Logo/Site Title -->
-      <NuxtLink :to="localePath('/')" class="flex items-center gap-2.5 hover:opacity-80 transition-opacity">
+      <NuxtLink
+        :to="localePath('/')"
+        class="flex items-center gap-2.5 hover:opacity-80 transition-opacity"
+      >
         <img
           src="/android-chrome-192x192.png"
           alt="AG Logo"
@@ -100,7 +103,7 @@ function isActive(path: string, exact = false) {
           <span class="text-base sm:text-2xl font-bold leading-tight">
             {{ t('navigation.homeTitle') }}
           </span>
-          <span class="hidden sm:block text-xs text-muted-foreground leading-tight mt-0.5">
+          <span class="hidden sm:block text-sm text-muted-foreground leading-tight">
             AI-native builder. Human-first thinker.
           </span>
         </div>
@@ -124,7 +127,9 @@ function isActive(path: string, exact = false) {
               :to="localePath(item.path)"
               :class="[
                 'py-2 transition-colors hover:text-primary',
-                isActive(item.path, item.exact) ? 'text-primary font-medium' : 'text-foreground/70',
+                isActive(item.path, item.exact)
+                  ? 'text-primary font-medium'
+                  : 'text-muted-foreground hover:text-foreground',
               ]"
             >
               {{ item.name }}
@@ -186,7 +191,9 @@ function isActive(path: string, exact = false) {
               :to="localePath(item.path)"
               :class="[
                 'block py-2 transition-colors hover:text-primary',
-                isActive(item.path, item.exact) ? 'text-primary font-medium' : 'text-foreground/70',
+                isActive(item.path, item.exact)
+                  ? 'text-primary font-medium'
+                  : 'text-muted-foreground hover:text-foreground',
               ]"
               @click="isMobileMenuOpen = false"
             >
