@@ -69,6 +69,20 @@ const projects = computed(() => {
   )
 })
 
+/**
+ * Lightbox state for screenshot previews
+ */
+const lightboxImage = ref<string | null>(null)
+const lightboxProject = ref<string>('')
+
+function openLightbox(src: string, projectName: string) {
+  lightboxImage.value = src
+  lightboxProject.value = projectName
+}
+function closeLightbox() {
+  lightboxImage.value = null
+}
+
 useHead({
   title: t('build.title'),
   meta: [
@@ -93,85 +107,95 @@ defineOgImageComponent('Test', {
       <h1 class="text-4xl md:text-5xl font-bold text-foreground mb-4">
         {{ t('build.title') }}
       </h1>
-      <p class="text-xl text-muted-foreground leading-relaxed">
+      <p class="text-lg text-muted-foreground leading-relaxed">
         {{ t('build.subtitle') }}
       </p>
     </div>
 
+    <!-- Empty State -->
+    <p
+      v-if="projects.length === 0"
+      class="text-muted-foreground py-8"
+    >
+      {{ t('build.empty') }}
+    </p>
+
     <!-- Project Cards -->
-    <div class="flex flex-col gap-8">
-      <p
-        v-if="projects.length === 0"
-        class="text-muted-foreground py-8"
-      >
-        {{ t('build.empty') }}
-      </p>
-      <div
+    <div class="flex flex-col gap-10">
+      <article
         v-for="project in projects"
         :key="project.name"
-        class="border border-border rounded-xl p-6 hover:border-foreground/20 transition-colors duration-200"
+        class="group rounded-xl border border-border bg-card overflow-hidden transition-all duration-300 hover:shadow-md hover:border-primary/20"
       >
-        <!-- Logo -->
-        <div class="mb-4">
-          <img
-            v-if="project.logo"
-            :src="project.logo"
-            :alt="`${project.name} logo`"
-            class="h-12 w-auto object-contain"
-          />
-          <div
-            v-else
-            class="w-12 h-12 rounded-lg bg-secondary flex items-center justify-center"
-          >
-            <Icon name="heroicons:cube" class="w-6 h-6 text-muted-foreground" />
+        <!-- Card Body -->
+        <div class="p-6 md:p-8">
+          <!-- Top Row: Logo + Title + Status + Links -->
+          <div class="flex items-start gap-4 mb-4">
+            <!-- Logo -->
+            <div class="shrink-0">
+              <img
+                v-if="project.logo"
+                :src="project.logo"
+                :alt="`${project.name} logo`"
+                class="w-14 h-14 rounded-xl object-contain bg-secondary p-1.5"
+              />
+              <div
+                v-else
+                class="w-14 h-14 rounded-xl bg-secondary flex items-center justify-center"
+              >
+                <Icon name="heroicons:cube" class="w-7 h-7 text-muted-foreground" />
+              </div>
+            </div>
+
+            <!-- Title + Status -->
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-3 mb-1">
+                <h2 class="text-xl font-semibold text-foreground">
+                  {{ project.name }}
+                </h2>
+                <span
+                  v-if="project.status === 'building'"
+                  class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-500/10 text-yellow-600 dark:text-yellow-400"
+                >
+                  <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75" />
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-yellow-500" />
+                  </span>
+                  {{ t('build.building') }}
+                </span>
+                <span
+                  v-else
+                  class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-500/10 text-green-600 dark:text-green-400"
+                >
+                  <span class="w-2 h-2 rounded-full bg-green-500" />
+                  {{ t('build.shipped') }}
+                </span>
+              </div>
+              <p class="text-muted-foreground leading-relaxed">
+                {{ project.description }}
+              </p>
+            </div>
           </div>
-        </div>
 
-        <!-- Title + Status -->
-        <div class="flex items-center gap-3 mb-2">
-          <h3 class="text-xl font-semibold text-foreground">
-            {{ project.name }}
-          </h3>
-          <span
-            v-if="project.status === 'building'"
-            class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-500/10 text-yellow-600 dark:text-yellow-400"
-          >
-            <span class="w-1.5 h-1.5 rounded-full bg-yellow-500" />
-            {{ t('build.building') }}
-          </span>
-          <span
-            v-else
-            class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-500/10 text-green-600 dark:text-green-400"
-          >
-            <span class="w-1.5 h-1.5 rounded-full bg-green-500" />
-            {{ t('build.shipped') }}
-          </span>
-        </div>
-
-        <!-- Description -->
-        <p class="text-muted-foreground leading-relaxed mb-4">
-          {{ project.description }}
-        </p>
-
-        <!-- Tech Stack + Links -->
-        <div class="flex items-center gap-4 flex-wrap">
-          <div v-if="project.tech?.length" class="flex flex-wrap gap-1.5">
+          <!-- Tech Stack -->
+          <div v-if="project.tech?.length" class="flex flex-wrap gap-1.5 mb-5">
             <span
               v-for="tech in project.tech"
               :key="tech"
-              class="px-2 py-0.5 text-xs rounded-md bg-secondary text-secondary-foreground font-medium"
+              class="px-2.5 py-1 text-xs rounded-md bg-secondary text-secondary-foreground font-medium"
             >
               {{ tech }}
             </span>
           </div>
-          <span v-if="project.tech?.length" class="text-border">|</span>
-          <div class="flex items-center gap-3">
+
+          <!-- Action Links -->
+          <div class="flex items-center gap-4">
             <a
               v-if="project.github"
               :href="project.github"
               target="_blank"
               rel="noopener noreferrer"
-              class="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+              class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg border border-border hover:bg-secondary transition-colors"
             >
               <Icon name="mdi:github" class="w-4 h-4" />
               {{ t('build.viewSource') }}
@@ -181,7 +205,7 @@ defineOgImageComponent('Test', {
               :href="project.demo"
               target="_blank"
               rel="noopener noreferrer"
-              class="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+              class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg border border-border hover:bg-secondary transition-colors"
             >
               <Icon name="heroicons:arrow-top-right-on-square" class="w-4 h-4" />
               {{ t('build.viewDemo') }}
@@ -189,7 +213,7 @@ defineOgImageComponent('Test', {
             <NuxtLink
               v-if="project.blog"
               :to="project.blog"
-              class="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+              class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg border border-border hover:bg-secondary transition-colors"
             >
               <Icon name="heroicons:document-text" class="w-4 h-4" />
               {{ t('build.readMore') }}
@@ -198,21 +222,59 @@ defineOgImageComponent('Test', {
         </div>
 
         <!-- Screenshots -->
-        <div v-if="project.screenshots?.length" class="mt-5 grid grid-cols-3 gap-3">
-          <div
-            v-for="(screenshot, i) in project.screenshots"
-            :key="i"
-            class="aspect-video rounded-lg bg-secondary overflow-hidden"
-          >
-            <img
-              :src="screenshot"
-              :alt="`${project.name} screenshot ${i + 1}`"
-              class="w-full h-full object-cover"
-              @error="($event.target as HTMLImageElement).style.display = 'none'"
-            />
+        <div v-if="project.screenshots?.length" class="border-t border-border bg-secondary/30 p-6 md:p-8">
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <button
+              v-for="(screenshot, i) in project.screenshots"
+              :key="i"
+              class="aspect-video rounded-lg overflow-hidden bg-secondary cursor-pointer ring-1 ring-border hover:ring-primary/40 transition-all duration-200 hover:shadow-lg"
+              @click="openLightbox(screenshot, project.name)"
+            >
+              <img
+                :src="screenshot"
+                :alt="`${project.name} screenshot ${i + 1}`"
+                class="w-full h-full object-cover"
+                @error="($event.target as HTMLImageElement).style.display = 'none'"
+              />
+            </button>
           </div>
         </div>
-      </div>
+      </article>
     </div>
+
+    <!-- Lightbox -->
+    <Teleport to="body">
+      <Transition name="fade">
+        <div
+          v-if="lightboxImage"
+          class="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm cursor-pointer"
+          @click="closeLightbox"
+        >
+          <button
+            class="absolute top-4 right-4 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+            @click.stop="closeLightbox"
+          >
+            <Icon name="heroicons:x-mark" class="w-6 h-6 text-white" />
+          </button>
+          <img
+            :src="lightboxImage"
+            :alt="lightboxProject"
+            class="max-w-[90vw] max-h-[85vh] rounded-xl shadow-2xl object-contain"
+            @click.stop
+          />
+        </div>
+      </Transition>
+    </Teleport>
   </main>
 </template>
+
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+</style>
