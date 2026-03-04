@@ -1,8 +1,73 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
-import { projects } from '~/data/projects'
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
+
+/**
+ * Query project entries from both locale collections (pre-rendered at build)
+ */
+const { data } = await useAsyncData('build-projects', () =>
+  Promise.all([
+    queryCollection('projectsEn').all(),
+    queryCollection('projectsZh').all(),
+  ]),
+)
+
+/**
+ * Project frontmatter shape from content/projects/{en,zh}/*.md
+ */
+interface ProjectMeta {
+  title?: string
+  description?: string
+  status?: 'shipped' | 'building'
+  tech?: string[]
+  published?: boolean
+  logo?: string
+  screenshots?: string[]
+  github?: string
+  demo?: string
+  blog?: string
+  featured?: boolean
+  date?: string
+}
+
+/**
+ * Normalize a content entry to a project card model.
+ * Nuxt Content may expose frontmatter at root or in entry.meta.
+ */
+function toProjectCard(entry: { title?: string; description?: string; meta?: unknown; [key: string]: unknown }) {
+  const root = entry as unknown as ProjectMeta
+  const meta = (entry.meta || root) as ProjectMeta
+  return {
+    name: entry.title || meta?.title || root?.title || 'Project',
+    description: entry.description ?? meta?.description ?? root?.description ?? '',
+    status: (meta?.status === 'shipped' || root?.status === 'shipped' ? 'shipped' : 'building') as 'shipped' | 'building',
+    tech: Array.isArray(meta?.tech) ? meta.tech : Array.isArray(root?.tech) ? root.tech : [],
+    published: Boolean(meta?.published ?? root?.published ?? true),
+    logo: meta?.logo ?? root?.logo,
+    screenshots: Array.isArray(meta?.screenshots) ? meta.screenshots : Array.isArray(root?.screenshots) ? root.screenshots : undefined,
+    github: meta?.github ?? root?.github,
+    demo: meta?.demo ?? root?.demo,
+    blog: meta?.blog ?? root?.blog,
+  }
+}
+
+/**
+ * Projects for the current locale, filtered and ordered (shipped first, then building)
+ */
+const projects = computed(() => {
+  if (!data.value) return []
+  const localeIndex = locale.value === 'en' ? 0 : 1
+  const raw = data.value[localeIndex] || []
+  const mapped = raw.map(toProjectCard)
+  const published =
+    process.env.NODE_ENV === 'production'
+      ? mapped.filter((p) => p.published)
+      : mapped
+  return [...published].sort((a, b) =>
+    a.status === b.status ? 0 : a.status === 'shipped' ? -1 : 1,
+  )
+})
 
 useHead({
   title: t('build.title'),
@@ -35,6 +100,12 @@ defineOgImageComponent('Test', {
 
     <!-- Project Cards -->
     <div class="flex flex-col gap-8">
+      <p
+        v-if="projects.length === 0"
+        class="text-muted-foreground py-8"
+      >
+        {{ t('build.empty') }}
+      </p>
       <div
         v-for="project in projects"
         :key="project.name"
@@ -79,12 +150,12 @@ defineOgImageComponent('Test', {
 
         <!-- Description -->
         <p class="text-muted-foreground leading-relaxed mb-4">
-          {{ t(project.descriptionKey) }}
+          {{ project.description }}
         </p>
 
         <!-- Tech Stack + Links -->
         <div class="flex items-center gap-4 flex-wrap">
-          <div class="flex flex-wrap gap-1.5">
+          <div v-if="project.tech?.length" class="flex flex-wrap gap-1.5">
             <span
               v-for="tech in project.tech"
               :key="tech"
@@ -93,7 +164,7 @@ defineOgImageComponent('Test', {
               {{ tech }}
             </span>
           </div>
-          <span class="text-border">|</span>
+          <span v-if="project.tech?.length" class="text-border">|</span>
           <div class="flex items-center gap-3">
             <a
               v-if="project.github"

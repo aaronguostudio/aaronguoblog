@@ -191,6 +191,7 @@
     "viewSource": "Source",
     "viewDemo": "Demo",
     "readMore": "Read More",
+    "empty": "No projects listed yet. Check back soon.",
     "projects": {
       "clawmemory": "A clean UI for managing OpenClaw AI agent memory files. FTS5-powered search, daily filters, and real-time indexing."
     }

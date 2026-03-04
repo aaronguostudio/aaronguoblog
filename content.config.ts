@@ -47,5 +47,11 @@ export default defineContentConfig({
         source: 'blogs/zh/*.md',
       }),
     }),
+    projectsEn: defineCollection({
+      source: 'projects/en/*.md',
+    }),
+    projectsZh: defineCollection({
+      source: 'projects/zh/*.md',
+    }),
   },
 })
