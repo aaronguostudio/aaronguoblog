@@ -210,7 +210,7 @@
   "signal": {
     "title": "Signal",
     "subtitle": "Noise removed. What's left is what matters.",
-    "poweredBy": "AI-curated hourly from HN, X, Reddit, GitHub & Product Hunt.",
+    "poweredBy": "My AI agent scans HN, X, Reddit, GitHub & Product Hunt every hour, scoring by relevance to AI, coding, fintech, and indie building. No engagement algorithms — just signal.",
     "all": "All",
     "allTopics": "All Topics",
     "search": "Search...",

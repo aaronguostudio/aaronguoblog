@@ -170,11 +170,8 @@ const totalStats = computed(() => {
           <p class="text-lg text-muted-foreground max-w-lg">
             {{ t('signal.subtitle') }}
           </p>
-          <p class="text-xs text-muted-foreground/50 mt-2 font-mono">
+          <p class="text-sm text-muted-foreground/50 mt-3 max-w-lg leading-relaxed">
             {{ t('signal.poweredBy') }}
-          </p>
-          <p class="text-sm text-muted-foreground/70 mt-4 max-w-lg leading-relaxed">
-            {{ t('signal.whatIsThisDesc') }}
           </p>
         </div>
 

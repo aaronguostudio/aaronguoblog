@@ -210,7 +210,7 @@
   "signal": {
     "title": "信号",
     "subtitle": "去噪留真，只看重要的。",
-    "poweredBy": "AI 每小时从 HN、X、Reddit、GitHub、Product Hunt 自动抓取。",
+    "poweredBy": "AI 每小时扫描 HN、X、Reddit、GitHub、Product Hunt，按 AI、编程、金融科技、独立开发的相关度打分。没有流量算法，只有信号。",
     "all": "全部",
     "allTopics": "全部话题",
     "search": "搜索...",
