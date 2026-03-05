@@ -334,12 +334,12 @@ const totalStats = computed(() => {
           {{ stripHtml(item.title) }}
         </h3>
 
-        <!-- Summary -->
+        <!-- AI Summary -->
         <p
-          v-if="item.summary"
-          class="text-xs text-muted-foreground/60 mt-1 line-clamp-1 leading-relaxed"
+          v-if="item.ai_summary"
+          class="text-xs text-muted-foreground/60 mt-1 line-clamp-2 leading-relaxed"
         >
-          {{ stripHtml(item.summary) }}
+          {{ stripHtml(item.ai_summary) }}
         </p>
       </a>
     </div>

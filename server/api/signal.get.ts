@@ -19,7 +19,7 @@ export default defineCachedEventHandler(async (event) => {
   if (search) { where.push('title LIKE ?'); args.push(`%${search}%`) }
 
   const result = await db.execute({
-    sql: `SELECT id, source, url, title, summary, author, score, relevance, tags, category, created_at
+    sql: `SELECT id, source, url, title, summary, ai_summary, author, score, relevance, tags, category, created_at
           FROM items WHERE ${where.join(' AND ')}
           ORDER BY created_at DESC LIMIT ? OFFSET ?`,
     args: [...args, limit, offset],
