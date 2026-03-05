@@ -21,7 +21,8 @@
     "build": "Build",
     "videos": "Videos",
     "language": "Language",
-    "categories": "Categories"
+    "categories": "Categories",
+    "signal": "Signal"
   },
   "og": {
     "homeTitle": "Aaron Guo"
@@ -205,5 +206,20 @@
     "browseWriting": "Browse all writing",
     "newsletterTitle": "Get notified when new playbooks are published",
     "newsletterDescription": "Twice a month: one playbook, one lesson, one tool."
+  },
+  "signal": {
+    "title": "Signal",
+    "subtitle": "Noise removed. What's left is what matters.",
+    "poweredBy": "AI-curated hourly from HN, X, Reddit, GitHub & Product Hunt.",
+    "all": "All",
+    "allTopics": "All Topics",
+    "search": "Search...",
+    "items": "items",
+    "loading": "Loading...",
+    "empty": "No items found.",
+    "loadMore": "Load more",
+    "whatIsThis": "What is this?",
+    "whatIsThisDesc": "My AI agent scans Hacker News, X, Reddit, GitHub Trending, and Product Hunt every hour. It scores each item by relevance to AI, coding agents, fintech, and indie building — the topics I care about. No algorithms optimizing for engagement. Just signal.",
+    "description": "AI-curated tech & AI news feed. Updated hourly from HN, X, Reddit, GitHub & Product Hunt."
   }
 }

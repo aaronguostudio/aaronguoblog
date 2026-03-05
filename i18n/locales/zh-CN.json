@@ -21,7 +21,8 @@
     "build": "构建",
     "videos": "视频",
     "language": "语言",
-    "categories": "分类"
+    "categories": "分类",
+    "signal": "Signal"
   },
   "og": {
     "homeTitle": "Aaron Guo"
@@ -205,5 +206,20 @@
     "browseWriting": "浏览所有文章",
     "newsletterTitle": "在新实战手册发布时获得通知",
     "newsletterDescription": "每月两次：一份实战手册，一个经验教训，一个工具。"
+  },
+  "signal": {
+    "title": "Signal",
+    "subtitle": "去噪留真，只看重要的。",
+    "poweredBy": "AI 每小时从 HN、X、Reddit、GitHub、Product Hunt 自动抓取。",
+    "all": "全部",
+    "allTopics": "全部话题",
+    "search": "搜索...",
+    "items": "条",
+    "loading": "加载中...",
+    "empty": "暂无内容。",
+    "loadMore": "加载更多",
+    "whatIsThis": "这是什么？",
+    "whatIsThisDesc": "我的 AI 代理每小时扫描 Hacker News、X、Reddit、GitHub Trending 和 Product Hunt，按 AI、编程工具、金融科技、独立开发等话题的相关度打分。没有为了流量优化的算法，只有信号。",
+    "description": "AI 精选科技与 AI 新闻，每小时从 HN、X、Reddit、GitHub、Product Hunt 自动更新。"
   }
 }

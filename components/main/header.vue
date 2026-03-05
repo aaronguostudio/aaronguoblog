@@ -64,6 +64,7 @@ const navItems = computed(() => [
   { name: t('navigation.home'), path: '/', exact: true },
   { name: t('navigation.blogs'), path: '/blogs', exact: false },
   { name: t('navigation.videos'), path: '/videos', exact: false },
+  { name: t('navigation.signal'), path: '/signal', exact: false },
   { name: t('navigation.about'), path: '/about', exact: false },
 ])
 

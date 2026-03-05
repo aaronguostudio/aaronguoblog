@@ -7,6 +7,8 @@ export default defineNuxtConfig({
   runtimeConfig: {
     beehiivApiKey: process.env.BEEHIIV_API_KEY,
     beehiivPublicationId: process.env.BEEHIIV_PUBLICATION_ID,
+    tursoUrl: process.env.TURSO_URL,
+    tursoAuthToken: process.env.TURSO_AUTH_TOKEN,
   },
 
   css: ['~/assets/css/custom.css'],

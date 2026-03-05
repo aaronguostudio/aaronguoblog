@@ -54,5 +54,8 @@
   },
   "volta": {
     "node": "24.13.1"
+  },
+  "dependencies": {
+    "@libsql/client": "^0.14.0"
   }
 }
