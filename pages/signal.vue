@@ -4,7 +4,7 @@ import { useI18n } from 'vue-i18n'
 const { t } = useI18n()
 
 useHead({
-  title: 'Signal',
+  title: t('signal.title'),
   meta: [
     {
       name: 'description',
@@ -16,7 +16,7 @@ useHead({
 defineOgImageComponent('About', {
   headline: 'Signal',
   title: 'Signal — AI-Curated Feed',
-  description: 'What I\'m reading. Noise removed.',
+  description: "What I'm reading. Noise removed.",
 })
 
 // Filter state
@@ -67,6 +67,15 @@ function loadMore() {
 }
 
 // Helpers
+function stripHtml(str: string) {
+  if (!str) return ''
+  return str
+    .replace(/<[^>]*>/g, '')
+    .replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'")
+    .replace(/<[^>]*>/g, '')
+    .trim()
+}
+
 function timeAgo(dateStr: string) {
   const now = new Date()
   const d = new Date(dateStr + 'Z')
@@ -77,15 +86,26 @@ function timeAgo(dateStr: string) {
   return Math.floor(diff / 86400) + 'd'
 }
 
-function sourceIcon(s: string) {
+function sourceColor(s: string) {
   const map: Record<string, string> = {
-    hackernews: '🟧',
-    'x-twitter': '𝕏',
-    reddit: '🟣',
-    producthunt: '🔶',
-    github: '🐙',
+    hackernews: 'border-l-orange-400',
+    'x-twitter': 'border-l-foreground',
+    reddit: 'border-l-purple-500',
+    producthunt: 'border-l-amber-500',
+    github: 'border-l-pink-500',
   }
-  return map[s] || '📰'
+  return map[s] || 'border-l-muted-foreground'
+}
+
+function sourceBg(s: string) {
+  const map: Record<string, string> = {
+    hackernews: 'bg-orange-500',
+    'x-twitter': 'bg-foreground',
+    reddit: 'bg-purple-500',
+    producthunt: 'bg-amber-500',
+    github: 'bg-pink-500',
+  }
+  return map[s] || 'bg-muted-foreground'
 }
 
 function sourceLabel(s: string) {
@@ -99,173 +119,249 @@ function sourceLabel(s: string) {
   return map[s] || s
 }
 
-function relevanceColor(r: number) {
-  if (r >= 8) return 'bg-green-500/20 text-green-400 border-green-500/30'
-  if (r >= 5) return 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30'
-  return 'bg-gray-500/20 text-gray-400 border-gray-500/30'
+function categoryLabel(c: string) {
+  const map: Record<string, string> = {
+    ai: 'AI',
+    coding: 'Code',
+    indie: 'Indie',
+    fintech: 'Fintech',
+    general: 'General',
+  }
+  return map[c] || c
 }
 
-function categoryEmoji(c: string) {
+function categoryColor(c: string) {
   const map: Record<string, string> = {
-    ai: '🤖',
-    coding: '💻',
-    indie: '🚀',
-    fintech: '💰',
-    general: '📰',
+    ai: 'text-blue-500 bg-blue-500/10',
+    coding: 'text-emerald-500 bg-emerald-500/10',
+    indie: 'text-violet-500 bg-violet-500/10',
+    fintech: 'text-amber-500 bg-amber-500/10',
+    general: 'text-muted-foreground bg-muted',
   }
-  return map[c] || '📰'
+  return map[c] || 'text-muted-foreground bg-muted'
 }
 
 const sources = ['hackernews', 'x-twitter', 'reddit', 'producthunt', 'github']
 const categories = ['ai', 'coding', 'indie', 'fintech', 'general']
+
+const totalStats = computed(() => {
+  if (!data.value?.stats) return 0
+  return (data.value.stats as any[]).reduce((sum: number, s: any) => sum + Number(s.count), 0)
+})
 </script>
 
 <template>
-  <main class="container max-w-4xl mx-auto px-4 py-8">
-    <!-- Header -->
-    <div class="mb-8">
-      <h1 class="text-3xl font-bold mb-2">
-        {{ t('signal.title') }}
-      </h1>
-      <p class="text-muted-foreground">
-        {{ t('signal.subtitle') }}
-      </p>
-      <p class="text-xs text-muted-foreground/60 mt-1">
-        {{ t('signal.poweredBy') }}
-      </p>
+  <main class="container max-w-5xl mx-auto px-4 py-8 sm:py-12">
+    <!-- Hero -->
+    <div class="relative mb-10 sm:mb-14">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <div class="flex items-center gap-3 mb-3">
+            <h1 class="text-4xl sm:text-5xl font-bold tracking-tight">
+              {{ t('signal.title') }}
+            </h1>
+            <span class="relative flex h-2.5 w-2.5 mt-2">
+              <span
+                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"
+              />
+              <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500" />
+            </span>
+          </div>
+          <p class="text-lg text-muted-foreground max-w-lg">
+            {{ t('signal.subtitle') }}
+          </p>
+          <p class="text-xs text-muted-foreground/50 mt-2 font-mono">
+            {{ t('signal.poweredBy') }}
+          </p>
+          <p class="text-sm text-muted-foreground/70 mt-4 max-w-lg leading-relaxed">
+            {{ t('signal.whatIsThisDesc') }}
+          </p>
+        </div>
+
+        <!-- Mini stats -->
+        <div v-if="data?.stats" class="hidden sm:flex flex-col gap-1.5 text-right shrink-0">
+          <div
+            v-for="s in data.stats as any[]"
+            :key="s.source"
+            class="flex items-center gap-2 justify-end"
+          >
+            <span class="text-[11px] text-muted-foreground/70 font-mono w-6 text-right">{{
+              s.count
+            }}</span>
+            <div class="w-16 h-1.5 rounded-full bg-secondary overflow-hidden">
+              <div
+                class="h-full rounded-full transition-all duration-500"
+                :class="sourceBg(s.source)"
+                :style="{
+                  width: `${Math.min((Number(s.count) / Number(totalStats)) * 100 * 2, 100)}%`,
+                }"
+              />
+            </div>
+            <span class="text-[11px] text-muted-foreground/50 font-mono w-10">{{
+              sourceLabel(s.source)
+            }}</span>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- Source filters -->
-    <div class="flex flex-wrap gap-2 mb-3">
-      <button
-        class="px-3 py-1.5 text-xs font-medium rounded-full border transition-all"
-        :class="activeSource === '' ? 'bg-foreground text-background border-foreground' : 'bg-secondary border-border text-muted-foreground hover:text-foreground'"
-        @click="setSource('')"
-      >
-        {{ t('signal.all') }}
-      </button>
-      <button
-        v-for="s in sources"
-        :key="s"
-        class="px-3 py-1.5 text-xs font-medium rounded-full border transition-all"
-        :class="activeSource === s ? 'bg-foreground text-background border-foreground' : 'bg-secondary border-border text-muted-foreground hover:text-foreground'"
-        @click="setSource(s)"
-      >
-        {{ sourceIcon(s) }} {{ sourceLabel(s) }}
-      </button>
+    <!-- Toolbar -->
+    <div
+      class="sticky top-[1rem] z-40 -mx-4 px-4 py-3 bg-background/80 backdrop-blur-md border border-border/50 mb-6 rounded-md"
+    >
+      <div class="flex flex-col gap-2.5">
+        <!-- Row 1: Sources + Search -->
+        <div class="flex items-center gap-2">
+          <div class="flex items-center gap-1.5 flex-wrap">
+            <button
+              class="px-3 py-1 text-xs font-medium rounded-md transition-all whitespace-nowrap"
+              :class="
+                activeSource === ''
+                  ? 'bg-foreground text-background'
+                  : 'text-muted-foreground hover:text-foreground hover:bg-secondary'
+              "
+              @click="setSource('')"
+            >
+              {{ t('signal.all') }}
+            </button>
+            <button
+              v-for="s in sources"
+              :key="s"
+              class="px-3 py-1 text-xs font-medium rounded-md transition-all whitespace-nowrap flex items-center gap-1.5"
+              :class="
+                activeSource === s
+                  ? 'bg-foreground text-background'
+                  : 'text-muted-foreground hover:text-foreground hover:bg-secondary'
+              "
+              @click="setSource(s)"
+            >
+              <span class="w-1.5 h-1.5 rounded-full" :class="sourceBg(s)" />
+              {{ sourceLabel(s) }}
+            </button>
+          </div>
+
+          <!-- Search -->
+          <div class="relative ml-auto w-44 sm:w-56 shrink-0">
+            <Icon
+              name="heroicons:magnifying-glass"
+              class="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-muted-foreground/50"
+            />
+            <input
+              type="text"
+              :placeholder="t('signal.search')"
+              class="w-full pl-8 pr-3 py-1.5 rounded-md bg-secondary/50 border border-border/50 text-xs focus:outline-none focus:border-primary/50 focus:bg-secondary transition-all"
+              @input="onSearch(($event.target as HTMLInputElement).value)"
+            />
+          </div>
+        </div>
+
+        <!-- Row 2: Categories -->
+        <div class="flex items-center gap-1.5 flex-wrap">
+          <button
+            class="px-3 py-1 text-xs font-medium rounded-md transition-all whitespace-nowrap"
+            :class="
+              activeCategory === ''
+                ? 'bg-foreground text-background'
+                : 'text-muted-foreground hover:text-foreground hover:bg-secondary'
+            "
+            @click="setCategory('')"
+          >
+            {{ t('signal.allTopics') }}
+          </button>
+          <button
+            v-for="c in categories"
+            :key="c"
+            class="px-3 py-1 text-xs font-medium rounded-md transition-all whitespace-nowrap"
+            :class="
+              activeCategory === c
+                ? 'bg-foreground text-background'
+                : 'text-muted-foreground hover:text-foreground hover:bg-secondary'
+            "
+            @click="setCategory(c)"
+          >
+            {{ categoryLabel(c) }}
+          </button>
+        </div>
+      </div>
     </div>
 
-    <!-- Category filters -->
-    <div class="flex flex-wrap gap-2 mb-4">
-      <button
-        class="px-3 py-1.5 text-xs font-medium rounded-full border transition-all"
-        :class="activeCategory === '' ? 'bg-foreground text-background border-foreground' : 'bg-secondary border-border text-muted-foreground hover:text-foreground'"
-        @click="setCategory('')"
-      >
-        {{ t('signal.allTopics') }}
-      </button>
-      <button
-        v-for="c in categories"
-        :key="c"
-        class="px-3 py-1.5 text-xs font-medium rounded-full border transition-all"
-        :class="activeCategory === c ? 'bg-foreground text-background border-foreground' : 'bg-secondary border-border text-muted-foreground hover:text-foreground'"
-        @click="setCategory(c)"
-      >
-        {{ categoryEmoji(c) }} {{ c }}
-      </button>
-    </div>
-
-    <!-- Search -->
-    <div class="mb-6">
-      <input
-        type="text"
-        :placeholder="t('signal.search')"
-        class="w-full px-4 py-2 rounded-lg bg-secondary border border-border text-sm focus:outline-none focus:border-primary"
-        @input="onSearch(($event.target as HTMLInputElement).value)"
-      />
-    </div>
-
-    <!-- Stats -->
-    <div v-if="data?.stats" class="flex gap-4 text-xs text-muted-foreground mb-6">
-      <span>{{ data.total }} {{ t('signal.items') }}</span>
-      <span v-for="s in (data.stats as any[])" :key="s.source">
-        {{ sourceIcon(s.source) }} {{ s.count }}
+    <!-- Count -->
+    <div v-if="data?.total" class="flex items-center gap-2 mb-4">
+      <span class="text-xs text-muted-foreground/60 font-mono">
+        {{ data.total }} {{ t('signal.items') }}
       </span>
     </div>
 
     <!-- Loading -->
-    <div v-if="status === 'pending'" class="text-center py-16 text-muted-foreground">
-      {{ t('signal.loading') }}
+    <div v-if="status === 'pending'" class="flex items-center justify-center py-24">
+      <div class="flex flex-col items-center gap-3">
+        <div
+          class="w-6 h-6 border-2 border-primary/30 border-t-primary rounded-full animate-spin"
+        />
+        <span class="text-sm text-muted-foreground">{{ t('signal.loading') }}</span>
+      </div>
     </div>
 
     <!-- Items -->
-    <div v-else-if="data?.items && (data.items as any[]).length > 0" class="flex flex-col">
-      <article
-        v-for="item in (data.items as any[])"
+    <div v-else-if="data?.items && (data.items as any[]).length > 0" class="flex flex-col gap-4">
+      <a
+        v-for="item in data.items as any[]"
         :key="item.id"
-        class="py-4 border-b border-border/50 hover:bg-secondary/30 -mx-4 px-4 rounded-lg transition-colors"
+        :href="item.url"
+        target="_blank"
+        rel="noopener"
+        class="group block border-l-2 pl-4 pr-3 py-4 rounded-r-lg transition-all duration-200 hover:bg-secondary hover:pl-5"
+        :class="sourceColor(item.source)"
       >
-        <!-- Meta row -->
-        <div class="flex items-center gap-2 mb-1.5 text-xs">
-          <span>{{ sourceIcon(item.source) }}</span>
+        <!-- Top row: meta -->
+        <div class="flex items-center gap-2 mb-1">
           <span
-            class="px-1.5 py-0.5 rounded text-[10px] font-bold border"
-            :class="relevanceColor(item.relevance)"
+            class="text-[10px] font-semibold px-1.5 py-0.5 rounded"
+            :class="categoryColor(item.category)"
           >
-            {{ item.relevance }}
+            {{ categoryLabel(item.category) }}
           </span>
-          <span class="text-muted-foreground uppercase tracking-wider">{{ item.category }}</span>
-          <span class="text-muted-foreground/50">{{ timeAgo(item.created_at) }}</span>
-          <span v-if="item.score" class="text-orange-400">⬆{{ item.score.toLocaleString() }}</span>
+          <span class="text-[11px] text-muted-foreground/40 font-mono">{{
+            sourceLabel(item.source)
+          }}</span>
+          <span class="text-[11px] text-muted-foreground/30 font-mono">{{
+            timeAgo(item.created_at)
+          }}</span>
+          <span v-if="item.score" class="text-[11px] text-muted-foreground/40 font-mono ml-auto">
+            {{ item.score.toLocaleString() }} pts
+          </span>
         </div>
 
         <!-- Title -->
-        <h3 class="text-sm font-medium leading-snug">
-          <a
-            :href="item.url"
-            target="_blank"
-            rel="noopener"
-            class="hover:text-primary transition-colors"
-          >
-            {{ item.title }}
-          </a>
+        <h3 class="text-sm font-medium leading-snug group-hover:text-primary transition-colors">
+          {{ stripHtml(item.title) }}
         </h3>
 
         <!-- Summary -->
-        <p v-if="item.summary" class="text-xs text-muted-foreground mt-1 line-clamp-2">
-          {{ item.summary }}
+        <p
+          v-if="item.summary"
+          class="text-xs text-muted-foreground/60 mt-1 line-clamp-1 leading-relaxed"
+        >
+          {{ stripHtml(item.summary) }}
         </p>
-
-        <!-- Author -->
-        <span v-if="item.author" class="text-[11px] text-muted-foreground/60 mt-1">
-          {{ item.author }}
-        </span>
-      </article>
+      </a>
     </div>
 
     <!-- Empty state -->
-    <div v-else class="text-center py-16 text-muted-foreground">
-      {{ t('signal.empty') }}
+    <div v-else class="flex flex-col items-center justify-center py-24 text-center">
+      <div class="text-4xl mb-3 opacity-30">~</div>
+      <p class="text-sm text-muted-foreground">{{ t('signal.empty') }}</p>
     </div>
 
     <!-- Load more -->
-    <div v-if="data && (offset + 50) < Number(data.total)" class="text-center py-6">
+    <div v-if="data && offset + 50 < Number(data.total)" class="flex justify-center py-8">
       <button
-        class="px-6 py-2 rounded-lg bg-secondary border border-border text-sm text-muted-foreground hover:text-foreground transition-colors"
+        class="px-6 py-2 rounded-lg text-xs font-medium text-muted-foreground border border-border/50 hover:border-border hover:text-foreground transition-all"
         @click="loadMore"
       >
         {{ t('signal.loadMore') }}
       </button>
     </div>
 
-    <!-- About section -->
-    <div class="mt-12 pt-8 border-t border-border/50">
-      <h2 class="text-lg font-semibold mb-2">
-        {{ t('signal.whatIsThis') }}
-      </h2>
-      <p class="text-sm text-muted-foreground leading-relaxed">
-        {{ t('signal.whatIsThisDesc') }}
-      </p>
-    </div>
   </main>
 </template>

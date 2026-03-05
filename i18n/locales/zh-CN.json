@@ -22,7 +22,7 @@
     "videos": "视频",
     "language": "语言",
     "categories": "分类",
-    "signal": "Signal"
+    "signal": "信号"
   },
   "og": {
     "homeTitle": "Aaron Guo"
@@ -208,7 +208,7 @@
     "newsletterDescription": "每月两次：一份实战手册，一个经验教训，一个工具。"
   },
   "signal": {
-    "title": "Signal",
+    "title": "信号",
     "subtitle": "去噪留真，只看重要的。",
     "poweredBy": "AI 每小时从 HN、X、Reddit、GitHub、Product Hunt 自动抓取。",
     "all": "全部",
