@@ -25,6 +25,13 @@ const activeCategory = ref('')
 const searchQuery = ref('')
 const offset = ref(0)
 
+// Accumulated items for infinite scroll
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const allItems = ref<any[]>([])
+const totalCount = ref(0)
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const statsData = ref<any[] | null>(null)
+
 // Fetch data
 const { data, refresh, status } = await useFetch('/api/signal', {
   query: computed(() => ({
@@ -36,7 +43,25 @@ const { data, refresh, status } = await useFetch('/api/signal', {
     limit: 50,
   })),
   watch: false,
+  onResponse({ response }) {
+    const result = response._data
+    if (!result) return
+    if (offset.value === 0) {
+      allItems.value = result.items || []
+    } else {
+      allItems.value = [...allItems.value, ...(result.items || [])]
+    }
+    totalCount.value = Number(result.total) || 0
+    if (result.stats) statsData.value = result.stats
+  },
 })
+
+// Init from SSR data
+if (data.value) {
+  allItems.value = (data.value.items as Record<string, unknown>[]) || []
+  totalCount.value = Number(data.value.total) || 0
+  statsData.value = (data.value.stats as Record<string, unknown>[]) || null
+}
 
 // Debounced search
 let searchTimer: ReturnType<typeof setTimeout>
@@ -61,12 +86,37 @@ function setCategory(c: string) {
   refresh()
 }
 
-function loadMore() {
+const isLoadingMore = ref(false)
+async function loadMore() {
   offset.value += 50
-  refresh()
+  isLoadingMore.value = true
+  await refresh()
+  isLoadingMore.value = false
 }
 
 // Helpers
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function getSummary(item: Record<string, any>): { text: string; isAi: boolean } | null {
+  const title = stripHtml(item.title).toLowerCase()
+  const ai = item.ai_summary ? stripHtml(item.ai_summary) : ''
+  const regular = item.summary ? stripHtml(item.summary) : ''
+
+  // Prefer ai_summary, fallback to summary
+  if (ai && !isDuplicate(ai, title)) return { text: ai, isAi: true }
+  if (regular && !isDuplicate(regular, title)) return { text: regular, isAi: false }
+  return null
+}
+
+function isDuplicate(summary: string, title: string): boolean {
+  const s = summary.toLowerCase().trim()
+  const t = title.trim()
+  // Skip if summary is essentially the same as the title
+  if (s === t) return true
+  if (s.startsWith(t) && s.length < t.length * 1.3) return true
+  if (t.startsWith(s) && t.length < s.length * 1.3) return true
+  return false
+}
+
 function stripHtml(str: string) {
   if (!str) return ''
   return str
@@ -145,8 +195,8 @@ const sources = ['hackernews', 'x-twitter', 'reddit', 'producthunt', 'github']
 const categories = ['ai', 'coding', 'indie', 'fintech', 'general']
 
 const totalStats = computed(() => {
-  if (!data.value?.stats) return 0
-  return (data.value.stats as any[]).reduce((sum: number, s: any) => sum + Number(s.count), 0)
+  if (!statsData.value) return 0
+  return statsData.value.reduce((sum: number, s: Record<string, unknown>) => sum + Number(s.count), 0)
 })
 </script>
 
@@ -176,10 +226,10 @@ const totalStats = computed(() => {
         </div>
 
         <!-- Mini stats -->
-        <div v-if="data?.stats" class="hidden sm:flex flex-col gap-1.5 text-right shrink-0">
+        <div v-if="statsData" class="hidden sm:flex flex-col gap-1.5 text-right shrink-0">
           <div
-            v-for="s in data.stats as any[]"
-            :key="s.source"
+            v-for="s in statsData"
+            :key="(s as any).source"
             class="flex items-center gap-2 justify-end"
           >
             <span class="text-[11px] text-muted-foreground/70 font-mono w-6 text-right">{{
@@ -283,14 +333,14 @@ const totalStats = computed(() => {
     </div>
 
     <!-- Count -->
-    <div v-if="data?.total" class="flex items-center gap-2 mb-4">
+    <div v-if="totalCount" class="flex items-center gap-2 mb-4">
       <span class="text-xs text-muted-foreground/60 font-mono">
-        {{ data.total }} {{ t('signal.items') }}
+        {{ totalCount }} {{ t('signal.items') }}
       </span>
     </div>
 
-    <!-- Loading -->
-    <div v-if="status === 'pending'" class="flex items-center justify-center py-24">
+    <!-- Loading (initial only) -->
+    <div v-if="status === 'pending' && allItems.length === 0" class="flex items-center justify-center py-24">
       <div class="flex flex-col items-center gap-3">
         <div
           class="w-6 h-6 border-2 border-primary/30 border-t-primary rounded-full animate-spin"
@@ -300,14 +350,14 @@ const totalStats = computed(() => {
     </div>
 
     <!-- Items -->
-    <div v-else-if="data?.items && (data.items as any[]).length > 0" class="flex flex-col gap-4">
+    <div v-else-if="allItems.length > 0" class="flex flex-col gap-4">
       <a
-        v-for="item in data.items as any[]"
+        v-for="item in allItems"
         :key="item.id"
         :href="item.url"
         target="_blank"
         rel="noopener"
-        class="group block border-l-2 pl-4 pr-3 py-4 rounded-r-lg transition-all duration-200 hover:bg-secondary hover:pl-5"
+        class="group block border-l-2 pl-4 pr-3 py-4 rounded-r-lg transition-colors duration-200 hover:bg-secondary"
         :class="sourceColor(item.source)"
       >
         <!-- Top row: meta -->
@@ -330,17 +380,20 @@ const totalStats = computed(() => {
         </div>
 
         <!-- Title -->
-        <h3 class="text-sm font-medium leading-snug group-hover:text-primary transition-colors">
+        <h3 class="text-base sm:text-lg font-semibold leading-snug group-hover:text-primary transition-colors">
           {{ stripHtml(item.title) }}
         </h3>
 
-        <!-- AI Summary -->
-        <p
-          v-if="item.ai_summary"
-          class="text-xs text-muted-foreground/60 mt-1 line-clamp-2 leading-relaxed"
+        <!-- Summary -->
+        <div
+          v-if="getSummary(item)"
+          class="flex items-start gap-1.5 mt-1.5"
         >
-          {{ stripHtml(item.ai_summary) }}
-        </p>
+          <Icon v-if="getSummary(item)!.isAi" name="heroicons:star-solid" class="w-3.5 h-3.5 text-amber-400/70 shrink-0 mt-0.5" :title="t('signal.aiSummary')" />
+          <p class="text-sm text-muted-foreground/45 line-clamp-2 leading-relaxed">
+            {{ getSummary(item)!.text }}
+          </p>
+        </div>
       </a>
     </div>
 
@@ -351,12 +404,14 @@ const totalStats = computed(() => {
     </div>
 
     <!-- Load more -->
-    <div v-if="data && offset + 50 < Number(data.total)" class="flex justify-center py-8">
+    <div v-if="allItems.length < totalCount" class="flex justify-center py-8">
       <button
-        class="px-6 py-2 rounded-lg text-xs font-medium text-muted-foreground border border-border/50 hover:border-border hover:text-foreground transition-all"
+        class="px-6 py-2 rounded-lg text-xs font-medium text-muted-foreground border border-border/50 hover:border-border hover:text-foreground transition-all flex items-center gap-2"
+        :disabled="isLoadingMore"
         @click="loadMore"
       >
-        {{ t('signal.loadMore') }}
+        <div v-if="isLoadingMore" class="w-3.5 h-3.5 border-2 border-muted-foreground/30 border-t-muted-foreground rounded-full animate-spin" />
+        {{ isLoadingMore ? t('signal.loading') : t('signal.loadMore') }}
       </button>
     </div>
 

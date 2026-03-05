@@ -220,6 +220,7 @@
     "loadMore": "加载更多",
     "whatIsThis": "这是什么？",
     "whatIsThisDesc": "我的 AI 代理每小时扫描 Hacker News、X、Reddit、GitHub Trending 和 Product Hunt，按 AI、编程工具、金融科技、独立开发等话题的相关度打分。没有为了流量优化的算法，只有信号。",
+    "aiSummary": "AI 摘要",
     "description": "AI 精选科技与 AI 新闻，每小时从 HN、X、Reddit、GitHub、Product Hunt 自动更新。"
   }
 }

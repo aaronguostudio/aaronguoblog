@@ -220,6 +220,7 @@
     "loadMore": "Load more",
     "whatIsThis": "What is this?",
     "whatIsThisDesc": "My AI agent scans Hacker News, X, Reddit, GitHub Trending, and Product Hunt every hour. It scores each item by relevance to AI, coding agents, fintech, and indie building — the topics I care about. No algorithms optimizing for engagement. Just signal.",
+    "aiSummary": "Summarized by AI",
     "description": "AI-curated tech & AI news feed. Updated hourly from HN, X, Reddit, GitHub & Product Hunt."
   }
 }
