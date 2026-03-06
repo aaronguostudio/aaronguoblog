@@ -53,7 +53,7 @@ const allPosts = computed(() => {
 /** Hero post — the latest post */
 const heroPost = computed(() => allPosts.value[0] || null)
 
-/** Compact sidebar posts — posts 2-4 */
+/** Sidebar posts — posts 2-4 */
 const sidebarPosts = computed(() => allPosts.value.slice(1, 4))
 
 /** Grid posts — posts 5+ */
@@ -108,40 +108,44 @@ function compactDate(dateStr: string) {
       </NuxtLink>
 
       <!-- Compact Sidebar (right, 2 cols) -->
-      <div class="lg:col-span-2 flex flex-col gap-4">
+      <div class="lg:col-span-2 flex flex-col gap-3 lg:h-full">
+        <!-- Signal card -->
+        <MainSignal class="shrink-0" />
+
+        <!-- Sidebar blog posts (posts 2-4) -->
         <NuxtLink
           v-for="post in sidebarPosts"
           :key="post.title"
           :to="localePath(post.path)"
-          class="group flex-1"
+          class="group flex-1 flex flex-col min-h-0"
         >
           <article
             class="h-full flex flex-row overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:shadow-md hover:border-primary/20"
           >
-            <div class="w-72 shrink-0 overflow-hidden p-4 rounded-md">
+            <div class="w-56 shrink-0 overflow-hidden">
               <img
                 :src="post.image || '/blogs-img/blog.jpg'"
                 :alt="post.alt"
-                class="w-full h-full rounded-md object-cover object-center group-hover:scale-[1.02] transition-all duration-500"
+                class="w-full h-full object-cover object-center group-hover:scale-[1.02] transition-all duration-500"
               />
             </div>
             <div class="flex flex-col justify-center p-4 flex-1 min-w-0">
-              <div class="flex items-center gap-2 mb-2">
+              <div class="flex items-center gap-1.5 mb-1.5">
                 <span
                   v-for="tag in post.tags.slice(0, 1)"
                   :key="tag"
-                  class="bg-secondary text-secondary-foreground rounded-md px-2 py-0.5 text-xs font-medium"
+                  class="bg-secondary text-secondary-foreground rounded px-1.5 py-0.5 text-[10px] font-medium"
                 >
                   {{ tag }}
                 </span>
-                <span class="text-xs text-muted-foreground">{{ compactDate(post.date) }}</span>
+                <span class="text-[10px] text-muted-foreground">{{ compactDate(post.date) }}</span>
               </div>
               <h4
-                class="text-base font-semibold text-foreground group-hover:text-primary transition-colors duration-300 line-clamp-2 mb-1"
+                class="text-sm font-semibold text-foreground group-hover:text-primary transition-colors duration-300 line-clamp-2 mb-1.5"
               >
                 {{ post.title }}
               </h4>
-              <p class="text-sm text-muted-foreground line-clamp-2">
+              <p class="text-xs text-muted-foreground line-clamp-2">
                 {{ post.description }}
               </p>
             </div>
