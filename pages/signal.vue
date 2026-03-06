@@ -33,6 +33,16 @@ const totalCount = ref(0)
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const statsData = ref<any[] | null>(null)
 
+// Fetch pulse data
+const { data: pulseData } = await useFetch('/api/signal-pulse')
+
+const pulseText = computed(() => pulseData.value?.pulse || null)
+const pulseDate = computed(() => pulseData.value?.date || null)
+const pulseItems = computed(() => {
+  const items = (pulseData.value?.items as Record<string, any>[]) || []
+  return items.slice(0, 5)
+})
+
 // Fetch data
 const { data, refresh, status } = await useFetch('/api/signal', {
   query: computed(() => ({
@@ -144,6 +154,8 @@ function sourceColor(s: string) {
     reddit: 'border-l-purple-500',
     producthunt: 'border-l-amber-500',
     github: 'border-l-pink-500',
+    lobsters: 'border-l-red-400',
+    arxiv: 'border-l-cyan-400',
   }
   return map[s] || 'border-l-muted-foreground'
 }
@@ -155,6 +167,8 @@ function sourceBg(s: string) {
     reddit: 'bg-purple-500',
     producthunt: 'bg-amber-500',
     github: 'bg-pink-500',
+    lobsters: 'bg-red-400',
+    arxiv: 'bg-cyan-400',
   }
   return map[s] || 'bg-muted-foreground'
 }
@@ -166,6 +180,8 @@ function sourceLabel(s: string) {
     reddit: 'Reddit',
     producthunt: 'PH',
     github: 'GitHub',
+    lobsters: 'Lobsters',
+    arxiv: 'ArXiv',
   }
   return map[s] || s
 }
@@ -176,6 +192,8 @@ function categoryLabel(c: string) {
     coding: 'Code',
     indie: 'Indie',
     fintech: 'Fintech',
+    management: 'Mgmt',
+    content: 'Content',
     general: 'General',
   }
   return map[c] || c
@@ -187,13 +205,15 @@ function categoryColor(c: string) {
     coding: 'text-emerald-500 bg-emerald-500/10',
     indie: 'text-violet-500 bg-violet-500/10',
     fintech: 'text-amber-500 bg-amber-500/10',
+    management: 'text-orange-500 bg-orange-500/10',
+    content: 'text-pink-500 bg-pink-500/10',
     general: 'text-muted-foreground bg-muted',
   }
   return map[c] || 'text-muted-foreground bg-muted'
 }
 
-const sources = ['hackernews', 'x-twitter', 'reddit', 'producthunt', 'github']
-const categories = ['ai', 'coding', 'indie', 'fintech', 'general']
+const sources = ['hackernews', 'x-twitter', 'reddit', 'producthunt', 'github', 'lobsters', 'arxiv']
+const categories = ['ai', 'coding', 'indie', 'fintech', 'management', 'content', 'general']
 
 const totalStats = computed(() => {
   if (!statsData.value) return 0
@@ -249,6 +269,43 @@ const totalStats = computed(() => {
               sourceLabel(s.source)
             }}</span>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Today's Pulse -->
+    <div v-if="pulseText" class="mb-8 rounded-lg border border-border/50 overflow-hidden">
+      <div class="px-4 py-2.5 bg-cyan-500/[0.04] dark:bg-cyan-400/[0.06] border-b border-border/30">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60" />
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" style="box-shadow: 0 0 6px rgb(52 211 153 / 0.8)" />
+            </span>
+            <span class="text-[10px] font-mono uppercase tracking-widest text-cyan-700 dark:text-cyan-300">{{ t('signal.todaysPulse') }}</span>
+          </div>
+          <span v-if="pulseDate" class="text-[10px] font-mono text-muted-foreground/40">{{ pulseDate }}</span>
+        </div>
+      </div>
+      <div class="px-4 py-3">
+        <p class="text-sm text-muted-foreground/80 leading-relaxed">{{ pulseText }}</p>
+        <div v-if="pulseItems.length > 0" class="mt-3 flex flex-col gap-0.5">
+          <a
+            v-for="item in pulseItems"
+            :key="item.id"
+            :href="item.url"
+            target="_blank"
+            rel="noopener"
+            class="group flex items-center gap-2.5 py-1.5 rounded-md hover:bg-secondary/50 -mx-1.5 px-1.5 transition-colors"
+          >
+            <span class="w-1.5 h-1.5 rounded-full shrink-0" :class="sourceBg(item.source)" />
+            <span class="text-xs text-foreground/70 group-hover:text-foreground transition-colors line-clamp-1">
+              {{ stripHtml(item.title) }}
+            </span>
+            <span class="text-[10px] font-semibold px-1.5 py-0.5 rounded ml-auto shrink-0" :class="categoryColor(item.category)">
+              {{ categoryLabel(item.category) }}
+            </span>
+          </a>
         </div>
       </div>
     </div>

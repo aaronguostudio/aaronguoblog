@@ -27,14 +27,25 @@ onUnmounted(() => {
   document.removeEventListener('click', closeTooltip)
 })
 
-const { data } = await useFetch('/api/signal', {
+// Fetch dynamic pulse data
+const { data: pulseData } = await useFetch('/api/signal-pulse')
+
+// Fallback to regular signal API if pulse has no items
+const { data: fallbackData } = await useFetch('/api/signal', {
   query: { limit: 20, minRelevance: 7 },
+})
+
+const pulseText = computed(() => {
+  return pulseData.value?.pulse || t('signal.pulse')
 })
 
 // Sort by relevance desc, take top 3
 const topItems = computed(() => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const items = (data.value?.items as Record<string, any>[]) || []
+  const pulseItems = (pulseData.value?.items as Record<string, any>[]) || []
+  if (pulseItems.length > 0) return pulseItems.slice(0, 3)
+  // Fallback
+  const items = (fallbackData.value?.items as Record<string, any>[]) || []
   return [...items].sort((a, b) => Number(b.relevance) - Number(a.relevance)).slice(0, 3)
 })
 
@@ -45,6 +56,8 @@ function sourceColor(s: string) {
     reddit: 'bg-purple-500',
     producthunt: 'bg-amber-500',
     github: 'bg-pink-500',
+    lobsters: 'bg-red-400',
+    arxiv: 'bg-cyan-400',
   }
   return map[s] || 'bg-muted-foreground'
 }
@@ -123,7 +136,7 @@ function stripHtml(str: string) {
               class="inline-block text-[10px] font-mono uppercase tracking-widest text-cyan-700 dark:text-cyan-300 bg-gradient-to-r from-cyan-500/15 to-violet-500/10 dark:from-cyan-400/20 dark:to-violet-500/15 border border-cyan-500/20 dark:border-cyan-400/20 px-1.5 pt-0.5 rounded select-none mr-2"
               style="vertical-align: text-top"
               >{{ t('signal.todaysPulse') }}</span
-            >{{ t('signal.pulse') }}
+            >{{ pulseText }}
           </p>
         </div>
 
