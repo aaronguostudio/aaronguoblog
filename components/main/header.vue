@@ -184,7 +184,7 @@ function isActive(path: string, exact = false) {
     </div>
 
     <!-- Mobile Navigation Menu -->
-    <div v-show="isMobileMenuOpen" class="md:hidden border-t border-border">
+    <div v-show="isMobileMenuOpen" class="md:hidden">
       <nav class="container max-w-8xl mx-auto px-4 py-4 flex flex-col space-y-4">
         <ul class="flex flex-col space-y-3">
           <li v-for="item in navItems" :key="item.path">
