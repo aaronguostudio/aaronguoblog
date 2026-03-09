@@ -65,9 +65,11 @@ const blogPath = computed(() => {
   >
     <!-- Feature Image - Always shown with default fallback -->
     <NuxtLink :to="blogPath" class="block">
-      <img
+      <NuxtImg
         :src="image || '/blogs-img/blog.jpg'"
         :alt="alt"
+        loading="lazy"
+        sizes="100vw sm:50vw lg:33vw"
         class="w-full h-72 object-cover object-center group-hover:scale-[1.02] transition-all duration-500"
       />
     </NuxtLink>

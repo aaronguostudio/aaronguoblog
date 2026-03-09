@@ -91,6 +91,8 @@ export default defineNuxtConfig({
 
   image: {
     dir: 'public',
+    format: ['webp'],
+    quality: 80,
   },
 
   content: {

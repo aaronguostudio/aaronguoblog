@@ -76,9 +76,10 @@ function compactDate(dateStr: string) {
         <article
           class="relative h-full overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:shadow-lg hover:border-primary/20"
         >
-          <img
+          <NuxtImg
             :src="heroPost.image || '/blogs-img/blog.jpg'"
             :alt="heroPost.alt"
+            sizes="100vw lg:60vw"
             class="w-full h-72 lg:h-[500px] object-cover object-center group-hover:scale-[1.02] transition-all duration-500"
           />
           <div class="p-6">
@@ -123,9 +124,11 @@ function compactDate(dateStr: string) {
             class="h-full flex flex-row overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:shadow-md hover:border-primary/20"
           >
             <div class="w-56 shrink-0 overflow-hidden">
-              <img
+              <NuxtImg
                 :src="post.image || '/blogs-img/blog.jpg'"
                 :alt="post.alt"
+                loading="lazy"
+                sizes="224px"
                 class="w-full h-full object-cover object-center group-hover:scale-[1.02] transition-all duration-500"
               />
             </div>
@@ -171,9 +174,11 @@ function compactDate(dateStr: string) {
         <article
           class="overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:shadow-md hover:border-primary/20"
         >
-          <img
+          <NuxtImg
             :src="post.image || '/blogs-img/blog.jpg'"
             :alt="post.alt"
+            loading="lazy"
+            sizes="100vw sm:50vw lg:25vw"
             class="w-full h-60 object-cover object-center group-hover:scale-[1.02] transition-all duration-500"
           />
           <div class="p-4">
