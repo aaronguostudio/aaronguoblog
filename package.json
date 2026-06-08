@@ -48,12 +48,13 @@
     "vitest": "^1.0.0"
   },
   "pnpm": {
-    "overrides": {
-      "better-sqlite3": "^12.6.2"
-    },
     "onlyBuiltDependencies": [
+      "@parcel/watcher",
       "better-sqlite3",
-      "sharp"
+      "esbuild",
+      "sharp",
+      "unrs-resolver",
+      "vue-demi"
     ]
   },
   "volta": {
