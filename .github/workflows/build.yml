@@ -26,7 +26,7 @@ jobs:
           run_install: false
 
       - name: Install dependencies
-        run: pnpm install
+        run: CI=true pnpm install --frozen-lockfile
 
       - name: Check Linting
         run: pnpm run lint

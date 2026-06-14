@@ -4,6 +4,7 @@ import { describe, expect, it } from 'vitest'
 const PUBLISH_SCRIPT = readFileSync(new URL('../../scripts/radar/publish-local.sh', import.meta.url), 'utf8')
 const INSTALL_SCRIPT = readFileSync(new URL('../../scripts/radar/install-launch-agent.sh', import.meta.url), 'utf8')
 const GITHUB_WORKFLOW = readFileSync(new URL('../../.github/workflows/radar.yml', import.meta.url), 'utf8')
+const BUILD_WORKFLOW = readFileSync(new URL('../../.github/workflows/build.yml', import.meta.url), 'utf8')
 
 describe('Radar local publish scripts', () => {
   it('runs the full publish pipeline with a local lock', () => {
@@ -39,5 +40,10 @@ describe('Radar local publish scripts', () => {
     expect(GITHUB_WORKFLOW).toContain('git add public/radar')
     expect(GITHUB_WORKFLOW).toContain('git commit')
     expect(GITHUB_WORKFLOW).toContain('git push')
+  })
+
+  it('runs pnpm installs in GitHub without interactive prompts', () => {
+    expect(GITHUB_WORKFLOW).toContain('CI=true pnpm install --frozen-lockfile')
+    expect(BUILD_WORKFLOW).toContain('CI=true pnpm install --frozen-lockfile')
   })
 })
