@@ -30,7 +30,10 @@ export async function discoverSchema(client) {
 
   const result = []
   for (const row of tables.rows) {
-    const columns = await client.execute(`PRAGMA table_info(${row.name})`)
+    const columns = await client.execute({
+      sql: 'SELECT name FROM pragma_table_info(?)',
+      args: [row.name],
+    })
     result.push({
       table: row.name,
       columns: columns.rows.map(column => column.name),
@@ -170,8 +173,17 @@ export async function upsertRadarItems(client, { runId, items }) {
           cluster_id = excluded.cluster_id,
           cluster_title = excluded.cluster_title,
           last_seen_at = datetime('now'),
-          sighting_count = radar_item_topics.sighting_count + 1,
-          latest_run_id = excluded.latest_run_id`,
+          sighting_count = CASE
+            WHEN radar_item_topics.latest_run_id IS excluded.latest_run_id
+              THEN radar_item_topics.sighting_count
+            ELSE radar_item_topics.sighting_count + 1
+          END,
+          latest_run_id = CASE
+            WHEN radar_item_topics.latest_run_id IS NULL
+              OR excluded.latest_run_id > radar_item_topics.latest_run_id
+              THEN excluded.latest_run_id
+            ELSE radar_item_topics.latest_run_id
+          END`,
       args: [
         itemId,
         item.topicSlug,
