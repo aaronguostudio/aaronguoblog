@@ -1,10 +1,16 @@
-import { useTurso } from '../utils/turso'
+import { isMissingTursoConfigError, useTurso } from '../utils/turso'
 import { buildPulseItemsQuery, isMissingRadarTableError } from '../utils/signal-radar'
 
 type SignalPulseItem = Record<string, unknown>
 
 export default defineCachedEventHandler(async () => {
-  const db = useTurso()
+  let db: ReturnType<typeof useTurso>
+  try {
+    db = useTurso()
+  } catch (error) {
+    if (!isMissingTursoConfigError(error)) throw error
+    return { pulse: null, items: [], date: null }
+  }
 
   try {
     const pulseResult = await db.execute(

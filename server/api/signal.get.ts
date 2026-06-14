@@ -1,4 +1,4 @@
-import { useTurso } from '../utils/turso'
+import { isMissingTursoConfigError, useTurso } from '../utils/turso'
 import {
   buildRadarCountQuery,
   buildRadarItemsQuery,
@@ -18,7 +18,22 @@ export default defineCachedEventHandler(async (event) => {
   const offset = parseInt((query.offset as string) || '0')
   const search = (query.q as string) || ''
 
-  const db = useTurso()
+  let db: ReturnType<typeof useTurso>
+  try {
+    db = useTurso()
+  } catch (error) {
+    if (!isMissingTursoConfigError(error)) throw error
+    return {
+      items: [],
+      total: 0,
+      stats: [],
+      topics: [],
+      latestRun: null,
+      limit,
+      offset,
+    }
+  }
+
   const where = buildSignalRadarWhere({ source, category, topic, minRelevance, search })
 
   try {
