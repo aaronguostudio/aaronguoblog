@@ -102,14 +102,14 @@ jobs:
           TRUTHSOCIAL_TOKEN: ${{ secrets.TRUTHSOCIAL_TOKEN }}
         run: |
           if [ -n "$RADAR_TOPIC" ]; then
-            pnpm radar:run -- --topic "$RADAR_TOPIC"
+            pnpm radar:run --topic "$RADAR_TOPIC"
           elif [ "$GITHUB_EVENT_NAME" = "schedule" ]; then
             case "$RADAR_EVENT_SCHEDULE" in
               "0 14 * * *")
-                pnpm radar:run -- --cadence daily
+                pnpm radar:run --cadence daily
                 ;;
               "0 15 * * 1")
-                pnpm radar:run -- --cadence weekly
+                pnpm radar:run --cadence weekly
                 ;;
               *)
                 echo "Unknown Radar schedule: $RADAR_EVENT_SCHEDULE" >&2
@@ -117,7 +117,7 @@ jobs:
                 ;;
             esac
           elif [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ]; then
-            pnpm radar:run -- --cadence "$RADAR_CADENCE"
+            pnpm radar:run --cadence "$RADAR_CADENCE"
           else
             echo "Unsupported Radar event: $GITHUB_EVENT_NAME" >&2
             exit 1
