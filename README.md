@@ -140,11 +140,14 @@ pnpm radar:run -- --cadence daily
 
 Required runtime env/secrets are `TURSO_URL`, `TURSO_AUTH_TOKEN`, `LAST30DAYS_CLI`, and `LAST30DAYS_PYTHON`. Optional last30days source credentials include `BRAVE_API_KEY`, `SCRAPECREATORS_API_KEY`, `OPENAI_API_KEY`, `XAI_API_KEY`, `OPENROUTER_API_KEY`, `PARALLEL_API_KEY`, `APIFY_API_TOKEN`, `AUTH_TOKEN`, `CT0`, `BSKY_HANDLE`, `BSKY_APP_PASSWORD`, and `TRUTHSOCIAL_TOKEN`.
 
-GitHub Actions runs the `Radar` workflow daily at `14:00 UTC` and also supports manual dispatch by topic or cadence. The scheduled run executes:
+GitHub Actions runs the `Radar` workflow daily at `14:00 UTC` and weekly on Mondays at `15:00 UTC`. Scheduled runs first apply the idempotent Radar migration, then execute the matching cadence:
 
 ```bash
 pnpm radar:run -- --cadence daily
+pnpm radar:run -- --cadence weekly
 ```
+
+The workflow checks out `mvanhorn/last30days-skill` at reviewed commit `122158415ae421da83e739f2668032f6bc78d39c` instead of tracking a moving branch. Manual dispatch also supports a specific topic or cadence.
 
 ## 🚀 Development
 

@@ -18,7 +18,9 @@ on:
           - manual
   schedule:
     # 14:00 UTC is 08:00 in Edmonton during daylight saving time.
-    - cron: "0 14 * * *"
+    - cron: '0 14 * * *'
+    # Weekly run for deeper weekly Radar topics.
+    - cron: '0 15 * * 1'
 
 jobs:
   radar:
@@ -42,7 +44,7 @@ jobs:
       - name: Install Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
+          python-version: '3.12'
 
       - name: Install dependencies
         run: pnpm install
@@ -51,6 +53,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: mvanhorn/last30days-skill
+          ref: 122158415ae421da83e739f2668032f6bc78d39c
           path: .last30days-skill
 
       - name: Resolve last30days CLI
@@ -70,10 +73,17 @@ jobs:
           find "$GITHUB_WORKSPACE/.last30days-skill" -maxdepth 5 -type f -name last30days.py >&2
           exit 1
 
+      - name: Migrate Radar schema
+        env:
+          TURSO_URL: ${{ secrets.TURSO_URL }}
+          TURSO_AUTH_TOKEN: ${{ secrets.TURSO_AUTH_TOKEN }}
+        run: pnpm radar:migrate
+
       - name: Run Radar
         env:
-          RADAR_TOPIC: ${{ inputs.topic || '' }}
-          RADAR_CADENCE: ${{ inputs.cadence || 'daily' }}
+          RADAR_TOPIC: ${{ github.event.inputs.topic || '' }}
+          RADAR_CADENCE: ${{ github.event.inputs.cadence || 'daily' }}
+          RADAR_EVENT_SCHEDULE: ${{ github.event.schedule }}
           LAST30DAYS_CLI: ${{ steps.last30days.outputs.cli }}
           LAST30DAYS_PYTHON: python3.12
           TURSO_URL: ${{ secrets.TURSO_URL }}
@@ -93,10 +103,24 @@ jobs:
         run: |
           if [ -n "$RADAR_TOPIC" ]; then
             pnpm radar:run -- --topic "$RADAR_TOPIC"
+          elif [ "$GITHUB_EVENT_NAME" = "schedule" ]; then
+            case "$RADAR_EVENT_SCHEDULE" in
+              "0 14 * * *")
+                pnpm radar:run -- --cadence daily
+                ;;
+              "0 15 * * 1")
+                pnpm radar:run -- --cadence weekly
+                ;;
+              *)
+                echo "Unknown Radar schedule: $RADAR_EVENT_SCHEDULE" >&2
+                exit 1
+                ;;
+            esac
           elif [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ]; then
             pnpm radar:run -- --cadence "$RADAR_CADENCE"
           else
-            pnpm radar:run -- --cadence daily
+            echo "Unsupported Radar event: $GITHUB_EVENT_NAME" >&2
+            exit 1
           fi
 
       - name: Upload raw Radar artifacts
