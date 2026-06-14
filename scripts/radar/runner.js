@@ -12,10 +12,10 @@ export async function runRadarTopic({
   repository = defaultRepository,
   today = new Date().toISOString().slice(0, 10),
 }) {
-  const adapterResult = await adapter({ topic })
-  const items = normalizeLast30DaysReport({ report: adapterResult.report, topic })
-
   if (dryRun) {
+    const adapterResult = await adapter({ topic })
+    const items = normalizeLast30DaysReport({ report: adapterResult.report, topic })
+
     return {
       topicSlug: topic.slug,
       status: 'dry_run',
@@ -35,7 +35,11 @@ export async function runRadarTopic({
     cadence: topic.cadence,
   })
 
+  let adapterResult
+  let items
   try {
+    adapterResult = await adapter({ topic })
+    items = normalizeLast30DaysReport({ report: adapterResult.report, topic })
     const itemIds = await repository.upsertRadarItems(client, { runId, items })
     const pulseItems = items.map((item, index) => ({ ...item, id: itemIds[index] })).filter(item => item.id)
     const pulse = generateRadarPulse({ date: today, items: pulseItems })
@@ -60,7 +64,7 @@ export async function runRadarTopic({
     await repository.finishRadarRun(client, {
       runId,
       status: 'failed',
-      itemsSeen: items.length,
+      itemsSeen: items ? items.length : 0,
       itemsWritten: 0,
       errorMessage: error.message,
     })
@@ -68,7 +72,14 @@ export async function runRadarTopic({
   }
 }
 
-export async function runRadar({ topicSlug, dryRun = false, cadence, client }) {
+export async function runRadar({
+  topicSlug,
+  dryRun = false,
+  cadence,
+  client,
+  adapter = runLast30Days,
+  repository = defaultRepository,
+}) {
   const topics = topicSlug
     ? [getRadarTopicBySlug(topicSlug)].filter(Boolean)
     : getRadarTopics().filter(topic => topic.visibility === 'public' && topic.cadence !== 'manual' && (!cadence || topic.cadence === cadence))
@@ -79,7 +90,15 @@ export async function runRadar({ topicSlug, dryRun = false, cadence, client }) {
 
   const results = []
   for (const topic of topics) {
-    results.push(await runRadarTopic({ topic, dryRun, client }))
+    try {
+      results.push(await runRadarTopic({ topic, dryRun, client, adapter, repository }))
+    } catch (error) {
+      results.push({
+        topicSlug: topic.slug,
+        status: 'failed',
+        error: error.message,
+      })
+    }
   }
 
   return results

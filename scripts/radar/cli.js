@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url'
 import { getRadarTopics } from './config.js'
 import { runRadar } from './runner.js'
 import {
@@ -7,24 +8,51 @@ import {
   migrateRadarSchema,
 } from './repository.js'
 
-function parseArgs(argv) {
+const ALLOWED_CADENCES = new Set(['daily', 'weekly', 'manual'])
+
+function readFlagValue(argv, index, flag) {
+  const value = argv[index + 1]
+  if (!value || value.startsWith('--')) {
+    throw new Error(`${flag} requires a value`)
+  }
+  return value
+}
+
+export function parseArgs(argv) {
   const args = { command: argv[2], dryRun: false, topicSlug: undefined, cadence: undefined }
   for (let index = 3; index < argv.length; index += 1) {
     const value = argv[index]
-    if (value === '--dry-run') args.dryRun = true
+
+    if (value === '--dry-run') {
+      args.dryRun = true
+      continue
+    }
+
     if (value === '--topic') {
-      args.topicSlug = argv[index + 1]
+      args.topicSlug = readFlagValue(argv, index, value)
       index += 1
+      continue
     }
+
     if (value === '--cadence') {
-      args.cadence = argv[index + 1]
+      args.cadence = readFlagValue(argv, index, value)
+      if (!ALLOWED_CADENCES.has(args.cadence)) {
+        throw new Error('--cadence must be daily, weekly, or manual')
+      }
       index += 1
+      continue
     }
+
+    if (value.startsWith('--')) {
+      throw new Error(`Unknown flag: ${value}`)
+    }
+
+    throw new Error(`Unknown argument: ${value}`)
   }
   return args
 }
 
-async function main() {
+export async function main() {
   const args = parseArgs(process.argv)
 
   if (args.command === 'topics') {
@@ -55,13 +83,18 @@ async function main() {
       client,
     })
     console.log(JSON.stringify({ ok: true, results }, null, 2))
+    if (results.some(result => result.status === 'failed')) {
+      process.exitCode = 1
+    }
     return
   }
 
   throw new Error('Usage: node scripts/radar/cli.js <topics|diagnose|migrate|run> [--topic slug] [--dry-run] [--cadence daily]')
 }
 
-main().catch(error => {
-  console.error(JSON.stringify({ ok: false, error: error.message }, null, 2))
-  process.exit(1)
-})
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  main().catch(error => {
+    console.error(JSON.stringify({ ok: false, error: error.message }, null, 2))
+    process.exit(1)
+  })
+}

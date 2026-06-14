@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { runRadarTopic } from '../../scripts/radar/runner.js'
+import { runRadar, runRadarTopic } from '../../scripts/radar/runner.js'
 
 const topic = {
   slug: 'mobile-ai',
@@ -92,5 +92,97 @@ describe('runRadarTopic', () => {
     expect(result.itemsSeen).toBe(1)
     expect(result.itemsWritten).toBe(1)
     expect(calls).toEqual(['topic', 'items', 'pulse', 'finish'])
+  })
+
+  it('records a failed run when the adapter throws', async () => {
+    const calls = []
+    const repository = {
+      upsertRadarTopic: async () => calls.push(['topic']),
+      createRadarRun: async () => {
+        calls.push(['run'])
+        return 42
+      },
+      upsertRadarItems: async () => calls.push(['items']),
+      upsertRadarPulse: async () => calls.push(['pulse']),
+      finishRadarRun: async (_client, payload) => calls.push(['finish', payload]),
+    }
+
+    await expect(runRadarTopic({
+      topic,
+      dryRun: false,
+      client: {},
+      adapter: async () => {
+        throw new Error('adapter failed')
+      },
+      repository,
+      today: '2026-06-14',
+    })).rejects.toThrow('adapter failed')
+
+    expect(calls).toEqual([
+      ['topic'],
+      ['run'],
+      ['finish', {
+        runId: 42,
+        status: 'failed',
+        itemsSeen: 0,
+        itemsWritten: 0,
+        errorMessage: 'adapter failed',
+      }],
+    ])
+  })
+})
+
+describe('runRadar', () => {
+  it('continues after a topic fails', async () => {
+    const calls = []
+    const repository = {
+      upsertRadarTopic: async (_client, radarTopic) => calls.push(['topic', radarTopic.slug]),
+      createRadarRun: async (_client, { topicSlug }) => {
+        calls.push(['run', topicSlug])
+        return topicSlug === 'mobile-ai' ? 1 : 2
+      },
+      upsertRadarItems: async (_client, { items }) => {
+        calls.push(['items', items[0].topicSlug])
+        return [7]
+      },
+      upsertRadarPulse: async (_client, { pulse }) => calls.push(['pulse', pulse.date]),
+      finishRadarRun: async (_client, payload) => calls.push(['finish', payload.status]),
+    }
+
+    const results = await runRadar({
+      cadence: 'daily',
+      client: {},
+      adapter: async ({ topic: radarTopic }) => {
+        if (radarTopic.slug === 'mobile-ai') throw new Error('first failed')
+        return {
+          report: {
+            ...report,
+            ranked_candidates: [{
+              candidate_id: 'c1',
+              item_id: `item-${radarTopic.slug}`,
+              source: 'reddit',
+              title: `${radarTopic.name} signal`,
+              url: `https://example.com/${radarTopic.slug}`,
+              snippet: 'Snippet',
+              final_score: 90,
+              cluster_id: 'c1',
+              source_items: [],
+            }],
+          },
+          stderr: '',
+          command: [],
+        }
+      },
+      repository,
+    })
+
+    expect(results[0]).toMatchObject({
+      topicSlug: 'mobile-ai',
+      status: 'failed',
+      error: 'first failed',
+    })
+    expect(results.some(result => result.status === 'completed')).toBe(true)
+    expect(calls).toContainEqual(['finish', 'failed'])
+    expect(calls).toContainEqual(['finish', 'completed'])
   })
 })
