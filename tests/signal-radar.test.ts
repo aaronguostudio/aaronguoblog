@@ -1,5 +1,12 @@
 import { describe, expect, it } from 'vitest'
-import { buildSignalRadarWhere, mapRadarItemRow } from '../server/utils/signal-radar'
+import {
+  buildPulseItemsQuery,
+  buildRadarCountSql,
+  buildRadarItemsSql,
+  buildRadarStatsSql,
+  buildSignalRadarWhere,
+  mapRadarItemRow,
+} from '../server/utils/signal-radar'
 
 describe('buildSignalRadarWhere', () => {
   it('builds args for filters', () => {
@@ -52,5 +59,37 @@ describe('mapRadarItemRow', () => {
       topic_slug: 'mobile-ai',
       created_at: '2026-06-14 13:00:00',
     })
+  })
+})
+
+describe('radar feed SQL', () => {
+  it('dedupes item rows with ranked topic memberships', () => {
+    const sql = buildRadarItemsSql(['rit.relevance >= ?', 'ri.source = ?'])
+
+    expect(sql).toContain('ROW_NUMBER() OVER (PARTITION BY ri.id')
+    expect(sql).toContain('ORDER BY rit.last_seen_at DESC, rit.relevance DESC, rit.score DESC, rit.topic_slug ASC')
+    expect(sql).toContain('WHERE ranked.rn = 1')
+    expect(sql).toContain('WHERE rit.relevance >= ? AND ri.source = ?')
+  })
+
+  it('counts deduped item rows and keeps stats distinct', () => {
+    const countSql = buildRadarCountSql(['rit.relevance >= ?'])
+    const statsSql = buildRadarStatsSql()
+
+    expect(countSql).toContain('ROW_NUMBER() OVER (PARTITION BY ri.id')
+    expect(countSql).toContain('WHERE ranked.rn = 1')
+    expect(statsSql).toContain('COUNT(DISTINCT ri.id) as count')
+  })
+})
+
+describe('buildPulseItemsQuery', () => {
+  it('preserves pulse item order and dedupes topic memberships', () => {
+    const query = buildPulseItemsQuery([7, 3, 9])
+
+    expect(query.args).toEqual([7, 0, 3, 1, 9, 2])
+    expect(query.sql).toContain('WITH pulse_ids(id, position) AS (VALUES (?, ?), (?, ?), (?, ?))')
+    expect(query.sql).toContain('ROW_NUMBER() OVER (PARTITION BY ri.id')
+    expect(query.sql).toContain('WHERE ranked.rn = 1')
+    expect(query.sql).toContain('ORDER BY ranked.position')
   })
 })

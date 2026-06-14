@@ -1,5 +1,12 @@
 import { useTurso } from '../utils/turso'
-import { buildSignalRadarWhere, isMissingRadarTableError, mapRadarItemRow } from '../utils/signal-radar'
+import {
+  buildRadarCountQuery,
+  buildRadarItemsQuery,
+  buildRadarStatsSql,
+  buildSignalRadarWhere,
+  isMissingRadarTableError,
+  mapRadarItemRow,
+} from '../utils/signal-radar'
 
 export default defineCachedEventHandler(async (event) => {
   const query = getQuery(event)
@@ -15,34 +22,11 @@ export default defineCachedEventHandler(async (event) => {
   const where = buildSignalRadarWhere({ source, category, topic, minRelevance, search })
 
   try {
-    const result = await db.execute({
-      sql: `SELECT
-              ri.id, ri.source, ri.url, ri.title, ri.summary, ri.ai_summary, ri.author,
-              rit.score, rit.relevance, rit.category, rit.topic_slug, ri.created_at, rit.last_seen_at
-            FROM radar_items ri
-            JOIN radar_item_topics rit ON rit.item_id = ri.id
-            WHERE ${where.sql.join(' AND ')}
-            ORDER BY rit.last_seen_at DESC, rit.relevance DESC, rit.score DESC
-            LIMIT ? OFFSET ?`,
-      args: [...where.args, limit, offset],
-    })
+    const result = await db.execute(buildRadarItemsQuery(where.sql, where.args, limit, offset))
 
-    const countResult = await db.execute({
-      sql: `SELECT COUNT(*) as total
-            FROM radar_items ri
-            JOIN radar_item_topics rit ON rit.item_id = ri.id
-            WHERE ${where.sql.join(' AND ')}`,
-      args: where.args,
-    })
+    const countResult = await db.execute(buildRadarCountQuery(where.sql, where.args))
 
-    const stats = await db.execute(
-      `SELECT ri.source, COUNT(*) as count
-       FROM radar_items ri
-       JOIN radar_item_topics rit ON rit.item_id = ri.id
-       WHERE rit.relevance >= 5
-       GROUP BY ri.source
-       ORDER BY count DESC`
-    )
+    const stats = await db.execute(buildRadarStatsSql())
 
     const topics = await db.execute(
       `SELECT slug, name, category

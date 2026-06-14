@@ -1,5 +1,5 @@
 import { useTurso } from '../utils/turso'
-import { isMissingRadarTableError } from '../utils/signal-radar'
+import { buildPulseItemsQuery, isMissingRadarTableError } from '../utils/signal-radar'
 
 type SignalPulseItem = Record<string, unknown>
 
@@ -22,17 +22,7 @@ export default defineCachedEventHandler(async () => {
     let items: SignalPulseItem[] = []
 
     if (topIds.length > 0) {
-      const placeholders = topIds.map(() => '?').join(',')
-      const itemsResult = await db.execute({
-        sql: `SELECT
-                ri.id, ri.source, ri.url, ri.title, ri.ai_summary,
-                rit.relevance, rit.category, rit.score, rit.last_seen_at as created_at
-              FROM radar_items ri
-              JOIN radar_item_topics rit ON rit.item_id = ri.id
-              WHERE ri.id IN (${placeholders})
-              ORDER BY rit.relevance DESC, rit.score DESC`,
-        args: topIds,
-      })
+      const itemsResult = await db.execute(buildPulseItemsQuery(topIds))
       items = itemsResult.rows
     }
 
