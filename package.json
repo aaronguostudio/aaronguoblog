@@ -17,6 +17,10 @@
     "lint:fix": "eslint . --fix",
     "format": "prettier --check ./",
     "format:fix": "prettier --write ./",
+    "radar:topics": "node scripts/radar/cli.js topics",
+    "radar:run": "node scripts/radar/cli.js run",
+    "radar:diagnose": "node scripts/radar/cli.js diagnose",
+    "radar:migrate": "node scripts/radar/cli.js migrate",
     "test": "vitest",
     "youtube:fetch": "node scripts/fetch-youtube-data.js"
   },
