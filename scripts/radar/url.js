@@ -21,7 +21,7 @@ export function canonicalizeUrl(rawUrl) {
 
     const keptParams = [...url.searchParams.entries()]
       .filter(([key]) => !TRACKING_PARAMS.has(key.toLowerCase()))
-      .sort(([a], [b]) => a.localeCompare(b))
+      .sort(([aKey, aValue], [bKey, bValue]) => aKey.localeCompare(bKey) || aValue.localeCompare(bValue))
 
     url.search = ''
     for (const [key, value] of keptParams) {

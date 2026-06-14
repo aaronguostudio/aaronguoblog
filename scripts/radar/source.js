@@ -1,6 +1,7 @@
 export const SOURCE_META = {
   hackernews: { label: 'HN', colorClass: 'bg-orange-500', borderClass: 'border-l-orange-400' },
   'x-twitter': { label: 'X', colorClass: 'bg-foreground', borderClass: 'border-l-foreground' },
+  x: { label: 'X', colorClass: 'bg-foreground', borderClass: 'border-l-foreground' },
   reddit: { label: 'Reddit', colorClass: 'bg-purple-500', borderClass: 'border-l-purple-500' },
   producthunt: { label: 'PH', colorClass: 'bg-amber-500', borderClass: 'border-l-amber-500' },
   github: { label: 'GitHub', colorClass: 'bg-pink-500', borderClass: 'border-l-pink-500' },

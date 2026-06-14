@@ -4,6 +4,7 @@ import { getSourceLabel, getSupportedSources } from '../../scripts/radar/source.
 describe('source metadata', () => {
   it('labels known last30days sources', () => {
     expect(getSourceLabel('hackernews')).toBe('HN')
+    expect(getSourceLabel('x')).toBe('X')
     expect(getSourceLabel('polymarket')).toBe('Polymarket')
     expect(getSourceLabel('youtube')).toBe('YouTube')
   })
@@ -16,6 +17,7 @@ describe('source metadata', () => {
     expect(getSupportedSources()).toEqual([
       'hackernews',
       'x-twitter',
+      'x',
       'reddit',
       'producthunt',
       'github',
