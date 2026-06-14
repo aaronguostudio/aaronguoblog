@@ -23,6 +23,7 @@ defineOgImageComponent('About', {
 // Filter state
 const activeSource = ref('')
 const activeCategory = ref('')
+const activeTopic = ref('')
 const searchQuery = ref('')
 const offset = ref(0)
 
@@ -48,6 +49,7 @@ const { data, refresh, status } = await useFetch('/api/signal', {
   query: computed(() => ({
     source: activeSource.value,
     category: activeCategory.value,
+    topic: activeTopic.value,
     minRelevance: 5,
     offset: offset.value,
     q: searchQuery.value,
@@ -97,6 +99,12 @@ function setCategory(c: string) {
   refresh()
 }
 
+function setTopic(topic: string) {
+  activeTopic.value = topic
+  offset.value = 0
+  refresh()
+}
+
 const isLoadingMore = ref(false)
 async function loadMore() {
   offset.value += 50
@@ -139,7 +147,8 @@ function stripHtml(str: string) {
 
 function timeAgo(dateStr: string) {
   const now = new Date()
-  const d = new Date(dateStr + 'Z')
+  const normalized = /(?:Z|[+-]\d{2}:?\d{2})$/.test(dateStr) ? dateStr : `${dateStr}Z`
+  const d = new Date(normalized)
   const diff = (now.getTime() - d.getTime()) / 1000
   if (diff < 60) return 'just now'
   if (diff < 3600) return Math.floor(diff / 60) + 'm'
@@ -151,11 +160,17 @@ function sourceColor(s: string) {
   const map: Record<string, string> = {
     hackernews: 'border-l-orange-400',
     'x-twitter': 'border-l-foreground',
+    x: 'border-l-foreground',
     reddit: 'border-l-purple-500',
     producthunt: 'border-l-amber-500',
     github: 'border-l-pink-500',
     lobsters: 'border-l-red-400',
     arxiv: 'border-l-cyan-400',
+    youtube: 'border-l-red-500',
+    tiktok: 'border-l-sky-500',
+    instagram: 'border-l-fuchsia-500',
+    polymarket: 'border-l-blue-500',
+    web: 'border-l-emerald-500',
   }
   return map[s] || 'border-l-muted-foreground'
 }
@@ -164,11 +179,17 @@ function sourceBg(s: string) {
   const map: Record<string, string> = {
     hackernews: 'bg-orange-500',
     'x-twitter': 'bg-foreground',
+    x: 'bg-foreground',
     reddit: 'bg-purple-500',
     producthunt: 'bg-amber-500',
     github: 'bg-pink-500',
     lobsters: 'bg-red-400',
     arxiv: 'bg-cyan-400',
+    youtube: 'bg-red-500',
+    tiktok: 'bg-sky-500',
+    instagram: 'bg-fuchsia-500',
+    polymarket: 'bg-blue-500',
+    web: 'bg-emerald-500',
   }
   return map[s] || 'bg-muted-foreground'
 }
@@ -177,11 +198,17 @@ function sourceLabel(s: string) {
   const map: Record<string, string> = {
     hackernews: 'HN',
     'x-twitter': 'X',
+    x: 'X',
     reddit: 'Reddit',
     producthunt: 'PH',
     github: 'GitHub',
     lobsters: 'Lobsters',
     arxiv: 'ArXiv',
+    youtube: 'YouTube',
+    tiktok: 'TikTok',
+    instagram: 'Instagram',
+    polymarket: 'Polymarket',
+    web: 'Web',
   }
   return map[s] || s
 }
@@ -212,8 +239,32 @@ function categoryColor(c: string) {
   return map[c] || 'text-muted-foreground bg-muted'
 }
 
-const sources = ['hackernews', 'x-twitter', 'reddit', 'producthunt', 'github', 'lobsters', 'arxiv']
+const sources = [
+  'hackernews',
+  'x-twitter',
+  'x',
+  'reddit',
+  'producthunt',
+  'github',
+  'lobsters',
+  'arxiv',
+  'youtube',
+  'tiktok',
+  'instagram',
+  'polymarket',
+  'web',
+]
 const categories = ['ai', 'coding', 'indie', 'fintech', 'management', 'content', 'general']
+
+const topics = computed(() => {
+  const apiTopics = (data.value?.topics as Record<string, string>[] | undefined) || []
+  return apiTopics.map(topic => ({
+    slug: topic.slug,
+    name: topic.name,
+  }))
+})
+
+const latestRun = computed(() => data.value?.latestRun as Record<string, string> | null)
 
 const totalStats = computed(() => {
   if (!statsData.value) return 0
@@ -387,6 +438,34 @@ const totalStats = computed(() => {
             {{ categoryLabel(c) }}
           </button>
         </div>
+
+        <!-- Row 3: Radar topics -->
+        <div v-if="topics.length > 0" class="flex items-center gap-1.5 flex-wrap">
+          <button
+            class="px-3 py-1 text-xs font-medium rounded-md transition-all whitespace-nowrap"
+            :class="
+              activeTopic === ''
+                ? 'bg-foreground text-background'
+                : 'text-muted-foreground hover:text-foreground hover:bg-secondary'
+            "
+            @click="setTopic('')"
+          >
+            {{ t('signal.allRadarTopics') }}
+          </button>
+          <button
+            v-for="topic in topics"
+            :key="topic.slug"
+            class="px-3 py-1 text-xs font-medium rounded-md transition-all whitespace-nowrap"
+            :class="
+              activeTopic === topic.slug
+                ? 'bg-foreground text-background'
+                : 'text-muted-foreground hover:text-foreground hover:bg-secondary'
+            "
+            @click="setTopic(topic.slug)"
+          >
+            {{ topic.name }}
+          </button>
+        </div>
       </div>
     </div>
 
@@ -394,6 +473,12 @@ const totalStats = computed(() => {
     <div v-if="totalCount" class="flex items-center gap-2 mb-4">
       <span class="text-xs text-muted-foreground/60 font-mono">
         {{ totalCount }} {{ t('signal.items') }}
+      </span>
+      <span
+        v-if="latestRun && (latestRun.completed_at || latestRun.started_at)"
+        class="text-xs text-muted-foreground/40 font-mono"
+      >
+        {{ t('signal.updated') }} {{ timeAgo(latestRun.completed_at || latestRun.started_at) }}
       </span>
     </div>
 

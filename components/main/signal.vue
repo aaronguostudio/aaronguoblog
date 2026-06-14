@@ -53,11 +53,17 @@ function sourceColor(s: string) {
   const map: Record<string, string> = {
     hackernews: 'bg-orange-400',
     'x-twitter': 'bg-foreground',
+    x: 'bg-foreground',
     reddit: 'bg-purple-500',
     producthunt: 'bg-amber-500',
     github: 'bg-pink-500',
     lobsters: 'bg-red-400',
     arxiv: 'bg-cyan-400',
+    youtube: 'bg-red-500',
+    tiktok: 'bg-sky-500',
+    instagram: 'bg-fuchsia-500',
+    polymarket: 'bg-blue-500',
+    web: 'bg-emerald-500',
   }
   return map[s] || 'bg-muted-foreground'
 }
