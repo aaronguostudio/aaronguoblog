@@ -4,6 +4,7 @@ import { parseArgs } from '../../scripts/radar/cli.js'
 
 const README_TEXT = readFileSync(new URL('../../README.md', import.meta.url), 'utf8')
 const RADAR_WORKFLOW_TEXT = readFileSync(new URL('../../.github/workflows/radar.yml', import.meta.url), 'utf8')
+const PACKAGE_JSON = JSON.parse(readFileSync(new URL('../../package.json', import.meta.url), 'utf8'))
 
 function argvForReadmeRadarRun(command) {
   const parts = command.trim().split(/\s+/)
@@ -34,6 +35,20 @@ describe('parseArgs', () => {
       topicSlug: 'mobile-ai',
       cadence: 'daily',
     })
+  })
+
+  it('parses export flags for static publishing', () => {
+    expect(parseArgs(['node', 'cli.js', 'export', '--allow-local-ranking'])).toEqual({
+      command: 'export',
+      dryRun: false,
+      topicSlug: undefined,
+      cadence: undefined,
+      allowLocalRanking: true,
+    })
+  })
+
+  it('exposes a package script for static Radar export', () => {
+    expect(PACKAGE_JSON.scripts['radar:export']).toBe('node scripts/radar/cli.js export')
   })
 
   it('parses README Radar run examples using the supported package-script shape', () => {

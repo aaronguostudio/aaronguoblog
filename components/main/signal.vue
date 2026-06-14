@@ -5,6 +5,7 @@ const { t } = useI18n()
 const localePath = useLocalePath()
 
 type SignalPreviewItem = {
+  id?: number | string
   source: string
   title: string
   url: string
@@ -20,6 +21,24 @@ type SignalPulseResponse = {
 
 type SignalResponse = {
   items?: SignalPreviewItem[]
+}
+
+type StaticRadarItem = {
+  id: number | string
+  source: string
+  title: string
+  url: string
+  relevance?: number | string
+  category?: string
+  score?: number | string
+}
+
+type StaticRadarSnapshot = {
+  pulse?: {
+    text?: string | null
+    topItemIds?: Array<number | string>
+  } | null
+  items?: StaticRadarItem[]
 }
 
 const tooltipOpen = ref(false)
@@ -45,20 +64,44 @@ onUnmounted(() => {
   document.removeEventListener('click', closeTooltip)
 })
 
+const { data: staticSnapshot } = await useFetch<StaticRadarSnapshot | null>('/radar/latest.json', {
+  server: true,
+  default: () => null,
+})
+
+const hasStaticSnapshot = computed(() => Boolean(staticSnapshot.value?.items?.length))
+const shouldFetchApi = !staticSnapshot.value?.items?.length
+
 // Fetch dynamic pulse data
-const { data: pulseData } = await useFetch<SignalPulseResponse>('/api/signal-pulse')
+const { data: pulseData } = await useFetch<SignalPulseResponse>('/api/signal-pulse', {
+  immediate: shouldFetchApi,
+})
 
 // Fallback to regular signal API if pulse has no items
 const { data: fallbackData } = await useFetch<SignalResponse>('/api/signal', {
   query: { limit: 20, minRelevance: 7 },
+  immediate: shouldFetchApi,
 })
 
 const pulseText = computed(() => {
-  return pulseData.value?.pulse || t('signal.pulse')
+  return staticSnapshot.value?.pulse?.text || pulseData.value?.pulse || t('signal.pulse')
 })
+
+function staticPulseItems() {
+  const items = staticSnapshot.value?.items || []
+  const topIds = staticSnapshot.value?.pulse?.topItemIds || []
+  if (topIds.length === 0) return items.slice(0, 3)
+
+  const byId = new Map(items.map((item) => [String(item.id), item]))
+  return topIds
+    .map((id) => byId.get(String(id)))
+    .filter((item): item is StaticRadarItem => Boolean(item))
+    .slice(0, 3)
+}
 
 // Sort by relevance desc, take top 3
 const topItems = computed(() => {
+  if (hasStaticSnapshot.value) return staticPulseItems()
   const pulseItems = pulseData.value?.items || []
   if (pulseItems.length > 0) return pulseItems.slice(0, 3)
   // Fallback

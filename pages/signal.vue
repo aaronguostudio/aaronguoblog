@@ -14,6 +14,7 @@ type SignalItem = {
   relevance?: number | string
   category: string
   created_at: string
+  topic_slug?: string
 }
 
 type SignalStat = {
@@ -45,6 +46,37 @@ type SignalPulseResponse = {
   items?: SignalItem[]
 }
 
+type StaticRadarItem = {
+  id: number | string
+  source: string
+  url: string
+  title: string
+  summary?: string | null
+  aiSummary?: string | null
+  score?: number | string | null
+  relevance?: number | string
+  category: string
+  topicSlug?: string
+  createdAt?: string | null
+  publishedAt?: string | null
+}
+
+type StaticRadarSnapshot = {
+  generatedAt?: string
+  pulse?: {
+    text?: string | null
+    date?: string | null
+    topItemIds?: Array<number | string>
+  } | null
+  items?: StaticRadarItem[]
+  stats?: SignalStat[]
+  topics?: RadarTopicOption[]
+  latestRun?: {
+    completedAt?: string | null
+    startedAt?: string | null
+  } | null
+}
+
 useHead({
   title: t('signal.title'),
   meta: [
@@ -73,18 +105,89 @@ const allItems = ref<SignalItem[]>([])
 const totalCount = ref(0)
 const statsData = ref<SignalStat[] | null>(null)
 
-// Fetch pulse data
-const { data: pulseData } = await useFetch<SignalPulseResponse>('/api/signal-pulse')
+// Static snapshot is the SSG path. API fetches remain as a development/runtime fallback.
+const { data: staticSnapshot } = await useFetch<StaticRadarSnapshot | null>('/radar/latest.json', {
+  server: true,
+  default: () => null,
+})
 
-const pulseText = computed(() => pulseData.value?.pulse || null)
-const pulseDate = computed(() => pulseData.value?.date || null)
+const hasStaticSnapshot = computed(() => Boolean(staticSnapshot.value?.items?.length))
+const shouldFetchApi = !staticSnapshot.value?.items?.length
+
+// Fetch pulse data
+const { data: pulseData } = await useFetch<SignalPulseResponse>('/api/signal-pulse', {
+  immediate: shouldFetchApi,
+})
+
+function mapStaticItem(item: StaticRadarItem): SignalItem {
+  return {
+    id: item.id,
+    source: item.source,
+    url: item.url,
+    title: item.title,
+    summary: item.summary || '',
+    ai_summary: item.aiSummary || '',
+    score: item.score,
+    relevance: item.relevance,
+    category: item.category,
+    topic_slug: item.topicSlug,
+    created_at: item.createdAt || item.publishedAt || staticSnapshot.value?.generatedAt || '',
+  }
+}
+
+function getStaticItems() {
+  return (staticSnapshot.value?.items || []).map(mapStaticItem)
+}
+
+function getStaticPulseItems() {
+  const items = getStaticItems()
+  const topIds = staticSnapshot.value?.pulse?.topItemIds || []
+  if (topIds.length === 0) return items.slice(0, 5)
+
+  const byId = new Map(items.map((item) => [String(item.id), item]))
+  return topIds
+    .map((id) => byId.get(String(id)))
+    .filter((item): item is SignalItem => Boolean(item))
+    .slice(0, 5)
+}
+
+const pulseText = computed(
+  () => staticSnapshot.value?.pulse?.text || pulseData.value?.pulse || null,
+)
+const pulseDate = computed(() => staticSnapshot.value?.pulse?.date || pulseData.value?.date || null)
 const pulseItems = computed(() => {
+  if (hasStaticSnapshot.value) return getStaticPulseItems()
   const items = pulseData.value?.items || []
   return items.slice(0, 5)
 })
 
+function applyStaticFilters({ append = false } = {}) {
+  const query = searchQuery.value.trim().toLowerCase()
+  const filtered = getStaticItems().filter((item) => {
+    if (activeSource.value && item.source !== activeSource.value) return false
+    if (activeCategory.value && item.category !== activeCategory.value) return false
+    if (activeTopic.value && item.topic_slug !== activeTopic.value) return false
+    if (!query) return true
+
+    return [item.title, item.summary, item.ai_summary]
+      .filter(Boolean)
+      .join(' ')
+      .toLowerCase()
+      .includes(query)
+  })
+
+  const nextItems = filtered.slice(offset.value, offset.value + 50)
+  allItems.value = append ? [...allItems.value, ...nextItems] : nextItems
+  totalCount.value = filtered.length
+  statsData.value = staticSnapshot.value?.stats || []
+}
+
 // Fetch data
-const { data, refresh, status } = await useFetch<SignalResponse>('/api/signal', {
+const {
+  data,
+  refresh: refreshApi,
+  status,
+} = await useFetch<SignalResponse>('/api/signal', {
   query: computed(() => ({
     source: activeSource.value,
     category: activeCategory.value,
@@ -94,6 +197,7 @@ const { data, refresh, status } = await useFetch<SignalResponse>('/api/signal', 
     q: searchQuery.value,
     limit: 50,
   })),
+  immediate: shouldFetchApi,
   watch: false,
   onResponse({ response }) {
     const result = response._data
@@ -108,8 +212,19 @@ const { data, refresh, status } = await useFetch<SignalResponse>('/api/signal', 
   },
 })
 
+async function refreshSignalData() {
+  if (hasStaticSnapshot.value) {
+    applyStaticFilters()
+    return
+  }
+
+  await refreshApi()
+}
+
 // Init from SSR data
-if (data.value) {
+if (hasStaticSnapshot.value) {
+  applyStaticFilters()
+} else if (data.value) {
   allItems.value = data.value.items || []
   totalCount.value = Number(data.value.total) || 0
   statsData.value = data.value.stats || null
@@ -122,33 +237,37 @@ function onSearch(val: string) {
   searchTimer = setTimeout(() => {
     searchQuery.value = val
     offset.value = 0
-    refresh()
+    refreshSignalData()
   }, 300)
 }
 
 function setSource(s: string) {
   activeSource.value = s
   offset.value = 0
-  refresh()
+  refreshSignalData()
 }
 
 function setCategory(c: string) {
   activeCategory.value = c
   offset.value = 0
-  refresh()
+  refreshSignalData()
 }
 
 function setTopic(topic: string) {
   activeTopic.value = topic
   offset.value = 0
-  refresh()
+  refreshSignalData()
 }
 
 const isLoadingMore = ref(false)
 async function loadMore() {
   offset.value += 50
   isLoadingMore.value = true
-  await refresh()
+  if (hasStaticSnapshot.value) {
+    applyStaticFilters({ append: true })
+  } else {
+    await refreshApi()
+  }
   isLoadingMore.value = false
 }
 
@@ -299,14 +418,22 @@ const sources = [
 const categories = ['ai', 'coding', 'indie', 'fintech', 'management', 'content', 'general']
 
 const topics = computed(() => {
-  const apiTopics = data.value?.topics || []
+  const apiTopics = staticSnapshot.value?.topics || data.value?.topics || []
   return apiTopics.map((topic) => ({
     slug: topic.slug,
     name: topic.name,
   }))
 })
 
-const latestRun = computed(() => data.value?.latestRun || null)
+const latestRun = computed(() => {
+  if (staticSnapshot.value?.latestRun) {
+    return {
+      completed_at: staticSnapshot.value.latestRun.completedAt,
+      started_at: staticSnapshot.value.latestRun.startedAt,
+    }
+  }
+  return data.value?.latestRun || null
+})
 
 const totalStats = computed(() => {
   if (!statsData.value) return 0

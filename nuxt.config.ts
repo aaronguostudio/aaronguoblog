@@ -67,15 +67,15 @@ export default defineNuxtConfig({
     prerender: {
       crawlLinks: true,
       routes: ['/rss.xml'],
-      ignore: ['/__og-image__', '/signal', '/zh/signal'], // Ignore OG image generation during build
+      ignore: ['/__og-image__'], // Ignore OG image generation during build
     },
   },
 
   routeRules: {
-    '/': { swr: 600 },     // Stale-while-revalidate: cached 10 min, regens in background
+    '/': { swr: 600 }, // Stale-while-revalidate: cached 10 min, regens in background
     '/zh': { swr: 600 },
-    '/signal': { ssr: true, prerender: false },
-    '/zh/signal': { ssr: true, prerender: false },
+    '/signal': { prerender: true },
+    '/zh/signal': { prerender: true },
   },
 
   ogImage: {

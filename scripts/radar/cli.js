@@ -2,11 +2,8 @@
 import { pathToFileURL } from 'node:url'
 import { getRadarTopics } from './config.js'
 import { runRadar } from './runner.js'
-import {
-  createRadarClient,
-  discoverSchema,
-  migrateRadarSchema,
-} from './repository.js'
+import { createRadarClient, discoverSchema, migrateRadarSchema } from './repository.js'
+import { exportRadarSnapshot } from './static-export.js'
 
 const ALLOWED_CADENCES = new Set(['daily', 'weekly', 'manual'])
 
@@ -25,6 +22,11 @@ export function parseArgs(argv) {
 
     if (value === '--dry-run') {
       args.dryRun = true
+      continue
+    }
+
+    if (value === '--allow-local-ranking') {
+      args.allowLocalRanking = true
       continue
     }
 
@@ -83,17 +85,42 @@ export async function main() {
       client,
     })
     console.log(JSON.stringify({ ok: true, results }, null, 2))
-    if (results.some(result => result.status === 'failed')) {
+    if (results.some((result) => result.status === 'failed')) {
       process.exitCode = 1
     }
     return
   }
 
-  throw new Error('Usage: node scripts/radar/cli.js <topics|diagnose|migrate|run> [--topic slug] [--dry-run] [--cadence daily]')
+  if (args.command === 'export') {
+    const client = createRadarClient()
+    const result = await exportRadarSnapshot({
+      client,
+      allowLocalRanking: Boolean(args.allowLocalRanking),
+    })
+    console.log(
+      JSON.stringify(
+        {
+          ok: true,
+          latestPath: result.latestPath,
+          datedPath: result.datedPath,
+          quality: result.snapshot.quality,
+          items: result.snapshot.items.length,
+          topics: result.snapshot.topics.length,
+        },
+        null,
+        2,
+      ),
+    )
+    return
+  }
+
+  throw new Error(
+    'Usage: node scripts/radar/cli.js <topics|diagnose|migrate|run|export> [--topic slug] [--dry-run] [--cadence daily] [--allow-local-ranking]',
+  )
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
-  main().catch(error => {
+  main().catch((error) => {
     console.error(JSON.stringify({ ok: false, error: error.message }, null, 2))
     process.exit(1)
   })
