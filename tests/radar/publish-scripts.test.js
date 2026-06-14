@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 
 const PUBLISH_SCRIPT = readFileSync(new URL('../../scripts/radar/publish-local.sh', import.meta.url), 'utf8')
 const INSTALL_SCRIPT = readFileSync(new URL('../../scripts/radar/install-launch-agent.sh', import.meta.url), 'utf8')
+const GITHUB_WORKFLOW = readFileSync(new URL('../../.github/workflows/radar.yml', import.meta.url), 'utf8')
 
 describe('Radar local publish scripts', () => {
   it('runs the full publish pipeline with a local lock', () => {
@@ -29,5 +30,14 @@ describe('Radar local publish scripts', () => {
     expect(INSTALL_SCRIPT).toContain('<key>Minute</key>')
     expect(INSTALL_SCRIPT).toContain('<integer>30</integer>')
     expect(INSTALL_SCRIPT).toContain('launchctl')
+  })
+
+  it('publishes GitHub Radar runs as static blog snapshots', () => {
+    expect(GITHUB_WORKFLOW).toContain('contents: write')
+    expect(GITHUB_WORKFLOW).toContain('pnpm radar:export')
+    expect(GITHUB_WORKFLOW).toContain('pnpm run generate')
+    expect(GITHUB_WORKFLOW).toContain('git add public/radar')
+    expect(GITHUB_WORKFLOW).toContain('git commit')
+    expect(GITHUB_WORKFLOW).toContain('git push')
   })
 })

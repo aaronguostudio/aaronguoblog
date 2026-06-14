@@ -22,6 +22,9 @@ on:
     # Weekly run for deeper weekly Radar topics.
     - cron: '0 15 * * 1'
 
+permissions:
+  contents: write
+
 jobs:
   radar:
     runs-on: ubuntu-latest
@@ -122,6 +125,35 @@ jobs:
             echo "Unsupported Radar event: $GITHUB_EVENT_NAME" >&2
             exit 1
           fi
+
+      - name: Export static Radar snapshot
+        env:
+          TURSO_URL: ${{ secrets.TURSO_URL }}
+          TURSO_AUTH_TOKEN: ${{ secrets.TURSO_AUTH_TOKEN }}
+          RADAR_ALLOW_LOCAL_RANKING: ${{ secrets.RADAR_ALLOW_LOCAL_RANKING }}
+        run: |
+          if [ "$RADAR_ALLOW_LOCAL_RANKING" = "1" ]; then
+            pnpm radar:export --allow-local-ranking
+          else
+            pnpm radar:export
+          fi
+
+      - name: Verify static build
+        run: pnpm run generate
+
+      - name: Commit static Radar snapshot
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/radar
+
+          if git diff --cached --quiet; then
+            echo "Radar snapshot unchanged; nothing to commit."
+            exit 0
+          fi
+
+          git commit -m "chore(radar): update signal snapshot $(date -u +%F)"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
 
       - name: Upload raw Radar artifacts
         if: always()
