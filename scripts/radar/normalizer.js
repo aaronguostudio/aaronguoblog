@@ -10,7 +10,12 @@ function scoreToRelevance(candidate, topic) {
   const localRelevance = Number(candidate.local_relevance || 0)
 
   const derived = Math.round(
-    finalScore / 10 || rerankScore * 10 || localRelevance * 10 || topic.minRelevance || 1
+    Math.max(
+      finalScore / 10,
+      rerankScore * 10,
+      localRelevance * 10,
+      topic.minRelevance || 1
+    )
   )
 
   return clamp(derived, 1, 10)
@@ -59,10 +64,29 @@ export function normalizeLast30DaysReport({ report, topic }) {
         clusterTitle: getClusterTitle(report, candidate.cluster_id),
         publishedAt: primary?.published_at,
         raw: {
-          candidate,
+          candidateId: candidate.candidate_id,
+          itemId: candidate.item_id,
+          source: candidate.source,
+          sources: candidate.sources || [],
+          subqueryLabels: candidate.subquery_labels || [],
+          finalScore: candidate.final_score,
+          rerankScore: candidate.rerank_score,
+          localRelevance: candidate.local_relevance,
+          freshness: candidate.freshness,
+          engagement: candidate.engagement,
+          sourceQuality: candidate.source_quality,
+          rrfScore: candidate.rrf_score,
           rangeFrom: report.range_from,
           rangeTo: report.range_to,
           generatedAt: report.generated_at,
+          primaryItem: primary ? {
+            itemId: primary.item_id,
+            source: primary.source,
+            container: primary.container,
+            publishedAt: primary.published_at,
+            dateConfidence: primary.date_confidence,
+            engagement: primary.engagement,
+          } : undefined,
         },
       }
     })

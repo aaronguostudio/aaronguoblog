@@ -29,7 +29,7 @@ describe('normalizeLast30DaysReport', () => {
       aiSummary: 'A concrete thread about on-device mobile assistants replacing small daily workflows.',
       author: 'localbuilder',
       score: 128,
-      relevance: 8,
+      relevance: 9,
       category: 'ai',
       topicSlug: 'mobile-ai',
       clusterId: 'cluster-on-device',
@@ -45,5 +45,54 @@ describe('normalizeLast30DaysReport', () => {
     }
 
     expect(normalizeLast30DaysReport({ report, topic })).toEqual([])
+  })
+
+  it('uses the strongest normalized relevance signal', () => {
+    const report = {
+      ...fixture,
+      ranked_candidates: [
+        {
+          ...fixture.ranked_candidates[0],
+          final_score: 10,
+          rerank_score: 0.93,
+          local_relevance: 0.87,
+        },
+      ],
+    }
+
+    const items = normalizeLast30DaysReport({ report, topic })
+
+    expect(items[0].relevance).toBe(9)
+  })
+
+  it('stores compact raw trace data instead of the full candidate payload', () => {
+    const items = normalizeLast30DaysReport({ report: fixture, topic })
+
+    expect(items[0].raw.candidate).toBeUndefined()
+    expect(items[0].raw).toMatchObject({
+      candidateId: 'candidate-1',
+      itemId: 'reddit-1',
+      source: 'reddit',
+      sources: ['reddit'],
+      subqueryLabels: ['mobile-ai'],
+      finalScore: 84,
+      rerankScore: 0.88,
+      localRelevance: 0.91,
+      freshness: 9,
+      engagement: 128,
+      sourceQuality: 0.82,
+      rrfScore: 0.12,
+      rangeFrom: '2026-05-15',
+      rangeTo: '2026-06-14',
+      generatedAt: '2026-06-14T14:00:00Z',
+      primaryItem: {
+        itemId: 'reddit-1',
+        source: 'reddit',
+        container: 'r/LocalLLaMA',
+        publishedAt: '2026-06-13T09:30:00Z',
+        dateConfidence: 'high',
+        engagement: { score: 128, comments: 34 },
+      },
+    })
   })
 })
