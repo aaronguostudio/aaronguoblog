@@ -1,5 +1,9 @@
 <script lang="ts" setup>
 import { useI18n } from 'vue-i18n'
+import type {
+  StaticRadarItem,
+  StaticRadarSnapshot,
+} from '~/composables/useStaticRadarSnapshot'
 
 const { t } = useI18n()
 const localePath = useLocalePath()
@@ -23,23 +27,9 @@ type SignalResponse = {
   items?: SignalPreviewItem[]
 }
 
-type StaticRadarItem = {
-  id: number | string
-  source: string
-  title: string
-  url: string
-  relevance?: number | string
-  category?: string
-  score?: number | string
-}
-
-type StaticRadarSnapshot = {
-  pulse?: {
-    text?: string | null
-    topItemIds?: Array<number | string>
-  } | null
-  items?: StaticRadarItem[]
-}
+const props = defineProps<{
+  snapshot?: StaticRadarSnapshot | null
+}>()
 
 const tooltipOpen = ref(false)
 
@@ -64,10 +54,14 @@ onUnmounted(() => {
   document.removeEventListener('click', closeTooltip)
 })
 
-const { data: staticSnapshot } = await useFetch<StaticRadarSnapshot | null>('/radar/latest.json', {
-  server: true,
-  default: () => null,
-})
+const hasProvidedSnapshot = Boolean(props.snapshot?.items?.length)
+
+const { data: fetchedStaticSnapshot } = await useStaticRadarSnapshot(
+  'homepage-signal-radar-latest',
+  { immediate: !hasProvidedSnapshot },
+)
+
+const staticSnapshot = computed(() => props.snapshot || fetchedStaticSnapshot.value)
 
 const hasStaticSnapshot = computed(() => Boolean(staticSnapshot.value?.items?.length))
 const shouldFetchApi = !staticSnapshot.value?.items?.length
@@ -201,8 +195,8 @@ function stripHtml(str: string) {
             <span
               class="inline-block text-[10px] font-mono uppercase tracking-widest text-cyan-700 dark:text-cyan-300 bg-gradient-to-r from-cyan-500/15 to-violet-500/10 dark:from-cyan-400/20 dark:to-violet-500/15 border border-cyan-500/20 dark:border-cyan-400/20 px-1.5 pt-0.5 rounded select-none mr-2"
               style="vertical-align: text-top"
-              >{{ t('signal.todaysPulse') }}</span
-            >{{ pulseText }}
+              >{{ t('signal.todaysPulse') }}</span>
+            &nbsp;{{ pulseText }}
           </p>
         </div>
 

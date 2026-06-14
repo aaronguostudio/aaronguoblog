@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { useI18n } from 'vue-i18n'
+import type { StaticRadarItem } from '~/composables/useStaticRadarSnapshot'
 
 const { t } = useI18n()
 
@@ -46,37 +47,6 @@ type SignalPulseResponse = {
   items?: SignalItem[]
 }
 
-type StaticRadarItem = {
-  id: number | string
-  source: string
-  url: string
-  title: string
-  summary?: string | null
-  aiSummary?: string | null
-  score?: number | string | null
-  relevance?: number | string
-  category: string
-  topicSlug?: string
-  createdAt?: string | null
-  publishedAt?: string | null
-}
-
-type StaticRadarSnapshot = {
-  generatedAt?: string
-  pulse?: {
-    text?: string | null
-    date?: string | null
-    topItemIds?: Array<number | string>
-  } | null
-  items?: StaticRadarItem[]
-  stats?: SignalStat[]
-  topics?: RadarTopicOption[]
-  latestRun?: {
-    completedAt?: string | null
-    startedAt?: string | null
-  } | null
-}
-
 useHead({
   title: t('signal.title'),
   meta: [
@@ -106,10 +76,7 @@ const totalCount = ref(0)
 const statsData = ref<SignalStat[] | null>(null)
 
 // Static snapshot is the SSG path. API fetches remain as a development/runtime fallback.
-const { data: staticSnapshot } = await useFetch<StaticRadarSnapshot | null>('/radar/latest.json', {
-  server: true,
-  default: () => null,
-})
+const { data: staticSnapshot } = await useStaticRadarSnapshot('signal-radar-latest')
 
 const hasStaticSnapshot = computed(() => Boolean(staticSnapshot.value?.items?.length))
 const shouldFetchApi = !staticSnapshot.value?.items?.length

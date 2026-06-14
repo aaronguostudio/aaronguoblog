@@ -59,7 +59,7 @@ function createItem(overrides = {}) {
   }
 }
 
-async function createSnapshotClient({ fallbackSummary = false } = {}) {
+async function createSnapshotClient({ fallbackSummary = false, includeFallbackItem = false } = {}) {
   const client = createMemoryClient()
   await migrateRadarSchema(client)
   await upsertRadarTopic(client, createTopic())
@@ -69,15 +69,27 @@ async function createSnapshotClient({ fallbackSummary = false } = {}) {
     lookbackDays: 30,
     cadence: 'daily',
   })
+  const items = [
+    createItem({
+      aiSummary: fallbackSummary
+        ? 'fallback-local-score (entity-miss demotion)'
+        : 'A relevant coding-agent safety signal.',
+    }),
+  ]
+  if (includeFallbackItem) {
+    items.push(
+      createItem({
+        canonicalUrl: 'https://example.com/fallback-agent',
+        sourceItemId: 'hn-2',
+        url: 'https://example.com/fallback-agent',
+        title: 'Fallback-ranked coding agent mention',
+        aiSummary: 'fallback-local-score (entity-miss demotion)',
+      }),
+    )
+  }
   const ids = await upsertRadarItems(client, {
     runId,
-    items: [
-      createItem({
-        aiSummary: fallbackSummary
-          ? 'fallback-local-score (entity-miss demotion)'
-          : 'A relevant coding-agent safety signal.',
-      }),
-    ],
+    items,
   })
   await upsertRadarPulse(client, {
     runId,
@@ -151,7 +163,25 @@ describe('static Radar export', () => {
     ])
   })
 
-  it('blocks local fallback ranking unless explicitly allowed', async () => {
+  it('filters local fallback ranking from default snapshots', async () => {
+    const client = await createSnapshotClient({ includeFallbackItem: true })
+
+    const snapshot = await buildRadarSnapshot(client, {
+      date: '2026-06-14',
+      generatedAt: '2026-06-14T15:00:00.000Z',
+      limit: 10,
+    })
+
+    expect(snapshot.quality).toEqual({
+      status: 'ok',
+      blockers: [],
+      warnings: [],
+    })
+    expect(snapshot.items).toHaveLength(1)
+    expect(snapshot.items[0].title).toBe('Guardian Runtime for AI coding agents')
+  })
+
+  it('filters local fallback ranking unless explicitly allowed', async () => {
     const client = await createSnapshotClient({ fallbackSummary: true })
     const snapshot = await buildRadarSnapshot(client, {
       date: '2026-06-14',
@@ -160,11 +190,17 @@ describe('static Radar export', () => {
 
     expect(validateRadarSnapshot(snapshot)).toEqual({
       status: 'blocked',
-      blockers: ['Snapshot contains fallback local-score summaries.'],
+      blockers: ['Snapshot has no publishable Radar items.'],
       warnings: [],
     })
 
-    expect(validateRadarSnapshot(snapshot, { allowLocalRanking: true })).toEqual({
+    const allowedSnapshot = await buildRadarSnapshot(client, {
+      date: '2026-06-14',
+      generatedAt: '2026-06-14T15:00:00.000Z',
+      allowLocalRanking: true,
+    })
+
+    expect(validateRadarSnapshot(allowedSnapshot, { allowLocalRanking: true })).toEqual({
       status: 'ok',
       blockers: [],
       warnings: ['Snapshot contains fallback local-score summaries.'],

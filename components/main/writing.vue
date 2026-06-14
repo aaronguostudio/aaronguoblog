@@ -2,9 +2,14 @@
 import { useI18n } from 'vue-i18n'
 import { sortByDate, formatDate } from '~/utils/date'
 import { extractBlogPostMeta } from '~/utils/type-guards'
+import type { StaticRadarSnapshot } from '~/composables/useStaticRadarSnapshot'
 
 const { locale, t } = useI18n()
 const localePath = useLocalePath()
+
+defineProps<{
+  signalSnapshot?: StaticRadarSnapshot | null
+}>()
 
 /**
  * Query all blog posts from both locale collections
@@ -111,7 +116,7 @@ function compactDate(dateStr: string) {
       <!-- Compact Sidebar (right, 2 cols) -->
       <div class="lg:col-span-2 flex flex-col gap-3 lg:h-full">
         <!-- Signal card -->
-        <MainSignal class="shrink-0" />
+        <MainSignal :snapshot="signalSnapshot" class="shrink-0" />
 
         <!-- Sidebar blog posts (posts 2-4) -->
         <NuxtLink

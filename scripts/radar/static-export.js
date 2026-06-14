@@ -89,6 +89,12 @@ function hasFallbackLocalScore(snapshot) {
   return snapshot.items.some((item) => /fallback-local-score/i.test(item.aiSummary || ''))
 }
 
+function fallbackFilterSql({ allowLocalRanking }) {
+  return allowLocalRanking
+    ? ''
+    : "AND LOWER(COALESCE(ri.ai_summary, '')) NOT LIKE '%fallback-local-score%'"
+}
+
 export function validateRadarSnapshot(snapshot, { allowLocalRanking = false } = {}) {
   const blockers = []
   const warnings = []
@@ -135,6 +141,7 @@ export async function buildRadarSnapshot(
     allowLocalRanking = false,
   } = {},
 ) {
+  const fallbackFilter = fallbackFilterSql({ allowLocalRanking })
   const [topics, latestRun, pulse, stats, items] = await Promise.all([
     client.execute(
       `SELECT slug, name, category, cadence, mode
@@ -159,6 +166,7 @@ export async function buildRadarSnapshot(
        FROM radar_items ri
        JOIN radar_item_topics rit ON rit.item_id = ri.id
        WHERE rit.relevance >= ?
+       ${fallbackFilter}
        GROUP BY ri.source
        ORDER BY count DESC`,
       [minRelevance],
@@ -176,6 +184,7 @@ export async function buildRadarSnapshot(
               FROM radar_items ri
               JOIN radar_item_topics rit ON rit.item_id = ri.id
               WHERE rit.relevance >= ?
+              ${fallbackFilter}
             )
             SELECT
               id, source, url, title, summary, ai_summary, author, published_at, created_at,
