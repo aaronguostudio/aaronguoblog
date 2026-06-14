@@ -1,5 +1,6 @@
 import { readFileSync } from 'node:fs'
 import { describe, expect, it } from 'vitest'
+import packageJson from '../../package.json'
 
 const PUBLISH_SCRIPT = readFileSync(new URL('../../scripts/radar/publish-local.sh', import.meta.url), 'utf8')
 const INSTALL_SCRIPT = readFileSync(new URL('../../scripts/radar/install-launch-agent.sh', import.meta.url), 'utf8')
@@ -43,6 +44,9 @@ describe('Radar local publish scripts', () => {
   })
 
   it('runs pnpm installs in GitHub without interactive prompts', () => {
+    expect(packageJson.packageManager).toBe('pnpm@11.2.2')
+    expect(GITHUB_WORKFLOW).toContain('version: 11.2.2')
+    expect(BUILD_WORKFLOW).toContain('version: 11.2.2')
     expect(GITHUB_WORKFLOW).toContain('CI=true pnpm install --frozen-lockfile')
     expect(BUILD_WORKFLOW).toContain('CI=true pnpm install --frozen-lockfile')
   })
