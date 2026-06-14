@@ -114,6 +114,38 @@ published: true
 Post content goes here...
 ```
 
+## 📡 Radar 2.0
+
+Radar 2.0 powers `/signal`. It runs `last30days`, normalizes public signals, and writes structured records to Turso for the Signal API/UI.
+
+Radar is separate from blog publishing: it does not write to `content/blogs`, publish RSS updates, or create newsletter/blog drafts.
+
+List configured topics:
+
+```bash
+pnpm radar:topics
+```
+
+Run a local dry run without Turso writes:
+
+```bash
+pnpm radar:run -- --dry-run --topic mobile-ai
+```
+
+Run the daily cadence and write to Turso:
+
+```bash
+pnpm radar:run -- --cadence daily
+```
+
+Required runtime env/secrets are `TURSO_URL`, `TURSO_AUTH_TOKEN`, `LAST30DAYS_CLI`, and `LAST30DAYS_PYTHON`. Optional last30days source credentials include `BRAVE_API_KEY`, `SCRAPECREATORS_API_KEY`, `OPENAI_API_KEY`, `XAI_API_KEY`, `OPENROUTER_API_KEY`, `PARALLEL_API_KEY`, `APIFY_API_TOKEN`, `AUTH_TOKEN`, `CT0`, `BSKY_HANDLE`, `BSKY_APP_PASSWORD`, and `TRUTHSOCIAL_TOKEN`.
+
+GitHub Actions runs the `Radar` workflow daily at `14:00 UTC` and also supports manual dispatch by topic or cadence. The scheduled run executes:
+
+```bash
+pnpm radar:run -- --cadence daily
+```
+
 ## 🚀 Development
 
 ### Setup
