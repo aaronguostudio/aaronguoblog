@@ -1,0 +1,132 @@
+name: Radar
+
+on:
+  workflow_dispatch:
+    inputs:
+      topic:
+        description: Optional Radar topic slug
+        required: false
+        type: string
+      cadence:
+        description: Radar cadence to run when no topic is provided
+        required: false
+        default: daily
+        type: choice
+        options:
+          - daily
+          - weekly
+          - manual
+  schedule:
+    # 14:00 UTC is 08:00 in Edmonton during daylight saving time.
+    - cron: '0 14 * * *'
+    # Weekly run for deeper weekly Radar topics.
+    - cron: '0 15 * * 1'
+
+jobs:
+  radar:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+          run_install: false
+
+      - name: Install Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Checkout last30days
+        uses: actions/checkout@v4
+        with:
+          repository: mvanhorn/last30days-skill
+          ref: 122158415ae421da83e739f2668032f6bc78d39c
+          path: .last30days-skill
+
+      - name: Resolve last30days CLI
+        id: last30days
+        run: |
+          for candidate in \
+            "$GITHUB_WORKSPACE/.last30days-skill/skills/last30days/scripts/last30days.py" \
+            "$GITHUB_WORKSPACE/.last30days-skill/last30days/scripts/last30days.py" \
+            "$GITHUB_WORKSPACE/.last30days-skill/scripts/last30days.py"; do
+            if [ -f "$candidate" ]; then
+              echo "cli=$candidate" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+          done
+
+          echo "last30days.py was not found in the checked-out skill repo" >&2
+          find "$GITHUB_WORKSPACE/.last30days-skill" -maxdepth 5 -type f -name last30days.py >&2
+          exit 1
+
+      - name: Migrate Radar schema
+        env:
+          TURSO_URL: ${{ secrets.TURSO_URL }}
+          TURSO_AUTH_TOKEN: ${{ secrets.TURSO_AUTH_TOKEN }}
+        run: pnpm radar:migrate
+
+      - name: Run Radar
+        env:
+          RADAR_TOPIC: ${{ github.event.inputs.topic || '' }}
+          RADAR_CADENCE: ${{ github.event.inputs.cadence || 'daily' }}
+          RADAR_EVENT_SCHEDULE: ${{ github.event.schedule }}
+          LAST30DAYS_CLI: ${{ steps.last30days.outputs.cli }}
+          LAST30DAYS_PYTHON: python3.12
+          TURSO_URL: ${{ secrets.TURSO_URL }}
+          TURSO_AUTH_TOKEN: ${{ secrets.TURSO_AUTH_TOKEN }}
+          BRAVE_API_KEY: ${{ secrets.BRAVE_API_KEY }}
+          SCRAPECREATORS_API_KEY: ${{ secrets.SCRAPECREATORS_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          PARALLEL_API_KEY: ${{ secrets.PARALLEL_API_KEY }}
+          APIFY_API_TOKEN: ${{ secrets.APIFY_API_TOKEN }}
+          AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
+          CT0: ${{ secrets.CT0 }}
+          BSKY_HANDLE: ${{ secrets.BSKY_HANDLE }}
+          BSKY_APP_PASSWORD: ${{ secrets.BSKY_APP_PASSWORD }}
+          TRUTHSOCIAL_TOKEN: ${{ secrets.TRUTHSOCIAL_TOKEN }}
+        run: |
+          if [ -n "$RADAR_TOPIC" ]; then
+            pnpm radar:run --topic "$RADAR_TOPIC"
+          elif [ "$GITHUB_EVENT_NAME" = "schedule" ]; then
+            case "$RADAR_EVENT_SCHEDULE" in
+              "0 14 * * *")
+                pnpm radar:run --cadence daily
+                ;;
+              "0 15 * * 1")
+                pnpm radar:run --cadence weekly
+                ;;
+              *)
+                echo "Unknown Radar schedule: $RADAR_EVENT_SCHEDULE" >&2
+                exit 1
+                ;;
+            esac
+          elif [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ]; then
+            pnpm radar:run --cadence "$RADAR_CADENCE"
+          else
+            echo "Unsupported Radar event: $GITHUB_EVENT_NAME" >&2
+            exit 1
+          fi
+
+      - name: Upload raw Radar artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: radar-raw
+          path: .data/radar/raw
+          if-no-files-found: ignore

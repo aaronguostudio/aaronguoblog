@@ -114,6 +114,80 @@ published: true
 Post content goes here...
 ```
 
+## 📡 Radar 2.0
+
+Radar 2.0 powers `/signal`. It runs `last30days`, normalizes public signals, writes structured records to Turso, and can export an SSG-friendly static snapshot for the blog build.
+
+Radar is separate from long-form blog publishing: it does not write to `content/blogs`, publish RSS updates, or create newsletter/blog drafts. The public integration point is `public/radar/latest.json`, which lets `/signal` and the homepage Signal preview render during static generation.
+
+List configured topics:
+
+```bash
+pnpm radar:topics
+```
+
+Run a local dry run without Turso writes:
+
+```bash
+pnpm radar:run --topic mobile-ai --dry-run
+```
+
+Run the daily cadence and write to Turso:
+
+```bash
+pnpm radar:run --cadence daily
+```
+
+Export the latest Turso-backed Radar archive to static files:
+
+```bash
+pnpm radar:export
+```
+
+This writes:
+
+```text
+public/radar/latest.json
+public/radar/daily/YYYY-MM-DD.json
+```
+
+The export blocks snapshots that contain fallback local-score summaries unless explicitly allowed:
+
+```bash
+pnpm radar:export --allow-local-ranking
+```
+
+Required runtime env/secrets are `TURSO_URL`, `TURSO_AUTH_TOKEN`, `LAST30DAYS_CLI`, and `LAST30DAYS_PYTHON`. Optional last30days source credentials include `BRAVE_API_KEY`, `SCRAPECREATORS_API_KEY`, `OPENAI_API_KEY`, `XAI_API_KEY`, `OPENROUTER_API_KEY`, `PARALLEL_API_KEY`, `APIFY_API_TOKEN`, `AUTH_TOKEN`, `CT0`, `BSKY_HANDLE`, `BSKY_APP_PASSWORD`, and `TRUTHSOCIAL_TOKEN`.
+
+Local scheduled publishing uses `scripts/radar/publish-local.sh`. It sources secrets from:
+
+```text
+$HOME/.config/aaronguo/radar.env
+```
+
+Then it pulls the repo, runs the daily Radar cadence, runs the weekly cadence on Mondays, exports the static snapshot, verifies `pnpm run generate`, commits `public/radar`, and pushes the branch.
+
+Install the macOS LaunchAgent:
+
+```bash
+scripts/radar/install-launch-agent.sh
+```
+
+It schedules `scripts/radar/publish-local.sh` for 07:30 local time and logs to:
+
+```text
+$HOME/Library/Logs/aaronguo-radar-publish.log
+```
+
+GitHub Actions runs the `Radar` workflow daily at `14:00 UTC` and weekly on Mondays at `15:00 UTC`. Scheduled runs first apply the idempotent Radar migration, then execute the matching cadence:
+
+```bash
+pnpm radar:run --cadence daily
+pnpm radar:run --cadence weekly
+```
+
+The workflow checks out `mvanhorn/last30days-skill` at reviewed commit `122158415ae421da83e739f2668032f6bc78d39c` instead of tracking a moving branch. Manual dispatch also supports a specific topic or cadence.
+
 ## 🚀 Development
 
 ### Setup

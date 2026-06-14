@@ -1,8 +1,81 @@
 <script lang="ts" setup>
 import { useI18n } from 'vue-i18n'
 
-
 const { t } = useI18n()
+
+type SignalItem = {
+  id: number | string
+  source: string
+  url: string
+  title: string
+  summary?: string | null
+  ai_summary?: string | null
+  score?: number | string | null
+  relevance?: number | string
+  category: string
+  created_at: string
+  topic_slug?: string
+}
+
+type SignalStat = {
+  source: string
+  count: number | string
+}
+
+type RadarTopicOption = {
+  slug: string
+  name: string
+}
+
+type LatestRadarRun = {
+  completed_at?: string | null
+  started_at?: string | null
+}
+
+type SignalResponse = {
+  items?: SignalItem[]
+  total?: number | string
+  stats?: SignalStat[]
+  topics?: RadarTopicOption[]
+  latestRun?: LatestRadarRun | null
+}
+
+type SignalPulseResponse = {
+  pulse?: string | null
+  date?: string | null
+  items?: SignalItem[]
+}
+
+type StaticRadarItem = {
+  id: number | string
+  source: string
+  url: string
+  title: string
+  summary?: string | null
+  aiSummary?: string | null
+  score?: number | string | null
+  relevance?: number | string
+  category: string
+  topicSlug?: string
+  createdAt?: string | null
+  publishedAt?: string | null
+}
+
+type StaticRadarSnapshot = {
+  generatedAt?: string
+  pulse?: {
+    text?: string | null
+    date?: string | null
+    topItemIds?: Array<number | string>
+  } | null
+  items?: StaticRadarItem[]
+  stats?: SignalStat[]
+  topics?: RadarTopicOption[]
+  latestRun?: {
+    completedAt?: string | null
+    startedAt?: string | null
+  } | null
+}
 
 useHead({
   title: t('signal.title'),
@@ -23,36 +96,108 @@ defineOgImageComponent('About', {
 // Filter state
 const activeSource = ref('')
 const activeCategory = ref('')
+const activeTopic = ref('')
 const searchQuery = ref('')
 const offset = ref(0)
 
 // Accumulated items for infinite scroll
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const allItems = ref<any[]>([])
+const allItems = ref<SignalItem[]>([])
 const totalCount = ref(0)
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const statsData = ref<any[] | null>(null)
+const statsData = ref<SignalStat[] | null>(null)
+
+// Static snapshot is the SSG path. API fetches remain as a development/runtime fallback.
+const { data: staticSnapshot } = await useFetch<StaticRadarSnapshot | null>('/radar/latest.json', {
+  server: true,
+  default: () => null,
+})
+
+const hasStaticSnapshot = computed(() => Boolean(staticSnapshot.value?.items?.length))
+const shouldFetchApi = !staticSnapshot.value?.items?.length
 
 // Fetch pulse data
-const { data: pulseData } = await useFetch('/api/signal-pulse')
+const { data: pulseData } = await useFetch<SignalPulseResponse>('/api/signal-pulse', {
+  immediate: shouldFetchApi,
+})
 
-const pulseText = computed(() => pulseData.value?.pulse || null)
-const pulseDate = computed(() => pulseData.value?.date || null)
+function mapStaticItem(item: StaticRadarItem): SignalItem {
+  return {
+    id: item.id,
+    source: item.source,
+    url: item.url,
+    title: item.title,
+    summary: item.summary || '',
+    ai_summary: item.aiSummary || '',
+    score: item.score,
+    relevance: item.relevance,
+    category: item.category,
+    topic_slug: item.topicSlug,
+    created_at: item.createdAt || item.publishedAt || staticSnapshot.value?.generatedAt || '',
+  }
+}
+
+function getStaticItems() {
+  return (staticSnapshot.value?.items || []).map(mapStaticItem)
+}
+
+function getStaticPulseItems() {
+  const items = getStaticItems()
+  const topIds = staticSnapshot.value?.pulse?.topItemIds || []
+  if (topIds.length === 0) return items.slice(0, 5)
+
+  const byId = new Map(items.map((item) => [String(item.id), item]))
+  return topIds
+    .map((id) => byId.get(String(id)))
+    .filter((item): item is SignalItem => Boolean(item))
+    .slice(0, 5)
+}
+
+const pulseText = computed(
+  () => staticSnapshot.value?.pulse?.text || pulseData.value?.pulse || null,
+)
+const pulseDate = computed(() => staticSnapshot.value?.pulse?.date || pulseData.value?.date || null)
 const pulseItems = computed(() => {
-  const items = (pulseData.value?.items as Record<string, any>[]) || []
+  if (hasStaticSnapshot.value) return getStaticPulseItems()
+  const items = pulseData.value?.items || []
   return items.slice(0, 5)
 })
 
+function applyStaticFilters({ append = false } = {}) {
+  const query = searchQuery.value.trim().toLowerCase()
+  const filtered = getStaticItems().filter((item) => {
+    if (activeSource.value && item.source !== activeSource.value) return false
+    if (activeCategory.value && item.category !== activeCategory.value) return false
+    if (activeTopic.value && item.topic_slug !== activeTopic.value) return false
+    if (!query) return true
+
+    return [item.title, item.summary, item.ai_summary]
+      .filter(Boolean)
+      .join(' ')
+      .toLowerCase()
+      .includes(query)
+  })
+
+  const nextItems = filtered.slice(offset.value, offset.value + 50)
+  allItems.value = append ? [...allItems.value, ...nextItems] : nextItems
+  totalCount.value = filtered.length
+  statsData.value = staticSnapshot.value?.stats || []
+}
+
 // Fetch data
-const { data, refresh, status } = await useFetch('/api/signal', {
+const {
+  data,
+  refresh: refreshApi,
+  status,
+} = await useFetch<SignalResponse>('/api/signal', {
   query: computed(() => ({
     source: activeSource.value,
     category: activeCategory.value,
+    topic: activeTopic.value,
     minRelevance: 5,
     offset: offset.value,
     q: searchQuery.value,
     limit: 50,
   })),
+  immediate: shouldFetchApi,
   watch: false,
   onResponse({ response }) {
     const result = response._data
@@ -67,11 +212,22 @@ const { data, refresh, status } = await useFetch('/api/signal', {
   },
 })
 
+async function refreshSignalData() {
+  if (hasStaticSnapshot.value) {
+    applyStaticFilters()
+    return
+  }
+
+  await refreshApi()
+}
+
 // Init from SSR data
-if (data.value) {
-  allItems.value = (data.value.items as Record<string, unknown>[]) || []
+if (hasStaticSnapshot.value) {
+  applyStaticFilters()
+} else if (data.value) {
+  allItems.value = data.value.items || []
   totalCount.value = Number(data.value.total) || 0
-  statsData.value = (data.value.stats as Record<string, unknown>[]) || null
+  statsData.value = data.value.stats || null
 }
 
 // Debounced search
@@ -81,33 +237,42 @@ function onSearch(val: string) {
   searchTimer = setTimeout(() => {
     searchQuery.value = val
     offset.value = 0
-    refresh()
+    refreshSignalData()
   }, 300)
 }
 
 function setSource(s: string) {
   activeSource.value = s
   offset.value = 0
-  refresh()
+  refreshSignalData()
 }
 
 function setCategory(c: string) {
   activeCategory.value = c
   offset.value = 0
-  refresh()
+  refreshSignalData()
+}
+
+function setTopic(topic: string) {
+  activeTopic.value = topic
+  offset.value = 0
+  refreshSignalData()
 }
 
 const isLoadingMore = ref(false)
 async function loadMore() {
   offset.value += 50
   isLoadingMore.value = true
-  await refresh()
+  if (hasStaticSnapshot.value) {
+    applyStaticFilters({ append: true })
+  } else {
+    await refreshApi()
+  }
   isLoadingMore.value = false
 }
 
 // Helpers
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function getSummary(item: Record<string, any>): { text: string; isAi: boolean } | null {
+function getSummary(item: SignalItem): { text: string; isAi: boolean } | null {
   const title = stripHtml(item.title).toLowerCase()
   const ai = item.ai_summary ? stripHtml(item.ai_summary) : ''
   const regular = item.summary ? stripHtml(item.summary) : ''
@@ -132,14 +297,19 @@ function stripHtml(str: string) {
   if (!str) return ''
   return str
     .replace(/<[^>]*>/g, '')
-    .replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'")
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&amp;/g, '&')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
     .replace(/<[^>]*>/g, '')
     .trim()
 }
 
 function timeAgo(dateStr: string) {
   const now = new Date()
-  const d = new Date(dateStr + 'Z')
+  const normalized = /(?:Z|[+-]\d{2}:?\d{2})$/.test(dateStr) ? dateStr : `${dateStr}Z`
+  const d = new Date(normalized)
   const diff = (now.getTime() - d.getTime()) / 1000
   if (diff < 60) return 'just now'
   if (diff < 3600) return Math.floor(diff / 60) + 'm'
@@ -151,11 +321,17 @@ function sourceColor(s: string) {
   const map: Record<string, string> = {
     hackernews: 'border-l-orange-400',
     'x-twitter': 'border-l-foreground',
+    x: 'border-l-foreground',
     reddit: 'border-l-purple-500',
     producthunt: 'border-l-amber-500',
     github: 'border-l-pink-500',
     lobsters: 'border-l-red-400',
     arxiv: 'border-l-cyan-400',
+    youtube: 'border-l-red-500',
+    tiktok: 'border-l-sky-500',
+    instagram: 'border-l-fuchsia-500',
+    polymarket: 'border-l-blue-500',
+    web: 'border-l-emerald-500',
   }
   return map[s] || 'border-l-muted-foreground'
 }
@@ -164,11 +340,17 @@ function sourceBg(s: string) {
   const map: Record<string, string> = {
     hackernews: 'bg-orange-500',
     'x-twitter': 'bg-foreground',
+    x: 'bg-foreground',
     reddit: 'bg-purple-500',
     producthunt: 'bg-amber-500',
     github: 'bg-pink-500',
     lobsters: 'bg-red-400',
     arxiv: 'bg-cyan-400',
+    youtube: 'bg-red-500',
+    tiktok: 'bg-sky-500',
+    instagram: 'bg-fuchsia-500',
+    polymarket: 'bg-blue-500',
+    web: 'bg-emerald-500',
   }
   return map[s] || 'bg-muted-foreground'
 }
@@ -177,11 +359,17 @@ function sourceLabel(s: string) {
   const map: Record<string, string> = {
     hackernews: 'HN',
     'x-twitter': 'X',
+    x: 'X',
     reddit: 'Reddit',
     producthunt: 'PH',
     github: 'GitHub',
     lobsters: 'Lobsters',
     arxiv: 'ArXiv',
+    youtube: 'YouTube',
+    tiktok: 'TikTok',
+    instagram: 'Instagram',
+    polymarket: 'Polymarket',
+    web: 'Web',
   }
   return map[s] || s
 }
@@ -212,12 +400,44 @@ function categoryColor(c: string) {
   return map[c] || 'text-muted-foreground bg-muted'
 }
 
-const sources = ['hackernews', 'x-twitter', 'reddit', 'producthunt', 'github', 'lobsters', 'arxiv']
+const sources = [
+  'hackernews',
+  'x-twitter',
+  'x',
+  'reddit',
+  'producthunt',
+  'github',
+  'lobsters',
+  'arxiv',
+  'youtube',
+  'tiktok',
+  'instagram',
+  'polymarket',
+  'web',
+]
 const categories = ['ai', 'coding', 'indie', 'fintech', 'management', 'content', 'general']
+
+const topics = computed(() => {
+  const apiTopics = staticSnapshot.value?.topics || data.value?.topics || []
+  return apiTopics.map((topic) => ({
+    slug: topic.slug,
+    name: topic.name,
+  }))
+})
+
+const latestRun = computed(() => {
+  if (staticSnapshot.value?.latestRun) {
+    return {
+      completed_at: staticSnapshot.value.latestRun.completedAt,
+      started_at: staticSnapshot.value.latestRun.startedAt,
+    }
+  }
+  return data.value?.latestRun || null
+})
 
 const totalStats = computed(() => {
   if (!statsData.value) return 0
-  return statsData.value.reduce((sum: number, s: Record<string, unknown>) => sum + Number(s.count), 0)
+  return statsData.value.reduce((sum, s) => sum + Number(s.count), 0)
 })
 </script>
 
@@ -248,11 +468,7 @@ const totalStats = computed(() => {
 
         <!-- Mini stats -->
         <div v-if="statsData" class="hidden sm:flex flex-col gap-1.5 text-right shrink-0">
-          <div
-            v-for="s in statsData"
-            :key="(s as any).source"
-            class="flex items-center gap-2 justify-end"
-          >
+          <div v-for="s in statsData" :key="s.source" class="flex items-center gap-2 justify-end">
             <span class="text-[11px] text-muted-foreground/70 font-mono w-6 text-right">{{
               s.count
             }}</span>
@@ -279,12 +495,22 @@ const totalStats = computed(() => {
         <div class="flex items-center justify-between">
           <div class="flex items-center gap-2">
             <span class="relative flex h-2 w-2">
-              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60" />
-              <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" style="box-shadow: 0 0 6px rgb(52 211 153 / 0.8)" />
+              <span
+                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60"
+              />
+              <span
+                class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"
+                style="box-shadow: 0 0 6px rgb(52 211 153 / 0.8)"
+              />
             </span>
-            <span class="text-[10px] font-mono uppercase tracking-widest text-cyan-700 dark:text-cyan-300">{{ t('signal.todaysPulse') }}</span>
+            <span
+              class="text-[10px] font-mono uppercase tracking-widest text-cyan-700 dark:text-cyan-300"
+              >{{ t('signal.todaysPulse') }}</span
+            >
           </div>
-          <span v-if="pulseDate" class="text-[10px] font-mono text-muted-foreground/40">{{ pulseDate }}</span>
+          <span v-if="pulseDate" class="text-[10px] font-mono text-muted-foreground/40">{{
+            pulseDate
+          }}</span>
         </div>
       </div>
       <div class="px-4 py-3">
@@ -299,10 +525,15 @@ const totalStats = computed(() => {
             class="group flex items-center gap-2.5 py-1.5 rounded-md hover:bg-secondary/50 -mx-1.5 px-1.5 transition-colors"
           >
             <span class="w-1.5 h-1.5 rounded-full shrink-0" :class="sourceBg(item.source)" />
-            <span class="text-xs text-foreground/70 group-hover:text-foreground transition-colors line-clamp-1">
+            <span
+              class="text-xs text-foreground/70 group-hover:text-foreground transition-colors line-clamp-1"
+            >
               {{ stripHtml(item.title) }}
             </span>
-            <span class="text-[10px] font-semibold px-1.5 py-0.5 rounded ml-auto shrink-0" :class="categoryColor(item.category)">
+            <span
+              class="text-[10px] font-semibold px-1.5 py-0.5 rounded ml-auto shrink-0"
+              :class="categoryColor(item.category)"
+            >
               {{ categoryLabel(item.category) }}
             </span>
           </a>
@@ -387,6 +618,34 @@ const totalStats = computed(() => {
             {{ categoryLabel(c) }}
           </button>
         </div>
+
+        <!-- Row 3: Radar topics -->
+        <div v-if="topics.length > 0" class="flex items-center gap-1.5 flex-wrap">
+          <button
+            class="px-3 py-1 text-xs font-medium rounded-md transition-all whitespace-nowrap"
+            :class="
+              activeTopic === ''
+                ? 'bg-foreground text-background'
+                : 'text-muted-foreground hover:text-foreground hover:bg-secondary'
+            "
+            @click="setTopic('')"
+          >
+            {{ t('signal.allRadarTopics') }}
+          </button>
+          <button
+            v-for="topic in topics"
+            :key="topic.slug"
+            class="px-3 py-1 text-xs font-medium rounded-md transition-all whitespace-nowrap"
+            :class="
+              activeTopic === topic.slug
+                ? 'bg-foreground text-background'
+                : 'text-muted-foreground hover:text-foreground hover:bg-secondary'
+            "
+            @click="setTopic(topic.slug)"
+          >
+            {{ topic.name }}
+          </button>
+        </div>
       </div>
     </div>
 
@@ -395,10 +654,19 @@ const totalStats = computed(() => {
       <span class="text-xs text-muted-foreground/60 font-mono">
         {{ totalCount }} {{ t('signal.items') }}
       </span>
+      <span
+        v-if="latestRun && (latestRun.completed_at || latestRun.started_at)"
+        class="text-xs text-muted-foreground/40 font-mono"
+      >
+        {{ t('signal.updated') }} {{ timeAgo(latestRun.completed_at || latestRun.started_at) }}
+      </span>
     </div>
 
     <!-- Loading (initial only) -->
-    <div v-if="status === 'pending' && allItems.length === 0" class="flex items-center justify-center py-24">
+    <div
+      v-if="status === 'pending' && allItems.length === 0"
+      class="flex items-center justify-center py-24"
+    >
       <div class="flex flex-col items-center gap-3">
         <div
           class="w-6 h-6 border-2 border-primary/30 border-t-primary rounded-full animate-spin"
@@ -438,16 +706,20 @@ const totalStats = computed(() => {
         </div>
 
         <!-- Title -->
-        <h3 class="text-base sm:text-lg font-semibold leading-snug group-hover:text-primary transition-colors">
+        <h3
+          class="text-base sm:text-lg font-semibold leading-snug group-hover:text-primary transition-colors"
+        >
           {{ stripHtml(item.title) }}
         </h3>
 
         <!-- Summary -->
-        <div
-          v-if="getSummary(item)"
-          class="flex items-start gap-1.5 mt-1.5"
-        >
-          <Icon v-if="getSummary(item)!.isAi" name="heroicons:star-solid" class="w-3.5 h-3.5 text-amber-400/70 shrink-0 mt-0.5" :title="t('signal.aiSummary')" />
+        <div v-if="getSummary(item)" class="flex items-start gap-1.5 mt-1.5">
+          <Icon
+            v-if="getSummary(item)!.isAi"
+            name="heroicons:star-solid"
+            class="w-3.5 h-3.5 text-amber-400/70 shrink-0 mt-0.5"
+            :title="t('signal.aiSummary')"
+          />
           <p class="text-sm text-muted-foreground/45 line-clamp-2 leading-relaxed">
             {{ getSummary(item)!.text }}
           </p>
@@ -468,10 +740,12 @@ const totalStats = computed(() => {
         :disabled="isLoadingMore"
         @click="loadMore"
       >
-        <div v-if="isLoadingMore" class="w-3.5 h-3.5 border-2 border-muted-foreground/30 border-t-muted-foreground rounded-full animate-spin" />
+        <div
+          v-if="isLoadingMore"
+          class="w-3.5 h-3.5 border-2 border-muted-foreground/30 border-t-muted-foreground rounded-full animate-spin"
+        />
         {{ isLoadingMore ? t('signal.loading') : t('signal.loadMore') }}
       </button>
     </div>
-
   </main>
 </template>

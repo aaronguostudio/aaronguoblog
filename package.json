@@ -17,6 +17,11 @@
     "lint:fix": "eslint . --fix",
     "format": "prettier --check ./",
     "format:fix": "prettier --write ./",
+    "radar:topics": "node scripts/radar/cli.js topics",
+    "radar:run": "node scripts/radar/cli.js run",
+    "radar:export": "node scripts/radar/cli.js export",
+    "radar:diagnose": "node scripts/radar/cli.js diagnose",
+    "radar:migrate": "node scripts/radar/cli.js migrate",
     "test": "vitest",
     "youtube:fetch": "node scripts/fetch-youtube-data.js"
   },
@@ -36,6 +41,7 @@
     "@tailwindcss/typography": "^0.5.10",
     "@vueuse/core": "^10.9.0",
     "@vueuse/nuxt": "^10.9.0",
+    "eslint": "9.26.0",
     "eslint-config-prettier": "^9.1.0",
     "feed": "^4.2.2",
     "fuse.js": "^7.0.0",
@@ -46,16 +52,6 @@
     "typescript": "^5.8.2",
     "unenv": "^1.10.0",
     "vitest": "^1.0.0"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "@parcel/watcher",
-      "better-sqlite3",
-      "esbuild",
-      "sharp",
-      "unrs-resolver",
-      "vue-demi"
-    ]
   },
   "volta": {
     "node": "24.13.1"

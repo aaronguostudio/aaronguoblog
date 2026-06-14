@@ -210,20 +210,22 @@
   "signal": {
     "title": "Signal",
     "subtitle": "Noise removed. What's left is what matters.",
-    "poweredBy": "My AI agent scans HN, X, Reddit, GitHub & Product Hunt every hour, scoring by relevance to AI, coding, fintech, and indie building. No engagement algorithms — just signal.",
+    "poweredBy": "Radar 2.0 researches the topics I care about with last30days, then normalizes the useful public signals into this feed. No engagement algorithms - just intentional signal.",
     "all": "All",
     "allTopics": "All Topics",
+    "allRadarTopics": "All Radar Topics",
     "search": "Search...",
     "items": "items",
+    "updated": "Updated",
     "loading": "Loading...",
     "empty": "No items found.",
     "loadMore": "Load more",
     "whatIsThis": "What is this?",
-    "whatIsThisDesc": "My AI agent scans Hacker News, X, Reddit, GitHub Trending, and Product Hunt every hour. It scores each item by relevance to AI, coding agents, fintech, and indie building — the topics I care about. No algorithms optimizing for engagement. Just signal.",
+    "whatIsThisDesc": "Radar 2.0 follows configured topics such as mobile AI, coding agents, consumer AI apps, and personal AI systems. It uses last30days for multi-source research, stores structured links in Signal, and keeps blog posts separate from automated research output.",
     "viewAll": "View all",
     "todaysPulse": "Today's pulse",
     "pulse": "AI safety and the OpenAI vs Anthropic debate dominate today, while MCP protocol adoption accelerates globally.",
     "aiSummary": "Summarized by AI",
-    "description": "AI-curated tech & AI news feed. Updated hourly from HN, X, Reddit, GitHub & Product Hunt."
+    "description": "Radar-backed AI and technology signal feed. Structured public links, not automated blog posts."
   }
 }

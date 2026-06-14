@@ -1,0 +1,74 @@
+{
+  "topic": "mobile AI, on-device AI, iOS Android AI assistants",
+  "range_from": "2026-05-15",
+  "range_to": "2026-06-14",
+  "generated_at": "2026-06-14T14:00:00Z",
+  "provider_runtime": {
+    "reasoning_provider": "local",
+    "planner_model": "fixture",
+    "rerank_model": "fixture"
+  },
+  "query_plan": {
+    "intent": "Track mobile AI discussion",
+    "freshness_mode": "last30days",
+    "cluster_mode": "topic",
+    "raw_topic": "mobile AI",
+    "subqueries": [],
+    "source_weights": {}
+  },
+  "clusters": [
+    {
+      "cluster_id": "cluster-on-device",
+      "title": "On-device assistants move from demos to daily workflows",
+      "candidate_ids": ["candidate-1"],
+      "representative_ids": ["candidate-1"],
+      "sources": ["reddit"],
+      "score": 44
+    }
+  ],
+  "ranked_candidates": [
+    {
+      "candidate_id": "candidate-1",
+      "item_id": "reddit-1",
+      "source": "reddit",
+      "title": "People are replacing simple phone workflows with local AI assistants",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/mobile_ai/?utm_source=share#comments",
+      "snippet": "Users describe local assistants handling voice notes and app actions.",
+      "subquery_labels": ["mobile-ai"],
+      "native_ranks": { "reddit": 1 },
+      "local_relevance": 0.91,
+      "freshness": 9,
+      "engagement": 128,
+      "source_quality": 0.82,
+      "rrf_score": 0.12,
+      "sources": ["reddit"],
+      "source_items": [
+        {
+          "item_id": "reddit-1",
+          "source": "reddit",
+          "title": "People are replacing simple phone workflows with local AI assistants",
+          "body": "Users describe local assistants handling voice notes and app actions.",
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/mobile_ai/?utm_source=share#comments",
+          "author": "localbuilder",
+          "container": "r/LocalLLaMA",
+          "published_at": "2026-06-13T09:30:00Z",
+          "date_confidence": "high",
+          "engagement": { "score": 128, "comments": 34 },
+          "relevance_hint": 0.91,
+          "why_relevant": "Directly discusses mobile AI workflows",
+          "snippet": "Voice notes and app actions are the sticky workflows."
+        }
+      ],
+      "rerank_score": 0.88,
+      "final_score": 84,
+      "explanation": "A concrete thread about on-device mobile assistants replacing small daily workflows.",
+      "cluster_id": "cluster-on-device",
+      "metadata": {}
+    }
+  ],
+  "items_by_source": {
+    "reddit": []
+  },
+  "errors_by_source": {},
+  "warnings": []
+}

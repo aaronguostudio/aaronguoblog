@@ -4,6 +4,43 @@ import { useI18n } from 'vue-i18n'
 const { t } = useI18n()
 const localePath = useLocalePath()
 
+type SignalPreviewItem = {
+  id?: number | string
+  source: string
+  title: string
+  url: string
+  relevance: number | string
+  category?: string
+  score?: number | string
+}
+
+type SignalPulseResponse = {
+  pulse?: string | null
+  items?: SignalPreviewItem[]
+}
+
+type SignalResponse = {
+  items?: SignalPreviewItem[]
+}
+
+type StaticRadarItem = {
+  id: number | string
+  source: string
+  title: string
+  url: string
+  relevance?: number | string
+  category?: string
+  score?: number | string
+}
+
+type StaticRadarSnapshot = {
+  pulse?: {
+    text?: string | null
+    topItemIds?: Array<number | string>
+  } | null
+  items?: StaticRadarItem[]
+}
+
 const tooltipOpen = ref(false)
 
 function openTooltip() {
@@ -27,25 +64,48 @@ onUnmounted(() => {
   document.removeEventListener('click', closeTooltip)
 })
 
+const { data: staticSnapshot } = await useFetch<StaticRadarSnapshot | null>('/radar/latest.json', {
+  server: true,
+  default: () => null,
+})
+
+const hasStaticSnapshot = computed(() => Boolean(staticSnapshot.value?.items?.length))
+const shouldFetchApi = !staticSnapshot.value?.items?.length
+
 // Fetch dynamic pulse data
-const { data: pulseData } = await useFetch('/api/signal-pulse')
+const { data: pulseData } = await useFetch<SignalPulseResponse>('/api/signal-pulse', {
+  immediate: shouldFetchApi,
+})
 
 // Fallback to regular signal API if pulse has no items
-const { data: fallbackData } = await useFetch('/api/signal', {
+const { data: fallbackData } = await useFetch<SignalResponse>('/api/signal', {
   query: { limit: 20, minRelevance: 7 },
+  immediate: shouldFetchApi,
 })
 
 const pulseText = computed(() => {
-  return pulseData.value?.pulse || t('signal.pulse')
+  return staticSnapshot.value?.pulse?.text || pulseData.value?.pulse || t('signal.pulse')
 })
+
+function staticPulseItems() {
+  const items = staticSnapshot.value?.items || []
+  const topIds = staticSnapshot.value?.pulse?.topItemIds || []
+  if (topIds.length === 0) return items.slice(0, 3)
+
+  const byId = new Map(items.map((item) => [String(item.id), item]))
+  return topIds
+    .map((id) => byId.get(String(id)))
+    .filter((item): item is StaticRadarItem => Boolean(item))
+    .slice(0, 3)
+}
 
 // Sort by relevance desc, take top 3
 const topItems = computed(() => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const pulseItems = (pulseData.value?.items as Record<string, any>[]) || []
+  if (hasStaticSnapshot.value) return staticPulseItems()
+  const pulseItems = pulseData.value?.items || []
   if (pulseItems.length > 0) return pulseItems.slice(0, 3)
   // Fallback
-  const items = (fallbackData.value?.items as Record<string, any>[]) || []
+  const items = fallbackData.value?.items || []
   return [...items].sort((a, b) => Number(b.relevance) - Number(a.relevance)).slice(0, 3)
 })
 
@@ -53,11 +113,17 @@ function sourceColor(s: string) {
   const map: Record<string, string> = {
     hackernews: 'bg-orange-400',
     'x-twitter': 'bg-foreground',
+    x: 'bg-foreground',
     reddit: 'bg-purple-500',
     producthunt: 'bg-amber-500',
     github: 'bg-pink-500',
     lobsters: 'bg-red-400',
     arxiv: 'bg-cyan-400',
+    youtube: 'bg-red-500',
+    tiktok: 'bg-sky-500',
+    instagram: 'bg-fuchsia-500',
+    polymarket: 'bg-blue-500',
+    web: 'bg-emerald-500',
   }
   return map[s] || 'bg-muted-foreground'
 }
