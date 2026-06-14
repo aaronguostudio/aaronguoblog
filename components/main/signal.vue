@@ -4,6 +4,24 @@ import { useI18n } from 'vue-i18n'
 const { t } = useI18n()
 const localePath = useLocalePath()
 
+type SignalPreviewItem = {
+  source: string
+  title: string
+  url: string
+  relevance: number | string
+  category?: string
+  score?: number | string
+}
+
+type SignalPulseResponse = {
+  pulse?: string | null
+  items?: SignalPreviewItem[]
+}
+
+type SignalResponse = {
+  items?: SignalPreviewItem[]
+}
+
 const tooltipOpen = ref(false)
 
 function openTooltip() {
@@ -28,10 +46,10 @@ onUnmounted(() => {
 })
 
 // Fetch dynamic pulse data
-const { data: pulseData } = await useFetch('/api/signal-pulse')
+const { data: pulseData } = await useFetch<SignalPulseResponse>('/api/signal-pulse')
 
 // Fallback to regular signal API if pulse has no items
-const { data: fallbackData } = await useFetch('/api/signal', {
+const { data: fallbackData } = await useFetch<SignalResponse>('/api/signal', {
   query: { limit: 20, minRelevance: 7 },
 })
 
@@ -41,11 +59,10 @@ const pulseText = computed(() => {
 
 // Sort by relevance desc, take top 3
 const topItems = computed(() => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const pulseItems = (pulseData.value?.items as Record<string, any>[]) || []
+  const pulseItems = pulseData.value?.items || []
   if (pulseItems.length > 0) return pulseItems.slice(0, 3)
   // Fallback
-  const items = (fallbackData.value?.items as Record<string, any>[]) || []
+  const items = fallbackData.value?.items || []
   return [...items].sort((a, b) => Number(b.relevance) - Number(a.relevance)).slice(0, 3)
 })
 

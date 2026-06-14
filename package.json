@@ -40,6 +40,7 @@
     "@tailwindcss/typography": "^0.5.10",
     "@vueuse/core": "^10.9.0",
     "@vueuse/nuxt": "^10.9.0",
+    "eslint": "9.26.0",
     "eslint-config-prettier": "^9.1.0",
     "feed": "^4.2.2",
     "fuse.js": "^7.0.0",
@@ -50,16 +51,6 @@
     "typescript": "^5.8.2",
     "unenv": "^1.10.0",
     "vitest": "^1.0.0"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "@parcel/watcher",
-      "better-sqlite3",
-      "esbuild",
-      "sharp",
-      "unrs-resolver",
-      "vue-demi"
-    ]
   },
   "volta": {
     "node": "24.13.1"

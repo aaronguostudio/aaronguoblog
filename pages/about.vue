@@ -2,7 +2,7 @@
 import { useI18n } from 'vue-i18n'
 import { socialLinks } from '~/data'
 
-const { locale, t } = useI18n()
+const { t } = useI18n()
 
 useHead({
   title: t('about.title'),
@@ -19,7 +19,6 @@ defineOgImageComponent('About', {
   title: t('about.title'),
   description: t('about.description'),
 })
-
 </script>
 
 <template>

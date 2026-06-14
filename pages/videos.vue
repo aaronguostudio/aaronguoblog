@@ -5,6 +5,34 @@ import youtubeData from '~/data/youtube.json'
 
 const { t } = useI18n()
 
+type YouTubeVideo = {
+  id: string
+  title: string
+  thumbnail: string
+  publishedAt: string
+  durationSeconds: number
+  viewCount: number
+}
+
+type YouTubeChannelData = {
+  channel: {
+    subscriberCount: number
+    videoCount: number
+    viewCount: number
+  }
+  videos: YouTubeVideo[]
+  shorts: YouTubeVideo[]
+}
+
+type YouTubeData = {
+  channels: Record<string, YouTubeChannelData>
+  metadata: {
+    fetchedAt?: string
+  }
+}
+
+const typedYoutubeData = youtubeData as YouTubeData
+
 useHead({
   title: t('videos.title'),
   meta: [
@@ -31,7 +59,7 @@ const tabs = [
 const activeTab = ref(tabs[0].key)
 
 const activeChannelData = computed(() => {
-  return (youtubeData as any).channels[activeTab.value] || null
+  return typedYoutubeData.channels[activeTab.value] || null
 })
 
 const formatNumber = (num: number) => num.toLocaleString('en-US')
@@ -87,18 +115,23 @@ const getVideoUrl = (videoId: string) => `https://www.youtube.com/watch?v=${vide
             <div class="flex items-center gap-3 mb-3">
               <div
                 class="shrink-0 w-10 h-10 flex items-center justify-center overflow-hidden"
-                :class="[channel.logo ? 'rounded-full' : 'rounded-lg', channel.logo ? '' : channel.iconBgClass]"
+                :class="[
+                  channel.logo ? 'rounded-full' : 'rounded-lg',
+                  channel.logo ? '' : channel.iconBgClass,
+                ]"
               >
                 <img
                   v-if="channel.logo"
                   :src="channel.logo"
                   :alt="t(channel.nameKey)"
                   class="w-full h-full object-cover"
-                >
+                />
                 <Icon v-else :name="channel.icon" class="w-5 h-5 text-white" />
               </div>
               <div class="min-w-0 flex-1">
-                <h3 class="text-base font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
+                <h3
+                  class="text-base font-semibold text-foreground group-hover:text-primary transition-colors duration-300"
+                >
                   {{ t(channel.nameKey) }}
                 </h3>
               </div>
@@ -122,9 +155,11 @@ const getVideoUrl = (videoId: string) => `https://www.youtube.com/watch?v=${vide
           v-for="tab in tabs"
           :key="tab.key"
           class="flex items-center gap-2 px-4 py-3 text-sm font-medium transition-colors duration-200 border-b-2 -mb-px cursor-pointer"
-          :class="activeTab === tab.key
-            ? 'border-foreground text-foreground'
-            : 'border-transparent text-muted-foreground hover:text-foreground'"
+          :class="
+            activeTab === tab.key
+              ? 'border-foreground text-foreground'
+              : 'border-transparent text-muted-foreground hover:text-foreground'
+          "
           @click="activeTab = tab.key"
         >
           <Icon :name="tab.icon" class="w-4 h-4" />
@@ -270,8 +305,11 @@ const getVideoUrl = (videoId: string) => `https://www.youtube.com/watch?v=${vide
     </template>
 
     <!-- Last Updated -->
-    <div v-if="youtubeData.metadata.fetchedAt" class="text-center text-sm text-muted-foreground mt-8">
-      {{ t('drum.lastUpdated') }}: {{ formatDate((youtubeData as any).metadata.fetchedAt) }}
+    <div
+      v-if="typedYoutubeData.metadata.fetchedAt"
+      class="text-center text-sm text-muted-foreground mt-8"
+    >
+      {{ t('drum.lastUpdated') }}: {{ formatDate(typedYoutubeData.metadata.fetchedAt) }}
     </div>
   </main>
 </template>

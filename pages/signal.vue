@@ -1,8 +1,49 @@
 <script lang="ts" setup>
 import { useI18n } from 'vue-i18n'
 
-
 const { t } = useI18n()
+
+type SignalItem = {
+  id: number | string
+  source: string
+  url: string
+  title: string
+  summary?: string | null
+  ai_summary?: string | null
+  score?: number | string | null
+  relevance?: number | string
+  category: string
+  created_at: string
+}
+
+type SignalStat = {
+  source: string
+  count: number | string
+}
+
+type RadarTopicOption = {
+  slug: string
+  name: string
+}
+
+type LatestRadarRun = {
+  completed_at?: string | null
+  started_at?: string | null
+}
+
+type SignalResponse = {
+  items?: SignalItem[]
+  total?: number | string
+  stats?: SignalStat[]
+  topics?: RadarTopicOption[]
+  latestRun?: LatestRadarRun | null
+}
+
+type SignalPulseResponse = {
+  pulse?: string | null
+  date?: string | null
+  items?: SignalItem[]
+}
 
 useHead({
   title: t('signal.title'),
@@ -28,24 +69,22 @@ const searchQuery = ref('')
 const offset = ref(0)
 
 // Accumulated items for infinite scroll
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const allItems = ref<any[]>([])
+const allItems = ref<SignalItem[]>([])
 const totalCount = ref(0)
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const statsData = ref<any[] | null>(null)
+const statsData = ref<SignalStat[] | null>(null)
 
 // Fetch pulse data
-const { data: pulseData } = await useFetch('/api/signal-pulse')
+const { data: pulseData } = await useFetch<SignalPulseResponse>('/api/signal-pulse')
 
 const pulseText = computed(() => pulseData.value?.pulse || null)
 const pulseDate = computed(() => pulseData.value?.date || null)
 const pulseItems = computed(() => {
-  const items = (pulseData.value?.items as Record<string, any>[]) || []
+  const items = pulseData.value?.items || []
   return items.slice(0, 5)
 })
 
 // Fetch data
-const { data, refresh, status } = await useFetch('/api/signal', {
+const { data, refresh, status } = await useFetch<SignalResponse>('/api/signal', {
   query: computed(() => ({
     source: activeSource.value,
     category: activeCategory.value,
@@ -71,9 +110,9 @@ const { data, refresh, status } = await useFetch('/api/signal', {
 
 // Init from SSR data
 if (data.value) {
-  allItems.value = (data.value.items as Record<string, unknown>[]) || []
+  allItems.value = data.value.items || []
   totalCount.value = Number(data.value.total) || 0
-  statsData.value = (data.value.stats as Record<string, unknown>[]) || null
+  statsData.value = data.value.stats || null
 }
 
 // Debounced search
@@ -114,8 +153,7 @@ async function loadMore() {
 }
 
 // Helpers
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function getSummary(item: Record<string, any>): { text: string; isAi: boolean } | null {
+function getSummary(item: SignalItem): { text: string; isAi: boolean } | null {
   const title = stripHtml(item.title).toLowerCase()
   const ai = item.ai_summary ? stripHtml(item.ai_summary) : ''
   const regular = item.summary ? stripHtml(item.summary) : ''
@@ -140,7 +178,11 @@ function stripHtml(str: string) {
   if (!str) return ''
   return str
     .replace(/<[^>]*>/g, '')
-    .replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'")
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&amp;/g, '&')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
     .replace(/<[^>]*>/g, '')
     .trim()
 }
@@ -257,18 +299,18 @@ const sources = [
 const categories = ['ai', 'coding', 'indie', 'fintech', 'management', 'content', 'general']
 
 const topics = computed(() => {
-  const apiTopics = (data.value?.topics as Record<string, string>[] | undefined) || []
-  return apiTopics.map(topic => ({
+  const apiTopics = data.value?.topics || []
+  return apiTopics.map((topic) => ({
     slug: topic.slug,
     name: topic.name,
   }))
 })
 
-const latestRun = computed(() => data.value?.latestRun as Record<string, string> | null)
+const latestRun = computed(() => data.value?.latestRun || null)
 
 const totalStats = computed(() => {
   if (!statsData.value) return 0
-  return statsData.value.reduce((sum: number, s: Record<string, unknown>) => sum + Number(s.count), 0)
+  return statsData.value.reduce((sum, s) => sum + Number(s.count), 0)
 })
 </script>
 
@@ -299,11 +341,7 @@ const totalStats = computed(() => {
 
         <!-- Mini stats -->
         <div v-if="statsData" class="hidden sm:flex flex-col gap-1.5 text-right shrink-0">
-          <div
-            v-for="s in statsData"
-            :key="(s as any).source"
-            class="flex items-center gap-2 justify-end"
-          >
+          <div v-for="s in statsData" :key="s.source" class="flex items-center gap-2 justify-end">
             <span class="text-[11px] text-muted-foreground/70 font-mono w-6 text-right">{{
               s.count
             }}</span>
@@ -330,12 +368,22 @@ const totalStats = computed(() => {
         <div class="flex items-center justify-between">
           <div class="flex items-center gap-2">
             <span class="relative flex h-2 w-2">
-              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60" />
-              <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" style="box-shadow: 0 0 6px rgb(52 211 153 / 0.8)" />
+              <span
+                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60"
+              />
+              <span
+                class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"
+                style="box-shadow: 0 0 6px rgb(52 211 153 / 0.8)"
+              />
             </span>
-            <span class="text-[10px] font-mono uppercase tracking-widest text-cyan-700 dark:text-cyan-300">{{ t('signal.todaysPulse') }}</span>
+            <span
+              class="text-[10px] font-mono uppercase tracking-widest text-cyan-700 dark:text-cyan-300"
+              >{{ t('signal.todaysPulse') }}</span
+            >
           </div>
-          <span v-if="pulseDate" class="text-[10px] font-mono text-muted-foreground/40">{{ pulseDate }}</span>
+          <span v-if="pulseDate" class="text-[10px] font-mono text-muted-foreground/40">{{
+            pulseDate
+          }}</span>
         </div>
       </div>
       <div class="px-4 py-3">
@@ -350,10 +398,15 @@ const totalStats = computed(() => {
             class="group flex items-center gap-2.5 py-1.5 rounded-md hover:bg-secondary/50 -mx-1.5 px-1.5 transition-colors"
           >
             <span class="w-1.5 h-1.5 rounded-full shrink-0" :class="sourceBg(item.source)" />
-            <span class="text-xs text-foreground/70 group-hover:text-foreground transition-colors line-clamp-1">
+            <span
+              class="text-xs text-foreground/70 group-hover:text-foreground transition-colors line-clamp-1"
+            >
               {{ stripHtml(item.title) }}
             </span>
-            <span class="text-[10px] font-semibold px-1.5 py-0.5 rounded ml-auto shrink-0" :class="categoryColor(item.category)">
+            <span
+              class="text-[10px] font-semibold px-1.5 py-0.5 rounded ml-auto shrink-0"
+              :class="categoryColor(item.category)"
+            >
               {{ categoryLabel(item.category) }}
             </span>
           </a>
@@ -483,7 +536,10 @@ const totalStats = computed(() => {
     </div>
 
     <!-- Loading (initial only) -->
-    <div v-if="status === 'pending' && allItems.length === 0" class="flex items-center justify-center py-24">
+    <div
+      v-if="status === 'pending' && allItems.length === 0"
+      class="flex items-center justify-center py-24"
+    >
       <div class="flex flex-col items-center gap-3">
         <div
           class="w-6 h-6 border-2 border-primary/30 border-t-primary rounded-full animate-spin"
@@ -523,16 +579,20 @@ const totalStats = computed(() => {
         </div>
 
         <!-- Title -->
-        <h3 class="text-base sm:text-lg font-semibold leading-snug group-hover:text-primary transition-colors">
+        <h3
+          class="text-base sm:text-lg font-semibold leading-snug group-hover:text-primary transition-colors"
+        >
           {{ stripHtml(item.title) }}
         </h3>
 
         <!-- Summary -->
-        <div
-          v-if="getSummary(item)"
-          class="flex items-start gap-1.5 mt-1.5"
-        >
-          <Icon v-if="getSummary(item)!.isAi" name="heroicons:star-solid" class="w-3.5 h-3.5 text-amber-400/70 shrink-0 mt-0.5" :title="t('signal.aiSummary')" />
+        <div v-if="getSummary(item)" class="flex items-start gap-1.5 mt-1.5">
+          <Icon
+            v-if="getSummary(item)!.isAi"
+            name="heroicons:star-solid"
+            class="w-3.5 h-3.5 text-amber-400/70 shrink-0 mt-0.5"
+            :title="t('signal.aiSummary')"
+          />
           <p class="text-sm text-muted-foreground/45 line-clamp-2 leading-relaxed">
             {{ getSummary(item)!.text }}
           </p>
@@ -553,10 +613,12 @@ const totalStats = computed(() => {
         :disabled="isLoadingMore"
         @click="loadMore"
       >
-        <div v-if="isLoadingMore" class="w-3.5 h-3.5 border-2 border-muted-foreground/30 border-t-muted-foreground rounded-full animate-spin" />
+        <div
+          v-if="isLoadingMore"
+          class="w-3.5 h-3.5 border-2 border-muted-foreground/30 border-t-muted-foreground rounded-full animate-spin"
+        />
         {{ isLoadingMore ? t('signal.loading') : t('signal.loadMore') }}
       </button>
     </div>
-
   </main>
 </template>
