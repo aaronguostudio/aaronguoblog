@@ -46,4 +46,11 @@ describe('static Signal contract', () => {
     expect(NUXT_CONFIG).toContain("'/signal': { prerender: true }")
     expect(NUXT_CONFIG).toContain("'/zh/signal': { prerender: true }")
   })
+
+  it('keeps homepage routes static to avoid stale HTML and build manifest drift', () => {
+    expect(NUXT_CONFIG).not.toContain("'/': { swr:")
+    expect(NUXT_CONFIG).not.toContain("'/zh': { swr:")
+    expect(NUXT_CONFIG).toContain("'/': { prerender: true }")
+    expect(NUXT_CONFIG).toContain("'/zh': { prerender: true }")
+  })
 })

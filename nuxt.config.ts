@@ -72,8 +72,8 @@ export default defineNuxtConfig({
   },
 
   routeRules: {
-    '/': { swr: 600 }, // Stale-while-revalidate: cached 10 min, regens in background
-    '/zh': { swr: 600 },
+    '/': { prerender: true },
+    '/zh': { prerender: true },
     '/signal': { prerender: true },
     '/zh/signal': { prerender: true },
   },
