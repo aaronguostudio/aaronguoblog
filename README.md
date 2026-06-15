@@ -167,7 +167,15 @@ $HOME/.config/aaronguo/radar.env
 
 Then it pulls the repo, runs the daily Radar cadence, runs the weekly cadence on Mondays, exports the static snapshot, verifies `pnpm run generate`, commits `public/radar`, and pushes the branch.
 
-Install the macOS LaunchAgent:
+The production publisher is the Codex automation `Radar Local Publisher`, pointed at the dedicated local runner clone:
+
+```text
+/Users/aaronguo/Work/ag/blog/aaronguoblog-radar-runner
+```
+
+It runs daily at 07:30 local time and pushes Radar snapshots directly to `main`, which triggers the Vercel deploy.
+
+As an alternative to Codex automation, install the macOS LaunchAgent:
 
 ```bash
 scripts/radar/install-launch-agent.sh
@@ -179,7 +187,7 @@ It schedules `scripts/radar/publish-local.sh` for 07:30 local time and logs to:
 $HOME/Library/Logs/aaronguo-radar-publish.log
 ```
 
-GitHub Actions runs the `Radar` workflow daily at `14:00 UTC` and weekly on Mondays at `15:00 UTC`. Scheduled runs first apply the idempotent Radar migration, then execute the matching cadence:
+GitHub Actions keeps the `Radar` workflow as a manual fallback. Manual runs first apply the idempotent Radar migration, then execute the selected cadence:
 
 ```bash
 pnpm radar:run --cadence daily

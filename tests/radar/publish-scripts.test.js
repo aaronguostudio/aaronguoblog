@@ -36,6 +36,8 @@ describe('Radar local publish scripts', () => {
 
   it('publishes GitHub Radar runs as static blog snapshots', () => {
     expect(GITHUB_WORKFLOW).toContain('contents: write')
+    expect(GITHUB_WORKFLOW).toContain('workflow_dispatch:')
+    expect(GITHUB_WORKFLOW).not.toContain('schedule:')
     expect(GITHUB_WORKFLOW).toContain('pnpm radar:export')
     expect(GITHUB_WORKFLOW).toContain('pnpm run generate')
     expect(GITHUB_WORKFLOW).toContain('git add public/radar')

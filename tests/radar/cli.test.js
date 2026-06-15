@@ -92,8 +92,7 @@ describe('parseArgs', () => {
   it('keeps the Radar workflow on the supported package-script invocation shape', () => {
     expect(RADAR_WORKFLOW_TEXT).not.toContain('pnpm radar:run -- --')
     expect(RADAR_WORKFLOW_TEXT).toContain('pnpm radar:run --topic "$RADAR_TOPIC"')
-    expect(RADAR_WORKFLOW_TEXT).toContain('pnpm radar:run --cadence daily')
-    expect(RADAR_WORKFLOW_TEXT).toContain('pnpm radar:run --cadence weekly')
     expect(RADAR_WORKFLOW_TEXT).toContain('pnpm radar:run --cadence "$RADAR_CADENCE"')
+    expect(RADAR_WORKFLOW_TEXT).not.toContain('RADAR_EVENT_SCHEDULE')
   })
 })

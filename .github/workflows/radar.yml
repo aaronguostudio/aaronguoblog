@@ -16,11 +16,6 @@ on:
           - daily
           - weekly
           - manual
-  schedule:
-    # 14:00 UTC is 08:00 in Edmonton during daylight saving time.
-    - cron: '0 14 * * *'
-    # Weekly run for deeper weekly Radar topics.
-    - cron: '0 15 * * 1'
 
 permissions:
   contents: write
@@ -86,7 +81,6 @@ jobs:
         env:
           RADAR_TOPIC: ${{ github.event.inputs.topic || '' }}
           RADAR_CADENCE: ${{ github.event.inputs.cadence || 'daily' }}
-          RADAR_EVENT_SCHEDULE: ${{ github.event.schedule }}
           LAST30DAYS_CLI: ${{ steps.last30days.outputs.cli }}
           LAST30DAYS_PYTHON: python3.12
           TURSO_URL: ${{ secrets.TURSO_URL }}
@@ -106,19 +100,6 @@ jobs:
         run: |
           if [ -n "$RADAR_TOPIC" ]; then
             pnpm radar:run --topic "$RADAR_TOPIC"
-          elif [ "$GITHUB_EVENT_NAME" = "schedule" ]; then
-            case "$RADAR_EVENT_SCHEDULE" in
-              "0 14 * * *")
-                pnpm radar:run --cadence daily
-                ;;
-              "0 15 * * 1")
-                pnpm radar:run --cadence weekly
-                ;;
-              *)
-                echo "Unknown Radar schedule: $RADAR_EVENT_SCHEDULE" >&2
-                exit 1
-                ;;
-            esac
           elif [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ]; then
             pnpm radar:run --cadence "$RADAR_CADENCE"
           else
