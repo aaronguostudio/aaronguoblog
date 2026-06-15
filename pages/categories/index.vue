@@ -1,5 +1,8 @@
 <script lang="ts" setup>
-import { makeFirstCharUpper } from '@/utils/helper'
+import {
+  createCategoryCounts,
+  getBlogCategoryLabel,
+} from '~/utils/blog-taxonomy'
 import { useI18n } from 'vue-i18n'
 
 const { t, locale } = useI18n()
@@ -13,31 +16,28 @@ const { data } = await useAsyncData('all-categories-page', () =>
 )
 
 /**
- * Extract all tags from blog posts for the current locale
+ * Extract reader-facing categories from blog posts for the current locale
  */
-const allTags = computed(() => {
+const allCategories = computed(() => {
   if (!data.value) return new Map()
 
   // Get the posts for the current locale (index 0 for English, index 1 for Chinese)
   const localeIndex = locale.value === 'en' ? 0 : 1
   const posts = data.value[localeIndex]
 
-  const tagsMap = new Map()
-
-  posts.forEach((blog) => {
-    const tags: Array<string> = (blog.meta.tags as string[]) || []
-    tags.forEach((tag) => {
-      if (tagsMap.has(tag)) {
-        const cnt = tagsMap.get(tag)
-        tagsMap.set(tag, cnt + 1)
-      } else {
-        tagsMap.set(tag, 1)
-      }
-    })
-  })
-
-  return tagsMap
+  return createCategoryCounts(posts.map((blog) => ({
+    category: blog.meta.category,
+    categories: blog.meta.categories,
+  })))
 })
+
+const categoryCards = computed(() =>
+  [...allCategories.value.entries()].map(([id, count]) => ({
+    id,
+    title: getBlogCategoryLabel(id, locale.value),
+    count,
+  })),
+)
 
 useHead({
   title: t('categories.title'),
@@ -65,10 +65,11 @@ defineOgImage({
     <CategoryHero />
     <div class="flex flex-wrap px-4 mt-12 gap-3">
       <CategoryCard
-        v-for="topic in allTags"
-        :key="topic[0]"
-        :title="makeFirstCharUpper(topic[0])"
-        :count="topic[1]"
+        v-for="category in categoryCards"
+        :id="category.id"
+        :key="category.id"
+        :title="category.title"
+        :count="category.count"
       />
     </div>
   </main>

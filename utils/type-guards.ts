@@ -67,6 +67,8 @@ export function extractBlogPostMeta(content: {
     image: meta.image || '', // Empty string instead of /not-found.jpg for conditional rendering
     alt: meta.alt || 'No image description available',
     ogImage: meta.ogImage || '/blogs-img/blog.jpg', // Use default for social sharing only
+    category: typeof meta.category === 'string' ? meta.category : undefined,
+    categories: Array.isArray(meta.categories) ? meta.categories : [],
     tags: Array.isArray(meta.tags) ? meta.tags : [],
     topics: Array.isArray(meta.topics) ? meta.topics : [],
     published: Boolean(meta.published),

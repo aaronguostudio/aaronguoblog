@@ -1,10 +1,12 @@
 <script setup lang="ts">
 interface Props {
+  id: string
   title: string
   count: number
 }
 
 withDefaults(defineProps<Props>(), {
+  id: '',
   title: 'No title available',
   count: 0,
 })
@@ -41,7 +43,7 @@ const picAColor = ref(`${color.at(getRandomInt(0, 8))}`)
     class="text-[#F1F2F4] px-5 py-3 rounded hover:underline rand-bg-color hover:scale-[1.05] transition-all duration-500"
   >
     <NuxtLink
-      :to="localePath(`/categories/${title.toLocaleLowerCase()}`)"
+      :to="localePath(`/categories/${id}`)"
       class="text-lg font-extrabold"
     >
       <h1>#{{ title }}({{ count }})</h1>

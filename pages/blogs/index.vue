@@ -1,6 +1,11 @@
 <script lang="ts" setup>
 import Fuse from 'fuse.js'
 import { sortByDate } from '~/utils/date'
+import {
+  createCategoryCounts,
+  getBlogCategories,
+  normalizeBlogCategoryId,
+} from '~/utils/blog-taxonomy'
 import { extractBlogPostMeta } from '~/utils/type-guards'
 import { useSeo } from '~/utils/seo'
 
@@ -20,11 +25,6 @@ const searchQuery = ref('')
 const selectedCategories = ref<string[]>([])
 
 /**
- * Topic filter state
- */
-const selectedTopics = ref<string[]>([])
-
-/**
  * Reset to the first page whenever the search query changes
  */
 watch(searchQuery, () => {
@@ -42,26 +42,14 @@ watch(
   { deep: true },
 )
 
-/**
- * Reset to the first page whenever the selected topics change
- */
-watch(
-  selectedTopics,
-  () => {
-    pageNumber.value = 1
-  },
-  { deep: true },
-)
-
-// Initialize selected categories and topics from URL query parameters
+// Initialize selected categories from URL query parameters
 onMounted(() => {
   const categoriesParam = route.query.categories as string
   if (categoriesParam) {
-    selectedCategories.value = categoriesParam.split(',')
-  }
-  const topicParam = route.query.topic as string
-  if (topicParam) {
-    selectedTopics.value = topicParam.split(',')
+    selectedCategories.value = categoriesParam
+      .split(',')
+      .map((category) => normalizeBlogCategoryId(category))
+      .filter((category): category is string => Boolean(category))
   }
 })
 
@@ -74,25 +62,9 @@ const { data } = await useAsyncData('all-blog-posts-page', () =>
 )
 
 /**
- * Extract all tags from blog posts
+ * Extract reader-facing categories from blog posts
  */
-const allTags = computed(() => {
-  const tagsMap = new Map()
-
-  formattedData.value.forEach((post) => {
-    const tags = post.tags || []
-    tags.forEach((tag) => {
-      if (tagsMap.has(tag)) {
-        const count = tagsMap.get(tag)
-        tagsMap.set(tag, count + 1)
-      } else {
-        tagsMap.set(tag, 1)
-      }
-    })
-  })
-
-  return tagsMap
-})
+const allCategories = computed(() => createCategoryCounts(formattedData.value))
 
 /**
  * Format and process blog post data for the current locale
@@ -124,6 +96,7 @@ const formattedData = computed(() => {
       alt: meta.alt,
       ogImage: meta.ogImage,
       date: meta.date,
+      categories: getBlogCategories(meta),
       tags: meta.tags,
       topics: meta.topics,
       published: meta.published,
@@ -152,7 +125,7 @@ const fuse = computed(() => {
 })
 
 /**
- * Filter data based on search query, selected categories, and selected topics
+ * Filter data based on search query and selected categories
  */
 const searchData = computed(() => {
   let filteredData = formattedData.value
@@ -167,15 +140,7 @@ const searchData = computed(() => {
   if (selectedCategories.value.length > 0) {
     filteredData = filteredData.filter((post) => {
       // Check if post has at least one of the selected categories
-      return selectedCategories.value.some((category) => post.tags && post.tags.includes(category))
-    })
-  }
-
-  // Then filter by selected topics
-  if (selectedTopics.value.length > 0) {
-    filteredData = filteredData.filter((post) => {
-      // Check if post has at least one of the selected topics
-      return selectedTopics.value.some((topic) => post.topics && post.topics.includes(topic))
+      return selectedCategories.value.some((category) => post.categories.includes(category))
     })
   }
 
@@ -245,7 +210,7 @@ defineOgImage({
       <div class="lg:col-span-1">
         <div class="sticky top-24">
           <BlogCategoryFilter
-            :all-tags="allTags"
+            :all-categories="allCategories"
             :selected-categories="selectedCategories"
             @update:selected-categories="selectedCategories = $event"
           />
@@ -254,12 +219,6 @@ defineOgImage({
 
       <!-- Blog posts section -->
       <div class="lg:col-span-3">
-        <!-- Topic Filter -->
-        <BlogTopicFilter
-          :selected-topics="selectedTopics"
-          @update:selected-topics="selectedTopics = $event"
-        />
-
         <!-- Search bar with enhanced design -->
         <div class="pb-8">
           <div class="relative w-full mx-auto group">
@@ -289,6 +248,7 @@ defineOgImage({
               :image="post.image"
               :alt="post.alt"
               :og-image="post.ogImage"
+              :categories="post.categories"
               :tags="post.tags"
               :published="post.published"
             />

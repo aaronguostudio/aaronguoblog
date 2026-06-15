@@ -5,6 +5,8 @@ export interface BlogPost {
   image: string
   alt: string
   ogImage: string
+  category?: string
+  categories?: string[]
   tags: string[]
   topics?: string[]
   published: boolean

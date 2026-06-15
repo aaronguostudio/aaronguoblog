@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { BlogPost } from '@/types/blog'
 import { navbarData, seoData } from '~/data'
+import { getBlogCategories } from '~/utils/blog-taxonomy'
 
 // Define a custom page name to avoid route name conflicts
 definePageMeta({
@@ -59,6 +60,7 @@ const data = computed<BlogPost>(() => {
     // Use defaultImage for ogImage only (for social sharing)
     ogImage: (articles?.value?.ogImage as unknown as string) || meta?.image || defaultImage,
     date: meta?.date || 'not-date-available',
+    categories: getBlogCategories(meta || {}),
     tags: meta?.tags || [],
     published: meta?.published || false,
     youtube: meta?.youtube,
@@ -142,6 +144,7 @@ defineOgImageComponent('Test', {
         :alt="data.alt"
         :date="data.date"
         :description="data.description"
+        :categories="data.categories || []"
         :tags="data.tags"
       />
       <div class="lg:hidden mb-6">

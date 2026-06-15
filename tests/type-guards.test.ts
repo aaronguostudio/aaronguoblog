@@ -78,6 +78,24 @@ describe('extractBlogPostMeta', () => {
     expect(result.published).toBe(true)
   })
 
+  it('extracts category metadata from content object', () => {
+    const content = {
+      title: 'Hello',
+      description: 'desc',
+      meta: {
+        tags: ['ai', 'agents'],
+        category: 'ai-native-systems',
+        categories: ['ai-native-systems'],
+        published: true
+      }
+    }
+
+    const result = extractBlogPostMeta(content)
+
+    expect(result.category).toBe('ai-native-systems')
+    expect(result.categories).toEqual(['ai-native-systems'])
+  })
+
   it('handles empty content', () => {
     const result = extractBlogPostMeta(undefined as any)
     expect(result.title).toBe('Untitled')

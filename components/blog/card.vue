@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { formatDate } from '~/utils/date'
+import { getBlogCategoryLabel } from '~/utils/blog-taxonomy'
 
 /**
  * Blog card component props
@@ -12,6 +13,7 @@ interface Props {
   image: string
   alt: string
   ogImage: string
+  categories: Array<string>
   tags: Array<string>
   published: boolean
 }
@@ -24,6 +26,7 @@ const props = withDefaults(defineProps<Props>(), {
   image: '/blogs-img/blog.jpg',
   alt: 'no-alt',
   ogImage: '/blogs-img/blog.jpg',
+  categories: () => [],
   tags: () => [],
   published: false,
 })
@@ -37,6 +40,10 @@ const { locale } = useI18n()
 const formattedDate = computed(() => {
   return formatDate(props.date, locale.value === 'zh' ? 'zh-CN' : 'en-US')
 })
+
+const categoryLabels = computed(() =>
+  props.categories.map((category) => getBlogCategoryLabel(category, locale.value)),
+)
 
 /**
  * Fix the path to ensure it uses the correct language prefix
@@ -91,16 +98,14 @@ const blogPath = computed(() => {
           <LogoDate class="mr-1.5 h-4 w-4" />
           {{ formattedDate }}
         </div>
-        <div v-if="tags.length > 0" class="flex items-center gap-1.5 flex-wrap">
+        <div v-if="categoryLabels.length > 0" class="flex items-center gap-1.5 flex-wrap">
           <LogoTag class="h-4 w-4 text-muted-foreground" />
-          <template v-for="tag in tags" :key="tag">
-            <NuxtLink :to="localePath(`/blogs?categories=${tag.toLocaleLowerCase()}`)">
-              <span
-                class="bg-secondary text-secondary-foreground rounded-md px-2 py-0.5 text-caption transition-colors duration-300 hover:bg-primary/10"
-              >
-                {{ tag }}
-              </span>
-            </NuxtLink>
+          <template v-for="category in categoryLabels" :key="category">
+            <span
+              class="bg-secondary text-secondary-foreground rounded-md px-2 py-0.5 text-caption"
+            >
+              {{ category }}
+            </span>
           </template>
         </div>
       </div>

@@ -1,16 +1,20 @@
 <script setup lang="ts">
-import { makeFirstCharUpper } from '@/utils/helper'
+import { getBlogCategoryLabel, normalizeBlogCategoryId } from '~/utils/blog-taxonomy'
+
+const { locale } = useI18n()
 
 const route = useRoute()
 
-// take category from route params & make first char upper
+// Take category from route params and display the canonical label.
 const category = computed(() => {
   const name = route.params.category || ''
   let strName = ''
 
   if (Array.isArray(name)) strName = name.at(0) || ''
   else strName = name
-  return makeFirstCharUpper(strName)
+
+  const categoryId = normalizeBlogCategoryId(strName)
+  return categoryId ? getBlogCategoryLabel(categoryId, locale.value) : strName
 })
 </script>
 

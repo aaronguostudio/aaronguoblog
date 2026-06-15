@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { useI18n } from 'vue-i18n'
 import { sortByDate, formatDate } from '~/utils/date'
+import { getBlogCategories, getBlogCategoryLabel } from '~/utils/blog-taxonomy'
 import { extractBlogPostMeta } from '~/utils/type-guards'
 import type { StaticRadarSnapshot } from '~/composables/useStaticRadarSnapshot'
 
@@ -41,6 +42,7 @@ const allPosts = computed(() => {
       alt: meta.alt,
       ogImage: meta.ogImage,
       date: meta.date,
+      categories: getBlogCategories(meta),
       tags: meta.tags,
       published: meta.published,
       featured: meta.featured || false,
@@ -70,6 +72,10 @@ const gridPosts = computed(() => allPosts.value.slice(4, 8))
 function compactDate(dateStr: string) {
   return formatDate(dateStr, locale.value === 'zh' ? 'zh-CN' : 'en-US')
 }
+
+function categoryLabels(categories: string[]) {
+  return categories.map((category) => getBlogCategoryLabel(category, locale.value))
+}
 </script>
 
 <template>
@@ -90,11 +96,11 @@ function compactDate(dateStr: string) {
           <div class="p-6">
             <div class="flex items-center gap-2 mb-3">
               <span
-                v-for="tag in heroPost.tags.slice(0, 2)"
-                :key="tag"
+                v-for="category in categoryLabels(heroPost.categories)"
+                :key="category"
                 class="bg-secondary text-secondary-foreground rounded-md px-2 py-0.5 text-xs font-medium"
               >
-                {{ tag }}
+                {{ category }}
               </span>
             </div>
             <h3
@@ -140,11 +146,11 @@ function compactDate(dateStr: string) {
             <div class="flex flex-col justify-center p-4 flex-1 min-w-0">
               <div class="flex items-center gap-1.5 mb-1.5">
                 <span
-                  v-for="tag in post.tags.slice(0, 1)"
-                  :key="tag"
+                  v-for="category in categoryLabels(post.categories)"
+                  :key="category"
                   class="bg-secondary text-secondary-foreground rounded px-1.5 py-0.5 text-[10px] font-medium"
                 >
-                  {{ tag }}
+                  {{ category }}
                 </span>
                 <span class="text-[10px] text-muted-foreground">{{ compactDate(post.date) }}</span>
               </div>

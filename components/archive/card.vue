@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import { getBlogCategoryLabel } from '~/utils/blog-taxonomy'
+
 interface Props {
   path?: string
   title?: string
@@ -7,6 +9,7 @@ interface Props {
   image?: string
   alt?: string
   ogImage?: string
+  categories?: Array<string>
   tags?: Array<string>
   published?: boolean
 }
@@ -19,11 +22,17 @@ const props = withDefaults(defineProps<Props>(), {
   image: '/blogs-img/blog.jpg',
   alt: 'no-alt',
   ogImage: '/blogs-img/blog.jpg',
+  categories: () => [],
   tags: () => [],
   published: false,
 })
 
 const localePath = useLocalePath()
+const { locale } = useI18n()
+
+const categoryLabels = computed(() =>
+  props.categories.map((category) => getBlogCategoryLabel(category, locale.value)),
+)
 
 // Fix the path to ensure it uses the correct language prefix
 const blogPath = computed(() => {
@@ -73,16 +82,14 @@ const blogPath = computed(() => {
             <LogoDate />
             <p>{{ date }}</p>
           </div>
-          <div class="flex items-center gap-1 flex-wrap">
+          <div v-if="categoryLabels.length > 0" class="flex items-center gap-1 flex-wrap">
             <LogoTag />
-            <span v-for="tag in tags" :key="tag">
-              <NuxtLink :to="localePath(`/blogs?categories=${tag.toLocaleLowerCase()}`)">
-                <span
-                  class="bg-gray-200 dark:bg-slate-900 rounded-md px-2 py-1 font-semibold hover:bg-gray-300 dark:hover:bg-slate-800 transition-colors duration-200"
-                >
-                  {{ tag }}
-                </span>
-              </NuxtLink>
+            <span v-for="category in categoryLabels" :key="category">
+              <span
+                class="bg-gray-200 dark:bg-slate-900 rounded-md px-2 py-1 font-semibold"
+              >
+                {{ category }}
+              </span>
             </span>
           </div>
         </div>

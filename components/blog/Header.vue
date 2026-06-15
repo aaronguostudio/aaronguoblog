@@ -1,5 +1,8 @@
 <script setup lang="ts">
+import { getBlogCategoryLabel } from '~/utils/blog-taxonomy'
+
 const localePath = useLocalePath()
+const { locale } = useI18n()
 
 interface Props {
   title: string
@@ -7,17 +10,26 @@ interface Props {
   alt: string
   description: string
   date: string
+  categories: Array<string>
   tags: Array<string>
 }
 
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   title: 'no-title',
   image: '#',
   alt: 'no-img',
   description: 'no description',
   date: 'no-date',
+  categories: () => [],
   tags: () => [],
 })
+
+const categoryLinks = computed(() =>
+  props.categories.map((category) => ({
+    id: category,
+    label: getBlogCategoryLabel(category, locale.value),
+  })),
+)
 </script>
 
 <template>
@@ -33,18 +45,18 @@ withDefaults(defineProps<Props>(), {
         <LogoDate class="w-4 h-4" />
         <span>{{ date || '' }}</span>
       </div>
-      <div class="flex items-center gap-2 flex-wrap">
+      <div v-if="categoryLinks.length > 0" class="flex items-center gap-2 flex-wrap">
         <LogoTag class="w-4 h-4" />
-        <span v-for="(tag, n) in tags" :key="n">
+        <span v-for="category in categoryLinks" :key="category.id">
           <NuxtLink
             v-slot="{ navigate }"
-            :to="localePath(`/blogs?categories=${tag.toLocaleLowerCase()}`)"
+            :to="localePath(`/blogs?categories=${category.id}`)"
             custom
           >
             <span
               class="bg-secondary text-secondary-foreground rounded-md px-2 py-0.5 font-medium hover:bg-muted transition-colors duration-200 cursor-pointer"
               @click="navigate"
-              >{{ tag }}</span
+              >{{ category.label }}</span
             >
           </NuxtLink>
         </span>

@@ -1,21 +1,21 @@
 <script setup lang="ts">
-import { makeFirstCharUpper } from '@/utils/helper'
+import { BLOG_CATEGORIES, getBlogCategoryLabel } from '~/utils/blog-taxonomy'
 import { useI18n } from 'vue-i18n'
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
 const route = useRoute()
 const router = useRouter()
 
 // Props for the component
 interface Props {
-  allTags: Map<string, number>
+  allCategories: Map<string, number>
   selectedCategories: string[]
 }
 
 const props = defineProps<Props>()
 const emit = defineEmits(['update:selectedCategories'])
 
-// Neutral zinc tones for tag borders
+// Neutral zinc tones for category borders
 const colors = [
   '#71717a', // zinc-500
   '#52525b', // zinc-600
@@ -23,18 +23,6 @@ const colors = [
   '#a1a1aa', // zinc-400
   '#d4d4d8', // zinc-300
 ]
-
-// Get a consistent color for each category
-const categoryColors = ref(new Map())
-
-// Initialize colors for categories
-onMounted(() => {
-  let i = 0
-  props.allTags.forEach((count, tag) => {
-    categoryColors.value.set(tag, colors[i % colors.length])
-    i++
-  })
-})
 
 // Toggle category selection
 const toggleCategory = (category: string) => {
@@ -75,8 +63,11 @@ const isCategorySelected = (category: string) => {
 
 // Get color for a category
 const getCategoryColor = (category: string) => {
-  return categoryColors.value.get(category) || colors[0]
+  const index = BLOG_CATEGORIES.findIndex((item) => item.id === category)
+  return colors[(index >= 0 ? index : 0) % colors.length]
 }
+
+const categoryLabel = (category: string) => getBlogCategoryLabel(category, locale.value)
 
 // Computed properties for translations
 const categoriesTitle = computed(() => t('categories.title'))
@@ -109,12 +100,12 @@ const clearAllCategories = () => {
           </h2>
         </div>
         <p class="text-sm mb-6 text-muted-foreground ml-4">
-          {{ filterDescription }}
+            {{ filterDescription }}
         </p>
 
         <div class="flex flex-wrap gap-2">
           <button
-            v-for="[category, count] in props.allTags"
+            v-for="[category, count] in props.allCategories"
             :key="category"
             :style="{
               backgroundColor: isCategorySelected(category)
@@ -136,7 +127,7 @@ const clearAllCategories = () => {
             />
 
             <span class="relative flex items-center gap-1.5">
-              {{ makeFirstCharUpper(category) }}
+              {{ categoryLabel(category) }}
               <span
                 class="inline-flex items-center justify-center min-w-[1.25rem] h-5 px-1.5 rounded-full text-xs font-bold"
                 :class="

@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { sortByDate } from '~/utils/date'
+import { getBlogCategories } from '~/utils/blog-taxonomy'
 import { extractBlogPostMeta } from '~/utils/type-guards'
 
 const { locale } = useI18n()
@@ -42,6 +43,7 @@ const formattedData = computed(() => {
       alt: meta.alt,
       ogImage: meta.ogImage,
       date: meta.date,
+      categories: getBlogCategories(meta),
       tags: meta.tags,
       published: meta.published,
     }
@@ -84,6 +86,7 @@ useHead({
           :image="post.image"
           :alt="post.alt"
           :og-image="post.ogImage"
+          :categories="post.categories"
           :tags="post.tags"
           :published="post.published"
         />
