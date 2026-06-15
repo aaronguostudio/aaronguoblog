@@ -15,6 +15,7 @@ describe('Radar local publish scripts', () => {
     expect(PUBLISH_SCRIPT).toContain('pnpm radar:run --cadence daily')
     expect(PUBLISH_SCRIPT).toContain('pnpm radar:run --cadence weekly')
     expect(PUBLISH_SCRIPT).toContain('pnpm radar:export')
+    expect(PUBLISH_SCRIPT).toContain('rm -rf .nuxt .output')
     expect(PUBLISH_SCRIPT).toContain('pnpm run generate')
     expect(PUBLISH_SCRIPT).toContain('git commit')
     expect(PUBLISH_SCRIPT).toContain('git push')
@@ -22,6 +23,18 @@ describe('Radar local publish scripts', () => {
 
   it('does not hard-code secrets in the publish script', () => {
     expect(PUBLISH_SCRIPT).not.toMatch(/(?:TURSO_AUTH_TOKEN|OPENAI_API_KEY|BRAVE_API_KEY)=['"][^'"]+/)
+  })
+
+  it('publishes the daily snapshot before Monday weekly enrichment', () => {
+    const dailyRunIndex = PUBLISH_SCRIPT.indexOf('pnpm radar:run --cadence daily')
+    const exportIndex = PUBLISH_SCRIPT.indexOf('pnpm radar:export')
+    const pushIndex = PUBLISH_SCRIPT.indexOf('git push')
+    const weeklyRunIndex = PUBLISH_SCRIPT.indexOf('pnpm radar:run --cadence weekly')
+
+    expect(dailyRunIndex).toBeGreaterThan(-1)
+    expect(exportIndex).toBeGreaterThan(dailyRunIndex)
+    expect(pushIndex).toBeGreaterThan(exportIndex)
+    expect(weeklyRunIndex).toBeGreaterThan(pushIndex)
   })
 
   it('installs a morning macOS LaunchAgent', () => {

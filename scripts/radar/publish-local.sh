@@ -34,24 +34,24 @@ git pull --rebase --autostash
 pnpm radar:migrate
 pnpm radar:run --cadence daily
 
-if [ "$(date +%u)" = "1" ]; then
-  pnpm radar:run --cadence weekly
-fi
-
 if [ "${RADAR_ALLOW_LOCAL_RANKING:-}" = "1" ]; then
   pnpm radar:export --allow-local-ranking
 else
   pnpm radar:export
 fi
 
+rm -rf .nuxt .output
 pnpm run generate
 
 git add public/radar
 
 if git diff --cached --quiet; then
   echo "Radar snapshot unchanged; nothing to commit."
-  exit 0
+else
+  git commit -m "chore(radar): update signal snapshot $(date +%F)"
+  git push
 fi
 
-git commit -m "chore(radar): update signal snapshot $(date +%F)"
-git push
+if [ "$(date +%u)" = "1" ]; then
+  pnpm radar:run --cadence weekly
+fi

@@ -111,7 +111,9 @@ export function validateRadarSnapshot(snapshot, { allowLocalRanking = false } = 
 
   const sourceErrorCount = Object.keys(snapshot.latestRun?.sourceErrors || {}).length
   if (sourceErrorCount > 0) {
-    blockers.push('Latest Radar run contains source errors.')
+    for (const [source, message] of Object.entries(snapshot.latestRun.sourceErrors)) {
+      warnings.push(`Source ${source} failed: ${message}`)
+    }
   }
 
   if (hasFallbackLocalScore(snapshot)) {

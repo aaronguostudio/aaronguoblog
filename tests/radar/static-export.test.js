@@ -59,7 +59,12 @@ function createItem(overrides = {}) {
   }
 }
 
-async function createSnapshotClient({ fallbackSummary = false, includeFallbackItem = false } = {}) {
+async function createSnapshotClient({
+  fallbackSummary = false,
+  includeFallbackItem = false,
+  sourceErrors = {},
+  warnings = [],
+} = {}) {
   const client = createMemoryClient()
   await migrateRadarSchema(client)
   await upsertRadarTopic(client, createTopic())
@@ -101,9 +106,11 @@ async function createSnapshotClient({ fallbackSummary = false, includeFallbackIt
   })
   await finishRadarRun(client, {
     runId,
-    status: 'completed',
+    status: Object.keys(sourceErrors).length || warnings.length ? 'completed_with_warnings' : 'completed',
     itemsSeen: 1,
     itemsWritten: 1,
+    warnings,
+    sourceErrors,
   })
   return client
 }
@@ -204,6 +211,26 @@ describe('static Radar export', () => {
       status: 'ok',
       blockers: [],
       warnings: ['Snapshot contains fallback local-score summaries.'],
+    })
+  })
+
+  it('publishes partial snapshots when a non-critical source fails', async () => {
+    const client = await createSnapshotClient({
+      sourceErrors: { x: 'HTTP 400: Bad Request' },
+      warnings: ['Some sources failed: x'],
+    })
+    const snapshot = await buildRadarSnapshot(client, {
+      date: '2026-06-14',
+      generatedAt: '2026-06-14T15:00:00.000Z',
+    })
+
+    expect(validateRadarSnapshot(snapshot)).toMatchObject({
+      status: 'ok',
+      blockers: [],
+      warnings: expect.arrayContaining([
+        'Some sources failed: x',
+        'Source x failed: HTTP 400: Bad Request',
+      ]),
     })
   })
 
