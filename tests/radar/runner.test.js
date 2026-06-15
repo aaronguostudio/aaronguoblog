@@ -133,6 +133,64 @@ describe('runRadarTopic', () => {
 })
 
 describe('runRadar', () => {
+  it('retries a transient topic failure once before returning success', async () => {
+    const attempts = new Map()
+    let nextRunId = 1
+    const calls = []
+    const repository = {
+      upsertRadarTopic: async (_client, radarTopic) => calls.push(['topic', radarTopic.slug]),
+      createRadarRun: async (_client, { topicSlug }) => {
+        calls.push(['run', topicSlug])
+        return nextRunId++
+      },
+      upsertRadarItems: async (_client, { items }) => {
+        calls.push(['items', items[0].topicSlug])
+        return [7]
+      },
+      upsertRadarPulse: async (_client, { pulse }) => calls.push(['pulse', pulse.date]),
+      finishRadarRun: async (_client, payload) => calls.push(['finish', payload.status]),
+    }
+
+    const results = await runRadar({
+      topicSlug: 'mobile-ai',
+      client: {},
+      adapter: async ({ topic: radarTopic }) => {
+        const nextAttempt = (attempts.get(radarTopic.slug) || 0) + 1
+        attempts.set(radarTopic.slug, nextAttempt)
+        if (nextAttempt === 1) throw new Error('transient source failure')
+        return {
+          report: {
+            ...report,
+            ranked_candidates: [{
+              candidate_id: 'c1',
+              item_id: `item-${radarTopic.slug}`,
+              source: 'reddit',
+              title: `${radarTopic.name} signal`,
+              url: `https://example.com/${radarTopic.slug}`,
+              snippet: 'Snippet',
+              final_score: 90,
+              cluster_id: 'c1',
+              source_items: [],
+            }],
+          },
+          stderr: '',
+          command: [],
+        }
+      },
+      repository,
+    })
+
+    expect(results).toHaveLength(1)
+    expect(results[0]).toMatchObject({
+      topicSlug: 'mobile-ai',
+      status: 'completed',
+      attempts: 2,
+    })
+    expect(attempts.get('mobile-ai')).toBe(2)
+    expect(calls).toContainEqual(['finish', 'failed'])
+    expect(calls).toContainEqual(['finish', 'completed'])
+  })
+
   it('continues after a topic fails', async () => {
     const calls = []
     const repository = {

@@ -79,6 +79,7 @@ export async function runRadar({
   client,
   adapter = runLast30Days,
   repository = defaultRepository,
+  maxAttempts = 2,
 }) {
   const topics = topicSlug
     ? [getRadarTopicBySlug(topicSlug)].filter(Boolean)
@@ -89,14 +90,29 @@ export async function runRadar({
   }
 
   const results = []
+  const attemptsPerTopic = Math.max(1, Number.isInteger(maxAttempts) ? maxAttempts : 1)
   for (const topic of topics) {
-    try {
-      results.push(await runRadarTopic({ topic, dryRun, client, adapter, repository }))
-    } catch (error) {
+    let lastError
+    for (let attempt = 1; attempt <= attemptsPerTopic; attempt += 1) {
+      try {
+        const result = await runRadarTopic({ topic, dryRun, client, adapter, repository })
+        results.push({
+          ...result,
+          attempts: attempt,
+        })
+        lastError = undefined
+        break
+      } catch (error) {
+        lastError = error
+      }
+    }
+
+    if (lastError) {
       results.push({
         topicSlug: topic.slug,
         status: 'failed',
-        error: error.message,
+        error: lastError.message,
+        attempts: attemptsPerTopic,
       })
     }
   }
