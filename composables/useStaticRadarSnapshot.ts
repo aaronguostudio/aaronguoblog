@@ -1,4 +1,5 @@
 import latestRadarSnapshot from '~/public/radar/latest.json'
+import { isNewerRadarSnapshot } from '~/utils/radar-snapshot'
 
 export type StaticRadarItem = {
   id: number | string
@@ -49,9 +50,10 @@ function readStaticRadarSnapshotFile() {
   return snapshot?.items?.length ? snapshot : null
 }
 
-async function fetchStaticRadarSnapshot() {
+async function fetchStaticRadarSnapshot({ cacheBust = false } = {}) {
   try {
-    return await $fetch<StaticRadarSnapshot>('/radar/latest.json')
+    const query = cacheBust ? `?t=${Date.now()}` : ''
+    return await $fetch<StaticRadarSnapshot>(`/radar/latest.json${query}`)
   } catch {
     return null
   }
@@ -61,7 +63,7 @@ export function useStaticRadarSnapshot(
   key = 'radar-latest',
   options: { immediate?: boolean } = {},
 ) {
-  return useAsyncData<StaticRadarSnapshot | null>(
+  const asyncData = useAsyncData<StaticRadarSnapshot | null>(
     key,
     async () => {
       const fileSnapshot = await readStaticRadarSnapshotFile()
@@ -74,4 +76,15 @@ export function useStaticRadarSnapshot(
       server: true,
     },
   )
+
+  if (import.meta.client) {
+    onMounted(async () => {
+      const fetchedSnapshot = await fetchStaticRadarSnapshot({ cacheBust: true })
+      if (isNewerRadarSnapshot(fetchedSnapshot, asyncData.data.value)) {
+        asyncData.data.value = fetchedSnapshot
+      }
+    })
+  }
+
+  return asyncData
 }

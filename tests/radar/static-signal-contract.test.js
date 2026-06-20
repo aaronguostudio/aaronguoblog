@@ -36,9 +36,12 @@ describe('static Signal contract', () => {
     expect(STATIC_SNAPSHOT_COMPOSABLE).toContain(
       "import latestRadarSnapshot from '~/public/radar/latest.json'",
     )
+    expect(STATIC_SNAPSHOT_COMPOSABLE).toContain("import { isNewerRadarSnapshot } from '~/utils/radar-snapshot'")
     expect(STATIC_SNAPSHOT_COMPOSABLE).not.toContain("import('node:fs/promises')")
     expect(STATIC_SNAPSHOT_COMPOSABLE).not.toContain("import('node:path')")
-    expect(STATIC_SNAPSHOT_COMPOSABLE).toContain("$fetch<StaticRadarSnapshot>('/radar/latest.json')")
+    expect(STATIC_SNAPSHOT_COMPOSABLE).toContain('/radar/latest.json')
+    expect(STATIC_SNAPSHOT_COMPOSABLE).toContain('cacheBust')
+    expect(STATIC_SNAPSHOT_COMPOSABLE).toContain('isNewerRadarSnapshot(fetchedSnapshot, asyncData.data.value)')
   })
 
   it('allows Signal routes to be prerendered', () => {

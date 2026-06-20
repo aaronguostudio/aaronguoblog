@@ -165,7 +165,9 @@ Local scheduled publishing uses `scripts/radar/publish-local.sh`. It sources sec
 $HOME/.config/aaronguo/radar.env
 ```
 
-Then it pulls the repo, runs the daily Radar cadence, runs the weekly cadence on Mondays, exports the static snapshot, verifies `pnpm run generate`, commits `public/radar`, and pushes the branch.
+Then it pulls the repo, runs the daily Radar cadence, runs the weekly cadence on Mondays, exports the static snapshot, verifies `pnpm run generate`, commits `public/radar`, pushes the branch, and verifies the deployed `/radar/latest.json` plus `/signal` page match the new snapshot.
+
+Deploy verification can be tuned with `RADAR_SITE_URL`, `RADAR_DEPLOY_VERIFY_ATTEMPTS`, and `RADAR_DEPLOY_VERIFY_DELAY_MS`. Set `RADAR_SKIP_DEPLOY_VERIFY=1` to skip the post-push check.
 
 The production publisher is the Codex automation `Radar Local Publisher`, pointed at the dedicated local runner clone:
 

@@ -15,6 +15,7 @@ describe('Radar local publish scripts', () => {
     expect(PUBLISH_SCRIPT).toContain('pnpm radar:run --cadence daily')
     expect(PUBLISH_SCRIPT).toContain('pnpm radar:run --cadence weekly')
     expect(PUBLISH_SCRIPT).toContain('pnpm radar:export')
+    expect(PUBLISH_SCRIPT).toContain('pnpm radar:verify-deploy')
     expect(PUBLISH_SCRIPT).toContain('rm -rf .nuxt .output')
     expect(PUBLISH_SCRIPT).toContain('pnpm run generate')
     expect(PUBLISH_SCRIPT).toContain('git commit')
@@ -25,16 +26,24 @@ describe('Radar local publish scripts', () => {
     expect(PUBLISH_SCRIPT).not.toMatch(/(?:TURSO_AUTH_TOKEN|OPENAI_API_KEY|BRAVE_API_KEY)=['"][^'"]+/)
   })
 
-  it('publishes the daily snapshot before Monday weekly enrichment', () => {
+  it('includes Monday weekly enrichment before exporting the static snapshot', () => {
     const dailyRunIndex = PUBLISH_SCRIPT.indexOf('pnpm radar:run --cadence daily')
+    const weeklyRunIndex = PUBLISH_SCRIPT.indexOf('pnpm radar:run --cadence weekly')
     const exportIndex = PUBLISH_SCRIPT.indexOf('pnpm radar:export')
     const pushIndex = PUBLISH_SCRIPT.indexOf('git push')
-    const weeklyRunIndex = PUBLISH_SCRIPT.indexOf('pnpm radar:run --cadence weekly')
 
     expect(dailyRunIndex).toBeGreaterThan(-1)
+    expect(weeklyRunIndex).toBeGreaterThan(dailyRunIndex)
+    expect(exportIndex).toBeGreaterThan(weeklyRunIndex)
     expect(exportIndex).toBeGreaterThan(dailyRunIndex)
     expect(pushIndex).toBeGreaterThan(exportIndex)
-    expect(weeklyRunIndex).toBeGreaterThan(pushIndex)
+  })
+
+  it('verifies the deployed Signal snapshot after publishing', () => {
+    const pushIndex = PUBLISH_SCRIPT.indexOf('git push')
+    const verifyIndex = PUBLISH_SCRIPT.indexOf('pnpm radar:verify-deploy')
+
+    expect(verifyIndex).toBeGreaterThan(pushIndex)
   })
 
   it('installs a morning macOS LaunchAgent', () => {

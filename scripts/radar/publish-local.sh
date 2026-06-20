@@ -34,6 +34,10 @@ git pull --rebase --autostash
 pnpm radar:migrate
 pnpm radar:run --cadence daily
 
+if [ "$(date +%u)" = "1" ]; then
+  pnpm radar:run --cadence weekly
+fi
+
 if [ "${RADAR_ALLOW_LOCAL_RANKING:-}" = "1" ]; then
   pnpm radar:export --allow-local-ranking
 else
@@ -52,6 +56,6 @@ else
   git push
 fi
 
-if [ "$(date +%u)" = "1" ]; then
-  pnpm radar:run --cadence weekly
+if [ "${RADAR_SKIP_DEPLOY_VERIFY:-}" != "1" ]; then
+  pnpm radar:verify-deploy
 fi

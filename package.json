@@ -23,6 +23,7 @@
     "radar:export": "node scripts/radar/cli.js export",
     "radar:diagnose": "node scripts/radar/cli.js diagnose",
     "radar:migrate": "node scripts/radar/cli.js migrate",
+    "radar:verify-deploy": "node scripts/radar/deploy-verifier.js",
     "test": "vitest",
     "youtube:fetch": "node scripts/fetch-youtube-data.js"
   },
