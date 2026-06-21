@@ -63,6 +63,11 @@ describe('static Signal contract', () => {
     expect(SIGNAL_RESEARCH_THREADS_COMPONENT).toContain('matchedSignals')
     expect(EN_LOCALE).toContain('"watchingTitle": "What I\'m Watching"')
     expect(ZH_LOCALE).toContain('"watchingTitle": "我正在关注"')
+    expect(MAIN_SIGNAL).toContain("t('signal.previewDescription')")
+    expect(EN_LOCALE).toContain(
+      '"previewDescription": "Daily signals from my AI-native product research desk."',
+    )
+    expect(ZH_LOCALE).toContain('"previewDescription": "来自我的 AI 原生产品研究台的每日信号。"')
   })
 
   it('allows Signal routes to be prerendered', () => {

@@ -212,6 +212,7 @@
     "subtitle": "去噪留真，只看重要的。",
     "researchDesk": "AI 原生工作的公开研究台。",
     "researchDeskDescription": "Signal 追踪我用来理解 coding agents、AI 原生工作流、小团队自动化和产品机会的公开来源。原始链接是证据；threads 和 briefs 是我的判断。",
+    "previewDescription": "来自我的 AI 原生产品研究台的每日信号。",
     "watchingTitle": "我正在关注",
     "watchingDescription": "这些是我正在用 feed 验证的研究线索。每条 thread 都把重复出现的信号转成一个工作假设、一个开放问题和一个可能的产品方向。",
     "confidence": "置信度",

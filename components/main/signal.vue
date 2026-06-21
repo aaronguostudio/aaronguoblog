@@ -153,11 +153,16 @@ function stripHtml(str: string) {
           class="relative flex items-center justify-between px-4 py-3 border-b border-border/20 dark:border-white/[0.07]"
         >
           <div class="flex items-center gap-2">
-            <span
-              class="text-[10px] font-mono uppercase tracking-widest bg-gradient-to-r from-cyan-600 to-violet-600 dark:from-cyan-400 dark:to-violet-400 bg-clip-text text-transparent select-none"
-            >
-              {{ t('navigation.signal') }}
-            </span>
+            <div class="flex flex-col">
+              <span
+                class="text-[10px] font-mono uppercase tracking-widest bg-gradient-to-r from-cyan-600 to-violet-600 dark:from-cyan-400 dark:to-violet-400 bg-clip-text text-transparent select-none"
+              >
+                {{ t('navigation.signal') }}
+              </span>
+              <span class="text-[10px] text-muted-foreground/45 leading-tight">
+                {{ t('signal.previewDescription') }}
+              </span>
+            </div>
             <!-- Enhanced live dot -->
             <span class="relative flex h-2 w-2">
               <span
