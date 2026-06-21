@@ -1,7 +1,9 @@
 <script lang="ts" setup>
 import { useI18n } from 'vue-i18n'
 import type { StaticRadarItem } from '~/composables/useStaticRadarSnapshot'
+import { SIGNAL_BRIEFS } from '~/data/signal/briefs'
 import { SIGNAL_RESEARCH_THREADS } from '~/data/signal/threads'
+import { createSignalBriefCards } from '~/utils/signal-briefs'
 import { createSignalThreadCards } from '~/utils/signal-threads'
 
 const { t, locale } = useI18n()
@@ -422,6 +424,13 @@ const threadCards = computed(() =>
     locale: locale.value,
   }),
 )
+
+const briefCards = computed(() =>
+  createSignalBriefCards({
+    briefs: SIGNAL_BRIEFS,
+    locale: locale.value,
+  }),
+)
 </script>
 
 <template>
@@ -533,6 +542,14 @@ const threadCards = computed(() =>
       :more-signals-label="t('signal.moreSignals')"
       :open-question-label="t('signal.openQuestion')"
       :product-hypothesis-label="t('signal.productHypothesis')"
+    />
+
+    <SignalBriefs
+      :briefs="briefCards"
+      :heading="t('signal.briefsTitle')"
+      :description="t('signal.briefsDescription')"
+      :latest-label="t('signal.briefsLatest')"
+      :related-thread-label="t('signal.relatedThread')"
     />
 
     <!-- Toolbar -->

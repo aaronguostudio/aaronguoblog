@@ -1,7 +1,17 @@
-import { readFileSync } from 'node:fs'
+import { existsSync, readFileSync } from 'node:fs'
 import { describe, expect, it } from 'vitest'
 
 const SIGNAL_PAGE = readFileSync(new URL('../../pages/signal.vue', import.meta.url), 'utf8')
+const SIGNAL_BRIEFS_DATA = new URL('../../data/signal/briefs.ts', import.meta.url)
+const SIGNAL_BRIEFS_COMPONENT = new URL('../../components/signal/Briefs.vue', import.meta.url)
+const EN_SIGNAL_BRIEF_BLOG_POST = new URL(
+  '../../content/blogs/en/26.signal-brief-ai-native-work-2026-06-21.md',
+  import.meta.url,
+)
+const ZH_SIGNAL_BRIEF_BLOG_POST = new URL(
+  '../../content/blogs/zh/26.signal-brief-ai-native-work-2026-06-21.md',
+  import.meta.url,
+)
 const HOME_PAGE = readFileSync(new URL('../../pages/index.vue', import.meta.url), 'utf8')
 const MAIN_WRITING = readFileSync(new URL('../../components/main/writing.vue', import.meta.url), 'utf8')
 const MAIN_SIGNAL = readFileSync(new URL('../../components/main/signal.vue', import.meta.url), 'utf8')
@@ -70,6 +80,26 @@ describe('static Signal contract', () => {
       '"previewDescription": "Daily signals from my AI-native product research desk."',
     )
     expect(ZH_LOCALE).toContain('"previewDescription": "来自我的 AI 原生产品研究台的每日信号。"')
+  })
+
+  it('keeps Signal Briefs out of Writing and renders them on Signal', () => {
+    expect(existsSync(EN_SIGNAL_BRIEF_BLOG_POST)).toBe(false)
+    expect(existsSync(ZH_SIGNAL_BRIEF_BLOG_POST)).toBe(false)
+    expect(existsSync(SIGNAL_BRIEFS_DATA)).toBe(true)
+    expect(existsSync(SIGNAL_BRIEFS_COMPONENT)).toBe(true)
+    expect(SIGNAL_PAGE).toContain("import { SIGNAL_BRIEFS } from '~/data/signal/briefs'")
+    expect(SIGNAL_PAGE).toContain("import { createSignalBriefCards } from '~/utils/signal-briefs'")
+    expect(SIGNAL_PAGE).toContain('const briefCards = computed')
+    expect(SIGNAL_PAGE).toContain('<SignalBriefs')
+
+    const signalBriefsData = readFileSync(SIGNAL_BRIEFS_DATA, 'utf8')
+    const signalBriefsComponent = readFileSync(SIGNAL_BRIEFS_COMPONENT, 'utf8')
+
+    expect(signalBriefsData).toContain('Signal Brief: Coding Agents Are Becoming Workflow Owners')
+    expect(signalBriefsData).toContain('Signal Brief：Coding agents 正在变成工作流负责人')
+    expect(signalBriefsComponent).toContain('brief.sections')
+    expect(EN_LOCALE).toContain('"briefsTitle": "Signal Briefs"')
+    expect(ZH_LOCALE).toContain('"briefsTitle": "Signal Briefs"')
   })
 
   it('allows Signal routes to be prerendered', () => {
