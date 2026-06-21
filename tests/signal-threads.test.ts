@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { SIGNAL_RESEARCH_THREADS } from '../data/signal/threads'
+import { createSignalThreadCards } from '../utils/signal-threads'
 
 describe('Signal research threads', () => {
   it('defines the first three public research threads', () => {
@@ -22,5 +23,110 @@ describe('Signal research threads', () => {
       expect(thread.productHypothesis.zh).toMatch(/\S/)
       expect(thread.signalRefs.length).toBeGreaterThanOrEqual(2)
     }
+  })
+})
+
+describe('createSignalThreadCards', () => {
+  const radarItems = [
+    {
+      id: 1,
+      url: 'https://cursor.com/',
+      title: 'Cursor: AI coding agent',
+      source: 'grounding',
+      topic_slug: 'coding-agents',
+      category: 'coding',
+      relevance: 10,
+      score: 0,
+      created_at: '2026-06-18 13:32:55',
+    },
+    {
+      id: 2,
+      url: 'https://kiro.dev/',
+      title: 'Kiro: Move beyond AI coding to agentic engineering',
+      source: 'grounding',
+      topic_slug: 'coding-agents',
+      category: 'coding',
+      relevance: 10,
+      score: 0,
+      created_at: '2026-06-18 13:32:54',
+    },
+  ]
+
+  it('localizes thread cards and resolves supporting signals by URL', () => {
+    const cards = createSignalThreadCards({
+      threads: SIGNAL_RESEARCH_THREADS,
+      items: radarItems,
+      locale: 'en',
+    })
+
+    expect(cards[0]).toMatchObject({
+      slug: 'coding-agents-own-workflows',
+      title: 'Coding agents are becoming workflow owners',
+      confidence: 'high',
+      matchedSignals: [
+        {
+          id: 1,
+          title: 'Cursor: AI coding agent',
+          url: 'https://cursor.com/',
+          source: 'grounding',
+        },
+        {
+          id: 2,
+          title: 'Kiro: Move beyond AI coding to agentic engineering',
+          url: 'https://kiro.dev/',
+          source: 'grounding',
+        },
+      ],
+      unmatchedSignalCount: 1,
+    })
+  })
+
+  it('matches URLs after stripping hash, sorting query params, and trimming path trailing slash', () => {
+    const thread = {
+      ...SIGNAL_RESEARCH_THREADS[0],
+      signalRefs: [
+        {
+          url: 'https://example.com/path/?b=2&a=1#hash',
+          note: {
+            en: 'Query params and path slash should normalize before matching.',
+            zh: 'Query params and path slash should normalize before matching.',
+          },
+        },
+      ],
+    }
+
+    const cards = createSignalThreadCards({
+      threads: [thread],
+      items: [
+        {
+          id: 'normalized-url',
+          url: 'https://example.com/path?a=1&b=2',
+          title: 'Normalized URL signal',
+          source: 'grounding',
+        },
+      ],
+      locale: 'en',
+    })
+
+    expect(cards[0].matchedSignals).toMatchObject([
+      {
+        id: 'normalized-url',
+        title: 'Normalized URL signal',
+        url: 'https://example.com/path?a=1&b=2',
+        source: 'grounding',
+      },
+    ])
+    expect(cards[0].unmatchedSignalCount).toBe(0)
+  })
+
+  it('returns Chinese copy when locale is zh', () => {
+    const cards = createSignalThreadCards({
+      threads: SIGNAL_RESEARCH_THREADS.slice(0, 1),
+      items: radarItems,
+      locale: 'zh',
+    })
+
+    expect(cards[0].title).toBe('Coding agents 正在变成工作流负责人')
+    expect(cards[0].builderImplication).toContain('构建者')
   })
 })
