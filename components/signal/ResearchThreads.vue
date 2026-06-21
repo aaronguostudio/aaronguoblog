@@ -79,10 +79,10 @@ defineProps<{
             </a>
           </div>
           <p
-            v-if="thread.unmatchedSignalCount > 0"
+            v-if="thread.matchedSignals.length > 3"
             class="mt-2 text-[11px] text-muted-foreground/45"
           >
-            +{{ thread.unmatchedSignalCount }} {{ moreSignalsLabel }}
+            +{{ thread.matchedSignals.length - 3 }} {{ moreSignalsLabel }}
           </p>
         </div>
 

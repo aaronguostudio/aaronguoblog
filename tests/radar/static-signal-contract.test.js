@@ -61,6 +61,8 @@ describe('static Signal contract', () => {
     expect(SIGNAL_PAGE).toContain('<SignalResearchThreads')
     expect(SIGNAL_RESEARCH_THREADS_COMPONENT).toContain('What I\'m Watching')
     expect(SIGNAL_RESEARCH_THREADS_COMPONENT).toContain('matchedSignals')
+    expect(SIGNAL_RESEARCH_THREADS_COMPONENT).toContain('thread.matchedSignals.length > 3')
+    expect(SIGNAL_RESEARCH_THREADS_COMPONENT).not.toContain('thread.unmatchedSignalCount > 0')
     expect(EN_LOCALE).toContain('"watchingTitle": "What I\'m Watching"')
     expect(ZH_LOCALE).toContain('"watchingTitle": "我正在关注"')
     expect(MAIN_SIGNAL).toContain("t('signal.previewDescription')")
