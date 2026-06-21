@@ -1,8 +1,10 @@
 <script lang="ts" setup>
 import { useI18n } from 'vue-i18n'
 import type { StaticRadarItem } from '~/composables/useStaticRadarSnapshot'
+import { SIGNAL_RESEARCH_THREADS } from '~/data/signal/threads'
+import { createSignalThreadCards } from '~/utils/signal-threads'
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
 
 type SignalItem = {
   id: number | string
@@ -406,6 +408,20 @@ const totalStats = computed(() => {
   if (!statsData.value) return 0
   return statsData.value.reduce((sum, s) => sum + Number(s.count), 0)
 })
+
+// Research threads should match against the unfiltered static snapshot, not visible filters.
+const researchSignalItems = computed(() => {
+  if (hasStaticSnapshot.value) return getStaticItems()
+  return allItems.value
+})
+
+const threadCards = computed(() =>
+  createSignalThreadCards({
+    threads: SIGNAL_RESEARCH_THREADS,
+    items: researchSignalItems.value,
+    locale: locale.value,
+  }),
+)
 </script>
 
 <template>
@@ -426,10 +442,10 @@ const totalStats = computed(() => {
             </span>
           </div>
           <p class="text-lg text-muted-foreground max-w-lg">
-            {{ t('signal.subtitle') }}
+            {{ t('signal.researchDesk') }}
           </p>
           <p class="text-sm text-muted-foreground/50 mt-3 max-w-lg leading-relaxed">
-            {{ t('signal.poweredBy') }}
+            {{ t('signal.researchDeskDescription') }}
           </p>
         </div>
 
@@ -507,6 +523,17 @@ const totalStats = computed(() => {
         </div>
       </div>
     </div>
+
+    <SignalResearchThreads
+      :threads="threadCards"
+      :heading="t('signal.watchingTitle')"
+      :description="t('signal.watchingDescription')"
+      :confidence-label="t('signal.confidence')"
+      :supporting-signals-label="t('signal.supportingSignals')"
+      :more-signals-label="t('signal.moreSignals')"
+      :open-question-label="t('signal.openQuestion')"
+      :product-hypothesis-label="t('signal.productHypothesis')"
+    />
 
     <!-- Toolbar -->
     <div

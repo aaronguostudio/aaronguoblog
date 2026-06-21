@@ -5,6 +5,12 @@ const SIGNAL_PAGE = readFileSync(new URL('../../pages/signal.vue', import.meta.u
 const HOME_PAGE = readFileSync(new URL('../../pages/index.vue', import.meta.url), 'utf8')
 const MAIN_WRITING = readFileSync(new URL('../../components/main/writing.vue', import.meta.url), 'utf8')
 const MAIN_SIGNAL = readFileSync(new URL('../../components/main/signal.vue', import.meta.url), 'utf8')
+const SIGNAL_RESEARCH_THREADS_COMPONENT = readFileSync(
+  new URL('../../components/signal/ResearchThreads.vue', import.meta.url),
+  'utf8',
+)
+const EN_LOCALE = readFileSync(new URL('../../i18n/locales/en-US.json', import.meta.url), 'utf8')
+const ZH_LOCALE = readFileSync(new URL('../../i18n/locales/zh-CN.json', import.meta.url), 'utf8')
 const NUXT_CONFIG = readFileSync(new URL('../../nuxt.config.ts', import.meta.url), 'utf8')
 const STATIC_EXPORT = readFileSync(new URL('../../scripts/radar/static-export.js', import.meta.url), 'utf8')
 const STATIC_SNAPSHOT_COMPOSABLE = readFileSync(
@@ -42,6 +48,21 @@ describe('static Signal contract', () => {
     expect(STATIC_SNAPSHOT_COMPOSABLE).toContain('/radar/latest.json')
     expect(STATIC_SNAPSHOT_COMPOSABLE).toContain('cacheBust')
     expect(STATIC_SNAPSHOT_COMPOSABLE).toContain('isNewerRadarSnapshot(fetchedSnapshot, asyncData.data.value)')
+  })
+
+  it('renders Signal research threads from static editorial data', () => {
+    expect(SIGNAL_PAGE).toContain("import { SIGNAL_RESEARCH_THREADS } from '~/data/signal/threads'")
+    expect(SIGNAL_PAGE).toContain("import { createSignalThreadCards } from '~/utils/signal-threads'")
+    expect(SIGNAL_PAGE).toContain('const researchSignalItems = computed')
+    expect(SIGNAL_PAGE).toContain('if (hasStaticSnapshot.value) return getStaticItems()')
+    expect(SIGNAL_PAGE).toContain('const threadCards = computed')
+    expect(SIGNAL_PAGE).toContain('items: researchSignalItems.value')
+    expect(SIGNAL_PAGE).toContain('locale: locale.value')
+    expect(SIGNAL_PAGE).toContain('<SignalResearchThreads')
+    expect(SIGNAL_RESEARCH_THREADS_COMPONENT).toContain('What I\'m Watching')
+    expect(SIGNAL_RESEARCH_THREADS_COMPONENT).toContain('matchedSignals')
+    expect(EN_LOCALE).toContain('"watchingTitle": "What I\'m Watching"')
+    expect(ZH_LOCALE).toContain('"watchingTitle": "我正在关注"')
   })
 
   it('allows Signal routes to be prerendered', () => {
