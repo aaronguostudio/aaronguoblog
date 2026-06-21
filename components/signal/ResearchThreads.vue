@@ -14,27 +14,31 @@ defineProps<{
 </script>
 
 <template>
-  <section v-if="threads.length > 0" class="mb-8">
-    <div class="mb-4">
-      <p class="text-[10px] font-mono uppercase tracking-widest text-muted-foreground/50">
-        Signal Research
-      </p>
-      <h2 class="mt-1 text-2xl font-semibold tracking-tight text-foreground">
-        {{ heading || "What I'm Watching" }}
-      </h2>
-      <p class="mt-2 max-w-2xl text-sm text-muted-foreground/70 leading-relaxed">
-        {{ description }}
-      </p>
+  <section v-if="threads.length > 0" class="py-8">
+    <div class="mb-5 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+      <div>
+        <p class="text-[11px] font-mono uppercase tracking-widest text-muted-foreground/50">
+          Signal Research
+        </p>
+        <h2 class="mt-1 text-3xl font-semibold tracking-tight text-foreground">
+          {{ heading || "What I'm Watching" }}
+        </h2>
+        <p class="mt-2 max-w-3xl text-sm text-muted-foreground/70 leading-relaxed">
+          {{ description }}
+        </p>
+      </div>
     </div>
 
     <div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
       <article
         v-for="thread in threads"
         :key="thread.slug"
-        class="rounded-lg border border-border/60 bg-card/70 p-4 transition-colors hover:border-cyan-500/30"
+        class="flex min-h-full flex-col rounded-lg border border-border/70 bg-card/70 p-5 shadow-sm transition-colors hover:border-cyan-500/40"
       >
         <div class="flex min-w-0 flex-wrap items-start justify-between gap-3">
-          <h3 class="min-w-0 flex-1 break-words text-base font-semibold leading-snug text-foreground">
+          <h3
+            class="min-w-0 flex-1 break-words text-base font-semibold leading-snug text-foreground"
+          >
             {{ thread.title }}
           </h3>
           <span
@@ -63,7 +67,7 @@ defineProps<{
               :href="signal.url"
               target="_blank"
               rel="noopener"
-              class="group rounded-md border border-border/40 px-3 py-2 hover:bg-secondary/60"
+              class="group border-l border-border/60 py-2 pl-3 transition-colors hover:border-cyan-500/50"
             >
               <div class="flex items-center gap-2">
                 <span class="h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-500" />
@@ -86,7 +90,7 @@ defineProps<{
           </p>
         </div>
 
-        <div class="mt-4 space-y-2 border-t border-border/40 pt-3">
+        <div class="mt-auto space-y-2 border-t border-border/45 pt-4">
           <p class="text-[11px] text-muted-foreground/70">
             <span class="font-semibold text-foreground/70">{{ openQuestionLabel }}:</span>
             {{ thread.openQuestion }}

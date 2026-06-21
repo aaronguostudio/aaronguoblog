@@ -4,6 +4,8 @@ import { describe, expect, it } from 'vitest'
 const SIGNAL_PAGE = readFileSync(new URL('../../pages/signal.vue', import.meta.url), 'utf8')
 const SIGNAL_BRIEFS_DATA = new URL('../../data/signal/briefs.ts', import.meta.url)
 const SIGNAL_BRIEFS_COMPONENT = new URL('../../components/signal/Briefs.vue', import.meta.url)
+const SIGNAL_HERO_COMPONENT = new URL('../../components/signal/Hero.vue', import.meta.url)
+const SIGNAL_PULSE_COMPONENT = new URL('../../components/signal/Pulse.vue', import.meta.url)
 const EN_SIGNAL_BRIEF_BLOG_POST = new URL(
   '../../content/blogs/en/26.signal-brief-ai-native-work-2026-06-21.md',
   import.meta.url,
@@ -80,6 +82,31 @@ describe('static Signal contract', () => {
       '"previewDescription": "Daily signals from my AI-native product research desk."',
     )
     expect(ZH_LOCALE).toContain('"previewDescription": "来自我的 AI 原生产品研究台的每日信号。"')
+  })
+
+  it('renders Signal as a wider research desk product surface', () => {
+    expect(existsSync(SIGNAL_HERO_COMPONENT)).toBe(true)
+    expect(existsSync(SIGNAL_PULSE_COMPONENT)).toBe(true)
+    expect(SIGNAL_PAGE).toContain('<SignalHero')
+    expect(SIGNAL_PAGE).toContain('<SignalPulse')
+    expect(SIGNAL_PAGE).toContain('const heroMetrics = computed')
+    expect(SIGNAL_PAGE).toContain('const sourceMixRows = computed')
+    expect(SIGNAL_PAGE).toContain('const pulseCards = computed')
+    expect(SIGNAL_PAGE).toContain('max-w-7xl')
+
+    const signalHeroComponent = readFileSync(SIGNAL_HERO_COMPONENT, 'utf8')
+    const signalPulseComponent = readFileSync(SIGNAL_PULSE_COMPONENT, 'utf8')
+
+    expect(signalHeroComponent).toContain('operationsLabel')
+    expect(signalHeroComponent).toContain('sourceMixRows')
+    expect(signalHeroComponent).toContain('metrics')
+    expect(signalPulseComponent).toContain('pulseCards')
+    expect(signalPulseComponent).toContain('dailyReadoutLabel')
+
+    expect(EN_LOCALE).toContain('"heroEyebrow": "Live research desk"')
+    expect(EN_LOCALE).toContain('"evidenceTitle": "Evidence Feed"')
+    expect(ZH_LOCALE).toContain('"heroEyebrow": "实时研究台"')
+    expect(ZH_LOCALE).toContain('"evidenceTitle": "证据流"')
   })
 
   it('keeps Signal Briefs out of Writing and renders them on Signal', () => {

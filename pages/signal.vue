@@ -411,6 +411,20 @@ const totalStats = computed(() => {
   return statsData.value.reduce((sum, s) => sum + Number(s.count), 0)
 })
 
+const sourceMixRows = computed(() => {
+  const total = Number(totalStats.value) || 0
+  return (statsData.value || []).slice(0, 8).map((stat) => {
+    const count = Number(stat.count) || 0
+    return {
+      source: stat.source,
+      label: sourceLabel(stat.source),
+      count: String(count),
+      percent: total > 0 ? Math.max(4, Math.round((count / total) * 100)) : 4,
+      colorClass: sourceBg(stat.source),
+    }
+  })
+})
+
 // Research threads should match against the unfiltered static snapshot, not visible filters.
 const researchSignalItems = computed(() => {
   if (hasStaticSnapshot.value) return getStaticItems()
@@ -431,107 +445,79 @@ const briefCards = computed(() =>
     locale: locale.value,
   }),
 )
+
+const heroMetrics = computed(() => [
+  {
+    label: t('signal.metricSignals'),
+    value: String(totalStats.value || totalCount.value || 0),
+    caption: t('signal.metricSignalsCaption'),
+  },
+  {
+    label: t('signal.metricThreads'),
+    value: String(threadCards.value.length),
+    caption: t('signal.metricThreadsCaption'),
+  },
+  {
+    label: t('signal.metricBriefs'),
+    value: String(briefCards.value.length),
+    caption: t('signal.metricBriefsCaption'),
+  },
+])
+
+const heroStatusLabel = computed(() => {
+  if (latestRun.value?.completed_at || latestRun.value?.started_at) {
+    return `${t('signal.updated')} ${timeAgo(
+      latestRun.value.completed_at || latestRun.value.started_at || '',
+    )}`
+  }
+  return t('signal.snapshotReady')
+})
+
+const heroPromises = computed(() => [
+  t('signal.heroPromiseEvidence'),
+  t('signal.heroPromiseInterpretation'),
+  t('signal.heroPromiseProducts'),
+])
+
+const pulseCards = computed(() =>
+  pulseItems.value.map((item) => ({
+    id: String(item.id),
+    url: item.url,
+    title: stripHtml(item.title),
+    sourceLabel: sourceLabel(item.source),
+    categoryLabel: categoryLabel(item.category),
+    sourceClass: sourceBg(item.source),
+    categoryClass: categoryColor(item.category),
+  })),
+)
 </script>
 
 <template>
-  <main class="container max-w-5xl mx-auto px-4 py-8 sm:py-12">
-    <!-- Hero -->
-    <div class="relative mb-10 sm:mb-14">
-      <div class="flex items-start justify-between gap-4">
-        <div>
-          <div class="flex items-center gap-3 mb-3">
-            <h1 class="text-4xl sm:text-5xl font-bold tracking-tight">
-              {{ t('signal.title') }}
-            </h1>
-            <span class="relative flex h-2.5 w-2.5 mt-2">
-              <span
-                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"
-              />
-              <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500" />
-            </span>
-          </div>
-          <p class="text-lg text-muted-foreground max-w-lg">
-            {{ t('signal.researchDesk') }}
-          </p>
-          <p class="text-sm text-muted-foreground/50 mt-3 max-w-lg leading-relaxed">
-            {{ t('signal.researchDeskDescription') }}
-          </p>
-        </div>
+  <main class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <SignalHero
+      :title="t('signal.title')"
+      :eyebrow="t('signal.heroEyebrow')"
+      :description="t('signal.researchDeskDescription')"
+      :status-label="heroStatusLabel"
+      :live-label="t('signal.liveLabel')"
+      :operations-label="t('signal.operationsLabel')"
+      :source-mix-label="t('signal.sourceMixLabel')"
+      :pulse-date-label="t('signal.pulseDateLabel')"
+      :pulse-date="pulseDate"
+      :promises="heroPromises"
+      :metrics="heroMetrics"
+      :source-mix-rows="sourceMixRows"
+    />
 
-        <!-- Mini stats -->
-        <div v-if="statsData" class="hidden sm:flex flex-col gap-1.5 text-right shrink-0">
-          <div v-for="s in statsData" :key="s.source" class="flex items-center gap-2 justify-end">
-            <span class="text-[11px] text-muted-foreground/70 font-mono w-6 text-right">{{
-              s.count
-            }}</span>
-            <div class="w-16 h-1.5 rounded-full bg-secondary overflow-hidden">
-              <div
-                class="h-full rounded-full transition-all duration-500"
-                :class="sourceBg(s.source)"
-                :style="{
-                  width: `${Math.min((Number(s.count) / Number(totalStats)) * 100 * 2, 100)}%`,
-                }"
-              />
-            </div>
-            <span class="text-[11px] text-muted-foreground/50 font-mono w-10">{{
-              sourceLabel(s.source)
-            }}</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Today's Pulse -->
-    <div v-if="pulseText" class="mb-8 rounded-lg border border-border/50 overflow-hidden">
-      <div class="px-4 py-2.5 bg-cyan-500/[0.04] dark:bg-cyan-400/[0.06] border-b border-border/30">
-        <div class="flex items-center justify-between">
-          <div class="flex items-center gap-2">
-            <span class="relative flex h-2 w-2">
-              <span
-                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60"
-              />
-              <span
-                class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"
-                style="box-shadow: 0 0 6px rgb(52 211 153 / 0.8)"
-              />
-            </span>
-            <span
-              class="text-[10px] font-mono uppercase tracking-widest text-cyan-700 dark:text-cyan-300"
-              >{{ t('signal.todaysPulse') }}</span
-            >
-          </div>
-          <span v-if="pulseDate" class="text-[10px] font-mono text-muted-foreground/40">{{
-            pulseDate
-          }}</span>
-        </div>
-      </div>
-      <div class="px-4 py-3">
-        <p class="text-sm text-muted-foreground/80 leading-relaxed">{{ pulseText }}</p>
-        <div v-if="pulseItems.length > 0" class="mt-3 flex flex-col gap-0.5">
-          <a
-            v-for="item in pulseItems"
-            :key="item.id"
-            :href="item.url"
-            target="_blank"
-            rel="noopener"
-            class="group flex items-center gap-2.5 py-1.5 rounded-md hover:bg-secondary/50 -mx-1.5 px-1.5 transition-colors"
-          >
-            <span class="w-1.5 h-1.5 rounded-full shrink-0" :class="sourceBg(item.source)" />
-            <span
-              class="text-xs text-foreground/70 group-hover:text-foreground transition-colors line-clamp-1"
-            >
-              {{ stripHtml(item.title) }}
-            </span>
-            <span
-              class="text-[10px] font-semibold px-1.5 py-0.5 rounded ml-auto shrink-0"
-              :class="categoryColor(item.category)"
-            >
-              {{ categoryLabel(item.category) }}
-            </span>
-          </a>
-        </div>
-      </div>
-    </div>
+    <SignalPulse
+      :pulse-text="pulseText"
+      :pulse-date="pulseDate"
+      :daily-readout-label="t('signal.dailyReadoutLabel')"
+      :heading="t('signal.todaysPulse')"
+      :description="t('signal.pulseDescription')"
+      :evidence-label="t('signal.pulseEvidenceLabel')"
+      :pulse-cards="pulseCards"
+    />
 
     <SignalResearchThreads
       :threads="threadCards"
@@ -552,211 +538,227 @@ const briefCards = computed(() =>
       :related-thread-label="t('signal.relatedThread')"
     />
 
-    <!-- Toolbar -->
-    <div
-      class="sticky top-[1rem] z-40 -mx-4 px-4 py-3 bg-background/80 backdrop-blur-md border border-border/50 mb-6 rounded-md"
-    >
-      <div class="flex flex-col gap-2.5">
-        <!-- Row 1: Sources + Search -->
-        <div class="flex items-center gap-2">
+    <section class="mt-12 border-t border-border/70 pt-8">
+      <div class="mb-5 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <p class="text-[11px] font-mono uppercase tracking-widest text-muted-foreground/50">
+            {{ t('signal.evidenceEyebrow') }}
+          </p>
+          <h2 class="mt-1 text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
+            {{ t('signal.evidenceTitle') }}
+          </h2>
+          <p class="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground/70">
+            {{ t('signal.evidenceDescription') }}
+          </p>
+        </div>
+      </div>
+
+      <!-- Toolbar -->
+      <div
+        class="sticky top-[5rem] z-40 -mx-2 mb-6 rounded-lg border border-border/60 bg-background/90 px-3 py-3 shadow-sm backdrop-blur-md sm:-mx-3 sm:px-4"
+      >
+        <div class="flex flex-col gap-2.5">
+          <!-- Row 1: Sources + Search -->
+          <div class="flex items-center gap-2">
+            <div class="flex items-center gap-1.5 flex-wrap">
+              <button
+                class="px-3 py-1 text-xs font-medium rounded-md transition-all whitespace-nowrap"
+                :class="
+                  activeSource === ''
+                    ? 'bg-foreground text-background'
+                    : 'text-muted-foreground hover:text-foreground hover:bg-secondary'
+                "
+                @click="setSource('')"
+              >
+                {{ t('signal.all') }}
+              </button>
+              <button
+                v-for="s in sources"
+                :key="s"
+                class="px-3 py-1 text-xs font-medium rounded-md transition-all whitespace-nowrap flex items-center gap-1.5"
+                :class="
+                  activeSource === s
+                    ? 'bg-foreground text-background'
+                    : 'text-muted-foreground hover:text-foreground hover:bg-secondary'
+                "
+                @click="setSource(s)"
+              >
+                <span class="w-1.5 h-1.5 rounded-full" :class="sourceBg(s)" />
+                {{ sourceLabel(s) }}
+              </button>
+            </div>
+
+            <!-- Search -->
+            <div class="relative ml-auto w-44 sm:w-56 shrink-0">
+              <Icon
+                name="heroicons:magnifying-glass"
+                class="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-muted-foreground/50"
+              />
+              <input
+                type="text"
+                :placeholder="t('signal.search')"
+                class="w-full pl-8 pr-3 py-1.5 rounded-md bg-secondary/50 border border-border/50 text-xs focus:outline-none focus:border-primary/50 focus:bg-secondary transition-all"
+                @input="onSearch(($event.target as HTMLInputElement).value)"
+              />
+            </div>
+          </div>
+
+          <!-- Row 2: Categories -->
           <div class="flex items-center gap-1.5 flex-wrap">
             <button
               class="px-3 py-1 text-xs font-medium rounded-md transition-all whitespace-nowrap"
               :class="
-                activeSource === ''
+                activeCategory === ''
                   ? 'bg-foreground text-background'
                   : 'text-muted-foreground hover:text-foreground hover:bg-secondary'
               "
-              @click="setSource('')"
+              @click="setCategory('')"
             >
-              {{ t('signal.all') }}
+              {{ t('signal.allTopics') }}
             </button>
             <button
-              v-for="s in sources"
-              :key="s"
-              class="px-3 py-1 text-xs font-medium rounded-md transition-all whitespace-nowrap flex items-center gap-1.5"
+              v-for="c in categories"
+              :key="c"
+              class="px-3 py-1 text-xs font-medium rounded-md transition-all whitespace-nowrap"
               :class="
-                activeSource === s
+                activeCategory === c
                   ? 'bg-foreground text-background'
                   : 'text-muted-foreground hover:text-foreground hover:bg-secondary'
               "
-              @click="setSource(s)"
+              @click="setCategory(c)"
             >
-              <span class="w-1.5 h-1.5 rounded-full" :class="sourceBg(s)" />
-              {{ sourceLabel(s) }}
+              {{ categoryLabel(c) }}
             </button>
           </div>
 
-          <!-- Search -->
-          <div class="relative ml-auto w-44 sm:w-56 shrink-0">
-            <Icon
-              name="heroicons:magnifying-glass"
-              class="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-muted-foreground/50"
-            />
-            <input
-              type="text"
-              :placeholder="t('signal.search')"
-              class="w-full pl-8 pr-3 py-1.5 rounded-md bg-secondary/50 border border-border/50 text-xs focus:outline-none focus:border-primary/50 focus:bg-secondary transition-all"
-              @input="onSearch(($event.target as HTMLInputElement).value)"
-            />
+          <!-- Row 3: Radar topics -->
+          <div v-if="topics.length > 0" class="flex items-center gap-1.5 flex-wrap">
+            <button
+              class="px-3 py-1 text-xs font-medium rounded-md transition-all whitespace-nowrap"
+              :class="
+                activeTopic === ''
+                  ? 'bg-foreground text-background'
+                  : 'text-muted-foreground hover:text-foreground hover:bg-secondary'
+              "
+              @click="setTopic('')"
+            >
+              {{ t('signal.allRadarTopics') }}
+            </button>
+            <button
+              v-for="topic in topics"
+              :key="topic.slug"
+              class="px-3 py-1 text-xs font-medium rounded-md transition-all whitespace-nowrap"
+              :class="
+                activeTopic === topic.slug
+                  ? 'bg-foreground text-background'
+                  : 'text-muted-foreground hover:text-foreground hover:bg-secondary'
+              "
+              @click="setTopic(topic.slug)"
+            >
+              {{ topic.name }}
+            </button>
           </div>
         </div>
-
-        <!-- Row 2: Categories -->
-        <div class="flex items-center gap-1.5 flex-wrap">
-          <button
-            class="px-3 py-1 text-xs font-medium rounded-md transition-all whitespace-nowrap"
-            :class="
-              activeCategory === ''
-                ? 'bg-foreground text-background'
-                : 'text-muted-foreground hover:text-foreground hover:bg-secondary'
-            "
-            @click="setCategory('')"
-          >
-            {{ t('signal.allTopics') }}
-          </button>
-          <button
-            v-for="c in categories"
-            :key="c"
-            class="px-3 py-1 text-xs font-medium rounded-md transition-all whitespace-nowrap"
-            :class="
-              activeCategory === c
-                ? 'bg-foreground text-background'
-                : 'text-muted-foreground hover:text-foreground hover:bg-secondary'
-            "
-            @click="setCategory(c)"
-          >
-            {{ categoryLabel(c) }}
-          </button>
-        </div>
-
-        <!-- Row 3: Radar topics -->
-        <div v-if="topics.length > 0" class="flex items-center gap-1.5 flex-wrap">
-          <button
-            class="px-3 py-1 text-xs font-medium rounded-md transition-all whitespace-nowrap"
-            :class="
-              activeTopic === ''
-                ? 'bg-foreground text-background'
-                : 'text-muted-foreground hover:text-foreground hover:bg-secondary'
-            "
-            @click="setTopic('')"
-          >
-            {{ t('signal.allRadarTopics') }}
-          </button>
-          <button
-            v-for="topic in topics"
-            :key="topic.slug"
-            class="px-3 py-1 text-xs font-medium rounded-md transition-all whitespace-nowrap"
-            :class="
-              activeTopic === topic.slug
-                ? 'bg-foreground text-background'
-                : 'text-muted-foreground hover:text-foreground hover:bg-secondary'
-            "
-            @click="setTopic(topic.slug)"
-          >
-            {{ topic.name }}
-          </button>
-        </div>
       </div>
-    </div>
 
-    <!-- Count -->
-    <div v-if="totalCount" class="flex items-center gap-2 mb-4">
-      <span class="text-xs text-muted-foreground/60 font-mono">
-        {{ totalCount }} {{ t('signal.items') }}
-      </span>
-      <span
-        v-if="latestRun && (latestRun.completed_at || latestRun.started_at)"
-        class="text-xs text-muted-foreground/40 font-mono"
-      >
-        {{ t('signal.updated') }} {{ timeAgo(latestRun.completed_at || latestRun.started_at) }}
-      </span>
-    </div>
-
-    <!-- Loading (initial only) -->
-    <div
-      v-if="status === 'pending' && allItems.length === 0"
-      class="flex items-center justify-center py-24"
-    >
-      <div class="flex flex-col items-center gap-3">
-        <div
-          class="w-6 h-6 border-2 border-primary/30 border-t-primary rounded-full animate-spin"
-        />
-        <span class="text-sm text-muted-foreground">{{ t('signal.loading') }}</span>
-      </div>
-    </div>
-
-    <!-- Items -->
-    <div v-else-if="allItems.length > 0" class="flex flex-col gap-4">
-      <a
-        v-for="item in allItems"
-        :key="item.id"
-        :href="item.url"
-        target="_blank"
-        rel="noopener"
-        class="group block border-l-2 pl-4 pr-3 py-4 rounded-r-lg transition-colors duration-200 hover:bg-secondary"
-        :class="sourceColor(item.source)"
-      >
-        <!-- Top row: meta -->
-        <div class="flex items-center gap-2 mb-1">
-          <span
-            class="text-[10px] font-semibold px-1.5 py-0.5 rounded"
-            :class="categoryColor(item.category)"
-          >
-            {{ categoryLabel(item.category) }}
-          </span>
-          <span class="text-[11px] text-muted-foreground/40 font-mono">{{
-            sourceLabel(item.source)
-          }}</span>
-          <span class="text-[11px] text-muted-foreground/30 font-mono">{{
-            timeAgo(item.created_at)
-          }}</span>
-          <span v-if="item.score" class="text-[11px] text-muted-foreground/40 font-mono ml-auto">
-            {{ item.score.toLocaleString() }} pts
-          </span>
-        </div>
-
-        <!-- Title -->
-        <h3
-          class="text-base sm:text-lg font-semibold leading-snug group-hover:text-primary transition-colors"
+      <!-- Count -->
+      <div v-if="totalCount" class="flex items-center gap-2 mb-4">
+        <span class="text-xs text-muted-foreground/60 font-mono">
+          {{ totalCount }} {{ t('signal.items') }}
+        </span>
+        <span
+          v-if="latestRun && (latestRun.completed_at || latestRun.started_at)"
+          class="text-xs text-muted-foreground/40 font-mono"
         >
-          {{ stripHtml(item.title) }}
-        </h3>
+          {{ t('signal.updated') }} {{ timeAgo(latestRun.completed_at || latestRun.started_at) }}
+        </span>
+      </div>
 
-        <!-- Summary -->
-        <div v-if="getSummary(item)" class="flex items-start gap-1.5 mt-1.5">
-          <Icon
-            v-if="getSummary(item)!.isAi"
-            name="heroicons:star-solid"
-            class="w-3.5 h-3.5 text-amber-400/70 shrink-0 mt-0.5"
-            :title="t('signal.aiSummary')"
-          />
-          <p class="text-sm text-muted-foreground/45 line-clamp-2 leading-relaxed">
-            {{ getSummary(item)!.text }}
-          </p>
-        </div>
-      </a>
-    </div>
-
-    <!-- Empty state -->
-    <div v-else class="flex flex-col items-center justify-center py-24 text-center">
-      <div class="text-4xl mb-3 opacity-30">~</div>
-      <p class="text-sm text-muted-foreground">{{ t('signal.empty') }}</p>
-    </div>
-
-    <!-- Load more -->
-    <div v-if="allItems.length < totalCount" class="flex justify-center py-8">
-      <button
-        class="px-6 py-2 rounded-lg text-xs font-medium text-muted-foreground border border-border/50 hover:border-border hover:text-foreground transition-all flex items-center gap-2"
-        :disabled="isLoadingMore"
-        @click="loadMore"
+      <!-- Loading (initial only) -->
+      <div
+        v-if="status === 'pending' && allItems.length === 0"
+        class="flex items-center justify-center py-24"
       >
-        <div
-          v-if="isLoadingMore"
-          class="w-3.5 h-3.5 border-2 border-muted-foreground/30 border-t-muted-foreground rounded-full animate-spin"
-        />
-        {{ isLoadingMore ? t('signal.loading') : t('signal.loadMore') }}
-      </button>
-    </div>
+        <div class="flex flex-col items-center gap-3">
+          <div
+            class="w-6 h-6 border-2 border-primary/30 border-t-primary rounded-full animate-spin"
+          />
+          <span class="text-sm text-muted-foreground">{{ t('signal.loading') }}</span>
+        </div>
+      </div>
+
+      <!-- Items -->
+      <div v-else-if="allItems.length > 0" class="grid gap-3">
+        <a
+          v-for="item in allItems"
+          :key="item.id"
+          :href="item.url"
+          target="_blank"
+          rel="noopener"
+          class="group block rounded-lg border border-l-2 border-border/60 bg-card/50 px-4 py-4 shadow-sm transition-colors duration-200 hover:bg-secondary/60"
+          :class="sourceColor(item.source)"
+        >
+          <!-- Top row: meta -->
+          <div class="flex items-center gap-2 mb-1">
+            <span
+              class="text-[10px] font-semibold px-1.5 py-0.5 rounded"
+              :class="categoryColor(item.category)"
+            >
+              {{ categoryLabel(item.category) }}
+            </span>
+            <span class="text-[11px] text-muted-foreground/40 font-mono">{{
+              sourceLabel(item.source)
+            }}</span>
+            <span class="text-[11px] text-muted-foreground/30 font-mono">{{
+              timeAgo(item.created_at)
+            }}</span>
+            <span v-if="item.score" class="text-[11px] text-muted-foreground/40 font-mono ml-auto">
+              {{ item.score.toLocaleString() }} pts
+            </span>
+          </div>
+
+          <!-- Title -->
+          <h3
+            class="text-base font-semibold leading-snug text-foreground group-hover:text-primary sm:text-lg"
+          >
+            {{ stripHtml(item.title) }}
+          </h3>
+
+          <!-- Summary -->
+          <div v-if="getSummary(item)" class="flex items-start gap-1.5 mt-1.5">
+            <Icon
+              v-if="getSummary(item)!.isAi"
+              name="heroicons:star-solid"
+              class="w-3.5 h-3.5 text-amber-400/70 shrink-0 mt-0.5"
+              :title="t('signal.aiSummary')"
+            />
+            <p class="line-clamp-2 text-sm leading-relaxed text-muted-foreground/55">
+              {{ getSummary(item)!.text }}
+            </p>
+          </div>
+        </a>
+      </div>
+
+      <!-- Empty state -->
+      <div v-else class="flex flex-col items-center justify-center py-24 text-center">
+        <div class="text-4xl mb-3 opacity-30">~</div>
+        <p class="text-sm text-muted-foreground">{{ t('signal.empty') }}</p>
+      </div>
+
+      <!-- Load more -->
+      <div v-if="allItems.length < totalCount" class="flex justify-center py-8">
+        <button
+          class="px-6 py-2 rounded-lg text-xs font-medium text-muted-foreground border border-border/50 hover:border-border hover:text-foreground transition-all flex items-center gap-2"
+          :disabled="isLoadingMore"
+          @click="loadMore"
+        >
+          <div
+            v-if="isLoadingMore"
+            class="w-3.5 h-3.5 border-2 border-muted-foreground/30 border-t-muted-foreground rounded-full animate-spin"
+          />
+          {{ isLoadingMore ? t('signal.loading') : t('signal.loadMore') }}
+        </button>
+      </div>
+    </section>
   </main>
 </template>

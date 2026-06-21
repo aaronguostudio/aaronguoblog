@@ -11,7 +11,7 @@ defineProps<{
 </script>
 
 <template>
-  <section v-if="briefs.length > 0" class="mb-8">
+  <section v-if="briefs.length > 0" class="py-8">
     <div class="mb-4 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
       <div>
         <p class="text-[10px] font-mono uppercase tracking-widest text-muted-foreground/50">
@@ -29,7 +29,7 @@ defineProps<{
     <article
       v-for="brief in briefs"
       :key="brief.slug"
-      class="rounded-lg border border-border/60 bg-card/70 p-4 sm:p-5"
+      class="rounded-lg border border-border/70 bg-card/75 p-5 shadow-sm sm:p-6"
     >
       <div
         class="flex flex-col gap-3 border-b border-border/40 pb-4 sm:flex-row sm:items-start sm:justify-between"
@@ -60,12 +60,12 @@ defineProps<{
         </span>
       </div>
 
-      <div class="mt-4 grid grid-cols-1 gap-4 lg:grid-cols-5">
+      <div class="mt-5 grid grid-cols-1 gap-4 lg:grid-cols-3">
         <section
           v-for="(section, index) in brief.sections"
           :key="section.heading"
-          class="min-w-0"
-          :class="index < 2 ? 'lg:col-span-2' : 'lg:col-span-1'"
+          class="min-w-0 border-t border-border/45 pt-4"
+          :class="index < 2 ? 'lg:col-span-1' : ''"
         >
           <h4 class="text-sm font-semibold leading-snug text-foreground">
             {{ section.heading }}
