@@ -21,6 +21,7 @@ const SIGNAL_RESEARCH_THREADS_COMPONENT = readFileSync(
   new URL('../../components/signal/ResearchThreads.vue', import.meta.url),
   'utf8',
 )
+const SIGNAL_PULSE_UTIL = new URL('../../utils/signal-pulse.ts', import.meta.url)
 const EN_LOCALE = readFileSync(new URL('../../i18n/locales/en-US.json', import.meta.url), 'utf8')
 const ZH_LOCALE = readFileSync(new URL('../../i18n/locales/zh-CN.json', import.meta.url), 'utf8')
 const NUXT_CONFIG = readFileSync(new URL('../../nuxt.config.ts', import.meta.url), 'utf8')
@@ -107,6 +108,30 @@ describe('static Signal contract', () => {
     expect(EN_LOCALE).toContain('"evidenceTitle": "Evidence Feed"')
     expect(ZH_LOCALE).toContain('"heroEyebrow": "实时研究台"')
     expect(ZH_LOCALE).toContain('"evidenceTitle": "证据流"')
+  })
+
+  it('turns Signal into a visible distillation funnel', () => {
+    expect(existsSync(SIGNAL_PULSE_UTIL)).toBe(true)
+    expect(SIGNAL_PAGE).toContain("import { formatSignalPulseText } from '~/utils/signal-pulse'")
+    expect(SIGNAL_PAGE).toContain('formatSignalPulseText')
+
+    const signalBriefsData = readFileSync(SIGNAL_BRIEFS_DATA, 'utf8')
+    const signalBriefsComponent = readFileSync(SIGNAL_BRIEFS_COMPONENT, 'utf8')
+
+    expect(SIGNAL_RESEARCH_THREADS_COMPONENT).toContain('activeThesisLabel')
+    expect(SIGNAL_RESEARCH_THREADS_COMPONENT).toContain('productAngleLabel')
+    expect(SIGNAL_RESEARCH_THREADS_COMPONENT).toContain('index + 1')
+    expect(signalBriefsData).toContain("cadence: 'weekly'")
+    expect(signalBriefsData).toContain('signalCount: 5')
+    expect(signalBriefsData).toContain("funnelStage: 'brief'")
+    expect(signalBriefsComponent).toContain('funnelStages')
+    expect(signalBriefsComponent).toContain('brief.signalCount')
+    expect(EN_LOCALE).toContain('"activeThesis": "Active thesis"')
+    expect(EN_LOCALE).toContain('"weeklyBrief": "Weekly brief"')
+    expect(EN_LOCALE).toContain('"funnelLabel": "Distillation funnel"')
+    expect(ZH_LOCALE).toContain('"activeThesis": "活跃假设"')
+    expect(ZH_LOCALE).toContain('"weeklyBrief": "周度 brief"')
+    expect(ZH_LOCALE).toContain('"funnelLabel": "蒸馏漏斗"')
   })
 
   it('keeps Signal Briefs out of Writing and renders them on Signal', () => {

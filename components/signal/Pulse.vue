@@ -27,7 +27,7 @@ defineProps<{
         <p class="text-[11px] font-mono uppercase tracking-widest text-cyan-700 dark:text-cyan-300">
           {{ dailyReadoutLabel }}
         </p>
-        <h2 class="mt-2 text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
+        <h2 class="mt-2 text-2xl font-semibold text-foreground sm:text-3xl">
           {{ heading }}
         </h2>
         <p class="mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground/70">

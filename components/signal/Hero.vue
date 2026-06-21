@@ -56,9 +56,7 @@ defineProps<{
           </span>
         </div>
 
-        <h1
-          class="max-w-4xl text-5xl font-semibold tracking-tight text-foreground sm:text-6xl lg:text-7xl"
-        >
+        <h1 class="max-w-4xl text-5xl font-semibold text-foreground sm:text-6xl lg:text-7xl">
           {{ title }}
         </h1>
 
@@ -99,7 +97,7 @@ defineProps<{
 
         <div class="mt-4 grid grid-cols-3 gap-3">
           <div v-for="metric in metrics" :key="metric.label" class="min-w-0">
-            <p class="text-2xl font-semibold tracking-tight text-foreground">
+            <p class="text-2xl font-semibold text-foreground">
               {{ metric.value }}
             </p>
             <p class="mt-1 text-[10px] font-mono uppercase tracking-wide text-muted-foreground/50">

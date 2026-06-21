@@ -6,9 +6,17 @@ export type SignalBriefSection = {
   bullets?: LocalizedSignalText[]
 }
 
+export type SignalBriefCadence = 'daily' | 'weekly' | 'monthly' | 'annual'
+
+export type SignalBriefFunnelStage = 'signals' | 'threads' | 'brief' | 'hypothesis'
+
 export type SignalBrief = {
   slug: string
   threadSlug: string
+  cadence: SignalBriefCadence
+  periodLabel: LocalizedSignalText
+  signalCount: number
+  funnelStage: SignalBriefFunnelStage
   date: string
   readTime: LocalizedSignalText
   title: LocalizedSignalText
@@ -20,6 +28,13 @@ export const SIGNAL_BRIEFS: SignalBrief[] = [
   {
     slug: 'coding-agents-workflow-owners-2026-06-21',
     threadSlug: 'coding-agents-own-workflows',
+    cadence: 'weekly',
+    periodLabel: {
+      en: 'Week of Jun 21, 2026',
+      zh: '2026 年 6 月 21 日周',
+    },
+    signalCount: 5,
+    funnelStage: 'brief',
     date: '2026-06-21',
     readTime: {
       en: '4 min read',

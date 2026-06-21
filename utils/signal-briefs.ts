@@ -10,6 +10,10 @@ export type SignalBriefCardSection = {
 export type SignalBriefCard = {
   slug: string
   threadSlug: string
+  cadence: SignalBrief['cadence']
+  periodLabel: string
+  signalCount: number
+  funnelStage: SignalBrief['funnelStage']
   date: string
   readTime: string
   title: string
@@ -29,6 +33,10 @@ export function createSignalBriefCards({
   return briefs.map((brief) => ({
     slug: brief.slug,
     threadSlug: brief.threadSlug,
+    cadence: brief.cadence,
+    periodLabel: brief.periodLabel[signalLocale] || brief.periodLabel.en,
+    signalCount: brief.signalCount,
+    funnelStage: brief.funnelStage,
     date: brief.date,
     readTime: brief.readTime[signalLocale] || brief.readTime.en,
     title: brief.title[signalLocale] || brief.title.en,

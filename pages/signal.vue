@@ -3,6 +3,7 @@ import { useI18n } from 'vue-i18n'
 import type { StaticRadarItem } from '~/composables/useStaticRadarSnapshot'
 import { SIGNAL_BRIEFS } from '~/data/signal/briefs'
 import { SIGNAL_RESEARCH_THREADS } from '~/data/signal/threads'
+import { formatSignalPulseText } from '~/utils/signal-pulse'
 import { createSignalBriefCards } from '~/utils/signal-briefs'
 import { createSignalThreadCards } from '~/utils/signal-threads'
 
@@ -122,8 +123,14 @@ function getStaticPulseItems() {
     .slice(0, 5)
 }
 
-const pulseText = computed(
+const rawPulseText = computed(
   () => staticSnapshot.value?.pulse?.text || pulseData.value?.pulse || null,
+)
+const pulseText = computed(() =>
+  formatSignalPulseText({
+    text: rawPulseText.value,
+    locale: locale.value,
+  }),
 )
 const pulseDate = computed(() => staticSnapshot.value?.pulse?.date || pulseData.value?.date || null)
 const pulseItems = computed(() => {
@@ -524,10 +531,11 @@ const pulseCards = computed(() =>
       :heading="t('signal.watchingTitle')"
       :description="t('signal.watchingDescription')"
       :confidence-label="t('signal.confidence')"
+      :active-thesis-label="t('signal.activeThesis')"
       :supporting-signals-label="t('signal.supportingSignals')"
       :more-signals-label="t('signal.moreSignals')"
-      :open-question-label="t('signal.openQuestion')"
-      :product-hypothesis-label="t('signal.productHypothesis')"
+      :question-label="t('signal.question')"
+      :product-angle-label="t('signal.productAngle')"
     />
 
     <SignalBriefs
@@ -536,6 +544,13 @@ const pulseCards = computed(() =>
       :description="t('signal.briefsDescription')"
       :latest-label="t('signal.briefsLatest')"
       :related-thread-label="t('signal.relatedThread')"
+      :weekly-brief-label="t('signal.weeklyBrief')"
+      :funnel-label="t('signal.funnelLabel')"
+      :signals-label="t('signal.funnelSignals')"
+      :threads-label="t('signal.funnelThreads')"
+      :brief-label="t('signal.funnelBrief')"
+      :hypothesis-label="t('signal.funnelHypothesis')"
+      :signals-distilled-label="t('signal.signalsDistilled')"
     />
 
     <section class="mt-12 border-t border-border/70 pt-8">
@@ -544,7 +559,7 @@ const pulseCards = computed(() =>
           <p class="text-[11px] font-mono uppercase tracking-widest text-muted-foreground/50">
             {{ t('signal.evidenceEyebrow') }}
           </p>
-          <h2 class="mt-1 text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
+          <h2 class="mt-1 text-2xl font-semibold text-foreground sm:text-3xl">
             {{ t('signal.evidenceTitle') }}
           </h2>
           <p class="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground/70">
