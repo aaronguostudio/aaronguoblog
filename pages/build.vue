@@ -4,16 +4,6 @@ import { useI18n } from 'vue-i18n'
 const { t, locale } = useI18n()
 
 /**
- * Query project entries from both locale collections (pre-rendered at build)
- */
-const { data } = await useAsyncData('build-projects', () =>
-  Promise.all([
-    queryCollection('projectsEn').all(),
-    queryCollection('projectsZh').all(),
-  ]),
-)
-
-/**
  * Project frontmatter shape from content/projects/{en,zh}/*.md
  */
 interface ProjectMeta {
@@ -25,19 +15,52 @@ interface ProjectMeta {
   logo?: string
   screenshots?: string[]
   github?: string
+  release?: string
   demo?: string
   blog?: string
   featured?: boolean
   date?: string
 }
 
+type ContentProjectEntry = {
+  title?: string
+  description?: string
+  meta?: unknown
+  [key: string]: unknown
+}
+
+function getProjectFrontmatter(entry: ContentProjectEntry) {
+  const root = entry as unknown as ProjectMeta
+  const meta = (entry.meta || root) as ProjectMeta
+  return { root, meta }
+}
+
+function isPublishedEntry(entry: ContentProjectEntry) {
+  const { root, meta } = getProjectFrontmatter(entry)
+  return Boolean(meta?.published ?? root?.published ?? true)
+}
+
+/**
+ * Query project entries from both locale collections (pre-rendered at build)
+ */
+const { data } = await useAsyncData('build-projects', async () => {
+  const [projectsEn, projectsZh] = await Promise.all([
+    queryCollection('projectsEn').all(),
+    queryCollection('projectsZh').all(),
+  ])
+
+  return [
+    projectsEn.filter(isPublishedEntry),
+    projectsZh.filter(isPublishedEntry),
+  ]
+})
+
 /**
  * Normalize a content entry to a project card model.
  * Nuxt Content may expose frontmatter at root or in entry.meta.
  */
-function toProjectCard(entry: { title?: string; description?: string; meta?: unknown; [key: string]: unknown }) {
-  const root = entry as unknown as ProjectMeta
-  const meta = (entry.meta || root) as ProjectMeta
+function toProjectCard(entry: ContentProjectEntry) {
+  const { root, meta } = getProjectFrontmatter(entry)
   return {
     name: entry.title || meta?.title || root?.title || 'Project',
     description: entry.description ?? meta?.description ?? root?.description ?? '',
@@ -47,6 +70,7 @@ function toProjectCard(entry: { title?: string; description?: string; meta?: unk
     logo: meta?.logo ?? root?.logo,
     screenshots: Array.isArray(meta?.screenshots) ? meta.screenshots : Array.isArray(root?.screenshots) ? root.screenshots : undefined,
     github: meta?.github ?? root?.github,
+    release: meta?.release ?? root?.release,
     demo: meta?.demo ?? root?.demo,
     blog: meta?.blog ?? root?.blog,
   }
@@ -60,10 +84,7 @@ const projects = computed(() => {
   const localeIndex = locale.value === 'en' ? 0 : 1
   const raw = data.value[localeIndex] || []
   const mapped = raw.map(toProjectCard)
-  const published =
-    process.env.NODE_ENV === 'production'
-      ? mapped.filter((p) => p.published)
-      : mapped
+  const published = mapped.filter((p) => p.published)
   return [...published].sort((a, b) =>
     a.status === b.status ? 0 : a.status === 'shipped' ? -1 : 1,
   )
@@ -101,13 +122,13 @@ defineOgImageComponent('Test', {
 </script>
 
 <template>
-  <main class="container max-w-5xl mx-auto px-4 py-12">
+  <main class="container max-w-6xl mx-auto px-4 py-10 md:py-14">
     <!-- Page Header -->
-    <div class="mb-12">
-      <h1 class="text-4xl md:text-5xl font-bold text-foreground mb-4">
+    <div class="mb-10 max-w-3xl">
+      <h1 class="text-4xl md:text-5xl font-bold text-foreground mb-3">
         {{ t('build.title') }}
       </h1>
-      <p class="text-lg text-muted-foreground leading-relaxed">
+      <p class="text-base md:text-lg text-muted-foreground leading-relaxed">
         {{ t('build.subtitle') }}
       </p>
     </div>
@@ -121,122 +142,135 @@ defineOgImageComponent('Test', {
     </p>
 
     <!-- Project Cards -->
-    <div class="flex flex-col gap-10">
+    <div class="flex flex-col gap-6">
       <article
         v-for="project in projects"
         :key="project.name"
-        class="group rounded-xl border border-border bg-card overflow-hidden transition-all duration-300 hover:shadow-md hover:border-primary/20"
+        class="group overflow-hidden rounded-lg border border-border bg-card transition-all duration-300 hover:border-primary/25 hover:shadow-lg"
       >
-        <!-- Card Body -->
-        <div class="p-6 md:p-8">
-          <!-- Top Row: Logo + Title + Status + Links -->
-          <div class="flex items-start gap-4 mb-4">
-            <!-- Logo -->
-            <div class="shrink-0">
-              <img
-                v-if="project.logo"
-                :src="project.logo"
-                :alt="`${project.name} logo`"
-                class="w-14 h-14 rounded-xl object-contain bg-secondary p-1.5"
-              />
-              <div
-                v-else
-                class="w-14 h-14 rounded-xl bg-secondary flex items-center justify-center"
-              >
-                <Icon name="heroicons:cube" class="w-7 h-7 text-muted-foreground" />
-              </div>
-            </div>
+        <!-- Featured Banner -->
+        <button
+          v-if="project.screenshots?.[0]"
+          class="build-featured-preview block w-full overflow-hidden border-b border-border bg-[#f7faf8] text-left transition-colors hover:bg-[#f4f8f5]"
+          @click="openLightbox(project.screenshots[0], project.name)"
+        >
+          <img
+            :src="project.screenshots[0]"
+            :alt="`${project.name} screenshot`"
+            class="w-full bg-[#f7faf8] object-contain transition-transform duration-300 group-hover:scale-[1.005]"
+            @error="($event.target as HTMLImageElement).style.display = 'none'"
+          />
+        </button>
 
-            <!-- Title + Status -->
-            <div class="flex-1 min-w-0">
-              <div class="flex items-center gap-3 mb-1">
-                <h2 class="text-xl font-semibold text-foreground">
-                  {{ project.name }}
-                </h2>
+        <div
+          v-else
+          class="flex min-h-[220px] items-center justify-center border-b border-border bg-secondary/35 p-6"
+        >
+          <div
+            class="flex h-24 w-24 items-center justify-center rounded-lg border border-border bg-background"
+          >
+            <Icon name="heroicons:cube-transparent" class="h-10 w-10 text-muted-foreground" />
+          </div>
+        </div>
+
+        <div>
+          <!-- Project Story -->
+          <div class="flex flex-col justify-between gap-8 p-6 md:p-8 lg:p-10">
+            <div>
+              <div class="mb-5 flex flex-wrap items-center gap-3">
+                <img
+                  v-if="project.logo"
+                  :src="project.logo"
+                  :alt="`${project.name} logo`"
+                  class="h-16 w-16 rounded-xl bg-secondary object-contain p-1.5"
+                />
+                <div
+                  v-else
+                  class="flex h-16 w-16 items-center justify-center rounded-xl bg-secondary"
+                >
+                  <Icon name="heroicons:cube" class="h-8 w-8 text-muted-foreground" />
+                </div>
                 <span
                   v-if="project.status === 'building'"
-                  class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-500/10 text-yellow-600 dark:text-yellow-400"
+                  class="inline-flex items-center gap-1.5 rounded-full bg-yellow-500/10 px-2.5 py-1 text-xs font-medium text-yellow-600 dark:text-yellow-400"
                 >
                   <span class="relative flex h-2 w-2">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75" />
-                    <span class="relative inline-flex rounded-full h-2 w-2 bg-yellow-500" />
+                    <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-yellow-400 opacity-75" />
+                    <span class="relative inline-flex h-2 w-2 rounded-full bg-yellow-500" />
                   </span>
                   {{ t('build.building') }}
                 </span>
                 <span
                   v-else
-                  class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-500/10 text-green-600 dark:text-green-400"
+                  class="inline-flex items-center gap-1.5 rounded-full bg-green-500/10 px-2.5 py-1 text-xs font-medium text-green-600 dark:text-green-400"
                 >
-                  <span class="w-2 h-2 rounded-full bg-green-500" />
+                  <span class="h-2 w-2 rounded-full bg-green-500" />
                   {{ t('build.shipped') }}
                 </span>
               </div>
-              <p class="text-muted-foreground leading-relaxed">
+
+              <h2 class="mb-3 text-2xl font-semibold tracking-normal text-foreground md:text-3xl">
+                {{ project.name }}
+              </h2>
+              <p class="max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
                 {{ project.description }}
               </p>
+
+              <div
+                v-if="project.tech?.length"
+                class="mt-6 flex flex-wrap gap-2"
+              >
+                <span
+                  v-for="tech in project.tech"
+                  :key="tech"
+                  class="rounded-md bg-secondary px-2.5 py-1 text-xs font-medium text-secondary-foreground"
+                >
+                  {{ tech }}
+                </span>
+              </div>
             </div>
-          </div>
 
-          <!-- Tech Stack -->
-          <div v-if="project.tech?.length" class="flex flex-wrap gap-1.5 mb-5">
-            <span
-              v-for="tech in project.tech"
-              :key="tech"
-              class="px-2.5 py-1 text-xs rounded-md bg-secondary text-secondary-foreground font-medium"
-            >
-              {{ tech }}
-            </span>
-          </div>
-
-          <!-- Action Links -->
-          <div class="flex items-center gap-4">
-            <a
-              v-if="project.github"
-              :href="project.github"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg border border-border hover:bg-secondary transition-colors"
-            >
-              <Icon name="mdi:github" class="w-4 h-4" />
-              {{ t('build.viewSource') }}
-            </a>
-            <a
-              v-if="project.demo"
-              :href="project.demo"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg border border-border hover:bg-secondary transition-colors"
-            >
-              <Icon name="heroicons:arrow-top-right-on-square" class="w-4 h-4" />
-              {{ t('build.viewDemo') }}
-            </a>
-            <NuxtLink
-              v-if="project.blog"
-              :to="project.blog"
-              class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg border border-border hover:bg-secondary transition-colors"
-            >
-              <Icon name="heroicons:document-text" class="w-4 h-4" />
-              {{ t('build.readMore') }}
-            </NuxtLink>
-          </div>
-        </div>
-
-        <!-- Screenshots -->
-        <div v-if="project.screenshots?.length" class="border-t border-border bg-secondary/30 p-6 md:p-8">
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <button
-              v-for="(screenshot, i) in project.screenshots"
-              :key="i"
-              class="aspect-video rounded-lg overflow-hidden bg-secondary cursor-pointer ring-1 ring-border hover:ring-primary/40 transition-all duration-200 hover:shadow-lg"
-              @click="openLightbox(screenshot, project.name)"
-            >
-              <img
-                :src="screenshot"
-                :alt="`${project.name} screenshot ${i + 1}`"
-                class="w-full h-full object-cover"
-                @error="($event.target as HTMLImageElement).style.display = 'none'"
-              />
-            </button>
+            <!-- Action Links -->
+            <div class="flex flex-wrap items-center gap-3">
+              <a
+                v-if="project.github"
+                :href="project.github"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 rounded-lg border border-border px-4 py-2 text-sm font-medium transition-colors hover:bg-secondary"
+              >
+                <Icon name="mdi:github" class="h-4 w-4" />
+                {{ t('build.viewSource') }}
+              </a>
+              <a
+                v-if="project.demo"
+                :href="project.demo"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 rounded-lg border border-border px-4 py-2 text-sm font-medium transition-colors hover:bg-secondary"
+              >
+                <Icon name="heroicons:arrow-top-right-on-square" class="h-4 w-4" />
+                {{ t('build.viewDemo') }}
+              </a>
+              <a
+                v-if="project.release"
+                :href="project.release"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 rounded-lg border border-border px-4 py-2 text-sm font-medium transition-colors hover:bg-secondary"
+              >
+                <Icon name="heroicons:tag" class="h-4 w-4" />
+                {{ t('build.viewRelease') }}
+              </a>
+              <NuxtLink
+                v-if="project.blog"
+                :to="project.blog"
+                class="inline-flex items-center gap-2 rounded-lg border border-border px-4 py-2 text-sm font-medium transition-colors hover:bg-secondary"
+              >
+                <Icon name="heroicons:document-text" class="h-4 w-4" />
+                {{ t('build.readMore') }}
+              </NuxtLink>
+            </div>
           </div>
         </div>
       </article>

@@ -7,9 +7,9 @@
         "description": "Code & Rhythm explores the harmony between logic and creativity.\n\nI’m Aaron — a product engineer, designer, and drummer.\nHere, we dive into AI systems, product strategy, and the rhythms that drive great work.\n\nCode builds the structure. Rhythm gives it soul.\n",
         "customUrl": "@drumnext",
         "thumbnail": "https://yt3.ggpht.com/SWdh-WpG7y2zncoqDb4WKIyph24NRRz8ep6XxJdAdU08zGSegMMfPuLvEo1zCVpGvVlsqVIgmw=s800-c-k-c0x00ffffff-no-rj",
-        "subscriberCount": 218,
-        "videoCount": 124,
-        "viewCount": 95022,
+        "subscriberCount": 219,
+        "videoCount": 125,
+        "viewCount": 99073,
         "bannerUrl": null
       },
       "videos": [
@@ -22,7 +22,7 @@
           "duration": "PT1H11M52S",
           "durationSeconds": 4312,
           "isShort": false,
-          "viewCount": 18,
+          "viewCount": 19,
           "likeCount": 3,
           "commentCount": 0
         },
@@ -35,12 +35,25 @@
           "duration": "PT8M52S",
           "durationSeconds": 532,
           "isShort": false,
-          "viewCount": 74,
+          "viewCount": 75,
           "likeCount": 8,
           "commentCount": 0
         }
       ],
       "shorts": [
+        {
+          "id": "3Anj7N55Xu4",
+          "title": "Hips don&#39;t lie - Shakira and Ed Sheeran - Drum Cover #drums #drumcover #shakira",
+          "description": "",
+          "thumbnail": "https://i.ytimg.com/vi/3Anj7N55Xu4/hqdefault.jpg",
+          "publishedAt": "2026-03-14T15:14:55Z",
+          "duration": "PT13S",
+          "durationSeconds": 13,
+          "isShort": true,
+          "viewCount": 1917,
+          "likeCount": 16,
+          "commentCount": 0
+        },
         {
           "id": "Jit4NolbHCs",
           "title": "Black Pink - How You Like That - Drum Cover - Part 2 #drums #blackpink #drumcover",
@@ -50,9 +63,9 @@
           "duration": "PT33S",
           "durationSeconds": 33,
           "isShort": true,
-          "viewCount": 20,
-          "likeCount": 1,
-          "commentCount": 0
+          "viewCount": 1154,
+          "likeCount": 17,
+          "commentCount": 1
         },
         {
           "id": "XM4LjHncu-4",
@@ -63,8 +76,8 @@
           "duration": "PT24S",
           "durationSeconds": 24,
           "isShort": true,
-          "viewCount": 327,
-          "likeCount": 9,
+          "viewCount": 411,
+          "likeCount": 15,
           "commentCount": 2
         },
         {
@@ -76,7 +89,7 @@
           "duration": "PT16S",
           "durationSeconds": 16,
           "isShort": true,
-          "viewCount": 46,
+          "viewCount": 50,
           "likeCount": 7,
           "commentCount": 1
         },
@@ -89,7 +102,7 @@
           "duration": "PT8S",
           "durationSeconds": 8,
           "isShort": true,
-          "viewCount": 40,
+          "viewCount": 43,
           "likeCount": 7,
           "commentCount": 0
         },
@@ -102,7 +115,7 @@
           "duration": "PT30S",
           "durationSeconds": 30,
           "isShort": true,
-          "viewCount": 934,
+          "viewCount": 933,
           "likeCount": 12,
           "commentCount": 0
         },
@@ -115,8 +128,8 @@
           "duration": "PT33S",
           "durationSeconds": 33,
           "isShort": true,
-          "viewCount": 981,
-          "likeCount": 22,
+          "viewCount": 985,
+          "likeCount": 23,
           "commentCount": 0
         },
         {
@@ -128,8 +141,8 @@
           "duration": "PT13S",
           "durationSeconds": 13,
           "isShort": true,
-          "viewCount": 254,
-          "likeCount": 6,
+          "viewCount": 253,
+          "likeCount": 7,
           "commentCount": 0
         },
         {
@@ -141,8 +154,8 @@
           "duration": "PT34S",
           "durationSeconds": 34,
           "isShort": true,
-          "viewCount": 1108,
-          "likeCount": 21,
+          "viewCount": 1111,
+          "likeCount": 22,
           "commentCount": 0
         },
         {
@@ -154,8 +167,8 @@
           "duration": "PT10S",
           "durationSeconds": 10,
           "isShort": true,
-          "viewCount": 427,
-          "likeCount": 9,
+          "viewCount": 429,
+          "likeCount": 10,
           "commentCount": 0
         },
         {
@@ -167,8 +180,8 @@
           "duration": "PT36S",
           "durationSeconds": 36,
           "isShort": true,
-          "viewCount": 358,
-          "likeCount": 12,
+          "viewCount": 361,
+          "likeCount": 13,
           "commentCount": 0
         },
         {
@@ -180,8 +193,8 @@
           "duration": "PT14S",
           "durationSeconds": 14,
           "isShort": true,
-          "viewCount": 1715,
-          "likeCount": 15,
+          "viewCount": 1723,
+          "likeCount": 16,
           "commentCount": 1
         },
         {
@@ -194,7 +207,7 @@
           "durationSeconds": 34,
           "isShort": true,
           "viewCount": 568,
-          "likeCount": 17,
+          "likeCount": 18,
           "commentCount": 0
         },
         {
@@ -206,7 +219,7 @@
           "duration": "PT17S",
           "durationSeconds": 17,
           "isShort": true,
-          "viewCount": 1614,
+          "viewCount": 1615,
           "likeCount": 25,
           "commentCount": 0
         },
@@ -219,9 +232,9 @@
           "duration": "PT22S",
           "durationSeconds": 22,
           "isShort": true,
-          "viewCount": 810,
-          "likeCount": 10,
-          "commentCount": 1
+          "viewCount": 816,
+          "likeCount": 11,
+          "commentCount": 2
         },
         {
           "id": "_wNXef1BjPk",
@@ -232,8 +245,8 @@
           "duration": "PT53S",
           "durationSeconds": 53,
           "isShort": true,
-          "viewCount": 578,
-          "likeCount": 10,
+          "viewCount": 584,
+          "likeCount": 9,
           "commentCount": 0
         },
         {
@@ -245,8 +258,8 @@
           "duration": "PT41S",
           "durationSeconds": 41,
           "isShort": true,
-          "viewCount": 1109,
-          "likeCount": 32,
+          "viewCount": 1143,
+          "likeCount": 33,
           "commentCount": 0
         },
         {
@@ -258,7 +271,7 @@
           "duration": "PT15S",
           "durationSeconds": 15,
           "isShort": true,
-          "viewCount": 1043,
+          "viewCount": 1045,
           "likeCount": 18,
           "commentCount": 0
         },
@@ -297,7 +310,7 @@
           "duration": "PT33S",
           "durationSeconds": 33,
           "isShort": true,
-          "viewCount": 707,
+          "viewCount": 713,
           "likeCount": 15,
           "commentCount": 4
         },
@@ -310,7 +323,7 @@
           "duration": "PT51S",
           "durationSeconds": 51,
           "isShort": true,
-          "viewCount": 722,
+          "viewCount": 724,
           "likeCount": 9,
           "commentCount": 4
         },
@@ -323,7 +336,7 @@
           "duration": "PT35S",
           "durationSeconds": 35,
           "isShort": true,
-          "viewCount": 1041,
+          "viewCount": 1042,
           "likeCount": 13,
           "commentCount": 2
         },
@@ -336,7 +349,7 @@
           "duration": "PT36S",
           "durationSeconds": 36,
           "isShort": true,
-          "viewCount": 999,
+          "viewCount": 1001,
           "likeCount": 15,
           "commentCount": 1
         },
@@ -349,7 +362,7 @@
           "duration": "PT35S",
           "durationSeconds": 35,
           "isShort": true,
-          "viewCount": 970,
+          "viewCount": 971,
           "likeCount": 19,
           "commentCount": 1
         },
@@ -388,7 +401,7 @@
           "duration": "PT29S",
           "durationSeconds": 29,
           "isShort": true,
-          "viewCount": 974,
+          "viewCount": 984,
           "likeCount": 18,
           "commentCount": 1
         },
@@ -401,7 +414,7 @@
           "duration": "PT25S",
           "durationSeconds": 25,
           "isShort": true,
-          "viewCount": 194,
+          "viewCount": 195,
           "likeCount": 7,
           "commentCount": 0
         },
@@ -466,7 +479,7 @@
           "duration": "PT21S",
           "durationSeconds": 21,
           "isShort": true,
-          "viewCount": 423,
+          "viewCount": 425,
           "likeCount": 6,
           "commentCount": 1
         },
@@ -531,7 +544,7 @@
           "duration": "PT16S",
           "durationSeconds": 16,
           "isShort": true,
-          "viewCount": 1768,
+          "viewCount": 1773,
           "likeCount": 18,
           "commentCount": 1
         },
@@ -557,7 +570,7 @@
           "duration": "PT25S",
           "durationSeconds": 25,
           "isShort": true,
-          "viewCount": 1235,
+          "viewCount": 1238,
           "likeCount": 12,
           "commentCount": 1
         },
@@ -609,8 +622,8 @@
           "duration": "PT20S",
           "durationSeconds": 20,
           "isShort": true,
-          "viewCount": 457,
-          "likeCount": 9,
+          "viewCount": 495,
+          "likeCount": 10,
           "commentCount": 0
         },
         {
@@ -635,8 +648,8 @@
           "duration": "PT7S",
           "durationSeconds": 7,
           "isShort": true,
-          "viewCount": 3450,
-          "likeCount": 32,
+          "viewCount": 3680,
+          "likeCount": 33,
           "commentCount": 3
         },
         {
@@ -651,19 +664,6 @@
           "viewCount": 1986,
           "likeCount": 33,
           "commentCount": 2
-        },
-        {
-          "id": "82kf1JjgUg4",
-          "title": "Havana’s 9pm cannon ceremony—sending off 2025 and welcoming 2026",
-          "description": "",
-          "thumbnail": "https://i.ytimg.com/vi/82kf1JjgUg4/hqdefault.jpg",
-          "publishedAt": "2026-01-01T04:15:20Z",
-          "duration": "PT11S",
-          "durationSeconds": 11,
-          "isShort": true,
-          "viewCount": 1374,
-          "likeCount": 11,
-          "commentCount": 1
         }
       ],
       "stats": {
@@ -679,12 +679,77 @@
         "description": "AI-native builder. Human-first thinker. Product thinking, AI-native systems, and lessons from the trenches. Real notes from a builder who ships daily.\n\nWebsite: aaronguo.com\n",
         "customUrl": "@ai-native-builder",
         "thumbnail": "https://yt3.ggpht.com/-Ysz0GWR4v56xMiXznz2_2buYJnkeTdXUGM643yrBm8xi2Ix9EC2J3S-LTr_HAHoMjrGTkLj=s800-c-k-c0x00ffffff-no-rj",
-        "subscriberCount": 7,
-        "videoCount": 3,
-        "viewCount": 153,
+        "subscriberCount": 15,
+        "videoCount": 8,
+        "viewCount": 384,
         "bannerUrl": null
       },
       "videos": [
+        {
+          "id": "brnl-Ml9iuo",
+          "title": "I Gave Codex a Task From a Moving Tesla",
+          "description": "I was in a Tesla on the way to California when I opened Codex on my phone and gave it a real task: go into my Notion task tracker, ...",
+          "thumbnail": "https://i.ytimg.com/vi/brnl-Ml9iuo/hqdefault.jpg",
+          "publishedAt": "2026-06-20T22:57:35Z",
+          "duration": "PT7M30S",
+          "durationSeconds": 450,
+          "isShort": false,
+          "viewCount": 15,
+          "likeCount": 3,
+          "commentCount": 1
+        },
+        {
+          "id": "jPHR-73HJa8",
+          "title": "Fable 5 Changed the Unit of AI Work",
+          "description": "Fable 5 did not just feel like a better model. It felt like a different unit of work. The old AI loop is prompt-response. But when agents ...",
+          "thumbnail": "https://i.ytimg.com/vi/jPHR-73HJa8/hqdefault.jpg",
+          "publishedAt": "2026-06-15T03:29:22Z",
+          "duration": "PT6M3S",
+          "durationSeconds": 363,
+          "isShort": false,
+          "viewCount": 42,
+          "likeCount": 1,
+          "commentCount": 1
+        },
+        {
+          "id": "6-X3NwICb7g",
+          "title": "In the Age of AI, Look Up at the Stars",
+          "description": "In the age of AI, look up at the stars. That is not a romantic slogan. It is a business principle. AI lowers the cost of execution.",
+          "thumbnail": "https://i.ytimg.com/vi/6-X3NwICb7g/hqdefault.jpg",
+          "publishedAt": "2026-06-14T18:53:44Z",
+          "duration": "PT2M50S",
+          "durationSeconds": 170,
+          "isShort": false,
+          "viewCount": 2,
+          "likeCount": 0,
+          "commentCount": 0
+        },
+        {
+          "id": "JApDiwbocck",
+          "title": "I Engineered the Law of Attraction with AI",
+          "description": "The Law of Attraction has always worked for me. So I built an AI system that does it — programmatically, 24/7, while I sleep. I call it ...",
+          "thumbnail": "https://i.ytimg.com/vi/JApDiwbocck/hqdefault.jpg",
+          "publishedAt": "2026-03-09T04:08:58Z",
+          "duration": "PT9M54S",
+          "durationSeconds": 594,
+          "isShort": false,
+          "viewCount": 46,
+          "likeCount": 5,
+          "commentCount": 0
+        },
+        {
+          "id": "mfvkgxE7U4M",
+          "title": "No Magic: How ChatGPT Actually Works, Explained in One Kitchen",
+          "description": "People say ChatGPT is magic. It's not. It's a kitchen apprentice named Ming, a wall of 4192 judgment dials, and one loop ...",
+          "thumbnail": "https://i.ytimg.com/vi/mfvkgxE7U4M/hqdefault.jpg",
+          "publishedAt": "2026-03-02T08:24:03Z",
+          "duration": "PT19M13S",
+          "durationSeconds": 1153,
+          "isShort": false,
+          "viewCount": 115,
+          "likeCount": 11,
+          "commentCount": 2
+        },
         {
           "id": "tyK4-inXdSs",
           "title": "I Chased Goals for 15 Years. Chamath Showed Me What I Got Wrong.",
@@ -694,7 +759,7 @@
           "duration": "PT8M51S",
           "durationSeconds": 531,
           "isShort": false,
-          "viewCount": 55,
+          "viewCount": 60,
           "likeCount": 6,
           "commentCount": 0
         },
@@ -707,8 +772,8 @@
           "duration": "PT8M42S",
           "durationSeconds": 522,
           "isShort": false,
-          "viewCount": 49,
-          "likeCount": 6,
+          "viewCount": 61,
+          "likeCount": 7,
           "commentCount": 0
         },
         {
@@ -720,15 +785,15 @@
           "duration": "PT8M57S",
           "durationSeconds": 537,
           "isShort": false,
-          "viewCount": 44,
+          "viewCount": 54,
           "likeCount": 7,
           "commentCount": 0
         }
       ],
       "shorts": [],
       "stats": {
-        "totalVideos": 3,
-        "regularVideosCount": 3,
+        "totalVideos": 8,
+        "regularVideosCount": 8,
         "shortsCount": 0
       }
     },
@@ -739,13 +804,65 @@
         "description": "",
         "customUrl": "@visual-and-sound",
         "thumbnail": "https://yt3.ggpht.com/v8UM-QMMgWUGiVzdg3H4fw6TJcqcPdX11HaU1UkpnJIrfJgTsxCmGVQNBSYeCsCS43W_DZJepg=s800-c-k-c0x00ffffff-no-rj",
-        "subscriberCount": 40,
-        "videoCount": 33,
-        "viewCount": 17227,
+        "subscriberCount": 39,
+        "videoCount": 37,
+        "viewCount": 17859,
         "bannerUrl": null
       },
       "videos": [],
       "shorts": [
+        {
+          "id": "3q_GgjO-zeI",
+          "title": "The Awakening - Comfortably Numb - Pink Floyd #cinematic #music #pinkfloyd",
+          "description": "",
+          "thumbnail": "https://i.ytimg.com/vi/3q_GgjO-zeI/hqdefault.jpg",
+          "publishedAt": "2026-03-05T00:00:04Z",
+          "duration": "PT16S",
+          "durationSeconds": 16,
+          "isShort": true,
+          "viewCount": 27,
+          "likeCount": 4,
+          "commentCount": 0
+        },
+        {
+          "id": "LYMz_TKeXw0",
+          "title": "The Numb - Comfortably Numb - Pink Floyd #cinematic #music #pinkfloyd",
+          "description": "",
+          "thumbnail": "https://i.ytimg.com/vi/LYMz_TKeXw0/hqdefault.jpg",
+          "publishedAt": "2026-03-04T00:00:33Z",
+          "duration": "PT31S",
+          "durationSeconds": 31,
+          "isShort": true,
+          "viewCount": 25,
+          "likeCount": 5,
+          "commentCount": 0
+        },
+        {
+          "id": "2SZL55m2WNA",
+          "title": "Open AI Raised Big Funding #openai #ai",
+          "description": "",
+          "thumbnail": "https://i.ytimg.com/vi/2SZL55m2WNA/hqdefault.jpg",
+          "publishedAt": "2026-03-02T02:18:41Z",
+          "duration": "PT16S",
+          "durationSeconds": 16,
+          "isShort": true,
+          "viewCount": 10,
+          "likeCount": 6,
+          "commentCount": 0
+        },
+        {
+          "id": "iHp6brtpTCI",
+          "title": "Comptine d&#39;un autre été #music #yanntiersen #scenery #cinematic",
+          "description": "",
+          "thumbnail": "https://i.ytimg.com/vi/iHp6brtpTCI/hqdefault.jpg",
+          "publishedAt": "2026-03-01T16:50:00Z",
+          "duration": "PT16S",
+          "durationSeconds": 16,
+          "isShort": true,
+          "viewCount": 13,
+          "likeCount": 6,
+          "commentCount": 0
+        },
         {
           "id": "yqElX4yBsNM",
           "title": "Mad World - Gary Jules - No.01 - 100 Songs 100 Dreams #madworld #garyjules #cinematic #music",
@@ -755,8 +872,8 @@
           "duration": "PT25S",
           "durationSeconds": 25,
           "isShort": true,
-          "viewCount": 432,
-          "likeCount": 6,
+          "viewCount": 700,
+          "likeCount": 12,
           "commentCount": 8
         },
         {
@@ -768,7 +885,7 @@
           "duration": "PT16S",
           "durationSeconds": 16,
           "isShort": true,
-          "viewCount": 59,
+          "viewCount": 42,
           "likeCount": 7,
           "commentCount": 0
         },
@@ -781,8 +898,8 @@
           "duration": "PT16S",
           "durationSeconds": 16,
           "isShort": true,
-          "viewCount": 65,
-          "likeCount": 5,
+          "viewCount": 54,
+          "likeCount": 6,
           "commentCount": 3
         },
         {
@@ -794,7 +911,7 @@
           "duration": "PT13S",
           "durationSeconds": 13,
           "isShort": true,
-          "viewCount": 28,
+          "viewCount": 23,
           "likeCount": 7,
           "commentCount": 0
         },
@@ -807,7 +924,7 @@
           "duration": "PT15S",
           "durationSeconds": 15,
           "isShort": true,
-          "viewCount": 31,
+          "viewCount": 37,
           "likeCount": 6,
           "commentCount": 2
         },
@@ -833,7 +950,7 @@
           "duration": "PT14S",
           "durationSeconds": 14,
           "isShort": true,
-          "viewCount": 36,
+          "viewCount": 24,
           "likeCount": 6,
           "commentCount": 0
         },
@@ -846,7 +963,7 @@
           "duration": "PT16S",
           "durationSeconds": 16,
           "isShort": true,
-          "viewCount": 38,
+          "viewCount": 31,
           "likeCount": 6,
           "commentCount": 0
         },
@@ -859,7 +976,7 @@
           "duration": "PT16S",
           "durationSeconds": 16,
           "isShort": true,
-          "viewCount": 24,
+          "viewCount": 21,
           "likeCount": 6,
           "commentCount": 0
         },
@@ -872,7 +989,7 @@
           "duration": "PT16S",
           "durationSeconds": 16,
           "isShort": true,
-          "viewCount": 32,
+          "viewCount": 22,
           "likeCount": 6,
           "commentCount": 0
         },
@@ -885,7 +1002,7 @@
           "duration": "PT14S",
           "durationSeconds": 14,
           "isShort": true,
-          "viewCount": 26,
+          "viewCount": 20,
           "likeCount": 6,
           "commentCount": 0
         },
@@ -898,7 +1015,7 @@
           "duration": "PT16S",
           "durationSeconds": 16,
           "isShort": true,
-          "viewCount": 33,
+          "viewCount": 27,
           "likeCount": 7,
           "commentCount": 2
         },
@@ -911,7 +1028,7 @@
           "duration": "PT13S",
           "durationSeconds": 13,
           "isShort": true,
-          "viewCount": 29,
+          "viewCount": 26,
           "likeCount": 7,
           "commentCount": 3
         },
@@ -924,7 +1041,7 @@
           "duration": "PT16S",
           "durationSeconds": 16,
           "isShort": true,
-          "viewCount": 223,
+          "viewCount": 217,
           "likeCount": 7,
           "commentCount": 0
         },
@@ -937,7 +1054,7 @@
           "duration": "PT17S",
           "durationSeconds": 17,
           "isShort": true,
-          "viewCount": 1220,
+          "viewCount": 1222,
           "likeCount": 17,
           "commentCount": 2
         },
@@ -950,7 +1067,7 @@
           "duration": "PT17S",
           "durationSeconds": 17,
           "isShort": true,
-          "viewCount": 32,
+          "viewCount": 29,
           "likeCount": 7,
           "commentCount": 0
         },
@@ -963,7 +1080,7 @@
           "duration": "PT16S",
           "durationSeconds": 16,
           "isShort": true,
-          "viewCount": 34,
+          "viewCount": 31,
           "likeCount": 7,
           "commentCount": 0
         },
@@ -976,7 +1093,7 @@
           "duration": "PT15S",
           "durationSeconds": 15,
           "isShort": true,
-          "viewCount": 57,
+          "viewCount": 56,
           "likeCount": 8,
           "commentCount": 0
         },
@@ -989,8 +1106,8 @@
           "duration": "PT16S",
           "durationSeconds": 16,
           "isShort": true,
-          "viewCount": 4045,
-          "likeCount": 81,
+          "viewCount": 4038,
+          "likeCount": 78,
           "commentCount": 3
         },
         {
@@ -1002,7 +1119,7 @@
           "duration": "PT16S",
           "durationSeconds": 16,
           "isShort": true,
-          "viewCount": 341,
+          "viewCount": 337,
           "likeCount": 9,
           "commentCount": 2
         },
@@ -1028,7 +1145,7 @@
           "duration": "PT16S",
           "durationSeconds": 16,
           "isShort": true,
-          "viewCount": 62,
+          "viewCount": 60,
           "likeCount": 8,
           "commentCount": 2
         },
@@ -1042,7 +1159,7 @@
           "durationSeconds": 16,
           "isShort": true,
           "viewCount": 1953,
-          "likeCount": 24,
+          "likeCount": 23,
           "commentCount": 2
         },
         {
@@ -1054,7 +1171,7 @@
           "duration": "PT16S",
           "durationSeconds": 16,
           "isShort": true,
-          "viewCount": 1960,
+          "viewCount": 1965,
           "likeCount": 36,
           "commentCount": 1
         },
@@ -1067,19 +1184,123 @@
           "duration": "PT16S",
           "durationSeconds": 16,
           "isShort": true,
-          "viewCount": 475,
+          "viewCount": 473,
           "likeCount": 11,
+          "commentCount": 0
+        },
+        {
+          "id": "xB43AwGM2hI",
+          "title": "Hotel California #viralvideo #eagle",
+          "description": "",
+          "thumbnail": "https://i.ytimg.com/vi/xB43AwGM2hI/hqdefault.jpg",
+          "publishedAt": "2026-02-22T18:35:03Z",
+          "duration": "PT16S",
+          "durationSeconds": 16,
+          "isShort": true,
+          "viewCount": 42,
+          "likeCount": 7,
+          "commentCount": 0
+        },
+        {
+          "id": "YjNUw4GvdjE",
+          "title": "Broken Sky #bohemianrhapsody #queen #viralvideo",
+          "description": "",
+          "thumbnail": "https://i.ytimg.com/vi/YjNUw4GvdjE/hqdefault.jpg",
+          "publishedAt": "2026-02-22T15:18:36Z",
+          "duration": "PT16S",
+          "durationSeconds": 16,
+          "isShort": true,
+          "viewCount": 35,
+          "likeCount": 6,
+          "commentCount": 0
+        },
+        {
+          "id": "TLfqSfXXyPE",
+          "title": "Deep Sea #viralvideo",
+          "description": "",
+          "thumbnail": "https://i.ytimg.com/vi/TLfqSfXXyPE/hqdefault.jpg",
+          "publishedAt": "2026-02-22T05:59:12Z",
+          "duration": "PT11S",
+          "durationSeconds": 11,
+          "isShort": true,
+          "viewCount": 44,
+          "likeCount": 8,
+          "commentCount": 0
+        },
+        {
+          "id": "cloHUZKkCzs",
+          "title": "To the moon #elonmusk #viralvideo #spacex",
+          "description": "",
+          "thumbnail": "https://i.ytimg.com/vi/cloHUZKkCzs/hqdefault.jpg",
+          "publishedAt": "2026-02-22T04:37:17Z",
+          "duration": "PT11S",
+          "durationSeconds": 11,
+          "isShort": true,
+          "viewCount": 429,
+          "likeCount": 13,
+          "commentCount": 0
+        },
+        {
+          "id": "kbgOlXLsO4M",
+          "title": "Crystal Drop #viralvideo",
+          "description": "",
+          "thumbnail": "https://i.ytimg.com/vi/kbgOlXLsO4M/hqdefault.jpg",
+          "publishedAt": "2026-02-22T01:01:19Z",
+          "duration": "PT6S",
+          "durationSeconds": 6,
+          "isShort": true,
+          "viewCount": 273,
+          "likeCount": 7,
+          "commentCount": 0
+        },
+        {
+          "id": "yZvb7XQWIH0",
+          "title": "Exploring in the dream #viralvideo",
+          "description": "",
+          "thumbnail": "https://i.ytimg.com/vi/yZvb7XQWIH0/hqdefault.jpg",
+          "publishedAt": "2026-02-21T23:56:31Z",
+          "duration": "PT11S",
+          "durationSeconds": 11,
+          "isShort": true,
+          "viewCount": 1571,
+          "likeCount": 19,
+          "commentCount": 0
+        },
+        {
+          "id": "ADhOqSWdriM",
+          "title": "Stairway to heaven #ledzeppelin #viralvideo",
+          "description": "",
+          "thumbnail": "https://i.ytimg.com/vi/ADhOqSWdriM/hqdefault.jpg",
+          "publishedAt": "2026-02-21T20:54:54Z",
+          "duration": "PT6S",
+          "durationSeconds": 6,
+          "isShort": true,
+          "viewCount": 2214,
+          "likeCount": 32,
+          "commentCount": 3
+        },
+        {
+          "id": "J6qUjTGnJMk",
+          "title": "Night Light #viralvideo",
+          "description": "",
+          "thumbnail": "https://i.ytimg.com/vi/J6qUjTGnJMk/hqdefault.jpg",
+          "publishedAt": "2026-02-21T19:28:52Z",
+          "duration": "PT6S",
+          "durationSeconds": 6,
+          "isShort": true,
+          "viewCount": 241,
+          "likeCount": 6,
           "commentCount": 0
         }
       ],
       "stats": {
-        "totalVideos": 25,
+        "totalVideos": 37,
         "regularVideosCount": 0,
-        "shortsCount": 25
+        "shortsCount": 37
       }
     }
   },
   "metadata": {
-    "fetchedAt": "2026-03-01T03:40:58.464Z"
+    "fetchedAt": "2026-06-23T06:46:27.680Z"
   }
 }
