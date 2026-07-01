@@ -4,7 +4,7 @@ import type { StaticRadarItem } from '~/composables/useStaticRadarSnapshot'
 import { SIGNAL_BRIEFS } from '~/data/signal/briefs'
 import { SIGNAL_RESEARCH_THREADS } from '~/data/signal/threads'
 import { formatSignalPulseText } from '~/utils/signal-pulse'
-import { selectPulseSnapshotItems } from '~/utils/radar-snapshot'
+import { selectPulseSnapshotItems, sortRadarItemsByDateDesc } from '~/utils/radar-snapshot'
 import { createSignalBriefCards } from '~/utils/signal-briefs'
 import { createSignalThreadCards } from '~/utils/signal-threads'
 
@@ -109,7 +109,7 @@ function mapStaticItem(item: StaticRadarItem): SignalItem {
 }
 
 function getStaticItems() {
-  return (staticSnapshot.value?.items || []).map(mapStaticItem)
+  return sortRadarItemsByDateDesc((staticSnapshot.value?.items || []).map(mapStaticItem))
 }
 
 function getStaticPulseItems() {
@@ -175,10 +175,11 @@ const {
   onResponse({ response }) {
     const result = response._data
     if (!result) return
+    const nextItems = result.items || []
     if (offset.value === 0) {
-      allItems.value = result.items || []
+      allItems.value = sortRadarItemsByDateDesc(nextItems)
     } else {
-      allItems.value = [...allItems.value, ...(result.items || [])]
+      allItems.value = sortRadarItemsByDateDesc([...allItems.value, ...nextItems])
     }
     totalCount.value = Number(result.total) || 0
     if (result.stats) statsData.value = result.stats

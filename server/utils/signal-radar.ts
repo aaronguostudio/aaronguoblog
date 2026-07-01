@@ -53,7 +53,7 @@ export function buildRadarItemsSql(whereSql: string[]) {
             ranked.score, ranked.relevance, ranked.category, ranked.topic_slug, ranked.created_at, ranked.last_seen_at
           FROM ranked_items ranked
           WHERE ranked.rn = 1
-          ORDER BY ranked.last_seen_at DESC, ranked.relevance DESC, ranked.score DESC
+          ORDER BY ranked.last_seen_at DESC, ranked.relevance DESC, ranked.score DESC, ranked.id DESC
           LIMIT ? OFFSET ?`
 }
 

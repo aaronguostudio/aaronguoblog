@@ -3,6 +3,7 @@ import {
   getRadarSnapshotTimestamp,
   isNewerRadarSnapshot,
   selectPulseSnapshotItems,
+  sortRadarItemsByDateDesc,
 } from '../utils/radar-snapshot'
 
 describe('radar snapshot freshness', () => {
@@ -55,5 +56,17 @@ describe('pulse snapshot item selection', () => {
     ]
 
     expect(selectPulseSnapshotItems(items, [3, 1], 3)).toEqual([items[2], items[0]])
+  })
+})
+
+describe('radar item recency sorting', () => {
+  it('orders items from newest displayed timestamp to oldest', () => {
+    const items = [
+      { id: 1, title: 'two days old', created_at: '2026-06-28 14:32:34' },
+      { id: 2, title: 'four days old', created_at: '2026-06-27 13:33:04' },
+      { id: 3, title: 'one day old', created_at: '2026-06-29 14:37:13' },
+    ]
+
+    expect(sortRadarItemsByDateDesc(items).map((item) => item.id)).toEqual([3, 1, 2])
   })
 })

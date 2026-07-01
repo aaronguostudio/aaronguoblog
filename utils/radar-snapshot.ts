@@ -15,6 +15,18 @@ type PulseSelectableItem = {
   id?: string | number | null
 }
 
+type RadarItemSortable = {
+  id?: string | number | null
+  lastSeenAt?: string | null
+  last_seen_at?: string | null
+  createdAt?: string | null
+  created_at?: string | null
+  publishedAt?: string | null
+  published_at?: string | null
+  relevance?: string | number | null
+  score?: string | number | null
+}
+
 function parseRadarDate(value: string | null | undefined) {
   if (!value) return Number.NEGATIVE_INFINITY
 
@@ -72,4 +84,35 @@ export function selectPulseSnapshotItems<T extends PulseSelectableItem>(
     .slice(0, limit)
 
   return matchedItems.length > 0 ? matchedItems : items.slice(0, limit)
+}
+
+function itemTimestamp(item: RadarItemSortable) {
+  return parseRadarDate(
+    item.lastSeenAt ||
+      item.last_seen_at ||
+      item.createdAt ||
+      item.created_at ||
+      item.publishedAt ||
+      item.published_at,
+  )
+}
+
+function itemNumber(value: string | number | null | undefined) {
+  const number = Number(value)
+  return Number.isFinite(number) ? number : 0
+}
+
+export function sortRadarItemsByDateDesc<T extends RadarItemSortable>(items: T[]) {
+  return [...items].sort((a, b) => {
+    const timeDiff = itemTimestamp(b) - itemTimestamp(a)
+    if (timeDiff !== 0) return timeDiff
+
+    const relevanceDiff = itemNumber(b.relevance) - itemNumber(a.relevance)
+    if (relevanceDiff !== 0) return relevanceDiff
+
+    const scoreDiff = itemNumber(b.score) - itemNumber(a.score)
+    if (scoreDiff !== 0) return scoreDiff
+
+    return String(b.id || '').localeCompare(String(a.id || ''), undefined, { numeric: true })
+  })
 }

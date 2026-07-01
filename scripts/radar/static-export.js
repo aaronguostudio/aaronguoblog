@@ -208,7 +208,7 @@ export async function buildRadarSnapshot(
               score, relevance, category, topic_slug, last_seen_at
             FROM ranked_items
             WHERE rn = 1
-            ORDER BY last_seen_at DESC, relevance DESC, score DESC
+            ORDER BY last_seen_at DESC, relevance DESC, score DESC, id DESC
             LIMIT ?`,
       args: [minRelevance, limit],
     }),

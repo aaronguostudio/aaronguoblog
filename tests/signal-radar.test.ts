@@ -68,6 +68,7 @@ describe('radar feed SQL', () => {
 
     expect(sql).toContain('ROW_NUMBER() OVER (PARTITION BY ri.id')
     expect(sql).toContain('ORDER BY rit.last_seen_at DESC, rit.relevance DESC, rit.score DESC, rit.topic_slug ASC')
+    expect(sql).toContain('ORDER BY ranked.last_seen_at DESC, ranked.relevance DESC, ranked.score DESC, ranked.id DESC')
     expect(sql).toContain('WHERE ranked.rn = 1')
     expect(sql).toContain('WHERE rit.relevance >= ? AND ri.source = ?')
   })
