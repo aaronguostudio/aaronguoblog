@@ -4,6 +4,7 @@ import type {
   StaticRadarItem,
   StaticRadarSnapshot,
 } from '~/composables/useStaticRadarSnapshot'
+import { selectPulseSnapshotItems } from '~/utils/radar-snapshot'
 
 const { t } = useI18n()
 const localePath = useLocalePath()
@@ -84,13 +85,7 @@ const pulseText = computed(() => {
 function staticPulseItems() {
   const items = staticSnapshot.value?.items || []
   const topIds = staticSnapshot.value?.pulse?.topItemIds || []
-  if (topIds.length === 0) return items.slice(0, 3)
-
-  const byId = new Map(items.map((item) => [String(item.id), item]))
-  return topIds
-    .map((id) => byId.get(String(id)))
-    .filter((item): item is StaticRadarItem => Boolean(item))
-    .slice(0, 3)
+  return selectPulseSnapshotItems<StaticRadarItem>(items, topIds, 3)
 }
 
 // Sort by relevance desc, take top 3

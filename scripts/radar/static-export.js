@@ -60,6 +60,10 @@ function mapPulse(row) {
   }
 }
 
+function pulseTopItemIds(pulse) {
+  return Array.isArray(pulse?.topItemIds) ? pulse.topItemIds.map(id => Number(id)) : []
+}
+
 function mapStat(row) {
   return {
     source: String(row.source),
@@ -89,6 +93,12 @@ function hasFallbackLocalScore(snapshot) {
   return snapshot.items.some((item) => /fallback-local-score/i.test(item.aiSummary || ''))
 }
 
+function findMissingPulseTopItemIds(snapshot) {
+  const itemIds = new Set(snapshot.items.map(item => String(item.id)))
+  return pulseTopItemIds(snapshot.pulse)
+    .filter(id => !itemIds.has(String(id)))
+}
+
 function fallbackFilterSql({ allowLocalRanking }) {
   return allowLocalRanking
     ? ''
@@ -107,6 +117,11 @@ export function validateRadarSnapshot(snapshot, { allowLocalRanking = false } = 
 
   if (!snapshot.items.length) {
     blockers.push('Snapshot has no publishable Radar items.')
+  }
+
+  const missingPulseIds = snapshot.items.length > 0 ? findMissingPulseTopItemIds(snapshot) : []
+  if (missingPulseIds.length > 0) {
+    blockers.push(`Pulse top item ids are missing from snapshot items: ${missingPulseIds.join(', ')}.`)
   }
 
   const sourceErrorCount = Object.keys(snapshot.latestRun?.sourceErrors || {}).length
@@ -144,7 +159,7 @@ export async function buildRadarSnapshot(
   } = {},
 ) {
   const fallbackFilter = fallbackFilterSql({ allowLocalRanking })
-  const [topics, latestRun, pulse, stats, items] = await Promise.all([
+  const [topics, latestRun, pulseResult, stats, items] = await Promise.all([
     client.execute(
       `SELECT slug, name, category, cadence, mode
        FROM radar_topics
@@ -198,6 +213,45 @@ export async function buildRadarSnapshot(
       args: [minRelevance, limit],
     }),
   ])
+  const pulse = mapPulse(pulseResult.rows[0])
+  const topIds = pulseTopItemIds(pulse)
+  let pulseItems = { rows: [] }
+
+  if (topIds.length > 0) {
+    const values = topIds.map(() => '(?, ?)').join(', ')
+    pulseItems = await client.execute({
+      sql: `WITH pulse_ids(id, position) AS (VALUES ${values}),
+              ranked_items AS (
+                SELECT
+                  ri.id, ri.source, ri.url, ri.title, ri.summary, ri.ai_summary, ri.author,
+                  ri.published_at, ri.created_at,
+                  rit.score, rit.relevance, rit.category, rit.topic_slug, rit.last_seen_at,
+                  pulse_ids.position,
+                  ROW_NUMBER() OVER (
+                    PARTITION BY ri.id
+                    ORDER BY rit.last_seen_at DESC, rit.relevance DESC, rit.score DESC, rit.topic_slug ASC
+                  ) AS rn
+                FROM pulse_ids
+                JOIN radar_items ri ON ri.id = pulse_ids.id
+                JOIN radar_item_topics rit ON rit.item_id = ri.id
+                WHERE rit.relevance >= ?
+                ${fallbackFilter}
+              )
+              SELECT
+                id, source, url, title, summary, ai_summary, author, published_at, created_at,
+                score, relevance, category, topic_slug, last_seen_at
+              FROM ranked_items
+              WHERE rn = 1
+              ORDER BY position`,
+      args: [...topIds.flatMap((id, position) => [id, position]), minRelevance],
+    })
+  }
+
+  const itemRowsById = new Map()
+  for (const row of items.rows) itemRowsById.set(String(row.id), row)
+  for (const row of pulseItems.rows) {
+    if (!itemRowsById.has(String(row.id))) itemRowsById.set(String(row.id), row)
+  }
 
   const snapshot = {
     version: SNAPSHOT_VERSION,
@@ -209,10 +263,10 @@ export async function buildRadarSnapshot(
       warnings: [],
     },
     latestRun: mapLatestRun(latestRun.rows[0]),
-    pulse: mapPulse(pulse.rows[0]),
+    pulse,
     topics: topics.rows.map(mapTopic),
     stats: stats.rows.map(mapStat),
-    items: items.rows.map(mapItem),
+    items: Array.from(itemRowsById.values()).map(mapItem),
   }
   snapshot.quality = validateRadarSnapshot(snapshot, { allowLocalRanking })
 

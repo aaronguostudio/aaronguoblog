@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest'
 import {
   getRadarSnapshotTimestamp,
   isNewerRadarSnapshot,
+  selectPulseSnapshotItems,
 } from '../utils/radar-snapshot'
 
 describe('radar snapshot freshness', () => {
@@ -31,5 +32,28 @@ describe('radar snapshot freshness', () => {
 
     expect(isNewerRadarSnapshot(fetched, prerendered)).toBe(true)
     expect(isNewerRadarSnapshot(prerendered, fetched)).toBe(false)
+  })
+})
+
+describe('pulse snapshot item selection', () => {
+  it('falls back to leading snapshot items when pulse ids are missing', () => {
+    const items = [
+      { id: 1, title: 'First fallback item' },
+      { id: 2, title: 'Second fallback item' },
+      { id: 3, title: 'Third fallback item' },
+      { id: 4, title: 'Fourth fallback item' },
+    ]
+
+    expect(selectPulseSnapshotItems(items, [999], 3)).toEqual(items.slice(0, 3))
+  })
+
+  it('preserves pulse id order when matching items exist', () => {
+    const items = [
+      { id: 1, title: 'First item' },
+      { id: 2, title: 'Second item' },
+      { id: 3, title: 'Third item' },
+    ]
+
+    expect(selectPulseSnapshotItems(items, [3, 1], 3)).toEqual([items[2], items[0]])
   })
 })

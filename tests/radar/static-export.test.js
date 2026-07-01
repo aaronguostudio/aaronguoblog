@@ -101,7 +101,7 @@ async function createSnapshotClient({
     pulse: {
       date: '2026-06-14',
       pulseText: 'Coding agents produced one high-signal safety item.',
-      topItemIds: ids,
+      topItemIds: ids.slice(0, 1),
     },
   })
   await finishRadarRun(client, {
@@ -186,6 +186,81 @@ describe('static Radar export', () => {
     })
     expect(snapshot.items).toHaveLength(1)
     expect(snapshot.items[0].title).toBe('Guardian Runtime for AI coding agents')
+  })
+
+  it('keeps pulse top items in the static snapshot even when they fall outside the recency limit', async () => {
+    const client = createMemoryClient()
+    await migrateRadarSchema(client)
+    await upsertRadarTopic(client, createTopic())
+    const runId = await createRadarRun(client, {
+      topicSlug: 'coding-agents',
+      mode: 'quick',
+      lookbackDays: 30,
+      cadence: 'daily',
+    })
+    const [pulseItemId, recentItemId] = await upsertRadarItems(client, {
+      runId,
+      items: [
+        createItem({
+          canonicalUrl: 'https://example.com/pulse-agent',
+          sourceItemId: 'hn-pulse',
+          url: 'https://example.com/pulse-agent',
+          title: 'Pulse-selected coding agent signal',
+        }),
+        createItem({
+          canonicalUrl: 'https://example.com/recent-agent',
+          sourceItemId: 'hn-recent',
+          url: 'https://example.com/recent-agent',
+          title: 'Recent coding agent signal',
+        }),
+      ],
+    })
+
+    await client.execute({
+      sql: 'UPDATE radar_item_topics SET last_seen_at = ? WHERE item_id = ?',
+      args: ['2026-06-13 10:00:00', pulseItemId],
+    })
+    await client.execute({
+      sql: 'UPDATE radar_item_topics SET last_seen_at = ? WHERE item_id = ?',
+      args: ['2026-06-14 10:00:00', recentItemId],
+    })
+    await upsertRadarPulse(client, {
+      runId,
+      pulse: {
+        date: '2026-06-14',
+        pulseText: 'The older item is still the editorial pulse pick.',
+        topItemIds: [pulseItemId],
+      },
+    })
+    await finishRadarRun(client, {
+      runId,
+      status: 'completed',
+      itemsSeen: 2,
+      itemsWritten: 2,
+    })
+
+    const snapshot = await buildRadarSnapshot(client, {
+      date: '2026-06-14',
+      generatedAt: '2026-06-14T15:00:00.000Z',
+      limit: 1,
+    })
+
+    expect(snapshot.quality.status).toBe('ok')
+    expect(snapshot.items.map(item => item.id)).toEqual([recentItemId, pulseItemId])
+  })
+
+  it('blocks snapshots whose pulse references items missing from the exported item list', () => {
+    const snapshot = {
+      latestRun: { status: 'completed', sourceErrors: {}, warnings: [] },
+      pulse: { topItemIds: [123] },
+      items: [{ id: 456, aiSummary: 'A normal summary.' }],
+    }
+
+    expect(validateRadarSnapshot(snapshot)).toEqual({
+      status: 'blocked',
+      blockers: ['Pulse top item ids are missing from snapshot items: 123.'],
+      warnings: [],
+    })
   })
 
   it('filters local fallback ranking unless explicitly allowed', async () => {

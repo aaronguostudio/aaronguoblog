@@ -11,6 +11,10 @@ type RadarSnapshotLike = {
   } | null
 }
 
+type PulseSelectableItem = {
+  id?: string | number | null
+}
+
 function parseRadarDate(value: string | null | undefined) {
   if (!value) return Number.NEGATIVE_INFINITY
 
@@ -52,4 +56,20 @@ export function isNewerRadarSnapshot(
   current: RadarSnapshotLike | null | undefined,
 ) {
   return getRadarSnapshotTimestamp(candidate) > getRadarSnapshotTimestamp(current)
+}
+
+export function selectPulseSnapshotItems<T extends PulseSelectableItem>(
+  items: T[],
+  topItemIds: Array<string | number> = [],
+  limit = 3,
+) {
+  if (topItemIds.length === 0) return items.slice(0, limit)
+
+  const byId = new Map(items.map((item) => [String(item.id), item]))
+  const matchedItems = topItemIds
+    .map((id) => byId.get(String(id)))
+    .filter((item): item is T => Boolean(item))
+    .slice(0, limit)
+
+  return matchedItems.length > 0 ? matchedItems : items.slice(0, limit)
 }

@@ -4,6 +4,7 @@ import type { StaticRadarItem } from '~/composables/useStaticRadarSnapshot'
 import { SIGNAL_BRIEFS } from '~/data/signal/briefs'
 import { SIGNAL_RESEARCH_THREADS } from '~/data/signal/threads'
 import { formatSignalPulseText } from '~/utils/signal-pulse'
+import { selectPulseSnapshotItems } from '~/utils/radar-snapshot'
 import { createSignalBriefCards } from '~/utils/signal-briefs'
 import { createSignalThreadCards } from '~/utils/signal-threads'
 
@@ -114,13 +115,7 @@ function getStaticItems() {
 function getStaticPulseItems() {
   const items = getStaticItems()
   const topIds = staticSnapshot.value?.pulse?.topItemIds || []
-  if (topIds.length === 0) return items.slice(0, 5)
-
-  const byId = new Map(items.map((item) => [String(item.id), item]))
-  return topIds
-    .map((id) => byId.get(String(id)))
-    .filter((item): item is SignalItem => Boolean(item))
-    .slice(0, 5)
+  return selectPulseSnapshotItems<SignalItem>(items, topIds, 5)
 }
 
 const rawPulseText = computed(
