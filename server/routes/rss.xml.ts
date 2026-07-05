@@ -1,4 +1,10 @@
 import { Feed } from 'feed'
+import {
+  getRssPostDate,
+  getRssPostUrl,
+  isPublishedRssPost,
+  type RssBlogPost,
+} from '../../utils/rss'
 
 const basePath = 'https://aaronguo.com'
 
@@ -11,6 +17,9 @@ export default defineEventHandler(async (event) => {
 
   // Query the appropriate collection based on locale
   const docs = await queryCollection(event, locale as 'en' | 'zh').all()
+  const publishedDocs = (docs as RssBlogPost[])
+    .filter(isPublishedRssPost)
+    .sort((a, b) => getRssPostDate(b).getTime() - getRssPostDate(a).getTime())
 
   const feed = new Feed({
     title: 'Aaron Guo — Ship with AI, not about AI',
@@ -28,15 +37,16 @@ export default defineEventHandler(async (event) => {
   })
 
   // Add the feed items
-  docs.forEach((doc) => {
-    // console.log(doc)
+  publishedDocs.forEach((doc) => {
+    const link = getRssPostUrl(doc.path, locale, basePath)
+
     feed.addItem({
       title: doc.title || '',
-      id: basePath + doc.path,
-      link: basePath + doc.path,
+      id: link,
+      link,
       description: doc.description,
       content: doc.description,
-      date: new Date(doc.meta?.date as string),
+      date: getRssPostDate(doc),
     })
   })
 
