@@ -161,7 +161,7 @@ onBeforeUnmount(() => {
             <NuxtLink
               v-if="note.image"
               :to="localePath(note.path)"
-              class="group relative mb-4 block aspect-[16/10] overflow-hidden rounded-xl bg-muted outline-none focus-visible:ring-2 focus-visible:ring-[var(--notes-accent)]"
+              class="group relative mb-4 hidden aspect-[16/10] overflow-hidden rounded-xl bg-muted outline-none focus-visible:ring-2 focus-visible:ring-[var(--notes-accent)] md:block"
             >
               <NuxtImg
                 :src="note.image"
@@ -171,6 +171,7 @@ onBeforeUnmount(() => {
                 sizes="(max-width: 639px) calc(100vw - 40px), 640px"
                 format="webp"
                 quality="82"
+                loading="lazy"
                 class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.025] motion-reduce:transition-none"
               />
               <Icon
