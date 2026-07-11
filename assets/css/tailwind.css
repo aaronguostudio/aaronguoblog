@@ -8,33 +8,40 @@ body {
   min-height: 100%;
 }
 
-/* Custom scrollbar — black background for both light and dark modes */
+/* Theme-aware scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #000000;
+  background: var(--background);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #52525b;
+  background: color-mix(in srgb, var(--foreground) 28%, transparent);
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #71717a;
+  background: color-mix(in srgb, var(--foreground) 42%, transparent);
 }
 
 /* Firefox scrollbar */
 * {
   scrollbar-width: thin;
-  scrollbar-color: #52525b #000000;
+  scrollbar-color: color-mix(in srgb, var(--foreground) 28%, transparent) var(--background);
 }
 
 .prose {
   a {
-    text-decoration: none;
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+    text-decoration-thickness: 0.08em;
+    text-decoration-skip-ink: auto;
+  }
+
+  a:hover {
+    text-decoration-thickness: 0.12em;
   }
 }
 /* Mobile-friendly styles */
@@ -133,6 +140,15 @@ body {
   --input: #d4d4d8; /* zinc-300 */
   --ring: #18181b; /* zinc-900 */
 
+  /* Editorial line hierarchy + Notes accent */
+  --line-subtle: #e4e4e7;
+  --line-card: #d4d4d8;
+  --line-control: #a1a1aa;
+  --notes-accent: #a86616;
+  --notes-accent-muted: rgb(168 102 22 / 0.4);
+  --notes-border-hover: rgb(168 102 22 / 0.38);
+  --notes-surface-hover: rgb(168 102 22 / 0.035);
+
   /* Chart colors — neutral palette */
   --chart-1: #18181b;
   --chart-2: #52525b;
@@ -186,6 +202,15 @@ body {
   --input: #3f3f46; /* zinc-700 */
   --ring: #d4d4d8; /* zinc-300 */
 
+  /* Lines recede in dark mode; interactive outlines remain legible. */
+  --line-subtle: rgb(255 255 255 / 0.12);
+  --line-card: rgb(255 255 255 / 0.18);
+  --line-control: rgb(255 255 255 / 0.34);
+  --notes-accent: #d4a64a;
+  --notes-accent-muted: rgb(212 166 74 / 0.4);
+  --notes-border-hover: rgb(212 166 74 / 0.3);
+  --notes-surface-hover: rgb(212 166 74 / 0.035);
+
   /* Chart colors — neutral palette for dark */
   --chart-1: #e4e4e7;
   --chart-2: #a1a1aa;
@@ -202,4 +227,105 @@ body {
   --sidebar-accent-foreground: #fafafa;
   --sidebar-border: #27272a;
   --sidebar-ring: #d4d4d8;
+}
+
+/* Signal keeps its research-desk identity while inheriting the site theme. */
+.signal-page {
+  --signal-accent: #0e7490;
+  --signal-accent-hover: #155e75;
+  --signal-accent-ink: #ffffff;
+  --signal-accent-soft: rgb(14 116 144 / 0.055);
+  --signal-accent-glow: rgb(14 116 144 / 0.1);
+  --signal-line: color-mix(in srgb, var(--foreground) 11%, transparent);
+  --signal-line-strong: color-mix(in srgb, var(--foreground) 18%, transparent);
+  --signal-row-hover: rgb(14 116 144 / 0.035);
+  --signal-row-focus: rgb(14 116 144 / 0.06);
+  --signal-control: color-mix(in srgb, var(--foreground) 3.5%, transparent);
+  --signal-control-border: color-mix(in srgb, var(--foreground) 14%, transparent);
+  --signal-sticky: color-mix(in srgb, var(--background) 94%, transparent);
+  min-height: 100vh;
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.dark .signal-page {
+  --signal-accent: #67e8f9;
+  --signal-accent-hover: #a5f3fc;
+  --signal-accent-ink: #061014;
+  --signal-accent-soft: rgb(103 232 249 / 0.045);
+  --signal-accent-glow: rgb(34 211 238 / 0.1);
+  --signal-line: rgb(255 255 255 / 0.1);
+  --signal-line-strong: rgb(255 255 255 / 0.16);
+  --signal-row-hover: rgb(255 255 255 / 0.022);
+  --signal-row-focus: rgb(255 255 255 / 0.04);
+  --signal-control: rgb(255 255 255 / 0.035);
+  --signal-control-border: rgb(255 255 255 / 0.12);
+}
+
+.signal-rule {
+  border-color: var(--signal-line);
+}
+
+.signal-rule-strong {
+  border-color: var(--signal-line-strong);
+}
+
+.signal-accent-rule {
+  border-color: color-mix(in srgb, var(--signal-accent) 38%, transparent);
+}
+
+.signal-divide > :not([hidden]) ~ :not([hidden]) {
+  border-color: var(--signal-line);
+}
+
+.signal-row:hover {
+  background: var(--signal-row-hover);
+}
+
+.signal-row:focus-visible {
+  background: var(--signal-row-focus);
+}
+
+.signal-accent {
+  color: var(--signal-accent);
+}
+
+.signal-icon-surface {
+  border-color: var(--signal-line-strong);
+  background: var(--signal-control);
+  color: color-mix(in srgb, var(--foreground) 68%, transparent);
+}
+
+.signal-sticky {
+  background: var(--signal-sticky);
+}
+
+.signal-control {
+  border-color: var(--signal-control-border);
+  background: var(--signal-control);
+  color: var(--foreground);
+}
+
+.signal-control::placeholder {
+  color: color-mix(in srgb, var(--foreground) 36%, transparent);
+}
+
+.signal-control:focus {
+  border-color: color-mix(in srgb, var(--signal-accent) 60%, transparent);
+  --tw-ring-color: color-mix(in srgb, var(--signal-accent) 28%, transparent);
+}
+
+.signal-primary-button {
+  background: var(--signal-accent);
+  color: var(--signal-accent-ink);
+}
+
+.signal-primary-button:hover {
+  background: var(--signal-accent-hover);
+}
+
+.signal-thesis {
+  border-color: color-mix(in srgb, var(--signal-accent) 62%, transparent);
+  background: var(--signal-accent-soft);
+  box-shadow: 0 0 64px var(--signal-accent-glow);
 }

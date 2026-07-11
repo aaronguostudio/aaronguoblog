@@ -21,7 +21,7 @@ useHead({
 </script>
 
 <template>
-  <div class="min-h-screen bg-background text-foreground">
+  <div class="min-h-screen bg-background text-foreground transition-colors duration-300">
     <NuxtLoadingIndicator />
     <NuxtLayout>
       <NuxtPage :key="locale" />
@@ -48,6 +48,22 @@ useHead({
 .layout-leave-to {
   opacity: 0;
   filter: blur(1rem);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-enter-active,
+  .page-leave-active,
+  .layout-enter-active,
+  .layout-leave-active {
+    transition-duration: 0.01ms;
+  }
+
+  .page-enter-from,
+  .page-leave-to,
+  .layout-enter-from,
+  .layout-leave-to {
+    filter: none;
+  }
 }
 
 html.dark {

@@ -2,6 +2,7 @@
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
+const localePath = useLocalePath()
 </script>
 
 <template>
@@ -17,9 +18,9 @@ const { t } = useI18n()
     <div class="w-full bg-black text-white/70 py-6 border-t border-white/10">
       <div class="px-4 container max-w-8xl mx-auto">
         <!-- Footer Links -->
-        <div class="flex justify-center items-center gap-6 mb-4">
+        <div class="mb-4 flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
           <NuxtLink
-            to="/subscribe"
+            :to="localePath('/subscribe')"
             class="text-sm hover:text-white transition-colors flex items-center gap-1"
           >
             <Icon name="mdi:rss" class="w-4 h-4" />
@@ -35,7 +36,14 @@ const { t } = useI18n()
             <span>RSS Feed</span>
           </a>
           <NuxtLink
-            to="/videos"
+            :to="localePath('/notes')"
+            class="text-sm hover:text-white transition-colors flex items-center gap-1"
+          >
+            <Icon name="heroicons:pencil-square" class="w-4 h-4" />
+            <span>{{ t('navigation.notes') }}</span>
+          </NuxtLink>
+          <NuxtLink
+            :to="localePath('/videos')"
             class="text-sm hover:text-white transition-colors flex items-center gap-1"
           >
             <Icon name="mdi:youtube" class="w-4 h-4" />

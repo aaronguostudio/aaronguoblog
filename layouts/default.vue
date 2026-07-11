@@ -1,8 +1,6 @@
-<script setup lang="ts"></script>
-
 <template>
-  <div class="min-h-screen bg-background text-foreground">
-    <header>
+  <div class="min-h-screen bg-background text-foreground transition-colors duration-300">
+    <header class="sticky top-0 z-50">
       <MainHeader />
     </header>
     <main>

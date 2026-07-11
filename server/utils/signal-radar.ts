@@ -41,7 +41,7 @@ export function buildSignalRadarWhere(input: FilterInput) {
 export function buildRadarItemsSql(whereSql: string[]) {
   return `WITH ranked_items AS (
             SELECT
-              ri.id, ri.source, ri.url, ri.title, ri.summary, ri.ai_summary, ri.author,
+              ri.id, ri.source, ri.url, ri.title, ri.summary, ri.ai_summary, ri.author, ri.published_at,
               rit.score, rit.relevance, rit.category, rit.topic_slug, ri.created_at, rit.last_seen_at,
               ROW_NUMBER() OVER (PARTITION BY ri.id ORDER BY rit.last_seen_at DESC, rit.relevance DESC, rit.score DESC, rit.topic_slug ASC) AS rn
             FROM radar_items ri
@@ -50,14 +50,19 @@ export function buildRadarItemsSql(whereSql: string[]) {
           )
           SELECT
             ranked.id, ranked.source, ranked.url, ranked.title, ranked.summary, ranked.ai_summary, ranked.author,
-            ranked.score, ranked.relevance, ranked.category, ranked.topic_slug, ranked.created_at, ranked.last_seen_at
+            ranked.score, ranked.relevance, ranked.category, ranked.topic_slug, ranked.published_at, ranked.created_at, ranked.last_seen_at
           FROM ranked_items ranked
           WHERE ranked.rn = 1
           ORDER BY ranked.last_seen_at DESC, ranked.relevance DESC, ranked.score DESC, ranked.id DESC
           LIMIT ? OFFSET ?`
 }
 
-export function buildRadarItemsQuery(whereSql: string[], args: QueryArg[], limit: number, offset: number) {
+export function buildRadarItemsQuery(
+  whereSql: string[],
+  args: QueryArg[],
+  limit: number,
+  offset: number,
+) {
   return {
     sql: buildRadarItemsSql(whereSql),
     args: [...args, limit, offset],
@@ -101,7 +106,7 @@ export function buildPulseItemsQuery(topIds: number[]) {
     sql: `WITH pulse_ids(id, position) AS (VALUES ${values}),
             ranked_items AS (
               SELECT
-                ri.id, ri.source, ri.url, ri.title, ri.ai_summary,
+                ri.id, ri.source, ri.url, ri.title, ri.ai_summary, ri.published_at,
                 rit.relevance, rit.category, rit.score, rit.last_seen_at as created_at,
                 pulse_ids.position,
                 ROW_NUMBER() OVER (PARTITION BY ri.id ORDER BY rit.last_seen_at DESC, rit.relevance DESC, rit.score DESC, rit.topic_slug ASC) AS rn
@@ -110,7 +115,7 @@ export function buildPulseItemsQuery(topIds: number[]) {
               JOIN radar_item_topics rit ON rit.item_id = ri.id
             )
             SELECT
-              ranked.id, ranked.source, ranked.url, ranked.title, ranked.ai_summary,
+              ranked.id, ranked.source, ranked.url, ranked.title, ranked.ai_summary, ranked.published_at,
               ranked.relevance, ranked.category, ranked.score, ranked.created_at
             FROM ranked_items ranked
             WHERE ranked.rn = 1
@@ -132,6 +137,7 @@ export function mapRadarItemRow(row: RadarRow) {
     relevance: row.relevance,
     category: row.category,
     topic_slug: row.topic_slug,
+    published_at: row.published_at,
     created_at: row.last_seen_at || row.created_at,
   }
 }

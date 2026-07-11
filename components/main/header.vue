@@ -61,8 +61,8 @@ function toggleMobileMenu() {
  * Navigation items - computed to be reactive to language changes
  */
 const navItems = computed(() => [
-  { name: t('navigation.home'), path: '/', exact: true },
   { name: t('navigation.blogs'), path: '/blogs', exact: false },
+  { name: t('navigation.notes'), path: '/notes', exact: false },
   { name: t('navigation.videos'), path: '/videos', exact: false },
   { name: t('navigation.signal'), path: '/signal', exact: false },
   { name: t('navigation.build'), path: '/build', exact: false },
@@ -89,7 +89,7 @@ function isActive(path: string, exact = false) {
 </script>
 
 <template>
-  <header class="py-4 sticky top-0 z-50 bg-background/95 backdrop-blur-sm">
+  <header class="site-header-glass sticky top-0 z-50 py-4 text-foreground backdrop-blur-sm">
     <div class="flex items-center px-4 container max-w-8xl justify-between mx-auto">
       <!-- Logo/Site Title -->
       <NuxtLink
@@ -249,3 +249,9 @@ function isActive(path: string, exact = false) {
     </div>
   </header>
 </template>
+
+<style scoped>
+.site-header-glass {
+  background-color: color-mix(in srgb, var(--background) 42%, transparent);
+}
+</style>

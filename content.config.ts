@@ -1,7 +1,20 @@
-import { defineCollection, defineContentConfig } from '@nuxt/content'
+import { defineCollection, defineContentConfig, z } from '@nuxt/content'
 import { asRobotsCollection } from '@nuxtjs/robots/content'
 import { asSitemapCollection } from '@nuxtjs/sitemap/content'
 import { asOgImageCollection } from 'nuxt-og-image/content'
+
+const noteSchema = z.object({
+  date: z.string(),
+  summary: z.string(),
+  hook: z.string(),
+  image: z.string().optional(),
+  alt: z.string().optional(),
+  topics: z.array(z.string()).default([]),
+  published: z.boolean().default(false),
+  featured: z.boolean().default(false),
+  number: z.number().int().positive().optional(),
+  translationKey: z.string().optional(),
+})
 
 export default defineContentConfig({
   collections: {
@@ -53,5 +66,27 @@ export default defineContentConfig({
     projectsZh: defineCollection({
       source: 'projects/zh/*.md',
     }),
+    notesEn: defineCollection(
+      asRobotsCollection(
+        asSitemapCollection(
+          asOgImageCollection({
+            type: 'page',
+            source: { include: 'notes/en/*.md', prefix: '/notes' },
+            schema: noteSchema,
+          }),
+        ),
+      ),
+    ),
+    notesZh: defineCollection(
+      asRobotsCollection(
+        asSitemapCollection(
+          asOgImageCollection({
+            type: 'page',
+            source: { include: 'notes/zh/*.md', prefix: '/zh/notes' },
+            schema: noteSchema,
+          }),
+        ),
+      ),
+    ),
   },
 })

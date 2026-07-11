@@ -91,7 +91,7 @@ function categoryLabels(categories: string[]) {
             :src="heroPost.image || '/blogs-img/blog.jpg'"
             :alt="heroPost.alt"
             sizes="100vw lg:60vw"
-            class="w-full h-72 lg:h-[500px] object-cover object-center group-hover:scale-[1.02] transition-all duration-500"
+            class="aspect-video w-full object-cover object-center transition-all duration-500 group-hover:scale-[1.02]"
           />
           <div class="p-6">
             <div class="flex items-center gap-2 mb-3">
@@ -174,27 +174,27 @@ function categoryLabels(categories: string[]) {
     <!-- Dense Grid for remaining posts -->
     <div
       v-if="gridPosts.length > 0"
-      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8"
+      class="grid grid-cols-1 items-stretch gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4"
     >
       <NuxtLink
         v-for="post in gridPosts"
         :key="post.title"
         :to="localePath(post.path)"
-        class="group block"
+        class="group flex h-full"
       >
         <article
-          class="overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:shadow-md hover:border-primary/20"
+          class="flex h-full w-full flex-col overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:shadow-md hover:border-primary/20"
         >
           <NuxtImg
             :src="post.image || '/blogs-img/blog.jpg'"
             :alt="post.alt"
             loading="lazy"
             sizes="100vw sm:50vw lg:25vw"
-            class="w-full h-60 object-cover object-center group-hover:scale-[1.02] transition-all duration-500"
+            class="aspect-video w-full shrink-0 object-cover object-center transition-all duration-500 group-hover:scale-[1.02]"
           />
-          <div class="p-4">
+          <div class="flex min-h-[6.75rem] flex-1 flex-col justify-between p-4">
             <h4
-              class="text-sm font-semibold text-foreground group-hover:text-primary transition-colors duration-300 line-clamp-2 mb-1"
+              class="min-h-10 text-sm font-semibold text-foreground transition-colors duration-300 line-clamp-2 group-hover:text-primary"
             >
               {{ post.title }}
             </h4>

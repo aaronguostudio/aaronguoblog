@@ -76,6 +76,8 @@ export default defineNuxtConfig({
     '/zh': { prerender: true },
     '/signal': { prerender: true },
     '/zh/signal': { prerender: true },
+    '/notes': { prerender: true },
+    '/zh/notes': { prerender: true },
   },
 
   ogImage: {

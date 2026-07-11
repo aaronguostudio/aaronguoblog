@@ -24,8 +24,15 @@ defineOgImageComponent('About', {
 </script>
 
 <template>
-  <main class="container max-w-8xl mx-auto flex flex-col gap-8">
-    <MainHero />
+  <main class="container max-w-8xl mx-auto flex flex-col gap-5 sm:gap-6">
+    <section class="px-4">
+      <div
+        class="grid overflow-hidden border-y border-[color:var(--line-subtle)] lg:grid-cols-[minmax(0,1.1fr)_minmax(22rem,0.9fr)]"
+      >
+        <MainHero />
+        <MainNotes />
+      </div>
+    </section>
     <MainWriting :signal-snapshot="staticSnapshot">
       <MainChannels />
     </MainWriting>

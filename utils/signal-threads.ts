@@ -2,6 +2,7 @@ import type {
   SignalLocale,
   SignalResearchThread,
   SignalThreadConfidence,
+  SignalThreadHorizon,
   SignalThreadRef,
 } from '../data/signal/threads'
 
@@ -28,6 +29,8 @@ export type SignalThreadMatchedSignal = {
 
 export type SignalThreadCard = {
   slug: string
+  primaryTopicSlug: string
+  horizon: SignalThreadHorizon
   title: string
   thesis: string
   builderImplication: string
@@ -37,6 +40,7 @@ export type SignalThreadCard = {
   productHypothesis: string
   matchedSignals: SignalThreadMatchedSignal[]
   unmatchedSignalCount: number
+  relatedSignalCount: number
 }
 
 function normalizedLocale(locale: string): SignalLocale {
@@ -94,6 +98,8 @@ export function createSignalThreadCards({
 
     return {
       slug: thread.slug,
+      primaryTopicSlug: thread.primaryTopicSlug,
+      horizon: thread.horizon,
       title: thread.title[signalLocale] || thread.title.en,
       thesis: thread.thesis[signalLocale] || thread.thesis.en,
       builderImplication: thread.builderImplication[signalLocale] || thread.builderImplication.en,
@@ -103,6 +109,8 @@ export function createSignalThreadCards({
       productHypothesis: thread.productHypothesis[signalLocale] || thread.productHypothesis.en,
       matchedSignals,
       unmatchedSignalCount: thread.signalRefs.length - matchedSignals.length,
+      relatedSignalCount: items.filter((item) => item.topic_slug === thread.primaryTopicSlug)
+        .length,
     }
   })
 }

@@ -1,141 +1,185 @@
 <script setup lang="ts">
-type SignalHeroMetric = {
-  label: string
-  value: string
-  caption: string
-}
+import { motion, useReducedMotion } from 'motion-v'
 
-type SignalHeroSourceRow = {
-  source: string
-  label: string
-  count: string
-  percent: number
-  colorClass: string
-}
-
-defineProps<{
+type SignalHeroEvidence = {
+  id: string
+  url: string
   title: string
+  sourceLabel: string
+  sourceIcon: string
+  publishedLabel: string
+}
+
+const props = defineProps<{
   eyebrow: string
-  description: string
-  statusLabel: string
-  liveLabel: string
-  operationsLabel: string
-  sourceMixLabel: string
-  pulseDateLabel: string
-  pulseDate?: string | null
-  promises: string[]
-  metrics: SignalHeroMetric[]
-  sourceMixRows: SignalHeroSourceRow[]
+  headline: string
+  whyLabel: string
+  whyText: string
+  evidenceLabel: string
+  evidenceItems: SignalHeroEvidence[]
+  moreEvidenceLabel: string
+  topicLabel: string
+  thesisLabel: string
+  thesis: string
+  exploreLabel: string
+  readTakeLabel: string
 }>()
+
+const emit = defineEmits<{
+  explore: []
+  readTake: []
+}>()
+
+const prefersReducedMotion = useReducedMotion()
+const showAllEvidence = ref(false)
+
+const visibleEvidence = computed(() =>
+  showAllEvidence.value ? props.evidenceItems : props.evidenceItems.slice(0, 3),
+)
+const hiddenEvidenceCount = computed(() =>
+  Math.max(0, props.evidenceItems.length - visibleEvidence.value.length),
+)
+
+const revealTransition = {
+  duration: 0.72,
+  ease: [0.22, 1, 0.36, 1] as const,
+}
 </script>
 
 <template>
-  <section class="relative overflow-hidden border-b border-border/60 py-8 sm:py-12 lg:py-14">
-    <div
-      class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-500/40 to-transparent"
-    />
-
-    <div class="grid gap-8 lg:grid-cols-[minmax(0,1.25fr)_minmax(360px,0.75fr)] lg:items-start">
+  <section class="signal-rule border-b py-12 sm:py-14 lg:py-16">
+    <motion.div
+      class="grid gap-12 lg:grid-cols-[minmax(0,0.82fr)_minmax(34rem,1.18fr)] lg:items-center lg:gap-14"
+      :initial="prefersReducedMotion ? false : { opacity: 0, y: 24 }"
+      :animate="{ opacity: 1, y: 0 }"
+      :transition="revealTransition"
+    >
       <div class="min-w-0">
-        <div class="mb-4 flex flex-wrap items-center gap-3">
-          <span
-            class="rounded-md border border-border/70 bg-background px-2.5 py-1 text-[11px] font-mono uppercase tracking-widest text-muted-foreground"
-          >
-            {{ eyebrow }}
-          </span>
-          <span
-            class="inline-flex items-center gap-2 text-xs font-medium text-emerald-600 dark:text-emerald-300"
-          >
-            <span class="relative flex h-2 w-2">
-              <span
-                class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60"
-              />
-              <span class="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
-            </span>
-            {{ liveLabel }}
-          </span>
-        </div>
-
-        <h1 class="max-w-4xl text-5xl font-semibold text-foreground sm:text-6xl lg:text-7xl">
-          {{ title }}
+        <p class="signal-accent font-mono text-[11px] uppercase tracking-[0.18em]">
+          {{ eyebrow }}
+        </p>
+        <h1
+          class="mt-6 max-w-[15ch] text-4xl font-semibold leading-[1.02] tracking-[-0.045em] text-foreground sm:text-5xl lg:text-[3.5rem]"
+        >
+          {{ headline }}
         </h1>
-
-        <p class="mt-5 max-w-3xl text-lg leading-relaxed text-muted-foreground sm:text-xl">
-          {{ description }}
+        <p class="mt-6 max-w-xl text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
+          <span class="font-medium text-foreground">{{ whyLabel }}:</span>
+          {{ whyText }}
         </p>
 
-        <div class="mt-7 grid gap-3 sm:grid-cols-3">
-          <div
-            v-for="promise in promises"
-            :key="promise"
-            class="border-l border-border/80 pl-3 text-sm leading-relaxed text-muted-foreground/80"
+        <div class="mt-8 flex flex-wrap items-center gap-4">
+          <button
+            type="button"
+            class="signal-primary-button group inline-flex items-center gap-3 rounded-lg px-5 py-3 text-sm font-semibold outline-none transition-colors focus-visible:ring-2 focus-visible:ring-[var(--signal-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            @click="emit('explore')"
           >
-            {{ promise }}
-          </div>
+            {{ exploreLabel }}
+            <Icon
+              name="heroicons:arrow-right"
+              class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transition-none"
+            />
+          </button>
+          <button
+            type="button"
+            class="group inline-flex items-center gap-3 rounded-lg px-2 py-3 text-sm font-medium text-muted-foreground outline-none transition-colors hover:text-foreground focus-visible:ring-2 focus-visible:ring-[var(--signal-accent)]"
+            @click="emit('readTake')"
+          >
+            {{ readTakeLabel }}
+            <Icon
+              name="heroicons:arrow-right"
+              class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transition-none"
+            />
+          </button>
         </div>
       </div>
 
-      <aside class="rounded-lg border border-border/70 bg-card/80 p-4 shadow-sm backdrop-blur">
-        <div class="flex items-start justify-between gap-4 border-b border-border/50 pb-4">
-          <div>
-            <p class="text-[11px] font-mono uppercase tracking-widest text-muted-foreground/55">
-              {{ operationsLabel }}
-            </p>
-            <p class="mt-1 text-sm font-medium text-foreground">
-              {{ statusLabel }}
-            </p>
-          </div>
-          <div v-if="pulseDate" class="text-right">
-            <p class="text-[10px] font-mono uppercase tracking-widest text-muted-foreground/45">
-              {{ pulseDateLabel }}
-            </p>
-            <p class="mt-1 text-xs font-mono text-muted-foreground">
-              {{ pulseDate }}
-            </p>
-          </div>
-        </div>
+      <div class="min-w-0">
+        <p
+          class="mb-4 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground opacity-75"
+        >
+          {{ evidenceLabel }}
+        </p>
 
-        <div class="mt-4 grid grid-cols-3 gap-3">
-          <div v-for="metric in metrics" :key="metric.label" class="min-w-0">
-            <p class="text-2xl font-semibold text-foreground">
-              {{ metric.value }}
-            </p>
-            <p class="mt-1 text-[10px] font-mono uppercase tracking-wide text-muted-foreground/50">
-              {{ metric.label }}
-            </p>
-            <p class="mt-1 line-clamp-2 text-[11px] leading-snug text-muted-foreground/55">
-              {{ metric.caption }}
-            </p>
-          </div>
-        </div>
-
-        <div v-if="sourceMixRows.length > 0" class="mt-5 border-t border-border/50 pt-4">
-          <p class="mb-3 text-[11px] font-mono uppercase tracking-widest text-muted-foreground/55">
-            {{ sourceMixLabel }}
-          </p>
-          <div class="space-y-2">
-            <div
-              v-for="row in sourceMixRows"
-              :key="row.source"
-              class="grid grid-cols-[2.5rem_1fr_4.5rem] items-center gap-2"
+        <div
+          class="grid items-center gap-5 lg:grid-cols-[minmax(0,1fr)_4.5rem_minmax(12rem,0.72fr)]"
+        >
+          <div class="signal-divide signal-rule min-w-0 divide-y border-y">
+            <a
+              v-for="item in visibleEvidence"
+              :key="item.id"
+              :href="item.url"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="signal-row group flex min-w-0 items-center gap-3 py-3.5 outline-none transition-colors"
             >
-              <span class="text-right text-[11px] font-mono text-muted-foreground/65">
-                {{ row.count }}
+              <span
+                class="signal-icon-surface flex h-9 w-9 shrink-0 items-center justify-center rounded-full border transition-colors group-hover:border-[var(--signal-accent)] group-hover:text-[var(--signal-accent)]"
+              >
+                <Icon :name="item.sourceIcon" class="h-4 w-4" />
               </span>
-              <div class="h-1.5 overflow-hidden rounded-full bg-secondary">
-                <div
-                  class="h-full rounded-full"
-                  :class="row.colorClass"
-                  :style="{ width: `${row.percent}%` }"
-                />
-              </div>
-              <span class="truncate text-[11px] font-mono text-muted-foreground/65">
-                {{ row.label }}
+              <span class="min-w-0 flex-1">
+                <span
+                  class="line-clamp-1 text-sm font-medium text-foreground opacity-80 transition-opacity group-hover:opacity-100"
+                >
+                  {{ item.title }}
+                </span>
+                <span
+                  class="mt-1 flex items-center gap-2 font-mono text-[10px] text-muted-foreground opacity-75"
+                >
+                  <span>{{ item.sourceLabel }}</span>
+                  <span aria-hidden="true">·</span>
+                  <span>{{ item.publishedLabel }}</span>
+                </span>
               </span>
-            </div>
+              <Icon
+                name="heroicons:arrow-up-right"
+                class="h-3.5 w-3.5 shrink-0 text-muted-foreground opacity-50 transition-colors group-hover:text-[var(--signal-accent)] group-hover:opacity-100"
+              />
+            </a>
+
+            <button
+              v-if="hiddenEvidenceCount > 0"
+              type="button"
+              class="signal-accent flex w-full items-center gap-2 py-3 text-left font-mono text-[10px] uppercase tracking-[0.14em] opacity-75 outline-none transition-opacity hover:opacity-100 focus-visible:opacity-100"
+              @click="showAllEvidence = true"
+            >
+              <Icon name="heroicons:plus" class="h-3.5 w-3.5" />
+              +{{ hiddenEvidenceCount }} {{ moreEvidenceLabel }}
+            </button>
           </div>
+
+          <div class="signal-accent flex items-center justify-center py-2 opacity-80 lg:py-0">
+            <Icon
+              name="ph:git-merge-duotone"
+              class="h-14 w-14 rotate-90 lg:h-16 lg:w-16 lg:rotate-0"
+              aria-hidden="true"
+            />
+          </div>
+
+          <button
+            type="button"
+            class="signal-thesis group mx-auto flex aspect-square w-full max-w-[15.5rem] flex-col items-center justify-center rounded-full border px-8 text-center outline-none transition-colors hover:border-[var(--signal-accent)] focus-visible:ring-2 focus-visible:ring-[var(--signal-accent)]"
+            @click="emit('readTake')"
+          >
+            <Icon
+              name="ph:sparkle-fill"
+              class="signal-accent h-5 w-5 transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110 motion-reduce:transition-none"
+            />
+            <span class="signal-accent mt-4 font-mono text-[10px] uppercase tracking-[0.17em]">
+              {{ thesisLabel }}
+            </span>
+            <span class="mt-3 text-lg font-medium leading-snug text-foreground sm:text-xl">
+              {{ thesis }}
+            </span>
+            <span
+              class="mt-4 font-mono text-[9px] uppercase tracking-[0.14em] text-muted-foreground opacity-70"
+            >
+              {{ topicLabel }}
+            </span>
+          </button>
         </div>
-      </aside>
-    </div>
+      </div>
+    </motion.div>
   </section>
 </template>

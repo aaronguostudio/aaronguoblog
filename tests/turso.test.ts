@@ -5,6 +5,23 @@ type ApiHandler = (event?: unknown) => Promise<unknown>
 
 async function loadSignalHandler(query: Record<string, string> = {}) {
   vi.resetModules()
+  vi.doUnmock('../server/utils/turso')
+  vi.stubGlobal('defineCachedEventHandler', (handler: ApiHandler) => handler)
+  vi.stubGlobal('getQuery', () => query)
+
+  const module = await import('../server/api/signal.get')
+  return module.default as ApiHandler
+}
+
+async function loadSignalHandlerWithDb(
+  execute: ReturnType<typeof vi.fn>,
+  query: Record<string, string> = {}
+) {
+  vi.resetModules()
+  vi.doMock('../server/utils/turso', () => ({
+    isMissingTursoConfigError: () => false,
+    useTurso: () => ({ execute }),
+  }))
   vi.stubGlobal('defineCachedEventHandler', (handler: ApiHandler) => handler)
   vi.stubGlobal('getQuery', () => query)
 
@@ -47,6 +64,7 @@ describe('useTurso', () => {
 describe('Signal API missing Turso fallbacks', () => {
   afterEach(() => {
     vi.unstubAllGlobals()
+    vi.doUnmock('../server/utils/turso')
     vi.resetModules()
   })
 
@@ -59,6 +77,7 @@ describe('Signal API missing Turso fallbacks', () => {
     const handler = await loadSignalHandler({ limit: '20', offset: '4', minRelevance: '7' })
 
     await expect(handler({})).resolves.toEqual({
+      available: false,
       items: [],
       total: 0,
       stats: [],
@@ -66,6 +85,37 @@ describe('Signal API missing Turso fallbacks', () => {
       latestRun: null,
       limit: 20,
       offset: 4,
+    })
+  })
+
+  it('marks the Radar payload as available', async () => {
+    const execute = vi.fn()
+      .mockResolvedValueOnce({ rows: [] })
+      .mockResolvedValueOnce({ rows: [{ total: 0 }] })
+      .mockResolvedValueOnce({ rows: [] })
+      .mockResolvedValueOnce({ rows: [] })
+      .mockResolvedValueOnce({ rows: [] })
+    const handler = await loadSignalHandlerWithDb(execute)
+
+    await expect(handler({})).resolves.toMatchObject({
+      available: true,
+      items: [],
+      total: 0,
+    })
+  })
+
+  it('marks the legacy fallback payload as available', async () => {
+    const execute = vi.fn()
+      .mockRejectedValueOnce(new Error('no such table: radar_items'))
+      .mockResolvedValueOnce({ rows: [] })
+      .mockResolvedValueOnce({ rows: [{ total: 0 }] })
+      .mockResolvedValueOnce({ rows: [] })
+    const handler = await loadSignalHandlerWithDb(execute)
+
+    await expect(handler({})).resolves.toMatchObject({
+      available: true,
+      items: [],
+      total: 0,
     })
   })
 

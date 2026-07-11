@@ -24,6 +24,7 @@
     "radar:diagnose": "node scripts/radar/cli.js diagnose",
     "radar:migrate": "node scripts/radar/cli.js migrate",
     "radar:verify-deploy": "node scripts/radar/deploy-verifier.js",
+    "newsletter:draft": "node scripts/newsletter/draft.js",
     "test": "vitest",
     "youtube:fetch": "node scripts/fetch-youtube-data.js"
   },
@@ -60,6 +61,7 @@
   },
   "dependencies": {
     "@libsql/client": "^0.14.0",
+    "motion-v": "^2.3.0",
     "sharp": "^0.34.5"
   }
 }

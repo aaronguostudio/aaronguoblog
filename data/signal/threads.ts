@@ -3,6 +3,7 @@ export type SignalLocale = 'en' | 'zh'
 export type LocalizedSignalText = Record<SignalLocale, string>
 
 export type SignalThreadConfidence = 'low' | 'medium' | 'high'
+export type SignalThreadHorizon = 'now' | 'emerging' | 'watch'
 
 export type SignalThreadRef = {
   url: string
@@ -12,6 +13,8 @@ export type SignalThreadRef = {
 
 export type SignalResearchThread = {
   slug: string
+  primaryTopicSlug: string
+  horizon: SignalThreadHorizon
   title: LocalizedSignalText
   thesis: LocalizedSignalText
   builderImplication: LocalizedSignalText
@@ -25,6 +28,8 @@ export type SignalResearchThread = {
 export const SIGNAL_RESEARCH_THREADS: SignalResearchThread[] = [
   {
     slug: 'coding-agents-own-workflows',
+    primaryTopicSlug: 'coding-agents',
+    horizon: 'now',
     title: {
       en: 'Coding agents are becoming workflow owners',
       zh: 'Coding agents 正在变成工作流负责人',
@@ -76,6 +81,8 @@ export const SIGNAL_RESEARCH_THREADS: SignalResearchThread[] = [
   },
   {
     slug: 'solo-builders-small-team-output',
+    primaryTopicSlug: 'personal-ai-systems',
+    horizon: 'emerging',
     title: {
       en: 'Solo builders are approaching small-team output',
       zh: '个人构建者正在接近小团队产出',
@@ -127,6 +134,8 @@ export const SIGNAL_RESEARCH_THREADS: SignalResearchThread[] = [
   },
   {
     slug: 'internal-workflows-become-products',
+    primaryTopicSlug: 'consumer-ai-apps',
+    horizon: 'watch',
     title: {
       en: 'Internal workflows are becoming product candidates',
       zh: '内部工作流正在变成产品候选',

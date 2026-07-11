@@ -14,6 +14,7 @@
     "home": "Home",
     "start": "Start Here",
     "blogs": "Writing",
+    "notes": "Notes",
     "playbooks": "Playbooks",
     "aiNative": "AI Native",
     "about": "About",
@@ -34,6 +35,29 @@
     "tableOfContent": "Table Of Content",
     "filterByTopic": "Filter by Topic",
     "searchPlaceholder": "Search blogs by title, description, or tags..."
+  },
+  "notes": {
+    "title": "Builder Notes",
+    "archiveLabel": "Builder Notes archive",
+    "eyebrow": "Field notes · Ongoing",
+    "description": "Short observations from building with AI, running small systems, and trying to stay human.",
+    "latest": "Latest notes",
+    "latestDescription": "Ideas worth keeping before they become essays.",
+    "viewAll": "View all notes",
+    "readNote": "Permalink",
+    "back": "All notes",
+    "empty": "No notes yet. The notebook is open.",
+    "ongoing": "Ongoing",
+    "noteLabel": "Note",
+    "count": "{count} published",
+    "whatLivesHere": "What lives here",
+    "ruleClaim": "One clear claim",
+    "ruleObservation": "One lived observation",
+    "ruleImplication": "One useful implication",
+    "shareOnX": "Share on X",
+    "shareOnLinkedIn": "Share on LinkedIn",
+    "closing": "A working thought, kept in public.",
+    "showSlide": "Show note {number}"
   },
   "categories": {
     "title": "All Categories",
@@ -62,7 +86,88 @@
     "now1": "Building AI-native execution systems — tools that help product and engineering teams ship faster without cutting corners.",
     "now2": "Exploring how to redesign daily life with AI — balancing family, health, career, and personal projects.",
     "connectTitle": "Let's Connect",
-    "aboutMe": "I'm Aaron — a product builder and engineer at a financial firm. I lead product teams by day and write code by night. This site is where I share real notes on product execution, AI-native systems, and building in public."
+    "aboutMe": "I'm Aaron — a product builder and engineer at a financial firm. I lead product teams by day and write code by night. This site is where I share real notes on product execution, AI-native systems, and building in public.",
+    "scrollHint": "Scroll to follow the story",
+    "stillCurious": "Still curious.",
+    "stages": {
+      "build": {
+        "label": "BUILD",
+        "railLabel": "ABOUT",
+        "title": "Builder with rhythm. Human by design.",
+        "description": "I lead products, still write code, and use AI to make more room for the life worth living.",
+        "cta": "See what I’m building"
+      },
+      "think": {
+        "label": "THINK",
+        "railLabel": "JUDGMENT",
+        "title": "Speed still needs judgment.",
+        "description": "AI can accelerate the work. Choosing what matters, asking better questions, and knowing when to stop still belong to people.",
+        "cta": "Read what I’m learning"
+      },
+      "play": {
+        "label": "PLAY",
+        "railLabel": "RHYTHM",
+        "title": "Leave room for rhythm.",
+        "description": "Family, music, health, and time away from screens are not detours. They keep the work grounded and the thinking clear.",
+        "cta": "Watch and listen"
+      }
+    },
+    "ways": {
+      "eyebrow": "FOUR WAYS I SHOW UP",
+      "title": "Different rhythms. Same intention.",
+      "intro": "Build things that matter, then share what the work teaches.",
+      "build": {
+        "title": "Build — useful systems",
+        "description": "I turn ambiguous problems into practical products, workflows, and tools."
+      },
+      "write": {
+        "title": "Write — durable thinking",
+        "description": "I share field notes from real experiments, including what failed and what changed my mind."
+      },
+      "play": {
+        "title": "Play — drums & experiments",
+        "description": "Music keeps me present. Experiments keep me curious."
+      },
+      "live": {
+        "title": "Live — family, health, wonder",
+        "description": "Life beyond the screen keeps the work honest and the judgment clear."
+      },
+      "explore": "Explore"
+    },
+    "humanFirst": {
+      "eyebrow": "HUMAN FIRST",
+      "quote": "The point of leverage is not to become a machine. It is to make life bigger.",
+      "description": "AI-native systems remove friction. The time and attention they return are for what only humans can do — care, creativity, judgment, and deep relationships."
+    },
+    "now": {
+      "eyebrow": "NOW",
+      "title": "What has my attention",
+      "building": {
+        "title": "Building",
+        "description": "Practical AI-native systems that turn intent into repeatable, useful work."
+      },
+      "writing": {
+        "title": "Writing",
+        "description": "Field notes on product, execution, and the ideas that survive real use."
+      },
+      "makingRoom": {
+        "title": "Making room",
+        "description": "Time for family, health, music, and the quiet that clear thinking requires."
+      }
+    },
+    "road": {
+      "eyebrow": "THE ROAD HERE",
+      "title": "Between the problem and the system",
+      "body1": "Much of my work happens between a messy real-world problem and the system that eventually makes it simpler.",
+      "body2": "AI has widened what I can explore, but it has not changed my standard: useful, understandable, and human. This site is my field notebook for that road.",
+      "cta": "Read the field notes"
+    },
+    "connect": {
+      "eyebrow": "CONNECT",
+      "title": "If our paths overlap, say hello.",
+      "description": "I’m always glad to compare notes with thoughtful builders, operators, and curious people.",
+      "notesCta": "Read my notes"
+    }
   },
   "aiNative": {
     "title": "AI Native",
@@ -272,6 +377,46 @@
     "evidenceDescription": "Search and filter the underlying links that support the daily pulse, research threads, and briefs.",
     "pulse": "AI safety and the OpenAI vs Anthropic debate dominate today, while MCP protocol adoption accelerates globally.",
     "aiSummary": "Summarized by AI",
-    "description": "Radar-backed AI and technology signal feed. Structured public links, not automated blog posts."
+    "description": "Radar-backed AI and technology signal feed. Structured public links, not automated blog posts.",
+    "latestRead": "Latest radar read",
+    "dateUnavailable": "Date unavailable",
+    "justNow": "just now",
+    "openWeb": "Open web",
+    "researchTopic": "Research topic",
+    "whyItMatters": "Why it matters",
+    "convergingEvidence": "Evidence converging on a working thesis",
+    "moreEvidence": "more evidence",
+    "workingThesis": "Working thesis",
+    "exploreEvidence": "Explore the evidence",
+    "readAaronsTake": "Read Aaron's take",
+    "evidenceBehindFocus": "Evidence behind the current focus",
+    "evidenceBehindFocusDescription": "The five items selected by the latest Radar pulse. Open the source, inspect the summary, then decide whether the thesis holds.",
+    "machineReadout": "Machine-generated radar readout",
+    "close": "Close",
+    "openWorkbench": "Open the full evidence workbench",
+    "horizonTitle": "Three things worth watching",
+    "horizonDescription": "Start with the current focus, then open only the thread you want to examine. The horizon is editorial, not an automated trend score.",
+    "horizonNow": "Now",
+    "horizonEmerging": "Emerging",
+    "horizonWatch": "Watch",
+    "aaronsTake": "Aaron's take",
+    "relatedItems": "snapshot items",
+    "exploreRelatedEvidence": "Explore related evidence",
+    "exploreAllEvidence": "Explore all browseable evidence",
+    "expand": "Expand",
+    "collapse": "Collapse",
+    "previousBriefings": "Previous briefings",
+    "previousBriefingsDescription": "Longer editorial notes stay folded until you want the full argument.",
+    "openBrief": "Read brief",
+    "closeBrief": "Close brief",
+    "researchWorkbench": "Evidence workbench",
+    "workbenchDescription": "Search the public evidence set by the dimensions that actually exist in the data. Corpus-wide source totals remain separate from the currently browseable results.",
+    "searchEvidence": "Search evidence...",
+    "sourceFilter": "Source filter",
+    "categoryFilter": "Category filter",
+    "topicFilter": "Topic filter",
+    "allSources": "All sources",
+    "allCategories": "All categories",
+    "browseableItems": "browseable items"
   }
 }

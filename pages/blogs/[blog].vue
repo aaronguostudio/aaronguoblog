@@ -160,7 +160,7 @@ defineOgImageComponent('Test', {
         </ContentRenderer>
       </div>
     </div>
-    <div class="lg:col-span-3 hidden lg:block sticky top-20 self-start">
+    <div class="lg:col-span-3 hidden lg:block sticky top-24 self-start">
       <BlogToc />
       <BlogMediaLinks :youtube="data.youtube" :audio="data.audio" />
     </div>

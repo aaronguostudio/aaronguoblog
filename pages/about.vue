@@ -1,8 +1,11 @@
 <script lang="ts" setup>
-import { useI18n } from 'vue-i18n'
+import { MotionConfig, motion, useReducedMotion } from 'motion-v'
+import AboutScrollJourney from '~/components/about/AboutScrollJourney.vue'
 import { socialLinks } from '~/data'
 
 const { t } = useI18n()
+const localePath = useLocalePath()
+const prefersReducedMotion = useReducedMotion()
 
 useHead({
   title: t('about.title'),
@@ -19,247 +22,312 @@ defineOgImageComponent('About', {
   title: t('about.title'),
   description: t('about.description'),
 })
+
+const nowItems = computed(() => [
+  {
+    key: 'building',
+    icon: 'heroicons:cube-transparent',
+    title: t('about.now.building.title'),
+    description: t('about.now.building.description'),
+  },
+  {
+    key: 'writing',
+    icon: 'heroicons:pencil-square',
+    title: t('about.now.writing.title'),
+    description: t('about.now.writing.description'),
+  },
+  {
+    key: 'making-room',
+    icon: 'heroicons:moon',
+    title: t('about.now.makingRoom.title'),
+    description: t('about.now.makingRoom.description'),
+  },
+])
+
+const socialItems = computed(() => [
+  { key: 'linkedin', label: 'LinkedIn', icon: 'mdi:linkedin', href: socialLinks.linkedinLink },
+  { key: 'github', label: 'GitHub', icon: 'mdi:github', href: socialLinks.githubLink },
+  { key: 'twitter', label: 'X', icon: 'ri:twitter-x-fill', href: socialLinks.twitterLink },
+  { key: 'youtube', label: 'YouTube', icon: 'mdi:youtube', href: socialLinks.youtubeLink },
+])
+
+const revealTransition = {
+  duration: 0.82,
+  ease: [0.22, 1, 0.36, 1] as const,
+}
 </script>
 
 <template>
-  <main class="container max-w-4xl mx-auto px-4 py-12">
-    <!-- Page Header -->
-    <div class="mb-12">
-      <h1 class="text-4xl md:text-5xl font-bold text-foreground mb-4">
-        {{ t('about.title') }}
-      </h1>
-      <p class="text-xl text-muted-foreground leading-relaxed">
-        {{ t('about.subtitle') }}
-      </p>
-    </div>
+  <div class="about-page">
+    <MotionConfig reduced-motion="user" :transition="{ duration: 0.72, ease: [0.22, 1, 0.36, 1] }">
+      <main class="overflow-clip">
+        <AboutScrollJourney />
 
-    <!-- My Story -->
-    <div class="mb-12">
-      <div class="flex items-center gap-3 mb-6">
-        <div class="w-1 h-8 bg-foreground rounded-full" />
-        <h2 class="text-2xl font-bold text-foreground">
-          {{ t('about.bioTitle') }}
-        </h2>
-      </div>
-      <div class="prose dark:prose-invert max-w-none">
-        <p class="text-muted-foreground leading-relaxed mb-4">
-          {{ t('about.bio1') }}
-        </p>
-        <p class="text-muted-foreground leading-relaxed">
-          {{ t('about.bio2') }}
-        </p>
-      </div>
-    </div>
-
-    <!-- What I Do -->
-    <div class="mb-12">
-      <div class="flex items-center gap-3 mb-6">
-        <div class="w-1 h-8 bg-foreground rounded-full" />
-        <h2 class="text-2xl font-bold text-foreground">
-          {{ t('about.credibilityTitle') }}
-        </h2>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="p-5 rounded-xl border border-border">
-          <h3 class="text-lg font-semibold mb-3 text-foreground flex items-center gap-2">
-            <Icon name="heroicons:briefcase" class="w-5 h-5 text-muted-foreground" />
-            {{ t('about.roleTitle') }}
-          </h3>
-          <ul class="space-y-2 text-muted-foreground">
-            <li class="flex items-start gap-2">
-              <span class="text-foreground mt-1">•</span>
-              <span>{{ t('about.roleItem1') }}</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-foreground mt-1">•</span>
-              <span>{{ t('about.roleItem2') }}</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-foreground mt-1">•</span>
-              <span>{{ t('about.roleItem3') }}</span>
-            </li>
-          </ul>
-        </div>
-        <div class="p-5 rounded-xl border border-border">
-          <h3 class="text-lg font-semibold mb-3 text-foreground flex items-center gap-2">
-            <Icon name="heroicons:rocket-launch" class="w-5 h-5 text-muted-foreground" />
-            {{ t('about.systemsTitle') }}
-          </h3>
-          <ul class="space-y-2 text-muted-foreground">
-            <li class="flex items-start gap-2">
-              <span class="text-foreground mt-1">•</span>
-              <span>{{ t('about.systemsItem1') }}</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-foreground mt-1">•</span>
-              <span>{{ t('about.systemsItem2') }}</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-foreground mt-1">•</span>
-              <span>{{ t('about.systemsItem3') }}</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <!-- What I'm Working On -->
-    <div class="mb-12">
-      <div class="flex items-center gap-3 mb-6">
-        <div class="w-1 h-8 bg-foreground rounded-full" />
-        <h2 class="text-2xl font-bold text-foreground">
-          {{ t('about.nowTitle') }}
-        </h2>
-      </div>
-      <div class="prose dark:prose-invert max-w-none">
-        <p class="text-muted-foreground leading-relaxed mb-4">
-          {{ t('about.now1') }}
-        </p>
-        <p class="text-muted-foreground leading-relaxed">
-          {{ t('about.now2') }}
-        </p>
-      </div>
-    </div>
-
-    <!-- Connect -->
-    <div class="mb-12">
-      <div class="flex items-center gap-3 mb-6">
-        <div class="w-1 h-8 bg-foreground rounded-full" />
-        <h2 class="text-2xl font-bold text-foreground">
-          {{ t('about.connectTitle') }}
-        </h2>
-      </div>
-      <div class="flex flex-wrap gap-3">
-        <a
-          :href="socialLinks.linkedinLink"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-primary-foreground hover:bg-foreground rounded-lg transition-colors duration-200"
-          data-rybbit-event="outbound_click"
-          data-rybbit-prop-platform="linkedin"
-          data-rybbit-prop-location="about"
-        >
-          <Icon name="mdi:linkedin" class="w-5 h-5" />
-          LinkedIn
-        </a>
-        <a
-          :href="socialLinks.githubLink"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-primary-foreground hover:bg-foreground rounded-lg transition-colors duration-200"
-          data-rybbit-event="outbound_click"
-          data-rybbit-prop-platform="github"
-          data-rybbit-prop-location="about"
-        >
-          <Icon name="mdi:github" class="w-5 h-5" />
-          GitHub
-        </a>
-        <a
-          :href="socialLinks.twitterLink"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-primary-foreground hover:bg-foreground rounded-lg transition-colors duration-200"
-          data-rybbit-event="outbound_click"
-          data-rybbit-prop-platform="twitter"
-          data-rybbit-prop-location="about"
-        >
-          <Icon name="mdi:twitter" class="w-5 h-5" />
-          Twitter/X
-        </a>
-        <a
-          :href="socialLinks.youtubeLink"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-primary-foreground hover:bg-foreground rounded-lg transition-colors duration-200"
-          data-rybbit-event="outbound_click"
-          data-rybbit-prop-platform="youtube"
-          data-rybbit-prop-location="about"
-        >
-          <Icon name="mdi:youtube" class="w-5 h-5" />
-          YouTube
-        </a>
-      </div>
-    </div>
-
-    <!-- What I Write About -->
-    <div class="mb-12">
-      <div class="flex items-center gap-3 mb-8">
-        <div class="w-1 h-10 bg-foreground rounded-full" />
-        <h2 class="text-3xl font-bold text-foreground">
-          {{ t('start.pathsTitle') }}
-        </h2>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <!-- Product Execution -->
-        <div
-          class="group border border-border rounded-xl p-6 hover:border-foreground/20 transition-colors duration-200"
-        >
-          <div class="w-10 h-10 bg-foreground rounded-lg flex items-center justify-center mb-4">
-            <Icon name="heroicons:user-group" class="w-5 h-5 text-background" />
-          </div>
-          <h3 class="text-xl font-semibold mb-3 text-foreground">
-            {{ t('start.path1Title') }}
-          </h3>
-          <p class="text-muted-foreground mb-4">{{ t('start.path1Description') }}</p>
-          <NuxtLink
-            to="/blogs?topic=execution"
-            class="group/link inline-flex items-center gap-2 text-foreground hover:text-foreground/70 font-medium transition-colors"
+        <section class="about-section border-t px-5 py-24 sm:px-8 lg:px-12 lg:py-32">
+          <motion.div
+            class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[minmax(0,1.45fr)_minmax(18rem,0.55fr)] lg:items-end"
+            :initial="prefersReducedMotion ? false : { opacity: 0, y: 44 }"
+            :while-in-view="{ opacity: 1, y: 0 }"
+            :viewport="{ once: true, amount: 0.3 }"
+            :transition="revealTransition"
           >
-            {{ t('start.explorePath') }}
-            <Icon
-              name="heroicons:arrow-right"
-              class="w-4 h-4 group-hover/link:translate-x-1 transition-transform duration-200"
-            />
-          </NuxtLink>
-        </div>
+            <div>
+              <p class="about-accent font-mono text-[11px] uppercase tracking-[0.18em]">
+                {{ t('about.humanFirst.eyebrow') }}
+              </p>
+              <blockquote class="mt-6 flex gap-5 sm:gap-8">
+                <Icon
+                  name="tabler:quote"
+                  class="about-accent mt-1 h-10 w-10 shrink-0 sm:h-14 sm:w-14"
+                />
+                <p
+                  class="about-heading max-w-4xl text-4xl font-semibold leading-[1.03] tracking-[-0.05em] sm:text-5xl lg:text-7xl"
+                >
+                  {{ t('about.humanFirst.quote') }}
+                </p>
+              </blockquote>
+            </div>
+            <p class="about-description-rule about-muted border-l pl-6 text-base leading-7">
+              {{ t('about.humanFirst.description') }}
+            </p>
+          </motion.div>
+        </section>
 
-        <!-- AI-Native Systems -->
-        <div
-          class="group border border-border rounded-xl p-6 hover:border-foreground/20 transition-colors duration-200"
-        >
-          <div class="w-10 h-10 bg-foreground rounded-lg flex items-center justify-center mb-4">
-            <Icon name="heroicons:cog-6-tooth" class="w-5 h-5 text-background" />
-          </div>
-          <h3 class="text-xl font-semibold mb-3 text-foreground">
-            {{ t('start.path2Title') }}
-          </h3>
-          <p class="text-muted-foreground mb-4">{{ t('start.path2Description') }}</p>
-          <NuxtLink
-            to="/blogs?topic=ai-native"
-            class="group/link inline-flex items-center gap-2 text-foreground hover:text-foreground/70 font-medium transition-colors"
-          >
-            {{ t('start.explorePath') }}
-            <Icon
-              name="heroicons:arrow-right"
-              class="w-4 h-4 group-hover/link:translate-x-1 transition-transform duration-200"
-            />
-          </NuxtLink>
-        </div>
+        <section class="about-section border-t px-5 py-24 sm:px-8 lg:px-12 lg:py-28">
+          <div class="mx-auto max-w-7xl">
+            <motion.div
+              :initial="prefersReducedMotion ? false : { opacity: 0, y: 30 }"
+              :while-in-view="{ opacity: 1, y: 0 }"
+              :viewport="{ once: true, amount: 0.45 }"
+              :transition="revealTransition"
+            >
+              <p class="about-accent font-mono text-[11px] uppercase tracking-[0.18em]">
+                {{ t('about.now.eyebrow') }}
+              </p>
+              <h2 class="about-heading mt-4 text-4xl font-semibold tracking-[-0.045em] sm:text-5xl">
+                {{ t('about.now.title') }}
+              </h2>
+            </motion.div>
 
-        <!-- Building in Public -->
-        <div
-          class="group border border-border rounded-xl p-6 hover:border-foreground/20 transition-colors duration-200"
-        >
-          <div class="w-10 h-10 bg-foreground rounded-lg flex items-center justify-center mb-4">
-            <Icon name="heroicons:sparkles" class="w-5 h-5 text-background" />
+            <div class="about-divider-grid mt-12 grid border-y md:grid-cols-3">
+              <motion.article
+                v-for="(item, index) in nowItems"
+                :key="item.key"
+                class="about-divider-card border-b py-8 md:border-b-0 md:border-l md:px-8 md:first:border-l-0 md:first:pl-0 md:last:pr-0"
+                :initial="prefersReducedMotion ? false : { opacity: 0, y: 30 }"
+                :while-in-view="{ opacity: 1, y: 0 }"
+                :viewport="{ once: true, amount: 0.45 }"
+                :transition="{ ...revealTransition, delay: index * 0.08 }"
+              >
+                <div
+                  class="about-icon-box flex h-10 w-10 items-center justify-center rounded-lg border"
+                >
+                  <Icon :name="item.icon" class="h-5 w-5" />
+                </div>
+                <h3 class="about-heading mt-5 text-xl font-semibold">{{ item.title }}</h3>
+                <p class="about-muted mt-3 max-w-sm leading-7">{{ item.description }}</p>
+              </motion.article>
+            </div>
           </div>
-          <h3 class="text-xl font-semibold mb-3 text-foreground">
-            {{ t('start.path3Title') }}
-          </h3>
-          <p class="text-muted-foreground mb-4">{{ t('start.path3Description') }}</p>
-          <NuxtLink
-            to="/blogs?topic=building-in-public"
-            class="group/link inline-flex items-center gap-2 text-foreground hover:text-foreground/70 font-medium transition-colors"
+        </section>
+
+        <section class="about-section border-t px-5 py-24 sm:px-8 lg:px-12 lg:py-32">
+          <div
+            class="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[minmax(0,1.12fr)_minmax(22rem,0.88fr)] lg:items-center"
           >
-            {{ t('start.explorePath') }}
-            <Icon
-              name="heroicons:arrow-right"
-              class="w-4 h-4 group-hover/link:translate-x-1 transition-transform duration-200"
-            />
-          </NuxtLink>
-        </div>
-      </div>
-    </div>
-  </main>
+            <motion.figure
+              class="about-media-frame group overflow-hidden rounded-2xl border"
+              :initial="prefersReducedMotion ? false : { opacity: 0, y: 42, scale: 0.985 }"
+              :while-in-view="{ opacity: 1, y: 0, scale: 1 }"
+              :viewport="{ once: true, amount: 0.3 }"
+              :transition="revealTransition"
+            >
+              <img
+                src="/blogs-img/2026-06-20-ai-os-cover.webp"
+                :alt="t('about.road.body1')"
+                width="2048"
+                height="1152"
+                loading="lazy"
+                decoding="async"
+                class="aspect-video h-auto w-full object-cover transition-transform duration-1000 ease-out group-hover:scale-[1.018] motion-reduce:transition-none"
+              />
+            </motion.figure>
+
+            <motion.div
+              :initial="prefersReducedMotion ? false : { opacity: 0, y: 38 }"
+              :while-in-view="{ opacity: 1, y: 0 }"
+              :viewport="{ once: true, amount: 0.35 }"
+              :transition="{ ...revealTransition, delay: 0.08 }"
+            >
+              <p class="about-accent font-mono text-[11px] uppercase tracking-[0.18em]">
+                {{ t('about.road.eyebrow') }}
+              </p>
+              <h2
+                class="about-heading mt-4 max-w-[12ch] text-4xl font-semibold leading-[1.02] tracking-[-0.045em] sm:text-5xl"
+              >
+                {{ t('about.road.title') }}
+              </h2>
+              <p class="about-copy mt-7 text-lg leading-8">{{ t('about.road.body1') }}</p>
+              <p class="about-muted mt-5 leading-7">{{ t('about.road.body2') }}</p>
+              <NuxtLink
+                :to="localePath('/blogs')"
+                class="about-outline-link group mt-8 inline-flex items-center gap-3 rounded-lg border px-5 py-3 font-medium outline-none transition-colors focus-visible:ring-2"
+              >
+                {{ t('about.road.cta') }}
+                <Icon
+                  name="heroicons:arrow-right"
+                  class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transition-none"
+                />
+              </NuxtLink>
+            </motion.div>
+          </div>
+        </section>
+
+        <section class="about-section border-t px-5 py-24 sm:px-8 lg:px-12 lg:py-32">
+          <motion.div
+            class="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(22rem,0.85fr)] lg:items-end"
+            :initial="prefersReducedMotion ? false : { opacity: 0, y: 36 }"
+            :while-in-view="{ opacity: 1, y: 0 }"
+            :viewport="{ once: true, amount: 0.35 }"
+            :transition="revealTransition"
+          >
+            <div>
+              <p class="about-accent font-mono text-[11px] uppercase tracking-[0.18em]">
+                {{ t('about.connect.eyebrow') }}
+              </p>
+              <h2
+                class="about-heading mt-4 max-w-[13ch] text-4xl font-semibold leading-[1.02] tracking-[-0.045em] sm:text-5xl lg:text-6xl"
+              >
+                {{ t('about.connect.title') }}
+              </h2>
+              <p class="about-muted mt-6 max-w-xl text-lg leading-8">
+                {{ t('about.connect.description') }}
+              </p>
+            </div>
+
+            <div>
+              <div class="flex flex-wrap gap-3">
+                <a
+                  v-for="item in socialItems"
+                  :key="item.key"
+                  :href="item.href"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="about-outline-link group inline-flex items-center gap-2.5 rounded-lg border px-4 py-3 text-sm font-medium outline-none transition-colors focus-visible:ring-2"
+                  data-rybbit-event="outbound_click"
+                  :data-rybbit-prop-platform="item.key"
+                  data-rybbit-prop-location="about"
+                >
+                  <Icon :name="item.icon" class="h-4 w-4" />
+                  {{ item.label }}
+                  <Icon
+                    name="heroicons:arrow-up-right"
+                    class="about-faint h-3.5 w-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 motion-reduce:transition-none"
+                  />
+                </a>
+              </div>
+              <NuxtLink
+                :to="localePath('/notes')"
+                class="about-text-link mt-5 inline-flex items-center gap-3 font-medium outline-none focus-visible:ring-2"
+              >
+                {{ t('about.connect.notesCta') }}
+                <Icon name="heroicons:arrow-right" class="h-4 w-4" />
+              </NuxtLink>
+            </div>
+          </motion.div>
+        </section>
+      </main>
+    </MotionConfig>
+  </div>
 </template>
+
+<style scoped>
+.about-page {
+  --about-bg: #f6f3ec;
+  --about-surface: #fffdf8;
+  --about-text: #191714;
+  --about-copy: #45413a;
+  --about-muted: #625f58;
+  --about-faint: #817c73;
+  --about-line: rgb(25 23 20 / 0.13);
+  --about-line-strong: rgb(25 23 20 / 0.24);
+  --about-accent: #0e7490;
+  --about-accent-hover: #075985;
+
+  background: var(--about-bg);
+  color: var(--about-text);
+  transition:
+    background-color 300ms ease,
+    color 300ms ease;
+}
+
+:global(html.dark .about-page) {
+  --about-bg: #050608;
+  --about-surface: #070809;
+  --about-text: #f8f1e4;
+  --about-copy: rgb(255 255 255 / 0.68);
+  --about-muted: rgb(255 255 255 / 0.58);
+  --about-faint: rgb(255 255 255 / 0.38);
+  --about-line: rgb(255 255 255 / 0.1);
+  --about-line-strong: rgb(255 255 255 / 0.18);
+  --about-accent: #67e8f9;
+  --about-accent-hover: #cffafe;
+}
+
+.about-section,
+.about-divider-grid,
+.about-divider-card,
+.about-description-rule {
+  border-color: var(--about-line);
+}
+
+.about-heading {
+  color: var(--about-text);
+}
+
+.about-copy {
+  color: var(--about-copy);
+}
+
+.about-muted {
+  color: var(--about-muted);
+}
+
+.about-faint {
+  color: var(--about-faint);
+}
+
+.about-accent {
+  color: var(--about-accent);
+}
+
+.about-icon-box {
+  border-color: var(--about-line-strong);
+  color: var(--about-accent);
+}
+
+.about-media-frame {
+  border-color: var(--about-line);
+  background: var(--about-surface);
+}
+
+.about-outline-link {
+  border-color: var(--about-line-strong);
+  color: var(--about-text);
+  --tw-ring-color: var(--about-accent);
+}
+
+.about-outline-link:hover {
+  border-color: var(--about-accent);
+  color: var(--about-accent-hover);
+}
+
+.about-text-link {
+  color: var(--about-accent);
+  --tw-ring-color: var(--about-accent);
+}
+
+.about-text-link:hover {
+  color: var(--about-accent-hover);
+}
+</style>

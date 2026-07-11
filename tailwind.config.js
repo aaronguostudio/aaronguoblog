@@ -87,15 +87,19 @@ module.exports = {
             // Link styling
             a: {
               color: 'var(--primary)',
+              textDecoration: 'underline',
+              textUnderlineOffset: '0.18em',
+              textDecorationThickness: '0.08em',
+              textDecorationSkipInk: 'auto',
               '&:hover': {
                 color: 'var(--primary)',
-                opacity: '0.8',
+                textDecorationThickness: '0.12em',
               },
-              textDecoration: 'none',
               fontWeight: '500',
               // Special styling for hash links (internal links)
               '&[href^="#"]': {
                 color: 'var(--foreground)',
+                textDecoration: 'none',
                 fontWeight: '600',
                 '&:hover': {
                   color: 'var(--foreground)',

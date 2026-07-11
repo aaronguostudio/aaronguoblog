@@ -3,7 +3,7 @@ import { useI18n } from 'vue-i18n'
 import type { StaticRadarItem } from '~/composables/useStaticRadarSnapshot'
 import { SIGNAL_BRIEFS } from '~/data/signal/briefs'
 import { SIGNAL_RESEARCH_THREADS } from '~/data/signal/threads'
-import { formatSignalPulseText } from '~/utils/signal-pulse'
+import { formatSignalPulseText, selectFreshestSignalPulse } from '~/utils/signal-pulse'
 import { selectPulseSnapshotItems, sortRadarItemsByDateDesc } from '~/utils/radar-snapshot'
 import { createSignalBriefCards } from '~/utils/signal-briefs'
 import { createSignalThreadCards } from '~/utils/signal-threads'
@@ -21,6 +21,7 @@ type SignalItem = {
   relevance?: number | string
   category: string
   created_at: string
+  published_at?: string | null
   topic_slug?: string
 }
 
@@ -34,22 +35,18 @@ type RadarTopicOption = {
   name: string
 }
 
-type LatestRadarRun = {
-  completed_at?: string | null
-  started_at?: string | null
-}
-
 type SignalResponse = {
+  available?: boolean
   items?: SignalItem[]
   total?: number | string
   stats?: SignalStat[]
   topics?: RadarTopicOption[]
-  latestRun?: LatestRadarRun | null
 }
 
 type SignalPulseResponse = {
   pulse?: string | null
   date?: string | null
+  generatedAt?: string | null
   items?: SignalItem[]
 }
 
@@ -65,32 +62,35 @@ useHead({
 
 defineOgImageComponent('About', {
   headline: 'Signal',
-  title: 'Signal — AI-Curated Feed',
-  description: "What I'm reading. Noise removed.",
+  title: 'Signal — AI Product Research',
+  description: "Evidence, working theses, and the product ideas I'm watching.",
 })
 
-// Filter state
 const activeSource = ref('')
 const activeCategory = ref('')
 const activeTopic = ref('')
 const searchQuery = ref('')
 const offset = ref(0)
-
-// Accumulated items for infinite scroll
 const allItems = ref<SignalItem[]>([])
 const totalCount = ref(0)
 const statsData = ref<SignalStat[] | null>(null)
 
-// Static snapshot is the SSG path. API fetches remain as a development/runtime fallback.
+const showPulseEvidence = ref(false)
+const activeThreadSlug = ref('')
+const liveFeedReady = ref(false)
+
 const { data: staticSnapshot } = await useStaticRadarSnapshot('signal-radar-latest')
 
 const hasStaticSnapshot = computed(() => Boolean(staticSnapshot.value?.items?.length))
-const shouldFetchApi = !staticSnapshot.value?.items?.length
 
-// Fetch pulse data
-const { data: pulseData } = await useFetch<SignalPulseResponse>('/api/signal-pulse', {
-  immediate: shouldFetchApi,
-})
+const { data: pulseData, refresh: refreshPulse } = await useFetch<SignalPulseResponse>(
+  '/api/signal-pulse',
+  {
+    immediate: false,
+    server: false,
+    watch: false,
+  },
+)
 
 function mapStaticItem(item: StaticRadarItem): SignalItem {
   return {
@@ -104,7 +104,8 @@ function mapStaticItem(item: StaticRadarItem): SignalItem {
     relevance: item.relevance,
     category: item.category,
     topic_slug: item.topicSlug,
-    created_at: item.createdAt || item.publishedAt || staticSnapshot.value?.generatedAt || '',
+    created_at: item.createdAt || staticSnapshot.value?.generatedAt || '',
+    published_at: item.publishedAt || null,
   }
 }
 
@@ -118,21 +119,36 @@ function getStaticPulseItems() {
   return selectPulseSnapshotItems<SignalItem>(items, topIds, 5)
 }
 
-const rawPulseText = computed(
-  () => staticSnapshot.value?.pulse?.text || pulseData.value?.pulse || null,
+const activePulse = computed(() =>
+  selectFreshestSignalPulse<SignalItem>(
+    staticSnapshot.value?.pulse
+      ? {
+          text: staticSnapshot.value.pulse.text,
+          date: staticSnapshot.value.pulse.date,
+          generatedAt: staticSnapshot.value.generatedAt,
+          items: getStaticPulseItems(),
+        }
+      : null,
+    pulseData.value?.date || pulseData.value?.pulse
+      ? {
+          text: pulseData.value.pulse,
+          date: pulseData.value.date,
+          generatedAt: pulseData.value.generatedAt,
+          items: (pulseData.value.items || []).slice(0, 5),
+        }
+      : null,
+  ),
 )
+
+const rawPulseText = computed(() => activePulse.value?.text || null)
 const pulseText = computed(() =>
   formatSignalPulseText({
     text: rawPulseText.value,
     locale: locale.value,
   }),
 )
-const pulseDate = computed(() => staticSnapshot.value?.pulse?.date || pulseData.value?.date || null)
-const pulseItems = computed(() => {
-  if (hasStaticSnapshot.value) return getStaticPulseItems()
-  const items = pulseData.value?.items || []
-  return items.slice(0, 5)
-})
+const pulseDate = computed(() => activePulse.value?.date || null)
+const pulseItems = computed(() => activePulse.value?.items || [])
 
 function applyStaticFilters({ append = false } = {}) {
   const query = searchQuery.value.trim().toLowerCase()
@@ -155,11 +171,11 @@ function applyStaticFilters({ append = false } = {}) {
   statsData.value = staticSnapshot.value?.stats || []
 }
 
-// Fetch data
 const {
   data,
   refresh: refreshApi,
   status,
+  error: feedError,
 } = await useFetch<SignalResponse>('/api/signal', {
   query: computed(() => ({
     source: activeSource.value,
@@ -170,16 +186,26 @@ const {
     q: searchQuery.value,
     limit: 50,
   })),
-  immediate: shouldFetchApi,
+  immediate: false,
+  server: false,
   watch: false,
   onResponse({ response }) {
     const result = response._data
     if (!result) return
+
+    if (result.available === false) {
+      return
+    }
+
+    liveFeedReady.value = true
     const nextItems = result.items || []
     if (offset.value === 0) {
       allItems.value = sortRadarItemsByDateDesc(nextItems)
     } else {
-      allItems.value = sortRadarItemsByDateDesc([...allItems.value, ...nextItems])
+      const uniqueItems = new Map(
+        [...allItems.value, ...nextItems].map((item) => [String(item.id), item]),
+      )
+      allItems.value = sortRadarItemsByDateDesc([...uniqueItems.values()])
     }
     totalCount.value = Number(result.total) || 0
     if (result.stats) statsData.value = result.stats
@@ -187,42 +213,47 @@ const {
 })
 
 async function refreshSignalData() {
-  if (hasStaticSnapshot.value) {
-    applyStaticFilters()
-    return
-  }
-
   await refreshApi()
+
+  if (feedError.value || data.value?.available === false) {
+    applyStaticFilters()
+  }
 }
 
-// Init from SSR data
 if (hasStaticSnapshot.value) {
   applyStaticFilters()
-} else if (data.value) {
-  allItems.value = data.value.items || []
-  totalCount.value = Number(data.value.total) || 0
-  statsData.value = data.value.stats || null
 }
 
-// Debounced search
+watch(staticSnapshot, (snapshot) => {
+  if (!snapshot?.items?.length || liveFeedReady.value) return
+  offset.value = 0
+  applyStaticFilters()
+})
+
 let searchTimer: ReturnType<typeof setTimeout>
-function onSearch(val: string) {
+function onSearch(value: string) {
   clearTimeout(searchTimer)
   searchTimer = setTimeout(() => {
-    searchQuery.value = val
+    searchQuery.value = value
     offset.value = 0
     refreshSignalData()
   }, 300)
 }
 
-function setSource(s: string) {
-  activeSource.value = s
+onMounted(() => {
+  void Promise.allSettled([refreshPulse(), refreshSignalData()])
+})
+
+onBeforeUnmount(() => clearTimeout(searchTimer))
+
+function setSource(source: string) {
+  activeSource.value = source
   offset.value = 0
   refreshSignalData()
 }
 
-function setCategory(c: string) {
-  activeCategory.value = c
+function setCategory(category: string) {
+  activeCategory.value = category
   offset.value = 0
   refreshSignalData()
 }
@@ -234,201 +265,186 @@ function setTopic(topic: string) {
 }
 
 const isLoadingMore = ref(false)
+const canLoadMore = computed(() => allItems.value.length < totalCount.value)
+const loadMoreSentinel = ref<HTMLElement | null>(null)
+
 async function loadMore() {
-  offset.value += 50
+  if (isLoadingMore.value || !canLoadMore.value) return
+
   isLoadingMore.value = true
-  if (hasStaticSnapshot.value) {
-    applyStaticFilters({ append: true })
-  } else {
+  offset.value = allItems.value.length
+
+  try {
     await refreshApi()
+    if (feedError.value || data.value?.available === false) {
+      applyStaticFilters({ append: true })
+    }
+  } finally {
+    isLoadingMore.value = false
   }
-  isLoadingMore.value = false
 }
 
-// Helpers
-function getSummary(item: SignalItem): { text: string; isAi: boolean } | null {
-  const title = stripHtml(item.title).toLowerCase()
-  const ai = item.ai_summary ? stripHtml(item.ai_summary) : ''
-  const regular = item.summary ? stripHtml(item.summary) : ''
+useIntersectionObserver(
+  loadMoreSentinel,
+  ([entry]) => {
+    if (entry?.isIntersecting) void loadMore()
+  },
+  { rootMargin: '600px 0px' },
+)
 
-  // Prefer ai_summary, fallback to summary
-  if (ai && !isDuplicate(ai, title)) return { text: ai, isAi: true }
-  if (regular && !isDuplicate(regular, title)) return { text: regular, isAi: false }
-  return null
-}
-
-function isDuplicate(summary: string, title: string): boolean {
-  const s = summary.toLowerCase().trim()
-  const t = title.trim()
-  // Skip if summary is essentially the same as the title
-  if (s === t) return true
-  if (s.startsWith(t) && s.length < t.length * 1.3) return true
-  if (t.startsWith(s) && t.length < s.length * 1.3) return true
-  return false
-}
-
-function stripHtml(str: string) {
-  if (!str) return ''
-  return str
+function stripHtml(value: string) {
+  if (!value) return ''
+  return value
     .replace(/<[^>]*>/g, '')
     .replace(/&lt;/g, '<')
     .replace(/&gt;/g, '>')
     .replace(/&amp;/g, '&')
     .replace(/&quot;/g, '"')
     .replace(/&#39;/g, "'")
-    .replace(/<[^>]*>/g, '')
     .trim()
 }
 
-function timeAgo(dateStr: string) {
-  const now = new Date()
-  const normalized = /(?:Z|[+-]\d{2}:?\d{2})$/.test(dateStr) ? dateStr : `${dateStr}Z`
-  const d = new Date(normalized)
-  const diff = (now.getTime() - d.getTime()) / 1000
-  if (diff < 60) return 'just now'
-  if (diff < 3600) return Math.floor(diff / 60) + 'm'
-  if (diff < 86400) return Math.floor(diff / 3600) + 'h'
-  return Math.floor(diff / 86400) + 'd'
-}
-
-function sourceColor(s: string) {
-  const map: Record<string, string> = {
-    hackernews: 'border-l-orange-400',
-    'x-twitter': 'border-l-foreground',
-    x: 'border-l-foreground',
-    reddit: 'border-l-purple-500',
-    producthunt: 'border-l-amber-500',
-    github: 'border-l-pink-500',
-    lobsters: 'border-l-red-400',
-    arxiv: 'border-l-cyan-400',
-    youtube: 'border-l-red-500',
-    tiktok: 'border-l-sky-500',
-    instagram: 'border-l-fuchsia-500',
-    polymarket: 'border-l-blue-500',
-    web: 'border-l-emerald-500',
+function isDuplicate(summary: string, title: string) {
+  const normalizedSummary = summary.toLowerCase().trim()
+  const normalizedTitle = title.trim()
+  if (normalizedSummary === normalizedTitle) return true
+  if (
+    normalizedSummary.startsWith(normalizedTitle) &&
+    normalizedSummary.length < normalizedTitle.length * 1.3
+  ) {
+    return true
   }
-  return map[s] || 'border-l-muted-foreground'
+  return (
+    normalizedTitle.startsWith(normalizedSummary) &&
+    normalizedTitle.length < normalizedSummary.length * 1.3
+  )
 }
 
-function sourceBg(s: string) {
-  const map: Record<string, string> = {
-    hackernews: 'bg-orange-500',
-    'x-twitter': 'bg-foreground',
-    x: 'bg-foreground',
-    reddit: 'bg-purple-500',
-    producthunt: 'bg-amber-500',
-    github: 'bg-pink-500',
-    lobsters: 'bg-red-400',
-    arxiv: 'bg-cyan-400',
-    youtube: 'bg-red-500',
-    tiktok: 'bg-sky-500',
-    instagram: 'bg-fuchsia-500',
-    polymarket: 'bg-blue-500',
-    web: 'bg-emerald-500',
-  }
-  return map[s] || 'bg-muted-foreground'
+function getSummary(item: SignalItem): { text: string; isAi: boolean } | null {
+  const title = stripHtml(item.title).toLowerCase()
+  const ai = item.ai_summary ? stripHtml(item.ai_summary) : ''
+  const regular = item.summary ? stripHtml(item.summary) : ''
+  if (ai && !isDuplicate(ai, title)) return { text: ai, isAi: true }
+  if (regular && !isDuplicate(regular, title)) return { text: regular, isAi: false }
+  return null
 }
 
-function sourceLabel(s: string) {
-  const map: Record<string, string> = {
-    hackernews: 'HN',
+function parseDate(value: string | null | undefined) {
+  if (!value) return null
+  const normalized = /^\d{4}-\d{2}-\d{2}$/.test(value)
+    ? `${value}T00:00:00Z`
+    : /(?:Z|[+-]\d{2}:?\d{2})$/.test(value)
+      ? value
+      : `${value.replace(' ', 'T')}Z`
+  const date = new Date(normalized)
+  return Number.isNaN(date.getTime()) ? null : date
+}
+
+function formatDisplayDate(value: string | null | undefined, includeYear = false) {
+  const date = parseDate(value)
+  if (!date) return t('signal.dateUnavailable')
+  return new Intl.DateTimeFormat(locale.value === 'zh' ? 'zh-CN' : 'en-US', {
+    month: locale.value === 'zh' ? 'numeric' : 'short',
+    day: 'numeric',
+    year: includeYear ? 'numeric' : undefined,
+    timeZone: 'UTC',
+  }).format(date)
+}
+
+function sourceLabel(source: string) {
+  const labels: Record<string, string> = {
+    grounding: t('signal.openWeb'),
+    hackernews: 'Hacker News',
     'x-twitter': 'X',
     x: 'X',
     reddit: 'Reddit',
-    producthunt: 'PH',
+    producthunt: 'Product Hunt',
     github: 'GitHub',
     lobsters: 'Lobsters',
-    arxiv: 'ArXiv',
+    arxiv: 'arXiv',
     youtube: 'YouTube',
     tiktok: 'TikTok',
     instagram: 'Instagram',
     polymarket: 'Polymarket',
-    web: 'Web',
+    web: t('signal.openWeb'),
   }
-  return map[s] || s
+  return labels[source] || source
 }
 
-function categoryLabel(c: string) {
-  const map: Record<string, string> = {
+function sourceIcon(source: string) {
+  const icons: Record<string, string> = {
+    grounding: 'heroicons:globe-alt',
+    web: 'heroicons:globe-alt',
+    hackernews: 'simple-icons:ycombinator',
+    reddit: 'simple-icons:reddit',
+    github: 'simple-icons:github',
+    youtube: 'simple-icons:youtube',
+    'x-twitter': 'ri:twitter-x-fill',
+    x: 'ri:twitter-x-fill',
+    arxiv: 'simple-icons:arxiv',
+    producthunt: 'simple-icons:producthunt',
+  }
+  return icons[source] || 'heroicons:link'
+}
+
+function sourceDotClass(source: string) {
+  const colors: Record<string, string> = {
+    grounding: 'bg-emerald-300',
+    web: 'bg-emerald-300',
+    reddit: 'bg-orange-300',
+    hackernews: 'bg-orange-400',
+    github: 'bg-violet-300',
+    youtube: 'bg-red-300',
+    'x-twitter': 'bg-zinc-600 dark:bg-white/75',
+    x: 'bg-zinc-600 dark:bg-white/75',
+    arxiv: 'bg-cyan-300',
+  }
+  return colors[source] || 'bg-zinc-400 dark:bg-white/36'
+}
+
+function categoryLabel(category: string) {
+  const labels: Record<string, string> = {
     ai: 'AI',
     coding: 'Code',
     indie: 'Indie',
     fintech: 'Fintech',
-    management: 'Mgmt',
+    management: 'Management',
     content: 'Content',
     general: 'General',
   }
-  return map[c] || c
+  return labels[category] || category
 }
-
-function categoryColor(c: string) {
-  const map: Record<string, string> = {
-    ai: 'text-blue-500 bg-blue-500/10',
-    coding: 'text-emerald-500 bg-emerald-500/10',
-    indie: 'text-violet-500 bg-violet-500/10',
-    fintech: 'text-amber-500 bg-amber-500/10',
-    management: 'text-orange-500 bg-orange-500/10',
-    content: 'text-pink-500 bg-pink-500/10',
-    general: 'text-muted-foreground bg-muted',
-  }
-  return map[c] || 'text-muted-foreground bg-muted'
-}
-
-const sources = [
-  'hackernews',
-  'x-twitter',
-  'x',
-  'reddit',
-  'producthunt',
-  'github',
-  'lobsters',
-  'arxiv',
-  'youtube',
-  'tiktok',
-  'instagram',
-  'polymarket',
-  'web',
-]
-const categories = ['ai', 'coding', 'indie', 'fintech', 'management', 'content', 'general']
 
 const topics = computed(() => {
-  const apiTopics = staticSnapshot.value?.topics || data.value?.topics || []
-  return apiTopics.map((topic) => ({
-    slug: topic.slug,
-    name: topic.name,
-  }))
+  const sourceTopics =
+    (liveFeedReady.value ? data.value?.topics : staticSnapshot.value?.topics) ||
+    staticSnapshot.value?.topics ||
+    []
+  return sourceTopics.map((topic) => ({ slug: topic.slug, name: topic.name }))
 })
 
-const latestRun = computed(() => {
-  if (staticSnapshot.value?.latestRun) {
-    return {
-      completed_at: staticSnapshot.value.latestRun.completedAt,
-      started_at: staticSnapshot.value.latestRun.startedAt,
-    }
+const filterItems = computed(() =>
+  liveFeedReady.value
+    ? allItems.value
+    : hasStaticSnapshot.value
+      ? getStaticItems()
+      : allItems.value,
+)
+
+const availableSources = computed(() => {
+  const counts = new Map<string, number>()
+  for (const stat of statsData.value || []) counts.set(stat.source, Number(stat.count) || 0)
+  for (const item of filterItems.value) {
+    if (!counts.has(item.source)) counts.set(item.source, 0)
   }
-  return data.value?.latestRun || null
+  return [...counts.entries()].sort((a, b) => b[1] - a[1]).map(([source]) => source)
 })
 
-const totalStats = computed(() => {
-  if (!statsData.value) return 0
-  return statsData.value.reduce((sum, s) => sum + Number(s.count), 0)
+const availableCategories = computed(() => {
+  const values = new Set(filterItems.value.map((item) => item.category).filter(Boolean))
+  return [...values].sort()
 })
 
-const sourceMixRows = computed(() => {
-  const total = Number(totalStats.value) || 0
-  return (statsData.value || []).slice(0, 8).map((stat) => {
-    const count = Number(stat.count) || 0
-    return {
-      source: stat.source,
-      label: sourceLabel(stat.source),
-      count: String(count),
-      percent: total > 0 ? Math.max(4, Math.round((count / total) * 100)) : 4,
-      colorClass: sourceBg(stat.source),
-    }
-  })
-})
-
-// Research threads should match against the unfiltered static snapshot, not visible filters.
 const researchSignalItems = computed(() => {
   if (hasStaticSnapshot.value) return getStaticItems()
   return allItems.value
@@ -449,327 +465,296 @@ const briefCards = computed(() =>
   }),
 )
 
-const heroMetrics = computed(() => [
-  {
-    label: t('signal.metricSignals'),
-    value: String(totalStats.value || totalCount.value || 0),
-    caption: t('signal.metricSignalsCaption'),
-  },
-  {
-    label: t('signal.metricThreads'),
-    value: String(threadCards.value.length),
-    caption: t('signal.metricThreadsCaption'),
-  },
-  {
-    label: t('signal.metricBriefs'),
-    value: String(briefCards.value.length),
-    caption: t('signal.metricBriefsCaption'),
-  },
-])
+const focusedThread = computed(
+  () => threadCards.value.find((thread) => thread.horizon === 'now') || threadCards.value[0],
+)
 
-const heroStatusLabel = computed(() => {
-  if (latestRun.value?.completed_at || latestRun.value?.started_at) {
-    return `${t('signal.updated')} ${timeAgo(
-      latestRun.value.completed_at || latestRun.value.started_at || '',
-    )}`
-  }
-  return t('signal.snapshotReady')
+function firstSentence(value: string) {
+  const match = value.match(/^.*?[.!?](?:\s|$)/)
+  return (match?.[0] || value).trim()
+}
+
+const heroEyebrow = computed(() => {
+  const date = pulseDate.value
+    ? formatDisplayDate(pulseDate.value, true)
+    : t('signal.dateUnavailable')
+  return `${t('signal.latestRead')} · ${date}`
 })
 
-const heroPromises = computed(() => [
-  t('signal.heroPromiseEvidence'),
-  t('signal.heroPromiseInterpretation'),
-  t('signal.heroPromiseProducts'),
-])
+const focusedTopicLabel = computed(() => {
+  const slug = focusedThread.value?.primaryTopicSlug
+  return (
+    topics.value.find((topic) => topic.slug === slug)?.name || slug || t('signal.researchTopic')
+  )
+})
 
 const pulseCards = computed(() =>
   pulseItems.value.map((item) => ({
     id: String(item.id),
     url: item.url,
     title: stripHtml(item.title),
+    summary: getSummary(item)?.text || '',
     sourceLabel: sourceLabel(item.source),
-    categoryLabel: categoryLabel(item.category),
-    sourceClass: sourceBg(item.source),
-    categoryClass: categoryColor(item.category),
+    sourceIcon: sourceIcon(item.source),
+    publishedLabel: formatDisplayDate(item.published_at || item.created_at),
   })),
 )
+
+async function scrollToSection(id: string) {
+  if (!import.meta.client) return
+  await nextTick()
+  const behavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+  document.getElementById(id)?.scrollIntoView({ behavior, block: 'start' })
+}
+
+async function openPulseEvidence() {
+  showPulseEvidence.value = true
+  await scrollToSection('signal-evidence')
+}
+
+async function readAaronsTake() {
+  activeThreadSlug.value = focusedThread.value?.slug || ''
+  await scrollToSection('signal-horizon')
+}
+
+async function openEvidenceWorkbench(topic = '') {
+  activeTopic.value = topic
+  activeSource.value = ''
+  activeCategory.value = ''
+  searchQuery.value = ''
+  offset.value = 0
+  await refreshSignalData()
+  await scrollToSection('signal-workbench')
+}
 </script>
 
 <template>
-  <main class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <SignalHero
-      :title="t('signal.title')"
-      :eyebrow="t('signal.heroEyebrow')"
-      :description="t('signal.researchDeskDescription')"
-      :status-label="heroStatusLabel"
-      :live-label="t('signal.liveLabel')"
-      :operations-label="t('signal.operationsLabel')"
-      :source-mix-label="t('signal.sourceMixLabel')"
-      :pulse-date-label="t('signal.pulseDateLabel')"
-      :pulse-date="pulseDate"
-      :promises="heroPromises"
-      :metrics="heroMetrics"
-      :source-mix-rows="sourceMixRows"
-    />
+  <div class="signal-page">
+    <main class="mx-auto max-w-[90rem] px-5 sm:px-8 lg:px-12 xl:px-16">
+      <SignalHero
+        :eyebrow="heroEyebrow"
+        :headline="focusedThread?.title || t('signal.title')"
+        :why-label="t('signal.whyItMatters')"
+        :why-text="focusedThread?.builderImplication || t('signal.researchDeskDescription')"
+        :evidence-label="t('signal.convergingEvidence')"
+        :evidence-items="pulseCards"
+        :more-evidence-label="t('signal.moreEvidence')"
+        :topic-label="focusedTopicLabel"
+        :thesis-label="t('signal.workingThesis')"
+        :thesis="focusedThread ? firstSentence(focusedThread.thesis) : t('signal.subtitle')"
+        :explore-label="t('signal.exploreEvidence')"
+        :read-take-label="t('signal.readAaronsTake')"
+        @explore="openPulseEvidence"
+        @read-take="readAaronsTake"
+      />
 
-    <SignalPulse
-      :pulse-text="pulseText"
-      :pulse-date="pulseDate"
-      :daily-readout-label="t('signal.dailyReadoutLabel')"
-      :heading="t('signal.todaysPulse')"
-      :description="t('signal.pulseDescription')"
-      :evidence-label="t('signal.pulseEvidenceLabel')"
-      :pulse-cards="pulseCards"
-    />
+      <SignalPulse
+        :open="showPulseEvidence"
+        :pulse-text="pulseText"
+        :pulse-date="pulseDate ? formatDisplayDate(pulseDate, true) : null"
+        :heading="t('signal.evidenceBehindFocus')"
+        :description="t('signal.evidenceBehindFocusDescription')"
+        :machine-label="t('signal.machineReadout')"
+        :evidence-label="t('signal.pulseEvidenceLabel')"
+        :close-label="t('signal.close')"
+        :full-evidence-label="t('signal.openWorkbench')"
+        :pulse-cards="pulseCards"
+        @close="showPulseEvidence = false"
+        @open-workbench="openEvidenceWorkbench()"
+      />
 
-    <SignalResearchThreads
-      :threads="threadCards"
-      :heading="t('signal.watchingTitle')"
-      :description="t('signal.watchingDescription')"
-      :confidence-label="t('signal.confidence')"
-      :active-thesis-label="t('signal.activeThesis')"
-      :supporting-signals-label="t('signal.supportingSignals')"
-      :more-signals-label="t('signal.moreSignals')"
-      :question-label="t('signal.question')"
-      :product-angle-label="t('signal.productAngle')"
-    />
+      <SignalResearchThreads
+        v-model:open-slug="activeThreadSlug"
+        :threads="threadCards"
+        :heading="t('signal.horizonTitle')"
+        :description="t('signal.horizonDescription')"
+        :now-label="t('signal.horizonNow')"
+        :emerging-label="t('signal.horizonEmerging')"
+        :watch-label="t('signal.horizonWatch')"
+        :thesis-label="t('signal.activeThesis')"
+        :take-label="t('signal.aaronsTake')"
+        :question-label="t('signal.openQuestion')"
+        :product-angle-label="t('signal.productHypothesis')"
+        :supporting-signals-label="t('signal.supportingSignals')"
+        :related-items-label="t('signal.relatedItems')"
+        :explore-related-label="t('signal.exploreRelatedEvidence')"
+        :explore-all-label="t('signal.exploreAllEvidence')"
+        :expand-label="t('signal.expand')"
+        :collapse-label="t('signal.collapse')"
+        @explore-topic="openEvidenceWorkbench"
+        @explore-all="openEvidenceWorkbench()"
+      />
 
-    <SignalBriefs
-      :briefs="briefCards"
-      :heading="t('signal.briefsTitle')"
-      :description="t('signal.briefsDescription')"
-      :latest-label="t('signal.briefsLatest')"
-      :related-thread-label="t('signal.relatedThread')"
-      :weekly-brief-label="t('signal.weeklyBrief')"
-      :funnel-label="t('signal.funnelLabel')"
-      :signals-label="t('signal.funnelSignals')"
-      :threads-label="t('signal.funnelThreads')"
-      :brief-label="t('signal.funnelBrief')"
-      :hypothesis-label="t('signal.funnelHypothesis')"
-      :signals-distilled-label="t('signal.signalsDistilled')"
-    />
+      <SignalBriefs
+        :briefs="briefCards"
+        :heading="t('signal.previousBriefings')"
+        :description="t('signal.previousBriefingsDescription')"
+        :latest-label="t('signal.briefsLatest')"
+        :weekly-brief-label="t('signal.weeklyBrief')"
+        :signals-distilled-label="t('signal.signalsDistilled')"
+        :open-label="t('signal.openBrief')"
+        :close-label="t('signal.closeBrief')"
+      />
 
-    <section class="mt-12 border-t border-border/70 pt-8">
-      <div class="mb-5 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-        <div>
-          <p class="text-[11px] font-mono uppercase tracking-widest text-muted-foreground/50">
-            {{ t('signal.evidenceEyebrow') }}
-          </p>
-          <h2 class="mt-1 text-2xl font-semibold text-foreground sm:text-3xl">
-            {{ t('signal.evidenceTitle') }}
-          </h2>
-          <p class="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground/70">
-            {{ t('signal.evidenceDescription') }}
-          </p>
-        </div>
-      </div>
-
-      <!-- Toolbar -->
-      <div
-        class="sticky top-[5rem] z-40 -mx-2 mb-6 rounded-lg border border-border/60 bg-background/90 px-3 py-3 shadow-sm backdrop-blur-md sm:-mx-3 sm:px-4"
-      >
-        <div class="flex flex-col gap-2.5">
-          <!-- Row 1: Sources + Search -->
-          <div class="flex items-center gap-2">
-            <div class="flex items-center gap-1.5 flex-wrap">
-              <button
-                class="px-3 py-1 text-xs font-medium rounded-md transition-all whitespace-nowrap"
-                :class="
-                  activeSource === ''
-                    ? 'bg-foreground text-background'
-                    : 'text-muted-foreground hover:text-foreground hover:bg-secondary'
-                "
-                @click="setSource('')"
-              >
-                {{ t('signal.all') }}
-              </button>
-              <button
-                v-for="s in sources"
-                :key="s"
-                class="px-3 py-1 text-xs font-medium rounded-md transition-all whitespace-nowrap flex items-center gap-1.5"
-                :class="
-                  activeSource === s
-                    ? 'bg-foreground text-background'
-                    : 'text-muted-foreground hover:text-foreground hover:bg-secondary'
-                "
-                @click="setSource(s)"
-              >
-                <span class="w-1.5 h-1.5 rounded-full" :class="sourceBg(s)" />
-                {{ sourceLabel(s) }}
-              </button>
-            </div>
-
-            <!-- Search -->
-            <div class="relative ml-auto w-44 sm:w-56 shrink-0">
-              <Icon
-                name="heroicons:magnifying-glass"
-                class="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-muted-foreground/50"
-              />
-              <input
-                type="text"
-                :placeholder="t('signal.search')"
-                class="w-full pl-8 pr-3 py-1.5 rounded-md bg-secondary/50 border border-border/50 text-xs focus:outline-none focus:border-primary/50 focus:bg-secondary transition-all"
-                @input="onSearch(($event.target as HTMLInputElement).value)"
-              />
-            </div>
-          </div>
-
-          <!-- Row 2: Categories -->
-          <div class="flex items-center gap-1.5 flex-wrap">
-            <button
-              class="px-3 py-1 text-xs font-medium rounded-md transition-all whitespace-nowrap"
-              :class="
-                activeCategory === ''
-                  ? 'bg-foreground text-background'
-                  : 'text-muted-foreground hover:text-foreground hover:bg-secondary'
-              "
-              @click="setCategory('')"
+      <section id="signal-workbench" class="signal-rule scroll-mt-28 border-b py-12 lg:py-16">
+        <div class="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <p class="signal-accent font-mono text-[10px] uppercase tracking-[0.18em]">
+              {{ t('signal.evidenceEyebrow') }}
+            </p>
+            <h2 class="mt-3 text-3xl font-semibold tracking-[-0.035em] text-foreground sm:text-4xl">
+              {{ t('signal.researchWorkbench') }}
+            </h2>
+            <p
+              class="mt-3 max-w-2xl text-sm leading-6 text-muted-foreground sm:text-base sm:leading-7"
             >
-              {{ t('signal.allTopics') }}
-            </button>
-            <button
-              v-for="c in categories"
-              :key="c"
-              class="px-3 py-1 text-xs font-medium rounded-md transition-all whitespace-nowrap"
-              :class="
-                activeCategory === c
-                  ? 'bg-foreground text-background'
-                  : 'text-muted-foreground hover:text-foreground hover:bg-secondary'
-              "
-              @click="setCategory(c)"
-            >
-              {{ categoryLabel(c) }}
-            </button>
-          </div>
-
-          <!-- Row 3: Radar topics -->
-          <div v-if="topics.length > 0" class="flex items-center gap-1.5 flex-wrap">
-            <button
-              class="px-3 py-1 text-xs font-medium rounded-md transition-all whitespace-nowrap"
-              :class="
-                activeTopic === ''
-                  ? 'bg-foreground text-background'
-                  : 'text-muted-foreground hover:text-foreground hover:bg-secondary'
-              "
-              @click="setTopic('')"
-            >
-              {{ t('signal.allRadarTopics') }}
-            </button>
-            <button
-              v-for="topic in topics"
-              :key="topic.slug"
-              class="px-3 py-1 text-xs font-medium rounded-md transition-all whitespace-nowrap"
-              :class="
-                activeTopic === topic.slug
-                  ? 'bg-foreground text-background'
-                  : 'text-muted-foreground hover:text-foreground hover:bg-secondary'
-              "
-              @click="setTopic(topic.slug)"
-            >
-              {{ topic.name }}
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Count -->
-      <div v-if="totalCount" class="flex items-center gap-2 mb-4">
-        <span class="text-xs text-muted-foreground/60 font-mono">
-          {{ totalCount }} {{ t('signal.items') }}
-        </span>
-        <span
-          v-if="latestRun && (latestRun.completed_at || latestRun.started_at)"
-          class="text-xs text-muted-foreground/40 font-mono"
-        >
-          {{ t('signal.updated') }} {{ timeAgo(latestRun.completed_at || latestRun.started_at) }}
-        </span>
-      </div>
-
-      <!-- Loading (initial only) -->
-      <div
-        v-if="status === 'pending' && allItems.length === 0"
-        class="flex items-center justify-center py-24"
-      >
-        <div class="flex flex-col items-center gap-3">
-          <div
-            class="w-6 h-6 border-2 border-primary/30 border-t-primary rounded-full animate-spin"
-          />
-          <span class="text-sm text-muted-foreground">{{ t('signal.loading') }}</span>
-        </div>
-      </div>
-
-      <!-- Items -->
-      <div v-else-if="allItems.length > 0" class="grid gap-3">
-        <a
-          v-for="item in allItems"
-          :key="item.id"
-          :href="item.url"
-          target="_blank"
-          rel="noopener"
-          class="group block rounded-lg border border-l-2 border-border/60 bg-card/50 px-4 py-4 shadow-sm transition-colors duration-200 hover:bg-secondary/60"
-          :class="sourceColor(item.source)"
-        >
-          <!-- Top row: meta -->
-          <div class="flex items-center gap-2 mb-1">
-            <span
-              class="text-[10px] font-semibold px-1.5 py-0.5 rounded"
-              :class="categoryColor(item.category)"
-            >
-              {{ categoryLabel(item.category) }}
-            </span>
-            <span class="text-[11px] text-muted-foreground/40 font-mono">{{
-              sourceLabel(item.source)
-            }}</span>
-            <span class="text-[11px] text-muted-foreground/30 font-mono">{{
-              timeAgo(item.created_at)
-            }}</span>
-            <span v-if="item.score" class="text-[11px] text-muted-foreground/40 font-mono ml-auto">
-              {{ item.score.toLocaleString() }} pts
-            </span>
-          </div>
-
-          <!-- Title -->
-          <h3
-            class="text-base font-semibold leading-snug text-foreground group-hover:text-primary sm:text-lg"
-          >
-            {{ stripHtml(item.title) }}
-          </h3>
-
-          <!-- Summary -->
-          <div v-if="getSummary(item)" class="flex items-start gap-1.5 mt-1.5">
-            <Icon
-              v-if="getSummary(item)!.isAi"
-              name="heroicons:star-solid"
-              class="w-3.5 h-3.5 text-amber-400/70 shrink-0 mt-0.5"
-              :title="t('signal.aiSummary')"
-            />
-            <p class="line-clamp-2 text-sm leading-relaxed text-muted-foreground/55">
-              {{ getSummary(item)!.text }}
+              {{ t('signal.workbenchDescription') }}
             </p>
           </div>
-        </a>
-      </div>
+        </div>
 
-      <!-- Empty state -->
-      <div v-else class="flex flex-col items-center justify-center py-24 text-center">
-        <div class="text-4xl mb-3 opacity-30">~</div>
-        <p class="text-sm text-muted-foreground">{{ t('signal.empty') }}</p>
-      </div>
-
-      <!-- Load more -->
-      <div v-if="allItems.length < totalCount" class="flex justify-center py-8">
-        <button
-          class="px-6 py-2 rounded-lg text-xs font-medium text-muted-foreground border border-border/50 hover:border-border hover:text-foreground transition-all flex items-center gap-2"
-          :disabled="isLoadingMore"
-          @click="loadMore"
+        <div
+          class="signal-rule signal-sticky sticky top-[5.5rem] z-30 mt-8 grid gap-3 border-y py-4 backdrop-blur-xl sm:grid-cols-2 lg:grid-cols-[minmax(15rem,1fr)_12rem_12rem_14rem]"
         >
-          <div
-            v-if="isLoadingMore"
-            class="w-3.5 h-3.5 border-2 border-muted-foreground/30 border-t-muted-foreground rounded-full animate-spin"
+          <label class="relative block">
+            <span class="sr-only">{{ t('signal.search') }}</span>
+            <Icon
+              name="heroicons:magnifying-glass"
+              class="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground opacity-70"
+            />
+            <input
+              type="search"
+              :value="searchQuery"
+              :placeholder="t('signal.searchEvidence')"
+              class="signal-control form-input w-full rounded-lg py-2.5 pl-10 pr-3 text-sm"
+              @input="onSearch(($event.target as HTMLInputElement).value)"
+            />
+          </label>
+
+          <label>
+            <span class="sr-only">{{ t('signal.sourceFilter') }}</span>
+            <select
+              :value="activeSource"
+              class="signal-control form-select w-full rounded-lg py-2.5 text-sm"
+              @change="setSource(($event.target as HTMLSelectElement).value)"
+            >
+              <option value="">{{ t('signal.allSources') }}</option>
+              <option v-for="source in availableSources" :key="source" :value="source">
+                {{ sourceLabel(source) }}
+              </option>
+            </select>
+          </label>
+
+          <label>
+            <span class="sr-only">{{ t('signal.categoryFilter') }}</span>
+            <select
+              :value="activeCategory"
+              class="signal-control form-select w-full rounded-lg py-2.5 text-sm"
+              @change="setCategory(($event.target as HTMLSelectElement).value)"
+            >
+              <option value="">{{ t('signal.allCategories') }}</option>
+              <option v-for="category in availableCategories" :key="category" :value="category">
+                {{ categoryLabel(category) }}
+              </option>
+            </select>
+          </label>
+
+          <label>
+            <span class="sr-only">{{ t('signal.topicFilter') }}</span>
+            <select
+              :value="activeTopic"
+              class="signal-control form-select w-full rounded-lg py-2.5 text-sm"
+              @change="setTopic(($event.target as HTMLSelectElement).value)"
+            >
+              <option value="">{{ t('signal.allRadarTopics') }}</option>
+              <option v-for="topic in topics" :key="topic.slug" :value="topic.slug">
+                {{ topic.name }}
+              </option>
+            </select>
+          </label>
+        </div>
+
+        <div
+          class="mt-5 flex flex-wrap items-center gap-3 font-mono text-[10px] text-muted-foreground opacity-75"
+        >
+          <span>{{ allItems.length }} / {{ totalCount }} {{ t('signal.browseableItems') }}</span>
+        </div>
+
+        <div
+          v-if="status === 'pending' && allItems.length === 0"
+          class="flex items-center justify-center gap-3 py-24 text-muted-foreground"
+        >
+          <Icon name="svg-spinners:180-ring" class="signal-accent h-5 w-5" />
+          <span class="text-sm">{{ t('signal.loading') }}</span>
+        </div>
+
+        <div
+          v-else-if="allItems.length > 0"
+          class="signal-divide signal-rule mt-4 divide-y border-y"
+        >
+          <a
+            v-for="item in allItems"
+            :key="item.id"
+            :href="item.url"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="signal-row group grid gap-3 py-5 outline-none transition-colors sm:grid-cols-[minmax(0,1fr)_auto] sm:items-start"
+          >
+            <span class="min-w-0">
+              <span
+                class="flex flex-wrap items-center gap-2 font-mono text-[10px] text-muted-foreground opacity-75"
+              >
+                <span class="h-1.5 w-1.5 rounded-full" :class="sourceDotClass(item.source)" />
+                <span>{{ sourceLabel(item.source) }}</span>
+                <span aria-hidden="true">·</span>
+                <span>{{ categoryLabel(item.category) }}</span>
+                <span aria-hidden="true">·</span>
+                <span>{{ formatDisplayDate(item.published_at || item.created_at) }}</span>
+              </span>
+              <span
+                class="mt-2 block text-base font-semibold leading-snug text-foreground opacity-80 transition-opacity group-hover:opacity-100 sm:text-lg"
+              >
+                {{ stripHtml(item.title) }}
+              </span>
+              <span
+                v-if="getSummary(item)"
+                class="mt-2 line-clamp-2 block max-w-4xl text-sm leading-6 text-muted-foreground"
+              >
+                {{ getSummary(item)!.text }}
+              </span>
+            </span>
+            <Icon
+              name="heroicons:arrow-up-right"
+              class="h-4 w-4 text-muted-foreground opacity-50 transition-colors group-hover:text-[var(--signal-accent)] group-hover:opacity-100"
+            />
+          </a>
+        </div>
+
+        <div v-else class="flex flex-col items-center justify-center py-24 text-center">
+          <Icon
+            name="heroicons:magnifying-glass"
+            class="h-8 w-8 text-muted-foreground opacity-55"
           />
-          {{ isLoadingMore ? t('signal.loading') : t('signal.loadMore') }}
-        </button>
-      </div>
-    </section>
-  </main>
+          <p class="mt-4 text-sm text-muted-foreground">{{ t('signal.empty') }}</p>
+        </div>
+
+        <div
+          v-if="canLoadMore"
+          ref="loadMoreSentinel"
+          class="flex min-h-28 items-center justify-center py-8"
+          aria-live="polite"
+        >
+          <button
+            type="button"
+            class="signal-rule-strong inline-flex items-center gap-2 rounded-lg border px-5 py-2.5 text-sm font-medium text-muted-foreground outline-none transition-colors hover:border-[var(--signal-accent)] hover:text-foreground focus-visible:ring-2 focus-visible:ring-[var(--signal-accent)] disabled:cursor-wait disabled:opacity-60"
+            :disabled="isLoadingMore"
+            @click="loadMore"
+          >
+            <Icon v-if="isLoadingMore" name="svg-spinners:180-ring" class="h-4 w-4" />
+            {{ isLoadingMore ? t('signal.loading') : t('signal.loadMore') }}
+          </button>
+        </div>
+      </section>
+    </main>
+  </div>
 </template>

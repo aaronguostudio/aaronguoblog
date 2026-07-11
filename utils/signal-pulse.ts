@@ -1,8 +1,17 @@
+import { getRadarSnapshotTimestamp } from './radar-snapshot'
+
 type SignalPulseLocale = 'en' | 'zh'
 
 type FormatSignalPulseTextOptions = {
   text?: string | null
   locale?: string
+}
+
+export type SignalPulseSnapshot<T> = {
+  text?: string | null
+  date?: string | null
+  generatedAt?: string | null
+  items?: T[]
 }
 
 const RADAR_PULSE_PATTERN =
@@ -28,8 +37,31 @@ export function formatSignalPulseText({ text, locale }: FormatSignalPulseTextOpt
   const signalLocale = normalizeLocale(locale)
 
   if (signalLocale === 'zh') {
-    return `今天捕捉到 ${count} 条 ${pulseTopic} 强信号：${themes}.`
+    return `最近一次 Radar 读数捕捉到 ${count} 条 ${pulseTopic} 强信号：${themes}.`
   }
 
-  return `${count} strong ${pulseTopic} signals today: ${themes}.`
+  return `The latest Radar read found ${count} strong ${pulseTopic} signals: ${themes}.`
+}
+
+function signalPulseTimestamp<T>(pulse: SignalPulseSnapshot<T>) {
+  return getRadarSnapshotTimestamp({
+    generatedAt: pulse.generatedAt,
+    pulse: { date: pulse.date },
+  })
+}
+
+/**
+ * Keep every pulse field on the same snapshot so the date, text, and evidence
+ * cannot accidentally come from different Radar runs.
+ */
+export function selectFreshestSignalPulse<T>(
+  staticPulse: SignalPulseSnapshot<T> | null | undefined,
+  livePulse: SignalPulseSnapshot<T> | null | undefined,
+) {
+  if (!staticPulse) return livePulse || null
+  if (!livePulse) return staticPulse
+
+  return signalPulseTimestamp(livePulse) > signalPulseTimestamp(staticPulse)
+    ? livePulse
+    : staticPulse
 }
