@@ -144,15 +144,25 @@ function categoryLabels(categories: string[]) {
               />
             </div>
             <div class="flex flex-col justify-center p-4 flex-1 min-w-0">
-              <div class="flex items-center gap-1.5 mb-1.5">
-                <span
-                  v-for="category in categoryLabels(post.categories)"
-                  :key="category"
-                  class="bg-secondary text-secondary-foreground rounded px-1.5 py-0.5 text-[10px] font-medium"
+              <div
+                class="mb-1.5 flex min-w-0 flex-col items-start gap-1 md:flex-row md:items-center md:gap-1.5"
+              >
+                <div
+                  class="flex w-full min-w-0 flex-nowrap gap-1 overflow-hidden md:w-auto md:flex-1"
                 >
-                  {{ category }}
-                </span>
-                <span class="text-[10px] text-muted-foreground">{{ compactDate(post.date) }}</span>
+                  <span
+                    v-for="category in categoryLabels(post.categories)"
+                    :key="category"
+                    :title="category"
+                    class="min-w-0 max-w-full shrink truncate rounded bg-secondary px-1.5 py-0.5 text-[10px] font-medium text-secondary-foreground"
+                  >
+                    {{ category }}
+                  </span>
+                </div>
+                <span
+                  class="shrink-0 whitespace-nowrap text-[10px] leading-4 text-muted-foreground"
+                  >{{ compactDate(post.date) }}</span
+                >
               </div>
               <h4
                 class="text-sm font-semibold text-foreground group-hover:text-primary transition-colors duration-300 line-clamp-2 mb-1.5"
