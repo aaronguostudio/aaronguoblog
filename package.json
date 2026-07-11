@@ -63,5 +63,8 @@
     "@libsql/client": "^0.14.0",
     "motion-v": "^2.3.0",
     "sharp": "^0.34.5"
+  },
+  "optionalDependencies": {
+    "@resvg/resvg-js-linux-x64-musl": "2.6.2"
   }
 }

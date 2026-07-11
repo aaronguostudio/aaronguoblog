@@ -99,6 +99,10 @@ importers:
       vitest:
         specifier: ^1.0.0
         version: 1.6.1(@types/node@22.15.17)(terser@5.39.0)
+    optionalDependencies:
+      '@resvg/resvg-js-linux-x64-musl':
+        specifier: 2.6.2
+        version: 2.6.2
 
 packages:
 
