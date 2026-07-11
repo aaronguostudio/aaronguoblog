@@ -3,6 +3,19 @@ packages:
 
 autoInstallPeers: true
 
+# Nitro resolves the Resvg optional binary while packaging Vercel functions.
+# Keep both the host libc and musl variants available in the install graph.
+supportedArchitectures:
+  os:
+    - current
+    - linux
+  cpu:
+    - current
+    - x64
+  libc:
+    - current
+    - musl
+
 overrides:
   better-sqlite3: ^12.6.2
 
