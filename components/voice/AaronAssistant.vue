@@ -49,10 +49,10 @@ let transcriptId = 0
 const copy = computed(() => {
   if (locale.value === 'zh') {
     return {
-      button: '和 Aaron 聊聊',
-      title: '和 Aaron 聊聊',
+      button: '和 Aaron AI 聊聊',
+      title: '和 Aaron AI 聊聊',
       subtitle: 'Aaron 的 AI 语音助手',
-      disclosure: '你正在和 Aaron 的 AI 助手对话，不是真人 Aaron。',
+      disclosure: '你正在和 Aaron AI 对话，不是真人 Aaron。',
       connect: '正在连接…',
       listening: '正在听',
       thinking: '正在思考',
@@ -64,17 +64,17 @@ const copy = computed(() => {
       retry: '重新连接',
       permission: '首次使用时，浏览器会请求麦克风权限。',
       error: '语音助手暂时无法连接。',
-      empty: '点击麦克风，开始和 Aaron 对话。',
+      empty: '点击麦克风，开始和 Aaron AI 对话。',
       user: '你',
       assistant: 'Aaron AI',
     }
   }
 
   return {
-    button: 'Talk to Aaron',
-    title: 'Talk to Aaron',
+    button: 'Talk with Aaron AI',
+    title: 'Talk with Aaron AI',
     subtitle: "Aaron's AI voice assistant",
-    disclosure: "You're talking with Aaron's AI assistant, not Aaron himself.",
+    disclosure: "You're talking with Aaron AI, not Aaron himself.",
     connect: 'Connecting…',
     listening: 'Listening',
     thinking: 'Thinking',
@@ -86,7 +86,7 @@ const copy = computed(() => {
     retry: 'Reconnect',
     permission: 'Your browser will ask for microphone permission the first time.',
     error: 'The voice assistant could not connect right now.',
-    empty: 'Tap the microphone to start talking with Aaron.',
+    empty: 'Tap the microphone to start talking with Aaron AI.',
     user: 'You',
     assistant: 'Aaron AI',
   }
@@ -412,9 +412,9 @@ onBeforeUnmount(() => {
   <div class="fixed bottom-4 right-4 z-[60] sm:bottom-6 sm:right-6">
     <div
       v-if="isOpen"
-      class="mb-3 w-[min(calc(100vw-2rem),24rem)] overflow-hidden rounded-2xl border border-border bg-card/95 shadow-2xl backdrop-blur-xl"
+      class="voice-panel mb-3 max-h-[calc(100dvh-6rem)] w-[min(calc(100vw-1.5rem),24rem)] overflow-hidden rounded-2xl border border-border shadow-2xl backdrop-blur-2xl sm:w-[min(calc(100vw-2rem),24rem)]"
       role="dialog"
-      aria-label="Talk to Aaron"
+      :aria-label="copy.title"
     >
       <div class="flex items-start justify-between border-b border-border px-4 py-4">
         <div>
@@ -427,7 +427,16 @@ onBeforeUnmount(() => {
           :aria-label="copy.end"
           @click="endConversation"
         >
-          <Icon name="heroicons:x-mark" class="h-4 w-4" />
+          <svg
+            aria-hidden="true"
+            class="h-4 w-4"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="1.8"
+          >
+            <path d="M6 6l12 12M18 6L6 18" stroke-linecap="round" />
+          </svg>
         </button>
       </div>
 
@@ -486,7 +495,7 @@ onBeforeUnmount(() => {
       </div>
 
       <div class="border-t border-border px-4 py-3">
-        <div class="flex items-center justify-between gap-3">
+        <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div class="flex min-w-0 items-center gap-2">
             <span
               class="h-2 w-2 shrink-0 rounded-full"
@@ -498,26 +507,36 @@ onBeforeUnmount(() => {
                     : 'bg-muted-foreground'
               "
             />
-            <span class="truncate text-xs text-muted-foreground">{{ statusLabel }}</span>
+            <span class="truncate text-xs text-muted-foreground" aria-live="polite">{{
+              statusLabel
+            }}</span>
           </div>
-          <div class="flex items-center gap-1.5">
+          <div class="flex w-full justify-end gap-2 sm:w-auto sm:items-center sm:gap-1.5">
             <button
               v-if="isActive"
               type="button"
-              class="rounded-lg border border-border px-2.5 py-1.5 text-xs text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+              class="inline-flex min-h-9 shrink-0 items-center whitespace-nowrap rounded-lg border border-border px-2.5 py-1.5 text-xs text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
               :aria-label="isMuted ? copy.unmute : copy.mute"
               @click="toggleMute"
             >
-              <Icon
-                :name="isMuted ? 'heroicons:microphone' : 'heroicons:microphone-slash'"
-                class="mr-1 inline h-3.5 w-3.5"
-              />
+              <svg
+                aria-hidden="true"
+                class="mr-1 h-3.5 w-3.5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="1.8"
+              >
+                <rect x="8" y="3" width="8" height="12" rx="4" />
+                <path d="M5 11a7 7 0 0014 0M12 18v3M9 21h6" stroke-linecap="round" />
+                <path v-if="!isMuted" d="M4 4l16 16" stroke-linecap="round" />
+              </svg>
               {{ isMuted ? copy.unmute : copy.mute }}
             </button>
             <button
               v-if="isActive"
               type="button"
-              class="rounded-lg bg-foreground px-2.5 py-1.5 text-xs text-background transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+              class="inline-flex min-h-9 shrink-0 items-center whitespace-nowrap rounded-lg bg-foreground px-2.5 py-1.5 text-xs text-background transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
               @click="endConversation"
             >
               {{ copy.end }}
@@ -525,7 +544,7 @@ onBeforeUnmount(() => {
             <button
               v-else-if="state === 'error'"
               type="button"
-              class="rounded-lg bg-foreground px-2.5 py-1.5 text-xs text-background transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+              class="inline-flex min-h-9 shrink-0 items-center whitespace-nowrap rounded-lg bg-foreground px-2.5 py-1.5 text-xs text-background transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
               @click="retry"
             >
               {{ copy.retry }}
@@ -540,24 +559,47 @@ onBeforeUnmount(() => {
 
     <button
       type="button"
-      class="group flex items-center gap-2 rounded-full border border-border bg-card/95 px-3 py-2.5 text-sm font-medium text-foreground shadow-xl backdrop-blur-xl transition-all hover:-translate-y-0.5 hover:border-foreground/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+      class="voice-trigger group flex h-11 w-11 items-center justify-center rounded-full border border-border p-0 text-xs font-medium text-foreground shadow-lg backdrop-blur-xl transition-all hover:-translate-y-0.5 hover:border-foreground/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary sm:h-auto sm:w-auto sm:justify-start sm:gap-1.5 sm:px-2.5 sm:py-2 sm:text-sm"
       :aria-expanded="isOpen"
       :aria-label="copy.button"
       @click="toggleAssistant"
     >
       <span
-        class="relative flex h-7 w-7 items-center justify-center rounded-full bg-foreground text-background"
+        class="relative flex h-6 w-6 items-center justify-center rounded-full bg-foreground text-background sm:h-7 sm:w-7"
       >
         <span
           v-if="isActive"
           class="absolute inset-0 animate-ping rounded-full bg-foreground/30 motion-reduce:animate-none"
         />
-        <Icon
-          :name="isActive ? 'heroicons:signal' : 'heroicons:microphone'"
-          class="relative h-4 w-4"
-        />
+        <svg
+          aria-hidden="true"
+          class="relative h-3.5 w-3.5 sm:h-4 sm:w-4"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="1.8"
+        >
+          <rect x="8" y="3" width="8" height="12" rx="4" />
+          <path d="M5 11a7 7 0 0014 0M12 18v3M9 21h6" stroke-linecap="round" />
+        </svg>
       </span>
       <span class="hidden sm:inline">{{ copy.button }}</span>
     </button>
   </div>
 </template>
+
+<style scoped>
+.voice-panel {
+  background-color: color-mix(in srgb, var(--card) 96%, transparent);
+}
+
+.voice-trigger {
+  background-color: color-mix(in srgb, var(--card) 98%, transparent);
+}
+
+@media (max-width: 639px) {
+  .voice-panel {
+    background-color: color-mix(in srgb, var(--card) 99%, transparent);
+  }
+}
+</style>
