@@ -25,6 +25,7 @@ type VoiceServerEvent = {
 }
 
 const { locale } = useI18n()
+const { trackEvent } = useRybbitAnalytics()
 
 const isOpen = ref(false)
 const state = ref<VoiceState>('idle')
@@ -45,6 +46,18 @@ const playbackSources = new Set<AudioBufferSourceNode>()
 
 let playbackTime = 0
 let transcriptId = 0
+let conversationStartedAt = 0
+let userTurnCount = 0
+let userTranscriptFinalized = false
+
+function trackVoiceEvent(name: string, properties?: Record<string, string | number>) {
+  trackEvent(name, {
+    feature: 'voice_assistant',
+    locale: locale.value,
+    page: import.meta.client ? window.location.pathname : '',
+    ...properties,
+  })
+}
 
 const copy = computed(() => {
   if (locale.value === 'zh') {
@@ -145,10 +158,14 @@ function commitLiveAssistantTranscript() {
 }
 
 function commitUserTranscript() {
-  if (interimUserTranscript.value.trim()) {
-    addTranscript('user', interimUserTranscript.value)
-    interimUserTranscript.value = ''
-  }
+  const cleaned = interimUserTranscript.value.trim()
+  if (!cleaned || userTranscriptFinalized) return
+
+  addTranscript('user', cleaned)
+  userTurnCount += 1
+  userTranscriptFinalized = true
+  trackVoiceEvent('voice_assistant_turn', { turn_number: userTurnCount })
+  interimUserTranscript.value = ''
 }
 
 function schedulePcmAudio(base64Audio: string) {
@@ -251,25 +268,26 @@ function handleServerEvent(event: VoiceServerEvent) {
       commitLiveAssistantTranscript()
       break
     case 'conversation.item.input_audio_transcription.updated':
+      if (userTranscriptFinalized) return
       interimUserTranscript.value = event.transcript || ''
       break
     case 'conversation.item.input_audio_transcription.completed':
-    case 'conversation.item.input_audio_transcription.done':
       if (event.transcript) interimUserTranscript.value = event.transcript
       commitUserTranscript()
       break
     case 'input_audio_buffer.speech_started':
+      userTranscriptFinalized = false
       state.value = 'listening'
       break
     case 'response.created':
       state.value = 'thinking'
       break
     case 'response.done':
-      commitUserTranscript()
       commitLiveAssistantTranscript()
       if (playbackSources.size === 0) state.value = 'listening'
       break
     case 'error':
+      trackVoiceEvent('voice_assistant_error', { phase: 'server' })
       errorMessage.value = event.error?.message || copy.value.error
       state.value = 'error'
       break
@@ -286,6 +304,8 @@ async function connect() {
   transcript.value = []
   interimUserTranscript.value = ''
   liveAssistantTranscript.value = ''
+  userTranscriptFinalized = false
+  userTurnCount = 0
 
   try {
     if (!navigator.mediaDevices?.getUserMedia) {
@@ -313,6 +333,8 @@ async function connect() {
     currentSocket.onopen = () => {
       sendSessionUpdate()
       startMicrophoneCapture()
+      conversationStartedAt = Date.now()
+      trackVoiceEvent('voice_assistant_started')
       state.value = 'listening'
     }
     currentSocket.onmessage = (message) => {
@@ -324,6 +346,7 @@ async function connect() {
       }
     }
     currentSocket.onerror = () => {
+      trackVoiceEvent('voice_assistant_error', { phase: 'socket' })
       errorMessage.value = copy.value.error
       state.value = 'error'
     }
@@ -331,6 +354,7 @@ async function connect() {
       if (state.value !== 'idle' && state.value !== 'error') state.value = 'idle'
     }
   } catch (error) {
+    trackVoiceEvent('voice_assistant_error', { phase: 'connect' })
     errorMessage.value = error instanceof Error ? error.message : copy.value.error
     state.value = 'error'
     await disconnect(false)
@@ -338,6 +362,14 @@ async function connect() {
 }
 
 async function disconnect(resetState = true) {
+  if (conversationStartedAt) {
+    trackVoiceEvent('voice_assistant_ended', {
+      duration_seconds: Math.max(0, Math.round((Date.now() - conversationStartedAt) / 1000)),
+      turns: userTurnCount,
+    })
+    conversationStartedAt = 0
+  }
+
   processorNode.value?.disconnect()
   sourceNode.value?.disconnect()
   silentGain.value?.disconnect()
@@ -370,11 +402,13 @@ async function disconnect(resetState = true) {
 
 async function toggleAssistant() {
   if (isOpen.value) {
+    trackVoiceEvent('voice_assistant_closed')
     isOpen.value = false
     await disconnect()
     return
   }
 
+  trackVoiceEvent('voice_assistant_opened', { source: 'floating_trigger' })
   isOpen.value = true
   await connect()
 }

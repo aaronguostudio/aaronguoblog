@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
 const { trackEvent } = useRybbitAnalytics()
 
 interface Props {
@@ -35,6 +35,10 @@ const subscribe = async () => {
 
   status.value = 'loading'
   message.value = ''
+  trackEvent('newsletter_subscribe_attempt', {
+    locale: locale.value,
+    location: props.variant,
+  })
 
   try {
     const res = await $fetch<{ success: boolean; message: string; status: string }>(
@@ -53,6 +57,7 @@ const subscribe = async () => {
     }
     // Track successful newsletter subscription
     trackEvent('newsletter_subscribe', {
+      locale: locale.value,
       status: res.status || 'active',
       location: props.variant,
     })
@@ -92,7 +97,9 @@ const copyToClipboard = async () => {
   >
     <div class="max-w-2xl mx-auto">
       <!-- Newsletter Header -->
-      <h3 :class="['font-bold mb-2 text-foreground', variant === 'inline' ? 'text-2xl' : 'text-xl']">
+      <h3
+        :class="['font-bold mb-2 text-foreground', variant === 'inline' ? 'text-2xl' : 'text-xl']"
+      >
         {{ title || t('newsletter.title') }}
       </h3>
       <p class="text-muted-foreground mb-6">

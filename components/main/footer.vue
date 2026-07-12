@@ -22,6 +22,8 @@ const localePath = useLocalePath()
           <NuxtLink
             :to="localePath('/subscribe')"
             class="text-sm hover:text-white transition-colors flex items-center gap-1"
+            data-rybbit-event="subscribe_click"
+            data-rybbit-prop-location="footer"
           >
             <Icon name="mdi:rss" class="w-4 h-4" />
             <span>{{ t('footer.subscribe') }}</span>
