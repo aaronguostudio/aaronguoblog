@@ -166,7 +166,10 @@ function getActiveUserTranscriptLine() {
 
 function beginUserTranscript(itemId?: string) {
   const activeLine = getActiveUserTranscriptLine()
-  if (activeLine && !activeLine.text.trim()) {
+  if (
+    activeLine?.pending &&
+    (!itemId || !activeUserTranscriptItemId || itemId === activeUserTranscriptItemId)
+  ) {
     if (itemId) activeUserTranscriptItemId = itemId
     return activeLine
   }
@@ -536,7 +539,7 @@ onBeforeUnmount(() => {
   <div class="fixed bottom-4 right-4 z-[60] sm:bottom-6 sm:right-6">
     <div
       v-if="isOpen"
-      class="voice-panel mb-3 max-h-[calc(100dvh-6rem)] w-[min(calc(100vw-1.5rem),24rem)] overflow-hidden rounded-2xl border border-border shadow-2xl backdrop-blur-2xl sm:w-[min(calc(100vw-2rem),24rem)]"
+      class="voice-panel mb-3 flex h-[80dvh] max-h-[calc(100dvh-2rem)] w-[min(calc(100vw-1.5rem),24rem)] flex-col overflow-hidden rounded-2xl border border-border shadow-2xl backdrop-blur-2xl sm:w-[min(calc(100vw-2rem),24rem)]"
       role="dialog"
       :aria-label="copy.title"
     >
@@ -564,7 +567,7 @@ onBeforeUnmount(() => {
         </button>
       </div>
 
-      <div ref="transcriptScroller" class="max-h-64 space-y-3 overflow-y-auto px-4 py-4">
+      <div ref="transcriptScroller" class="min-h-0 flex-1 space-y-3 overflow-y-auto px-4 py-4">
         <p v-if="!hasTranscriptContent" class="text-sm leading-6 text-muted-foreground">
           {{ copy.empty }}
         </p>
@@ -580,7 +583,7 @@ onBeforeUnmount(() => {
               :class="
                 line.role === 'user'
                   ? line.pending
-                    ? 'bg-secondary/70 italic text-muted-foreground'
+                    ? 'italic text-muted-foreground'
                     : 'bg-secondary text-foreground'
                   : 'bg-background text-foreground'
               "
