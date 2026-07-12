@@ -77,6 +77,29 @@ function decodeHtmlEntities(value) {
   })
 }
 
+function selectBestThumbnail(thumbnails) {
+  const preferredSizes = ['maxres', 'standard', 'high', 'medium', 'default']
+
+  for (const size of preferredSizes) {
+    const thumbnail = thumbnails?.[size]
+    if (thumbnail?.url) {
+      return {
+        url: thumbnail.url,
+        width: thumbnail.width || 0,
+        height: thumbnail.height || 0,
+        quality: size,
+      }
+    }
+  }
+
+  return {
+    url: '',
+    width: 0,
+    height: 0,
+    quality: 'unknown',
+  }
+}
+
 // Validate API key
 if (!YOUTUBE_API_KEY) {
   console.error('Error: YOUTUBE_API_KEY environment variable is not set')
@@ -101,12 +124,14 @@ async function fetchChannelStats(channelId) {
   if (!data.items || data.items.length === 0) throw new Error('Channel not found')
 
   const channel = data.items[0]
+  const thumbnail = selectBestThumbnail(channel.snippet.thumbnails)
+
   return {
     id: channel.id,
     title: decodeHtmlEntities(channel.snippet.title),
     description: decodeHtmlEntities(channel.snippet.description),
     customUrl: channel.snippet.customUrl,
-    thumbnail: channel.snippet.thumbnails.high.url,
+    thumbnail: thumbnail.url,
     subscriberCount: parseInt(channel.statistics.subscriberCount),
     videoCount: parseInt(channel.statistics.videoCount),
     viewCount: parseInt(channel.statistics.viewCount),
@@ -135,7 +160,7 @@ async function fetchVideos(channelId) {
   const videoIds = data.items.map((item) => item.id.videoId).join(',')
 
   const detailsUrl = new URL('https://www.googleapis.com/youtube/v3/videos')
-  detailsUrl.searchParams.append('part', 'contentDetails,statistics')
+  detailsUrl.searchParams.append('part', 'snippet,contentDetails,statistics')
   detailsUrl.searchParams.append('id', videoIds)
   detailsUrl.searchParams.append('key', YOUTUBE_API_KEY)
 
@@ -150,12 +175,16 @@ async function fetchVideos(channelId) {
     const duration = details?.contentDetails?.duration || 'PT0S'
     const durationSeconds = parseDuration(duration)
     const isShort = durationSeconds > 0 && durationSeconds <= 60
+    const thumbnail = selectBestThumbnail(details?.snippet?.thumbnails || item.snippet.thumbnails)
 
     return {
       id: item.id.videoId,
       title: decodeHtmlEntities(item.snippet.title),
       description: decodeHtmlEntities(item.snippet.description),
-      thumbnail: item.snippet.thumbnails.high.url,
+      thumbnail: thumbnail.url,
+      thumbnailWidth: thumbnail.width,
+      thumbnailHeight: thumbnail.height,
+      thumbnailQuality: thumbnail.quality,
       publishedAt: item.snippet.publishedAt,
       duration,
       durationSeconds,

@@ -55,47 +55,47 @@ const blogPath = computed(() => {
 
 <template>
   <article
-    class="group border dark:border-gray-800 rounded-lg overflow-hidden shadow-sm text-zinc-700 dark:text-zinc-300 bg-white dark:bg-gray-900"
+    class="group overflow-hidden rounded-lg border border-[var(--line-card)] bg-card text-foreground transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:border-[var(--line-control)] hover:shadow-md motion-reduce:transition-none"
   >
     <NuxtLink :to="blogPath" class="block">
       <!-- Feature Image - Always shown with default fallback -->
-      <div>
+      <div class="overflow-hidden">
         <NuxtImg
-          class="h-72 w-full object-cover object-center group-hover:scale-[1.02] transition-all duration-500"
+          class="h-72 w-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.02] motion-reduce:transition-none"
           :src="image || '/blogs-img/blog.jpg'"
           :alt="alt"
           loading="lazy"
           sizes="100vw sm:50vw lg:33vw"
         />
       </div>
-      <div class="p-5">
+      <div class="flex min-h-[12.5rem] flex-col p-5">
         <h2
-          class="text-xl font-semibold text-black dark:text-zinc-300 pb-1 group-hover:text-sky-700 dark:group-hover:text-sky-400"
+          class="line-clamp-2 text-xl font-semibold leading-snug text-foreground transition-colors"
         >
           {{ title }}
         </h2>
-        <p class="text-ellipsis line-clamp-2">
+        <p class="mt-2 line-clamp-2 text-sm leading-6 text-muted-foreground">
           {{ description }}
         </p>
-        <div class="text-black dark:text-zinc-300 text-sm mt-2 mb-1 md:flex md:space-x-6">
-          <div class="flex items-center">
-            <LogoDate />
+        <div class="mt-5 text-sm text-muted-foreground md:flex md:items-center md:gap-5">
+          <div class="flex items-center gap-1.5">
+            <LogoDate class="h-4 w-4" />
             <p>{{ date }}</p>
           </div>
-          <div v-if="categoryLabels.length > 0" class="flex items-center gap-1 flex-wrap">
-            <LogoTag />
+          <div v-if="categoryLabels.length > 0" class="mt-2 flex flex-wrap items-center gap-1.5 md:mt-0">
+            <LogoTag class="h-4 w-4" />
             <span v-for="category in categoryLabels" :key="category">
               <span
-                class="bg-gray-200 dark:bg-slate-900 rounded-md px-2 py-1 font-semibold"
+                class="rounded-md bg-secondary px-2 py-1 text-xs font-medium text-secondary-foreground"
               >
                 {{ category }}
               </span>
             </span>
           </div>
         </div>
-        <div class="flex group-hover:underline items-center pt-2">
+        <div class="mt-auto flex items-center gap-2 pt-5 text-sm font-medium text-foreground">
           <p>Read More</p>
-          <LogoArrow />
+          <LogoArrow class="transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transition-none" />
         </div>
       </div>
     </NuxtLink>
