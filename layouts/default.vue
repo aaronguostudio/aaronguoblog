@@ -9,6 +9,9 @@
     <footer>
       <MainFooter />
     </footer>
+    <ClientOnly>
+      <VoiceAaronAssistant />
+    </ClientOnly>
   </div>
 </template>
 

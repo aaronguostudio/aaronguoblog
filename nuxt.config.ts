@@ -9,6 +9,9 @@ export default defineNuxtConfig({
     beehiivPublicationId: process.env.BEEHIIV_PUBLICATION_ID,
     tursoUrl: process.env.TURSO_URL,
     tursoAuthToken: process.env.TURSO_AUTH_TOKEN,
+    xaiApiKey: process.env.XAI_API_KEY,
+    xaiAgentId: process.env.XAI_AGENT_ID || 'agent_sw0d6SOTpSv8rLCx',
+    voiceAgentAllowedOrigins: process.env.VOICE_AGENT_ALLOWED_ORIGINS,
   },
 
   css: ['~/assets/css/custom.css'],
