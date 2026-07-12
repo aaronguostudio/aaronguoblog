@@ -8,6 +8,7 @@ type TranscriptLine = {
   id: number
   role: TranscriptRole
   text: string
+  pending?: boolean
 }
 
 type VoiceSession = {
@@ -19,6 +20,8 @@ type VoiceServerEvent = {
   type: string
   delta?: string
   transcript?: string
+  item_id?: string
+  response_id?: string
   error?: {
     message?: string
   }
@@ -32,7 +35,6 @@ const state = ref<VoiceState>('idle')
 const isMuted = ref(false)
 const errorMessage = ref('')
 const transcript = ref<TranscriptLine[]>([])
-const interimUserTranscript = ref('')
 const liveAssistantTranscript = ref('')
 const transcriptScroller = ref<HTMLElement | null>(null)
 
@@ -48,7 +50,11 @@ let playbackTime = 0
 let transcriptId = 0
 let conversationStartedAt = 0
 let userTurnCount = 0
-let userTranscriptFinalized = false
+let activeUserTranscriptId: number | null = null
+let activeUserTranscriptItemId = ''
+let lastCommittedUserTranscriptItemId = ''
+let activeAssistantResponseId = ''
+let lastCommittedAssistantResponseId = ''
 
 function trackVoiceEvent(name: string, properties?: Record<string, string | number>) {
   trackEvent(name, {
@@ -106,6 +112,9 @@ const copy = computed(() => {
 })
 
 const isActive = computed(() => state.value !== 'idle' && state.value !== 'error')
+const hasTranscriptContent = computed(
+  () => transcript.value.some((line) => line.text.trim()) || Boolean(liveAssistantTranscript.value),
+)
 const statusLabel = computed(() => {
   const labels: Record<VoiceState, string> = {
     idle: copy.value.button,
@@ -144,28 +153,101 @@ function base64ToBytes(value: string) {
   return bytes
 }
 
-function addTranscript(role: TranscriptRole, text: string) {
+function addTranscript(role: TranscriptRole, text: string, pending = false) {
   const cleaned = text.trim()
   if (!cleaned) return
-  transcript.value.push({ id: transcriptId++, role, text: cleaned })
+  transcript.value.push({ id: transcriptId++, role, text: cleaned, pending })
 }
 
-function commitLiveAssistantTranscript() {
-  if (liveAssistantTranscript.value.trim()) {
-    addTranscript('assistant', liveAssistantTranscript.value)
-    liveAssistantTranscript.value = ''
+function getActiveUserTranscriptLine() {
+  if (activeUserTranscriptId === null) return undefined
+  return transcript.value.find((line) => line.id === activeUserTranscriptId)
+}
+
+function beginUserTranscript(itemId?: string) {
+  const activeLine = getActiveUserTranscriptLine()
+  if (activeLine && !activeLine.text.trim()) {
+    if (itemId) activeUserTranscriptItemId = itemId
+    return activeLine
   }
+
+  // If the user interrupts an assistant response, place the next user turn
+  // after the partial assistant message instead of leaving it in the live slot.
+  commitLiveAssistantTranscript()
+
+  const line: TranscriptLine = {
+    id: transcriptId++,
+    role: 'user',
+    text: '',
+    pending: true,
+  }
+  transcript.value.push(line)
+  activeUserTranscriptId = line.id
+  activeUserTranscriptItemId = itemId || ''
+  return line
 }
 
-function commitUserTranscript() {
-  const cleaned = interimUserTranscript.value.trim()
-  if (!cleaned || userTranscriptFinalized) return
+function updateUserTranscript(text: string, itemId?: string) {
+  const cleaned = text.trim()
+  if (!cleaned) return
 
-  addTranscript('user', cleaned)
+  if (itemId && activeUserTranscriptItemId && itemId !== activeUserTranscriptItemId) {
+    activeUserTranscriptId = null
+    activeUserTranscriptItemId = ''
+  }
+
+  const line = beginUserTranscript(itemId)
+  line.text = cleaned
+  line.pending = true
+}
+
+function commitLiveAssistantTranscript(responseId?: string) {
+  const cleaned = liveAssistantTranscript.value.trim()
+  if (!cleaned) return
+
+  const resolvedResponseId = responseId || activeAssistantResponseId
+  if (resolvedResponseId && resolvedResponseId === lastCommittedAssistantResponseId) {
+    liveAssistantTranscript.value = ''
+    return
+  }
+
+  addTranscript('assistant', cleaned)
+  if (resolvedResponseId) lastCommittedAssistantResponseId = resolvedResponseId
+  activeAssistantResponseId = ''
+  liveAssistantTranscript.value = ''
+}
+
+function commitUserTranscript(finalText?: string, itemId?: string) {
+  const resolvedItemId = itemId || activeUserTranscriptItemId
+  if (resolvedItemId && resolvedItemId === lastCommittedUserTranscriptItemId) return
+
+  if (itemId && activeUserTranscriptItemId && itemId !== activeUserTranscriptItemId) {
+    activeUserTranscriptId = null
+    activeUserTranscriptItemId = ''
+  }
+
+  const line = getActiveUserTranscriptLine() || beginUserTranscript(resolvedItemId)
+  const cleaned = (finalText || line.text).trim()
+  if (!cleaned) return
+
+  line.text = cleaned
+  line.pending = false
+  if (resolvedItemId) lastCommittedUserTranscriptItemId = resolvedItemId
+  activeUserTranscriptId = null
+  activeUserTranscriptItemId = ''
   userTurnCount += 1
-  userTranscriptFinalized = true
   trackVoiceEvent('voice_assistant_turn', { turn_number: userTurnCount })
-  interimUserTranscript.value = ''
+}
+
+function sessionLanguageInstructions() {
+  const defaultLanguage = locale.value === 'zh' ? 'Simplified Chinese' : 'English'
+  return [
+    "Preserve Aaron AI's existing identity, knowledge, tone, safety rules, tools, and other configured behavior.",
+    `The website locale is ${locale.value === 'zh' ? 'Chinese' : 'English'}. Use ${defaultLanguage} as the default response language.`,
+    'Match the language the user is clearly speaking when it differs from the site locale.',
+    'If the user explicitly asks for a language, switch to that language and continue using it until they request otherwise.',
+    'If the language is ambiguous or mixed, use the website locale.',
+  ].join(' ')
 }
 
 function schedulePcmAudio(base64Audio: string) {
@@ -208,6 +290,7 @@ function sendSessionUpdate() {
     JSON.stringify({
       type: 'session.update',
       session: {
+        instructions: sessionLanguageInstructions(),
         audio: {
           input: {
             format: { type: 'audio/pcm', rate: 24000 },
@@ -261,29 +344,30 @@ function handleServerEvent(event: VoiceServerEvent) {
       if (event.delta) schedulePcmAudio(event.delta)
       break
     case 'response.output_audio_transcript.delta':
+      if (event.response_id) activeAssistantResponseId = event.response_id
       liveAssistantTranscript.value += event.delta || ''
       break
     case 'response.output_audio_transcript.done':
+      if (event.response_id) activeAssistantResponseId = event.response_id
       if (event.transcript) liveAssistantTranscript.value = event.transcript
-      commitLiveAssistantTranscript()
+      commitLiveAssistantTranscript(event.response_id)
       break
     case 'conversation.item.input_audio_transcription.updated':
-      if (userTranscriptFinalized) return
-      interimUserTranscript.value = event.transcript || ''
+      updateUserTranscript(event.transcript || '', event.item_id)
       break
     case 'conversation.item.input_audio_transcription.completed':
-      if (event.transcript) interimUserTranscript.value = event.transcript
-      commitUserTranscript()
+      commitUserTranscript(event.transcript, event.item_id)
       break
     case 'input_audio_buffer.speech_started':
-      userTranscriptFinalized = false
+      beginUserTranscript()
       state.value = 'listening'
       break
     case 'response.created':
+      if (event.response_id) activeAssistantResponseId = event.response_id
       state.value = 'thinking'
       break
     case 'response.done':
-      commitLiveAssistantTranscript()
+      commitLiveAssistantTranscript(event.response_id)
       if (playbackSources.size === 0) state.value = 'listening'
       break
     case 'error':
@@ -302,10 +386,13 @@ async function connect() {
   errorMessage.value = ''
   state.value = 'connecting'
   transcript.value = []
-  interimUserTranscript.value = ''
   liveAssistantTranscript.value = ''
-  userTranscriptFinalized = false
   userTurnCount = 0
+  activeUserTranscriptId = null
+  activeUserTranscriptItemId = ''
+  lastCommittedUserTranscriptItemId = ''
+  activeAssistantResponseId = ''
+  lastCommittedAssistantResponseId = ''
 
   try {
     if (!navigator.mediaDevices?.getUserMedia) {
@@ -428,7 +515,10 @@ function toggleMute() {
 }
 
 watch(
-  () => [transcript.value.length, interimUserTranscript.value, liveAssistantTranscript.value],
+  () => [
+    transcript.value.map((line) => `${line.id}:${line.text}:${line.pending}`).join('|'),
+    liveAssistantTranscript.value,
+  ],
   async () => {
     await nextTick()
     if (transcriptScroller.value) {
@@ -475,45 +565,30 @@ onBeforeUnmount(() => {
       </div>
 
       <div ref="transcriptScroller" class="max-h-64 space-y-3 overflow-y-auto px-4 py-4">
-        <p
-          v-if="!transcript.length && !interimUserTranscript && !liveAssistantTranscript"
-          class="text-sm leading-6 text-muted-foreground"
-        >
+        <p v-if="!hasTranscriptContent" class="text-sm leading-6 text-muted-foreground">
           {{ copy.empty }}
         </p>
-        <div
-          v-for="line in transcript"
-          :key="line.id"
-          :class="line.role === 'user' ? 'text-right' : 'text-left'"
-        >
-          <span
-            class="mb-1 block text-[10px] font-medium uppercase tracking-[0.14em] text-muted-foreground"
-          >
-            {{ line.role === 'user' ? copy.user : copy.assistant }}
-          </span>
-          <p
-            class="inline-block max-w-[92%] rounded-xl px-3 py-2 text-sm leading-6"
-            :class="
-              line.role === 'user'
-                ? 'bg-secondary text-foreground'
-                : 'bg-background text-foreground'
-            "
-          >
-            {{ line.text }}
-          </p>
-        </div>
-        <div v-if="interimUserTranscript" class="text-right">
-          <span
-            class="mb-1 block text-[10px] font-medium uppercase tracking-[0.14em] text-muted-foreground"
-          >
-            {{ copy.user }}
-          </span>
-          <p
-            class="inline-block max-w-[92%] rounded-xl bg-secondary/70 px-3 py-2 text-sm italic leading-6 text-muted-foreground"
-          >
-            {{ interimUserTranscript }}
-          </p>
-        </div>
+        <template v-for="line in transcript" :key="line.id">
+          <div v-if="line.text" :class="line.role === 'user' ? 'text-right' : 'text-left'">
+            <span
+              class="mb-1 block text-[10px] font-medium uppercase tracking-[0.14em] text-muted-foreground"
+            >
+              {{ line.role === 'user' ? copy.user : copy.assistant }}
+            </span>
+            <p
+              class="inline-block max-w-[92%] rounded-xl px-3 py-2 text-sm leading-6"
+              :class="
+                line.role === 'user'
+                  ? line.pending
+                    ? 'bg-secondary/70 italic text-muted-foreground'
+                    : 'bg-secondary text-foreground'
+                  : 'bg-background text-foreground'
+              "
+            >
+              {{ line.text }}
+            </p>
+          </div>
+        </template>
         <div v-if="liveAssistantTranscript" class="text-left">
           <span
             class="mb-1 block text-[10px] font-medium uppercase tracking-[0.14em] text-muted-foreground"
