@@ -56,6 +56,7 @@
     "ruleImplication": "One useful implication",
     "shareOnX": "Share on X",
     "shareOnLinkedIn": "Share on LinkedIn",
+    "copyAndShareOnLinkedIn": "Copy a suggested post and share on LinkedIn",
     "closing": "A working thought, kept in public.",
     "showSlide": "Show note {number}"
   },

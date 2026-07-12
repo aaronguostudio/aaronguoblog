@@ -47,6 +47,23 @@ const shareOnLinkedInUrl = computed(
   () =>
     `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(canonicalUrl.value)}`,
 )
+const linkedInShareText = computed(() => {
+  const opening = note.value?.hook || noteDescription.value
+
+  return [opening, noteDescription.value]
+    .filter((value, index, values) => Boolean(value) && values.indexOf(value) === index)
+    .join('\n\n')
+})
+
+async function copyLinkedInCaption() {
+  if (!import.meta.client || !navigator.clipboard?.writeText) return
+
+  try {
+    await navigator.clipboard.writeText(linkedInShareText.value)
+  } catch {
+    // The share link still works when a browser blocks clipboard access.
+  }
+}
 
 useSeo({
   title: noteTitle.value,
@@ -149,11 +166,18 @@ useScrollDepthTracking(normalizedRoutePath.value)
             :href="shareOnLinkedInUrl"
             target="_blank"
             rel="noopener noreferrer"
+            :title="t('notes.copyAndShareOnLinkedIn')"
             class="inline-flex min-h-11 items-center gap-2 rounded-md border border-[color:var(--line-control)] bg-card/60 px-3.5 text-sm font-medium text-foreground outline-none transition-colors hover:border-[color:var(--notes-border-hover)] hover:bg-[var(--notes-surface-hover)] focus-visible:ring-2 focus-visible:ring-[var(--notes-accent)]"
-            :aria-label="t('notes.shareOnLinkedIn')"
+            :aria-label="t('notes.copyAndShareOnLinkedIn')"
+            @click="copyLinkedInCaption"
           >
             <Icon name="mdi:linkedin" class="h-4 w-4" />
             LinkedIn
+            <Icon
+              name="heroicons:clipboard-document"
+              class="h-3.5 w-3.5 text-muted-foreground"
+              aria-hidden="true"
+            />
           </a>
         </div>
       </footer>
