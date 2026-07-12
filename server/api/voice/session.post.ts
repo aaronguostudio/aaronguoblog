@@ -45,8 +45,11 @@ function isAllowedOrigin(origin: string | undefined, configuredOrigins: string |
     ?.split(',')
     .map((item) => item.trim())
     .filter(Boolean)
+  const vercelOrigin = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : undefined
 
-  return [...defaultOrigins, ...(configured || [])].includes(origin)
+  return [...defaultOrigins, ...(configured || []), ...(vercelOrigin ? [vercelOrigin] : [])].includes(
+    origin,
+  )
 }
 
 function consumeRateLimit(ip: string) {
