@@ -68,6 +68,11 @@ const data = computed<BlogPost>(() => {
   }
 })
 
+const canonicalUrl = computed(() => new URL(route.path, seoData.mySite).toString())
+const socialImageUrl = computed(() =>
+  new URL(data.value.ogImage || data.value.image || '/blogs-img/blog.jpg', seoData.mySite).toString(),
+)
+
 useHead({
   title: data.value.title || '',
   meta: [
@@ -81,7 +86,7 @@ useHead({
     { property: 'og:type', content: 'website' },
     {
       property: 'og:url',
-      content: `${seoData.mySite}/${route.path}`,
+      content: canonicalUrl.value,
     },
     {
       property: 'og:title',
@@ -93,14 +98,14 @@ useHead({
     },
     {
       property: 'og:image',
-      content: data.value.ogImage || data.value.image,
+      content: socialImageUrl.value,
     },
     // Test on: https://cards-dev.twitter.com/validator or https://socialsharepreview.com/
     { name: 'twitter:site', content: '@aaronguostudio' },
     { name: 'twitter:card', content: 'summary_large_image' },
     {
       name: 'twitter:url',
-      content: `${seoData.mySite}/${route.path}`,
+      content: canonicalUrl.value,
     },
     {
       name: 'twitter:title',
@@ -112,27 +117,18 @@ useHead({
     },
     {
       name: 'twitter:image',
-      content: data.value.ogImage || data.value.image,
+      content: socialImageUrl.value,
     },
   ],
   link: [
     {
       rel: 'canonical',
-      href: `${seoData.mySite}/${route.path}`,
+      href: canonicalUrl.value,
     },
   ],
 })
 
 console.log(articles.value)
-
-// Generate OG Image
-defineOgImageComponent('Test', {
-  headline: 'Aaron Guo Blog 👋',
-  title: data.value.title || '',
-  description: data.value.description || '',
-  // Use a default image if ogImage is not available
-  link: data.value.ogImage || '/blogs-img/blog.jpg',
-})
 </script>
 
 <template>

@@ -6,7 +6,7 @@ import { siteDescription } from '~/app/content'
 // Site configuration
 const siteConfig = {
   name: 'Aaron Guo',
-  url: 'https://aaronguo.com',
+  url: 'https://www.aaronguo.com',
   description: siteDescription,
   defaultImage: '/og-image.jpg',
   twitterHandle: '@aaronguo',

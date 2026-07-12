@@ -34,7 +34,7 @@ export const seoData = {
   ogTitle: `Aaron Guo — Product leader who builds AI systems that do the work`,
   description: `Builder who ships with AI daily. Real notes on product execution, AI-native systems, and what actually works.`,
   twitterDescription: `Builder who ships with AI daily. Real notes on product execution, AI-native systems, and what actually works.`,
-  mySite: 'https://aaronguo.com',
+  mySite: 'https://www.aaronguo.com',
   twitterHandle: '@aaronguostudio',
   mailAddress: 'aaronguostudio@gmail.com',
 }
