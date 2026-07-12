@@ -315,6 +315,18 @@ body {
   --tw-ring-color: color-mix(in srgb, var(--signal-accent) 28%, transparent);
 }
 
+.signal-disclosure {
+  border-color: var(--signal-control-border);
+  background: var(--signal-control);
+  color: color-mix(in srgb, var(--foreground) 58%, transparent);
+}
+
+.signal-row:hover .signal-disclosure,
+.signal-row:focus-visible .signal-disclosure {
+  border-color: color-mix(in srgb, var(--signal-accent) 48%, transparent);
+  color: var(--signal-accent);
+}
+
 .signal-primary-button {
   background: var(--signal-accent);
   color: var(--signal-accent-ink);

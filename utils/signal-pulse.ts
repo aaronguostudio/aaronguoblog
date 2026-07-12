@@ -14,7 +14,8 @@ export type SignalPulseSnapshot<T> = {
   items?: T[]
 }
 
-const RADAR_PULSE_PATTERN =
+// Keep parsing legacy generated text while presenting the public product as Signal.
+const LEGACY_PULSE_PATTERN =
   /^Radar found\s+(\d+)\s+high-signal items across\s+(.+?)\.\s+Top themes:\s+(.+?)\.?$/
 
 function normalizeLocale(locale?: string): SignalPulseLocale {
@@ -29,7 +30,7 @@ function formatEnglishTopic(topic: string) {
 export function formatSignalPulseText({ text, locale }: FormatSignalPulseTextOptions) {
   if (!text) return null
 
-  const match = text.trim().match(RADAR_PULSE_PATTERN)
+  const match = text.trim().match(LEGACY_PULSE_PATTERN)
   if (!match) return text
 
   const [, count, topic, themes] = match
@@ -37,10 +38,10 @@ export function formatSignalPulseText({ text, locale }: FormatSignalPulseTextOpt
   const signalLocale = normalizeLocale(locale)
 
   if (signalLocale === 'zh') {
-    return `最近一次 Radar 读数捕捉到 ${count} 条 ${pulseTopic} 强信号：${themes}.`
+    return `最近一次 Signal 读数捕捉到 ${count} 条 ${pulseTopic} 强信号：${themes}.`
   }
 
-  return `The latest Radar read found ${count} strong ${pulseTopic} signals: ${themes}.`
+  return `The current Signal read found ${count} strong ${pulseTopic} signals: ${themes}.`
 }
 
 function signalPulseTimestamp<T>(pulse: SignalPulseSnapshot<T>) {
@@ -52,7 +53,7 @@ function signalPulseTimestamp<T>(pulse: SignalPulseSnapshot<T>) {
 
 /**
  * Keep every pulse field on the same snapshot so the date, text, and evidence
- * cannot accidentally come from different Radar runs.
+ * cannot accidentally come from different Signal runs.
  */
 export function selectFreshestSignalPulse<T>(
   staticPulse: SignalPulseSnapshot<T> | null | undefined,

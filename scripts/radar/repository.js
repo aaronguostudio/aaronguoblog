@@ -36,7 +36,7 @@ export async function discoverSchema(client) {
     })
     result.push({
       table: row.name,
-      columns: columns.rows.map(column => column.name),
+      columns: columns.rows.map((column) => column.name),
     })
   }
 
@@ -46,7 +46,7 @@ export async function discoverSchema(client) {
 export async function migrateRadarSchema(client) {
   const statements = getRadarSchemaSql()
     .split(';')
-    .map(statement => statement.trim())
+    .map((statement) => statement.trim())
     .filter(Boolean)
 
   for (const statement of statements) {
@@ -99,7 +99,141 @@ export async function createRadarRun(client, { topicSlug, mode, lookbackDays, ca
   return Number(result.lastInsertRowid)
 }
 
-export async function finishRadarRun(client, { runId, status, itemsSeen, itemsWritten, warnings = {}, sourceErrors = {}, errorMessage = null }) {
+export async function getDeepReadCandidates(client, { topics, maxTopics = 1 }) {
+  const candidates = []
+
+  for (const topic of topics) {
+    const settings = topic.deepRead
+    if (!settings?.enabled || !topic.threadSlug) continue
+
+    const result = await client.execute({
+      sql: `SELECT
+              ri.canonical_url,
+              ri.url,
+              ri.source,
+              ri.title,
+              ri.summary,
+              ri.ai_summary,
+              ri.published_at,
+              rit.score,
+              rit.relevance,
+              rit.sighting_count,
+              rit.last_seen_at
+            FROM radar_item_topics rit
+            JOIN radar_items ri ON ri.id = rit.item_id
+            WHERE rit.topic_slug = ?
+              AND rit.relevance >= ?
+              AND LOWER(COALESCE(ri.ai_summary, '')) NOT LIKE '%fallback-local-score%'
+            ORDER BY rit.sighting_count DESC, rit.relevance DESC, rit.score DESC,
+              rit.last_seen_at DESC, ri.id DESC
+            LIMIT ?`,
+      args: [topic.slug, topic.minRelevance, settings.itemLimit || 10],
+    })
+
+    const items = result.rows.map((row) => ({
+      canonicalUrl: String(row.canonical_url || row.url),
+      url: String(row.url),
+      source: String(row.source || 'web'),
+      title: String(row.title || ''),
+      summary: String(row.summary || ''),
+      aiSummary: String(row.ai_summary || ''),
+      publishedAt: row.published_at || null,
+      score: Number(row.score || 0),
+      relevance: Number(row.relevance || 0),
+      sightingCount: Number(row.sighting_count || 1),
+      lastSeenAt: row.last_seen_at || null,
+    }))
+
+    const repeatedItems = items.filter(
+      (item) => item.sightingCount >= (settings.minSightingCount || 2),
+    )
+    const enoughSources = items.length >= (settings.minSources || 3)
+    const importantEnough =
+      topic.cadence === 'weekly' || repeatedItems.length >= (settings.minRepeatedSources || 2)
+
+    if (!enoughSources || !importantEnough) continue
+
+    candidates.push({
+      topic,
+      items,
+      importance:
+        repeatedItems.length * 100 + Math.max(...items.map((item) => item.sightingCount), 0) * 5,
+      repeatedSources: repeatedItems.length,
+    })
+  }
+
+  return candidates
+    .sort((left, right) => right.importance - left.importance)
+    .slice(0, Math.max(1, maxTopics))
+}
+
+export async function findDeepReadByFingerprint(client, inputFingerprint) {
+  const result = await client.execute({
+    sql: `SELECT id, topic_slug, thread_slug, read_at, status
+          FROM radar_deep_reads
+          WHERE input_fingerprint = ?
+          LIMIT 1`,
+    args: [inputFingerprint],
+  })
+
+  return result.rows[0] || null
+}
+
+export async function insertRadarDeepRead(
+  client,
+  {
+    topicSlug,
+    threadSlug,
+    readAt,
+    inputFingerprint,
+    title,
+    question,
+    synthesis,
+    caveat,
+    sources,
+    model,
+  },
+) {
+  const result = await client.execute({
+    sql: `INSERT INTO radar_deep_reads
+      (topic_slug, thread_slug, read_at, status, input_fingerprint, title_json,
+       question_json, synthesis_json, caveat_json, sources_json, source_count, model)
+      VALUES (?, ?, ?, 'completed', ?, ?, ?, ?, ?, ?, ?, ?)
+      ON CONFLICT(input_fingerprint) DO UPDATE SET
+        topic_slug = excluded.topic_slug,
+        thread_slug = excluded.thread_slug,
+        read_at = excluded.read_at,
+        status = excluded.status,
+        title_json = excluded.title_json,
+        question_json = excluded.question_json,
+        synthesis_json = excluded.synthesis_json,
+        caveat_json = excluded.caveat_json,
+        sources_json = excluded.sources_json,
+        source_count = excluded.source_count,
+        model = excluded.model,
+        updated_at = datetime('now')`,
+    args: [
+      topicSlug,
+      threadSlug,
+      readAt,
+      inputFingerprint,
+      JSON.stringify(title),
+      JSON.stringify(question),
+      JSON.stringify(synthesis),
+      JSON.stringify(caveat),
+      JSON.stringify(sources),
+      sources.length,
+      model || null,
+    ],
+  })
+
+  return Number(result.lastInsertRowid || 0)
+}
+
+export async function finishRadarRun(
+  client,
+  { runId, status, itemsSeen, itemsWritten, warnings = {}, sourceErrors = {}, errorMessage = null },
+) {
   await client.execute({
     sql: `UPDATE radar_runs SET
             completed_at = datetime('now'),

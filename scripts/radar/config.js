@@ -68,6 +68,14 @@ const TOPICS = [
     lookbackDays: 30,
     visibility: 'public',
     minRelevance: 6,
+    threadSlug: 'coding-agents-own-workflows',
+    deepRead: {
+      enabled: true,
+      minSources: 3,
+      minSightingCount: 2,
+      minRepeatedSources: 2,
+      itemLimit: 10,
+    },
     sourceHints: {
       subreddits: ['ClaudeAI', 'Cursor', 'LocalLLaMA', 'programming'],
       githubRepos: [],
@@ -97,7 +105,7 @@ const TOPICS = [
 ]
 
 export function getRadarTopics() {
-  return TOPICS.map(topic => ({
+  return TOPICS.map((topic) => ({
     ...topic,
     sourceHints: {
       subreddits: [...topic.sourceHints.subreddits],
@@ -110,11 +118,11 @@ export function getRadarTopics() {
 }
 
 export function getRadarTopicBySlug(slug) {
-  return getRadarTopics().find(topic => topic.slug === slug)
+  return getRadarTopics().find((topic) => topic.slug === slug)
 }
 
 export function getDueRadarTopics({ cadence } = {}) {
-  return getRadarTopics().filter(topic => {
+  return getRadarTopics().filter((topic) => {
     if (topic.visibility !== 'public') return false
     if (!cadence) return topic.cadence !== 'manual'
     return topic.cadence === cadence

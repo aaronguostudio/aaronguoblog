@@ -111,10 +111,10 @@ describe('static Signal contract', () => {
     expect(signalPulseComponent).toContain('v-if="open"')
 
     expect(EN_LOCALE).toContain('"heroEyebrow": "Live research desk"')
-    expect(EN_LOCALE).toContain('"latestRead": "Latest radar read"')
+    expect(EN_LOCALE).toContain('"latestRead": "Current Signal read"')
     expect(EN_LOCALE).toContain('"evidenceTitle": "Evidence Feed"')
     expect(ZH_LOCALE).toContain('"heroEyebrow": "实时研究台"')
-    expect(ZH_LOCALE).toContain('"latestRead": "最新 Radar 读数"')
+    expect(ZH_LOCALE).toContain('"latestRead": "当前 Signal 读数"')
     expect(ZH_LOCALE).toContain('"evidenceTitle": "证据流"')
   })
 

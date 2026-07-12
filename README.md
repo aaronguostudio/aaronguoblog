@@ -138,6 +138,15 @@ Run the daily cadence and write to Turso:
 pnpm radar:run --cadence daily
 ```
 
+On the weekly cadence, eligible important topics can be sent through Deep Reader. It selects topics with enough repeated, high-relevance evidence, produces a bilingual research artifact, and stores it in Turso for the Signal page. It does not create or publish a blog post:
+
+```bash
+pnpm radar:run --cadence weekly
+pnpm radar:deep-read --max-topics 1
+```
+
+Deep Reader requires `OPENAI_API_KEY` and uses `OPENAI_DEEP_READER_MODEL` when set (default: `gpt-4.1-mini`). The current rollout is intentionally limited to the `coding-agents` thread; more Signal threads can opt in through topic configuration after this loop proves useful.
+
 Export the latest Turso-backed Radar archive to static files:
 
 ```bash
@@ -165,7 +174,7 @@ Local scheduled publishing uses `scripts/radar/publish-local.sh`. It sources sec
 $HOME/.config/aaronguo/radar.env
 ```
 
-Then it pulls the repo, runs the daily Radar cadence, runs the weekly cadence on Mondays, exports the static snapshot, verifies `pnpm run generate`, commits `public/radar`, pushes the branch, and verifies the deployed `/radar/latest.json` plus `/signal` page match the new snapshot.
+Then it pulls the repo, runs the daily Radar cadence, runs the weekly cadence on Mondays, runs Deep Reader for one eligible topic, exports the static snapshot, verifies `pnpm run generate`, commits `public/radar`, pushes the branch, and verifies the deployed `/radar/latest.json` plus `/signal` page match the new snapshot.
 
 Deploy verification can be tuned with `RADAR_SITE_URL`, `RADAR_DEPLOY_VERIFY_ATTEMPTS`, and `RADAR_DEPLOY_VERIFY_DELAY_MS`. Set `RADAR_SKIP_DEPLOY_VERIFY=1` to skip the post-push check.
 

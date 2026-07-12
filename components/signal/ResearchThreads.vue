@@ -15,6 +15,16 @@ const props = defineProps<{
   questionLabel: string
   productAngleLabel: string
   supportingSignalsLabel: string
+  deepReadSectionLabel: string
+  deepReadQuestionLabel: string
+  deepReadSynthesisLabel: string
+  deepReadEvidenceLabel: string
+  deepReadCaveatLabel: string
+  deepReadReadAtLabel: string
+  selectedSourceLabel: string
+  deepReadLabel: string
+  researchNoteLabel: string
+  archivedSourceLabel: string
   relatedItemsLabel: string
   exploreRelatedLabel: string
   exploreAllLabel: string
@@ -84,9 +94,10 @@ function toggleThread(slug: string) {
       >
         <button
           type="button"
-          class="signal-row group grid w-full gap-4 py-5 text-left outline-none transition-colors sm:grid-cols-[8rem_minmax(0,1fr)_auto_auto] sm:items-center sm:gap-6"
+          class="signal-row group grid w-full gap-4 px-5 py-5 text-left outline-none transition-colors focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--signal-accent)] sm:grid-cols-[8rem_minmax(0,1fr)_auto_auto] sm:gap-6 sm:px-6 sm:py-6"
           :aria-expanded="openSlug === thread.slug"
           :aria-controls="`signal-thread-${thread.slug}`"
+          :aria-label="`${openSlug === thread.slug ? collapseLabel : expandLabel}: ${thread.title}`"
           @click="toggleThread(thread.slug)"
         >
           <span class="flex items-center gap-3">
@@ -115,10 +126,7 @@ function toggleThread(slug: string) {
             {{ thread.relatedSignalCount }} {{ relatedItemsLabel }}
           </span>
 
-          <span class="flex items-center gap-2 text-xs text-muted-foreground sm:justify-end">
-            <span class="hidden lg:inline">
-              {{ openSlug === thread.slug ? collapseLabel : expandLabel }}
-            </span>
+          <span class="signal-disclosure flex h-9 w-9 items-center justify-center rounded-md border" aria-hidden="true">
             <Icon
               name="heroicons:chevron-down"
               class="h-4 w-4 transition-transform duration-300 motion-reduce:transition-none"
@@ -130,7 +138,7 @@ function toggleThread(slug: string) {
         <motion.div
           v-if="openSlug === thread.slug"
           :id="`signal-thread-${thread.slug}`"
-          class="pb-8 sm:pl-[9.5rem]"
+          class="px-5 pb-8 pt-1 sm:pr-6 sm:pl-[10.5rem]"
           :initial="prefersReducedMotion ? false : { opacity: 0, y: -10 }"
           :animate="{ opacity: 1, y: 0 }"
           :transition="{ duration: 0.46, ease: [0.22, 1, 0.36, 1] }"
@@ -176,25 +184,130 @@ function toggleThread(slug: string) {
             </div>
           </div>
 
+          <section v-if="thread.deepRead" class="signal-rule mt-7 border-t pt-6">
+            <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+              <div>
+                <p class="signal-accent font-mono text-[10px] uppercase tracking-[0.16em]">
+                  {{ deepReadSectionLabel }}
+                </p>
+                <h3 class="mt-2 text-xl font-medium tracking-[-0.02em] text-foreground">
+                  {{ thread.deepRead.title }}
+                </h3>
+              </div>
+              <span class="font-mono text-[10px] text-muted-foreground opacity-75 sm:pt-1">
+                {{ deepReadReadAtLabel }} {{ thread.deepRead.readAt }}
+              </span>
+            </div>
+
+            <div class="mt-6 grid gap-7 border-l pl-5 lg:grid-cols-2 lg:gap-x-12">
+              <div>
+                <p
+                  class="font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground opacity-75"
+                >
+                  {{ deepReadQuestionLabel }}
+                </p>
+                <p class="mt-3 text-sm leading-6 text-foreground opacity-80">
+                  {{ thread.deepRead.question }}
+                </p>
+              </div>
+              <div>
+                <p
+                  class="font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground opacity-75"
+                >
+                  {{ deepReadSynthesisLabel }}
+                </p>
+                <p class="mt-3 text-sm leading-7 text-foreground opacity-80">
+                  {{ thread.deepRead.synthesis }}
+                </p>
+              </div>
+            </div>
+
+            <div class="mt-7 border-t pt-5">
+              <p
+                class="font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground opacity-70"
+              >
+                {{ deepReadEvidenceLabel }}
+              </p>
+              <div class="mt-3 grid gap-4 lg:grid-cols-3">
+                <article
+                  v-for="source in thread.deepRead.sources"
+                  :key="source.url"
+                  class="border-l border-[var(--signal-accent)]/30 pl-4"
+                >
+                  <a
+                    :href="source.url"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-sm font-medium text-foreground transition-colors hover:text-[var(--signal-accent)]"
+                  >
+                    {{ source.title }}
+                    <Icon name="heroicons:arrow-up-right" class="ml-1 inline h-3.5 w-3.5" />
+                  </a>
+                  <p class="mt-2 text-xs leading-6 text-muted-foreground">
+                    {{ source.finding }}
+                  </p>
+                </article>
+              </div>
+            </div>
+
+            <div class="mt-6 border border-border/70 px-4 py-3">
+              <p
+                class="font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground opacity-70"
+              >
+                {{ deepReadCaveatLabel }}
+              </p>
+              <p class="mt-2 text-xs leading-6 text-muted-foreground">
+                {{ thread.deepRead.caveat }}
+              </p>
+            </div>
+          </section>
+
           <div v-if="thread.matchedSignals.length > 0" class="signal-rule mt-7 border-t pt-5">
             <p
               class="font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground opacity-70"
             >
               {{ supportingSignalsLabel }}
             </p>
-            <div class="mt-3 flex flex-col gap-2">
-              <a
+            <div class="mt-3 flex flex-col gap-4">
+              <div
                 v-for="signal in thread.matchedSignals.slice(0, 2)"
                 :key="signal.id"
-                :href="signal.url"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="group inline-flex max-w-3xl items-center gap-2 text-sm text-muted-foreground outline-none transition-colors hover:text-foreground focus-visible:text-[var(--signal-accent)]"
+                class="max-w-3xl"
               >
-                <span class="h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--signal-accent)]" />
-                <span class="line-clamp-1">{{ signal.title }}</span>
-                <Icon name="heroicons:arrow-up-right" class="h-3.5 w-3.5 shrink-0" />
-              </a>
+                <div class="flex flex-wrap items-center gap-x-3 gap-y-2">
+                  <a
+                    :href="signal.url"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="group inline-flex min-w-0 items-center gap-2 text-sm text-muted-foreground outline-none transition-colors hover:text-foreground focus-visible:text-[var(--signal-accent)]"
+                  >
+                    <span class="h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--signal-accent)]" />
+                    <span class="line-clamp-1">{{ signal.title }}</span>
+                    <Icon name="heroicons:arrow-up-right" class="h-3.5 w-3.5 shrink-0" />
+                  </a>
+                  <span
+                    v-if="signal.readingStage"
+                    class="signal-accent rounded-full border border-[var(--signal-accent)]/25 px-2 py-0.5 font-mono text-[9px] uppercase tracking-[0.12em]"
+                  >
+                    {{ signal.readingStage === 'deep-read' ? deepReadLabel : selectedSourceLabel }}
+                  </span>
+                  <span
+                    v-if="!signal.isAvailable"
+                    class="rounded-full border border-border/70 px-2 py-0.5 font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground"
+                  >
+                    {{ archivedSourceLabel }}
+                  </span>
+                </div>
+                <p
+                  v-if="signal.note"
+                  class="mt-2 border-l border-[var(--signal-accent)]/30 pl-4 text-xs leading-6 text-muted-foreground"
+                >
+                  <span class="font-mono text-[9px] uppercase tracking-[0.14em] opacity-65">
+                    {{ researchNoteLabel }}
+                  </span>
+                  <span class="mt-1 block">{{ signal.note }}</span>
+                </p>
+              </div>
             </div>
           </div>
 

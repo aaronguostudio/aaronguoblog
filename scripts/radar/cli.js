@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { pathToFileURL } from 'node:url'
 import { getRadarTopics } from './config.js'
+import { runDeepReadPipeline } from './deep-reader.js'
 import { runRadar } from './runner.js'
 import { createRadarClient, discoverSchema, migrateRadarSchema } from './repository.js'
 import { exportRadarSnapshot } from './static-export.js'
@@ -27,6 +28,17 @@ export function parseArgs(argv) {
 
     if (value === '--allow-local-ranking') {
       args.allowLocalRanking = true
+      continue
+    }
+
+    if (value === '--max-topics') {
+      const rawValue = readFlagValue(argv, index, value)
+      const maxTopics = Number(rawValue)
+      if (!Number.isInteger(maxTopics) || maxTopics < 1) {
+        throw new Error('--max-topics must be a positive integer')
+      }
+      args.maxTopics = maxTopics
+      index += 1
       continue
     }
 
@@ -91,6 +103,19 @@ export async function main() {
     return
   }
 
+  if (args.command === 'deep-read') {
+    const client = createRadarClient()
+    const results = await runDeepReadPipeline({
+      client,
+      maxTopics: args.maxTopics || 1,
+    })
+    console.log(JSON.stringify({ ok: true, results }, null, 2))
+    if (results.some((result) => result.status === 'failed')) {
+      process.exitCode = 1
+    }
+    return
+  }
+
   if (args.command === 'export') {
     const client = createRadarClient()
     const result = await exportRadarSnapshot({
@@ -115,7 +140,7 @@ export async function main() {
   }
 
   throw new Error(
-    'Usage: node scripts/radar/cli.js <topics|diagnose|migrate|run|export> [--topic slug] [--dry-run] [--cadence daily] [--allow-local-ranking]',
+    'Usage: node scripts/radar/cli.js <topics|diagnose|migrate|run|deep-read|export> [--topic slug] [--dry-run] [--cadence daily] [--max-topics 1] [--allow-local-ranking]',
   )
 }
 

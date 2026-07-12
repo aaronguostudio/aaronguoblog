@@ -84,7 +84,7 @@ const prefersReducedMotion = useReducedMotion()
           :href="item.url"
           target="_blank"
           rel="noopener noreferrer"
-          class="signal-row group grid gap-3 py-4 outline-none transition-colors sm:grid-cols-[auto_minmax(0,1fr)_auto] sm:items-start"
+          class="signal-row group grid gap-3 px-5 py-4 outline-none transition-colors focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--signal-accent)] sm:grid-cols-[auto_minmax(0,1fr)_auto] sm:items-start sm:px-6 sm:py-5"
         >
           <span
             class="signal-icon-surface flex h-9 w-9 items-center justify-center rounded-full border transition-colors group-hover:border-[var(--signal-accent)] group-hover:text-[var(--signal-accent)]"

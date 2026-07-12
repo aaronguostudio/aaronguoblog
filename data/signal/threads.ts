@@ -4,11 +4,29 @@ export type LocalizedSignalText = Record<SignalLocale, string>
 
 export type SignalThreadConfidence = 'low' | 'medium' | 'high'
 export type SignalThreadHorizon = 'now' | 'emerging' | 'watch'
+export type SignalReadingStage = 'selected' | 'deep-read'
+
+export type SignalDeepReadSource = {
+  url: string
+  title: LocalizedSignalText
+  finding: LocalizedSignalText
+}
+
+export type SignalDeepRead = {
+  title: LocalizedSignalText
+  question: LocalizedSignalText
+  synthesis: LocalizedSignalText
+  caveat: LocalizedSignalText
+  readAt: string
+  sources: SignalDeepReadSource[]
+}
 
 export type SignalThreadRef = {
   url: string
+  title?: LocalizedSignalText
   topicSlug?: string
   note: LocalizedSignalText
+  readingStage?: SignalReadingStage
 }
 
 export type SignalResearchThread = {
@@ -21,6 +39,7 @@ export type SignalResearchThread = {
   confidence: SignalThreadConfidence
   lastUpdated: string
   signalRefs: SignalThreadRef[]
+  deepRead?: SignalDeepRead
   openQuestion: LocalizedSignalText
   productHypothesis: LocalizedSignalText
 }
@@ -47,7 +66,12 @@ export const SIGNAL_RESEARCH_THREADS: SignalResearchThread[] = [
     signalRefs: [
       {
         url: 'https://cursor.com/',
+        title: {
+          en: 'Cursor',
+          zh: 'Cursor',
+        },
         topicSlug: 'coding-agents',
+        readingStage: 'selected',
         note: {
           en: 'Cursor is increasingly framed as an agent surface, not only an editor surface.',
           zh: 'Cursor 越来越像 agent 工作界面，而不只是编辑器界面。',
@@ -55,7 +79,12 @@ export const SIGNAL_RESEARCH_THREADS: SignalResearchThread[] = [
       },
       {
         url: 'https://kiro.dev/',
+        title: {
+          en: 'Kiro: agentic engineering',
+          zh: 'Kiro：agentic engineering',
+        },
         topicSlug: 'coding-agents',
+        readingStage: 'deep-read',
         note: {
           en: 'Kiro explicitly frames the category as agentic engineering across IDE, CLI, and web.',
           zh: 'Kiro 明确把这个类别定义为跨 IDE、CLI 和 Web 的 agentic engineering。',
@@ -70,6 +99,60 @@ export const SIGNAL_RESEARCH_THREADS: SignalResearchThread[] = [
         },
       },
     ],
+    deepRead: {
+      title: {
+        en: 'Deep read: the workflow is becoming the product',
+        zh: '深读：工作流正在变成产品本身',
+      },
+      question: {
+        en: 'What is actually changing when coding agents move beyond autocomplete?',
+        zh: '当 coding agent 超越自动补全时，真正发生了什么变化？',
+      },
+      synthesis: {
+        en: 'The durable shift is not that agents write more code. It is that they are absorbing the operating loop around code: gather context, turn intent into a plan, execute across a repo, run checks, and hand back evidence. Cursor’s usage data points to more agent-generated changes moving through commits and automation expanding into security review and SDK workflows. Kiro packages a similar loop as specs, parallel agents, tests, and cloud sessions. The common product surface is therefore an operating contract, not a smarter text box.',
+        zh: '真正持久的变化不是 agent 写出了更多代码，而是它开始吸收代码周围的 operating loop：获取上下文、把意图变成计划、跨仓库执行、运行检查，再带着证据交付回来。Cursor 的使用数据指向更多 agent 生成的改动进入 commit 流程，自动化也开始扩展到安全审查和 SDK 工作流；Kiro 则把类似的循环包装成 spec、并行 agent、测试和云端 session。共同的产品表面因此不是一个更聪明的文本框，而是一份 operating contract。',
+      },
+      caveat: {
+        en: 'This is directional evidence, not causal proof: Cursor reports aggregate product data, Kiro describes its own product, and Ornith’s benchmark numbers come from its own repository. The stronger claim is about converging product design, not universal adoption.',
+        zh: '这是一组方向性证据，不是因果证明：Cursor 报告的是聚合产品数据，Kiro 描述的是自己的产品，Ornith 的 benchmark 数字也来自项目自身。更稳妥的判断是产品设计正在收敛，而不是所有开发者都已经普遍采用。',
+      },
+      readAt: '2026-07-12',
+      sources: [
+        {
+          url: 'https://cursor.com/insights',
+          title: {
+            en: 'Cursor Developer Habits Report',
+            zh: 'Cursor Developer Habits 报告',
+          },
+          finding: {
+            en: 'Cursor reports that more than five times as many agent-generated changes are reaching commits without a separate manual diff-acceptance step, while automation and SDK runs are spreading across workflows.',
+            zh: 'Cursor 报告称，不经过单独人工 diff 接受步骤就进入 commit 的 agent 改动数量增长超过五倍，同时自动化和 SDK run 正在扩展到更多工作流。',
+          },
+        },
+        {
+          url: 'https://kiro.dev/',
+          title: {
+            en: 'Kiro: agentic engineering',
+            zh: 'Kiro：agentic engineering',
+          },
+          finding: {
+            en: 'Kiro turns prompts into requirements, architecture, and sequenced tasks, then combines parallel agents, property-based tests, and IDE, CLI, and web sessions into one delivery loop.',
+            zh: 'Kiro 把 prompt 转成需求、架构和有顺序的任务，再把并行 agent、property-based tests，以及 IDE、CLI 和 Web session 组合成一条交付循环。',
+          },
+        },
+        {
+          url: 'https://github.com/deepreinforce-ai/Ornith-1',
+          title: {
+            en: 'Ornith-1.0: self-improving agentic coding',
+            zh: 'Ornith-1.0：自我改进的 agentic coding',
+          },
+          finding: {
+            en: 'Ornith treats the scaffold that drives a coding rollout as part of what the model learns to improve, showing the frontier moving from code generation toward search strategy and execution structure.',
+            zh: 'Ornith 把驱动 coding rollout 的 scaffold 也视为模型要学习改进的一部分，说明前沿正在从代码生成走向搜索策略和执行结构。',
+          },
+        },
+      ],
+    },
     openQuestion: {
       en: 'Where does the handoff boundary belong between human judgment and autonomous coding work?',
       zh: '人的判断和自主编码工作之间，交接边界应该放在哪里？',
@@ -100,7 +183,12 @@ export const SIGNAL_RESEARCH_THREADS: SignalResearchThread[] = [
     signalRefs: [
       {
         url: 'https://news.ycombinator.com/item?id=48524387',
+        title: {
+          en: 'Local AI infrastructure discussion',
+          zh: '关于本地 AI 基础设施的讨论',
+        },
         topicSlug: 'personal-ai-systems',
+        readingStage: 'selected',
         note: {
           en: 'Low-cost local AI infrastructure keeps lowering the experimentation floor.',
           zh: '低成本本地 AI 基础设施继续降低个人实验门槛。',
@@ -153,7 +241,12 @@ export const SIGNAL_RESEARCH_THREADS: SignalResearchThread[] = [
     signalRefs: [
       {
         url: 'https://techcrunch.com/2026/05/19/googles-ai-studio-now-lets-anyone-build-android-apps-in-minutes/',
+        title: {
+          en: 'Google AI Studio Android app builder',
+          zh: 'Google AI Studio 的 Android 应用构建器',
+        },
         topicSlug: 'consumer-ai-apps',
+        readingStage: 'selected',
         note: {
           en: 'App-building tools keep compressing the distance between workflow and product surface.',
           zh: '应用构建工具持续压缩工作流和产品界面之间的距离。',

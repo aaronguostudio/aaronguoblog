@@ -36,6 +36,7 @@ pnpm radar:run --cadence daily
 
 if [ "$(date +%u)" = "1" ]; then
   pnpm radar:run --cadence weekly
+  pnpm radar:deep-read --max-topics 1
 fi
 
 if [ "${RADAR_ALLOW_LOCAL_RANKING:-}" = "1" ]; then

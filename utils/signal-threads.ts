@@ -1,5 +1,7 @@
 import type {
   SignalLocale,
+  SignalDeepRead,
+  SignalReadingStage,
   SignalResearchThread,
   SignalThreadConfidence,
   SignalThreadHorizon,
@@ -18,6 +20,12 @@ export type SignalThreadRadarItem = {
   created_at?: string
 }
 
+export type SignalDeepReadSnapshot = SignalDeepRead & {
+  topicSlug?: string
+  threadSlug?: string
+  status?: string
+}
+
 export type SignalThreadMatchedSignal = {
   id: number | string
   title: string
@@ -25,6 +33,8 @@ export type SignalThreadMatchedSignal = {
   source: string
   topicSlug?: string
   note: string
+  readingStage?: SignalReadingStage
+  isAvailable: boolean
 }
 
 export type SignalThreadCard = {
@@ -38,6 +48,18 @@ export type SignalThreadCard = {
   lastUpdated: string
   openQuestion: string
   productHypothesis: string
+  deepRead?: {
+    title: string
+    question: string
+    synthesis: string
+    caveat: string
+    readAt: string
+    sources: Array<{
+      url: string
+      title: string
+      finding: string
+    }>
+  }
   matchedSignals: SignalThreadMatchedSignal[]
   unmatchedSignalCount: number
   relatedSignalCount: number
@@ -63,6 +85,33 @@ function localized(ref: SignalThreadRef, locale: SignalLocale) {
   return ref.note[locale] || ref.note.en
 }
 
+function localizedTitle(ref: SignalThreadRef, locale: SignalLocale) {
+  if (ref.title) return ref.title[locale] || ref.title.en
+
+  try {
+    return new URL(ref.url).hostname.replace(/^www\./, '')
+  } catch {
+    return ref.url
+  }
+}
+
+function localizedDeepRead(deepRead: SignalDeepRead | undefined, locale: SignalLocale) {
+  if (!deepRead) return undefined
+
+  return {
+    title: deepRead.title[locale] || deepRead.title.en,
+    question: deepRead.question[locale] || deepRead.question.en,
+    synthesis: deepRead.synthesis[locale] || deepRead.synthesis.en,
+    caveat: deepRead.caveat[locale] || deepRead.caveat.en,
+    readAt: deepRead.readAt,
+    sources: deepRead.sources.map((source) => ({
+      url: source.url,
+      title: source.title[locale] || source.title.en,
+      finding: source.finding[locale] || source.finding.en,
+    })),
+  }
+}
+
 function matchSignal(ref: SignalThreadRef, itemsByUrl: Map<string, SignalThreadRadarItem>) {
   return itemsByUrl.get(normalizeUrl(ref.url))
 }
@@ -71,27 +120,34 @@ export function createSignalThreadCards({
   threads,
   items,
   locale,
+  deepReads = [],
 }: {
   threads: SignalResearchThread[]
   items: SignalThreadRadarItem[]
   locale: string
+  deepReads?: SignalDeepReadSnapshot[]
 }): SignalThreadCard[] {
   const signalLocale = normalizedLocale(locale)
   const itemsByUrl = new Map(items.map((item) => [normalizeUrl(item.url), item]))
 
   return threads.map((thread) => {
+    const pipelineDeepRead = deepReads.find(
+      (deepRead) =>
+        deepRead.threadSlug === thread.slug || deepRead.topicSlug === thread.primaryTopicSlug,
+    )
     const matchedSignals = thread.signalRefs.flatMap((ref) => {
       const item = matchSignal(ref, itemsByUrl)
-      if (!item) return []
 
       return [
         {
-          id: item.id,
-          title: item.title,
-          url: item.url,
-          source: item.source,
-          topicSlug: item.topic_slug,
+          id: item?.id || `thread-ref:${ref.url}`,
+          title: item?.title || localizedTitle(ref, signalLocale),
+          url: item?.url || ref.url,
+          source: item?.source || 'editorial',
+          topicSlug: item?.topic_slug || ref.topicSlug,
           note: localized(ref, signalLocale),
+          readingStage: ref.readingStage,
+          isAvailable: Boolean(item),
         },
       ]
     })
@@ -107,8 +163,9 @@ export function createSignalThreadCards({
       lastUpdated: thread.lastUpdated,
       openQuestion: thread.openQuestion[signalLocale] || thread.openQuestion.en,
       productHypothesis: thread.productHypothesis[signalLocale] || thread.productHypothesis.en,
+      deepRead: localizedDeepRead(pipelineDeepRead || thread.deepRead, signalLocale),
       matchedSignals,
-      unmatchedSignalCount: thread.signalRefs.length - matchedSignals.length,
+      unmatchedSignalCount: matchedSignals.filter((signal) => !signal.isAvailable).length,
       relatedSignalCount: items.filter((item) => item.topic_slug === thread.primaryTopicSlug)
         .length,
     }

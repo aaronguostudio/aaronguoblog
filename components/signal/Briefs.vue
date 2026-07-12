@@ -39,9 +39,10 @@ function toggleBrief(slug: string) {
       <article v-for="brief in briefs" :key="brief.slug">
         <button
           type="button"
-          class="signal-row group grid w-full gap-4 py-5 text-left outline-none transition-colors sm:grid-cols-[9rem_minmax(0,1fr)_auto] sm:items-center sm:gap-6"
+          class="signal-row group grid w-full gap-4 px-5 py-5 text-left outline-none transition-colors focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--signal-accent)] sm:grid-cols-[9rem_minmax(0,1fr)_auto] sm:gap-6 sm:px-6 sm:py-6"
           :aria-expanded="openSlug === brief.slug"
           :aria-controls="`signal-brief-${brief.slug}`"
+          :aria-label="`${openSlug === brief.slug ? closeLabel : openLabel}: ${brief.title}`"
           @click="toggleBrief(brief.slug)"
         >
           <span
@@ -67,8 +68,7 @@ function toggleBrief(slug: string) {
               <span>{{ brief.readTime }}</span>
             </span>
           </span>
-          <span class="flex items-center gap-2 text-xs text-muted-foreground sm:justify-end">
-            <span>{{ openSlug === brief.slug ? closeLabel : openLabel }}</span>
+          <span class="signal-disclosure flex h-9 w-9 items-center justify-center rounded-md border" aria-hidden="true">
             <Icon
               name="heroicons:chevron-down"
               class="h-4 w-4 transition-transform duration-300 motion-reduce:transition-none"
@@ -80,7 +80,7 @@ function toggleBrief(slug: string) {
         <motion.div
           v-if="openSlug === brief.slug"
           :id="`signal-brief-${brief.slug}`"
-          class="signal-rule border-t pb-9 pt-7 sm:pl-[10.5rem]"
+          class="signal-rule border-t px-5 pb-9 pt-7 sm:pr-6 sm:pl-[11.25rem]"
           :initial="prefersReducedMotion ? false : { opacity: 0, y: -10 }"
           :animate="{ opacity: 1, y: 0 }"
           :transition="{ duration: 0.46, ease: [0.22, 1, 0.36, 1] }"

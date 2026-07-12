@@ -455,6 +455,7 @@ const threadCards = computed(() =>
     threads: SIGNAL_RESEARCH_THREADS,
     items: researchSignalItems.value,
     locale: locale.value,
+    deepReads: staticSnapshot.value?.deepReads || [],
   }),
 )
 
@@ -576,6 +577,16 @@ async function openEvidenceWorkbench(topic = '') {
         :question-label="t('signal.openQuestion')"
         :product-angle-label="t('signal.productHypothesis')"
         :supporting-signals-label="t('signal.supportingSignals')"
+        :deep-read-section-label="t('signal.deepRead')"
+        :deep-read-question-label="t('signal.deepReadQuestion')"
+        :deep-read-synthesis-label="t('signal.deepReadSynthesis')"
+        :deep-read-evidence-label="t('signal.deepReadEvidence')"
+        :deep-read-caveat-label="t('signal.deepReadCaveat')"
+        :deep-read-read-at-label="t('signal.deepReadReadAt')"
+        :selected-source-label="t('signal.selectedSource')"
+        :deep-read-label="t('signal.deepReadSource')"
+        :research-note-label="t('signal.researchNote')"
+        :archived-source-label="t('signal.archivedSource')"
         :related-items-label="t('signal.relatedItems')"
         :explore-related-label="t('signal.exploreRelatedEvidence')"
         :explore-all-label="t('signal.exploreAllEvidence')"
@@ -666,7 +677,7 @@ async function openEvidenceWorkbench(topic = '') {
               class="signal-control form-select w-full rounded-lg py-2.5 text-sm"
               @change="setTopic(($event.target as HTMLSelectElement).value)"
             >
-              <option value="">{{ t('signal.allRadarTopics') }}</option>
+              <option value="">{{ t('signal.allTopics') }}</option>
               <option v-for="topic in topics" :key="topic.slug" :value="topic.slug">
                 {{ topic.name }}
               </option>
@@ -698,7 +709,7 @@ async function openEvidenceWorkbench(topic = '') {
             :href="item.url"
             target="_blank"
             rel="noopener noreferrer"
-            class="signal-row group grid gap-3 py-5 outline-none transition-colors sm:grid-cols-[minmax(0,1fr)_auto] sm:items-start"
+            class="signal-row group grid gap-3 px-5 py-5 outline-none transition-colors focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--signal-accent)] sm:grid-cols-[minmax(0,1fr)_auto] sm:items-start sm:px-6 sm:py-6"
           >
             <span class="min-w-0">
               <span

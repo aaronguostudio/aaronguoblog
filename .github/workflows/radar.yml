@@ -107,6 +107,15 @@ jobs:
             exit 1
           fi
 
+      - name: Run Deep Reader (weekly)
+        if: ${{ github.event.inputs.topic == '' && github.event.inputs.cadence == 'weekly' }}
+        env:
+          TURSO_URL: ${{ secrets.TURSO_URL }}
+          TURSO_AUTH_TOKEN: ${{ secrets.TURSO_AUTH_TOKEN }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_DEEP_READER_MODEL: ${{ vars.OPENAI_DEEP_READER_MODEL || 'gpt-4.1-mini' }}
+        run: pnpm radar:deep-read --max-topics 1
+
       - name: Export static Radar snapshot
         env:
           TURSO_URL: ${{ secrets.TURSO_URL }}

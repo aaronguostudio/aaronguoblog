@@ -63,22 +63,52 @@ describe('createSignalThreadCards', () => {
       slug: 'coding-agents-own-workflows',
       title: 'Coding agents are becoming workflow owners',
       confidence: 'high',
-      matchedSignals: [
-        {
-          id: 1,
-          title: 'Cursor: AI coding agent',
-          url: 'https://cursor.com/',
-          source: 'grounding',
-        },
-        {
-          id: 2,
-          title: 'Kiro: Move beyond AI coding to agentic engineering',
-          url: 'https://kiro.dev/',
-          source: 'grounding',
-        },
-      ],
       unmatchedSignalCount: 1,
     })
+
+    expect(cards[0].matchedSignals.slice(0, 2)).toMatchObject([
+      {
+        id: 1,
+        title: 'Cursor: AI coding agent',
+        url: 'https://cursor.com/',
+        source: 'grounding',
+        readingStage: 'selected',
+        isAvailable: true,
+      },
+      {
+        id: 2,
+        title: 'Kiro: Move beyond AI coding to agentic engineering',
+        url: 'https://kiro.dev/',
+        source: 'grounding',
+        readingStage: 'deep-read',
+        isAvailable: true,
+      },
+    ])
+
+    expect(cards[0].deepRead).toMatchObject({
+      title: 'Deep read: the workflow is becoming the product',
+      sources: [
+        { title: 'Cursor Developer Habits Report' },
+        { title: 'Kiro: agentic engineering' },
+        { title: 'Ornith-1.0: self-improving agentic coding' },
+      ],
+    })
+  })
+
+  it('keeps editorial references visible when the source has left the current snapshot', () => {
+    const cards = createSignalThreadCards({
+      threads: SIGNAL_RESEARCH_THREADS.slice(0, 1),
+      items: [],
+      locale: 'en',
+    })
+
+    expect(cards[0].matchedSignals[0]).toMatchObject({
+      title: 'Cursor',
+      url: 'https://cursor.com/',
+      readingStage: 'selected',
+      isAvailable: false,
+    })
+    expect(cards[0].unmatchedSignalCount).toBe(3)
   })
 
   it('matches URLs after stripping hash, sorting query params, and trimming path trailing slash', () => {

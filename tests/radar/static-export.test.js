@@ -12,6 +12,7 @@ import {
   createRadarRun,
   finishRadarRun,
   migrateRadarSchema,
+  insertRadarDeepRead,
   upsertRadarItems,
   upsertRadarPulse,
   upsertRadarTopic,
@@ -118,6 +119,29 @@ async function createSnapshotClient({
 describe('static Radar export', () => {
   it('builds an SSG-friendly snapshot from Radar tables', async () => {
     const client = await createSnapshotClient()
+    await insertRadarDeepRead(client, {
+      topicSlug: 'coding-agents',
+      threadSlug: 'coding-agents-own-workflows',
+      readAt: '2026-06-14',
+      inputFingerprint: 'deep-read-fixture-1',
+      title: { en: 'Coding agents own more of the workflow', zh: '编程代理正在接管更多工作流' },
+      question: { en: 'What is changing?', zh: '什么正在改变？' },
+      synthesis: { en: 'The workflow is becoming the product.', zh: '工作流正在成为产品。' },
+      caveat: { en: 'The evidence is early.', zh: '证据仍处于早期。' },
+      sources: [
+        {
+          url: 'https://cursor.com/insights',
+          title: { en: 'Cursor report', zh: 'Cursor 报告' },
+          finding: { en: 'Agent changes reach commits.', zh: '代理改动进入提交。' },
+        },
+        {
+          url: 'https://kiro.dev/',
+          title: { en: 'Kiro', zh: 'Kiro' },
+          finding: { en: 'Specs coordinate agents.', zh: '规格协调代理。' },
+        },
+      ],
+      model: 'gpt-4.1-mini',
+    })
 
     const snapshot = await buildRadarSnapshot(client, {
       date: '2026-06-14',
@@ -166,6 +190,16 @@ describe('static Radar export', () => {
         relevance: 9,
         score: 74,
         publishedAt: '2026-06-14',
+      }),
+    ])
+    expect(snapshot.deepReads).toEqual([
+      expect.objectContaining({
+        topicSlug: 'coding-agents',
+        threadSlug: 'coding-agents-own-workflows',
+        title: { en: 'Coding agents own more of the workflow', zh: '编程代理正在接管更多工作流' },
+        sources: expect.arrayContaining([
+          expect.objectContaining({ url: 'https://cursor.com/insights' }),
+        ]),
       }),
     ])
   })

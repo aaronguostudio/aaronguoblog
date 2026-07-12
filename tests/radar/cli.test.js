@@ -47,8 +47,22 @@ describe('parseArgs', () => {
     })
   })
 
+  it('parses Deep Reader topic limits', () => {
+    expect(parseArgs(['node', 'cli.js', 'deep-read', '--max-topics', '2'])).toEqual({
+      command: 'deep-read',
+      dryRun: false,
+      topicSlug: undefined,
+      cadence: undefined,
+      maxTopics: 2,
+    })
+    expect(() => parseArgs(['node', 'cli.js', 'deep-read', '--max-topics', '0'])).toThrow(
+      '--max-topics must be a positive integer',
+    )
+  })
+
   it('exposes a package script for static Radar export', () => {
     expect(PACKAGE_JSON.scripts['radar:export']).toBe('node scripts/radar/cli.js export')
+    expect(PACKAGE_JSON.scripts['radar:deep-read']).toBe('node scripts/radar/cli.js deep-read')
   })
 
   it('parses README Radar run examples using the supported package-script shape', () => {
@@ -73,6 +87,12 @@ describe('parseArgs', () => {
         dryRun: false,
         topicSlug: undefined,
         cadence: 'daily',
+      },
+      {
+        command: 'run',
+        dryRun: false,
+        topicSlug: undefined,
+        cadence: 'weekly',
       },
       {
         command: 'run',

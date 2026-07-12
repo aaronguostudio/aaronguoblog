@@ -61,7 +61,7 @@ function mapPulse(row) {
 }
 
 function pulseTopItemIds(pulse) {
-  return Array.isArray(pulse?.topItemIds) ? pulse.topItemIds.map(id => Number(id)) : []
+  return Array.isArray(pulse?.topItemIds) ? pulse.topItemIds.map((id) => Number(id)) : []
 }
 
 function mapStat(row) {
@@ -89,14 +89,27 @@ function mapItem(row) {
   }
 }
 
+function mapDeepRead(row) {
+  return {
+    topicSlug: String(row.topic_slug),
+    threadSlug: String(row.thread_slug),
+    readAt: row.read_at || null,
+    status: String(row.status),
+    title: parseJson(row.title_json, { en: '', zh: '' }),
+    question: parseJson(row.question_json, { en: '', zh: '' }),
+    synthesis: parseJson(row.synthesis_json, { en: '', zh: '' }),
+    caveat: parseJson(row.caveat_json, { en: '', zh: '' }),
+    sources: parseJson(row.sources_json, []),
+  }
+}
+
 function hasFallbackLocalScore(snapshot) {
   return snapshot.items.some((item) => /fallback-local-score/i.test(item.aiSummary || ''))
 }
 
 function findMissingPulseTopItemIds(snapshot) {
-  const itemIds = new Set(snapshot.items.map(item => String(item.id)))
-  return pulseTopItemIds(snapshot.pulse)
-    .filter(id => !itemIds.has(String(id)))
+  const itemIds = new Set(snapshot.items.map((item) => String(item.id)))
+  return pulseTopItemIds(snapshot.pulse).filter((id) => !itemIds.has(String(id)))
 }
 
 function fallbackFilterSql({ allowLocalRanking }) {
@@ -121,7 +134,9 @@ export function validateRadarSnapshot(snapshot, { allowLocalRanking = false } = 
 
   const missingPulseIds = snapshot.items.length > 0 ? findMissingPulseTopItemIds(snapshot) : []
   if (missingPulseIds.length > 0) {
-    blockers.push(`Pulse top item ids are missing from snapshot items: ${missingPulseIds.join(', ')}.`)
+    blockers.push(
+      `Pulse top item ids are missing from snapshot items: ${missingPulseIds.join(', ')}.`,
+    )
   }
 
   const sourceErrorCount = Object.keys(snapshot.latestRun?.sourceErrors || {}).length
@@ -159,7 +174,7 @@ export async function buildRadarSnapshot(
   } = {},
 ) {
   const fallbackFilter = fallbackFilterSql({ allowLocalRanking })
-  const [topics, latestRun, pulseResult, stats, items] = await Promise.all([
+  const [topics, latestRun, pulseResult, stats, items, deepReadsResult] = await Promise.all([
     client.execute(
       `SELECT slug, name, category, cadence, mode
        FROM radar_topics
@@ -212,6 +227,14 @@ export async function buildRadarSnapshot(
             LIMIT ?`,
       args: [minRelevance, limit],
     }),
+    client.execute(
+      `SELECT id, topic_slug, thread_slug, read_at, status,
+              title_json, question_json, synthesis_json, caveat_json, sources_json
+       FROM radar_deep_reads
+       WHERE status = 'completed'
+       ORDER BY read_at DESC, id DESC
+       LIMIT 20`,
+    ),
   ])
   const pulse = mapPulse(pulseResult.rows[0])
   const topIds = pulseTopItemIds(pulse)
@@ -267,6 +290,7 @@ export async function buildRadarSnapshot(
     topics: topics.rows.map(mapTopic),
     stats: stats.rows.map(mapStat),
     items: Array.from(itemRowsById.values()).map(mapItem),
+    deepReads: deepReadsResult.rows.map(mapDeepRead),
   }
   snapshot.quality = validateRadarSnapshot(snapshot, { allowLocalRanking })
 

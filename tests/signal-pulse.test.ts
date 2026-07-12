@@ -9,7 +9,7 @@ describe('formatSignalPulseText', () => {
     })
 
     expect(formatted).toBe(
-      'The latest Radar read found 5 strong coding-agent signals: built a factchecker that catches politicians lying in real time; New Claude code update is crazy; Cursor launches github for agentic era.',
+      'The current Signal read found 5 strong coding-agent signals: built a factchecker that catches politicians lying in real time; New Claude code update is crazy; Cursor launches github for agentic era.',
     )
     expect(formatted).not.toContain('Radar found')
   })
@@ -21,7 +21,7 @@ describe('formatSignalPulseText', () => {
     })
 
     expect(formatted).toBe(
-      '最近一次 Radar 读数捕捉到 5 条 coding-agent 强信号：built a factchecker that catches politicians lying in real time; New Claude code update is crazy.',
+      '最近一次 Signal 读数捕捉到 5 条 coding-agent 强信号：built a factchecker that catches politicians lying in real time; New Claude code update is crazy.',
     )
   })
 
