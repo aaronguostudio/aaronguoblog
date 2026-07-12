@@ -39,9 +39,17 @@ const formattedDate = computed(() =>
   formatNoteDate(noteDate.value, locale.value === 'zh' ? 'zh-CN' : 'en-US'),
 )
 const canonicalUrl = computed(() => `${seoData.mySite}${normalizedRoutePath.value}`)
+const xShareUrl = computed(() => {
+  const url = new URL(canonicalUrl.value)
+  url.searchParams.set('utm_source', 'x')
+  url.searchParams.set('utm_medium', 'social')
+  url.searchParams.set('utm_campaign', 'note')
+
+  return url.toString()
+})
 const shareOnXUrl = computed(
   () =>
-    `https://twitter.com/intent/tweet?text=${encodeURIComponent(noteTitle.value)}&url=${encodeURIComponent(canonicalUrl.value)}`,
+    `https://twitter.com/intent/tweet?text=${encodeURIComponent(noteTitle.value)}&url=${encodeURIComponent(xShareUrl.value)}`,
 )
 const shareOnLinkedInUrl = computed(
   () =>

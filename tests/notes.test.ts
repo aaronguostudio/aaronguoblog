@@ -112,6 +112,8 @@ describe('Builder Notes surface', () => {
     expect(detailPage).toContain("type: 'article'")
     expect(detailPage).toContain('image: socialImage.value')
     expect(detailPage).not.toContain('defineOgImageComponent')
+    expect(detailPage).toContain("url.searchParams.set('utm_source', 'x')")
+    expect(detailPage).toContain('encodeURIComponent(xShareUrl.value)')
     expect(detailPage).toContain('navigator.clipboard.writeText(linkedInShareText.value)')
     expect(detailPage).toContain('@click="copyLinkedInCaption"')
     expect(homePage).toContain('<MainNotes />')
