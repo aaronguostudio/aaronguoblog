@@ -54,6 +54,29 @@ const CHANNELS = [
   { key: 'visual-and-sound', id: 'UCb_GiFrPo47Ot_k0bEMJhng', handle: '@visual-and-sound' },
 ]
 
+function decodeHtmlEntities(value) {
+  const named = {
+    amp: '&',
+    apos: "'",
+    gt: '>',
+    lt: '<',
+    quot: '"',
+  }
+
+  return String(value || '').replace(/&(#x[\da-f]+|#\d+|amp|apos|gt|lt|quot);/gi, (entity, token) => {
+    const lowerToken = token.toLowerCase()
+    if (!lowerToken.startsWith('#')) return named[lowerToken] || entity
+
+    const codePoint = lowerToken.startsWith('#x')
+      ? Number.parseInt(lowerToken.slice(2), 16)
+      : Number.parseInt(lowerToken.slice(1), 10)
+
+    return Number.isInteger(codePoint) && codePoint >= 0 && codePoint <= 0x10ffff
+      ? String.fromCodePoint(codePoint)
+      : entity
+  })
+}
+
 // Validate API key
 if (!YOUTUBE_API_KEY) {
   console.error('Error: YOUTUBE_API_KEY environment variable is not set')
@@ -80,8 +103,8 @@ async function fetchChannelStats(channelId) {
   const channel = data.items[0]
   return {
     id: channel.id,
-    title: channel.snippet.title,
-    description: channel.snippet.description,
+    title: decodeHtmlEntities(channel.snippet.title),
+    description: decodeHtmlEntities(channel.snippet.description),
     customUrl: channel.snippet.customUrl,
     thumbnail: channel.snippet.thumbnails.high.url,
     subscriberCount: parseInt(channel.statistics.subscriberCount),
@@ -130,8 +153,8 @@ async function fetchVideos(channelId) {
 
     return {
       id: item.id.videoId,
-      title: item.snippet.title,
-      description: item.snippet.description,
+      title: decodeHtmlEntities(item.snippet.title),
+      description: decodeHtmlEntities(item.snippet.description),
       thumbnail: item.snippet.thumbnails.high.url,
       publishedAt: item.snippet.publishedAt,
       duration,
