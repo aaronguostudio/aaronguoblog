@@ -69,7 +69,7 @@ function trackVoiceEvent(name: string, properties?: Record<string, string | numb
 const copy = computed(() => {
   if (locale.value === 'zh') {
     return {
-      button: '和 Aaron AI 聊聊',
+      button: 'Aaron AI',
       title: '和 Aaron AI 聊聊',
       subtitle: 'Aaron 的 AI 语音助手',
       disclosure: '你正在和 Aaron AI 对话，不是真人 Aaron。',
@@ -92,7 +92,7 @@ const copy = computed(() => {
   }
 
   return {
-    button: 'Talk with Aaron AI',
+    button: 'Aaron AI',
     title: 'Talk with Aaron AI',
     subtitle: "Aaron's AI voice assistant",
     disclosure: "You're talking with Aaron AI, not Aaron himself.",
