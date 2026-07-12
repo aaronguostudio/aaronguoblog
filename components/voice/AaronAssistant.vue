@@ -8,7 +8,7 @@ type TranscriptLine = {
   id: number
   role: TranscriptRole
   text: string
-  pending?: boolean
+  itemId?: string
 }
 
 type VoiceSession = {
@@ -35,6 +35,7 @@ const state = ref<VoiceState>('idle')
 const isMuted = ref(false)
 const errorMessage = ref('')
 const transcript = ref<TranscriptLine[]>([])
+const liveUserTranscript = ref('')
 const liveAssistantTranscript = ref('')
 const transcriptScroller = ref<HTMLElement | null>(null)
 
@@ -50,9 +51,9 @@ let playbackTime = 0
 let transcriptId = 0
 let conversationStartedAt = 0
 let userTurnCount = 0
-let activeUserTranscriptId: number | null = null
 let activeUserTranscriptItemId = ''
-let lastCommittedUserTranscriptItemId = ''
+let lastCommittedUserTranscriptAt = 0
+const committedUserTranscriptLines = new Map<string, number>()
 let activeAssistantResponseId = ''
 let lastCommittedAssistantResponseId = ''
 
@@ -82,6 +83,7 @@ const copy = computed(() => {
       end: '结束对话',
       retry: '重新连接',
       permission: '首次使用时，浏览器会请求麦克风权限。',
+      accuracy: 'AI 可能犯错，请核实重要信息。',
       error: '语音助手暂时无法连接。',
       empty: '点击麦克风，开始和 Aaron AI 对话。',
       user: '你',
@@ -104,6 +106,7 @@ const copy = computed(() => {
     end: 'End conversation',
     retry: 'Reconnect',
     permission: 'Your browser will ask for microphone permission the first time.',
+    accuracy: 'AI can make mistakes. Verify important information.',
     error: 'The voice assistant could not connect right now.',
     empty: 'Tap the microphone to start talking with Aaron AI.',
     user: 'You',
@@ -113,7 +116,10 @@ const copy = computed(() => {
 
 const isActive = computed(() => state.value !== 'idle' && state.value !== 'error')
 const hasTranscriptContent = computed(
-  () => transcript.value.some((line) => line.text.trim()) || Boolean(liveAssistantTranscript.value),
+  () =>
+    transcript.value.some((line) => line.text.trim()) ||
+    Boolean(liveUserTranscript.value) ||
+    Boolean(liveAssistantTranscript.value),
 )
 const statusLabel = computed(() => {
   const labels: Record<VoiceState, string> = {
@@ -153,55 +159,73 @@ function base64ToBytes(value: string) {
   return bytes
 }
 
-function addTranscript(role: TranscriptRole, text: string, pending = false) {
+function addTranscript(role: TranscriptRole, text: string, itemId?: string) {
   const cleaned = text.trim()
-  if (!cleaned) return
-  transcript.value.push({ id: transcriptId++, role, text: cleaned, pending })
-}
+  if (!cleaned) return undefined
 
-function getActiveUserTranscriptLine() {
-  if (activeUserTranscriptId === null) return undefined
-  return transcript.value.find((line) => line.id === activeUserTranscriptId)
+  const line: TranscriptLine = { id: transcriptId++, role, text: cleaned, itemId }
+  transcript.value.push(line)
+  return line
 }
 
 function beginUserTranscript(itemId?: string) {
-  const activeLine = getActiveUserTranscriptLine()
+  const incomingItemId = itemId?.trim() || ''
   if (
-    activeLine?.pending &&
-    (!itemId || !activeUserTranscriptItemId || itemId === activeUserTranscriptItemId)
+    incomingItemId &&
+    activeUserTranscriptItemId &&
+    incomingItemId !== activeUserTranscriptItemId
   ) {
-    if (itemId) activeUserTranscriptItemId = itemId
-    return activeLine
+    liveUserTranscript.value = ''
   }
+
+  if (incomingItemId) activeUserTranscriptItemId = incomingItemId
 
   // If the user interrupts an assistant response, place the next user turn
   // after the partial assistant message instead of leaving it in the live slot.
-  commitLiveAssistantTranscript()
-
-  const line: TranscriptLine = {
-    id: transcriptId++,
-    role: 'user',
-    text: '',
-    pending: true,
-  }
-  transcript.value.push(line)
-  activeUserTranscriptId = line.id
-  activeUserTranscriptItemId = itemId || ''
-  return line
+  if (!liveUserTranscript.value) commitLiveAssistantTranscript()
 }
 
 function updateUserTranscript(text: string, itemId?: string) {
   const cleaned = text.trim()
   if (!cleaned) return
 
-  if (itemId && activeUserTranscriptItemId && itemId !== activeUserTranscriptItemId) {
-    activeUserTranscriptId = null
-    activeUserTranscriptItemId = ''
+  const incomingItemId = itemId?.trim() || ''
+  if (incomingItemId) {
+    const committedLineId = committedUserTranscriptLines.get(incomingItemId)
+    if (committedLineId !== undefined) {
+      const committedLine = transcript.value.find((line) => line.id === committedLineId)
+      if (committedLine && cleaned.length >= committedLine.text.length) {
+        committedLine.text = cleaned
+      }
+      liveUserTranscript.value = ''
+      activeUserTranscriptItemId = ''
+      return
+    }
+
+    if (activeUserTranscriptItemId && incomingItemId !== activeUserTranscriptItemId) {
+      liveUserTranscript.value = ''
+    }
+    activeUserTranscriptItemId = incomingItemId
+  } else {
+    // Some realtime payloads omit item_id. If a longer cumulative transcript
+    // arrives after a short final transcript, reconcile it into the existing
+    // bubble instead of creating a second history entry.
+    const lastUserLine = [...transcript.value].reverse().find((line) => line.role === 'user')
+    const withinReconciliationWindow = Date.now() - lastCommittedUserTranscriptAt < 5000
+    if (
+      lastUserLine &&
+      withinReconciliationWindow &&
+      cleaned.length > lastUserLine.text.length &&
+      cleaned.startsWith(lastUserLine.text)
+    ) {
+      lastUserLine.text = cleaned
+      liveUserTranscript.value = ''
+      return
+    }
   }
 
-  const line = beginUserTranscript(itemId)
-  line.text = cleaned
-  line.pending = true
+  beginUserTranscript(incomingItemId)
+  liveUserTranscript.value = cleaned
 }
 
 function commitLiveAssistantTranscript(responseId?: string) {
@@ -221,22 +245,30 @@ function commitLiveAssistantTranscript(responseId?: string) {
 }
 
 function commitUserTranscript(finalText?: string, itemId?: string) {
-  const resolvedItemId = itemId || activeUserTranscriptItemId
-  if (resolvedItemId && resolvedItemId === lastCommittedUserTranscriptItemId) return
+  const resolvedItemId = itemId?.trim() || activeUserTranscriptItemId
+  const cleaned = (finalText || liveUserTranscript.value).trim()
 
-  if (itemId && activeUserTranscriptItemId && itemId !== activeUserTranscriptItemId) {
-    activeUserTranscriptId = null
-    activeUserTranscriptItemId = ''
+  if (resolvedItemId) {
+    const committedLineId = committedUserTranscriptLines.get(resolvedItemId)
+    if (committedLineId !== undefined) {
+      const committedLine = transcript.value.find((line) => line.id === committedLineId)
+      if (committedLine && cleaned.length >= committedLine.text.length) {
+        committedLine.text = cleaned
+      }
+      liveUserTranscript.value = ''
+      activeUserTranscriptItemId = ''
+      return
+    }
   }
 
-  const line = getActiveUserTranscriptLine() || beginUserTranscript(resolvedItemId)
-  const cleaned = (finalText || line.text).trim()
   if (!cleaned) return
 
-  line.text = cleaned
-  line.pending = false
-  if (resolvedItemId) lastCommittedUserTranscriptItemId = resolvedItemId
-  activeUserTranscriptId = null
+  const line = addTranscript('user', cleaned, resolvedItemId)
+  if (!line) return
+
+  if (resolvedItemId) committedUserTranscriptLines.set(resolvedItemId, line.id)
+  lastCommittedUserTranscriptAt = Date.now()
+  liveUserTranscript.value = ''
   activeUserTranscriptItemId = ''
   userTurnCount += 1
   trackVoiceEvent('voice_assistant_turn', { turn_number: userTurnCount })
@@ -245,7 +277,12 @@ function commitUserTranscript(finalText?: string, itemId?: string) {
 function sessionLanguageInstructions() {
   const defaultLanguage = locale.value === 'zh' ? 'Simplified Chinese' : 'English'
   return [
-    "Preserve Aaron AI's existing identity, knowledge, tone, safety rules, tools, and other configured behavior.",
+    'You are Aaron AI, an AI assistant representing the person behind aaronguo.com. You are not Aaron Guo himself and you must never imply that a visitor is speaking with the real Aaron.',
+    "The represented person's full name is exactly Aaron Guo (郭珦珲). Never call him 郭伟华 or any other Chinese name.",
+    'Do not merge this Aaron Guo with any other person who shares the name, including people associated with xAI. xAI provides the voice platform; it is not evidence that Aaron works there.',
+    'Only state personal facts that are explicitly present in the configured Aaron AI knowledge or on aaronguo.com. When a fact is missing, uncertain, or could belong to a namesake, say that you do not know rather than guessing.',
+    'Be transparent that you are an AI and can make mistakes. Encourage visitors to verify important information.',
+    "Preserve Aaron AI's existing knowledge, objectives, sales and connection scope, tone, safety rules, tools, and other configured behavior.",
     `The website locale is ${locale.value === 'zh' ? 'Chinese' : 'English'}. Use ${defaultLanguage} as the default response language.`,
     'Match the language the user is clearly speaking when it differs from the site locale.',
     'If the user explicitly asks for a language, switch to that language and continue using it until they request otherwise.',
@@ -389,11 +426,12 @@ async function connect() {
   errorMessage.value = ''
   state.value = 'connecting'
   transcript.value = []
+  liveUserTranscript.value = ''
   liveAssistantTranscript.value = ''
   userTurnCount = 0
-  activeUserTranscriptId = null
   activeUserTranscriptItemId = ''
-  lastCommittedUserTranscriptItemId = ''
+  lastCommittedUserTranscriptAt = 0
+  committedUserTranscriptLines.clear()
   activeAssistantResponseId = ''
   lastCommittedAssistantResponseId = ''
 
@@ -519,7 +557,8 @@ function toggleMute() {
 
 watch(
   () => [
-    transcript.value.map((line) => `${line.id}:${line.text}:${line.pending}`).join('|'),
+    transcript.value.map((line) => `${line.id}:${line.text}`).join('|'),
+    liveUserTranscript.value,
     liveAssistantTranscript.value,
   ],
   async () => {
@@ -582,9 +621,7 @@ onBeforeUnmount(() => {
               class="inline-block max-w-[92%] rounded-xl px-3 py-2 text-sm leading-6"
               :class="
                 line.role === 'user'
-                  ? line.pending
-                    ? 'italic text-muted-foreground'
-                    : 'bg-secondary text-foreground'
+                  ? 'bg-secondary text-foreground'
                   : 'bg-background text-foreground'
               "
             >
@@ -592,6 +629,18 @@ onBeforeUnmount(() => {
             </p>
           </div>
         </template>
+        <div v-if="liveUserTranscript" class="text-right">
+          <span
+            class="mb-1 block text-[10px] font-medium uppercase tracking-[0.14em] text-muted-foreground"
+          >
+            {{ copy.user }}
+          </span>
+          <p
+            class="inline-block max-w-[92%] px-3 py-2 text-sm italic leading-6 text-muted-foreground"
+          >
+            {{ liveUserTranscript }}
+          </p>
+        </div>
         <div v-if="liveAssistantTranscript" class="text-left">
           <span
             class="mb-1 block text-[10px] font-medium uppercase tracking-[0.14em] text-muted-foreground"
@@ -665,6 +714,7 @@ onBeforeUnmount(() => {
         </div>
         <p v-if="errorMessage" class="mt-2 text-xs leading-5 text-red-500">{{ errorMessage }}</p>
         <p class="mt-3 text-[11px] leading-5 text-muted-foreground">{{ copy.disclosure }}</p>
+        <p class="mt-1 text-[11px] leading-5 text-muted-foreground">{{ copy.accuracy }}</p>
         <p class="mt-1 text-[11px] leading-5 text-muted-foreground">{{ copy.permission }}</p>
       </div>
     </div>
