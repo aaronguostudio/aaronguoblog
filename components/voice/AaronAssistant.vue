@@ -560,6 +560,7 @@ onBeforeUnmount(() => {
     <button
       type="button"
       class="voice-trigger group flex h-11 w-11 items-center justify-center rounded-full border border-border p-0 text-xs font-medium text-foreground shadow-lg backdrop-blur-xl transition-all hover:-translate-y-0.5 hover:border-foreground/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary sm:h-auto sm:w-auto sm:justify-start sm:gap-1.5 sm:px-2.5 sm:py-2 sm:text-sm"
+      :class="{ 'ml-auto': isOpen }"
       :aria-expanded="isOpen"
       :aria-label="copy.button"
       @click="toggleAssistant"
