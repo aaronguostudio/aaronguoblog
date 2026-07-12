@@ -50,7 +50,7 @@ const copy = computed(() => {
   if (locale.value === 'zh') {
     return {
       button: '和 Aaron 聊聊',
-      title: 'Talk to Aaron',
+      title: '和 Aaron 聊聊',
       subtitle: 'Aaron 的 AI 语音助手',
       disclosure: '你正在和 Aaron 的 AI 助手对话，不是真人 Aaron。',
       connect: '正在连接…',
