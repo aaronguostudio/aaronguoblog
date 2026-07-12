@@ -10,6 +10,7 @@ featured: true
 number: 1
 translationKey: 'rest-is-part-of-the-ai-stack'
 image: '/notes-img/rest-is-part-of-the-ai-stack.webp'
+socialImage: '/notes-img/rest-is-part-of-the-ai-stack-social.jpg'
 alt: '清晨安静的桌面，合上的笔记本、笔记本与一杯水，表达休息也是清晰使用 AI 的一部分'
 ---
 

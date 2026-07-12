@@ -7,6 +7,7 @@ const blogDetailPages = [
   'pages/blogs/[blog].vue',
   'pages/blogs/[...blog].vue',
 ]
+const notePage = 'pages/notes/[slug].vue'
 
 describe('blog social metadata', () => {
   it('uses absolute static social images instead of runtime OG image generation', () => {
@@ -30,5 +31,32 @@ describe('blog social metadata', () => {
 
     expect(article).toContain('ogImage: /blogs-img/2026-07-06-fde-ai-social.jpg')
     expect(existsSync(join(root, socialImage))).toBe(true)
+  })
+
+  it('uses the note social image instead of runtime OG image generation', () => {
+    const source = readFileSync(join(root, notePage), 'utf8')
+    const englishNote = readFileSync(
+      join(root, 'content/notes/en/rest-is-part-of-the-ai-stack.md'),
+      'utf8',
+    )
+    const chineseNote = readFileSync(
+      join(root, 'content/notes/zh/rest-is-part-of-the-ai-stack.md'),
+      'utf8',
+    )
+    const socialImage = 'public/notes-img/rest-is-part-of-the-ai-stack-social.jpg'
+
+    expect(source).toContain("note.value?.socialImage || note.value?.image || '/og-image.jpg'")
+    expect(source).toContain('image: socialImage.value')
+    expect(source).not.toContain('defineOgImageComponent')
+    expect(englishNote).toContain('socialImage: \'/notes-img/rest-is-part-of-the-ai-stack-social.jpg\'')
+    expect(chineseNote).toContain('socialImage: \'/notes-img/rest-is-part-of-the-ai-stack-social.jpg\'')
+    expect(existsSync(join(root, socialImage))).toBe(true)
+  })
+
+  it('sets a page-specific Twitter URL and image alt text', () => {
+    const source = readFileSync(join(root, 'utils/seo.ts'), 'utf8')
+
+    expect(source).toContain("{ name: 'twitter:url', content: fullUrl }")
+    expect(source).toContain("{ name: 'twitter:image:alt', content: imageAlt }")
   })
 })

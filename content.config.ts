@@ -8,6 +8,7 @@ const noteSchema = z.object({
   summary: z.string(),
   hook: z.string(),
   image: z.string().optional(),
+  socialImage: z.string().optional(),
   alt: z.string().optional(),
   topics: z.array(z.string()).default([]),
   published: z.boolean().default(false),

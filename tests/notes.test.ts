@@ -110,7 +110,8 @@ describe('Builder Notes surface', () => {
     expect(detailPage).toContain('.path(normalizedRoutePath.value)')
     expect(detailPage).toContain('<ContentRenderer')
     expect(detailPage).toContain("type: 'article'")
-    expect(detailPage).toContain("defineOgImageComponent('Note'")
+    expect(detailPage).toContain('image: socialImage.value')
+    expect(detailPage).not.toContain('defineOgImageComponent')
     expect(homePage).toContain('<MainNotes />')
   })
 

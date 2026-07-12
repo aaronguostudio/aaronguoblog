@@ -9,7 +9,7 @@ const siteConfig = {
   url: 'https://www.aaronguo.com',
   description: siteDescription,
   defaultImage: '/og-image.jpg',
-  twitterHandle: '@aaronguo',
+  twitterHandle: '@aaronguostudio',
 }
 
 /**
@@ -19,6 +19,7 @@ export interface SeoOptions {
   title: string
   description?: string
   image?: string
+  imageAlt?: string
   url?: string
   type?: 'website' | 'article'
   publishedTime?: string
@@ -37,6 +38,7 @@ export function useSeo(options: SeoOptions) {
     title,
     description = siteConfig.description,
     image = siteConfig.defaultImage,
+    imageAlt = title,
     url = siteConfig.url,
     type = 'website',
     publishedTime,
@@ -66,6 +68,7 @@ export function useSeo(options: SeoOptions) {
       { property: 'og:title', content: title },
       { property: 'og:description', content: description },
       { property: 'og:image', content: fullImageUrl },
+      { property: 'og:image:alt', content: imageAlt },
       { property: 'og:url', content: fullUrl },
       { property: 'og:type', content: type },
       { property: 'og:site_name', content: siteConfig.name },
@@ -74,9 +77,11 @@ export function useSeo(options: SeoOptions) {
       // Twitter
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:site', content: siteConfig.twitterHandle },
+      { name: 'twitter:url', content: fullUrl },
       { name: 'twitter:title', content: title },
       { name: 'twitter:description', content: description },
       { name: 'twitter:image', content: fullImageUrl },
+      { name: 'twitter:image:alt', content: imageAlt },
 
       // Article specific metadata
       ...(type === 'article' && publishedTime

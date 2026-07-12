@@ -10,6 +10,7 @@ featured: true
 number: 1
 translationKey: 'rest-is-part-of-the-ai-stack'
 image: '/notes-img/rest-is-part-of-the-ai-stack.webp'
+socialImage: '/notes-img/rest-is-part-of-the-ai-stack-social.jpg'
 alt: 'A quiet early-morning desk with a closed laptop, notebook, water, and an empty chair, expressing rest as part of thoughtful AI work'
 ---
 

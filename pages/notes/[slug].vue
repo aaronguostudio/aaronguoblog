@@ -32,6 +32,9 @@ const noteDescription = computed(() => note.value?.description || note.value?.su
 const noteDate = computed(() => note.value?.date || '')
 const noteTopics = computed(() => note.value?.topics || [])
 const noteNumber = computed(() => formatNoteNumber(note.value?.number))
+const socialImage = computed(
+  () => note.value?.socialImage || note.value?.image || '/og-image.jpg',
+)
 const formattedDate = computed(() =>
   formatNoteDate(noteDate.value, locale.value === 'zh' ? 'zh-CN' : 'en-US'),
 )
@@ -48,17 +51,13 @@ const shareOnLinkedInUrl = computed(
 useSeo({
   title: noteTitle.value,
   description: noteDescription.value,
+  image: socialImage.value,
+  imageAlt: note.value?.alt || noteTitle.value,
   url: normalizedRoutePath.value,
   type: 'article',
   publishedTime: noteDate.value ? `${noteDate.value}T00:00:00.000Z` : undefined,
   tags: noteTopics.value,
   locale: locale.value === 'zh' ? 'zh_CN' : 'en_US',
-})
-
-defineOgImageComponent('Note', {
-  title: noteTitle.value,
-  description: note.value?.hook || noteDescription.value,
-  number: noteNumber.value,
 })
 
 const { useScrollDepthTracking } = useRybbitAnalytics()
