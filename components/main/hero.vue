@@ -8,7 +8,7 @@ const localePath = useLocalePath()
 
 <template>
   <div
-    class="relative flex min-h-[14rem] items-center overflow-hidden px-5 py-6 sm:min-h-[15rem] sm:px-7 sm:py-7 lg:min-h-[15rem] lg:px-10 lg:py-6 xl:px-12"
+    class="relative flex min-h-[12rem] items-center overflow-hidden px-5 py-5 sm:min-h-[13rem] sm:px-7 sm:py-6 lg:min-h-[15rem] lg:px-10 lg:py-6 xl:px-12"
   >
     <!-- Decorative subtle background -->
     <div
@@ -16,7 +16,7 @@ const localePath = useLocalePath()
     />
 
     <div class="relative w-full max-w-3xl">
-      <div class="flex flex-col gap-4">
+      <div class="flex flex-col gap-3 sm:gap-4">
         <!-- Headline -->
         <h1 class="font-bold leading-[1.05] text-3xl text-foreground sm:text-4xl md:text-5xl">
           {{ t('home.title') }}

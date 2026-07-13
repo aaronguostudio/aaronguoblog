@@ -18,6 +18,7 @@ const latestNotes = computed(() => {
 
 const desktopNote = computed(() => latestNotes.value[0])
 const activeMobileIndex = ref(0)
+const activeMobileNote = computed(() => latestNotes.value[activeMobileIndex.value] || latestNotes.value[0])
 const hasMultipleNotes = computed(() => latestNotes.value.length > 1)
 const mobileTrackStyle = computed(() => ({
   transform: `translateX(-${activeMobileIndex.value * 100}%)`,
@@ -125,20 +126,28 @@ onBeforeUnmount(() => {
     class="border-t border-[color:var(--line-subtle)] lg:hidden"
     :aria-label="t('notes.latest')"
   >
-    <div class="px-5 py-5 sm:px-6">
-      <div class="mb-4 flex items-center justify-between gap-4">
+    <div class="px-5 py-4 sm:px-6 sm:py-5">
+      <div class="mb-3 flex items-center justify-between gap-3">
         <span
           class="font-mono text-[11px] uppercase tracking-[0.16em] text-[color:var(--notes-accent)]"
         >
           {{ t('notes.latest') }}
         </span>
-        <span
-          v-if="hasMultipleNotes"
-          class="font-mono text-[11px] tabular-nums tracking-[0.14em] text-muted-foreground"
-        >
-          {{ String(activeMobileIndex + 1).padStart(2, '0') }} /
-          {{ String(latestNotes.length).padStart(2, '0') }}
-        </span>
+        <div v-if="activeMobileNote" class="flex min-w-0 items-center gap-2">
+          <time
+            :datetime="activeMobileNote.date"
+            class="truncate text-right font-mono text-[11px] uppercase tracking-[0.14em] text-muted-foreground"
+          >
+            {{ noteDate(activeMobileNote.date) }}
+          </time>
+          <NuxtLink
+            :to="localePath('/notes')"
+            class="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-md text-foreground outline-none transition-colors hover:text-[color:var(--notes-accent)] focus-visible:ring-2 focus-visible:ring-[var(--notes-accent)]"
+            :aria-label="t('notes.viewAll')"
+          >
+            <Icon name="heroicons:arrow-up-right" class="h-4 w-4" />
+          </NuxtLink>
+        </div>
       </div>
 
       <div
@@ -157,7 +166,7 @@ onBeforeUnmount(() => {
           class="flex will-change-transform transition-transform duration-700 ease-out motion-reduce:transition-none"
           :style="mobileTrackStyle"
         >
-          <article v-for="(note, index) in latestNotes" :key="note.path" class="w-full shrink-0">
+          <article v-for="note in latestNotes" :key="note.path" class="w-full shrink-0">
             <NuxtLink
               v-if="note.image"
               :to="localePath(note.path)"
@@ -184,30 +193,14 @@ onBeforeUnmount(() => {
               :to="localePath(note.path)"
               class="group block outline-none focus-visible:ring-2 focus-visible:ring-[var(--notes-accent)]"
             >
-              <div
-                class="mb-3 flex items-center justify-between gap-3 font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground"
-              >
-                <span class="text-[color:var(--notes-accent)]">{{
-                  formatNoteNumber(note.number, index)
-                }}</span>
-                <time :datetime="note.date">{{ noteDate(note.date) }}</time>
-              </div>
               <h2
-                class="mb-2 text-xl font-semibold leading-snug tracking-tight text-foreground transition-colors group-hover:text-[color:var(--notes-accent)]"
+                class="mb-1.5 text-xl font-semibold leading-snug tracking-tight text-foreground transition-colors group-hover:text-[color:var(--notes-accent)]"
               >
                 {{ note.title }}
               </h2>
               <p class="line-clamp-2 text-[15px] leading-6 text-muted-foreground">
                 {{ note.hook }}
               </p>
-            </NuxtLink>
-
-            <NuxtLink
-              :to="localePath('/notes')"
-              class="mt-4 inline-flex min-h-10 items-center gap-1.5 rounded-md text-sm font-medium text-foreground outline-none transition-colors hover:text-[color:var(--notes-accent)] focus-visible:ring-2 focus-visible:ring-[var(--notes-accent)]"
-            >
-              {{ t('notes.viewAll') }}
-              <Icon name="heroicons:arrow-right" class="h-4 w-4" />
             </NuxtLink>
           </article>
         </div>
