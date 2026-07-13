@@ -34,7 +34,12 @@
     "description": "在这里，您将找到我在此网站上撰写的所有博客文章。",
     "tableOfContent": "目录",
     "filterByTopic": "按主题筛选",
-    "searchPlaceholder": "按标题、描述或标签搜索文章..."
+    "searchPlaceholder": "按标题、描述或标签搜索文章...",
+    "filterAndSearch": "筛选与搜索",
+    "filterDialogTitle": "筛选文章",
+    "activeFilters": "已启用 {count} 项筛选",
+    "closeFilters": "关闭筛选",
+    "showResults": "查看结果"
   },
   "notes": {
     "title": "构建者手记",

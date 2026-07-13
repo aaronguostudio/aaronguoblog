@@ -56,25 +56,16 @@ defineOgImageComponent('Note', {
         {{ t('notes.eyebrow') }}
       </p>
 
-      <div class="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
-        <div class="max-w-3xl">
-          <h1
-            id="notes-title"
-            class="text-5xl font-semibold tracking-[-0.045em] text-foreground sm:text-6xl lg:text-7xl"
-          >
-            {{ t('notes.title') }}
-          </h1>
-          <p class="mt-5 max-w-2xl text-lg leading-8 text-muted-foreground sm:text-xl">
-            {{ t('notes.description') }}
-          </p>
-        </div>
-
-        <div
-          class="flex items-center gap-3 self-start rounded-full border border-[color:var(--line-control)] bg-card/60 px-4 py-2 font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground lg:self-auto"
+      <div class="max-w-3xl">
+        <h1
+          id="notes-title"
+          class="text-5xl font-semibold tracking-[-0.045em] text-foreground sm:text-6xl lg:text-7xl"
         >
-          <span class="h-2 w-2 rounded-full bg-[var(--notes-accent)]" aria-hidden="true"></span>
-          {{ t('notes.count', { count: notes.length }) }}
-        </div>
+          {{ t('notes.title') }}
+        </h1>
+        <p class="mt-5 max-w-2xl text-lg leading-8 text-muted-foreground sm:text-xl">
+          {{ t('notes.description') }}
+        </p>
       </div>
     </section>
 

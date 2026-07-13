@@ -18,11 +18,16 @@ const route = useRoute()
 const elementPerPage = ref(24) // Display 24 posts per page for a 4×6 grid
 const pageNumber = ref(1)
 const searchQuery = ref('')
+const isMobileFilterPanelOpen = ref(false)
 
 /**
  * Category filter state
  */
 const selectedCategories = ref<string[]>([])
+
+const activeMobileFilterCount = computed(() => {
+  return selectedCategories.value.length + (searchQuery.value.trim() ? 1 : 0)
+})
 
 /**
  * Reset to the first page whenever the search query changes
@@ -207,7 +212,7 @@ defineOgImage({
 
     <div class="px-4 grid grid-cols-1 lg:grid-cols-4 gap-8">
       <!-- Category filter sidebar -->
-      <div class="lg:col-span-1">
+      <div class="hidden lg:col-span-1 lg:block">
         <div class="sticky top-24">
           <BlogCategoryFilter
             :all-categories="allCategories"
@@ -219,8 +224,31 @@ defineOgImage({
 
       <!-- Blog posts section -->
       <div class="lg:col-span-3">
+        <div class="mb-5 lg:hidden">
+          <button
+            type="button"
+            class="flex w-full items-center justify-between rounded-xl border border-border bg-card px-4 py-3 text-left shadow-sm transition-colors hover:border-foreground/30"
+            @click="isMobileFilterPanelOpen = true"
+          >
+            <span class="inline-flex items-center gap-2 font-semibold text-foreground">
+              <Icon name="heroicons:adjustments-horizontal" class="h-5 w-5" />
+              {{ t('blogs.filterAndSearch') }}
+            </span>
+            <span class="inline-flex items-center gap-2 text-muted-foreground">
+              <span
+                v-if="activeMobileFilterCount"
+                class="inline-flex min-w-6 items-center justify-center rounded-full bg-secondary px-2 py-0.5 text-xs font-semibold text-secondary-foreground"
+                :aria-label="t('blogs.activeFilters', { count: activeMobileFilterCount })"
+              >
+                {{ activeMobileFilterCount }}
+              </span>
+              <Icon name="heroicons:chevron-down" class="h-4 w-4" />
+            </span>
+          </button>
+        </div>
+
         <!-- Search bar with enhanced design -->
-        <div class="pb-8">
+        <div class="hidden pb-8 lg:block">
           <div class="relative w-full mx-auto group">
             <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
               <Icon
@@ -306,6 +334,69 @@ defineOgImage({
             <Icon name="heroicons:chevron-right" size="24" class="text-foreground" />
           </button>
         </div>
+      </div>
+    </div>
+
+    <div
+      v-if="isMobileFilterPanelOpen"
+      class="fixed inset-0 z-50 lg:hidden"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="mobile-writing-filters-title"
+    >
+      <button
+        type="button"
+        class="absolute inset-0 bg-black/70"
+        :aria-label="t('blogs.closeFilters')"
+        @click="isMobileFilterPanelOpen = false"
+      />
+      <div
+        class="absolute inset-x-0 bottom-0 flex max-h-[86vh] flex-col rounded-t-2xl border-t border-border bg-background p-4 pb-[calc(env(safe-area-inset-bottom)+1rem)] shadow-2xl"
+      >
+        <div class="mb-4 flex items-center justify-between">
+          <h2 id="mobile-writing-filters-title" class="text-lg font-semibold text-foreground">
+            {{ t('blogs.filterDialogTitle') }}
+          </h2>
+          <button
+            type="button"
+            class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card text-muted-foreground transition-colors hover:text-foreground"
+            :aria-label="t('blogs.closeFilters')"
+            @click="isMobileFilterPanelOpen = false"
+          >
+            <Icon name="heroicons:x-mark" class="h-5 w-5" />
+          </button>
+        </div>
+
+        <div class="mb-4">
+          <div class="relative w-full">
+            <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4">
+              <Icon name="heroicons:magnifying-glass" class="h-5 w-5 text-muted-foreground" />
+            </div>
+            <input
+              v-model="searchQuery"
+              type="search"
+              :placeholder="t('blogs.searchPlaceholder')"
+              class="block w-full rounded-xl border-2 border-border bg-card py-4 pl-12 pr-4 text-foreground shadow-sm transition-all duration-300 placeholder:text-muted-foreground focus:border-ring focus:ring-4 focus:ring-ring/20"
+              :aria-label="t('blogs.searchPlaceholder')"
+            />
+          </div>
+        </div>
+
+        <div class="min-h-0 flex-1 overflow-y-auto">
+          <BlogCategoryFilter
+            :all-categories="allCategories"
+            :selected-categories="selectedCategories"
+            @update:selected-categories="selectedCategories = $event"
+          />
+        </div>
+
+        <button
+          type="button"
+          class="mt-4 w-full flex-none rounded-xl bg-primary px-4 py-3 font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+          @click="isMobileFilterPanelOpen = false"
+        >
+          {{ t('blogs.showResults') }}
+        </button>
       </div>
     </div>
   </main>

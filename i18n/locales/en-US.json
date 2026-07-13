@@ -34,7 +34,12 @@
     "description": "Here you will find all the blog posts I have written & published on this site.",
     "tableOfContent": "Table Of Content",
     "filterByTopic": "Filter by Topic",
-    "searchPlaceholder": "Search blogs by title, description, or tags..."
+    "searchPlaceholder": "Search blogs by title, description, or tags...",
+    "filterAndSearch": "Filter & search",
+    "filterDialogTitle": "Filter writing",
+    "activeFilters": "{count} active filters",
+    "closeFilters": "Close filters",
+    "showResults": "Show results"
   },
   "notes": {
     "title": "Builder Notes",
