@@ -86,6 +86,11 @@ export function selectPulseSnapshotItems<T extends PulseSelectableItem>(
   return matchedItems.length > 0 ? matchedItems : items.slice(0, limit)
 }
 
+export function extractRadarPulseThemes(text: string | null | undefined) {
+  const match = text?.match(/(?:^|\.\s*)Top themes:\s*(.+?)\.?\s*$/is)
+  return match?.[1]?.trim() || null
+}
+
 function itemTimestamp(item: RadarItemSortable) {
   return parseRadarDate(
     item.lastSeenAt ||

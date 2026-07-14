@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import {
+  extractRadarPulseThemes,
   getRadarSnapshotTimestamp,
   isNewerRadarSnapshot,
   selectPulseSnapshotItems,
@@ -56,6 +57,16 @@ describe('pulse snapshot item selection', () => {
     ]
 
     expect(selectPulseSnapshotItems(items, [3, 1], 3)).toEqual([items[2], items[0]])
+  })
+
+  it('extracts the changing themes instead of the fixed pulse item count', () => {
+    expect(extractRadarPulseThemes(
+      'Radar found 5 high-signal items across personal-ai-systems. Top themes: Adoption friction; Planning trust; Dependence risk.',
+    )).toBe('Adoption friction; Planning trust; Dependence risk')
+  })
+
+  it('does not present a count-only pulse as a reader-facing summary', () => {
+    expect(extractRadarPulseThemes('Radar found 5 high-signal items across coding-agents.')).toBeNull()
   })
 })
 
