@@ -1,9 +1,14 @@
 <script lang="ts" setup>
 import { useI18n } from 'vue-i18n'
 import type { StaticRadarItem, StaticRadarSnapshot } from '~/composables/useStaticRadarSnapshot'
-import { extractRadarPulseThemes, selectPulseSnapshotItems } from '~/utils/radar-snapshot'
+import {
+  extractRadarPulseThemes,
+  selectPulseSnapshotItems,
+  selectRadarTakeaway,
+  type RadarTakeaway,
+} from '~/utils/radar-snapshot'
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
 const localePath = useLocalePath()
 
 type SignalPreviewItem = {
@@ -18,6 +23,7 @@ type SignalPreviewItem = {
 
 type SignalPulseResponse = {
   pulse?: string | null
+  takeaway?: RadarTakeaway | null
   items?: SignalPreviewItem[]
 }
 
@@ -75,8 +81,13 @@ const pulseItems = computed(() => {
 
 const topItems = computed(() => pulseItems.value.slice(0, 3))
 
+const pulseTakeaway = computed(() => {
+  return staticSnapshot.value?.pulse?.takeaway || pulseData.value?.takeaway || null
+})
+
 const pulseRead = computed(() => {
   return (
+    selectRadarTakeaway(pulseTakeaway.value, locale.value) ||
     extractRadarPulseThemes(pulseText.value) ||
     stripHtml(topItems.value[0]?.title || '') ||
     t('signal.pulse')

@@ -14,7 +14,7 @@ describe('generateRadarPulse', () => {
 
     expect(pulse).toEqual({
       date: '2026-06-14',
-      pulseText: 'Radar found 3 high-signal items across mobile-ai and coding-agents. Top themes: Mobile AI assistants are moving on-device; Coding agents add repository-level planning; Developers debate phone-native agents.',
+      pulseText: "Radar's read across mobile-ai and coding-agents. Top themes: Mobile AI assistants are moving on-device; Coding agents add repository-level planning; Developers debate phone-native agents.",
       topItemIds: [7, 8, 9],
     })
   })
@@ -40,7 +40,7 @@ describe('generateRadarPulse', () => {
 
     expect(pulse).toEqual({
       date: '2026-06-14',
-      pulseText: 'Radar found 2 high-signal items across tracked topics. Top themes: Agent activity moved on-device; Phone-native agents drew developer debate.',
+      pulseText: "Radar's read across tracked topics. Top themes: Agent activity moved on-device; Phone-native agents drew developer debate.",
       topItemIds: [10, 11],
     })
   })

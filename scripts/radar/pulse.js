@@ -50,7 +50,7 @@ export function generateRadarPulse({ date, items }) {
 
   return {
     date,
-    pulseText: `Radar found ${topItems.length} high-signal items across ${topicText}. Top themes: ${themes}.`,
+    pulseText: `Radar's read across ${topicText}. Top themes: ${themes}.`,
     topItemIds: topItems.map(item => item.id),
   }
 }

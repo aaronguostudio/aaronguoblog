@@ -60,9 +60,20 @@ describe('parseArgs', () => {
     )
   })
 
+  it('exposes the daily conclusion command without extra flags', () => {
+    expect(parseArgs(['node', 'cli.js', 'conclude'])).toEqual({
+      command: 'conclude',
+      dryRun: false,
+      topicSlug: undefined,
+      cadence: undefined,
+    })
+    expect(PACKAGE_JSON.scripts['radar:conclude']).toBe('node scripts/radar/cli.js conclude')
+  })
+
   it('exposes a package script for static Radar export', () => {
     expect(PACKAGE_JSON.scripts['radar:export']).toBe('node scripts/radar/cli.js export')
     expect(PACKAGE_JSON.scripts['radar:deep-read']).toBe('node scripts/radar/cli.js deep-read')
+    expect(PACKAGE_JSON.scripts['radar:conclude']).toBe('node scripts/radar/cli.js conclude')
   })
 
   it('parses README Radar run examples using the supported package-script shape', () => {

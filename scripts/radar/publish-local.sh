@@ -28,11 +28,17 @@ if ! git diff --quiet || ! git diff --cached --quiet; then
   exit 1
 fi
 
+if [ "$(git branch --show-current)" != "main" ]; then
+  echo "Refusing to publish Radar from a non-main branch."
+  exit 1
+fi
+
 git fetch origin
-git pull --rebase --autostash
+git pull --rebase --autostash origin main
 
 pnpm radar:migrate
 pnpm radar:run --cadence daily
+pnpm radar:conclude
 
 if [ "$(date +%u)" = "1" ]; then
   pnpm radar:run --cadence weekly
@@ -54,7 +60,7 @@ if git diff --cached --quiet; then
   echo "Radar snapshot unchanged; nothing to commit."
 else
   git commit -m "chore(radar): update signal snapshot $(date +%F)"
-  git push
+  git push origin main
 fi
 
 if [ "${RADAR_SKIP_DEPLOY_VERIFY:-}" != "1" ]; then

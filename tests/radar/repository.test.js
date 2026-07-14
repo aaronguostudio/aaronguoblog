@@ -6,6 +6,7 @@ import {
   discoverSchema,
   finishRadarRun,
   migrateRadarSchema,
+  upsertRadarDailyConclusion,
   upsertRadarTopic,
   upsertRadarItems,
 } from '../../scripts/radar/repository.js'
@@ -162,6 +163,10 @@ describe('radar repository', () => {
       table: 'radar_items',
       columns: expect.arrayContaining(['id', 'canonical_url', 'source']),
     }))
+    expect(schema).toContainEqual(expect.objectContaining({
+      table: 'radar_daily_conclusions',
+      columns: expect.arrayContaining(['date', 'takeaway_json', 'evidence_item_ids']),
+    }))
   })
 
   it('keeps duplicate same-run item upserts idempotent', async () => {
@@ -218,6 +223,40 @@ describe('radar repository', () => {
       status: 'completed',
       items_seen: 12,
       items_written: 5,
+    })
+  })
+
+  it('upserts one persisted conclusion for each Radar date', async () => {
+    const client = await createMigratedClient()
+
+    await upsertRadarDailyConclusion(client, {
+      date: '2026-06-14',
+      inputFingerprint: 'first-fingerprint',
+      takeaway: { en: 'First read', zh: '第一条结论' },
+      evidenceItemIds: [7, 8],
+      sourceItemIds: [7, 8],
+      runIds: [1, 2],
+      model: 'gpt-4.1-mini',
+    })
+    await upsertRadarDailyConclusion(client, {
+      date: '2026-06-14',
+      inputFingerprint: 'updated-fingerprint',
+      takeaway: { en: 'Updated read', zh: '更新后的结论' },
+      evidenceItemIds: [8, 9],
+      sourceItemIds: [8, 9],
+      runIds: [2, 3],
+      model: 'gpt-4.1-mini',
+    })
+
+    const result = await client.execute({
+      sql: 'SELECT input_fingerprint, takeaway_json, evidence_item_ids FROM radar_daily_conclusions WHERE date = ?',
+      args: ['2026-06-14'],
+    })
+    expect(result.rows).toHaveLength(1)
+    expect(result.rows[0]).toMatchObject({
+      input_fingerprint: 'updated-fingerprint',
+      takeaway_json: '{"en":"Updated read","zh":"更新后的结论"}',
+      evidence_item_ids: '[8,9]',
     })
   })
 })

@@ -15,6 +15,11 @@ type PulseSelectableItem = {
   id?: string | number | null
 }
 
+export type RadarTakeaway = {
+  en?: string | null
+  zh?: string | null
+}
+
 type RadarItemSortable = {
   id?: string | number | null
   lastSeenAt?: string | null
@@ -89,6 +94,15 @@ export function selectPulseSnapshotItems<T extends PulseSelectableItem>(
 export function extractRadarPulseThemes(text: string | null | undefined) {
   const match = text?.match(/(?:^|\.\s*)Top themes:\s*(.+?)\.?\s*$/is)
   return match?.[1]?.trim() || null
+}
+
+export function selectRadarTakeaway(
+  takeaway: RadarTakeaway | null | undefined,
+  locale: string | null | undefined,
+) {
+  const preferred = locale?.toLowerCase().startsWith('zh') ? takeaway?.zh : takeaway?.en
+  const fallback = locale?.toLowerCase().startsWith('zh') ? takeaway?.en : takeaway?.zh
+  return preferred?.trim() || fallback?.trim() || null
 }
 
 function itemTimestamp(item: RadarItemSortable) {

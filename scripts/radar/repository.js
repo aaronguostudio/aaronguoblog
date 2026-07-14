@@ -179,6 +179,158 @@ export async function findDeepReadByFingerprint(client, inputFingerprint) {
   return result.rows[0] || null
 }
 
+function asNumber(value) {
+  const number = Number(value)
+  return Number.isFinite(number) ? number : 0
+}
+
+function asText(value) {
+  return typeof value === 'string' ? value.trim() : ''
+}
+
+export async function getDailyConclusionCandidates(client, { date, topics }) {
+  const dailyTopics = topics.filter(
+    (topic) => topic.visibility === 'public' && topic.cadence === 'daily',
+  )
+  if (dailyTopics.length === 0) {
+    return { date, topicSlugs: [], runIds: [], items: [] }
+  }
+
+  const runResult = await client.execute({
+    sql: `WITH latest_topic_runs AS (
+            SELECT topic_slug, MAX(id) AS run_id
+            FROM radar_runs
+            WHERE date(started_at) = date(?)
+              AND topic_slug IN (${dailyTopics.map(() => '?').join(', ')})
+            GROUP BY topic_slug
+          )
+          SELECT radar_runs.id, radar_runs.topic_slug, radar_runs.status
+          FROM latest_topic_runs
+          JOIN radar_runs ON radar_runs.id = latest_topic_runs.run_id
+          ORDER BY radar_runs.topic_slug ASC`,
+    args: [date, ...dailyTopics.map((topic) => topic.slug)],
+  })
+
+  const runsByTopic = new Map(
+    runResult.rows.map((row) => [
+      String(row.topic_slug),
+      {
+        id: asNumber(row.id),
+        status: asText(row.status),
+      },
+    ]),
+  )
+  const missingTopics = dailyTopics
+    .filter((topic) => !runsByTopic.has(topic.slug))
+    .map((topic) => topic.slug)
+  if (missingTopics.length > 0) {
+    throw new Error(`Daily conclusion is missing completed runs for: ${missingTopics.join(', ')}`)
+  }
+
+  const failedTopics = dailyTopics
+    .filter(
+      (topic) => !/^completed(?:_with_warnings)?$/.test(runsByTopic.get(topic.slug)?.status || ''),
+    )
+    .map((topic) => topic.slug)
+  if (failedTopics.length > 0) {
+    throw new Error(`Daily conclusion cannot use incomplete runs for: ${failedTopics.join(', ')}`)
+  }
+
+  const values = dailyTopics.map(() => '(?, ?)').join(', ')
+  const itemResult = await client.execute({
+    sql: `WITH daily_runs(topic_slug, run_id) AS (VALUES ${values})
+          SELECT
+            ri.id,
+            ri.canonical_url,
+            ri.url,
+            ri.source,
+            ri.title,
+            ri.summary,
+            ri.ai_summary,
+            ri.published_at,
+            rit.topic_slug,
+            rit.score,
+            rit.relevance
+          FROM daily_runs
+          JOIN radar_item_topics rit
+            ON rit.topic_slug = daily_runs.topic_slug
+           AND rit.latest_run_id = daily_runs.run_id
+          JOIN radar_items ri ON ri.id = rit.item_id
+          WHERE LOWER(COALESCE(ri.ai_summary, '')) NOT LIKE '%fallback-local-score%'
+          ORDER BY rit.topic_slug ASC, rit.relevance DESC, rit.score DESC, ri.id DESC`,
+    args: dailyTopics.flatMap((topic) => [topic.slug, runsByTopic.get(topic.slug).id]),
+  })
+
+  const topicsBySlug = new Map(dailyTopics.map((topic) => [topic.slug, topic]))
+  const items = itemResult.rows
+    .map((row) => ({
+      id: asNumber(row.id),
+      canonicalUrl: asText(row.canonical_url || row.url),
+      url: asText(row.url),
+      source: asText(row.source) || 'web',
+      title: asText(row.title),
+      summary: asText(row.summary),
+      aiSummary: asText(row.ai_summary),
+      publishedAt: row.published_at || null,
+      topicSlug: asText(row.topic_slug),
+      score: asNumber(row.score),
+      relevance: asNumber(row.relevance),
+    }))
+    .filter((item) => {
+      const topic = topicsBySlug.get(item.topicSlug)
+      return item.id > 0 && item.url && item.title && topic && item.relevance >= topic.minRelevance
+    })
+
+  return {
+    date,
+    topicSlugs: dailyTopics.map((topic) => topic.slug),
+    runIds: dailyTopics.map((topic) => runsByTopic.get(topic.slug).id),
+    items,
+  }
+}
+
+export async function findDailyConclusionByFingerprint(client, { date, inputFingerprint }) {
+  const result = await client.execute({
+    sql: `SELECT date, status, takeaway_json, evidence_item_ids, source_item_ids, run_ids_json, model
+          FROM radar_daily_conclusions
+          WHERE date = ? AND input_fingerprint = ?
+          LIMIT 1`,
+    args: [date, inputFingerprint],
+  })
+
+  return result.rows[0] || null
+}
+
+export async function upsertRadarDailyConclusion(
+  client,
+  { date, inputFingerprint, takeaway, evidenceItemIds, sourceItemIds, runIds, model },
+) {
+  await client.execute({
+    sql: `INSERT INTO radar_daily_conclusions
+      (date, status, input_fingerprint, takeaway_json, evidence_item_ids, source_item_ids, run_ids_json, model)
+      VALUES (?, 'completed', ?, ?, ?, ?, ?, ?)
+      ON CONFLICT(date) DO UPDATE SET
+        status = excluded.status,
+        input_fingerprint = excluded.input_fingerprint,
+        takeaway_json = excluded.takeaway_json,
+        evidence_item_ids = excluded.evidence_item_ids,
+        source_item_ids = excluded.source_item_ids,
+        run_ids_json = excluded.run_ids_json,
+        model = excluded.model,
+        generated_at = datetime('now'),
+        updated_at = datetime('now')`,
+    args: [
+      date,
+      inputFingerprint,
+      JSON.stringify(takeaway),
+      JSON.stringify(evidenceItemIds),
+      JSON.stringify(sourceItemIds),
+      JSON.stringify(runIds),
+      model || null,
+    ],
+  })
+}
+
 export async function insertRadarDeepRead(
   client,
   {

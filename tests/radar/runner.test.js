@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 import { runRadar, runRadarTopic } from '../../scripts/radar/runner.js'
 
 const topic = {
@@ -44,7 +44,7 @@ describe('runRadarTopic', () => {
     })
   })
 
-  it('writes normalized items and pulse through the repository', async () => {
+  it('writes normalized items and returns them for the daily aggregate pulse', async () => {
     const calls = []
     const repository = {
       upsertRadarTopic: async () => calls.push('topic'),
@@ -53,7 +53,6 @@ describe('runRadarTopic', () => {
         calls.push('items')
         return [7]
       },
-      upsertRadarPulse: async () => calls.push('pulse'),
       finishRadarRun: async () => calls.push('finish'),
     }
 
@@ -85,13 +84,15 @@ describe('runRadarTopic', () => {
       client: {},
       adapter: async () => ({ report: fullReport, stderr: '', command: [] }),
       repository,
-      today: '2026-06-14',
     })
 
     expect(result.status).toBe('completed')
     expect(result.itemsSeen).toBe(1)
     expect(result.itemsWritten).toBe(1)
-    expect(calls).toEqual(['topic', 'items', 'pulse', 'finish'])
+    expect(result.pulseItems).toEqual([
+      expect.objectContaining({ id: 7, topicSlug: 'mobile-ai' }),
+    ])
+    expect(calls).toEqual(['topic', 'items', 'finish'])
   })
 
   it('records a failed run when the adapter throws', async () => {
@@ -103,7 +104,6 @@ describe('runRadarTopic', () => {
         return 42
       },
       upsertRadarItems: async () => calls.push(['items']),
-      upsertRadarPulse: async () => calls.push(['pulse']),
       finishRadarRun: async (_client, payload) => calls.push(['finish', payload]),
     }
 
@@ -115,7 +115,6 @@ describe('runRadarTopic', () => {
         throw new Error('adapter failed')
       },
       repository,
-      today: '2026-06-14',
     })).rejects.toThrow('adapter failed')
 
     expect(calls).toEqual([
@@ -242,5 +241,65 @@ describe('runRadar', () => {
     expect(results.some(result => result.status === 'completed')).toBe(true)
     expect(calls).toContainEqual(['finish', 'failed'])
     expect(calls).toContainEqual(['finish', 'completed'])
+  })
+
+  it('creates one daily pulse from all successful topic evidence', async () => {
+    let nextRunId = 1
+    const pulseWrites = []
+    const generatePulse = vi.fn(({ date, items }) => ({
+      date,
+      pulseText: `Aggregated ${items.length} items`,
+      topItemIds: items.map((item) => item.id),
+    }))
+    const repository = {
+      upsertRadarTopic: async () => {},
+      createRadarRun: async () => nextRunId++,
+      upsertRadarItems: async (_client, { items }) => [items[0].topicSlug.length],
+      upsertRadarPulse: async (_client, payload) => pulseWrites.push(payload),
+      finishRadarRun: async () => {},
+    }
+
+    const results = await runRadar({
+      cadence: 'daily',
+      client: {},
+      repository,
+      today: '2026-06-14',
+      generatePulse,
+      adapter: async ({ topic: radarTopic }) => ({
+        report: {
+          ...report,
+          ranked_candidates: [{
+            candidate_id: `candidate-${radarTopic.slug}`,
+            item_id: `item-${radarTopic.slug}`,
+            source: 'reddit',
+            title: `${radarTopic.name} signal`,
+            url: `https://example.com/${radarTopic.slug}`,
+            snippet: 'Snippet',
+            final_score: 90,
+            cluster_id: `cluster-${radarTopic.slug}`,
+            source_items: [],
+          }],
+        },
+        stderr: '',
+        command: [],
+      }),
+    })
+
+    expect(generatePulse).toHaveBeenCalledTimes(1)
+    expect(generatePulse).toHaveBeenCalledWith(expect.objectContaining({
+      date: '2026-06-14',
+      items: expect.arrayContaining([
+        expect.objectContaining({ topicSlug: 'mobile-ai' }),
+        expect.objectContaining({ topicSlug: 'consumer-ai-apps' }),
+        expect.objectContaining({ topicSlug: 'coding-agents' }),
+      ]),
+    }))
+    expect(pulseWrites).toEqual([
+      expect.objectContaining({
+        runId: 3,
+        pulse: expect.objectContaining({ pulseText: 'Aggregated 3 items' }),
+      }),
+    ])
+    expect(results.every((result) => !('pulseItems' in result))).toBe(true)
   })
 })

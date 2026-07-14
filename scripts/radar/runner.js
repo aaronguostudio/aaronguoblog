@@ -10,7 +10,6 @@ export async function runRadarTopic({
   client,
   adapter = runLast30Days,
   repository = defaultRepository,
-  today = new Date().toISOString().slice(0, 10),
 }) {
   if (dryRun) {
     const adapterResult = await adapter({ topic })
@@ -41,9 +40,9 @@ export async function runRadarTopic({
     adapterResult = await adapter({ topic })
     items = normalizeLast30DaysReport({ report: adapterResult.report, topic })
     const itemIds = await repository.upsertRadarItems(client, { runId, items })
-    const pulseItems = items.map((item, index) => ({ ...item, id: itemIds[index] })).filter(item => item.id)
-    const pulse = generateRadarPulse({ date: today, items: pulseItems })
-    await repository.upsertRadarPulse(client, { runId, pulse })
+    const pulseItems = items
+      .map((item, index) => ({ ...item, id: itemIds[index] }))
+      .filter((item) => item.id)
     await repository.finishRadarRun(client, {
       runId,
       status: adapterResult.report.warnings?.length ? 'completed_with_warnings' : 'completed',
@@ -59,6 +58,7 @@ export async function runRadarTopic({
       runId,
       itemsSeen: items.length,
       itemsWritten: itemIds.length,
+      pulseItems,
     }
   } catch (error) {
     await repository.finishRadarRun(client, {
@@ -80,26 +80,38 @@ export async function runRadar({
   adapter = runLast30Days,
   repository = defaultRepository,
   maxAttempts = 2,
+  today = new Date().toISOString().slice(0, 10),
+  generatePulse = generateRadarPulse,
 }) {
   const topics = topicSlug
     ? [getRadarTopicBySlug(topicSlug)].filter(Boolean)
-    : getRadarTopics().filter(topic => topic.visibility === 'public' && topic.cadence !== 'manual' && (!cadence || topic.cadence === cadence))
+    : getRadarTopics().filter(
+        (topic) =>
+          topic.visibility === 'public' &&
+          topic.cadence !== 'manual' &&
+          (!cadence || topic.cadence === cadence),
+      )
 
   if (topicSlug && topics.length === 0) {
     throw new Error(`Unknown Radar topic: ${topicSlug}`)
   }
 
   const results = []
+  const completedRuns = []
   const attemptsPerTopic = Math.max(1, Number.isInteger(maxAttempts) ? maxAttempts : 1)
   for (const topic of topics) {
     let lastError
     for (let attempt = 1; attempt <= attemptsPerTopic; attempt += 1) {
       try {
         const result = await runRadarTopic({ topic, dryRun, client, adapter, repository })
+        const { pulseItems = [], ...publicResult } = result
         results.push({
-          ...result,
+          ...publicResult,
           attempts: attempt,
         })
+        if (!dryRun && result.runId) {
+          completedRuns.push({ runId: result.runId, pulseItems })
+        }
         lastError = undefined
         break
       } catch (error) {
@@ -115,6 +127,15 @@ export async function runRadar({
         attempts: attemptsPerTopic,
       })
     }
+  }
+
+  if (!dryRun && completedRuns.length > 0) {
+    const pulseItems = completedRuns.flatMap((run) => run.pulseItems)
+    const pulse = generatePulse({ date: today, items: pulseItems })
+    await repository.upsertRadarPulse(client, {
+      runId: completedRuns.at(-1).runId,
+      pulse,
+    })
   }
 
   return results

@@ -1,6 +1,7 @@
 import latestRadarSnapshot from '~/public/radar/latest.json'
 import type { SignalDeepRead } from '~/data/signal/threads'
 import { isNewerRadarSnapshot } from '~/utils/radar-snapshot'
+import type { RadarTakeaway } from '~/utils/radar-snapshot'
 
 export type StaticRadarItem = {
   id: number | string
@@ -42,6 +43,8 @@ export type StaticRadarSnapshot = {
     text?: string | null
     date?: string | null
     topItemIds?: Array<number | string>
+    takeaway?: RadarTakeaway | null
+    sourceItemIds?: Array<number | string>
   } | null
   items?: StaticRadarItem[]
   stats?: StaticRadarStat[]

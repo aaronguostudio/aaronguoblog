@@ -74,6 +74,19 @@ CREATE TABLE IF NOT EXISTS radar_daily_pulses (
   FOREIGN KEY (run_id) REFERENCES radar_runs(id)
 );
 
+CREATE TABLE IF NOT EXISTS radar_daily_conclusions (
+  date TEXT PRIMARY KEY,
+  status TEXT NOT NULL,
+  input_fingerprint TEXT NOT NULL,
+  takeaway_json TEXT NOT NULL,
+  evidence_item_ids TEXT NOT NULL,
+  source_item_ids TEXT NOT NULL,
+  run_ids_json TEXT NOT NULL,
+  model TEXT,
+  generated_at TEXT DEFAULT (datetime('now')),
+  updated_at TEXT DEFAULT (datetime('now'))
+);
+
 CREATE TABLE IF NOT EXISTS radar_deep_reads (
   id INTEGER PRIMARY KEY,
   topic_slug TEXT NOT NULL,
@@ -104,3 +117,6 @@ CREATE INDEX IF NOT EXISTS idx_radar_runs_status
 
 CREATE INDEX IF NOT EXISTS idx_radar_deep_reads_topic_read_at
   ON radar_deep_reads(topic_slug, read_at DESC);
+
+CREATE INDEX IF NOT EXISTS idx_radar_daily_conclusions_fingerprint
+  ON radar_daily_conclusions(input_fingerprint);

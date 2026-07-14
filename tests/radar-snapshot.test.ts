@@ -3,6 +3,7 @@ import {
   extractRadarPulseThemes,
   getRadarSnapshotTimestamp,
   isNewerRadarSnapshot,
+  selectRadarTakeaway,
   selectPulseSnapshotItems,
   sortRadarItemsByDateDesc,
 } from '../utils/radar-snapshot'
@@ -67,6 +68,16 @@ describe('pulse snapshot item selection', () => {
 
   it('does not present a count-only pulse as a reader-facing summary', () => {
     expect(extractRadarPulseThemes('Radar found 5 high-signal items across coding-agents.')).toBeNull()
+  })
+
+  it('prefers the persisted conclusion in the reader locale', () => {
+    const takeaway = {
+      en: 'AI tools are taking ownership of longer workflows.',
+      zh: 'AI 工具正在承担更长的工作流。',
+    }
+
+    expect(selectRadarTakeaway(takeaway, 'en-US')).toBe(takeaway.en)
+    expect(selectRadarTakeaway(takeaway, 'zh-CN')).toBe(takeaway.zh)
   })
 })
 

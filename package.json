@@ -20,6 +20,7 @@
     "format:fix": "prettier --write ./",
     "radar:topics": "node scripts/radar/cli.js topics",
     "radar:run": "node scripts/radar/cli.js run",
+    "radar:conclude": "node scripts/radar/cli.js conclude",
     "radar:deep-read": "node scripts/radar/cli.js deep-read",
     "radar:export": "node scripts/radar/cli.js export",
     "radar:diagnose": "node scripts/radar/cli.js diagnose",

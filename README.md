@@ -138,6 +138,14 @@ Run the daily cadence and write to Turso:
 pnpm radar:run --cadence daily
 ```
 
+The homepage's reader-facing conclusion is generated as a separate, source-bounded publishing step after the full daily batch has finished. It reads only the selected evidence records, must cite two or three of them, and is persisted before the static export; the browser never makes this model call. It is deliberately opt-in because enabling it adds at most one small model request per daily batch:
+
+```bash
+RADAR_DAILY_CONCLUSION_ENABLED=1 pnpm radar:conclude
+```
+
+Set `RADAR_DAILY_CONCLUSION_ENABLED=1` and optionally `OPENAI_DAILY_CONCLUSION_MODEL` in the dedicated local runner's Radar environment only after approving that recurring usage. If the conclusion is disabled, lacks sufficient evidence, or fails validation, the existing evidence-led pulse remains published instead.
+
 On the weekly cadence, eligible important topics can be sent through Deep Reader. It selects topics with enough repeated, high-relevance evidence, produces a bilingual research artifact, and stores it in Turso for the Signal page. It does not create or publish a blog post:
 
 ```bash
@@ -174,7 +182,7 @@ Local scheduled publishing uses `scripts/radar/publish-local.sh`. It sources sec
 $HOME/.config/aaronguo/radar.env
 ```
 
-Then it pulls the repo, runs the daily Radar cadence, runs the weekly cadence on Mondays, runs Deep Reader for one eligible topic, exports the static snapshot, verifies `pnpm run generate`, commits `public/radar`, pushes the branch, and verifies the deployed `/radar/latest.json` plus `/signal` page match the new snapshot.
+Then it pulls the repo, runs the daily Radar cadence, optionally produces one validated daily conclusion, runs the weekly cadence on Mondays, runs Deep Reader for one eligible topic, exports the static snapshot, verifies `pnpm run generate`, commits `public/radar`, pushes `main`, and verifies the deployed `/radar/latest.json` plus `/signal` page match the new snapshot. The local publisher refuses to run unless the checked-out branch is `main`; production changes therefore remain Git-triggered deployments of committed `main` revisions.
 
 Deploy verification can be tuned with `RADAR_SITE_URL`, `RADAR_DEPLOY_VERIFY_ATTEMPTS`, and `RADAR_DEPLOY_VERIFY_DELAY_MS`. Set `RADAR_SKIP_DEPLOY_VERIFY=1` to skip the post-push check.
 

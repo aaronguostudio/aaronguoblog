@@ -37,6 +37,18 @@ async function loadSignalPulseHandler() {
   return module.default as ApiHandler
 }
 
+async function loadSignalPulseHandlerWithDb(execute: ReturnType<typeof vi.fn>) {
+  vi.resetModules()
+  vi.doMock('../server/utils/turso', () => ({
+    isMissingTursoConfigError: () => false,
+    useTurso: () => ({ execute }),
+  }))
+  vi.stubGlobal('defineCachedEventHandler', (handler: ApiHandler) => handler)
+
+  const module = await import('../server/api/signal-pulse.get')
+  return module.default as ApiHandler
+}
+
 describe('useTurso', () => {
   afterEach(() => {
     vi.unstubAllGlobals()
@@ -128,6 +140,46 @@ describe('Signal API missing Turso fallbacks', () => {
       pulse: null,
       items: [],
       date: null,
+    })
+  })
+
+  it('exposes a persisted daily conclusion with its selected evidence', async () => {
+    const execute = vi.fn()
+      .mockResolvedValueOnce({
+        rows: [{
+          date: '2026-06-14',
+          pulse_text: 'Legacy pulse fallback.',
+          top_item_ids: '[1]',
+          generated_at: '2026-06-14 12:00:00',
+        }],
+      })
+      .mockResolvedValueOnce({
+        rows: [{
+          takeaway_json: '{"en":"AI tools are taking ownership of workflows.","zh":"AI 工具正在承担工作流。"}',
+          evidence_item_ids: '[2,3]',
+          source_item_ids: '[2,3]',
+        }],
+      })
+      .mockResolvedValueOnce({
+        rows: [
+          { id: 2, source: 'web', url: 'https://example.com/2', title: 'Evidence 2' },
+          { id: 3, source: 'github', url: 'https://example.com/3', title: 'Evidence 3' },
+        ],
+      })
+    const handler = await loadSignalPulseHandlerWithDb(execute)
+
+    await expect(handler()).resolves.toMatchObject({
+      pulse: 'Legacy pulse fallback.',
+      date: '2026-06-14',
+      takeaway: {
+        en: 'AI tools are taking ownership of workflows.',
+        zh: 'AI 工具正在承担工作流。',
+      },
+      sourceItemIds: [2, 3],
+      items: [
+        expect.objectContaining({ id: 2 }),
+        expect.objectContaining({ id: 3 }),
+      ],
     })
   })
 

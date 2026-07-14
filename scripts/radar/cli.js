@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { pathToFileURL } from 'node:url'
 import { getRadarTopics } from './config.js'
+import { runDailyConclusionPipeline } from './daily-conclusion.js'
 import { runDeepReadPipeline } from './deep-reader.js'
 import { runRadar } from './runner.js'
 import { createRadarClient, discoverSchema, migrateRadarSchema } from './repository.js'
@@ -116,6 +117,16 @@ export async function main() {
     return
   }
 
+  if (args.command === 'conclude') {
+    const client = createRadarClient()
+    const results = await runDailyConclusionPipeline({ client })
+    console.log(JSON.stringify({ ok: true, results }, null, 2))
+    if (results.some((result) => result.status === 'failed')) {
+      process.exitCode = 1
+    }
+    return
+  }
+
   if (args.command === 'export') {
     const client = createRadarClient()
     const result = await exportRadarSnapshot({
@@ -140,7 +151,7 @@ export async function main() {
   }
 
   throw new Error(
-    'Usage: node scripts/radar/cli.js <topics|diagnose|migrate|run|deep-read|export> [--topic slug] [--dry-run] [--cadence daily] [--max-topics 1] [--allow-local-ranking]',
+    'Usage: node scripts/radar/cli.js <topics|diagnose|migrate|run|conclude|deep-read|export> [--topic slug] [--dry-run] [--cadence daily] [--max-topics 1] [--allow-local-ranking]',
   )
 }
 

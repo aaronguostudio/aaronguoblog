@@ -49,6 +49,10 @@ describe('static Signal contract', () => {
     expect(MAIN_SIGNAL).toContain('snapshot?: StaticRadarSnapshot | null')
     expect(MAIN_SIGNAL).toMatch(/useStaticRadarSnapshot\(\s*'homepage-signal-radar-latest'/)
     expect(MAIN_SIGNAL.indexOf('useStaticRadarSnapshot')).toBeLessThan(MAIN_SIGNAL.indexOf("'/api/signal'"))
+    expect(MAIN_SIGNAL).toContain('selectRadarTakeaway')
+    expect(MAIN_SIGNAL).toContain('pulseTakeaway')
+    expect(EN_LOCALE).toContain('"dailyReadoutLabel": "Today\'s takeaway"')
+    expect(ZH_LOCALE).toContain('"dailyReadoutLabel": "今日结论"')
   })
 
   it('uses the generated static Radar JSON during SSG and public JSON as fallback', () => {

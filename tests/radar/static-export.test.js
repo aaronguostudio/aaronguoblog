@@ -13,6 +13,7 @@ import {
   finishRadarRun,
   migrateRadarSchema,
   insertRadarDeepRead,
+  upsertRadarDailyConclusion,
   upsertRadarItems,
   upsertRadarPulse,
   upsertRadarTopic,
@@ -220,6 +221,39 @@ describe('static Radar export', () => {
     })
     expect(snapshot.items).toHaveLength(1)
     expect(snapshot.items[0].title).toBe('Guardian Runtime for AI coding agents')
+  })
+
+  it('prefers a same-day persisted conclusion and its selected evidence items', async () => {
+    const client = await createSnapshotClient()
+    const itemResult = await client.execute('SELECT id FROM radar_items LIMIT 1')
+    const itemId = Number(itemResult.rows[0].id)
+
+    await upsertRadarDailyConclusion(client, {
+      date: '2026-06-14',
+      inputFingerprint: 'daily-conclusion-fixture-1',
+      takeaway: {
+        en: 'AI tooling is moving from isolated assistance toward owned workflows.',
+        zh: 'AI 工具正从孤立辅助走向承担完整工作流。',
+      },
+      evidenceItemIds: [itemId],
+      sourceItemIds: [itemId],
+      runIds: [1],
+      model: 'gpt-4.1-mini',
+    })
+
+    const snapshot = await buildRadarSnapshot(client, {
+      date: '2026-06-14',
+      generatedAt: '2026-06-14T15:00:00.000Z',
+    })
+
+    expect(snapshot.pulse).toMatchObject({
+      topItemIds: [itemId],
+      takeaway: {
+        en: 'AI tooling is moving from isolated assistance toward owned workflows.',
+        zh: 'AI 工具正从孤立辅助走向承担完整工作流。',
+      },
+      sourceItemIds: [itemId],
+    })
   })
 
   it('keeps pulse top items in the static snapshot even when they fall outside the recency limit', async () => {

@@ -13,6 +13,7 @@ describe('Radar local publish scripts', () => {
     expect(PUBLISH_SCRIPT).toContain('publish.lock')
     expect(PUBLISH_SCRIPT).toContain('pnpm radar:migrate')
     expect(PUBLISH_SCRIPT).toContain('pnpm radar:run --cadence daily')
+    expect(PUBLISH_SCRIPT).toContain('pnpm radar:conclude')
     expect(PUBLISH_SCRIPT).toContain('pnpm radar:run --cadence weekly')
     expect(PUBLISH_SCRIPT).toContain('pnpm radar:deep-read --max-topics 1')
     expect(PUBLISH_SCRIPT).toContain('pnpm radar:export')
@@ -21,6 +22,8 @@ describe('Radar local publish scripts', () => {
     expect(PUBLISH_SCRIPT).toContain('pnpm run generate')
     expect(PUBLISH_SCRIPT).toContain('git commit')
     expect(PUBLISH_SCRIPT).toContain('git push')
+    expect(PUBLISH_SCRIPT).toContain('git branch --show-current')
+    expect(PUBLISH_SCRIPT).toContain('git push origin main')
   })
 
   it('does not hard-code secrets in the publish script', () => {
@@ -29,6 +32,7 @@ describe('Radar local publish scripts', () => {
 
   it('includes Monday weekly enrichment before exporting the static snapshot', () => {
     const dailyRunIndex = PUBLISH_SCRIPT.indexOf('pnpm radar:run --cadence daily')
+    const conclusionIndex = PUBLISH_SCRIPT.indexOf('pnpm radar:conclude')
     const weeklyRunIndex = PUBLISH_SCRIPT.indexOf('pnpm radar:run --cadence weekly')
     const deepReadIndex = PUBLISH_SCRIPT.indexOf('pnpm radar:deep-read --max-topics 1')
     const exportIndex = PUBLISH_SCRIPT.indexOf('pnpm radar:export')
@@ -36,6 +40,8 @@ describe('Radar local publish scripts', () => {
 
     expect(dailyRunIndex).toBeGreaterThan(-1)
     expect(weeklyRunIndex).toBeGreaterThan(dailyRunIndex)
+    expect(conclusionIndex).toBeGreaterThan(dailyRunIndex)
+    expect(conclusionIndex).toBeLessThan(weeklyRunIndex)
     expect(deepReadIndex).toBeGreaterThan(weeklyRunIndex)
     expect(exportIndex).toBeGreaterThan(weeklyRunIndex)
     expect(exportIndex).toBeGreaterThan(deepReadIndex)
@@ -66,6 +72,8 @@ describe('Radar local publish scripts', () => {
     expect(GITHUB_WORKFLOW).not.toContain('schedule:')
     expect(GITHUB_WORKFLOW).toContain('pnpm radar:export')
     expect(GITHUB_WORKFLOW).toContain('pnpm radar:deep-read --max-topics 1')
+    expect(GITHUB_WORKFLOW).toContain('pnpm radar:conclude')
+    expect(GITHUB_WORKFLOW).toContain('RADAR_DAILY_CONCLUSION_ENABLED')
     expect(GITHUB_WORKFLOW).toContain('pnpm run generate')
     expect(GITHUB_WORKFLOW).toContain('git add public/radar')
     expect(GITHUB_WORKFLOW).toContain('git commit')

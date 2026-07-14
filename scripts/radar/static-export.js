@@ -50,13 +50,29 @@ function mapLatestRun(row) {
   }
 }
 
-function mapPulse(row) {
+function mapConclusion(row) {
   if (!row) return null
+  return {
+    date: row.date || null,
+    takeaway: parseJson(row.takeaway_json, null),
+    evidenceItemIds: parseJson(row.evidence_item_ids, []),
+    sourceItemIds: parseJson(row.source_item_ids, []),
+    generatedAt: row.generated_at || null,
+  }
+}
+
+function mapPulse(row, conclusion = null) {
+  if (!row) return null
+  const evidenceItemIds = Array.isArray(conclusion?.evidenceItemIds)
+    ? conclusion.evidenceItemIds
+    : []
   return {
     text: String(row.pulse_text || ''),
     date: row.date || null,
-    generatedAt: row.generated_at || null,
-    topItemIds: parseJson(row.top_item_ids, []),
+    generatedAt: conclusion?.generatedAt || row.generated_at || null,
+    topItemIds: evidenceItemIds.length > 0 ? evidenceItemIds : parseJson(row.top_item_ids, []),
+    takeaway: conclusion?.takeaway || null,
+    sourceItemIds: conclusion?.sourceItemIds || [],
   }
 }
 
@@ -174,37 +190,45 @@ export async function buildRadarSnapshot(
   } = {},
 ) {
   const fallbackFilter = fallbackFilterSql({ allowLocalRanking })
-  const [topics, latestRun, pulseResult, stats, items, deepReadsResult] = await Promise.all([
-    client.execute(
-      `SELECT slug, name, category, cadence, mode
+  const [topics, latestRun, pulseResult, conclusionResult, stats, items, deepReadsResult] =
+    await Promise.all([
+      client.execute(
+        `SELECT slug, name, category, cadence, mode
        FROM radar_topics
        WHERE visibility = 'public'
        ORDER BY name`,
-    ),
-    client.execute(
-      `SELECT id, status, started_at, completed_at, warning_json, source_error_json
+      ),
+      client.execute(
+        `SELECT id, status, started_at, completed_at, warning_json, source_error_json
        FROM radar_runs
        ORDER BY started_at DESC, id DESC
        LIMIT 1`,
-    ),
-    client.execute(
-      `SELECT date, pulse_text, top_item_ids, generated_at
+      ),
+      client.execute(
+        `SELECT date, pulse_text, top_item_ids, generated_at
        FROM radar_daily_pulses
        ORDER BY date DESC
        LIMIT 1`,
-    ),
-    client.execute(
-      `SELECT ri.source, COUNT(DISTINCT ri.id) as count
+      ),
+      client.execute({
+        sql: `SELECT date, takeaway_json, evidence_item_ids, source_item_ids, generated_at
+            FROM radar_daily_conclusions
+            WHERE date = ? AND status = 'completed'
+            LIMIT 1`,
+        args: [date],
+      }),
+      client.execute(
+        `SELECT ri.source, COUNT(DISTINCT ri.id) as count
        FROM radar_items ri
        JOIN radar_item_topics rit ON rit.item_id = ri.id
        WHERE rit.relevance >= ?
        ${fallbackFilter}
        GROUP BY ri.source
        ORDER BY count DESC`,
-      [minRelevance],
-    ),
-    client.execute({
-      sql: `WITH ranked_items AS (
+        [minRelevance],
+      ),
+      client.execute({
+        sql: `WITH ranked_items AS (
               SELECT
                 ri.id, ri.source, ri.url, ri.title, ri.summary, ri.ai_summary, ri.author,
                 ri.published_at, ri.created_at,
@@ -225,18 +249,20 @@ export async function buildRadarSnapshot(
             WHERE rn = 1
             ORDER BY last_seen_at DESC, relevance DESC, score DESC, id DESC
             LIMIT ?`,
-      args: [minRelevance, limit],
-    }),
-    client.execute(
-      `SELECT id, topic_slug, thread_slug, read_at, status,
+        args: [minRelevance, limit],
+      }),
+      client.execute(
+        `SELECT id, topic_slug, thread_slug, read_at, status,
               title_json, question_json, synthesis_json, caveat_json, sources_json
        FROM radar_deep_reads
        WHERE status = 'completed'
        ORDER BY read_at DESC, id DESC
        LIMIT 20`,
-    ),
-  ])
-  const pulse = mapPulse(pulseResult.rows[0])
+      ),
+    ])
+  const conclusion = mapConclusion(conclusionResult.rows[0])
+  const matchingConclusion = conclusion?.date === pulseResult.rows[0]?.date ? conclusion : null
+  const pulse = mapPulse(pulseResult.rows[0], matchingConclusion)
   const topIds = pulseTopItemIds(pulse)
   let pulseItems = { rows: [] }
 
