@@ -7,7 +7,8 @@
     "featured": "Featured",
     "latest": "Latest",
     "writing": "Writing",
-    "viewAllWriting": "View all writing"
+    "viewAllWriting": "View all writing",
+    "readArticle": "Read article"
   },
   "navigation": {
     "homeTitle": "Aaron Guo",
@@ -15,6 +16,7 @@
     "start": "Start Here",
     "blogs": "Writing",
     "notes": "Notes",
+    "learn": "Learn",
     "playbooks": "Playbooks",
     "aiNative": "AI Native",
     "about": "About",
@@ -64,6 +66,59 @@
     "copyAndShareOnLinkedIn": "Copy a suggested post and share on LinkedIn",
     "closing": "A working thought, kept in public.",
     "showSlide": "Show note {number}"
+  },
+  "learn": {
+    "title": "Learn",
+    "eyebrow": "Learn · Working vocabulary",
+    "description": "A working vocabulary for the AI age. Identify the pattern behind an example, trace its neighbors, and turn generated context into usable judgment.",
+    "archiveLabel": "Learn concept index",
+    "conceptsLabel": "Concepts",
+    "domainsLabel": "Domains",
+    "searchLabel": "Search Learn",
+    "searchPlaceholder": "Search concepts, patterns, or related terms…",
+    "browseByDomain": "Browse by domain",
+    "allDomains": "All",
+    "resultCount": "{count} results",
+    "growingNow": "Concept index",
+    "count": "{count} concepts",
+    "openConcept": "Explore concept",
+    "empty": "No concepts are published yet.",
+    "noResultsTitle": "Nothing matches this view.",
+    "noResultsDescription": "Try a broader term, a neighboring concept, or another domain.",
+    "clearFilters": "Clear search and filters",
+    "connectedTo": "Connects to",
+    "back": "Learn",
+    "mentalModel": "Mental model",
+    "lastUpdated": "Last updated",
+    "relationships": "Relationships",
+    "deepDive": "Deep dive",
+    "relatedConcepts": "Concept neighbors",
+    "evidence": "Evidence trail",
+    "sources": "Primary sources",
+    "systemEyebrow": "The publishing loop",
+    "systemTitle": "A definition is only the seed.",
+    "notesEyebrow": "Working notes",
+    "notesTitle": "Ideas still taking shape",
+    "notesDescription": "Learn keeps durable explanations. Builder Notes keeps ideas that are still taking shape.",
+    "notesCta": "Browse notes",
+    "steps": {
+      "1": {
+        "title": "Capture",
+        "description": "Start from a term, question, or recurring pattern."
+      },
+      "2": {
+        "title": "Understand",
+        "description": "Explain the mechanism, evidence, limits, and lived meaning."
+      },
+      "3": {
+        "title": "Connect",
+        "description": "Map neighbors so the idea becomes a usable network."
+      },
+      "4": {
+        "title": "Publish",
+        "description": "Derive a public-safe bilingual page from the private source."
+      }
+    }
   },
   "categories": {
     "title": "All Categories",

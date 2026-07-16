@@ -61,6 +61,43 @@ final result: passed
 
 ---
 
+# Homepage sticky-header glass readability QA (2026-07-16)
+
+## Capture setup
+
+- Source visual truth: `/var/folders/1d/36mq5p8n0472d49pmsgkd1sm0000gn/T/codex-clipboard-1c9f31a3-210d-4781-b828-6d22da1cc097.png`.
+- Final browser-rendered desktop implementation: `/Users/aaronguo/.codex/visualizations/2026/07/16/019f6bd9-5f6c-75e1-88c7-eb936fcd9728/homepage-header-glass-audit/01-scrolled-header-desktop.png`.
+- Focused sticky-header crop: `/Users/aaronguo/.codex/visualizations/2026/07/16/019f6bd9-5f6c-75e1-88c7-eb936fcd9728/homepage-header-glass-audit/02-scrolled-header-focus.png`.
+- Mobile menu regression capture: `/Users/aaronguo/.codex/visualizations/2026/07/16/019f6bd9-5f6c-75e1-88c7-eb936fcd9728/homepage-header-glass-audit/04-mobile-menu-open.png`.
+- Desktop review viewport: 1687 × 900 CSS px, Chinese homepage, light mode, scrolled 700 px. Mobile menu review viewport: 390 × 844 CSS px, Chinese homepage, light mode.
+- The supplied screenshot and focused implementation crop were opened together in one comparison input at the same header-focused scale; the full desktop capture verified the treatment in page context.
+
+## Final visual assessment
+
+- The header keeps the original airy liquid-glass treatment at the top of the page: 42% background mix, 6 px blur, and 115% saturation.
+- After 12 px of scrolling, the treatment strengthens to an 84% background mix with 18 px blur and 140% saturation. Page imagery remains softly perceptible, while menu labels and locale controls retain clear silhouettes.
+- A restrained 1 px keyline and 6% foreground shadow separate the sticky layer from content without turning it into an opaque toolbar.
+- The 180 ms transition avoids a visible snap between states and is disabled when reduced motion is requested.
+- No horizontal overflow or actionable P0, P1, or P2 visual mismatch remains.
+
+## Comparison history
+
+1. **P2 — content bleeding through navigation:** the original 42% background and small blur allowed image edges and headlines to compete with menu labels while scrolling. Added a scroll-aware 84% glass state with an 18 px blur.
+2. **P2 — weak sticky-layer boundary:** the original header had no edge or elevation cue against bright content. Added a theme-derived bottom keyline and low-opacity shadow only in the scrolled state.
+3. **P2 — preserving the liquid-glass character:** applying the stronger treatment permanently would make the top-of-page header feel heavy. Kept the existing translucent appearance at scroll position zero and transitions only after content begins passing underneath.
+
+## Interaction and technical verification
+
+- Browser inspection at 700 px confirmed the scrolled class, 84% background mix, 18 px blur, 72% border mix, and 6% shadow; returning to the top confirmed the original 42%/6 px state after the transition settled.
+- The 390 px mobile menu toggle opened exactly one menu, exposed all seven navigation links plus locale and theme controls, and introduced no horizontal overflow.
+- A fresh browser console check reported no warnings or errors.
+- `pnpm exec eslint components/main/header.vue`, `pnpm exec prettier --check components/main/header.vue`, and `pnpm exec vitest run tests/homepage-mobile-density.test.ts` passed (3/3).
+- `pnpm run build` passed. The only build warnings were the repository's existing duplicate blog-route-name notice and stale Browserslist data.
+
+final result: passed
+
+---
+
 # Homepage Signal redesign QA (2026-07-13)
 
 ## Capture setup
@@ -110,3 +147,44 @@ final result: passed
 - A true daily conclusion remains a separate Radar-pipeline enhancement: generate one source-bounded synthesis offline after the day’s evidence is finalized, then store it with the snapshot. Do not fabricate this in the client.
 
 final result: blocked
+
+---
+
+# Homepage featured article density QA (2026-07-16)
+
+## Capture setup
+
+- Source visual truth: `/var/folders/1d/36mq5p8n0472d49pmsgkd1sm0000gn/T/codex-clipboard-2417e4a0-baa7-4ab6-9985-d9a91d8b238a.png`.
+- Final browser-rendered desktop implementation: `/Users/aaronguo/.codex/visualizations/2026/07/16/019f6bd9-5f6c-75e1-88c7-eb936fcd9728/homepage-featured-article-audit/03-implementation-desktop-final.png`.
+- Signal full-text focus state: `/Users/aaronguo/.codex/visualizations/2026/07/16/019f6bd9-5f6c-75e1-88c7-eb936fcd9728/homepage-featured-article-audit/04-signal-focus-tooltip.png`.
+- Final mobile implementation: `/Users/aaronguo/.codex/visualizations/2026/07/16/019f6bd9-5f6c-75e1-88c7-eb936fcd9728/homepage-featured-article-audit/05-implementation-mobile.png`.
+- Desktop review viewport: 1720 × 1440 CSS px, English homepage, light mode, live Signal data. Mobile review viewport: 390 × 844 CSS px, English homepage, light mode.
+- The source and final desktop implementation were opened together in one comparison input at readable full-view scale. The affected featured row was legible without a separate crop, so the full-view comparison also served as the focused comparison.
+
+## Final visual assessment
+
+- The Signal takeaway is exactly three visible lines at the desktop breakpoint: measured height 92.98 px at a 31 px line height, with hidden overflow and an ellipsis.
+- The full Signal takeaway appears in a bordered dark tooltip on pointer hover and keyboard focus. Focus-state browser inspection measured opacity `1` and pointer events `auto`.
+- The featured article image is modestly taller on desktop at 8:5, while mobile remains 16:9. The crop preserves the source composition and does not affect the three smaller article cards.
+- The featured card body now fills the shared row intentionally: description, larger metadata gap, date, and `Read article`/`阅读全文` CTA occupy the available space without the former empty lower half.
+- The right-column article cards retain their previous layout, size, and content density.
+- No horizontal overflow was found at 1720 px or 390 px. No actionable P0, P1, or P2 visual mismatch remains.
+
+## Comparison history
+
+1. **P2 — false four-line clamp:** the first browser render showed four lines because a `block` utility overrode the line-clamp display rule. Removed that conflicting utility; the measured final height is exactly three lines.
+2. **P2 — excess featured-card whitespace:** the original 16:9 desktop image left the text body much shorter than the Signal-plus-card rail. Changed only the large image to 8:5 at `lg`, then used a flex body and bottom-aligned metadata row to distribute the remaining height.
+3. **P2 — weak completion cue:** the original large card stopped at the date, leaving the bottom edge visually inert. Added a localized `Read article` CTA with the existing arrow icon and hover movement while keeping the entire card as the single link target.
+4. **P2 — cramped metadata:** increased the description-to-metadata gap to 20 px, keeping the title and description compact while giving the lower card a more deliberate rhythm.
+
+## Interaction and technical verification
+
+- Signal takeaway pointer and focus states expose the full text; the focus tooltip was verified in-browser after its 150 ms transition.
+- The featured article remains one accessible `NuxtLink`; the CTA is visual text inside that link, so no nested interactive control was introduced.
+- A fresh in-app browser tab loaded the English homepage with no console warnings or errors. A prior tab logged two Vue transition errors during viewport-reset/HMR churn; they did not reproduce on a clean load.
+- Mobile inspection measured the large image at 1.7778 (16:9), confirmed the CTA is rendered, and found no horizontal overflow.
+- `pnpm exec vitest run tests/radar/static-signal-contract.test.js` passed (12/12).
+- Targeted ESLint and Prettier checks passed.
+- `pnpm run build` passed and prerendered 1,051 routes. The only build warnings were the repository's existing duplicate blog-route-name notice and stale Browserslist data.
+
+final result: passed

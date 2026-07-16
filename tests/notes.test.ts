@@ -144,11 +144,14 @@ describe('Builder Notes surface', () => {
     expect(homeNotes).toContain("window.setInterval")
   })
 
-  it('preserves the featured writing cover aspect ratio on the homepage', () => {
+  it('uses the responsive featured writing layout on the homepage', () => {
     const writing = readFileSync(join(root, 'components', 'main', 'writing.vue'), 'utf8')
 
-    expect(writing).toContain('aspect-video w-full object-cover')
+    expect(writing).toContain('aspect-video w-full shrink-0 object-cover')
+    expect(writing).toContain('lg:aspect-[8/5]')
     expect(writing).not.toContain('lg:h-[360px]')
+    expect(writing).toContain('class="flex flex-1 flex-col p-6"')
+    expect(writing).toContain("t('home.readArticle')")
     expect(writing).toContain('class="group flex h-full"')
     expect(writing).toContain('min-h-[6.75rem] flex-1 flex-col justify-between p-4')
   })
