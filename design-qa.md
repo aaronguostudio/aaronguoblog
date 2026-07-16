@@ -61,6 +61,46 @@ final result: passed
 
 ---
 
+# Learn detail banner left-padding QA (2026-07-16)
+
+## Capture setup
+
+- Source visual truth: `/var/folders/1d/36mq5p8n0472d49pmsgkd1sm0000gn/T/codex-clipboard-35dd2eeb-8a9e-4b7a-b825-3ae924b20579.png`.
+- Final browser-rendered desktop implementation: `/Users/aaronguo/.codex/visualizations/2026/07/16/019f6bd9-5f6c-75e1-88c7-eb936fcd9728/learn-banner-padding-audit/04-learn-banner-left-only-desktop.png`.
+- Focused banner comparison crop: `/Users/aaronguo/.codex/visualizations/2026/07/16/019f6bd9-5f6c-75e1-88c7-eb936fcd9728/learn-banner-padding-audit/06-learn-banner-left-only-focus.png`.
+- Final mobile implementation: `/Users/aaronguo/.codex/visualizations/2026/07/16/019f6bd9-5f6c-75e1-88c7-eb936fcd9728/learn-banner-padding-audit/05-learn-banner-left-only-mobile.png`.
+- Desktop review viewport: 1348 × 800 CSS px. Mobile review viewport: 390 × 844 CSS px. Route: English `/learn/optimistic-concurrency`, light mode, default interaction state.
+- The user-provided screenshot and focused final implementation crop were opened together in one comparison input. The full desktop and mobile captures verified the change in page context and at the responsive breakpoint.
+
+## Final visual assessment
+
+- The banner now adds space only on the left: 40 px at the desktop breakpoint, 32 px at `sm`, and 20 px on mobile.
+- The right side has returned to its original position with 0 px of newly introduced right padding; the right metadata column and decorative circle are not pulled inward.
+- Fonts and typography are unchanged: display family, size, weight, line height, wrapping, and the small monospace labels retain the existing hierarchy.
+- Spacing and layout rhythm are intentionally changed only at the banner's left edge. The internal grid, vertical padding, title-to-description spacing, metadata alignment, borders, and downstream sections remain unchanged.
+- Colors and visual tokens are unchanged. The existing light/dark theme variables, grid treatment, border color, and accent color are preserved.
+- Image and asset fidelity are unchanged; this banner uses the existing decorative treatment and no asset was replaced or generated.
+- Copy and content are unchanged.
+- No horizontal overflow was found at 1348 px or 390 px. No actionable P0, P1, or P2 visual mismatch remains.
+
+## Comparison history
+
+1. **P2 — left content flush with the banner edge:** the source screenshot showed the eyebrow, title, and description beginning directly on the banner boundary. Added responsive left padding (`pl-5 sm:pl-8 lg:pl-10`).
+2. **P2 — first pass also moved the right side inward:** the initial implementation used symmetric horizontal padding, but the user's intent was left-side spacing only. Removed all added right padding and remeasured the final layout at 40 px left / 0 px right on desktop and 20 px left / 0 px right on mobile.
+
+## Interaction and technical verification
+
+- In-app browser measurements confirmed 40 px left and 0 px right padding at 1348 × 800, plus 20 px left and 0 px right padding at 390 × 844.
+- The in-app browser console reported no warnings or errors.
+- `pnpm exec eslint pages/learn/[slug].vue` passed.
+- `pnpm exec prettier --check pages/learn/[slug].vue` passed after formatting.
+- `pnpm exec vitest run tests/learn.test.ts` passed (3/3).
+- `git diff --check -- pages/learn/[slug].vue` passed.
+
+final result: passed
+
+---
+
 # Homepage sticky-header glass readability QA (2026-07-16)
 
 ## Capture setup

@@ -83,7 +83,7 @@ useScrollDepthTracking(normalizedRoutePath.value)
 
     <article>
       <header
-        class="concept-hero relative overflow-hidden border-y border-[color:var(--line-subtle)] py-10 sm:py-14 lg:py-16"
+        class="concept-hero relative overflow-hidden border-y border-[color:var(--line-subtle)] py-10 pl-5 sm:py-14 sm:pl-8 lg:py-16 lg:pl-10"
       >
         <div class="relative z-10 grid gap-10 lg:grid-cols-[minmax(0,1fr)_16rem] lg:items-end">
           <div>
