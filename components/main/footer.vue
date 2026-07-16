@@ -51,6 +51,13 @@ const localePath = useLocalePath()
             <Icon name="mdi:youtube" class="w-4 h-4" />
             <span>{{ t('navigation.videos') }}</span>
           </NuxtLink>
+          <NuxtLink
+            :to="localePath('/learn')"
+            class="text-sm hover:text-white transition-colors flex items-center gap-1"
+          >
+            <Icon name="heroicons:academic-cap" class="w-4 h-4" />
+            <span>{{ t('navigation.learn') }}</span>
+          </NuxtLink>
         </div>
 
         <div class="text-center p-2 text-sm text-white/50">© 2020-2026 Aaron Guo</div>

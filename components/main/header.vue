@@ -33,8 +33,24 @@ watch(
  * "no highlight" initially → no mismatch. After mount, the correct button lights up.
  */
 const isHydrated = ref(false)
+
+/**
+ * Give the sticky header a more legible glass treatment once page content
+ * begins moving underneath it, while keeping the top-of-page state airy.
+ */
+const isScrolled = ref(false)
+function updateHeaderScrollState() {
+  isScrolled.value = window.scrollY > 12
+}
+
 onMounted(() => {
   isHydrated.value = true
+  updateHeaderScrollState()
+  window.addEventListener('scroll', updateHeaderScrollState, { passive: true })
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', updateHeaderScrollState)
 })
 
 const isChinese = computed(() => locale.value === 'zh')
@@ -66,6 +82,7 @@ const navItems = computed(() => [
   { name: t('navigation.videos'), path: '/videos', exact: false },
   { name: t('navigation.signal'), path: '/signal', exact: false },
   { name: t('navigation.build'), path: '/build', exact: false },
+  { name: t('navigation.learn'), path: '/learn', exact: false },
   { name: t('navigation.about'), path: '/about', exact: false },
 ])
 
@@ -89,7 +106,10 @@ function isActive(path: string, exact = false) {
 </script>
 
 <template>
-  <header class="site-header-glass sticky top-0 z-50 py-4 text-foreground backdrop-blur-sm">
+  <header
+    class="site-header-glass sticky top-0 z-50 py-4 text-foreground"
+    :class="{ 'site-header-glass--scrolled': isScrolled }"
+  >
     <div class="flex items-center px-4 container max-w-8xl justify-between mx-auto">
       <!-- Logo/Site Title -->
       <NuxtLink
@@ -253,5 +273,27 @@ function isActive(path: string, exact = false) {
 <style scoped>
 .site-header-glass {
   background-color: color-mix(in srgb, var(--background) 42%, transparent);
+  border-bottom: 1px solid transparent;
+  -webkit-backdrop-filter: blur(6px) saturate(115%);
+  backdrop-filter: blur(6px) saturate(115%);
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    backdrop-filter 180ms ease;
+}
+
+.site-header-glass--scrolled {
+  background-color: color-mix(in srgb, var(--background) 84%, transparent);
+  border-bottom-color: color-mix(in srgb, var(--border) 72%, transparent);
+  box-shadow: 0 12px 32px color-mix(in srgb, var(--foreground) 6%, transparent);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  backdrop-filter: blur(18px) saturate(140%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header-glass {
+    transition: none;
+  }
 }
 </style>

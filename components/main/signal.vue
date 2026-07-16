@@ -159,15 +159,24 @@ function stripHtml(str: string) {
           </NuxtLink>
         </div>
 
-        <div class="mt-4 min-w-0 sm:mt-5">
+        <div class="group/takeaway relative mt-4 min-w-0 sm:mt-5">
           <p class="font-mono text-[10px] tracking-[0.1em] text-sky-300">
             {{ t('signal.dailyReadoutLabel') }}
           </p>
-          <p
-            class="mt-2 text-lg font-medium leading-[1.25] tracking-[-0.025em] text-white sm:text-[1.55rem]"
+          <NuxtLink
+            :to="localePath('/signal')"
+            aria-describedby="homepage-signal-takeaway-tooltip"
+            class="mt-2 line-clamp-3 rounded-sm text-lg font-medium leading-[1.25] tracking-[-0.025em] text-white transition-colors hover:text-sky-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 sm:text-[1.55rem]"
           >
             {{ pulseRead }}
-          </p>
+          </NuxtLink>
+          <div
+            id="homepage-signal-takeaway-tooltip"
+            role="tooltip"
+            class="pointer-events-none absolute inset-x-0 top-full z-20 mt-2 max-h-72 translate-y-1 overflow-y-auto rounded-lg border border-sky-300/30 bg-[#0b1728] px-4 py-3 text-sm leading-relaxed text-white opacity-0 shadow-2xl transition duration-150 group-hover/takeaway:pointer-events-auto group-hover/takeaway:translate-y-0 group-hover/takeaway:opacity-100 group-focus-within/takeaway:pointer-events-auto group-focus-within/takeaway:translate-y-0 group-focus-within/takeaway:opacity-100"
+          >
+            {{ pulseRead }}
+          </div>
         </div>
       </div>
 

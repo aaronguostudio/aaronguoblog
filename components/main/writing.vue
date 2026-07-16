@@ -85,15 +85,15 @@ function categoryLabels(categories: string[]) {
       <!-- Hero Card (left, 3 cols) -->
       <NuxtLink :to="localePath(heroPost.path)" class="lg:col-span-3 group block">
         <article
-          class="relative h-full overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:shadow-lg hover:border-primary/20"
+          class="relative flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:shadow-lg hover:border-primary/20"
         >
           <NuxtImg
             :src="heroPost.image || '/blogs-img/blog.jpg'"
             :alt="heroPost.alt"
             sizes="100vw lg:60vw"
-            class="aspect-video w-full object-cover object-center transition-all duration-500 group-hover:scale-[1.02]"
+            class="aspect-video w-full shrink-0 object-cover object-center transition-all duration-500 group-hover:scale-[1.02] lg:aspect-[8/5]"
           />
-          <div class="p-6">
+          <div class="flex flex-1 flex-col p-6">
             <div class="flex items-center gap-2 mb-3">
               <span
                 v-for="category in categoryLabels(heroPost.categories)"
@@ -108,12 +108,25 @@ function categoryLabels(categories: string[]) {
             >
               {{ heroPost.title }}
             </h3>
-            <p class="text-muted-foreground line-clamp-2 mb-3">
+            <p class="text-muted-foreground line-clamp-2">
               {{ heroPost.description }}
             </p>
-            <div class="flex items-center text-sm text-muted-foreground">
-              <LogoDate class="mr-1.5 h-4 w-4" />
-              {{ compactDate(heroPost.date) }}
+            <div
+              class="mt-auto flex items-center justify-between gap-4 pt-5 text-sm text-muted-foreground"
+            >
+              <span class="flex items-center">
+                <LogoDate class="mr-1.5 h-4 w-4" />
+                {{ compactDate(heroPost.date) }}
+              </span>
+              <span
+                class="inline-flex items-center gap-1.5 font-medium text-foreground transition-colors group-hover:text-primary"
+              >
+                {{ t('home.readArticle') }}
+                <Icon
+                  name="heroicons:arrow-right"
+                  class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+                />
+              </span>
             </div>
           </div>
         </article>

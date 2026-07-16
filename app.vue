@@ -21,7 +21,7 @@ useHead({
 </script>
 
 <template>
-  <div class="min-h-screen bg-background text-foreground transition-colors duration-300">
+  <div class="min-h-dvh bg-background text-foreground transition-colors duration-300">
     <NuxtLoadingIndicator />
     <NuxtLayout>
       <NuxtPage :key="locale" />

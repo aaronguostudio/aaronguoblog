@@ -55,6 +55,17 @@ describe('static Signal contract', () => {
     expect(ZH_LOCALE).toContain('"dailyReadoutLabel": "今日结论"')
   })
 
+  it('keeps the homepage featured row compact and intentional', () => {
+    expect(MAIN_SIGNAL).toContain('line-clamp-3')
+    expect(MAIN_SIGNAL).toContain('role="tooltip"')
+    expect(MAIN_SIGNAL).toContain('group-hover/takeaway:opacity-100')
+    expect(MAIN_SIGNAL).toContain('group-focus-within/takeaway:opacity-100')
+    expect(MAIN_WRITING).toContain('lg:aspect-[8/5]')
+    expect(MAIN_WRITING).toContain("t('home.readArticle')")
+    expect(EN_LOCALE).toContain('"readArticle": "Read article"')
+    expect(ZH_LOCALE).toContain('"readArticle": "阅读全文"')
+  })
+
   it('uses the generated static Radar JSON during SSG and public JSON as fallback', () => {
     expect(STATIC_SNAPSHOT_COMPOSABLE).toContain(
       "import latestRadarSnapshot from '~/public/radar/latest.json'",
