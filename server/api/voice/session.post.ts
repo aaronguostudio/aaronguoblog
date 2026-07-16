@@ -1,5 +1,7 @@
 import type { H3Event } from 'h3'
 
+import { isAllowedVoiceOrigin } from '../../utils/voice-origin'
+
 const TOKEN_ENDPOINT = 'https://api.x.ai/v1/realtime/client_secrets'
 const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000
 const RATE_LIMIT_MAX_REQUESTS = 8
@@ -23,35 +25,6 @@ function getClientIp(event: H3Event) {
   return forwardedFor?.split(',')[0]?.trim() || getRequestHeader(event, 'x-real-ip') || 'unknown'
 }
 
-function isAllowedOrigin(origin: string | undefined, configuredOrigins: string | undefined) {
-  if (!origin) return true
-
-  if (
-    process.env.NODE_ENV !== 'production' &&
-    /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin)
-  ) {
-    return true
-  }
-
-  const defaultOrigins = [
-    'https://aaronguo.com',
-    'https://www.aaronguo.com',
-    'http://localhost:6001',
-    'http://127.0.0.1:6001',
-    'http://localhost:3000',
-    'http://127.0.0.1:3000',
-  ]
-  const configured = configuredOrigins
-    ?.split(',')
-    .map((item) => item.trim())
-    .filter(Boolean)
-  const vercelOrigin = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : undefined
-
-  return [...defaultOrigins, ...(configured || []), ...(vercelOrigin ? [vercelOrigin] : [])].includes(
-    origin,
-  )
-}
-
 function consumeRateLimit(ip: string) {
   const now = Date.now()
   const entry = rateLimits.get(ip)
@@ -73,7 +46,7 @@ export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig(event)
   const origin = getRequestHeader(event, 'origin')
 
-  if (!isAllowedOrigin(origin, config.voiceAgentAllowedOrigins)) {
+  if (!isAllowedVoiceOrigin(origin, config.voiceAgentAllowedOrigins)) {
     throw createError({ statusCode: 403, statusMessage: 'Voice session origin is not allowed' })
   }
 
