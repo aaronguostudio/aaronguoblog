@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
 
+import { getVoiceErrorDiagnostic, type VoiceErrorKind } from '~/utils/voice-error'
+
 type VoiceState = 'idle' | 'connecting' | 'listening' | 'thinking' | 'speaking' | 'error'
 type TranscriptRole = 'user' | 'assistant'
 
@@ -33,7 +35,7 @@ const { trackEvent } = useRybbitAnalytics()
 const isOpen = ref(false)
 const state = ref<VoiceState>('idle')
 const isMuted = ref(false)
-const errorMessage = ref('')
+const voiceErrorKind = ref<VoiceErrorKind>('service')
 const transcript = ref<TranscriptLine[]>([])
 const liveUserTranscript = ref('')
 const liveAssistantTranscript = ref('')
@@ -81,10 +83,32 @@ const copy = computed(() => {
       mute: '静音',
       unmute: '取消静音',
       end: '结束对话',
-      retry: '重新连接',
+      retry: '再试一次',
       permission: '首次使用时，浏览器会请求麦克风权限。',
       accuracy: 'AI 可能犯错，请核实重要信息。',
-      error: '语音助手暂时无法连接。',
+      beta: '语音功能仍在试验阶段，偶尔会短暂不可用。',
+      errors: {
+        permission: {
+          title: '需要开启麦克风权限',
+          description: '请在浏览器的网站设置中允许使用麦克风，然后再试一次。',
+        },
+        microphone: {
+          title: '暂时找不到可用的麦克风',
+          description: '请确认麦克风已连接，并且没有被其他应用占用。',
+        },
+        unsupported: {
+          title: '当前浏览器不支持语音功能',
+          description: '请使用最新版 Safari、Chrome、Edge 或 Firefox 再试。',
+        },
+        connection: {
+          title: '网络连接中断了',
+          description: '请检查网络连接，稍后再试一次。',
+        },
+        service: {
+          title: 'Aaron AI 正在短暂休息',
+          description: '语音服务现在有点忙，请稍后再试。',
+        },
+      },
       empty: '点击麦克风，开始和 Aaron AI 对话。',
       user: '你',
       assistant: 'Aaron AI',
@@ -104,10 +128,32 @@ const copy = computed(() => {
     mute: 'Mute',
     unmute: 'Unmute',
     end: 'End conversation',
-    retry: 'Reconnect',
+    retry: 'Try again',
     permission: 'Your browser will ask for microphone permission the first time.',
     accuracy: 'AI can make mistakes. Verify important information.',
-    error: 'The voice assistant could not connect right now.',
+    beta: 'Voice is an experimental feature, so brief interruptions can happen.',
+    errors: {
+      permission: {
+        title: 'Microphone access is off',
+        description: 'Allow microphone access in your browser settings, then try again.',
+      },
+      microphone: {
+        title: 'No microphone is available',
+        description: 'Check that your microphone is connected and not in use by another app.',
+      },
+      unsupported: {
+        title: 'Voice is not supported here',
+        description: 'Try the latest version of Safari, Chrome, Edge, or Firefox.',
+      },
+      connection: {
+        title: 'The connection was interrupted',
+        description: 'Check your internet connection and try again in a moment.',
+      },
+      service: {
+        title: 'Aaron AI is taking a short break',
+        description: 'The voice service is a little busy right now. Please try again shortly.',
+      },
+    },
     empty: 'Tap the microphone to start talking with Aaron AI.',
     user: 'You',
     assistant: 'Aaron AI',
@@ -115,6 +161,17 @@ const copy = computed(() => {
 })
 
 const isActive = computed(() => state.value !== 'idle' && state.value !== 'error')
+const errorContent = computed(() => copy.value.errors[voiceErrorKind.value])
+const errorIcon = computed(() => {
+  const icons: Record<VoiceErrorKind, string> = {
+    permission: 'heroicons:microphone',
+    microphone: 'heroicons:microphone',
+    unsupported: 'heroicons:computer-desktop',
+    connection: 'heroicons:wifi',
+    service: 'heroicons:cloud',
+  }
+  return icons[voiceErrorKind.value]
+})
 const hasTranscriptContent = computed(
   () =>
     transcript.value.some((line) => line.text.trim()) ||
@@ -128,10 +185,26 @@ const statusLabel = computed(() => {
     listening: copy.value.listening,
     thinking: copy.value.thinking,
     speaking: copy.value.speaking,
-    error: copy.value.error,
+    error: errorContent.value.title,
   }
   return labels[state.value]
 })
+
+function showVoiceError(error: unknown, phase: 'connect' | 'message' | 'server' | 'socket') {
+  const diagnostic = getVoiceErrorDiagnostic(error)
+  voiceErrorKind.value = diagnostic.kind
+
+  const properties: Record<string, string | number> = {
+    phase,
+    reason: diagnostic.kind,
+  }
+  if (diagnostic.status !== undefined) properties.status = diagnostic.status
+  if (diagnostic.name) properties.error_name = diagnostic.name
+
+  trackVoiceEvent('voice_assistant_error', properties)
+  console.warn('Aaron AI voice assistant unavailable', { phase, ...diagnostic })
+  state.value = 'error'
+}
 
 function floatToPcm16Base64(input: Float32Array) {
   const bytes = new Uint8Array(input.length * 2)
@@ -411,9 +484,7 @@ function handleServerEvent(event: VoiceServerEvent) {
       if (playbackSources.size === 0) state.value = 'listening'
       break
     case 'error':
-      trackVoiceEvent('voice_assistant_error', { phase: 'server' })
-      errorMessage.value = event.error?.message || copy.value.error
-      state.value = 'error'
+      showVoiceError(event.error?.message ? new Error(event.error.message) : undefined, 'server')
       break
     default:
       break
@@ -423,7 +494,6 @@ function handleServerEvent(event: VoiceServerEvent) {
 async function connect() {
   if (isActive.value) return
 
-  errorMessage.value = ''
   state.value = 'connecting'
   transcript.value = []
   liveUserTranscript.value = ''
@@ -468,23 +538,21 @@ async function connect() {
     currentSocket.onmessage = (message) => {
       try {
         handleServerEvent(JSON.parse(message.data as string) as VoiceServerEvent)
-      } catch {
-        errorMessage.value = copy.value.error
-        state.value = 'error'
+      } catch (error) {
+        showVoiceError(error, 'message')
       }
     }
     currentSocket.onerror = () => {
-      trackVoiceEvent('voice_assistant_error', { phase: 'socket' })
-      errorMessage.value = copy.value.error
-      state.value = 'error'
+      showVoiceError(undefined, 'socket')
     }
-    currentSocket.onclose = () => {
-      if (state.value !== 'idle' && state.value !== 'error') state.value = 'idle'
+    currentSocket.onclose = (event) => {
+      if (state.value !== 'idle' && state.value !== 'error') {
+        if (event.code === 1000) state.value = 'idle'
+        else showVoiceError(undefined, 'socket')
+      }
     }
   } catch (error) {
-    trackVoiceEvent('voice_assistant_error', { phase: 'connect' })
-    errorMessage.value = error instanceof Error ? error.message : copy.value.error
-    state.value = 'error'
+    showVoiceError(error, 'connect')
     await disconnect(false)
   }
 }
@@ -606,67 +674,90 @@ onBeforeUnmount(() => {
         </button>
       </div>
 
-      <div ref="transcriptScroller" class="min-h-0 flex-1 space-y-3 overflow-y-auto px-4 py-4">
-        <p v-if="!hasTranscriptContent" class="text-sm leading-6 text-muted-foreground">
-          {{ copy.empty }}
-        </p>
-        <template v-for="line in transcript" :key="line.id">
-          <div v-if="line.text" :class="line.role === 'user' ? 'text-right' : 'text-left'">
+      <div ref="transcriptScroller" class="min-h-0 flex-1 overflow-y-auto px-4 py-4">
+        <div
+          v-if="state === 'error'"
+          class="flex h-full min-h-64 flex-col items-center justify-center px-3 py-8 text-center"
+          role="status"
+          aria-live="polite"
+        >
+          <div
+            class="flex h-12 w-12 items-center justify-center rounded-full border border-border bg-secondary/60 text-muted-foreground"
+          >
+            <Icon :name="errorIcon" class="h-5 w-5" aria-hidden="true" />
+          </div>
+          <p class="mt-5 text-sm font-semibold text-foreground">{{ errorContent.title }}</p>
+          <p class="mt-2 max-w-[17rem] text-xs leading-5 text-muted-foreground">
+            {{ errorContent.description }}
+          </p>
+          <button
+            type="button"
+            class="mt-5 inline-flex min-h-11 w-full max-w-48 items-center justify-center gap-2 rounded-lg bg-foreground px-4 py-2.5 text-xs font-medium text-background transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+            @click="retry"
+          >
+            <Icon name="heroicons:arrow-path" class="h-3.5 w-3.5" aria-hidden="true" />
+            {{ copy.retry }}
+          </button>
+        </div>
+        <template v-else>
+          <p v-if="!hasTranscriptContent" class="text-sm leading-6 text-muted-foreground">
+            {{ copy.empty }}
+          </p>
+          <template v-for="line in transcript" :key="line.id">
+            <div v-if="line.text" :class="line.role === 'user' ? 'text-right' : 'text-left'">
+              <span
+                class="mb-1 block text-[10px] font-medium uppercase tracking-[0.14em] text-muted-foreground"
+              >
+                {{ line.role === 'user' ? copy.user : copy.assistant }}
+              </span>
+              <p
+                class="inline-block max-w-[92%] rounded-xl px-3 py-2 text-sm leading-6"
+                :class="
+                  line.role === 'user'
+                    ? 'bg-secondary text-foreground'
+                    : 'bg-background text-foreground'
+                "
+              >
+                {{ line.text }}
+              </p>
+            </div>
+          </template>
+          <div v-if="liveUserTranscript" class="mt-3 text-right">
             <span
               class="mb-1 block text-[10px] font-medium uppercase tracking-[0.14em] text-muted-foreground"
             >
-              {{ line.role === 'user' ? copy.user : copy.assistant }}
+              {{ copy.user }}
             </span>
             <p
-              class="inline-block max-w-[92%] rounded-xl px-3 py-2 text-sm leading-6"
-              :class="
-                line.role === 'user'
-                  ? 'bg-secondary text-foreground'
-                  : 'bg-background text-foreground'
-              "
+              class="inline-block max-w-[92%] px-3 py-2 text-sm italic leading-6 text-muted-foreground"
             >
-              {{ line.text }}
+              {{ liveUserTranscript }}
+            </p>
+          </div>
+          <div v-if="liveAssistantTranscript" class="mt-3 text-left">
+            <span
+              class="mb-1 block text-[10px] font-medium uppercase tracking-[0.14em] text-muted-foreground"
+            >
+              {{ copy.assistant }}
+            </span>
+            <p
+              class="inline-block max-w-[92%] rounded-xl bg-background px-3 py-2 text-sm leading-6 text-foreground"
+            >
+              {{ liveAssistantTranscript }}
             </p>
           </div>
         </template>
-        <div v-if="liveUserTranscript" class="text-right">
-          <span
-            class="mb-1 block text-[10px] font-medium uppercase tracking-[0.14em] text-muted-foreground"
-          >
-            {{ copy.user }}
-          </span>
-          <p
-            class="inline-block max-w-[92%] px-3 py-2 text-sm italic leading-6 text-muted-foreground"
-          >
-            {{ liveUserTranscript }}
-          </p>
-        </div>
-        <div v-if="liveAssistantTranscript" class="text-left">
-          <span
-            class="mb-1 block text-[10px] font-medium uppercase tracking-[0.14em] text-muted-foreground"
-          >
-            {{ copy.assistant }}
-          </span>
-          <p
-            class="inline-block max-w-[92%] rounded-xl bg-background px-3 py-2 text-sm leading-6 text-foreground"
-          >
-            {{ liveAssistantTranscript }}
-          </p>
-        </div>
       </div>
 
       <div class="border-t border-border px-4 py-3">
-        <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <div
+          v-if="state !== 'error'"
+          class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
+        >
           <div class="flex min-w-0 items-center gap-2">
             <span
               class="h-2 w-2 shrink-0 rounded-full"
-              :class="
-                isActive
-                  ? 'bg-emerald-500'
-                  : state === 'error'
-                    ? 'bg-red-500'
-                    : 'bg-muted-foreground'
-              "
+              :class="isActive ? 'bg-emerald-500' : 'bg-muted-foreground'"
             />
             <span class="truncate text-xs text-muted-foreground" aria-live="polite">{{
               statusLabel
@@ -702,20 +793,16 @@ onBeforeUnmount(() => {
             >
               {{ copy.end }}
             </button>
-            <button
-              v-else-if="state === 'error'"
-              type="button"
-              class="inline-flex min-h-9 shrink-0 items-center whitespace-nowrap rounded-lg bg-foreground px-2.5 py-1.5 text-xs text-background transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-              @click="retry"
-            >
-              {{ copy.retry }}
-            </button>
           </div>
         </div>
-        <p v-if="errorMessage" class="mt-2 text-xs leading-5 text-red-500">{{ errorMessage }}</p>
-        <p class="mt-3 text-[11px] leading-5 text-muted-foreground">{{ copy.disclosure }}</p>
-        <p class="mt-1 text-[11px] leading-5 text-muted-foreground">{{ copy.accuracy }}</p>
-        <p class="mt-1 text-[11px] leading-5 text-muted-foreground">{{ copy.permission }}</p>
+        <p v-if="state === 'error'" class="text-center text-[11px] leading-5 text-muted-foreground">
+          {{ copy.beta }}
+        </p>
+        <template v-else>
+          <p class="mt-3 text-[11px] leading-5 text-muted-foreground">{{ copy.disclosure }}</p>
+          <p class="mt-1 text-[11px] leading-5 text-muted-foreground">{{ copy.accuracy }}</p>
+          <p class="mt-1 text-[11px] leading-5 text-muted-foreground">{{ copy.permission }}</p>
+        </template>
       </div>
     </div>
 
