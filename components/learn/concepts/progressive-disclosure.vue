@@ -833,12 +833,12 @@ function collapseLayers() {
 
 <style scoped>
 .disclosure-visual {
-  --pd-ink: var(--color-text, #171717);
-  --pd-muted: var(--color-text-muted, #6b6872);
-  --pd-surface: var(--color-surface, #ffffff);
-  --pd-soft: var(--color-surface-soft, #f6f7fb);
-  --pd-border: var(--color-border, #dedfe7);
-  --pd-accent: var(--color-accent, #6d5dfc);
+  --pd-ink: var(--foreground);
+  --pd-muted: var(--muted-foreground);
+  --pd-surface: var(--card);
+  --pd-soft: var(--secondary);
+  --pd-border: var(--line-card);
+  --pd-accent: color-mix(in srgb, #6d5dfc 82%, var(--foreground));
   --pd-accent-soft: color-mix(in srgb, var(--pd-accent) 10%, var(--pd-surface));
   --pd-blue: #83d9ff;
   --pd-lime: #d9ff66;
