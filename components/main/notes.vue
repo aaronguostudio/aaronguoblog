@@ -18,7 +18,9 @@ const latestNotes = computed(() => {
 
 const desktopNote = computed(() => latestNotes.value[0])
 const activeMobileIndex = ref(0)
-const activeMobileNote = computed(() => latestNotes.value[activeMobileIndex.value] || latestNotes.value[0])
+const activeMobileNote = computed(
+  () => latestNotes.value[activeMobileIndex.value] || latestNotes.value[0],
+)
 const hasMultipleNotes = computed(() => latestNotes.value.length > 1)
 const mobileTrackStyle = computed(() => ({
   transform: `translateX(-${activeMobileIndex.value * 100}%)`,
@@ -170,13 +172,13 @@ onBeforeUnmount(() => {
             <NuxtLink
               v-if="note.image"
               :to="localePath(note.path)"
-              class="group relative mb-4 hidden aspect-[16/10] overflow-hidden rounded-xl bg-muted outline-none focus-visible:ring-2 focus-visible:ring-[var(--notes-accent)] md:block"
+              class="group relative mb-4 hidden aspect-video overflow-hidden rounded-xl bg-muted outline-none focus-visible:ring-2 focus-visible:ring-[var(--notes-accent)] md:block"
             >
               <NuxtImg
                 :src="note.image"
                 :alt="note.alt || note.title"
                 width="768"
-                height="480"
+                height="432"
                 sizes="(max-width: 639px) calc(100vw - 40px), 640px"
                 format="webp"
                 quality="82"
@@ -279,13 +281,13 @@ onBeforeUnmount(() => {
           </time>
           <NuxtLink
             :to="localePath(desktopNote.path)"
-            class="group relative aspect-[4/3] w-full flex-none overflow-hidden rounded-xl bg-muted outline-none focus-visible:ring-2 focus-visible:ring-[var(--notes-accent)]"
+            class="group relative aspect-video w-full flex-none overflow-hidden rounded-xl bg-muted outline-none focus-visible:ring-2 focus-visible:ring-[var(--notes-accent)]"
           >
             <NuxtImg
               :src="desktopNote.image"
               :alt="desktopNote.alt || desktopNote.title"
               width="640"
-              height="480"
+              height="360"
               sizes="(max-width: 1279px) 164px, 252px"
               format="webp"
               quality="82"

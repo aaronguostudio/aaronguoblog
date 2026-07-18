@@ -132,12 +132,13 @@ describe('Builder Notes surface', () => {
     expect(detailPage).toContain('preload')
   })
 
-  it('uses a larger desktop image panel and a motion-safe mobile note carousel', () => {
+  it('uses uncropped 16:9 images and a motion-safe mobile note carousel', () => {
     const homeNotes = readFileSync(join(root, 'components', 'main', 'notes.vue'), 'utf8')
 
     expect(homeNotes).toContain(".slice(0, 5)")
     expect(homeNotes).toContain("grid-cols-[minmax(0,1fr)_minmax(9.5rem,0.52fr)]")
-    expect(homeNotes).toContain('aspect-[4/3]')
+    expect(homeNotes).toContain('class="group relative aspect-video w-full')
+    expect(homeNotes).toContain('height="360"')
     expect(homeNotes).toContain("window.matchMedia('(prefers-reduced-motion: reduce)')")
     expect(homeNotes).toContain('aria-roledescription="carousel"')
     expect(homeNotes).toContain('@touchend.passive="handleTouchEnd"')
