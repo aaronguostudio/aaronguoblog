@@ -61,6 +61,48 @@ final result: passed
 
 ---
 
+# Homepage Notes carousel QA (2026-07-18)
+
+## Capture setup
+
+- Source homepage state: `/var/folders/1d/36mq5p8n0472d49pmsgkd1sm0000gn/T/codex-clipboard-02dcf518-cecb-4ee3-a338-1931b0736d29.png`.
+- Carousel design reference: `/Users/aaronguo/Downloads/image (1).png`.
+- Final desktop implementation: `/Users/aaronguo/.codex/visualizations/2026/07/16/019f6bd9-5f6c-75e1-88c7-eb936fcd9728/homepage-notes-carousel-audit/04-desktop-final.png`.
+- Final focused Notes crop: `/Users/aaronguo/.codex/visualizations/2026/07/16/019f6bd9-5f6c-75e1-88c7-eb936fcd9728/homepage-notes-carousel-audit/05-notes-final.png`.
+- Final mobile implementation: `/Users/aaronguo/.codex/visualizations/2026/07/16/019f6bd9-5f6c-75e1-88c7-eb936fcd9728/homepage-notes-carousel-audit/03-mobile.png`.
+- Desktop review viewport: 1720 × 1000 CSS px. Mobile review viewport: 390 × 844 CSS px. Both used the English homepage in light mode.
+- The source homepage, reference carousel, and focused final implementation were reviewed together in one comparison input.
+
+## Final visual assessment
+
+- The existing Notes typography, copy, date, summary, thumbnail, and `View all notes` link are unchanged. Only the carousel state and its bottom controls were added.
+- The established two-column homepage composition and Notes spacing remain intact. The controls occupy the formerly quiet lower-right area without displacing content.
+- The pagination borrows the reference's useful visual grammar: a short warm-accent pill for the active item, muted round dots for inactive items, and restrained outlined chevrons.
+- Existing design tokens are reused for accent, borders, text, and hover states. Note images and their crops are untouched.
+- The carousel advances every 6.5 seconds. It pauses for pointer hover or contained keyboard focus, stops while the document is hidden, and re-synchronizes after visibility changes.
+- Reduced-motion preference disables both autoplay and slide transitions. Existing touch swipe behavior is preserved.
+- No horizontal overflow was found at either review viewport. No actionable P0, P1, or P2 visual mismatch remains.
+
+## Comparison history
+
+1. **P2 — desktop Notes remained static:** the desktop view always rendered the first note even though mobile already had carousel state. Unified both layouts around the same active note and autoplay controller.
+2. **P2 — ambiguous controls:** with two notes, both directional controls could inherit the same slide-target label. Added localized `Previous note` and `Next note` labels while retaining per-dot slide labels.
+3. **P2 — pause could be overridden:** manual carousel actions could restart the timer while a control still held focus. Added a persistent pause state plus focus-containment handling.
+4. **P2 — background-tab initialization:** delayed browser visibility updates could leave autoplay unsynchronized. Added a short visibility re-check without changing the user-facing timing.
+
+## Interaction and technical verification
+
+- In-browser autoplay advanced the active indicator from `Show note 1` to `Show note 2` within the expected interval.
+- Keyboard activation of `Next note` worked, and focus pause held the same note for a further eight seconds.
+- A fresh browser tab loaded the homepage with no console warnings or errors.
+- Mobile inspection confirmed the existing compact presentation, functional pagination, and no horizontal overflow.
+- `vitest` passed both targeted suites: 14/14 tests.
+- Targeted ESLint and Prettier checks passed.
+
+final result: passed
+
+---
+
 # Learn detail banner left-padding QA (2026-07-16)
 
 ## Capture setup
@@ -226,5 +268,45 @@ final result: blocked
 - `pnpm exec vitest run tests/radar/static-signal-contract.test.js` passed (12/12).
 - Targeted ESLint and Prettier checks passed.
 - `pnpm run build` passed and prerendered 1,051 routes. The only build warnings were the repository's existing duplicate blog-route-name notice and stale Browserslist data.
+
+final result: passed
+
+---
+
+# Homepage Notes stable-controls refinement QA (2026-07-18)
+
+## Capture setup
+
+- Source implementation before refinement: `/Users/aaronguo/.codex/visualizations/2026/07/16/019f6bd9-5f6c-75e1-88c7-eb936fcd9728/homepage-notes-carousel-audit/05-notes-final.png`.
+- Original carousel reference: `/Users/aaronguo/Downloads/image (1).png`.
+- Final focused desktop implementation: `/Users/aaronguo/.codex/visualizations/2026/07/18/homepage-notes-stable-carousel-audit/02-notes-focus.png`.
+- Final desktop page capture: `/Users/aaronguo/.codex/visualizations/2026/07/18/homepage-notes-stable-carousel-audit/01-desktop.png`.
+- Final mobile implementation: `/Users/aaronguo/.codex/visualizations/2026/07/18/homepage-notes-stable-carousel-audit/03-mobile.png`.
+- Desktop review viewport: 1720 × 1000 CSS px. Mobile review viewport: 390 × 844 CSS px. English homepage, light mode.
+- The pre-refinement crop, final focused crop, and original reference were opened together in one comparison input. The focused view was required because the carousel controls are too small to judge reliably from the full-page capture.
+
+## Findings
+
+- No actionable P0, P1, or P2 mismatch remains.
+- Fonts and typography are unchanged: family, weight, size, line height, wrapping, and hierarchy match the existing Notes design.
+- Spacing and layout now form a stable frame: `View all notes` remains left-aligned, pagination is anchored at the far right, and the two are separated by the full available width.
+- Colors and tokens are unchanged. The active warm-accent pill, muted inactive dot, borders, text colors, and focus ring continue to use existing Notes tokens.
+- Images retain their original assets, crop, aspect ratio, rendering quality, and hover treatment.
+- Copy and content are unchanged. The removed localized previous/next labels were aria-only strings for controls that no longer exist.
+
+## Comparison history
+
+1. **P2 — redundant previous/next controls:** the prior design combined arrows and clickable dots. Removed both chevron buttons, leaving the simpler direct dot navigation requested by the user.
+2. **P2 — unstable footer during transitions:** the prior desktop transition wrapped the article and footer together. Moved `View all notes` and pagination outside the keyed transition so only the note eyebrow, title, description, date, and image animate.
+3. **P2 — pagination lacked a strong right anchor:** the prior arrows made the control cluster feel centered. The final two-dot group sits at the right edge opposite the archive link using a stable `justify-between` footer.
+
+## Interaction and technical verification
+
+- Browser measurements before, during, and after a dot-triggered transition were identical for both stable elements: `View all notes` remained at x 964.20 / y 270, and pagination remained at x 1544 / y 272.
+- The visible desktop carousel contains two clickable dots and zero chevron controls. Dot navigation changed the active item and content correctly.
+- The content region retained the same x, y, width, and height after the transition, preventing layout shift.
+- Mobile remains compact, keeps its existing swipe behavior, and has no horizontal overflow at 390 × 844.
+- The browser console contained no warnings or errors introduced by this refinement; only normal Nuxt/Vite development logs were present.
+- Targeted ESLint and Prettier checks passed. Both targeted Vitest suites passed: 14/14 tests.
 
 final result: passed
