@@ -132,7 +132,7 @@ describe('Builder Notes surface', () => {
     expect(detailPage).toContain('preload')
   })
 
-  it('uses uncropped 16:9 images and a motion-safe mobile note carousel', () => {
+  it('uses uncropped 16:9 images and a motion-safe homepage note carousel', () => {
     const homeNotes = readFileSync(join(root, 'components', 'main', 'notes.vue'), 'utf8')
 
     expect(homeNotes).toContain(".slice(0, 5)")
@@ -143,6 +143,19 @@ describe('Builder Notes surface', () => {
     expect(homeNotes).toContain('aria-roledescription="carousel"')
     expect(homeNotes).toContain('@touchend.passive="handleTouchEnd"')
     expect(homeNotes).toContain("window.setInterval")
+    expect(homeNotes).toContain('desktopTransitionName')
+    expect(homeNotes).not.toContain('heroicons:chevron-left')
+    expect(homeNotes).not.toContain('heroicons:chevron-right')
+    expect(homeNotes).not.toContain("t('notes.previousSlide')")
+    expect(homeNotes).not.toContain("t('notes.nextSlide')")
+    expect(homeNotes).toContain('isCarouselPaused.value')
+    expect(homeNotes).toContain('document.hidden')
+    expect(homeNotes).not.toContain('isMobileViewport')
+
+    const desktopSection = homeNotes.slice(homeNotes.indexOf('v-if="desktopNote"'))
+    expect(desktopSection.indexOf('mt-4 flex min-h-9 shrink-0')).toBeGreaterThan(
+      desktopSection.indexOf('</Transition>'),
+    )
   })
 
   it('uses the responsive featured writing layout on the homepage', () => {
