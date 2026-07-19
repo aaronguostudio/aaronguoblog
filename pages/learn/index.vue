@@ -168,7 +168,7 @@ defineOgImageComponent('About', {
         >
           <div
             v-if="concept.cardImage"
-            class="m-2 mr-0 overflow-hidden rounded-lg border border-[color:var(--line-subtle)] bg-secondary/45"
+            class="m-2 mr-0 aspect-[4/5] self-center overflow-hidden rounded-lg border border-[color:var(--line-subtle)] bg-secondary/45"
           >
             <NuxtImg
               :src="concept.cardImage"
@@ -179,7 +179,7 @@ defineOgImageComponent('About', {
               format="webp"
               quality="72"
               loading="lazy"
-              class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.025] motion-reduce:transition-none"
+              class="block h-full w-full object-contain"
             />
           </div>
 

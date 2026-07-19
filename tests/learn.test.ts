@@ -92,6 +92,11 @@ describe('learn utilities', () => {
     expect(config).toContain('cardImageAlt: z.string().optional()')
     expect(indexPage).toContain(':src="concept.cardImage"')
     expect(indexPage).toContain('quality="72"')
+    expect(indexPage).toContain('aspect-[4/5] self-center')
+    expect(indexPage).toContain('class="block h-full w-full object-contain"')
+    expect(indexPage).not.toContain(
+      'object-cover transition-transform duration-300 group-hover:scale-[1.025]',
+    )
     expect(detailPage).toContain('quality="80"')
     expect(detailPage).toContain('download')
 
