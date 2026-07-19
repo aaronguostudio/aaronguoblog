@@ -28,6 +28,10 @@ export interface LearnContentItem {
   featured?: boolean
   translationKey: string
   interaction?: string
+  socialImage?: string
+  socialImageAlt?: string
+  cardImage?: string
+  cardImageAlt?: string
   neighbors?: LearnNeighbor[]
   sources?: LearnSource[]
 }

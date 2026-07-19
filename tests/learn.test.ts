@@ -1,5 +1,9 @@
+import { existsSync, readFileSync } from 'node:fs'
+import { join } from 'node:path'
 import { describe, expect, it } from 'vitest'
 import { filterLearn, getLearnRoute, getLearnSlug, prepareLearn } from '../utils/learn'
+
+const root = process.cwd()
 
 const base = {
   title: 'Optimistic Concurrency',
@@ -71,5 +75,39 @@ describe('learn utilities', () => {
       ),
     ).toEqual(['Compounding'])
     expect(filterLearn(concepts, { query: 'returns', domainKey: 'software-systems' })).toEqual([])
+  })
+
+  it('publishes optimized visual cards without replacing the full-resolution source', () => {
+    const slugs = [
+      'optimistic-concurrency',
+      'idempotency',
+      'progressive-disclosure',
+      'single-source-of-truth',
+    ]
+    const indexPage = readFileSync(join(root, 'pages/learn/index.vue'), 'utf8')
+    const detailPage = readFileSync(join(root, 'pages/learn/[slug].vue'), 'utf8')
+    const config = readFileSync(join(root, 'content.config.ts'), 'utf8')
+
+    expect(config).toContain('cardImage: z.string().optional()')
+    expect(config).toContain('cardImageAlt: z.string().optional()')
+    expect(indexPage).toContain(':src="concept.cardImage"')
+    expect(indexPage).toContain('quality="72"')
+    expect(detailPage).toContain('quality="80"')
+    expect(detailPage).toContain('download')
+
+    for (const slug of slugs) {
+      const expectedPath = `/learn-img/${slug}/card-4x5.jpg`
+
+      for (const locale of ['en', 'zh']) {
+        const concept = readFileSync(
+          join(root, 'content', 'learn', locale, `${slug}.md`),
+          'utf8',
+        )
+        expect(concept).toMatch(new RegExp(`^cardImage:\\s*['"]${expectedPath}['"]$`, 'm'))
+        expect(concept).toMatch(/^cardImageAlt:\s*['"].+['"]$/m)
+      }
+
+      expect(existsSync(join(root, 'public', 'learn-img', slug, 'card-4x5.jpg'))).toBe(true)
+    }
   })
 })

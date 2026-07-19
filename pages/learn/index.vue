@@ -163,10 +163,28 @@ defineOgImageComponent('About', {
           v-for="concept in visibleConcepts"
           :key="concept.path"
           :to="localePath(concept.path)"
-          class="group relative overflow-hidden rounded-lg border border-[color:var(--line-card)] bg-card/40 px-4 py-3.5 outline-none transition-colors hover:border-primary/50 hover:bg-card focus-visible:ring-2 focus-visible:ring-primary"
+          class="group relative grid min-h-[7.75rem] overflow-hidden rounded-xl border border-[color:var(--line-card)] bg-card/40 outline-none transition-colors hover:border-primary/50 hover:bg-card focus-visible:ring-2 focus-visible:ring-primary"
+          :class="concept.cardImage ? 'grid-cols-[5.5rem_minmax(0,1fr)]' : 'grid-cols-1'"
         >
-          <div class="flex items-start justify-between gap-4">
-            <div class="min-w-0">
+          <div
+            v-if="concept.cardImage"
+            class="m-2 mr-0 overflow-hidden rounded-lg border border-[color:var(--line-subtle)] bg-secondary/45"
+          >
+            <NuxtImg
+              :src="concept.cardImage"
+              :alt="concept.cardImageAlt || concept.title"
+              width="176"
+              height="220"
+              sizes="88px"
+              format="webp"
+              quality="72"
+              loading="lazy"
+              class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.025] motion-reduce:transition-none"
+            />
+          </div>
+
+          <div class="flex min-w-0 items-start justify-between gap-3 p-4">
+            <div class="min-w-0 self-center">
               <h2
                 class="text-base font-semibold leading-6 tracking-[-0.02em] text-foreground transition-colors group-hover:text-primary"
               >

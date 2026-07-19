@@ -8,6 +8,7 @@ const blogDetailPages = [
   'pages/blogs/[...blog].vue',
 ]
 const notePage = 'pages/notes/[slug].vue'
+const learnPage = 'pages/learn/[slug].vue'
 
 describe('blog social metadata', () => {
   it('uses absolute static social images instead of runtime OG image generation', () => {
@@ -50,6 +51,30 @@ describe('blog social metadata', () => {
     expect(source).not.toContain('defineOgImageComponent')
     expect(englishNote).toContain('socialImage: \'/notes-img/rest-is-part-of-the-ai-stack-social.jpg\'')
     expect(chineseNote).toContain('socialImage: \'/notes-img/rest-is-part-of-the-ai-stack-social.jpg\'')
+    expect(existsSync(join(root, socialImage))).toBe(true)
+  })
+
+  it('uses a static Learn social image instead of runtime OG image generation', () => {
+    const source = readFileSync(join(root, learnPage), 'utf8')
+    const englishConcept = readFileSync(
+      join(root, 'content/learn/en/optimistic-concurrency.md'),
+      'utf8',
+    )
+    const chineseConcept = readFileSync(
+      join(root, 'content/learn/zh/optimistic-concurrency.md'),
+      'utf8',
+    )
+    const socialImage = 'public/learn-img/optimistic-concurrency/og-1200x627.jpg'
+
+    expect(source).toContain("image: concept.value.socialImage || '/og-image.jpg'")
+    expect(source).toContain('imageAlt: concept.value.socialImageAlt || concept.value.title')
+    expect(source).not.toContain('defineOgImageComponent')
+    expect(englishConcept).toContain(
+      'socialImage: "/learn-img/optimistic-concurrency/og-1200x627.jpg"',
+    )
+    expect(chineseConcept).toContain(
+      'socialImage: "/learn-img/optimistic-concurrency/og-1200x627.jpg"',
+    )
     expect(existsSync(join(root, socialImage))).toBe(true)
   })
 

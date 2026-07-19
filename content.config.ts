@@ -46,6 +46,10 @@ const learnConceptSchema = z.object({
   featured: z.boolean().default(false),
   translationKey: z.string(),
   interaction: z.string().optional(),
+  socialImage: z.string().optional(),
+  socialImageAlt: z.string().optional(),
+  cardImage: z.string().optional(),
+  cardImageAlt: z.string().optional(),
   neighbors: z.array(conceptNeighborSchema).default([]),
   sources: z.array(conceptSourceSchema).default([]),
 })

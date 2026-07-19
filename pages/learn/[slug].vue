@@ -60,11 +60,8 @@ useSeo({
   modifiedTime: `${concept.value.updated}T00:00:00.000Z`,
   tags: concept.value.tags || [],
   locale: locale.value === 'zh' ? 'zh_CN' : 'en_US',
-})
-
-defineOgImageComponent('About', {
-  title: concept.value.title,
-  description: concept.value.mentalModel,
+  image: concept.value.socialImage || '/og-image.jpg',
+  imageAlt: concept.value.socialImageAlt || concept.value.title,
 })
 
 const { useScrollDepthTracking } = useRybbitAnalytics()
@@ -140,6 +137,54 @@ useScrollDepthTracking(normalizedRoutePath.value)
         >
           {{ concept.mentalModel }}
         </blockquote>
+      </section>
+
+      <section
+        v-if="concept.cardImage"
+        class="my-10 grid overflow-hidden rounded-2xl border border-[color:var(--line-card)] bg-card/50 lg:grid-cols-[minmax(0,1fr)_22rem]"
+        :aria-labelledby="`visual-card-title-${conceptSlug}`"
+      >
+        <div class="flex flex-col justify-between gap-8 p-6 sm:p-8 lg:p-10">
+          <div>
+            <p
+              class="font-mono text-[10px] uppercase tracking-[0.18em] text-[color:var(--notes-accent)]"
+            >
+              {{ t('learn.visualCardEyebrow') }}
+            </p>
+            <h2
+              :id="`visual-card-title-${conceptSlug}`"
+              class="mt-3 text-3xl font-semibold tracking-[-0.04em] text-foreground sm:text-4xl"
+            >
+              {{ t('learn.visualCardTitle') }}
+            </h2>
+            <p class="mt-4 max-w-xl text-base leading-7 text-muted-foreground sm:text-lg">
+              {{ t('learn.visualCardDescription') }}
+            </p>
+          </div>
+
+          <a
+            :href="concept.cardImage"
+            download
+            class="inline-flex min-h-11 w-fit items-center gap-2 rounded-lg border border-[color:var(--line-control)] bg-background px-4 text-sm font-medium text-foreground outline-none transition-colors hover:border-[color:var(--notes-border-hover)] hover:bg-secondary/60 focus-visible:ring-2 focus-visible:ring-[var(--notes-accent)]"
+          >
+            <Icon name="heroicons:arrow-down-tray" class="h-4 w-4" />
+            {{ t('learn.downloadVisualCard') }}
+          </a>
+        </div>
+
+        <figure class="flex items-center justify-center bg-secondary/55 p-4 sm:p-6">
+          <NuxtImg
+            :src="concept.cardImage"
+            :alt="concept.cardImageAlt || concept.title"
+            width="1080"
+            height="1350"
+            sizes="(max-width: 639px) 88vw, (max-width: 1023px) 480px, 352px"
+            format="webp"
+            quality="80"
+            loading="lazy"
+            class="aspect-[4/5] w-full max-w-[22rem] rounded-xl border border-[color:var(--line-subtle)] object-contain shadow-sm"
+          />
+        </figure>
       </section>
 
       <component
