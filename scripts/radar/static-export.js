@@ -100,7 +100,8 @@ function mapItem(row) {
     relevance: Number(row.relevance || 0),
     category: String(row.category),
     topicSlug: String(row.topic_slug),
-    createdAt: row.last_seen_at || row.created_at || null,
+    createdAt: row.created_at || null,
+    lastSeenAt: row.last_seen_at || null,
     publishedAt: row.published_at || null,
   }
 }
@@ -247,7 +248,11 @@ export async function buildRadarSnapshot(
               score, relevance, category, topic_slug, last_seen_at
             FROM ranked_items
             WHERE rn = 1
-            ORDER BY last_seen_at DESC, relevance DESC, score DESC, id DESC
+            ORDER BY COALESCE(
+              datetime(NULLIF(published_at, '')),
+              datetime(NULLIF(created_at, '')),
+              datetime(NULLIF(last_seen_at, ''))
+            ) DESC, relevance DESC, score DESC, id DESC
             LIMIT ?`,
         args: [minRelevance, limit],
       }),

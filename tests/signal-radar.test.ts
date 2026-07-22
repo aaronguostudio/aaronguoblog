@@ -59,7 +59,8 @@ describe('mapRadarItemRow', () => {
       category: 'ai',
       topic_slug: 'mobile-ai',
       published_at: '2026-06-13 10:00:00',
-      created_at: '2026-06-14 13:00:00',
+      created_at: '2026-06-14 12:00:00',
+      last_seen_at: '2026-06-14 13:00:00',
     })
   })
 })
@@ -70,7 +71,10 @@ describe('radar feed SQL', () => {
 
     expect(sql).toContain('ROW_NUMBER() OVER (PARTITION BY ri.id')
     expect(sql).toContain('ORDER BY rit.last_seen_at DESC, rit.relevance DESC, rit.score DESC, rit.topic_slug ASC')
-    expect(sql).toContain('ORDER BY ranked.last_seen_at DESC, ranked.relevance DESC, ranked.score DESC, ranked.id DESC')
+    expect(sql).toContain("datetime(NULLIF(ranked.published_at, ''))")
+    expect(sql).toContain("datetime(NULLIF(ranked.created_at, ''))")
+    expect(sql).toContain("datetime(NULLIF(ranked.last_seen_at, ''))")
+    expect(sql).toContain(') DESC, ranked.relevance DESC, ranked.score DESC, ranked.id DESC')
     expect(sql).toContain('WHERE ranked.rn = 1')
     expect(sql).toContain('ranked.published_at')
     expect(sql).toContain('WHERE rit.relevance >= ? AND ri.source = ?')
@@ -94,6 +98,8 @@ describe('buildPulseItemsQuery', () => {
     expect(query.sql).toContain('WITH pulse_ids(id, position) AS (VALUES (?, ?), (?, ?), (?, ?))')
     expect(query.sql).toContain('ROW_NUMBER() OVER (PARTITION BY ri.id')
     expect(query.sql).toContain('ranked.published_at')
+    expect(query.sql).toContain('ranked.created_at')
+    expect(query.sql).toContain('ranked.last_seen_at')
     expect(query.sql).toContain('WHERE ranked.rn = 1')
     expect(query.sql).toContain('ORDER BY ranked.position')
   })

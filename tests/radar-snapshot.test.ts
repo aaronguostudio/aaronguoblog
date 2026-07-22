@@ -82,13 +82,42 @@ describe('pulse snapshot item selection', () => {
 })
 
 describe('radar item recency sorting', () => {
-  it('orders items from newest displayed timestamp to oldest', () => {
+  it('orders items by published date before ingestion recency', () => {
     const items = [
-      { id: 1, title: 'two days old', created_at: '2026-06-28 14:32:34' },
-      { id: 2, title: 'four days old', created_at: '2026-06-27 13:33:04' },
-      { id: 3, title: 'one day old', created_at: '2026-06-29 14:37:13' },
+      {
+        id: 1,
+        title: 'older article discovered most recently',
+        published_at: '2026-06-27',
+        created_at: '2026-06-30 14:32:34',
+      },
+      {
+        id: 2,
+        title: 'newer article discovered earlier',
+        published_at: '2026-06-29',
+        created_at: '2026-06-29 13:33:04',
+      },
     ]
 
-    expect(sortRadarItemsByDateDesc(items).map((item) => item.id)).toEqual([3, 1, 2])
+    expect(sortRadarItemsByDateDesc(items).map((item) => item.id)).toEqual([2, 1])
+  })
+
+  it('falls back through first-seen and last-seen dates when publication dates are unavailable', () => {
+    const items = [
+      { id: 1, published_at: 'not-a-date', created_at: '2026-06-28 14:32:34' },
+      { id: 2, published_at: null, created_at: '2026-06-29 13:33:04' },
+      { id: 3, published_at: null, created_at: null, last_seen_at: '2026-06-27 10:00:00' },
+    ]
+
+    expect(sortRadarItemsByDateDesc(items).map((item) => item.id)).toEqual([2, 1, 3])
+  })
+
+  it('uses relevance and score to order items with the same effective date', () => {
+    const items = [
+      { id: 1, published_at: '2026-06-29', relevance: 8, score: 90 },
+      { id: 2, published_at: '2026-06-29', relevance: 9, score: 70 },
+      { id: 3, published_at: '2026-06-29', relevance: 9, score: 80 },
+    ]
+
+    expect(sortRadarItemsByDateDesc(items).map((item) => item.id)).toEqual([3, 2, 1])
   })
 })

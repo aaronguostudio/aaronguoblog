@@ -53,7 +53,11 @@ export function buildRadarItemsSql(whereSql: string[]) {
             ranked.score, ranked.relevance, ranked.category, ranked.topic_slug, ranked.published_at, ranked.created_at, ranked.last_seen_at
           FROM ranked_items ranked
           WHERE ranked.rn = 1
-          ORDER BY ranked.last_seen_at DESC, ranked.relevance DESC, ranked.score DESC, ranked.id DESC
+          ORDER BY COALESCE(
+            datetime(NULLIF(ranked.published_at, '')),
+            datetime(NULLIF(ranked.created_at, '')),
+            datetime(NULLIF(ranked.last_seen_at, ''))
+          ) DESC, ranked.relevance DESC, ranked.score DESC, ranked.id DESC
           LIMIT ? OFFSET ?`
 }
 
@@ -107,7 +111,7 @@ export function buildPulseItemsQuery(topIds: number[]) {
             ranked_items AS (
               SELECT
                 ri.id, ri.source, ri.url, ri.title, ri.ai_summary, ri.published_at,
-                rit.relevance, rit.category, rit.score, rit.last_seen_at as created_at,
+                ri.created_at, rit.relevance, rit.category, rit.score, rit.last_seen_at,
                 pulse_ids.position,
                 ROW_NUMBER() OVER (PARTITION BY ri.id ORDER BY rit.last_seen_at DESC, rit.relevance DESC, rit.score DESC, rit.topic_slug ASC) AS rn
               FROM pulse_ids
@@ -116,7 +120,7 @@ export function buildPulseItemsQuery(topIds: number[]) {
             )
             SELECT
               ranked.id, ranked.source, ranked.url, ranked.title, ranked.ai_summary, ranked.published_at,
-              ranked.relevance, ranked.category, ranked.score, ranked.created_at
+              ranked.relevance, ranked.category, ranked.score, ranked.created_at, ranked.last_seen_at
             FROM ranked_items ranked
             WHERE ranked.rn = 1
             ORDER BY ranked.position`,
@@ -138,7 +142,8 @@ export function mapRadarItemRow(row: RadarRow) {
     category: row.category,
     topic_slug: row.topic_slug,
     published_at: row.published_at,
-    created_at: row.last_seen_at || row.created_at,
+    created_at: row.created_at,
+    last_seen_at: row.last_seen_at,
   }
 }
 

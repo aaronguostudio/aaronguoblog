@@ -21,6 +21,7 @@ type SignalItem = {
   relevance?: number | string
   category: string
   created_at: string
+  last_seen_at?: string | null
   published_at?: string | null
   topic_slug?: string
 }
@@ -104,7 +105,8 @@ function mapStaticItem(item: StaticRadarItem): SignalItem {
     relevance: item.relevance,
     category: item.category,
     topic_slug: item.topicSlug,
-    created_at: item.createdAt || staticSnapshot.value?.generatedAt || '',
+    created_at: item.createdAt || '',
+    last_seen_at: item.lastSeenAt || null,
     published_at: item.publishedAt || null,
   }
 }

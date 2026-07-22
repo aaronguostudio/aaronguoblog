@@ -15,6 +15,7 @@ export type StaticRadarItem = {
   category: string
   topicSlug?: string
   createdAt?: string | null
+  lastSeenAt?: string | null
   publishedAt?: string | null
 }
 

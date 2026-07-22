@@ -223,6 +223,80 @@ describe('static Radar export', () => {
     expect(snapshot.items[0].title).toBe('Guardian Runtime for AI coding agents')
   })
 
+  it('orders snapshot items by publication date and preserves first-seen and last-seen dates', async () => {
+    const client = createMemoryClient()
+    await migrateRadarSchema(client)
+    await upsertRadarTopic(client, createTopic())
+    const runId = await createRadarRun(client, {
+      topicSlug: 'coding-agents',
+      mode: 'quick',
+      lookbackDays: 30,
+      cadence: 'daily',
+    })
+    const [olderItemId, newerItemId] = await upsertRadarItems(client, {
+      runId,
+      items: [
+        createItem({
+          canonicalUrl: 'https://example.com/older-late-discovery',
+          sourceItemId: 'hn-older',
+          url: 'https://example.com/older-late-discovery',
+          title: 'Older article discovered later',
+          publishedAt: '2026-06-12',
+        }),
+        createItem({
+          canonicalUrl: 'https://example.com/newer-early-discovery',
+          sourceItemId: 'hn-newer',
+          url: 'https://example.com/newer-early-discovery',
+          title: 'Newer article discovered earlier',
+          publishedAt: '2026-06-14',
+        }),
+      ],
+    })
+    await client.execute({
+      sql: 'UPDATE radar_items SET created_at = ? WHERE id = ?',
+      args: ['2026-06-14 12:00:00', olderItemId],
+    })
+    await client.execute({
+      sql: 'UPDATE radar_items SET created_at = ? WHERE id = ?',
+      args: ['2026-06-13 12:00:00', newerItemId],
+    })
+    await client.execute({
+      sql: 'UPDATE radar_item_topics SET last_seen_at = ? WHERE item_id = ?',
+      args: ['2026-06-14 13:00:00', olderItemId],
+    })
+    await client.execute({
+      sql: 'UPDATE radar_item_topics SET last_seen_at = ? WHERE item_id = ?',
+      args: ['2026-06-13 13:00:00', newerItemId],
+    })
+    await upsertRadarPulse(client, {
+      runId,
+      pulse: {
+        date: '2026-06-14',
+        pulseText: 'The newer publication should appear first.',
+        topItemIds: [newerItemId],
+      },
+    })
+    await finishRadarRun(client, {
+      runId,
+      status: 'completed',
+      itemsSeen: 2,
+      itemsWritten: 2,
+    })
+
+    const snapshot = await buildRadarSnapshot(client, {
+      date: '2026-06-14',
+      generatedAt: '2026-06-14T15:00:00.000Z',
+      limit: 10,
+    })
+
+    expect(snapshot.items.map(item => item.id)).toEqual([newerItemId, olderItemId])
+    expect(snapshot.items[0]).toMatchObject({
+      createdAt: '2026-06-13 12:00:00',
+      lastSeenAt: '2026-06-13 13:00:00',
+      publishedAt: '2026-06-14',
+    })
+  })
+
   it('prefers a same-day persisted conclusion and its selected evidence items', async () => {
     const client = await createSnapshotClient()
     const itemResult = await client.execute('SELECT id FROM radar_items LIMIT 1')

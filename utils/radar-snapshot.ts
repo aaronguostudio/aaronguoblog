@@ -106,14 +106,21 @@ export function selectRadarTakeaway(
 }
 
 function itemTimestamp(item: RadarItemSortable) {
-  return parseRadarDate(
-    item.lastSeenAt ||
-      item.last_seen_at ||
-      item.createdAt ||
-      item.created_at ||
-      item.publishedAt ||
-      item.published_at,
-  )
+  const candidates = [
+    item.publishedAt,
+    item.published_at,
+    item.createdAt,
+    item.created_at,
+    item.lastSeenAt,
+    item.last_seen_at,
+  ]
+
+  for (const candidate of candidates) {
+    const timestamp = parseRadarDate(candidate)
+    if (Number.isFinite(timestamp)) return timestamp
+  }
+
+  return Number.NEGATIVE_INFINITY
 }
 
 function itemNumber(value: string | number | null | undefined) {
