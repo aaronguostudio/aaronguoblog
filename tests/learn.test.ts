@@ -77,6 +77,22 @@ describe('learn utilities', () => {
     expect(filterLearn(concepts, { query: 'returns', domainKey: 'software-systems' })).toEqual([])
   })
 
+  it('loads only the interaction declared by concept frontmatter', () => {
+    const detailPage = readFileSync(join(root, 'pages/learn/[slug].vue'), 'utf8')
+
+    expect(detailPage).toContain('concept.value.interaction?.trim()')
+    expect(detailPage).toContain(
+      'visualModules[`../../components/learn/concepts/${interaction}.vue`]',
+    )
+    expect(detailPage).toContain('if (!interaction) return undefined')
+    expect(detailPage).toContain('if (!loader) return undefined')
+    expect(detailPage).toContain(
+      'defineAsyncComponent(async () => (await loader()).default)',
+    )
+    expect(detailPage).not.toContain('eager: true')
+    expect(detailPage).not.toContain('const suffix = `/${conceptSlug.value}.vue`')
+  })
+
   it('publishes optimized visual cards without replacing the full-resolution source', () => {
     const slugs = [
       'optimistic-concurrency',

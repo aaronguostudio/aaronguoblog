@@ -19,13 +19,13 @@ function readOrEmpty(filePath: string): string {
 }
 
 function frontmatterValue(source: string, key: string): string | undefined {
-  const match = source.match(new RegExp(`^${key}:\\s*['\"]?([^'\"\\n]+)['\"]?\\s*$`, 'm'))
+  const match = source.match(new RegExp(`^${key}:\\s*['"]?([^'"\\n]+)['"]?\\s*$`, 'm'))
   return match?.[1].trim()
 }
 
 function frontmatterList(source: string, key: string): string[] {
   const line = source.match(new RegExp(`^${key}:\\s*\\[(.+)\\]\\s*$`, 'm'))?.[1] || ''
-  return [...line.matchAll(/['\"]([^'\"]+)['\"]/g)].map((match) => match[1])
+  return [...line.matchAll(/['"]([^'"]+)['"]/g)].map((match) => match[1])
 }
 
 function bodyWithoutFrontmatter(source: string): string {
@@ -78,8 +78,8 @@ function declaredPresetPalettes(source: string): DeclaredPalette[] {
   const palettes: DeclaredPalette[] = []
 
   for (const match of presetSource.matchAll(presetPattern)) {
-    const paper = match[2].match(/\bpaper:\s*['\"]#?([0-9a-f]{6})['\"]/i)?.[1]
-    const muted = match[2].match(/\bmuted:\s*['\"]#?([0-9a-f]{6})['\"]/i)?.[1]
+    const paper = match[2].match(/\bpaper:\s*['"]#?([0-9a-f]{6})['"]/i)?.[1]
+    const muted = match[2].match(/\bmuted:\s*['"]#?([0-9a-f]{6})['"]/i)?.[1]
     if (paper && muted) palettes.push({ name: match[1], paper: `#${paper}`, muted: `#${muted}` })
   }
 
@@ -103,8 +103,8 @@ describe('Document Visual Language release candidate', () => {
 
     expect(frontmatterList(en, 'tags').length).toBeGreaterThan(0)
     expect(frontmatterList(zh, 'tags').length).toBeGreaterThan(0)
-    expect([...en.matchAll(/^\s+url:\s*['\"]([^'\"]+)['\"]\s*$/gm)].map((match) => match[1])).toEqual(
-      [...zh.matchAll(/^\s+url:\s*['\"]([^'\"]+)['\"]\s*$/gm)].map((match) => match[1]),
+    expect([...en.matchAll(/^\s+url:\s*['"]([^'"]+)['"]\s*$/gm)].map((match) => match[1])).toEqual(
+      [...zh.matchAll(/^\s+url:\s*['"]([^'"]+)['"]\s*$/gm)].map((match) => match[1]),
     )
   })
 
@@ -138,7 +138,7 @@ describe('Document Visual Language release candidate', () => {
   it('exposes exactly four continuously adjustable axes with accessible labels', () => {
     const visual = readOrEmpty(paths.visual)
     const axisDeclaration = visual.match(/const axisKeys:\s*AxisKey\[\]\s*=\s*\[([^\]]+)\]/)?.[1] || ''
-    const axes = [...axisDeclaration.matchAll(/['\"]([^'\"]+)['\"]/g)].map((match) => match[1])
+    const axes = [...axisDeclaration.matchAll(/['"]([^'"]+)['"]/g)].map((match) => match[1])
 
     expect(axes).toEqual(['temperature', 'geometry', 'density', 'expression'])
     expect(visual).toMatch(
@@ -154,7 +154,7 @@ describe('Document Visual Language release candidate', () => {
 
     for (const format of ['brief', 'json']) {
       const control = buttonTags.find((tag) =>
-        new RegExp(`data-dvl-export=['\"]${format}['\"]`).test(tag),
+        new RegExp(`data-dvl-export=['"]${format}['"]`).test(tag),
       )
       expect(control, `Missing ${format} export control`).toBeDefined()
       expect(control).toContain('type="button"')
@@ -177,6 +177,11 @@ describe('Document Visual Language release candidate', () => {
     expect(style).toMatch(
       /@media\s*\(max-width:\s*560px\)[\s\S]*?\.preset-grid\s*\{[^}]*overflow-x:\s*auto/i,
     )
+    expect(style).toMatch(
+      /@media\s*\(max-width:\s*560px\)[\s\S]*?\.document-preview\s*\{[^}]*padding:\s*var\(--preview-padding-mobile\)/i,
+    )
+    expect(visual).toContain('mobilePadding: `${Math.round(24 - dense * 8)}px`')
+    expect(visual).toContain('"--preview-padding-mobile": compiledTokens.value.mobilePadding')
   })
 
   it('keeps every preset muted-text color readable on its paper color', () => {
@@ -225,5 +230,18 @@ describe('Document Visual Language release candidate', () => {
       .map(({ surface, ratio }) => `${surface}: ${ratio.toFixed(2)}:1`)
 
     expect(failures, `DVL annotation contrast below 4.5:1: ${failures.join(', ')}`).toEqual([])
+  })
+
+  it('uses a strong focus ring and does not duplicate slider announcements', () => {
+    const visual = readOrEmpty(paths.visual)
+    const style = visual.match(/<style scoped>([\s\S]*?)<\/style>/)?.[1] || ''
+
+    expect(style).toMatch(
+      /button:focus-visible,[\s\S]*?input:focus-visible\s*\{[^}]*outline:\s*3px solid var\(--dvl-blue\)/i,
+    )
+    expect(style).toMatch(
+      /\.genre-button\.active\s*\{[^}]*border-color:\s*var\(--dvl-blue\)[^}]*box-shadow:[^}]*var\(--dvl-blue\)/i,
+    )
+    expect(visual).not.toContain('class="compiler-output" aria-live="polite"')
   })
 })

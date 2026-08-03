@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Component } from 'vue'
+import { defineAsyncComponent, type Component } from 'vue'
 import type { LearnContentItem } from '~/utils/learn'
 import { getLearnSlug } from '~/utils/learn'
 import { useSeo } from '~/utils/seo'
@@ -42,13 +42,15 @@ interface VisualModule {
   default: Component
 }
 
-const visualModules = import.meta.glob<VisualModule>('../../components/learn/concepts/*.vue', {
-  eager: true,
-})
+const visualModules = import.meta.glob<VisualModule>('../../components/learn/concepts/*.vue')
 const visualComponent = computed(() => {
-  const suffix = `/${conceptSlug.value}.vue`
-  const match = Object.entries(visualModules).find(([file]) => file.endsWith(suffix))
-  return match?.[1].default
+  const interaction = concept.value.interaction?.trim()
+  if (!interaction) return undefined
+
+  const loader = visualModules[`../../components/learn/concepts/${interaction}.vue`]
+  if (!loader) return undefined
+
+  return defineAsyncComponent(async () => (await loader()).default)
 })
 
 useSeo({
@@ -194,10 +196,10 @@ useScrollDepthTracking(normalizedRoutePath.value)
       />
 
       <section
-        class="mt-16 grid gap-10 border-t border-[color:var(--line-subtle)] pt-12 lg:grid-cols-[12rem_minmax(0,48rem)] lg:gap-14"
+        class="mt-16 grid min-w-0 gap-10 border-t border-[color:var(--line-subtle)] pt-12 lg:grid-cols-[12rem_minmax(0,48rem)] lg:gap-14"
         aria-labelledby="deep-dive-title"
       >
-        <aside>
+        <aside class="min-w-0">
           <p
             id="deep-dive-title"
             class="font-mono text-[10px] uppercase tracking-[0.18em] text-[color:var(--notes-accent)] lg:sticky lg:top-28"
@@ -206,7 +208,7 @@ useScrollDepthTracking(normalizedRoutePath.value)
           </p>
         </aside>
         <div
-          class="concept-prose prose prose-zinc max-w-none prose-headings:tracking-[-0.035em] prose-h2:mt-16 prose-h2:text-3xl prose-h3:mt-10 prose-p:text-[17px] prose-p:leading-8 prose-p:text-foreground/85 prose-li:text-foreground/80 dark:prose-invert sm:prose-p:text-lg"
+          class="concept-prose prose prose-zinc min-w-0 max-w-none prose-headings:tracking-[-0.035em] prose-h2:mt-16 prose-h2:text-3xl prose-h3:mt-10 prose-p:text-[17px] prose-p:leading-8 prose-p:text-foreground/85 prose-li:text-foreground/80 dark:prose-invert sm:prose-p:text-lg"
         >
           <ContentRenderer v-if="rawConcept" :value="rawConcept" />
         </div>
@@ -321,7 +323,12 @@ useScrollDepthTracking(normalizedRoutePath.value)
 }
 
 :deep(.concept-prose table) {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
   font-size: 0.9rem;
+  white-space: nowrap;
 }
 :deep(.concept-prose pre) {
   border-radius: 0.75rem;
