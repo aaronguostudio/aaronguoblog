@@ -148,7 +148,7 @@ describe('Document Visual Language release candidate', () => {
     expect(visual).toContain(`:for="'dvl-' + axis"`)
   })
 
-  it('offers explicit controls for exporting a Visual Language Brief and JSON', () => {
+  it('offers explicit controls for exporting a Document Design Brief and JSON', () => {
     const visual = readOrEmpty(paths.visual)
     const buttonTags = visual.match(/<button\b[^>]*>/g) || []
 
@@ -161,7 +161,7 @@ describe('Document Visual Language release candidate', () => {
       expect(control).toMatch(/@click=/)
     }
 
-    expect(visual).toMatch(/Visual Language Brief/i)
+    expect(visual).toMatch(/Document Design Brief/i)
     expect(visual).toMatch(/JSON/i)
   })
 
@@ -175,7 +175,7 @@ describe('Document Visual Language release candidate', () => {
       /@media\s*\(max-width:\s*1000px\)[\s\S]*?\.lab-workspace\s*\{[^}]*grid-template-columns:\s*1fr/i,
     )
     expect(style).toMatch(
-      /@media\s*\(max-width:\s*560px\)[\s\S]*?\.preset-grid\s*\{[^}]*overflow-x:\s*auto/i,
+      /@media\s*\(max-width:\s*1000px\)[\s\S]*?\.preset-grid\s*\{[^}]*overflow-x:\s*auto/i,
     )
     expect(style).toMatch(
       /@media\s*\(max-width:\s*560px\)[\s\S]*?\.document-preview\s*\{[^}]*padding:\s*var\(--preview-padding-mobile\)/i,
@@ -237,11 +237,41 @@ describe('Document Visual Language release candidate', () => {
     const style = visual.match(/<style scoped>([\s\S]*?)<\/style>/)?.[1] || ''
 
     expect(style).toMatch(
-      /button:focus-visible,[\s\S]*?input:focus-visible\s*\{[^}]*outline:\s*3px solid var\(--dvl-blue\)/i,
+      /button:focus-visible,[\s\S]*?input:focus-visible,[\s\S]*?select:focus-visible[\s\S]*?\{[^}]*outline:\s*3px solid #ffdc58[^}]*box-shadow:\s*0 0 0 6px #111827/i,
     )
     expect(style).toMatch(
-      /\.genre-button\.active\s*\{[^}]*border-color:\s*var\(--dvl-blue\)[^}]*box-shadow:[^}]*var\(--dvl-blue\)/i,
+      /\.genre-button\.active\s*\{[^}]*border-color:[^}]*var\(--dvl-blue\)[^}]*box-shadow:[^}]*var\(--dvl-blue\)/i,
     )
     expect(visual).not.toContain('class="compiler-output" aria-live="polite"')
+  })
+
+  it('labels local teaching terms separately from established design-system vocabulary', () => {
+    const en = readOrEmpty(paths.en)
+    const zh = readOrEmpty(paths.zh)
+    const visual = readOrEmpty(paths.visual)
+
+    expect(en).toMatch(/working umbrella term[^\n]+not a formal standard/i)
+    expect(zh).toMatch(/工作性总称[^\n]+并非正式标准/)
+    expect(visual).toContain('type PresetFamily = "theme" | "tradition" | "practice"')
+    expect(visual).toContain('modelStatus: "local-teaching-model"')
+    expect(visual).not.toMatch(/Working archetype|Style Archetype|Institutional Modern/)
+  })
+
+  it('keeps preset selection and the live preview in one responsive workspace', () => {
+    const visual = readOrEmpty(paths.visual)
+    const style = visual.match(/<style scoped>([\s\S]*?)<\/style>/)?.[1] || ''
+    const workspace = visual.match(/<div class="lab-workspace">([\s\S]*?)<div class="export-panel">/)?.[1] || ''
+
+    expect(workspace.indexOf('class="preset-library"')).toBeGreaterThanOrEqual(0)
+    expect(workspace.indexOf('class="preview-column"')).toBeGreaterThan(
+      workspace.indexOf('class="preset-library"'),
+    )
+    expect(workspace.indexOf('class="control-panel"')).toBeGreaterThan(
+      workspace.indexOf('class="preview-column"'),
+    )
+    expect(style).toMatch(/\.lab-workspace\s*\{[^}]*grid-template-areas:[^}]*"presets preview"[^}]*"controls preview"/i)
+    expect(style).toMatch(/\.preview-column\s*\{[^}]*position:\s*sticky[^}]*top:\s*5\.25rem/i)
+    expect(visual).toContain('aria-controls="dvl-live-preview"')
+    expect(visual).toContain('id="dvl-live-preview"')
   })
 })
