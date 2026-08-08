@@ -1,7 +1,7 @@
 {
   "version": 1,
   "date": "2026-08-08",
-  "generatedAt": "2026-08-08T00:22:55.986Z",
+  "generatedAt": "2026-08-08T04:36:25.559Z",
   "quality": {
     "status": "ok",
     "blockers": [],
@@ -10,25 +10,25 @@
     ]
   },
   "latestRun": {
-    "id": 203,
+    "id": 206,
     "status": "completed_with_warnings",
-    "startedAt": "2026-08-08 00:22:18",
-    "completedAt": "2026-08-08 00:22:55",
+    "startedAt": "2026-08-08 04:35:12",
+    "completedAt": "2026-08-08 04:36:24",
     "warnings": [
       "Top evidence is highly concentrated in one source."
     ],
     "sourceErrors": {}
   },
   "pulse": {
-    "text": "Radar's read across consumer-ai-apps, mobile-ai and coding-agents. Top themes: hall of fame ratio 💀; Robot powered by Qualcomm’s new AI chip dies mid-presentation; An Agentic IDE That Builds Itself.",
+    "text": "Radar's read across coding-agents, consumer-ai-apps and mobile-ai. Top themes: An Agentic IDE That Builds Itself; hall of fame ratio 💀; Robot powered by Qualcomm’s new AI chip dies mid-presentation.",
     "date": "2026-08-08",
-    "generatedAt": "2026-08-08 00:22:55",
+    "generatedAt": "2026-08-08 04:36:25",
     "topItemIds": [
+      1124,
       1122,
       868,
-      1124,
-      1121,
-      1116
+      987,
+      1121
     ],
     "takeaway": null,
     "sourceItemIds": []
@@ -73,7 +73,7 @@
   "stats": [
     {
       "source": "reddit",
-      "count": 376
+      "count": 380
     },
     {
       "source": "hackernews",
@@ -81,7 +81,7 @@
     },
     {
       "source": "grounding",
-      "count": 206
+      "count": 204
     },
     {
       "source": "github",
@@ -102,19 +102,51 @@
   ],
   "items": [
     {
+      "id": 1130,
+      "source": "reddit",
+      "url": "https://www.reddit.com/r/singularity/comments/1vhq27j/gemini/",
+      "title": "Gemini",
+      "summary": "You are sheltering off-brand AI, are you not? Gemini yet to score on that hot new Skynet hacking benchmark Lol in all seriousness, the \"it's just marketing\" thing is wild. It's not a good look to enterprise customers (their main source of revenue) to admit \"yeah we are so bad at security that we didn't not",
+      "aiSummary": "Mentions Gemini but is generic discussion; no clear on-device iOS/Android assistant approaches.",
+      "author": null,
+      "score": 67,
+      "relevance": 10,
+      "category": "ai",
+      "topicSlug": "mobile-ai",
+      "createdAt": "2026-08-08 04:33:49",
+      "lastSeenAt": "2026-08-08 04:33:50",
+      "publishedAt": "2026-08-07"
+    },
+    {
       "id": 1120,
       "source": "hackernews",
       "url": "https://www.reuters.com/business/retail-consumer/alibaba-plans-charge-big-users-its-next-open-source-ai-model-sources-say-2026-08-07/",
       "title": "Alibaba plans to charge big users of its next open-source AI model",
       "summary": "Alibaba plans to charge big users of its next open-source AI model",
-      "aiSummary": "Pricing for an open-source AI model, not a consumer AI app launch.",
+      "aiSummary": "Open-source model pricing; not a consumer AI app launch.",
       "author": "geox",
       "score": 16,
       "relevance": 10,
       "category": "ai",
       "topicSlug": "consumer-ai-apps",
       "createdAt": "2026-08-08 00:22:11",
-      "lastSeenAt": "2026-08-08 00:22:11",
+      "lastSeenAt": "2026-08-08 04:34:59",
+      "publishedAt": "2026-08-07"
+    },
+    {
+      "id": 1131,
+      "source": "reddit",
+      "url": "https://www.reddit.com/r/SideProject/comments/1viaijc/ive_been_a_developer_for_nearly_20_years_i_built/",
+      "title": "I’ve been a developer for nearly 20 years. I built and launched my latest app using 100% \"vibe coding\" with AI agents. Here is what I learned.",
+      "summary": "Hey everyone, I have nearly 20 years of software development experience, mostly focusing on js for a long time. Over the years, whenever freelance projects popped up, I’ve also built mobile apps with Swift and written backends in php etc. I’d like to think I know what it actually takes to ship a finished product, it’s not just about writing code; it’s understanding business requirements, adhering",
+      "aiSummary": "Mentions building and launching an app with AI agents, but lacks clear consumer AI app launch details in the snippet.",
+      "author": null,
+      "score": 0,
+      "relevance": 10,
+      "category": "ai",
+      "topicSlug": "consumer-ai-apps",
+      "createdAt": "2026-08-08 04:34:54",
+      "lastSeenAt": "2026-08-08 04:34:55",
       "publishedAt": "2026-08-07"
     },
     {
@@ -123,14 +155,14 @@
       "url": "https://www.sawyerhood.com/blog/an-agentic-ide-that-builds-itself",
       "title": "An Agentic IDE That Builds Itself",
       "summary": "An Agentic IDE That Builds Itself",
-      "aiSummary": "Directly about an agentic IDE and likely explains how it enables autonomous coding vs traditional workflows.",
+      "aiSummary": "Directly about an agentic IDE and likely explains how it enables autonomous coding (builds itself).",
       "author": "sawyerjhood",
-      "score": 94,
+      "score": 100,
       "relevance": 10,
       "category": "coding",
       "topicSlug": "coding-agents",
       "createdAt": "2026-08-08 00:22:46",
-      "lastSeenAt": "2026-08-08 00:22:47",
+      "lastSeenAt": "2026-08-08 04:36:07",
       "publishedAt": "2026-08-06"
     },
     {
@@ -139,14 +171,14 @@
       "url": "https://www.reddit.com/r/ChatGPT/comments/1vh911t/every_chatgpt_and_claude_benchmarks_be_like/",
       "title": "Every ChatGPT and Claude benchmarks be like",
       "summary": "And increasingly odd benchmarks with no explanation as to the benchmark or even units. Tweets are like \"WOWOWOW an AI first. ChatGPT 5.6o-mini high maxxed plus eclise Martian scored a perfect 5π amp-h How many companies has our new model hacked? █ 4 Claude ████████████ 5 ChatGPT I thought they were spoiler text, a lot of tapping later I realised they were side bar charts",
-      "aiSummary": "Benchmarks/complaints content, not about recent consumer AI app launches or features.",
+      "aiSummary": "Benchmarks discussion; no clear consumer AI app launch or specific new app claims.",
       "author": null,
       "score": 75,
       "relevance": 10,
       "category": "ai",
       "topicSlug": "consumer-ai-apps",
       "createdAt": "2026-08-08 00:22:12",
-      "lastSeenAt": "2026-08-08 00:22:12",
+      "lastSeenAt": "2026-08-08 04:34:58",
       "publishedAt": "2026-08-06"
     },
     {
@@ -155,14 +187,14 @@
       "url": "https://www.reddit.com/r/ClaudeAI/comments/1vgpyni/my_opus_5_experience_in_a_nutshell/",
       "title": "My Opus 5 experience in a nutshell.",
       "summary": "My Opus 5 experience in a nutshell.",
-      "aiSummary": "Personal experience post; snippet/title do not clearly define agentic IDEs or autonomous coding concepts.",
+      "aiSummary": "Mentions Opus 5 experience but snippet/title do not define or explain agentic IDEs or autonomous coding workflows.",
       "author": null,
       "score": 66,
       "relevance": 10,
       "category": "coding",
       "topicSlug": "coding-agents",
       "createdAt": "2026-08-08 00:22:50",
-      "lastSeenAt": "2026-08-08 00:22:50",
+      "lastSeenAt": "2026-08-08 04:36:13",
       "publishedAt": "2026-08-06"
     },
     {
@@ -203,14 +235,14 @@
       "url": "https://www.reddit.com/r/cofounderhunt/comments/1vgas00/built_and_sold_two_ai_apps_solo_20000_users/",
       "title": "Built and sold two AI apps solo (20,000+ users). Technical cofounder available.",
       "summary": "Niko here, AI product engineer from Belgrade. Spent the last three years shipping alone. Two consumer AI apps, both imagined, and engineered from zero, both acquired this year. Akademus AI (A study app: lecture transcription, OCR scanning, spaced repetition) passed 20,000 users. Fluente AI (spoken language practice with a live AI tutor) went from nothing to launched in about seven weeks. Along the",
-      "aiSummary": "Directly about launching consumer AI apps (Akademus AI, Fluente AI) with core features and target users; recent (2026-08-05) but from a Reddit post.",
+      "aiSummary": "Directly about launching consumer AI apps (Akademus AI, Fluente AI) with recent dates and what they claim to do.",
       "author": null,
       "score": 0,
       "relevance": 10,
       "category": "ai",
       "topicSlug": "consumer-ai-apps",
       "createdAt": "2026-08-06 13:35:32",
-      "lastSeenAt": "2026-08-06 13:35:33",
+      "lastSeenAt": "2026-08-08 04:34:53",
       "publishedAt": "2026-08-05"
     },
     {
@@ -219,14 +251,14 @@
       "url": "https://www.reddit.com/r/programming/comments/1vg555b/the_rust_programming_language_is_adopting_a_new/",
       "title": "The rust programming language is adopting a new contributing policy",
       "summary": "The rust programming language is adopting a new contributing policy",
-      "aiSummary": "Rust policy update; not about agentic IDEs or autonomous coding.",
+      "aiSummary": "Rust contributing policy; unrelated to agentic IDEs or autonomous coding workflows.",
       "author": null,
       "score": 36,
       "relevance": 6,
       "category": "coding",
       "topicSlug": "coding-agents",
       "createdAt": "2026-08-08 00:22:51",
-      "lastSeenAt": "2026-08-08 00:22:51",
+      "lastSeenAt": "2026-08-08 04:36:15",
       "publishedAt": "2026-08-05"
     },
     {
@@ -235,14 +267,14 @@
       "url": "https://jg.gg/2026/08/04/the-knowledge-chipper/",
       "title": "The Knowledge Chipper: An Agentic Coding Story",
       "summary": "The Knowledge Chipper: An Agentic Coding Story",
-      "aiSummary": "Agentic coding story; likely conceptually relevant to autonomous coding, though may be more narrative than definition.",
+      "aiSummary": "Agentic coding story suggests a clear explanation of agentic/autonomous coding behavior, likely with examples.",
       "author": "jgbbrd",
       "score": 67,
       "relevance": 10,
       "category": "coding",
       "topicSlug": "coding-agents",
       "createdAt": "2026-08-06 13:36:21",
-      "lastSeenAt": "2026-08-08 00:22:48",
+      "lastSeenAt": "2026-08-08 04:36:08",
       "publishedAt": "2026-08-04"
     },
     {
@@ -267,14 +299,14 @@
       "url": "https://www.reuters.com/business/retail-consumer/ai-data-centre-race-builds-1-trillion-lease-burden-big-tech-2026-08-04/",
       "title": "AI data-centre race builds $1T lease burden for Big Tech",
       "summary": "AI data-centre race builds $1T lease burden for Big Tech",
-      "aiSummary": "Data-center/lease burden coverage; no consumer AI app launch.",
+      "aiSummary": "Data-center infrastructure; no consumer AI app launch.",
       "author": "mapping365",
       "score": 0,
       "relevance": 10,
       "category": "ai",
       "topicSlug": "consumer-ai-apps",
       "createdAt": "2026-08-05 13:39:07",
-      "lastSeenAt": "2026-08-08 00:22:16",
+      "lastSeenAt": "2026-08-08 04:35:05",
       "publishedAt": "2026-08-04"
     },
     {
@@ -283,14 +315,14 @@
       "url": "https://www.reddit.com/r/LocalLLaMA/comments/1vfl525/kimi_k3_full_model_running_on_16x_gb10_cluster_at/",
       "title": "Kimi K3 full model running on 16x GB10 cluster at 20+tps",
       "summary": "Kimi K3 full model running on 16x GB10 cluster at 20+tps",
-      "aiSummary": "Hardware/performance post; not about agentic IDEs or autonomous coding workflows.",
+      "aiSummary": "Hardware/performance post; no agentic IDE definition or autonomous coding workflow comparison.",
       "author": null,
       "score": 57,
       "relevance": 6,
       "category": "coding",
       "topicSlug": "coding-agents",
       "createdAt": "2026-08-08 00:22:52",
-      "lastSeenAt": "2026-08-08 00:22:52",
+      "lastSeenAt": "2026-08-08 04:36:16",
       "publishedAt": "2026-08-04"
     },
     {
@@ -315,30 +347,14 @@
       "url": "https://www.reddit.com/r/ChatGPT/comments/1ve4mhu/hall_of_fame_ratio/",
       "title": "hall of fame ratio 💀",
       "summary": "“Some news” suggests that he ran out of illustrative examples of “family / kid stuff” after soccer and birthday Literally what is the point of all of the time and work spent developing AI if I still have to talk to my children? Gravity falls creator Alex Hirsch ?",
-      "aiSummary": "Irrelevant discussion with no consumer AI app launch details.",
+      "aiSummary": "Irrelevant discussion; no consumer AI app launch or product details.",
       "author": null,
       "score": 100,
       "relevance": 10,
       "category": "ai",
       "topicSlug": "consumer-ai-apps",
       "createdAt": "2026-08-08 00:22:12",
-      "lastSeenAt": "2026-08-08 00:22:12",
-      "publishedAt": "2026-08-03"
-    },
-    {
-      "id": 1096,
-      "source": "reddit",
-      "url": "https://www.reddit.com/r/ArtificialInteligence/comments/1vee8z9/german_court_rules_that_ai_music_company_suno/",
-      "title": "German court rules that AI music company Suno breached copyright",
-      "summary": "German court rules that AI music company Suno breached copyright",
-      "aiSummary": "About a legal ruling involving Suno, not a recent consumer AI app launch with features and target users.",
-      "author": null,
-      "score": 36,
-      "relevance": 10,
-      "category": "ai",
-      "topicSlug": "consumer-ai-apps",
-      "createdAt": "2026-08-05 13:38:10",
-      "lastSeenAt": "2026-08-08 00:22:11",
+      "lastSeenAt": "2026-08-08 04:35:00",
       "publishedAt": "2026-08-03"
     },
     {
@@ -358,19 +374,35 @@
       "publishedAt": "2026-08-03"
     },
     {
+      "id": 1096,
+      "source": "reddit",
+      "url": "https://www.reddit.com/r/ArtificialInteligence/comments/1vee8z9/german_court_rules_that_ai_music_company_suno/",
+      "title": "German court rules that AI music company Suno breached copyright",
+      "summary": "German court rules that AI music company Suno breached copyright",
+      "aiSummary": "AI music copyright case; no iOS/Android on-device AI assistant content.",
+      "author": null,
+      "score": 11,
+      "relevance": 10,
+      "category": "ai",
+      "topicSlug": "mobile-ai",
+      "createdAt": "2026-08-05 13:38:10",
+      "lastSeenAt": "2026-08-08 04:33:59",
+      "publishedAt": "2026-08-03"
+    },
+    {
       "id": 1112,
       "source": "reddit",
       "url": "https://www.reddit.com/r/macapps/comments/1veig4a/built_vehla_because_i_was_tired_of_having_15/",
       "title": "Built Vehla because I was tired of having 15+ utility apps open all day",
       "summary": "Hey r/macapps ! I’m one of the developers behind Vehla, a native macOS command center my small team has been building over the past year. I’m also the developer behind Lekh AI, Veroi, and several other privacy-first Apple apps. You can find my work here: https://vehla.app https://lekhai.app https://veroi.ai https://kailalabs.com I also contribute to open source: https://github.com/ibuhs LinkedIn:",
-      "aiSummary": "About launching a new macOS app (Vehla) and mentions other AI apps; somewhat relevant to AI app launches but not explicitly framed as consumer AI productivity apps.",
+      "aiSummary": "About building and launching a macOS app (Vehla) and related AI apps, but not clearly framed as consumer AI app launches in the snippet.",
       "author": null,
       "score": 0,
       "relevance": 10,
       "category": "ai",
       "topicSlug": "consumer-ai-apps",
       "createdAt": "2026-08-06 13:35:33",
-      "lastSeenAt": "2026-08-06 13:35:33",
+      "lastSeenAt": "2026-08-08 04:34:54",
       "publishedAt": "2026-08-03"
     },
     {
@@ -402,7 +434,7 @@
       "category": "coding",
       "topicSlug": "coding-agents",
       "createdAt": "2026-08-08 00:22:52",
-      "lastSeenAt": "2026-08-08 00:22:53",
+      "lastSeenAt": "2026-08-08 04:36:17",
       "publishedAt": "2026-08-03"
     },
     {
@@ -411,14 +443,14 @@
       "url": "https://www.reddit.com/r/LocalLLaMA/comments/1ve4uoe/daniel_han_of_unsloth_validates_qwen3827b_will/",
       "title": "Daniel Han of Unsloth validates Qwen3.8-27B will run only 17GB VRAM",
       "summary": "Daniel Han of Unsloth validates Qwen3.8-27B will run only 17GB VRAM",
-      "aiSummary": "VRAM validation for a model; no agentic IDE/autonomous coding concept.",
+      "aiSummary": "VRAM validation for a model; no agentic IDE/autonomous coding concept explanation.",
       "author": null,
       "score": 55,
       "relevance": 6,
       "category": "coding",
       "topicSlug": "coding-agents",
       "createdAt": "2026-08-08 00:22:53",
-      "lastSeenAt": "2026-08-08 00:22:53",
+      "lastSeenAt": "2026-08-08 04:36:19",
       "publishedAt": "2026-08-03"
     },
     {
@@ -467,6 +499,22 @@
       "topicSlug": "ai-wearables",
       "createdAt": "2026-08-03 13:35:48",
       "lastSeenAt": "2026-08-03 13:35:49",
+      "publishedAt": "2026-08-02"
+    },
+    {
+      "id": 267,
+      "source": "grounding",
+      "url": "https://www.simular.ai/alternatives/ai-assistant",
+      "title": "15 Best AI Assistants in 2026: We Tested Them All to Find the One That Actually Works",
+      "summary": "Actually completes tasks across multiple applications in one flow ... Novel or highly creative tasks have lower success rates (around 41%) compared to routine workflows (94%) Smaller brand recognition compared to ChatGPT or Gemini · Solopreneurs, founders, and executives who need a personal AI assistant that handles real computer work, not just answers questions. ... Pricing: Free (GPT-4o mini) | $20/month (Plus) | $200/month (Pro) Platform: Web, iOS, Android, macOS, Windows Our rating: 9.0/10",
+      "aiSummary": "General “AI assistants” list/testing; not grounded in on-device iOS/Android approaches and likely not factual primary-source oriented.",
+      "author": null,
+      "score": 0,
+      "relevance": 10,
+      "category": "ai",
+      "topicSlug": "mobile-ai",
+      "createdAt": "2026-06-18 13:31:57",
+      "lastSeenAt": "2026-08-08 04:33:55",
       "publishedAt": "2026-08-02"
     },
     {
@@ -587,14 +635,14 @@
       "url": "https://www.reddit.com/r/ChatGPT/comments/1vcvrjp/ai_girlfriend/",
       "title": "Ai girlfriend",
       "summary": "Ai girlfriend",
-      "aiSummary": "Reddit post titled only “Ai girlfriend” with no clear evidence of a consumer AI app launch or key features/target users.",
+      "aiSummary": "Too vague (just 'Ai girlfriend'); no evidence of a recent app launch or claims.",
       "author": null,
       "score": 51,
       "relevance": 10,
       "category": "ai",
       "topicSlug": "consumer-ai-apps",
       "createdAt": "2026-08-03 13:33:24",
-      "lastSeenAt": "2026-08-08 00:22:10",
+      "lastSeenAt": "2026-08-08 04:34:57",
       "publishedAt": "2026-08-01"
     },
     {
@@ -774,38 +822,6 @@
       "publishedAt": "2026-07-31"
     },
     {
-      "id": 966,
-      "source": "grounding",
-      "url": "https://www.pcmag.com/news/microsoft-confirms-plan-for-copilot-super-app-merging-its-ai-tools",
-      "title": "Microsoft Confirms Plan for Copilot 'Super App' Merging Its AI Tools | PCMag",
-      "summary": "During an earnings call, Nadella ... designed to span &quot;both consumer and commercial experiences.&quot; The new <strong>Copilot service will launch this quarter</strong>, according to Nadella, who called it a &quot;major step forward&quot; for Microsoft&#x27;s ...",
-      "aiSummary": "Confirms plan and timing for Copilot super app launch this quarter; clearly consumer-oriented and describes merging AI tools.",
-      "author": null,
-      "score": 0,
-      "relevance": 10,
-      "category": "ai",
-      "topicSlug": "consumer-ai-apps",
-      "createdAt": "2026-07-30 13:31:45",
-      "lastSeenAt": "2026-08-02 13:32:59",
-      "publishedAt": "2026-07-31"
-    },
-    {
-      "id": 741,
-      "source": "grounding",
-      "url": "https://www.lindy.ai/blog/best-ai-voice-assistants",
-      "title": "I Tested 20+ AI Voice Assistants, These Are the Top 12 for 2026 | Lindy",
-      "summary": "Multimodal capabilities: You can combine voice with text, images, or files to explore ideas and get detailed answers. Works across devices: <strong>ChatGPT Voice</strong> runs through the ChatGPT mobile app and works on both iOS and Android ...",
-      "aiSummary": "Voice assistant roundup with some cross-device/iOS+Android mention, but not clearly focused on on-device vs cloud execution approaches.",
-      "author": null,
-      "score": 0,
-      "relevance": 10,
-      "category": "ai",
-      "topicSlug": "mobile-ai",
-      "createdAt": "2026-07-19 13:32:43",
-      "lastSeenAt": "2026-08-08 00:21:30",
-      "publishedAt": "2026-07-31"
-    },
-    {
       "id": 255,
       "source": "grounding",
       "url": "https://www.lindy.ai/blog/ai-app-builder",
@@ -859,14 +875,14 @@
       "url": "https://www.reddit.com/r/ClaudeAI/comments/1vawcw3/i_had_an_idea_for_an_airgapped_file_transfer/",
       "title": "I had an idea for an airgapped file transfer mechanism",
       "summary": "So basically https://github.com/mohankumarelec/airgapped-qr-code-transfer Damn, there is always someone who beats you at your idea and that guy beat OP 2 years ago. I saw like 4 of those already, still pretty cool",
-      "aiSummary": "Airgapped file transfer idea; unrelated to agentic IDE definition/autonomous coding.",
+      "aiSummary": "Airgapped file transfer idea; only tangentially related to coding agents and not an agentic IDE definition.",
       "author": null,
       "score": 86,
       "relevance": 10,
       "category": "coding",
       "topicSlug": "coding-agents",
       "createdAt": "2026-08-01 13:32:47",
-      "lastSeenAt": "2026-08-08 00:22:54",
+      "lastSeenAt": "2026-08-08 04:36:14",
       "publishedAt": "2026-07-30"
     },
     {
@@ -875,14 +891,14 @@
       "url": "https://www.reuters.com/business/retail-consumer/metas-ai-splurge-lays-bare-its-compute-conundrum-2026-07-30/",
       "title": "Meta's AI spending reduces quarterly free cash flow by 91%",
       "summary": "Meta's AI spending reduces quarterly free cash flow by 91%",
-      "aiSummary": "Meta compute/cash flow discussion; no consumer AI app launch details.",
+      "aiSummary": "Meta compute/AI spending; no specific consumer AI app launch details.",
       "author": "johnbarron",
       "score": 6,
       "relevance": 10,
       "category": "ai",
       "topicSlug": "consumer-ai-apps",
       "createdAt": "2026-07-30 13:31:44",
-      "lastSeenAt": "2026-08-08 00:22:15",
+      "lastSeenAt": "2026-08-08 04:35:03",
       "publishedAt": "2026-07-30"
     },
     {
@@ -899,6 +915,22 @@
       "topicSlug": "mobile-ai",
       "createdAt": "2026-08-03 13:32:48",
       "lastSeenAt": "2026-08-06 13:34:00",
+      "publishedAt": "2026-07-30"
+    },
+    {
+      "id": 993,
+      "source": "grounding",
+      "url": "https://techcrunch.com/2026/07/30/meta-says-ai-is-making-it-easier-to-build-new-apps-and-more-are-coming/",
+      "title": "Meta says AI is making it easier to build new apps — and more are coming | TechCrunch",
+      "summary": "Investors didn’t follow up with company executives to ask more questions about the new apps Meta has in the works, as they were more concerned with AI spending and Meta’s growing enterprise ambitions. However, Zuckerberg suggested that people won’t have long to wait to see what’s next, saying the “new consumer products” were “releasing soon.”",
+      "aiSummary": "Mentions 'new consumer products' releasing soon, but not specific consumer AI app launches or concrete app claims.",
+      "author": null,
+      "score": 0,
+      "relevance": 10,
+      "category": "ai",
+      "topicSlug": "consumer-ai-apps",
+      "createdAt": "2026-08-02 13:33:00",
+      "lastSeenAt": "2026-08-08 04:34:56",
       "publishedAt": "2026-07-30"
     },
     {
@@ -1142,22 +1174,6 @@
       "publishedAt": "2026-07-29"
     },
     {
-      "id": 947,
-      "source": "grounding",
-      "url": "https://www.kimi.com/resources/agentic-coding-tools",
-      "title": "6 Agentic Coding Tools for Autonomous Coding in 2026",
-      "summary": "Agentic coding tools are <strong>AI-powered development assistants that can understand coding goals and complete multi-step programming tasks with less manual intervention</strong>. Unlike traditional code generators, they can plan workflows, write and modify ...",
-      "aiSummary": "Directly explains agentic coding tools for autonomous coding and contrasts with traditional code generators; strong conceptual fit.",
-      "author": null,
-      "score": 0,
-      "relevance": 10,
-      "category": "coding",
-      "topicSlug": "coding-agents",
-      "createdAt": "2026-07-28 13:34:03",
-      "lastSeenAt": "2026-08-03 13:33:54",
-      "publishedAt": "2026-07-29"
-    },
-    {
       "id": 264,
       "source": "grounding",
       "url": "https://github.com/openclaw/openclaw",
@@ -1238,22 +1254,6 @@
       "publishedAt": "2026-07-28"
     },
     {
-      "id": 953,
-      "source": "reddit",
-      "url": "https://www.reddit.com/r/ArtificialInteligence/comments/1v91hbm/ok_this_may_be_a_stupid_question_but_when_ai/",
-      "title": "Ok, this may be a stupid question, but when AI responds like this, is it treating it as a roleplay or does it actually believe all these animals areasking questions?",
-      "summary": "Ok, this may be a stupid question, but when AI responds like this, is it treating it as a roleplay or does it actually believe all these animals areasking questions?",
-      "aiSummary": "General question about AI behavior; not about consumer AI app launches.",
-      "author": null,
-      "score": 62,
-      "relevance": 10,
-      "category": "ai",
-      "topicSlug": "consumer-ai-apps",
-      "createdAt": "2026-07-29 13:33:20",
-      "lastSeenAt": "2026-08-08 00:22:13",
-      "publishedAt": "2026-07-28"
-    },
-    {
       "id": 960,
       "source": "reddit",
       "url": "https://www.reddit.com/r/ClaudeAI/comments/1v8o1jn/whoever_created_the_adhd_skill_god_bless_you/",
@@ -1267,6 +1267,22 @@
       "topicSlug": "coding-agents",
       "createdAt": "2026-07-29 13:34:00",
       "lastSeenAt": "2026-07-30 13:32:34",
+      "publishedAt": "2026-07-28"
+    },
+    {
+      "id": 953,
+      "source": "reddit",
+      "url": "https://www.reddit.com/r/ArtificialInteligence/comments/1v91hbm/ok_this_may_be_a_stupid_question_but_when_ai/",
+      "title": "Ok, this may be a stupid question, but when AI responds like this, is it treating it as a roleplay or does it actually believe all these animals areasking questions?",
+      "summary": "Ok, this may be a stupid question, but when AI responds like this, is it treating it as a roleplay or does it actually believe all these animals areasking questions?",
+      "aiSummary": "General question about AI behavior; no on-device assistant approaches or iOS/Android comparison.",
+      "author": null,
+      "score": 48,
+      "relevance": 10,
+      "category": "ai",
+      "topicSlug": "mobile-ai",
+      "createdAt": "2026-07-29 13:33:20",
+      "lastSeenAt": "2026-08-08 04:33:58",
       "publishedAt": "2026-07-28"
     },
     {
@@ -1355,14 +1371,14 @@
       "url": "https://github.com/QuesmaOrg/awesome-ai-tokenomics",
       "title": "Agentic coding costs in a nutshell: patterns, monitoring, metrics, optimization",
       "summary": "Agentic coding costs in a nutshell: patterns, monitoring, metrics, optimization",
-      "aiSummary": "Agentic coding costs repo is likely tangential to agentic IDE definition; title/snippet don’t match the IDE definition intent.",
+      "aiSummary": "Agentic coding costs/metrics; relevant to agentic coding but not specifically an agentic IDE definition or workflow comparison.",
       "author": "bkotrys",
       "score": 0,
       "relevance": 10,
       "category": "coding",
       "topicSlug": "coding-agents",
       "createdAt": "2026-07-27 13:35:33",
-      "lastSeenAt": "2026-08-03 13:33:57",
+      "lastSeenAt": "2026-08-08 04:36:12",
       "publishedAt": "2026-07-28"
     },
     {
@@ -1686,35 +1702,19 @@
       "publishedAt": "2026-07-27"
     },
     {
-      "id": 910,
-      "source": "reddit",
-      "url": "https://www.reddit.com/r/ArtificialInteligence/comments/1v7qzs7/model_routing_may_become_the_hidden_ai_safety/",
-      "title": "Model routing may become the hidden AI safety policy",
-      "summary": "Model routing may become the hidden AI safety policy",
-      "aiSummary": "Safety via routing; not personal AI agents memory/knowledge system concept.",
-      "author": null,
-      "score": 1,
-      "relevance": 10,
-      "category": "ai",
-      "topicSlug": "personal-ai-systems",
-      "createdAt": "2026-07-27 13:35:38",
-      "lastSeenAt": "2026-07-27 13:38:03",
-      "publishedAt": "2026-07-27"
-    },
-    {
       "id": 868,
       "source": "reddit",
       "url": "https://www.reddit.com/r/singularity/comments/1v60izq/robot_powered_by_qualcomms_new_ai_chip_dies/",
       "title": "Robot powered by Qualcomm’s new AI chip dies mid-presentation",
       "summary": "Love how he has no abllity to improvise so he continues with the presentation. \"This cutting edge design powered by our chip\". As his henchmen carry out the corpse their excellent chip powers. It is n Losing the will to live during a corporate presentation is the best predictor of true sentience . Dude came in with the body bag real quick",
-      "aiSummary": "Humorous/irrelevant post about a robot presentation; no clear on-device iOS/Android assistant discussion.",
+      "aiSummary": "About a robot/Qualcomm chip failure; not about iOS/Android on-device AI assistants.",
       "author": null,
       "score": 100,
       "relevance": 10,
       "category": "ai",
       "topicSlug": "mobile-ai",
       "createdAt": "2026-07-26 13:32:26",
-      "lastSeenAt": "2026-08-08 00:21:36",
+      "lastSeenAt": "2026-08-08 04:33:57",
       "publishedAt": "2026-07-25"
     }
   ],
