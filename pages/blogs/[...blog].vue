@@ -147,7 +147,7 @@ console.log(articles.value)
         <BlogMediaLinks :youtube="data.youtube" :audio="data.audio" />
       </div>
       <div
-        class="prose prose-pre:max-w-xs sm:prose-pre:max-w-full prose-sm sm:prose-base md:prose-lg prose-h1:hidden max-w-8xl mx-auto prose-zinc dark:prose-invert prose-img:rounded-2xl prose-img:shadow-lg prose-img:my-8 prose-img:mx-auto prose-img:w-full"
+        class="prose prose-pre:max-w-full prose-sm sm:prose-base md:prose-lg prose-h1:hidden max-w-8xl mx-auto prose-zinc dark:prose-invert prose-img:rounded-2xl prose-img:shadow-lg prose-img:my-8 prose-img:mx-auto prose-img:w-full"
       >
         <ContentRenderer v-if="articles" :value="articles">
           <template #empty>
