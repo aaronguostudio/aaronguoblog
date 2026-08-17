@@ -1,18 +1,19 @@
 ---
 title: DrumNext
-description: A local-first drum practice workspace for building rhythm, tracking habits, and keeping session tools close.
+description: The drummer's metronome that shows you’re getting better — trainer modes, guided timing workouts, and a practice dashboard that turns every session into visible progress.
 status: shipped
-tech: ['React', 'TypeScript', 'Vite', 'Supabase', 'Web MIDI']
+tech: ['React', 'TypeScript', 'Vite', 'PWA', 'Supabase']
 published: true
-order: 30
+featured: true
+order: 0
 layout: copy-media
 tone: drumnext
 logo: /projects/drum-next/drum-next-mark.png
 screenshots:
-  - /projects/drum-next/drum-next-timing-lab.png
+  - /projects/drum-next/drum-next-metronome.png
 mediaFit: cover
 mediaAspect: standard
-mediaLabel: Timing Lab
-imageAlt: DrumNext Timing Lab interface with guided practice paths for rhythm and tempo.
+mediaLabel: The drummer's metronome
+imageAlt: DrumNext's current metronome home screen with a 120 BPM dial, quick-start trainer modes, and practice controls.
 demo: https://www.drumnext.com
 ---

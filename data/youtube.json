@@ -7,9 +7,9 @@
         "description": "Code & Rhythm explores the harmony between logic and creativity.\n\nI’m Aaron — a product engineer, designer, and drummer.\nHere, we dive into AI systems, product strategy, and the rhythms that drive great work.\n\nCode builds the structure. Rhythm gives it soul.\n",
         "customUrl": "@drumnext",
         "thumbnail": "https://yt3.ggpht.com/SWdh-WpG7y2zncoqDb4WKIyph24NRRz8ep6XxJdAdU08zGSegMMfPuLvEo1zCVpGvVlsqVIgmw=s800-c-k-c0x00ffffff-no-rj",
-        "subscriberCount": 218,
+        "subscriberCount": 219,
         "videoCount": 126,
-        "viewCount": 99490,
+        "viewCount": 99670,
         "bannerUrl": null
       },
       "videos": [
@@ -41,7 +41,7 @@
           "duration": "PT8M52S",
           "durationSeconds": 532,
           "isShort": false,
-          "viewCount": 75,
+          "viewCount": 76,
           "likeCount": 8,
           "commentCount": 0
         }
@@ -59,7 +59,7 @@
           "duration": "PT31S",
           "durationSeconds": 31,
           "isShort": true,
-          "viewCount": 274,
+          "viewCount": 284,
           "likeCount": 4,
           "commentCount": 0
         },
@@ -75,7 +75,7 @@
           "duration": "PT13S",
           "durationSeconds": 13,
           "isShort": true,
-          "viewCount": 1932,
+          "viewCount": 1941,
           "likeCount": 16,
           "commentCount": 0
         },
@@ -91,7 +91,7 @@
           "duration": "PT33S",
           "durationSeconds": 33,
           "isShort": true,
-          "viewCount": 1157,
+          "viewCount": 1162,
           "likeCount": 17,
           "commentCount": 1
         },
@@ -123,7 +123,7 @@
           "duration": "PT16S",
           "durationSeconds": 16,
           "isShort": true,
-          "viewCount": 51,
+          "viewCount": 52,
           "likeCount": 7,
           "commentCount": 1
         },
@@ -283,7 +283,7 @@
           "duration": "PT17S",
           "durationSeconds": 17,
           "isShort": true,
-          "viewCount": 1616,
+          "viewCount": 1618,
           "likeCount": 25,
           "commentCount": 0
         },
@@ -299,7 +299,7 @@
           "duration": "PT22S",
           "durationSeconds": 22,
           "isShort": true,
-          "viewCount": 817,
+          "viewCount": 818,
           "likeCount": 11,
           "commentCount": 2
         },
@@ -315,7 +315,7 @@
           "duration": "PT53S",
           "durationSeconds": 53,
           "isShort": true,
-          "viewCount": 584,
+          "viewCount": 586,
           "likeCount": 9,
           "commentCount": 0
         },
@@ -331,7 +331,7 @@
           "duration": "PT41S",
           "durationSeconds": 41,
           "isShort": true,
-          "viewCount": 1144,
+          "viewCount": 1149,
           "likeCount": 33,
           "commentCount": 0
         },
@@ -395,7 +395,7 @@
           "duration": "PT33S",
           "durationSeconds": 33,
           "isShort": true,
-          "viewCount": 716,
+          "viewCount": 717,
           "likeCount": 15,
           "commentCount": 4
         },
@@ -411,7 +411,7 @@
           "duration": "PT51S",
           "durationSeconds": 51,
           "isShort": true,
-          "viewCount": 724,
+          "viewCount": 726,
           "likeCount": 9,
           "commentCount": 4
         },
@@ -427,7 +427,7 @@
           "duration": "PT35S",
           "durationSeconds": 35,
           "isShort": true,
-          "viewCount": 1043,
+          "viewCount": 1044,
           "likeCount": 13,
           "commentCount": 2
         },
@@ -443,7 +443,7 @@
           "duration": "PT36S",
           "durationSeconds": 36,
           "isShort": true,
-          "viewCount": 1001,
+          "viewCount": 1003,
           "likeCount": 15,
           "commentCount": 1
         },
@@ -667,7 +667,7 @@
           "duration": "PT23S",
           "durationSeconds": 23,
           "isShort": true,
-          "viewCount": 1491,
+          "viewCount": 1492,
           "likeCount": 11,
           "commentCount": 0
         },
@@ -764,7 +764,7 @@
           "durationSeconds": 15,
           "isShort": true,
           "viewCount": 962,
-          "likeCount": 10,
+          "likeCount": 9,
           "commentCount": 1
         },
         {
@@ -779,7 +779,7 @@
           "duration": "PT20S",
           "durationSeconds": 20,
           "isShort": true,
-          "viewCount": 497,
+          "viewCount": 510,
           "likeCount": 10,
           "commentCount": 0
         },
@@ -811,8 +811,8 @@
           "duration": "PT7S",
           "durationSeconds": 7,
           "isShort": true,
-          "viewCount": 3723,
-          "likeCount": 33,
+          "viewCount": 3794,
+          "likeCount": 34,
           "commentCount": 3
         }
       ],
@@ -829,12 +829,44 @@
         "description": "AI-native builder. Human-first thinker. Product thinking, AI-native systems, and lessons from the trenches. Real notes from a builder who ships daily.\n\nWebsite: aaronguo.com\n",
         "customUrl": "@ai-native-builder",
         "thumbnail": "https://yt3.ggpht.com/-Ysz0GWR4v56xMiXznz2_2buYJnkeTdXUGM643yrBm8xi2Ix9EC2J3S-LTr_HAHoMjrGTkLj=s800-c-k-c0x00ffffff-no-rj",
-        "subscriberCount": 17,
-        "videoCount": 10,
-        "viewCount": 432,
+        "subscriberCount": 59,
+        "videoCount": 12,
+        "viewCount": 694,
         "bannerUrl": null
       },
       "videos": [
+        {
+          "id": "5vEEBhbfUWw",
+          "title": "What I Learned From DeepSeek's Harness",
+          "description": "The same AI model ran thirty real work tasks through eight different harnesses — task success swung from 46.7% to 66.7%, and ...",
+          "thumbnail": "https://i.ytimg.com/vi/5vEEBhbfUWw/maxresdefault.jpg",
+          "thumbnailWidth": 1280,
+          "thumbnailHeight": 720,
+          "thumbnailQuality": "maxres",
+          "publishedAt": "2026-08-16T05:55:58Z",
+          "duration": "PT10M7S",
+          "durationSeconds": 607,
+          "isShort": false,
+          "viewCount": 2047,
+          "likeCount": 54,
+          "commentCount": 7
+        },
+        {
+          "id": "S-cNWJhWaTU",
+          "title": "Should You Read AI-Generated Code?",
+          "description": "Mitchell Hashimoto reads the code produced by his AI agents. Robert C. Martin says he does not read the implementation at all.",
+          "thumbnail": "https://i.ytimg.com/vi/S-cNWJhWaTU/maxresdefault.jpg",
+          "thumbnailWidth": 1280,
+          "thumbnailHeight": 720,
+          "thumbnailQuality": "maxres",
+          "publishedAt": "2026-08-04T04:52:13Z",
+          "duration": "PT9M48S",
+          "durationSeconds": 588,
+          "isShort": false,
+          "viewCount": 26,
+          "likeCount": 5,
+          "commentCount": 0
+        },
         {
           "id": "BhwSZpb6ag8",
           "title": "Expensive Tokens Won't Save Enterprise AI",
@@ -847,7 +879,7 @@
           "duration": "PT7M36S",
           "durationSeconds": 456,
           "isShort": false,
-          "viewCount": 13,
+          "viewCount": 87,
           "likeCount": 5,
           "commentCount": 0
         },
@@ -863,7 +895,7 @@
           "duration": "PT8M29S",
           "durationSeconds": 509,
           "isShort": false,
-          "viewCount": 19,
+          "viewCount": 34,
           "likeCount": 4,
           "commentCount": 0
         },
@@ -879,7 +911,7 @@
           "duration": "PT7M30S",
           "durationSeconds": 450,
           "isShort": false,
-          "viewCount": 30,
+          "viewCount": 37,
           "likeCount": 3,
           "commentCount": 1
         },
@@ -895,7 +927,7 @@
           "duration": "PT6M3S",
           "durationSeconds": 363,
           "isShort": false,
-          "viewCount": 42,
+          "viewCount": 45,
           "likeCount": 1,
           "commentCount": 1
         },
@@ -911,8 +943,8 @@
           "duration": "PT2M50S",
           "durationSeconds": 170,
           "isShort": false,
-          "viewCount": 2,
-          "likeCount": 0,
+          "viewCount": 6,
+          "likeCount": 1,
           "commentCount": 0
         },
         {
@@ -927,7 +959,7 @@
           "duration": "PT9M54S",
           "durationSeconds": 594,
           "isShort": false,
-          "viewCount": 46,
+          "viewCount": 51,
           "likeCount": 5,
           "commentCount": 0
         },
@@ -943,8 +975,8 @@
           "duration": "PT19M13S",
           "durationSeconds": 1153,
           "isShort": false,
-          "viewCount": 117,
-          "likeCount": 11,
+          "viewCount": 131,
+          "likeCount": 13,
           "commentCount": 2
         },
         {
@@ -959,7 +991,7 @@
           "duration": "PT8M51S",
           "durationSeconds": 531,
           "isShort": false,
-          "viewCount": 61,
+          "viewCount": 65,
           "likeCount": 6,
           "commentCount": 0
         },
@@ -975,7 +1007,7 @@
           "duration": "PT8M42S",
           "durationSeconds": 522,
           "isShort": false,
-          "viewCount": 61,
+          "viewCount": 64,
           "likeCount": 7,
           "commentCount": 0
         },
@@ -991,15 +1023,15 @@
           "duration": "PT8M57S",
           "durationSeconds": 537,
           "isShort": false,
-          "viewCount": 54,
+          "viewCount": 57,
           "likeCount": 7,
           "commentCount": 0
         }
       ],
       "shorts": [],
       "stats": {
-        "totalVideos": 10,
-        "regularVideosCount": 10,
+        "totalVideos": 12,
+        "regularVideosCount": 12,
         "shortsCount": 0
       }
     },
@@ -1010,12 +1042,172 @@
         "description": "",
         "customUrl": "@visual-and-sound",
         "thumbnail": "https://yt3.ggpht.com/v8UM-QMMgWUGiVzdg3H4fw6TJcqcPdX11HaU1UkpnJIrfJgTsxCmGVQNBSYeCsCS43W_DZJepg=s800-c-k-c0x00ffffff-no-rj",
-        "subscriberCount": 39,
-        "videoCount": 38,
-        "viewCount": 17861,
+        "subscriberCount": 46,
+        "videoCount": 47,
+        "viewCount": 18810,
         "bannerUrl": null
       },
       "videos": [
+        {
+          "id": "8Ol3X-LzGWw",
+          "title": "Transit Blue — 10 Minutes of Nocturnal Focus",
+          "description": "Transit Blue — 10 Minutes of Nocturnal Focus Original instrumental music and a slow landscape photo essay for reading, quiet ...",
+          "thumbnail": "https://i.ytimg.com/vi/8Ol3X-LzGWw/maxresdefault.jpg",
+          "thumbnailWidth": 1280,
+          "thumbnailHeight": 720,
+          "thumbnailQuality": "maxres",
+          "publishedAt": "2026-08-17T13:00:06Z",
+          "duration": "PT10M1S",
+          "durationSeconds": 601,
+          "isShort": false,
+          "viewCount": 8,
+          "likeCount": 4,
+          "commentCount": 0
+        },
+        {
+          "id": "DY3FA7L-ymQ",
+          "title": "Field Notes — 10 Minutes of Morning Focus",
+          "description": "Field Notes — 10 Minutes of Morning Focus Original instrumental music and a slow landscape photo essay for reading, quiet work ...",
+          "thumbnail": "https://i.ytimg.com/vi/DY3FA7L-ymQ/maxresdefault.jpg",
+          "thumbnailWidth": 1280,
+          "thumbnailHeight": 720,
+          "thumbnailQuality": "maxres",
+          "publishedAt": "2026-08-10T13:00:37Z",
+          "duration": "PT10M1S",
+          "durationSeconds": 601,
+          "isShort": false,
+          "viewCount": 33,
+          "likeCount": 4,
+          "commentCount": 0
+        },
+        {
+          "id": "bY0n1WjVxWg",
+          "title": "Frost Lines — 10 Minutes of Winter Reading",
+          "description": "Frost Lines — 10 Minutes of Winter Reading Original instrumental music and a slow landscape photo essay for reading, quiet ...",
+          "thumbnail": "https://i.ytimg.com/vi/bY0n1WjVxWg/maxresdefault.jpg",
+          "thumbnailWidth": 1280,
+          "thumbnailHeight": 720,
+          "thumbnailQuality": "maxres",
+          "publishedAt": "2026-08-03T13:00:05Z",
+          "duration": "PT10M1S",
+          "durationSeconds": 601,
+          "isShort": false,
+          "viewCount": 22,
+          "likeCount": 5,
+          "commentCount": 0
+        },
+        {
+          "id": "dV4T73Drh0Y",
+          "title": "Liminal Greenhouse — 10 Minutes of Gentle Botanical Focus",
+          "description": "Liminal Greenhouse — 10 Minutes of Gentle Botanical Focus Original instrumental music and a slow landscape photo essay for ...",
+          "thumbnail": "https://i.ytimg.com/vi/dV4T73Drh0Y/maxresdefault.jpg",
+          "thumbnailWidth": 1280,
+          "thumbnailHeight": 720,
+          "thumbnailQuality": "maxres",
+          "publishedAt": "2026-07-27T13:00:28Z",
+          "duration": "PT10M1S",
+          "durationSeconds": 601,
+          "isShort": false,
+          "viewCount": 22,
+          "likeCount": 3,
+          "commentCount": 0
+        },
+        {
+          "id": "rz1SPU-pKx8",
+          "title": "Saffron Silence — 10 Minutes of Desert Focus",
+          "description": "Saffron Silence — 10 Minutes of Desert Focus Original instrumental music and a slow landscape photo essay for reading, quiet ...",
+          "thumbnail": "https://i.ytimg.com/vi/rz1SPU-pKx8/maxresdefault.jpg",
+          "thumbnailWidth": 1280,
+          "thumbnailHeight": 720,
+          "thumbnailQuality": "maxres",
+          "publishedAt": "2026-07-24T12:35:26Z",
+          "duration": "PT10M1S",
+          "durationSeconds": 601,
+          "isShort": false,
+          "viewCount": 25,
+          "likeCount": 5,
+          "commentCount": 0
+        },
+        {
+          "id": "BDaWRf8LHnQ",
+          "title": "Archive of Light — 10 Minutes of Architectural Stillness",
+          "description": "Archive of Light — 10 Minutes of Architectural Stillness Original instrumental music and a slow landscape photo essay for reading, ...",
+          "thumbnail": "https://i.ytimg.com/vi/BDaWRf8LHnQ/maxresdefault.jpg",
+          "thumbnailWidth": 1280,
+          "thumbnailHeight": 720,
+          "thumbnailQuality": "maxres",
+          "publishedAt": "2026-07-20T13:00:26Z",
+          "duration": "PT10M1S",
+          "durationSeconds": 601,
+          "isShort": false,
+          "viewCount": 60,
+          "likeCount": 4,
+          "commentCount": 1
+        },
+        {
+          "id": "ytvdrDgTuHI",
+          "title": "Signal Windows — 10 Minutes of Quiet Electronic Focus",
+          "description": "Signal Windows — After-Hours City Study Ten minutes of original instrumental music and quiet city photography for deep work, ...",
+          "thumbnail": "https://i.ytimg.com/vi/ytvdrDgTuHI/maxresdefault.jpg",
+          "thumbnailWidth": 1280,
+          "thumbnailHeight": 720,
+          "thumbnailQuality": "maxres",
+          "publishedAt": "2026-07-18T03:37:10Z",
+          "duration": "PT10M1S",
+          "durationSeconds": 601,
+          "isShort": false,
+          "viewCount": 55,
+          "likeCount": 5,
+          "commentCount": 0
+        },
+        {
+          "id": "BCrn3jJgMTQ",
+          "title": "Prism Breaks — 10 Minutes of Broken-Beat Focus Music",
+          "description": "An original 10-minute broken-beat focus session for studying, coding, reading, and deep work. Syncopated low-end, airy synthetic ...",
+          "thumbnail": "https://i.ytimg.com/vi/BCrn3jJgMTQ/maxresdefault.jpg",
+          "thumbnailWidth": 1280,
+          "thumbnailHeight": 720,
+          "thumbnailQuality": "maxres",
+          "publishedAt": "2026-07-15T13:00:16Z",
+          "duration": "PT10M1S",
+          "durationSeconds": 601,
+          "isShort": false,
+          "viewCount": 94,
+          "likeCount": 6,
+          "commentCount": 0
+        },
+        {
+          "id": "U109c4KjUn8",
+          "title": "Mosslight — 10 Minutes of Gentle Guitar & Slow Landscapes",
+          "description": "Mosslight — A Slow Landscape Study Ten minutes of original fingerpicked guitar and quiet landscapes for reading, deep work, ...",
+          "thumbnail": "https://i.ytimg.com/vi/U109c4KjUn8/maxresdefault.jpg",
+          "thumbnailWidth": 1280,
+          "thumbnailHeight": 720,
+          "thumbnailQuality": "maxres",
+          "publishedAt": "2026-07-14T12:49:15Z",
+          "duration": "PT10M1S",
+          "durationSeconds": 601,
+          "isShort": false,
+          "viewCount": 55,
+          "likeCount": 3,
+          "commentCount": 0
+        },
+        {
+          "id": "m0hV3wmApgA",
+          "title": "Luminous Tides — 10 Minutes of Neon Focus Music",
+          "description": "A 10-minute original visual study for late-night focus, reading, programming, and deep work. Warm Rhodes, a soft analog pulse, ...",
+          "thumbnail": "https://i.ytimg.com/vi/m0hV3wmApgA/maxresdefault.jpg",
+          "thumbnailWidth": 1280,
+          "thumbnailHeight": 720,
+          "thumbnailQuality": "maxres",
+          "publishedAt": "2026-07-13T01:39:19Z",
+          "duration": "PT10M1S",
+          "durationSeconds": 601,
+          "isShort": false,
+          "viewCount": 86,
+          "likeCount": 5,
+          "commentCount": 0
+        },
         {
           "id": "rAoIKYKuCbo",
           "title": "Quiet Forms — 10-Minute Study Music for Deep Work",
@@ -1028,8 +1220,8 @@
           "duration": "PT10M1S",
           "durationSeconds": 601,
           "isShort": false,
-          "viewCount": 4,
-          "likeCount": 3,
+          "viewCount": 508,
+          "likeCount": 9,
           "commentCount": 0
         }
       ],
@@ -1046,7 +1238,7 @@
           "duration": "PT16S",
           "durationSeconds": 16,
           "isShort": true,
-          "viewCount": 27,
+          "viewCount": 32,
           "likeCount": 4,
           "commentCount": 0
         },
@@ -1062,7 +1254,7 @@
           "duration": "PT31S",
           "durationSeconds": 31,
           "isShort": true,
-          "viewCount": 25,
+          "viewCount": 27,
           "likeCount": 5,
           "commentCount": 0
         },
@@ -1142,7 +1334,7 @@
           "duration": "PT16S",
           "durationSeconds": 16,
           "isShort": true,
-          "viewCount": 54,
+          "viewCount": 55,
           "likeCount": 6,
           "commentCount": 3
         },
@@ -1206,7 +1398,7 @@
           "duration": "PT14S",
           "durationSeconds": 14,
           "isShort": true,
-          "viewCount": 24,
+          "viewCount": 25,
           "likeCount": 6,
           "commentCount": 0
         },
@@ -1222,7 +1414,7 @@
           "duration": "PT16S",
           "durationSeconds": 16,
           "isShort": true,
-          "viewCount": 31,
+          "viewCount": 33,
           "likeCount": 6,
           "commentCount": 0
         },
@@ -1254,7 +1446,7 @@
           "duration": "PT16S",
           "durationSeconds": 16,
           "isShort": true,
-          "viewCount": 22,
+          "viewCount": 23,
           "likeCount": 6,
           "commentCount": 0
         },
@@ -1430,7 +1622,7 @@
           "duration": "PT16S",
           "durationSeconds": 16,
           "isShort": true,
-          "viewCount": 1497,
+          "viewCount": 1499,
           "likeCount": 22,
           "commentCount": 2
         },
@@ -1478,7 +1670,7 @@
           "duration": "PT16S",
           "durationSeconds": 16,
           "isShort": true,
-          "viewCount": 1965,
+          "viewCount": 1967,
           "likeCount": 36,
           "commentCount": 1
         },
@@ -1622,19 +1814,19 @@
           "duration": "PT6S",
           "durationSeconds": 6,
           "isShort": true,
-          "viewCount": 241,
+          "viewCount": 243,
           "likeCount": 6,
           "commentCount": 0
         }
       ],
       "stats": {
-        "totalVideos": 38,
-        "regularVideosCount": 1,
+        "totalVideos": 48,
+        "regularVideosCount": 11,
         "shortsCount": 37
       }
     }
   },
   "metadata": {
-    "fetchedAt": "2026-07-12T16:40:25.036Z"
+    "fetchedAt": "2026-08-17T16:29:51.117Z"
   }
 }

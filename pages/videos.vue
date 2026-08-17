@@ -96,6 +96,13 @@ const activeChannelDescription = computed(() => t(activeChannel.value.descriptio
 const featuredVideo = computed(
   () => activeChannelData.value?.videos[0] || activeChannelData.value?.shorts[0] || null,
 )
+const recentVideos = computed(() => {
+  const videos = activeChannelData.value?.videos || []
+
+  return featuredVideo.value && videos[0]?.id === featuredVideo.value.id
+    ? videos.slice(1, 7)
+    : videos.slice(0, 6)
+})
 
 const channelStats = computed(() => {
   const channel = activeChannelData.value?.channel
@@ -302,21 +309,21 @@ const getVideoUrl = (videoId: string) => `https://www.youtube.com/watch?v=${vide
         </a>
       </section>
 
-      <section v-if="activeChannelData.videos.length > 0" class="border-b border-[var(--line-subtle)] py-12">
+      <section v-if="recentVideos.length > 0" class="border-b border-[var(--line-subtle)] py-12">
         <div class="flex items-end justify-between gap-6">
           <div>
             <p class="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
               {{ t('videos.latestRelease') }}
             </p>
             <h2 class="mt-3 text-2xl font-semibold text-foreground sm:text-3xl">
-              {{ t('drum.latestVideos') }}
+              {{ t('videos.moreReleases') }}
             </h2>
           </div>
         </div>
 
         <div class="mt-7 grid gap-x-5 gap-y-8 md:grid-cols-2 xl:grid-cols-3">
           <a
-            v-for="video in activeChannelData.videos.slice(0, 6)"
+            v-for="video in recentVideos"
             :key="video.id"
             :href="getVideoUrl(video.id)"
             target="_blank"

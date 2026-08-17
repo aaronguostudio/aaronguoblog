@@ -60,32 +60,33 @@ describe('Build projects content', () => {
     )
   })
 
-  it('publishes DrumNext in both locales with its public practice-workspace positioning', () => {
+  it('publishes DrumNext first in both locales with its current practice-product positioning', () => {
     const english = readProject('en', 'drum-next')
     const chinese = readProject('zh', 'drum-next')
 
     expect(english).toContain('title: DrumNext')
     expect(english).toContain(
-      'description: A local-first drum practice workspace for building rhythm, tracking habits, and keeping session tools close.',
+      "description: The drummer's metronome that shows you’re getting better — trainer modes, guided timing workouts, and a practice dashboard that turns every session into visible progress.",
     )
     expect(english).toContain('published: true')
-    expect(english).toContain('order: 30')
+    expect(english).toContain('featured: true')
+    expect(english).toContain('order: 0')
     expect(english).toContain('layout: copy-media')
     expect(english).toContain('tone: drumnext')
-    expect(english).toContain(
-      "tech: ['React', 'TypeScript', 'Vite', 'Supabase', 'Web MIDI']",
-    )
+    expect(english).toContain("tech: ['React', 'TypeScript', 'Vite', 'PWA', 'Supabase']")
     expect(english).toContain('logo: /projects/drum-next/drum-next-mark.png')
     expect(english).toContain(
-      '  - /projects/drum-next/drum-next-timing-lab.png',
+      '  - /projects/drum-next/drum-next-metronome.png',
     )
     expect(english).toContain('demo: https://www.drumnext.com')
 
     expect(chinese).toContain('title: DrumNext')
     expect(chinese).toContain('published: true')
-    expect(chinese).toContain('order: 30')
+    expect(chinese).toContain('featured: true')
+    expect(chinese).toContain('order: 0')
     expect(chinese).toContain('layout: copy-media')
     expect(chinese).toContain('tone: drumnext')
+    expect(chinese).toContain("tech: ['React', 'TypeScript', 'Vite', 'PWA', 'Supabase']")
     expect(chinese).toContain('demo: https://www.drumnext.com')
   })
 
@@ -115,7 +116,7 @@ describe('Build projects content', () => {
     ).toBe(true)
     expect(
       existsSync(
-        join(root, 'public', 'projects', 'drum-next', 'drum-next-timing-lab.png'),
+        join(root, 'public', 'projects', 'drum-next', 'drum-next-metronome.png'),
       ),
     ).toBe(true)
   })

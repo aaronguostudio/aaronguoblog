@@ -60,9 +60,11 @@ describe('editorial page themes', () => {
     const fetcher = read('scripts', 'fetch-youtube-data.js')
 
     expect(page).toContain('const featuredVideo')
+    expect(page).toContain('const recentVideos')
     expect(page).toContain("t('videos.channelLineup')")
     expect(page).toContain("t('videos.selectedChannel')")
-    expect(page).toContain('activeChannelData.videos.slice(0, 6)')
+    expect(page).toContain("t('videos.moreReleases')")
+    expect(page).toContain('v-for="video in recentVideos"')
     expect(page).toContain('activeChannelData.shorts.slice(0, 12)')
     expect(page).toContain('youtubeChannels.find')
     expect(page).toContain('lg:max-w-[36rem]')
