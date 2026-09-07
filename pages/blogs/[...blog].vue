@@ -73,7 +73,7 @@ const socialImageUrl = computed(() =>
   new URL(data.value.ogImage || data.value.image || '/blogs-img/blog.jpg', seoData.mySite).toString(),
 )
 
-useHead({
+useHead(() => ({
   title: data.value.title || '',
   meta: [
     { name: 'description', content: data.value.description },
@@ -126,7 +126,7 @@ useHead({
       href: canonicalUrl.value,
     },
   ],
-})
+}))
 
 console.log(articles.value)
 </script>
