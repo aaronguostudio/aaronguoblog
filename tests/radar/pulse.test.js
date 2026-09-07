@@ -27,6 +27,20 @@ describe('generateRadarPulse', () => {
     })
   })
 
+  it('excludes fallback local-score items from pulse picks', () => {
+    const pulse = generateRadarPulse({
+      date: '2026-06-14',
+      items: [
+        { id: 31, topicSlug: 'ai-wearables', source: 'github', title: 'Fallback-ranked item', aiSummary: 'fallback-local-score', relevance: 10, score: 900 },
+        { id: 32, topicSlug: 'ai-wearables', source: 'reddit', title: 'Publishable wearable signal', aiSummary: 'Source-backed summary', relevance: 8, score: 100 },
+      ],
+    })
+
+    expect(pulse.topItemIds).toEqual([32])
+    expect(pulse.pulseText).toContain('Publishable wearable signal')
+    expect(pulse.pulseText).not.toContain('Fallback-ranked item')
+  })
+
   it('filters missing IDs and keeps fallback text clean for missing topics and titles', () => {
     const pulse = generateRadarPulse({
       date: '2026-06-14',

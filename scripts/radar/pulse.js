@@ -1,5 +1,5 @@
 export function generateRadarPulse({ date, items }) {
-  const validItems = items.filter(item => hasNonEmptyId(item.id))
+  const validItems = items.filter(item => hasNonEmptyId(item.id) && !isFallbackLocalScore(item))
   const sorted = [...validItems].sort((a, b) => {
     const relevanceDiff = Number(b.relevance || 0) - Number(a.relevance || 0)
     if (relevanceDiff !== 0) return relevanceDiff
@@ -57,6 +57,10 @@ export function generateRadarPulse({ date, items }) {
 
 function hasNonEmptyId(id) {
   return id !== null && id !== undefined && String(id).trim() !== ''
+}
+
+function isFallbackLocalScore(item) {
+  return /fallback-local-score/i.test(String(item?.aiSummary || ''))
 }
 
 function firstNonEmptyText(...values) {
