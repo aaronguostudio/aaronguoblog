@@ -18,6 +18,7 @@
     "lint:fix": "eslint . --fix",
     "format": "prettier --check ./",
     "format:fix": "prettier --write ./",
+    "verify:blog-catalog": "node scripts/verify-blog-catalog.mjs",
     "radar:topics": "node scripts/radar/cli.js topics",
     "radar:run": "node scripts/radar/cli.js run",
     "radar:conclude": "node scripts/radar/cli.js conclude",

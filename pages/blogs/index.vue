@@ -12,6 +12,10 @@ import { useSeo } from '~/utils/seo'
 const { t, locale } = useI18n()
 const route = useRoute()
 
+// Nuxt Content applies a default query cap. Keep this above the complete
+// published archive so pagination can operate on the full catalog.
+const BLOG_ARCHIVE_QUERY_LIMIT = 1000
+
 /**
  * Pagination and search state
  */
@@ -63,7 +67,10 @@ onMounted(() => {
  * Using a static key to ensure it's pre-rendered during build
  */
 const { data } = await useAsyncData('all-blog-posts-page', () =>
-  Promise.all([queryCollection('en').all(), queryCollection('zh').all()]),
+  Promise.all([
+    queryCollection('en').limit(BLOG_ARCHIVE_QUERY_LIMIT).all(),
+    queryCollection('zh').limit(BLOG_ARCHIVE_QUERY_LIMIT).all(),
+  ]),
 )
 
 /**
