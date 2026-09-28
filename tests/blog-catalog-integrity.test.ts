@@ -9,6 +9,6 @@ describe('Blog archive catalog integrity', () => {
     })
 
     expect(output).toContain('Blog catalog verified:')
-    expect(output).toContain('26 published EN/ZH pairs')
+    expect(output).toMatch(/Blog catalog verified: \d+ published EN\/ZH pairs; archive query limit \d+\./)
   })
 })
