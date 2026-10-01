@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { useI18n } from 'vue-i18n'
-import { sortByDate, formatDate } from '~/utils/date'
+import { formatDate } from '~/utils/date'
+import { sortBlogPosts } from '~/utils/blog-order'
 import { getBlogCategories, getBlogCategoryLabel } from '~/utils/blog-taxonomy'
 import { extractBlogPostMeta } from '~/utils/type-guards'
 import type { StaticRadarSnapshot } from '~/composables/useStaticRadarSnapshot'
@@ -35,6 +36,7 @@ const allPosts = computed(() => {
     const path = locale.value === 'en' ? `/blogs/${blogSlug}` : `/zh/blogs/${blogSlug}`
 
     return {
+      sourceId: article.id,
       path,
       title: article.title || meta.title,
       description: article.description || meta.description,
@@ -54,7 +56,7 @@ const allPosts = computed(() => {
       ? formattedPosts.filter((post) => post.published)
       : formattedPosts
 
-  return sortByDate(publishedPosts, 'date')
+  return sortBlogPosts(publishedPosts)
 })
 
 /** Hero post — the latest post */
