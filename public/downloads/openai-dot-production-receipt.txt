@@ -1,0 +1,17 @@
+# OpenAI Dot — production record
+
+A fictional Orbit Courier project, with no local Dot connection or public game deployment. Dot made the game, Mission Control and website in the cloud. Codex performed local checks, recording and cinematic production. Aaron directed and reviewed the result.
+
+| Measurement | Observed scope |
+| --- | --- |
+| Earlier Blender cinematic render | 47 min 38 sec for one job; other work overlapped. |
+| Dot website pass | 11 min 59 sec from request receipt to source/check inventory; attachment delivery followed. |
+| V4 website and film extension | 42 min 14 sec from revision start to final film technical checks; packaging and synchronization excluded. |
+| V5 introduction | Five new narration segments, with the existing theme and existing film reused. |
+| V6 finishing | Existing introduction narration retained; static screenshot motion removed, title layout clarified, one Dot closing passage added. |
+| V7 final order | Existing project → Dot summary → Aaron Guo final card. No scene render, video/audio re-encode, new narration or music generation. |
+| Final film | 7 min 7.7 sec; 1920 × 1080 at 30 fps. |
+| Subscription allocation and final narration/music bills | Unknown; no invented dollar total. |
+| Game hosting | No new hosting purchased; no public game deployment. |
+
+These are separate measured scopes, not components to sum into a project total. Recorded game footage follows the automated demonstration; cinematic illustrations use exported game geometry. Desktop and mobile browser checks are not physical-device or broad compatibility proof.
