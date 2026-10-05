@@ -1,0 +1,13 @@
+{
+  "source": "https://apps.apple.com/ca/app/drumnext/id6809225749",
+  "version": "1.0",
+  "releaseDate": "2026-09-17T07:00:00Z",
+  "retrievedAt": "2026-10-04",
+  "assets": {
+    "icon.jpg": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3e/ea/96/3eea963e-c71c-f20a-e383-23673b25186d/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+    "metronome-dark.jpg": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/59/c3/59/59c359f6-01ee-a930-b16e-00d480987d65/DrumNext-03-dark.png/1200x2600bb.jpg",
+    "gap-mode.jpg": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/d5/27/ed/d527ed48-2190-d073-5f6f-d4c8ccf22c99/DrumNext-02-gap-mode.png/1200x2600bb.jpg",
+    "meter.jpg": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/90/6f/cd/906fcdcc-3bd2-e835-150f-f8765c4b99fc/DrumNext-04-meter.png/1200x2600bb.jpg",
+    "metronome-light.jpg": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/9b/a8/41/9ba841bf-eff2-e3fa-c568-c92cb07c7d4b/DrumNext-01-playing.png/1200x2600bb.jpg"
+  }
+}
