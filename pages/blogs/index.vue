@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import Fuse from 'fuse.js'
-import { sortByDate } from '~/utils/date'
+import { sortBlogPosts } from '~/utils/blog-order'
 import {
   createCategoryCounts,
   getBlogCategories,
@@ -101,6 +101,7 @@ const formattedData = computed(() => {
     const localePath = locale.value === 'en' ? `/blogs/${blogSlug}` : `/zh/blogs/${blogSlug}`
 
     return {
+      sourceId: article.id,
       path: localePath,
       title: article.title || meta.title,
       description: article.description || meta.description,
@@ -121,8 +122,8 @@ const formattedData = computed(() => {
       ? formattedPosts.filter((post) => post.published)
       : formattedPosts
 
-  // Sort by date (newest first)
-  return sortByDate(publishedPosts, 'date')
+  // Keep the archive and homepage in the same publication order.
+  return sortBlogPosts(publishedPosts)
 })
 
 /**
