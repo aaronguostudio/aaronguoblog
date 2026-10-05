@@ -614,6 +614,10 @@ defineOgImageComponent('Test', {
 }
 
 @media (max-width: 1023px) {
+  .build-project--drumnext .build-project-copy {
+    order: -1;
+  }
+
   .build-project-list {
     gap: 0;
     padding-block: 0;
