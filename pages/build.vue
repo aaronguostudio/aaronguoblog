@@ -19,6 +19,7 @@ interface ProjectMeta {
   screenshots?: string[]
   github?: string
   release?: string
+  appStore?: string
   demo?: string
   blog?: string
   featured?: boolean
@@ -41,6 +42,7 @@ interface ProjectCard {
   screenshots?: string[]
   github?: string
   release?: string
+  appStore?: string
   demo?: string
   blog?: string
   featured: boolean
@@ -112,6 +114,7 @@ function toProjectCard(entry: ContentProjectEntry): ProjectCard {
         : undefined,
     github: meta?.github ?? root?.github,
     release: meta?.release ?? root?.release,
+    appStore: meta?.appStore ?? root?.appStore,
     demo: meta?.demo ?? root?.demo,
     blog: meta?.blog ?? root?.blog,
     featured,
@@ -242,8 +245,34 @@ defineOgImageComponent('Test', {
               'build-project-dossier--media-copy': project.layout === 'media-copy',
             }"
           >
+            <div
+              v-if="project.screenshots && project.screenshots.length > 1"
+              class="build-project-media build-project-gallery rounded-lg border p-4 sm:p-5"
+            >
+              <p class="mb-4 font-mono text-[10px] uppercase tracking-[0.14em]">
+                {{ project.mediaLabel }}
+              </p>
+              <div class="grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
+                <button
+                  v-for="(screenshot, screenshotIndex) in project.screenshots"
+                  :key="screenshot"
+                  type="button"
+                  class="overflow-hidden rounded-md outline-none transition-transform hover:-translate-y-1 focus-visible:ring-2 focus-visible:ring-blue-500 motion-reduce:transition-none"
+                  :aria-label="`${t('build.openPreview', { project: project.name })} · ${screenshotIndex + 1}`"
+                  @click="openLightbox(screenshot, project.name)"
+                >
+                  <img
+                    :src="screenshot"
+                    :alt="`${getImageAlt(project)} · ${screenshotIndex + 1}`"
+                    class="h-auto w-full"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </button>
+              </div>
+            </div>
             <button
-              v-if="project.screenshots?.[0]"
+              v-else-if="project.screenshots?.[0]"
               class="build-project-media group relative block w-full overflow-hidden rounded-lg border text-left outline-none"
               :class="project.mediaAspect === 'wide' ? 'aspect-[16/7]' : 'aspect-[16/10]'"
               type="button"
@@ -319,11 +348,26 @@ defineOgImageComponent('Test', {
 
               <div class="mt-9 flex flex-wrap items-center gap-x-6 gap-y-4 sm:mt-12">
                 <a
+                  v-if="project.appStore"
+                  :href="project.appStore"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="build-primary-action inline-flex items-center gap-2.5 rounded-md px-4 py-2.5 text-sm font-semibold outline-none transition-colors focus-visible:ring-2"
+                  data-rybbit-event="outbound_click"
+                  data-rybbit-prop-location="build_app_store"
+                  :data-rybbit-prop-project="project.name"
+                >
+                  <Icon name="mdi:apple" class="h-5 w-5" />
+                  {{ t('build.downloadAppStore') }}
+                  <Icon name="heroicons:arrow-up-right" class="h-4 w-4" />
+                </a>
+                <a
                   v-if="project.demo"
                   :href="project.demo"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="build-primary-action group inline-flex items-center gap-2.5 rounded-md px-4 py-2.5 text-sm font-semibold outline-none transition-colors focus-visible:ring-2"
+                  :class="project.appStore ? 'build-secondary-action' : 'build-primary-action'"
+                  class="group inline-flex items-center gap-2.5 rounded-md px-4 py-2.5 text-sm font-semibold outline-none transition-colors focus-visible:ring-2"
                   data-rybbit-event="outbound_click"
                   data-rybbit-prop-location="build"
                   :data-rybbit-prop-project="project.name"
@@ -485,6 +529,13 @@ defineOgImageComponent('Test', {
 .build-project-media:focus-visible {
   border-color: color-mix(in srgb, var(--build-accent) 62%, var(--build-line-strong));
   box-shadow: 0 16px 48px color-mix(in srgb, var(--build-accent) 15%, transparent);
+}
+
+.build-project-gallery {
+  max-width: 42rem;
+  justify-self: center;
+  background: #0b1017;
+  color: #a6b8cd;
 }
 
 .build-project-media-label {

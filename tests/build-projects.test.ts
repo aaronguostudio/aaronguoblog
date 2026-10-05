@@ -60,25 +60,27 @@ describe('Build projects content', () => {
     )
   })
 
-  it('publishes DrumNext first in both locales with its current practice-product positioning', () => {
+  it('publishes DrumNext first in both locales with its App Store release', () => {
     const english = readProject('en', 'drum-next')
     const chinese = readProject('zh', 'drum-next')
 
     expect(english).toContain('title: DrumNext')
     expect(english).toContain(
-      "description: The drummer's metronome that shows you’re getting better — trainer modes, guided timing workouts, and a practice dashboard that turns every session into visible progress.",
+      "Now on the App Store for iPhone and iPad.",
     )
     expect(english).toContain('published: true')
     expect(english).toContain('featured: true')
     expect(english).toContain('order: 0')
     expect(english).toContain('layout: copy-media')
     expect(english).toContain('tone: drumnext')
-    expect(english).toContain("tech: ['React', 'TypeScript', 'Vite', 'PWA', 'Supabase']")
-    expect(english).toContain('logo: /projects/drum-next/drum-next-mark.png')
+    expect(english).toContain("tech: ['React', 'TypeScript', 'iOS', 'iPadOS', 'Supabase']")
+    expect(english).toContain('logo: /projects/drum-next/app-store/icon.jpg')
     expect(english).toContain(
-      '  - /projects/drum-next/drum-next-metronome.png',
+      '  - /projects/drum-next/app-store/metronome-dark.jpg',
     )
     expect(english).toContain('demo: https://www.drumnext.com')
+    expect(english).toContain('appStore: https://apps.apple.com/app/drumnext/id6809225749')
+    expect(chinese).toContain('appStore: https://apps.apple.com/app/drumnext/id6809225749')
 
     expect(chinese).toContain('title: DrumNext')
     expect(chinese).toContain('published: true')
@@ -86,7 +88,7 @@ describe('Build projects content', () => {
     expect(chinese).toContain('order: 0')
     expect(chinese).toContain('layout: copy-media')
     expect(chinese).toContain('tone: drumnext')
-    expect(chinese).toContain("tech: ['React', 'TypeScript', 'Vite', 'PWA', 'Supabase']")
+    expect(chinese).toContain("tech: ['React', 'TypeScript', 'iOS', 'iPadOS', 'Supabase']")
     expect(chinese).toContain('demo: https://www.drumnext.com')
   })
 
