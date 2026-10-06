@@ -13,6 +13,10 @@ maturity: '持续生长'
 published: true
 featured: false
 translationKey: 'context-language-models'
+socialImage: '/learn-img/context-language-models/og-1200x627.jpg'
+socialImageAlt: '东京一家三口的示意旅行记录：三天改为五天，保留 3,000 美元预算和少走远路的要求，再把更新后的记录送入下一次 AI 调用。'
+cardImage: '/learn-img/context-language-models/card-4x5.jpg'
+cardImageAlt: '东京一家三口的示意旅行记录：三天改为五天，保留 3,000 美元预算和少走远路的要求，再把更新后的记录送入下一次 AI 调用。'
 neighbors:
   - name: '上下文窗口'
     fullName: 'Context Window · 上下文窗口'
@@ -43,12 +47,12 @@ Rulin Shao 等研究者在 2026 年 9 月提出了 [Context Language Models（CL
 
 用这个假设旅行来理解，一份工作记录可以这样更新：
 
-| 条件 | 之前 | 现在 |
-| --- | --- | --- |
-| 天数 | 3 天 | **5 天** |
-| 总预算 | 3,000 美元 | 3,000 美元 |
-| 同行者 | 爸爸、妈妈、女儿 | 爸爸、妈妈、女儿 |
-| 步行要求 | 少走远路 | 少走远路 |
+| 条件     | 之前             | 现在             |
+| -------- | ---------------- | ---------------- |
+| 天数     | 3 天             | **5 天**         |
+| 总预算   | 3,000 美元       | 3,000 美元       |
+| 同行者   | 爸爸、妈妈、女儿 | 爸爸、妈妈、女儿 |
+| 步行要求 | 少走远路         | 少走远路         |
 
 记录还应加上下一步：**重新计算多住两晚后的住宿和交通费用。** 改了天数，不代表五日游已经符合预算。
 
