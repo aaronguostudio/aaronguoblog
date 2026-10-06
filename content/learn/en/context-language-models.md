@@ -13,6 +13,10 @@ maturity: 'growing'
 published: true
 featured: false
 translationKey: 'context-language-models'
+socialImage: '/learn-img/context-language-models/og-1200x627.jpg'
+socialImageAlt: 'An illustrated Tokyo family trip record changes from three to five days, retains a US$3,000 budget and short-walk constraint, and feeds the updated record into the next AI call.'
+cardImage: '/learn-img/context-language-models/card-4x5.jpg'
+cardImageAlt: 'An illustrated Tokyo family trip record changes from three to five days, retains a US$3,000 budget and short-walk constraint, and feeds the updated record into the next AI call.'
 neighbors:
   - name: 'Context Window'
     fullName: 'Context Window'
@@ -43,12 +47,12 @@ In September 2026, Rulin Shao and colleagues introduced [Context Language Models
 
 For this hypothetical trip, an updated working record could look like this:
 
-| Condition | Before | Now |
-| --- | --- | --- |
-| Duration | 3 days | **5 days** |
-| Total budget | US$3,000 | US$3,000 |
-| Family | Dad, mom, daughter | Dad, mom, daughter |
-| Walking | Keep walks short | Keep walks short |
+| Condition    | Before             | Now                |
+| ------------ | ------------------ | ------------------ |
+| Duration     | 3 days             | **5 days**         |
+| Total budget | US$3,000           | US$3,000           |
+| Family       | Dad, mom, daughter | Dad, mom, daughter |
+| Walking      | Keep walks short   | Keep walks short   |
 
 It should also retain new unfinished work: **recalculate accommodation and transport for two extra nights.** Updating a field does not prove the longer trip fits the budget.
 
