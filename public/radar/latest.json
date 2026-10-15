@@ -1,30 +1,34 @@
 {
   "version": 1,
-  "date": "2026-10-14",
-  "generatedAt": "2026-10-14T13:36:54.528Z",
+  "date": "2026-10-15",
+  "generatedAt": "2026-10-15T13:29:25.488Z",
   "quality": {
     "status": "ok",
     "blockers": [],
-    "warnings": []
+    "warnings": [
+      "Top evidence is highly concentrated in one source."
+    ]
   },
   "latestRun": {
-    "id": 437,
-    "status": "completed",
-    "startedAt": "2026-10-14 13:36:20",
-    "completedAt": "2026-10-14 13:36:54",
-    "warnings": [],
+    "id": 440,
+    "status": "completed_with_warnings",
+    "startedAt": "2026-10-15 13:28:52",
+    "completedAt": "2026-10-15 13:29:24",
+    "warnings": [
+      "Top evidence is highly concentrated in one source."
+    ],
     "sourceErrors": {}
   },
   "pulse": {
-    "text": "Radar's read across coding-agents and consumer-ai-apps. Top themes: The Four Horsemen of Agentic Coding; Show HN: Pulse Local, a Mac budgeting app whose AI models run on your machine; Consumer AI Fatigue Is Overwhelming, Local Businesses Should Reconsider Use.",
-    "date": "2026-10-14",
-    "generatedAt": "2026-10-14 13:36:54",
+    "text": "Radar's read across consumer-ai-apps, mobile-ai and coding-agents. Top themes: Q: Who should be held accountable when the AI agents commit a crime? | Trump: It's not AI. It's SI. We changed the name officially today; My Thoughts on AI and LLMs; The Four Horsemen of Agentic Coding.",
+    "date": "2026-10-15",
+    "generatedAt": "2026-10-15 13:29:24",
     "topItemIds": [
+      2206,
+      1808,
       2063,
       2205,
-      2052,
-      2046,
-      2114
+      2116
     ],
     "takeaway": null,
     "sourceItemIds": []
@@ -69,15 +73,15 @@
   "stats": [
     {
       "source": "reddit",
-      "count": 785
+      "count": 791
     },
     {
       "source": "hackernews",
-      "count": 487
+      "count": 488
     },
     {
       "source": "grounding",
-      "count": 331
+      "count": 327
     },
     {
       "source": "github",
@@ -98,19 +102,35 @@
   ],
   "items": [
     {
-      "id": 414,
-      "source": "grounding",
-      "url": "https://agentic.ai/best/coding-agents",
-      "title": "28 Best AI Coding Agents in 2026 — Agentic.ai",
-      "summary": "Open-source VS Code extension for agentic coding — Apache 2.0 licensed, BYOK across many providers, runs locally as an IDE extension. Operator Sovereignty3/4Reliability &amp; Consistencynot yet evidenced ... Kiro autonomous agent stores task context, chat, and code changes to carry out multi-step work.",
-      "aiSummary": "Lists AI coding agents and mentions an IDE extension, but it’s more of a catalog than a clear “what is an agentic IDE” definition.",
+      "id": 2213,
+      "source": "reddit",
+      "url": "https://www.reddit.com/r/ChatGPT/comments/1x66iap/two_ai_agents_in_a_job_interview_and_neither_one/",
+      "title": "Two AI agents in a job interview and neither one knows how to hang up",
+      "summary": "Two AI agents in a job interview and neither one knows how to hang up",
+      "aiSummary": "Reddit post about AI agents in a job interview; no clear consumer AI app launch details or everyday-user app landscape facts.",
       "author": null,
-      "score": 0,
+      "score": 53,
       "relevance": 10,
-      "category": "coding",
-      "topicSlug": "coding-agents",
-      "createdAt": "2026-06-29 14:32:53",
-      "lastSeenAt": "2026-10-14 13:36:52",
+      "category": "ai",
+      "topicSlug": "consumer-ai-apps",
+      "createdAt": "2026-10-15 13:28:49",
+      "lastSeenAt": "2026-10-15 13:28:50",
+      "publishedAt": "2026-10-14"
+    },
+    {
+      "id": 2208,
+      "source": "hackernews",
+      "url": "https://news.ycombinator.com/item?id=50081396",
+      "title": "Ask HN: What do you think will be hot in 2027 with on-device AI",
+      "summary": "Ask HN: What do you think will be hot in 2027 with on-device AI",
+      "aiSummary": "Asks about on-device AI trends, but lacks iOS/Android assistant overview and primary entity details.",
+      "author": "mrburton",
+      "score": 9,
+      "relevance": 10,
+      "category": "ai",
+      "topicSlug": "mobile-ai",
+      "createdAt": "2026-10-15 13:28:19",
+      "lastSeenAt": "2026-10-15 13:28:20",
       "publishedAt": "2026-10-14"
     },
     {
@@ -119,14 +139,46 @@
       "url": "https://pulseos.finance",
       "title": "Show HN: Pulse Local, a Mac budgeting app whose AI models run on your machine",
       "summary": "Show HN: Pulse Local, a Mac budgeting app whose AI models run on your machine",
-      "aiSummary": "Show HN about a specific Mac budgeting app with on-device AI models; relevant to consumer AI app launches and functionality.",
+      "aiSummary": "Show HN about a Mac budgeting app with on-device AI; relevant to AI productivity apps but only one app and limited landscape/launch coverage.",
       "author": "niztk",
-      "score": 65,
+      "score": 66,
       "relevance": 10,
       "category": "ai",
       "topicSlug": "consumer-ai-apps",
       "createdAt": "2026-10-14 13:36:17",
-      "lastSeenAt": "2026-10-14 13:36:17",
+      "lastSeenAt": "2026-10-15 13:28:49",
+      "publishedAt": "2026-10-13"
+    },
+    {
+      "id": 2210,
+      "source": "reddit",
+      "url": "https://www.reddit.com/r/ArtificialInteligence/comments/1x50qyy/i_love_ai_so_much_butplease_dont_take_pictures_of/",
+      "title": "I love AI so much but…please don’t take pictures of your credit card",
+      "summary": "I love AI so much but…please don’t take pictures of your credit card",
+      "aiSummary": "General safety/behavior post; does not provide specific recently launched consumer AI apps and what they do.",
+      "author": null,
+      "score": 14,
+      "relevance": 10,
+      "category": "ai",
+      "topicSlug": "consumer-ai-apps",
+      "createdAt": "2026-10-15 13:28:20",
+      "lastSeenAt": "2026-10-15 13:28:50",
+      "publishedAt": "2026-10-13"
+    },
+    {
+      "id": 2209,
+      "source": "hackernews",
+      "url": "https://github.com/scarletkc/Hatoba",
+      "title": "Show HN: Hatoba, an open-source SSH client with an AI assistant and E2EE sync",
+      "summary": "Show HN: Hatoba, an open-source SSH client with an AI assistant and E2EE sync",
+      "aiSummary": "AI assistant in an SSH client with E2EE sync; not clearly mobile AI/on-device iOS/Android assistant overview.",
+      "author": "scarletkc",
+      "score": 0,
+      "relevance": 10,
+      "category": "ai",
+      "topicSlug": "mobile-ai",
+      "createdAt": "2026-10-15 13:28:20",
+      "lastSeenAt": "2026-10-15 13:28:20",
       "publishedAt": "2026-10-13"
     },
     {
@@ -144,6 +196,22 @@
       "createdAt": "2026-10-14 13:35:48",
       "lastSeenAt": "2026-10-14 13:35:48",
       "publishedAt": "2026-10-13"
+    },
+    {
+      "id": 2215,
+      "source": "reddit",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1x4662c/damage_control_by_captaininsightx/",
+      "title": "Damage control (by @CaptainInsightX)",
+      "summary": "&#32; submitted by &#32; /u/mahamara [link] &#32; [comments]",
+      "aiSummary": "Reddit post with no clear definition or explanation of an agentic IDE; likely off-topic.",
+      "author": null,
+      "score": 0,
+      "relevance": 10,
+      "category": "coding",
+      "topicSlug": "coding-agents",
+      "createdAt": "2026-10-15 13:29:23",
+      "lastSeenAt": "2026-10-15 13:29:23",
+      "publishedAt": "2026-10-12"
     },
     {
       "id": 2186,
@@ -242,6 +310,22 @@
       "publishedAt": "2026-10-11"
     },
     {
+      "id": 2207,
+      "source": "reddit",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1x2z14s/qualcomm_ceo_reveals_ai_companies_want_phones/",
+      "title": "Qualcomm CEO reveals AI companies want phones running 100-billion-parameter models continuously by 2028.",
+      "summary": "Qualcomm CEO reveals AI companies want phones running 100-billion-parameter models continuously by 2028.",
+      "aiSummary": "Mentions phones and large models, but no explicit on-device AI assistants overview or iOS/Android assistant capabilities.",
+      "author": null,
+      "score": 38,
+      "relevance": 10,
+      "category": "ai",
+      "topicSlug": "mobile-ai",
+      "createdAt": "2026-10-15 13:28:19",
+      "lastSeenAt": "2026-10-15 13:28:19",
+      "publishedAt": "2026-10-11"
+    },
+    {
       "id": 2172,
       "source": "hackernews",
       "url": "https://news.ycombinator.com/item?id=50047180",
@@ -279,14 +363,14 @@
       "url": "https://www.reuters.com/business/retail-consumer/amazon-talks-buy-ai-startup-decart-around-7-billion-wsj-reports-2026-10-11/",
       "title": "Amazon in talks to buy AI startup Decart for around $7B, WSJ reports",
       "summary": "Amazon in talks to buy AI startup Decart for around $7B, WSJ reports",
-      "aiSummary": "M&A news about buying an AI startup; not directly about consumer AI apps launched or what they do.",
+      "aiSummary": "M&A rumor about an AI startup (Decart) rather than a consumer AI app launch for everyday users; weak match to the requested landscape.",
       "author": "mraniki",
       "score": 2,
       "relevance": 10,
       "category": "ai",
       "topicSlug": "consumer-ai-apps",
       "createdAt": "2026-10-12 13:34:20",
-      "lastSeenAt": "2026-10-14 13:36:19",
+      "lastSeenAt": "2026-10-15 13:28:49",
       "publishedAt": "2026-10-11"
     },
     {
@@ -351,6 +435,22 @@
       "topicSlug": "personal-ai-systems",
       "createdAt": "2026-10-12 13:54:39",
       "lastSeenAt": "2026-10-12 13:54:39",
+      "publishedAt": "2026-10-10"
+    },
+    {
+      "id": 2211,
+      "source": "reddit",
+      "url": "https://www.reddit.com/r/ArtificialInteligence/comments/1x2q4pi/elon_musk_has_rebranded_spacex_ai_to_spacex_super/",
+      "title": "Elon Musk has rebranded SpaceX AI to SpaceX Super Intelligence",
+      "summary": "Elon Musk has rebranded SpaceX AI to SpaceX Super Intelligence",
+      "aiSummary": "Rebranding claim about SpaceX AI; not consumer AI apps or AI productivity apps launched for everyday users.",
+      "author": null,
+      "score": 29,
+      "relevance": 10,
+      "category": "ai",
+      "topicSlug": "consumer-ai-apps",
+      "createdAt": "2026-10-15 13:28:21",
+      "lastSeenAt": "2026-10-15 13:28:50",
       "publishedAt": "2026-10-10"
     },
     {
@@ -551,14 +651,14 @@
       "url": "https://www.reddit.com/r/ClaudeAI/comments/1x10tx3/opus_55_is_so_good/",
       "title": "Opus 5.5 is so good",
       "summary": "&#32; submitted by &#32; /u/opmgyhx [link] &#32; [comments]",
-      "aiSummary": "Title/snippet are about a model quality claim; no clear agentic IDE/autonomous coding definition content.",
+      "aiSummary": "General discussion about a model; no agentic IDE definition or autonomous coding workflow comparison.",
       "author": null,
       "score": 0,
       "relevance": 10,
       "category": "coding",
       "topicSlug": "coding-agents",
       "createdAt": "2026-10-11 13:28:40",
-      "lastSeenAt": "2026-10-11 13:28:40",
+      "lastSeenAt": "2026-10-15 13:29:23",
       "publishedAt": "2026-10-08"
     },
     {
@@ -578,22 +678,6 @@
       "publishedAt": "2026-10-08"
     },
     {
-      "id": 2125,
-      "source": "grounding",
-      "url": "https://rtslabs.com/ai-app-development-services",
-      "title": "Top 10 AI App Development Services in 2026: Shortlist",
-      "summary": "Enterprise mobile firms with heavier design and approval cycles run 12 to 20 weeks. Consumer app launches with app store submission run <strong>10 to 16 weeks</strong>. Hardware-integrated AI apps run 14 to 24 weeks reflecting firmware and device coordination.",
-      "aiSummary": "Generic app development services timeline; not about specific consumer AI app launches.",
-      "author": null,
-      "score": 0,
-      "relevance": 10,
-      "category": "ai",
-      "topicSlug": "consumer-ai-apps",
-      "createdAt": "2026-10-09 13:31:51",
-      "lastSeenAt": "2026-10-13 13:34:46",
-      "publishedAt": "2026-10-08"
-    },
-    {
       "id": 1835,
       "source": "grounding",
       "url": "https://www.apple.com/newsroom/2026/09/siri-ai-a-profoundly-more-capable-and-personal-assistant-is-here/",
@@ -607,22 +691,6 @@
       "topicSlug": "consumer-ai-apps",
       "createdAt": "2026-09-21 13:38:12",
       "lastSeenAt": "2026-10-14 13:36:17",
-      "publishedAt": "2026-10-08"
-    },
-    {
-      "id": 1414,
-      "source": "grounding",
-      "url": "https://superset.sh/compare/best-agentic-ide",
-      "title": "Best Agentic IDE in 2026: Multi-Agent Coding Tools Compared | Superset",
-      "summary": "An agentic IDE is <strong>a development environment where AI agents can autonomously plan and execute multi-step coding tasks (editing files, running commands, iterating) rather than only autocompleting code</strong>.",
-      "aiSummary": "Explicitly defines an agentic IDE as an environment where AI agents autonomously plan and execute multi-step coding tasks; strong concept match.",
-      "author": null,
-      "score": 0,
-      "relevance": 10,
-      "category": "coding",
-      "topicSlug": "coding-agents",
-      "createdAt": "2026-08-25 13:33:28",
-      "lastSeenAt": "2026-10-14 13:36:50",
       "publishedAt": "2026-10-08"
     },
     {
@@ -678,15 +746,15 @@
       "source": "hackernews",
       "url": "https://a16z.com/100-gen-ai-apps-7/",
       "title": "The Top 100 Gen AI Consumer Apps — 7th Edition",
-      "summary": "ChatGPT has a more equal split of consumers across genders and incomes — and is also dominant in all U.S. states aside from California, Montana, and Massachusetts. This difference in users is at least partially a result of the products being pointed in different directions. Between Anthropic, Google, and OpenAI, there were 127 new launches over the past six months.",
-      "aiSummary": "A16Z list of top consumer gen-AI apps with many launches mentioned; strong for identifying consumer AI apps and what they do, though not strictly last-30-days.",
+      "summary": "The Top 100 Gen AI Consumer Apps — 7th Edition",
+      "aiSummary": "A16z 'Top 100 Gen AI Consumer Apps — 7th Edition' is strongly aligned to consumer AI apps landscape and includes concrete app/launch details.",
       "author": "pseudolus",
       "score": 16,
       "relevance": 10,
       "category": "ai",
       "topicSlug": "consumer-ai-apps",
       "createdAt": "2026-10-08 13:34:50",
-      "lastSeenAt": "2026-10-14 13:36:16",
+      "lastSeenAt": "2026-10-15 13:28:48",
       "publishedAt": "2026-10-07"
     },
     {
@@ -711,14 +779,14 @@
       "url": "https://www.reddit.com/r/ClaudeAI/comments/1wzw8zd/i_think_i_found_a_planet_nobody_knew_existed_i/",
       "title": "I think I found a planet nobody knew existed. I used Claude Code to find it.",
       "summary": "Last month I was going through data from NASA&#39;s TESS telescope with Claude Code when one star started looking weird. https://preview.redd.it/zwekq4q0m1uh1.jpg?width=1728&amp;format=pjpg&amp;auto=webp&amp;s=a396c3354234ae957337b4e9df3fa7578f85e1ce It&#39;s about 116 light-years away, and every 3.18 days it gets about 0.05% dimmer for roughly two hours. I first saw it in data from late 2025. So",
-      "aiSummary": "Mentions Claude Code (agentic coding tool) but is a personal anecdote, not an explanation of what an agentic IDE is or how it differs from traditional IDE features.",
+      "aiSummary": "Mentions Claude Code usage, but not an agentic IDE definition or comparison to traditional IDE workflows.",
       "author": null,
       "score": 0,
       "relevance": 10,
       "category": "coding",
       "topicSlug": "coding-agents",
       "createdAt": "2026-10-08 13:35:22",
-      "lastSeenAt": "2026-10-11 13:28:38",
+      "lastSeenAt": "2026-10-15 13:29:22",
       "publishedAt": "2026-10-07"
     },
     {
@@ -735,6 +803,22 @@
       "topicSlug": "mobile-ai",
       "createdAt": "2026-07-19 13:32:43",
       "lastSeenAt": "2026-10-09 13:31:21",
+      "publishedAt": "2026-10-07"
+    },
+    {
+      "id": 2212,
+      "source": "reddit",
+      "url": "https://www.reddit.com/r/singularity/comments/1x02g1l/this_is_where_i_stop_calling_ai_a_tool_a_tool/",
+      "title": "\"this is where i stop calling AI a tool. a tool doesnt do in one release what the best humans do in a lifetime\"",
+      "summary": "\"this is where i stop calling AI a tool. a tool doesnt do in one release what the best humans do in a lifetime\"",
+      "aiSummary": "Opinion/essay about AI as a tool; no on-device AI assistants or iOS/Android match.",
+      "author": null,
+      "score": 41,
+      "relevance": 5,
+      "category": "ai",
+      "topicSlug": "mobile-ai",
+      "createdAt": "2026-10-15 13:28:21",
+      "lastSeenAt": "2026-10-15 13:28:21",
       "publishedAt": "2026-10-07"
     },
     {
@@ -834,6 +918,22 @@
       "publishedAt": "2026-10-06"
     },
     {
+      "id": 2098,
+      "source": "grounding",
+      "url": "https://www.a16z.news/p/top-100-consumer-ai-apps-seventh",
+      "title": "Top 100 Consumer AI Apps - Seventh Edition",
+      "summary": "But as of late September, the consumer headline matchup is Instinct versus Muse. Instinct, founded by ex-Sierra researcher Noah Shinn, reportedly passed 100,000 users in three weeks between late August and early September, while still invite-only. Meta launched Muse on September 9, a personal agent that runs in the browser, desktop and mobile apps, and WhatsApp.",
+      "aiSummary": "Directly about 'Top 100 Consumer AI Apps' with specific recent launch examples (e.g., Meta launching Muse on Sept 9) and what they do for users.",
+      "author": null,
+      "score": 0,
+      "relevance": 10,
+      "category": "ai",
+      "topicSlug": "consumer-ai-apps",
+      "createdAt": "2026-10-06 13:32:05",
+      "lastSeenAt": "2026-10-15 13:28:48",
+      "publishedAt": "2026-10-06"
+    },
+    {
       "id": 2094,
       "source": "reddit",
       "url": "https://www.reddit.com/r/AIDictationApp/comments/1wyrxxq/medical_transcription_ai_a_clinical_guide/",
@@ -918,15 +1018,15 @@
       "source": "reddit",
       "url": "https://www.reddit.com/r/ArtificialInteligence/comments/1wymfgi/jacob_coxon_former_employee_of_anthropic_and/",
       "title": "Jacob Coxon, former employee of Anthropic and OpenAI, explains why AI is so dangerous",
-      "summary": "&#32; submitted by &#32; /u/HumanSoulAI [link] &#32; [comments]",
-      "aiSummary": "Opinion/safety discussion; does not identify recent consumer AI app launches or what they claim to do.",
+      "summary": "Jacob Coxon, former employee of Anthropic and OpenAI, explains why AI is so dangerous",
+      "aiSummary": "Opinion/safety commentary about AI danger; no consumer AI app launches or specific app landscape for everyday users.",
       "author": null,
       "score": 89,
       "relevance": 10,
       "category": "ai",
       "topicSlug": "consumer-ai-apps",
       "createdAt": "2026-10-08 13:34:51",
-      "lastSeenAt": "2026-10-13 13:34:46",
+      "lastSeenAt": "2026-10-15 13:28:51",
       "publishedAt": "2026-10-05"
     },
     {
@@ -935,14 +1035,14 @@
       "url": "https://apps.apple.com/us/app/halo-personal-ai/id6783715054",
       "title": "Show HN: Halo – A Personal AI with On-Device Harness, Memory and Browser Agent",
       "summary": "Show HN: Halo – A Personal AI with On-Device Harness, Memory and Browser Agent",
-      "aiSummary": "Directly about an iOS personal AI with on-device harness/memory/browser agent; strong on-device + iOS grounding, though more product-specific than general approaches.",
+      "aiSummary": "App listing explicitly for a personal AI with on-device harness/memory/browser agent; strong on-device assistant relevance (iOS via App Store).",
       "author": "tanmay007",
       "score": 67,
       "relevance": 10,
       "category": "ai",
       "topicSlug": "mobile-ai",
       "createdAt": "2026-10-07 13:27:21",
-      "lastSeenAt": "2026-10-13 13:34:09",
+      "lastSeenAt": "2026-10-15 13:28:19",
       "publishedAt": "2026-10-05"
     },
     {
@@ -1042,35 +1142,19 @@
       "publishedAt": "2026-10-05"
     },
     {
-      "id": 2098,
-      "source": "hackernews",
-      "url": "https://www.a16z.news/p/top-100-consumer-ai-apps-seventh",
-      "title": "Top Consumer AI Apps",
-      "summary": "Top Consumer AI Apps",
-      "aiSummary": "Appears to be a duplicate/short landing page for A16Z’s top consumer AI apps list; likely relevant but snippet lacks concrete launch/app details.",
-      "author": "svobodamartin",
-      "score": 0,
-      "relevance": 10,
-      "category": "ai",
-      "topicSlug": "consumer-ai-apps",
-      "createdAt": "2026-10-06 13:32:05",
-      "lastSeenAt": "2026-10-14 13:36:18",
-      "publishedAt": "2026-10-05"
-    },
-    {
       "id": 2124,
       "source": "reddit",
       "url": "https://www.reddit.com/r/singularity/comments/1wykgbk/ai_is_about_to_transform_materials_science/",
       "title": "AI Is About to Transform Materials Science",
       "summary": "AI Is About to Transform Materials Science",
-      "aiSummary": "Materials science topic; no mobile AI assistant or iOS/Android comparison.",
+      "aiSummary": "Materials science topic; no mobile AI/on-device AI assistants or iOS/Android entity match.",
       "author": null,
       "score": 43,
       "relevance": 5,
       "category": "ai",
       "topicSlug": "mobile-ai",
       "createdAt": "2026-10-09 13:31:23",
-      "lastSeenAt": "2026-10-09 13:31:23",
+      "lastSeenAt": "2026-10-15 13:28:21",
       "publishedAt": "2026-10-05"
     },
     {
@@ -1104,22 +1188,6 @@
       "createdAt": "2026-10-07 13:28:21",
       "lastSeenAt": "2026-10-07 13:28:21",
       "publishedAt": "2026-10-04"
-    },
-    {
-      "id": 2192,
-      "source": "grounding",
-      "url": "https://www.promptquorum.com/power-local-llm/llm-hub-review",
-      "title": "LLM Hub Review: On-Device AI Suite for Android and iOS",
-      "summary": "<strong>LLM Hub</strong> review: one Android and iPhone app for local chat, an MCP agent, image and music generation, translation, and transcription — with a noncommercial PolyForm license and a paid Premium tier.",
-      "aiSummary": "Review of an on-device AI suite for Android and iOS with specific features (local chat, MCP agent, image/music generation, transcription); good capability/limitation evidence.",
-      "author": null,
-      "score": 0,
-      "relevance": 10,
-      "category": "ai",
-      "topicSlug": "mobile-ai",
-      "createdAt": "2026-10-13 13:34:10",
-      "lastSeenAt": "2026-10-13 13:34:10",
-      "publishedAt": "2026-10-03"
     },
     {
       "id": 2123,
@@ -1191,14 +1259,14 @@
       "url": "https://underdog.ai/",
       "title": "Underdog private personal on-device local AI for privacy and security",
       "summary": "Underdog private personal on-device local AI for privacy and security",
-      "aiSummary": "On-device local AI for privacy/security explicitly for personal use; relevant to on-device assistant capabilities/limitations, though not an overview of approaches.",
+      "aiSummary": "Directly about private personal on-device local AI; useful for on-device context but not specifically iOS/Android assistant overview.",
       "author": "thoughtpeddler",
       "score": 0,
       "relevance": 10,
       "category": "ai",
       "topicSlug": "mobile-ai",
       "createdAt": "2026-10-03 13:31:36",
-      "lastSeenAt": "2026-10-13 13:34:10",
+      "lastSeenAt": "2026-10-15 13:28:19",
       "publishedAt": "2026-10-03"
     },
     {
@@ -1271,14 +1339,14 @@
       "url": "https://distantprovince.substack.com/p/the-four-horsemen-of-agentic-coding",
       "title": "The Four Horsemen of Agentic Coding",
       "summary": "The Four Horsemen of Agentic Coding",
-      "aiSummary": "Directly about agentic coding; likely discusses how autonomous coding works, though snippet/title are vague on IDE definition.",
+      "aiSummary": "Directly about agentic coding; likely conceptual framing that can support an agentic IDE definition and autonomy comparison.",
       "author": "haute_cuisine",
       "score": 80,
       "relevance": 10,
       "category": "coding",
       "topicSlug": "coding-agents",
       "createdAt": "2026-10-03 13:32:33",
-      "lastSeenAt": "2026-10-14 13:36:51",
+      "lastSeenAt": "2026-10-15 13:29:21",
       "publishedAt": "2026-10-02"
     },
     {
@@ -1303,14 +1371,14 @@
       "url": "https://bsky.app/profile/largbae.bsky.social/post/3mwtqukfbcs23",
       "title": "Agentic coding's effect on Hacker News hiring threads",
       "summary": "Agentic coding's effect on Hacker News hiring threads",
-      "aiSummary": "About hiring threads and agentic coding effects; likely not an explanatory concept piece defining agentic IDEs.",
+      "aiSummary": "Agentic coding mentioned, but snippet suggests hiring-thread discussion rather than a clear agentic IDE definition.",
       "author": "largbae",
       "score": 6,
       "relevance": 10,
       "category": "coding",
       "topicSlug": "coding-agents",
       "createdAt": "2026-10-02 13:34:02",
-      "lastSeenAt": "2026-10-14 13:36:53",
+      "lastSeenAt": "2026-10-15 13:29:22",
       "publishedAt": "2026-10-02"
     },
     {
@@ -1415,14 +1483,14 @@
       "url": "https://residentnewsnetwork.com/opinion-piece-consumer-ai-fatigue-is-overwhelming-and-why-local-businesses-should-re-consider-use/",
       "title": "Consumer AI Fatigue Is Overwhelming, Local Businesses Should Reconsider Use",
       "summary": "Consumer AI Fatigue Is Overwhelming, Local Businesses Should Reconsider Use",
-      "aiSummary": "Opinion piece about consumer AI fatigue; not a factual roundup of consumer AI apps or specific app launches.",
+      "aiSummary": "Opinion piece about consumer AI fatigue; not focused on recently launched consumer AI apps or factual app-by-app launch details.",
       "author": "PLenz",
       "score": 54,
       "relevance": 10,
       "category": "ai",
       "topicSlug": "consumer-ai-apps",
       "createdAt": "2026-10-02 13:33:25",
-      "lastSeenAt": "2026-10-14 13:36:18",
+      "lastSeenAt": "2026-10-15 13:28:49",
       "publishedAt": "2026-10-01"
     },
     {
@@ -1447,14 +1515,14 @@
       "url": "https://news.ycombinator.com/item?id=49919185",
       "title": "Capitalism Can't Handle AI",
       "summary": "Capitalism Can't Handle AI",
-      "aiSummary": "Hacker News post titled 'Capitalism Can't Handle AI' with no clear consumer AI apps roundup or launch specifics.",
+      "aiSummary": "Hacker News link titled 'Capitalism Can't Handle AI' is likely commentary; no clear consumer AI app launch facts.",
       "author": "sedan_baklazhan",
       "score": 28,
       "relevance": 10,
       "category": "ai",
       "topicSlug": "consumer-ai-apps",
       "createdAt": "2026-10-01 13:33:23",
-      "lastSeenAt": "2026-10-14 13:36:19",
+      "lastSeenAt": "2026-10-15 13:28:49",
       "publishedAt": "2026-10-01"
     },
     {
@@ -1511,14 +1579,14 @@
       "url": "https://www.reddit.com/r/ClaudeAI/comments/1wv2r73/made_a_destroy_any_website_stickman_game/",
       "title": "Made a \"Destroy Any Website\" stickman game",
       "summary": "Final game project . I built my dream stickman sandbox game over the last weekend (big fan of Animator Vs. Animation). The game basically a destruction sandbox where you can input a website URL and turn the page into a level. Then, just destroy everything with weapons :D Tech stack: - Language: I&#39;m a TS dev, so... raw engine &amp; renderer built in TS, using simple Canvas 2D. - Multiplayer (ye",
-      "aiSummary": "Game-building post; no clear mention of agentic IDE/autonomous coding or definition vs traditional IDE comparison.",
+      "aiSummary": "Project build details; does not define agentic IDEs or explain autonomous coding vs traditional IDEs.",
       "author": null,
       "score": 0,
       "relevance": 10,
       "category": "coding",
       "topicSlug": "coding-agents",
       "createdAt": "2026-10-03 13:32:36",
-      "lastSeenAt": "2026-10-11 13:28:39",
+      "lastSeenAt": "2026-10-15 13:29:23",
       "publishedAt": "2026-10-01"
     },
     {
@@ -1527,14 +1595,14 @@
       "url": "https://www.reddit.com/r/ClaudeAI/comments/1wuvxy7/throwback_to_when_claude_suggested_i_should_deal/",
       "title": "Throwback to when Claude suggested I should deal drugs to make money.",
       "summary": "&#32; submitted by &#32; /u/1010011011-1 [link] &#32; [comments]",
-      "aiSummary": "Off-topic (drug suggestion); no relevant agentic IDE/autonomous coding definition.",
+      "aiSummary": "Irrelevant content (drug-related); no agentic IDE/autonomous coding concept.",
       "author": null,
       "score": 0,
       "relevance": 10,
       "category": "coding",
       "topicSlug": "coding-agents",
       "createdAt": "2026-10-03 13:32:36",
-      "lastSeenAt": "2026-10-11 13:28:41",
+      "lastSeenAt": "2026-10-15 13:29:24",
       "publishedAt": "2026-10-01"
     },
     {
@@ -1570,6 +1638,22 @@
       "publishedAt": "2026-10-01"
     },
     {
+      "id": 2206,
+      "source": "reddit",
+      "url": "https://www.reddit.com/r/ChatGPT/comments/1wu1w1q/q_who_should_be_held_accountable_when_the_ai/",
+      "title": "Q: Who should be held accountable when the AI agents commit a crime? | Trump: It's not AI. It's SI. We changed the name officially today",
+      "summary": "Q: Who should be held accountable when the AI agents commit a crime? | Trump: It's not AI. It's SI. We changed the name officially today",
+      "aiSummary": "Political/ethics discussion about AI agents committing crimes; not about consumer AI apps launched recently.",
+      "author": null,
+      "score": 100,
+      "relevance": 10,
+      "category": "ai",
+      "topicSlug": "consumer-ai-apps",
+      "createdAt": "2026-10-14 13:36:19",
+      "lastSeenAt": "2026-10-15 13:28:51",
+      "publishedAt": "2026-09-30"
+    },
+    {
       "id": 2055,
       "source": "reddit",
       "url": "https://www.reddit.com/r/ArtificialInteligence/comments/1wu5r0r/q_who_should_be_held_accountable_when_the_ai/",
@@ -1591,30 +1675,14 @@
       "url": "https://frame.work/pl/en/blog/what-192gb-changes-for-local-ai-on-the-framework-desktop",
       "title": "What 192GB Changes for Local AI on the Framework Desktop",
       "summary": "What 192GB Changes for Local AI on the Framework Desktop",
-      "aiSummary": "Local AI on a desktop platform; not clearly about iOS/Android AI assistants or mobile on-device assistant approaches.",
+      "aiSummary": "Local AI on a desktop hardware platform; not mobile AI or iOS/Android assistant overview.",
       "author": "rdslw",
       "score": 59,
       "relevance": 10,
       "category": "ai",
       "topicSlug": "mobile-ai",
       "createdAt": "2026-10-02 13:32:52",
-      "lastSeenAt": "2026-10-13 13:34:12",
-      "publishedAt": "2026-09-30"
-    },
-    {
-      "id": 2206,
-      "source": "reddit",
-      "url": "https://www.reddit.com/r/ChatGPT/comments/1wu1w1q/q_who_should_be_held_accountable_when_the_ai/",
-      "title": "Q: Who should be held accountable when the AI agents commit a crime? | Trump: It's not AI. It's SI. We changed the name officially today",
-      "summary": "&#32; submitted by &#32; /u/Puzzleheaded-King584 [link] &#32; [comments]",
-      "aiSummary": "Reddit discussion about accountability for AI agents; not a consumer AI apps roundup or specific app launches.",
-      "author": null,
-      "score": 0,
-      "relevance": 10,
-      "category": "ai",
-      "topicSlug": "consumer-ai-apps",
-      "createdAt": "2026-10-14 13:36:19",
-      "lastSeenAt": "2026-10-14 13:36:20",
+      "lastSeenAt": "2026-10-15 13:28:20",
       "publishedAt": "2026-09-30"
     },
     {
@@ -1634,68 +1702,20 @@
       "publishedAt": "2026-09-30"
     },
     {
-      "id": 2093,
-      "source": "reddit",
-      "url": "https://www.reddit.com/r/AgentSkills/comments/1wujl2p/i_kept_losing_the_useful_parts_of_my_ai_chats_so/",
-      "title": "I kept losing the useful parts of my AI chats, so I wrote a skill that files them in my Obsidian vault (Claude, ChatGPT, Gemini, desktop and phone)",
-      "summary": "How many good answers from Claude or ChatGPT have actually made it into your vault? For me it was a small fraction. The rest sat in a chat history I never searched again: a decision and the reason behind it, a command that finally worked, a list of next steps. Copying a long chat by hand is tedious, and a raw transcript makes a bad note anyway. What I wanted was a summary written by the assistant",
-      "aiSummary": "Obsidian filing/summary workflow for chats; not about setting up an iOS offline local LLM assistant.",
-      "author": null,
-      "score": 0,
+      "id": 1808,
+      "source": "hackernews",
+      "url": "https://news.ycombinator.com/item?id=49756902",
+      "title": "My Thoughts on AI and LLMs",
+      "summary": "My Thoughts on AI and LLMs",
+      "aiSummary": "Broad thoughts on AI/LLMs with no clear focus on mobile AI assistants or iOS/Android.",
+      "author": "leonardovb",
+      "score": 100,
       "relevance": 10,
       "category": "ai",
       "topicSlug": "mobile-ai",
-      "createdAt": "2026-10-06 13:31:36",
-      "lastSeenAt": "2026-10-14 13:35:49",
-      "publishedAt": "2026-09-30"
-    },
-    {
-      "id": 2051,
-      "source": "grounding",
-      "url": "https://www.aroged.com/2026/09/30/openai-is-challenging-the-traditional-app-store-model-with-its-new-features/",
-      "title": "OpenAI is challenging the traditional app store model with its new features. - Aroged",
-      "summary": "OpenAI introduces a mechanism that allows users to save their ChatGPT configuration files and settings when moving to other services and use existing AI feature limitations in third-party applications. The chatbot, which has 1.2 billion monthly active users, becomes a platform for launching apps – during the conversation, if it recognizes that it can help the user solve a current problem, it will itself provide an app.",
-      "aiSummary": "Discusses OpenAI platform changes that enable launching apps via ChatGPT; relevant to AI app launches, but not specifically a list of consumer AI app launches with target users/features.",
-      "author": null,
-      "score": 0,
-      "relevance": 10,
-      "category": "ai",
-      "topicSlug": "consumer-ai-apps",
-      "createdAt": "2026-10-02 13:33:24",
-      "lastSeenAt": "2026-10-02 13:33:25",
-      "publishedAt": "2026-09-30"
-    },
-    {
-      "id": 1923,
-      "source": "grounding",
-      "url": "https://codersera.com/blog/meta-muse-ai-agent-app-guide-2026/",
-      "title": "Meta Muse: The Complete Guide to Meta's AI Agent App (2026)",
-      "summary": "<strong>Meta Muse</strong> is Meta&#x27;s personal AI agent app, launched 8 Sept 2026 on Muse Spark 1.3. What it does, how the Secure VM and Sentinel work, pricing, Muse for Mac, Muse Connectors, privacy, and how it compares with Claude Cowork and Gemini Spark.",
-      "aiSummary": "Guide to Meta Muse with specific launch date (8 Sept 2026) and details about the AI agent app; good factual grounding for a recent consumer AI app launch.",
-      "author": null,
-      "score": 0,
-      "relevance": 10,
-      "category": "ai",
-      "topicSlug": "consumer-ai-apps",
-      "createdAt": "2026-09-24 13:41:50",
-      "lastSeenAt": "2026-10-03 13:32:05",
-      "publishedAt": "2026-09-30"
-    },
-    {
-      "id": 2077,
-      "source": "hackernews",
-      "url": "https://jorgegarciaherrero.com/wp-content/interactivos/20260916-Prompt-like-a-butterfly-sting-like-a-tracker-(clean).pdf",
-      "title": "A Privacy Analysis of Web and Mobile Conversational AI Agents [pdf]",
-      "summary": "A Privacy Analysis of Web and Mobile Conversational AI Agents [pdf]",
-      "aiSummary": "Privacy analysis of conversational AI agents; useful for safety/privacy guardrails, though not a how-to for memory/intent/pipeline.",
-      "author": "damaru2",
-      "score": 83,
-      "relevance": 10,
-      "category": "ai",
-      "topicSlug": "personal-ai-systems",
-      "createdAt": "2026-10-05 13:31:21",
-      "lastSeenAt": "2026-10-12 13:54:35",
-      "publishedAt": "2026-09-29"
+      "createdAt": "2026-09-20 13:32:57",
+      "lastSeenAt": "2026-10-15 13:28:20",
+      "publishedAt": "2026-09-18"
     }
   ],
   "deepReads": [
