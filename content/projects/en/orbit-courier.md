@@ -1,7 +1,6 @@
 ---
-
 title: Orbit Courier
-description: "A browser crossing adventure through floating worlds. Guide a ceramic courier through three increasingly challenging crossings toward the next beacon. Play in desktop Chrome with a keyboard. No account required."
+description: 'A browser crossing adventure through floating worlds. Guide a ceramic courier through three increasingly challenging crossings toward the next beacon. Play in desktop Chrome with a keyboard. No account required.'
 status: shipped
 tech: ['JavaScript', 'Three.js', 'WebGL', 'Vercel']
 published: true
@@ -10,13 +9,20 @@ order: 5
 layout: media-copy
 logo: /projects/orbit-courier/orbit-courier-logo.png
 screenshots:
+  - /projects/orbit-courier/official-website.webp
   - /blogs-img/2026-10-18-orbit-courier-morning.webp
   - /blogs-img/2026-10-18-orbit-courier-sundial.webp
   - /blogs-img/2026-10-18-orbit-courier-skywheel.webp
+mediaPresentation: slideshow
+screenshotLabels:
+  - Official website
+  - Morning Crossing
+  - Sundial Crossing
+  - Skywheel Ascent
 mediaFit: cover
 mediaAspect: landscape
 mediaLabel: Actual gameplay · Three crossings
-imageAlt: "Actual Orbit Courier gameplay, from the morning bridge to a rotating sweep and elevated Skywheel route."
+imageAlt: 'Actual Orbit Courier gameplay, from the morning bridge to a rotating sweep and elevated Skywheel route.'
 demo: https://orbit-courier-playtest.vercel.app/
 blog: /blogs/building-orbit-courier
 ---
