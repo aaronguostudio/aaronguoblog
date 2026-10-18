@@ -1,6 +1,6 @@
 ---
 title: Orbit Courier
-description: "一场穿越浮空世界的浏览器冒险。驾驶陶瓷小车，找准时机跨过变化的道路，抵达下一座信标。从 Morning Crossing 开始，逐步解锁三关旅程，在桌面 Chrome 中用键盘体验，无需账号。"
+description: '一场穿越浮空世界的浏览器冒险。驾驶陶瓷小车，找准时机跨过变化的道路，抵达下一座信标。从 Morning Crossing 开始，逐步解锁三关旅程，在桌面 Chrome 中用键盘体验，无需账号。'
 status: shipped
 tech: ['JavaScript', 'Three.js', 'WebGL', 'Vercel']
 published: true
@@ -9,13 +9,20 @@ order: 5
 layout: media-copy
 logo: /projects/orbit-courier/orbit-courier-logo.png
 screenshots:
+  - /projects/orbit-courier/official-website.webp
   - /blogs-img/2026-10-18-orbit-courier-morning.webp
   - /blogs-img/2026-10-18-orbit-courier-sundial.webp
   - /blogs-img/2026-10-18-orbit-courier-skywheel.webp
+mediaPresentation: slideshow
+screenshotLabels:
+  - 游戏官网
+  - 晨光之渡
+  - 日晷之渡
+  - 摩天轮攀登
 mediaFit: cover
 mediaAspect: landscape
 mediaLabel: 实际游戏 · 三关旅程
-imageAlt: "Orbit Courier 实际游戏画面，从晨光木桥到旋转扫杆和通往上层浮岛的摩天轮。"
+imageAlt: 'Orbit Courier 实际游戏画面，从晨光木桥到旋转扫杆和通往上层浮岛的摩天轮。'
 demo: https://orbit-courier-playtest.vercel.app/
 blog: /zh/blogs/building-orbit-courier
 ---

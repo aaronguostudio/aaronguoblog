@@ -17,6 +17,8 @@ interface ProjectMeta {
   published?: boolean
   logo?: string
   screenshots?: string[]
+  screenshotLabels?: string[]
+  mediaPresentation?: 'slideshow'
   github?: string
   release?: string
   appStore?: string
@@ -40,6 +42,8 @@ interface ProjectCard {
   published: boolean
   logo?: string
   screenshots?: string[]
+  screenshotLabels?: string[]
+  mediaPresentation?: 'slideshow'
   github?: string
   release?: string
   appStore?: string
@@ -113,6 +117,8 @@ function toProjectCard(entry: ContentProjectEntry): ProjectCard {
         ? root.screenshots
         : undefined,
     github: meta?.github ?? root?.github,
+    screenshotLabels: meta?.screenshotLabels ?? root?.screenshotLabels,
+    mediaPresentation: meta?.mediaPresentation ?? root?.mediaPresentation,
     release: meta?.release ?? root?.release,
     appStore: meta?.appStore ?? root?.appStore,
     demo: meta?.demo ?? root?.demo,
@@ -144,15 +150,42 @@ const projects = computed(() => {
 
 const lightboxImage = ref<string | null>(null)
 const lightboxProject = ref<string>('')
+const previewCloseButton = ref<HTMLButtonElement | null>(null)
+let previewTrigger: HTMLElement | null = null
+const selectedImages = ref<Record<string, number>>({})
+
+function selectedIndex(project: ProjectCard) {
+  return selectedImages.value[project.name] ?? 0
+}
+
+function selectedImage(project: ProjectCard) {
+  return project.screenshots?.[selectedIndex(project)] || ''
+}
+
+function imageLabel(project: ProjectCard, index: number) {
+  return project.screenshotLabels?.[index] || `${project.name} · ${index + 1}`
+}
+
+function stepImage(project: ProjectCard, direction: number) {
+  const count = project.screenshots?.length || 1
+  selectedImages.value[project.name] = (selectedIndex(project) + direction + count) % count
+}
 
 function openLightbox(src: string, projectName: string) {
+  previewTrigger = document.activeElement as HTMLElement | null
   lightboxImage.value = src
   lightboxProject.value = projectName
+  nextTick(() => previewCloseButton.value?.focus())
 }
 
 function closeLightbox() {
   lightboxImage.value = null
+  previewTrigger?.focus()
 }
+
+onKeyStroke('Escape', () => {
+  if (lightboxImage.value) closeLightbox()
+})
 
 function formatProjectNumber(index: number) {
   return String(index + 1).padStart(2, '0')
@@ -246,7 +279,95 @@ defineOgImageComponent('Test', {
             }"
           >
             <div
-              v-if="project.screenshots && project.screenshots.length > 1"
+              v-if="project.mediaPresentation === 'slideshow' && project.screenshots?.length"
+              class="build-project-slideshow"
+              role="region"
+              :aria-label="t('build.imageGallery', { project: project.name })"
+              @keydown.left.prevent="stepImage(project, -1)"
+              @keydown.right.prevent="stepImage(project, 1)"
+            >
+              <button
+                class="build-project-media group relative block aspect-video w-full overflow-hidden rounded-lg border outline-none"
+                type="button"
+                :aria-label="
+                  t('build.openPreview', { project: imageLabel(project, selectedIndex(project)) })
+                "
+                @click="
+                  openLightbox(selectedImage(project), imageLabel(project, selectedIndex(project)))
+                "
+              >
+                <img
+                  :src="selectedImage(project)"
+                  :alt="`${project.name} · ${imageLabel(project, selectedIndex(project))}`"
+                  class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.018] motion-reduce:transition-none"
+                  width="1280"
+                  height="720"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span class="build-gallery-expand" aria-hidden="true">
+                  <Icon name="heroicons:arrows-pointing-out" class="h-4 w-4" />
+                </span>
+              </button>
+
+              <div class="build-gallery-caption">
+                <p class="min-w-0 text-sm" aria-live="polite" aria-atomic="true">
+                  {{ imageLabel(project, selectedIndex(project)) }}
+                </p>
+                <div class="flex shrink-0 items-center gap-2">
+                  <span class="mr-2 font-mono text-[11px] tabular-nums">
+                    {{ formatProjectNumber(selectedIndex(project)) }} /
+                    {{ String(project.screenshots.length).padStart(2, '0') }}
+                  </span>
+                  <button
+                    type="button"
+                    class="build-gallery-arrow"
+                    :aria-label="t('build.previousImage')"
+                    @click="stepImage(project, -1)"
+                  >
+                    <Icon name="heroicons:arrow-left" class="h-4 w-4" />
+                  </button>
+                  <button
+                    type="button"
+                    class="build-gallery-arrow"
+                    :aria-label="t('build.nextImage')"
+                    @click="stepImage(project, 1)"
+                  >
+                    <Icon name="heroicons:arrow-right" class="h-4 w-4" />
+                  </button>
+                </div>
+              </div>
+
+              <div class="build-gallery-thumbnails">
+                <button
+                  v-for="(screenshot, screenshotIndex) in project.screenshots"
+                  :key="screenshot"
+                  type="button"
+                  class="build-gallery-thumbnail"
+                  :class="{ 'is-selected': selectedIndex(project) === screenshotIndex }"
+                  :aria-label="
+                    t('build.showImage', { image: imageLabel(project, screenshotIndex) })
+                  "
+                  :aria-pressed="selectedIndex(project) === screenshotIndex"
+                  @click="selectedImages[project.name] = screenshotIndex"
+                >
+                  <img
+                    :src="screenshot"
+                    alt=""
+                    class="aspect-video w-full rounded-md object-cover"
+                    width="256"
+                    height="144"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <span class="mt-2 block text-[10px] leading-snug sm:text-xs">{{
+                    imageLabel(project, screenshotIndex)
+                  }}</span>
+                </button>
+              </div>
+            </div>
+            <div
+              v-else-if="project.screenshots && project.screenshots.length > 1"
               class="build-project-media build-project-gallery rounded-lg border p-4 sm:p-5"
             >
               <p class="mb-4 font-mono text-[10px] uppercase tracking-[0.14em]">
@@ -435,14 +556,19 @@ defineOgImageComponent('Test', {
       <Transition name="build-fade">
         <div
           v-if="lightboxImage"
+          role="dialog"
+          aria-modal="true"
+          :aria-label="lightboxProject"
           class="fixed inset-0 z-[100] flex cursor-pointer items-center justify-center bg-black/85 p-5 backdrop-blur-sm"
           @click="closeLightbox"
         >
           <button
+            ref="previewCloseButton"
             class="absolute right-5 top-5 rounded-full border border-white/20 bg-black/30 p-2 text-white outline-none transition-colors hover:bg-white/15 focus-visible:ring-2 focus-visible:ring-white"
             type="button"
             :aria-label="t('build.closePreview')"
             @click.stop="closeLightbox"
+            @keydown.tab.prevent
           >
             <Icon name="heroicons:x-mark" class="h-5 w-5" />
           </button>
@@ -549,6 +675,89 @@ defineOgImageComponent('Test', {
   justify-self: center;
   background: #0b1017;
   color: #a6b8cd;
+}
+
+.build-project-slideshow {
+  min-width: 0;
+  width: 100%;
+}
+
+.build-gallery-expand {
+  position: absolute;
+  right: 0.85rem;
+  bottom: 0.85rem;
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid rgb(255 255 255 / 0.25);
+  border-radius: 50%;
+  background: rgb(9 9 11 / 0.55);
+  color: #fff;
+}
+
+.build-gallery-caption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding-block: 0.75rem;
+  color: var(--build-muted);
+}
+
+.build-gallery-arrow {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid var(--build-line-strong);
+  border-radius: 50%;
+  color: var(--build-text);
+  transition: background 180ms ease;
+}
+
+.build-gallery-arrow:hover {
+  background: var(--build-surface);
+}
+
+.build-gallery-thumbnails {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(0.5rem, 1vw, 0.85rem);
+}
+
+.build-gallery-thumbnail {
+  min-width: 0;
+  text-align: left;
+  color: var(--build-muted);
+}
+
+.build-gallery-thumbnail img {
+  border: 2px solid transparent;
+  opacity: 0.65;
+  transition:
+    opacity 180ms ease,
+    border-color 180ms ease;
+}
+
+.build-gallery-thumbnail:hover img,
+.build-gallery-thumbnail.is-selected img {
+  opacity: 1;
+}
+
+.build-gallery-thumbnail.is-selected {
+  color: var(--build-text);
+}
+
+.build-gallery-thumbnail.is-selected img {
+  border-color: var(--build-accent);
+}
+
+.build-gallery-arrow:focus-visible,
+.build-gallery-thumbnail:focus-visible {
+  outline: 2px solid var(--build-accent);
+  outline-offset: 3px;
+  border-radius: 0.375rem;
 }
 
 .build-project-media-label {
@@ -682,6 +891,19 @@ defineOgImageComponent('Test', {
 
   .build-project-dossier--media-copy .build-project-media {
     transform: translateY(-0.75rem);
+  }
+
+  .build-project-slideshow {
+    order: 1;
+    align-self: start;
+  }
+
+  .build-project-dossier--copy-media .build-project-slideshow {
+    order: 2;
+  }
+
+  .build-project-dossier .build-project-slideshow .build-project-media {
+    transform: none;
   }
 }
 
