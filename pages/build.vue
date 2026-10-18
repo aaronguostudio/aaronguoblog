@@ -27,7 +27,7 @@ interface ProjectMeta {
   layout?: 'copy-media' | 'media-copy'
   tone?: string
   mediaFit?: 'cover' | 'contain'
-  mediaAspect?: 'standard' | 'wide'
+  mediaAspect?: 'standard' | 'wide' | 'landscape'
   mediaLabel?: string
   imageAlt?: string
 }
@@ -50,7 +50,7 @@ interface ProjectCard {
   layout: 'copy-media' | 'media-copy'
   tone?: string
   mediaFit: 'cover' | 'contain'
-  mediaAspect: 'standard' | 'wide'
+  mediaAspect: 'standard' | 'wide' | 'landscape'
   mediaLabel?: string
   imageAlt?: string
 }
@@ -274,7 +274,13 @@ defineOgImageComponent('Test', {
             <button
               v-else-if="project.screenshots?.[0]"
               class="build-project-media group relative block w-full overflow-hidden rounded-lg border text-left outline-none"
-              :class="project.mediaAspect === 'wide' ? 'aspect-[16/7]' : 'aspect-[16/10]'"
+              :class="
+                project.mediaAspect === 'landscape'
+                  ? 'aspect-video'
+                  : project.mediaAspect === 'wide'
+                    ? 'aspect-[16/7]'
+                    : 'aspect-[16/10]'
+              "
               type="button"
               :aria-label="t('build.openPreview', { project: project.name })"
               @click="openLightbox(project.screenshots[0], project.name)"
