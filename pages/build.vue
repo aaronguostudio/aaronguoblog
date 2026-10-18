@@ -252,7 +252,14 @@ defineOgImageComponent('Test', {
               <p class="mb-4 font-mono text-[10px] uppercase tracking-[0.14em]">
                 {{ project.mediaLabel }}
               </p>
-              <div class="grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
+              <div
+                class="grid gap-3 sm:gap-4"
+                :class="
+                  project.screenshots.length === 3
+                    ? 'grid-cols-1 sm:grid-cols-3'
+                    : 'grid-cols-2 sm:grid-cols-4'
+                "
+              >
                 <button
                   v-for="(screenshot, screenshotIndex) in project.screenshots"
                   :key="screenshot"
