@@ -82,6 +82,7 @@ const navItems = computed(() => [
   { name: t('navigation.videos'), path: '/videos', exact: false },
   { name: t('navigation.signal'), path: '/signal', exact: false },
   { name: t('navigation.build'), path: '/build', exact: false },
+  { name: t('navigation.skills'), path: 'https://skills.aaronguo.com', exact: false },
   { name: t('navigation.learn'), path: '/learn', exact: false },
   { name: t('navigation.about'), path: '/about', exact: false },
 ])
@@ -146,7 +147,8 @@ function isActive(path: string, exact = false) {
         <ul class="flex items-center space-x-6 text-sm sm:text-base">
           <li v-for="item in navItems" :key="item.path">
             <NuxtLink
-              :to="localePath(item.path)"
+              :to="item.path.startsWith('https://') ? item.path : localePath(item.path)"
+              :external="item.path.startsWith('https://')"
               :class="[
                 'py-2 transition-colors hover:text-primary',
                 isActive(item.path, item.exact)
@@ -210,7 +212,8 @@ function isActive(path: string, exact = false) {
         <ul class="flex flex-col space-y-3">
           <li v-for="item in navItems" :key="item.path">
             <NuxtLink
-              :to="localePath(item.path)"
+              :to="item.path.startsWith('https://') ? item.path : localePath(item.path)"
+              :external="item.path.startsWith('https://')"
               :class="[
                 'block py-2 transition-colors hover:text-primary',
                 isActive(item.path, item.exact)
