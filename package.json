@@ -9,7 +9,7 @@
   },
   "license": "MIT",
   "scripts": {
-    "build": "nuxt build",
+    "build": "node scripts/validate-production-source.mjs && nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
@@ -29,6 +29,9 @@
     "radar:verify-deploy": "node scripts/radar/deploy-verifier.js",
     "newsletter:draft": "node scripts/newsletter/draft.js",
     "test": "vitest",
+    "test:deployment": "node --test scripts/test-deployment-policy.mjs",
+    "verify:local": "pnpm run test:deployment && pnpm run verify:blog-catalog && pnpm exec vitest run --maxWorkers=2 --minWorkers=1 && pnpm run lint && pnpm run build",
+    "verify:static": "pnpm run verify:local && pnpm run generate",
     "youtube:fetch": "node scripts/fetch-youtube-data.js"
   },
   "devDependencies": {
