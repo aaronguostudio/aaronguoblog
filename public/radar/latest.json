@@ -1,30 +1,30 @@
 {
   "version": 1,
-  "date": "2026-10-27",
-  "generatedAt": "2026-10-27T13:29:42.492Z",
+  "date": "2026-10-28",
+  "generatedAt": "2026-10-28T13:28:39.940Z",
   "quality": {
     "status": "ok",
     "blockers": [],
     "warnings": []
   },
   "latestRun": {
-    "id": 482,
+    "id": 485,
     "status": "completed",
-    "startedAt": "2026-10-27 13:29:11",
-    "completedAt": "2026-10-27 13:29:41",
+    "startedAt": "2026-10-28 13:28:09",
+    "completedAt": "2026-10-28 13:28:39",
     "warnings": [],
     "sourceErrors": {}
   },
   "pulse": {
-    "text": "Radar's read across mobile-ai, coding-agents and consumer-ai-apps. Top themes: Hacker reverse engineers his Samsung TV and finds on-device AI listening for your dog and baby, watching what you watch, and borrowing your soundbar's mic if the TV doesn't have one. Then OpenAI banned him for reverse-engineering it; The Four Horsemen of Agentic Coding; The Current State of Siri AI.",
-    "date": "2026-10-27",
-    "generatedAt": "2026-10-27 13:29:41",
+    "text": "Radar's read across coding-agents, mobile-ai and consumer-ai-apps. Top themes: The Four Horsemen of Agentic Coding; The Current State of Siri AI; Show HN: Pulse Local, a Mac budgeting app whose AI models run on your machine.",
+    "date": "2026-10-28",
+    "generatedAt": "2026-10-28 13:28:39",
     "topItemIds": [
-      2362,
       2063,
       2389,
-      2213,
-      2205
+      2205,
+      2052,
+      2241
     ],
     "takeaway": null,
     "sourceItemIds": []
@@ -69,15 +69,15 @@
   "stats": [
     {
       "source": "reddit",
-      "count": 855
+      "count": 862
     },
     {
       "source": "hackernews",
-      "count": 538
+      "count": 539
     },
     {
       "source": "grounding",
-      "count": 352
+      "count": 351
     },
     {
       "source": "github",
@@ -97,6 +97,22 @@
     }
   ],
   "items": [
+    {
+      "id": 2399,
+      "source": "reddit",
+      "url": "https://www.reddit.com/r/jenova_ai/comments/1xgmpfh/what_is_the_best_ai_tutor_for_learning_sanskrit/",
+      "title": "What Is the Best AI Tutor for Learning Sanskrit?",
+      "summary": "Which Sanskrit Learning Tools Teach Sandhi Splitting and Text Reading, Not Just Vocabulary? For learners who want to read Sanskrit texts in the original, Jenova&#39;s Sanskrit Tutor is among the most comprehensive AI options in 2026. It teaches sandhi splitting, compound dissolution, and root-based grammar through conversation, with audio pronunciation for new material. Each alternative fills a di",
+      "aiSummary": "Off-topic (AI tutor for Sanskrit) and does not mention mobile AI/on-device iOS/Android assistants in title/snippet.",
+      "author": null,
+      "score": 0,
+      "relevance": 5,
+      "category": "ai",
+      "topicSlug": "mobile-ai",
+      "createdAt": "2026-10-28 13:27:43",
+      "lastSeenAt": "2026-10-28 13:27:43",
+      "publishedAt": "2026-10-27"
+    },
     {
       "id": 2388,
       "source": "youtube",
@@ -143,6 +159,22 @@
       "topicSlug": "mobile-ai",
       "createdAt": "2026-10-27 13:28:35",
       "lastSeenAt": "2026-10-27 13:28:35",
+      "publishedAt": "2026-10-26"
+    },
+    {
+      "id": 1835,
+      "source": "grounding",
+      "url": "https://www.apple.com/newsroom/2026/09/siri-ai-a-profoundly-more-capable-and-personal-assistant-is-here/",
+      "title": "Siri AI, a profoundly more capable and personal assistant, is here - Apple",
+      "summary": "<strong>Siri AI</strong>, a profoundly more capable and personal assistant powered by the next generation of Apple Intelligence, is here · Available starting today, the 2027 software releases bring <strong>Siri AI</strong> and helpful Apple Intelligence-powered capabilities ...",
+      "aiSummary": "Official Apple newsroom announcement of Siri AI availability; strong evidence of a major consumer AI feature/app-like launch with clear timing.",
+      "author": null,
+      "score": 0,
+      "relevance": 10,
+      "category": "ai",
+      "topicSlug": "consumer-ai-apps",
+      "createdAt": "2026-09-21 13:38:12",
+      "lastSeenAt": "2026-10-28 13:28:06",
       "publishedAt": "2026-10-26"
     },
     {
@@ -215,14 +247,30 @@
       "url": "https://www.neomindlabs.com/2026/10/22/agentic-coding-is-doing-to-cybersecurity-what-firearms-did-to-security/",
       "title": "Agentic coding is doing to cybersecurity what firearms did to security",
       "summary": "Agentic coding is doing to cybersecurity what firearms did to security",
-      "aiSummary": "Discusses agentic coding in a broader security analogy; likely relevant to autonomous coding but not specifically an agentic IDE overview or workflow comparison.",
+      "aiSummary": "Uses the term “agentic coding” and is likely on agentic systems, but the snippet is about cybersecurity analogy rather than defining agentic IDEs/autonomous coding workflows.",
       "author": "neomindryan",
       "score": 12,
       "relevance": 10,
       "category": "coding",
       "topicSlug": "coding-agents",
       "createdAt": "2026-10-24 13:32:17",
-      "lastSeenAt": "2026-10-27 13:29:39",
+      "lastSeenAt": "2026-10-28 13:28:37",
+      "publishedAt": "2026-10-23"
+    },
+    {
+      "id": 2405,
+      "source": "reddit",
+      "url": "https://www.reddit.com/r/cursor/comments/1xd8wo4/do_you_actually_read_the_diffs_your_ai_agent/",
+      "title": "Do you actually read the diffs your AI agent produces, or just run it and see?",
+      "summary": "I&#39;ve been wondering how people handle this when using Cursor&#39;s agent mode. Some folks seem to review every change, others just test whether it works and move on. Curious where most people land and whether it has ever burned you. &#32; submitted by &#32; /u/Equivalent_Type6726 [link] &#32; [comments]",
+      "aiSummary": "Focuses on review/verification behavior for AI agent diffs rather than explaining what an agentic IDE is or how it enables autonomy.",
+      "author": null,
+      "score": 0,
+      "relevance": 10,
+      "category": "coding",
+      "topicSlug": "coding-agents",
+      "createdAt": "2026-10-28 13:28:37",
+      "lastSeenAt": "2026-10-28 13:28:37",
       "publishedAt": "2026-10-23"
     },
     {
@@ -263,14 +311,14 @@
       "url": "https://neurogrid.cc/en",
       "title": "How to turn consumer hardware into AI infra",
       "summary": "How to turn consumer hardware into AI infra",
-      "aiSummary": "Focuses on turning consumer hardware into AI infrastructure; adjacent to consumer AI but not clearly about consumer AI app launches for everyday users.",
+      "aiSummary": "About turning consumer hardware into AI infrastructure; does not mention consumer AI app launches or specific app launches.",
       "author": "cheyodev",
       "score": 0,
       "relevance": 10,
       "category": "ai",
       "topicSlug": "consumer-ai-apps",
       "createdAt": "2026-10-23 13:35:28",
-      "lastSeenAt": "2026-10-27 13:29:08",
+      "lastSeenAt": "2026-10-28 13:28:08",
       "publishedAt": "2026-10-23"
     },
     {
@@ -407,14 +455,14 @@
       "url": "https://danluu.com/ai-coding/",
       "title": "Agentic test processes, LLM benchmarks, and other notes on agentic coding",
       "summary": "Agentic test processes, LLM benchmarks, and other notes on agentic coding",
-      "aiSummary": "Directly about agentic coding with notes/benchmarks; should provide useful conceptual framing for autonomous coding (though may be less IDE-focused).",
+      "aiSummary": "Likely covers agentic coding/testing concepts, but the snippet is too vague to confirm it defines agentic IDEs or directly compares workflows.",
       "author": "surprisetalk",
       "score": 100,
       "relevance": 10,
       "category": "coding",
       "topicSlug": "coding-agents",
       "createdAt": "2026-07-10 13:32:57",
-      "lastSeenAt": "2026-10-27 13:29:38",
+      "lastSeenAt": "2026-10-28 13:28:36",
       "publishedAt": "2026-10-21"
     },
     {
@@ -431,6 +479,22 @@
       "topicSlug": "consumer-ai-apps",
       "createdAt": "2026-10-27 13:28:38",
       "lastSeenAt": "2026-10-27 13:29:08",
+      "publishedAt": "2026-10-21"
+    },
+    {
+      "id": 2402,
+      "source": "reddit",
+      "url": "https://www.reddit.com/r/cursor/comments/1xbtnzh/tired_of_coding_agents_writing_50_lines_of/",
+      "title": "Tired of coding agents writing 50 lines of boilerplate for a 2-line fix? Here’s the strict Anti-Bloat directive.",
+      "summary": "Whenever I let Claude Code or Cursor Agent solve a simple bug, it tries to create an `AbstractFactoryProvider` class, imports 3 unnecessary npm packages, and rewrites the whole 300-line file.I got sick of paying token fees for AI bloat, so I built **Anti-Bloat**—a surgical constraint rule that forces agents to write 60% less code, use zero unneeded abstractions, and only output targeted diffs. Her",
+      "aiSummary": "Directly discusses coding agents (Claude Code/Cursor Agent) and how they behave in an IDE workflow, with a concrete “anti-bloat” constraint concept.",
+      "author": null,
+      "score": 0,
+      "relevance": 10,
+      "category": "coding",
+      "topicSlug": "coding-agents",
+      "createdAt": "2026-10-28 13:28:35",
+      "lastSeenAt": "2026-10-28 13:28:36",
       "publishedAt": "2026-10-21"
     },
     {
@@ -471,14 +535,14 @@
       "url": "https://www.damiangalarza.com/posts/2026-10-21-agentic-coding-workflow/",
       "title": "My Agentic Coding Workflow: Claude Code, Codex, and Pi",
       "summary": "My Agentic Coding Workflow: Claude Code, Codex, and Pi",
-      "aiSummary": "Explicitly about an agentic coding workflow using Claude Code/Codex/Pi; likely includes practical explanation relevant to autonomous coding.",
+      "aiSummary": "A personal workflow post explicitly about agentic coding using Claude Code/Codex/Pi, which should help explain how autonomous coding is carried out in practice.",
       "author": "dgalarza",
       "score": 0,
       "relevance": 10,
       "category": "coding",
       "topicSlug": "coding-agents",
       "createdAt": "2026-10-22 13:34:07",
-      "lastSeenAt": "2026-10-27 13:29:38",
+      "lastSeenAt": "2026-10-28 13:28:35",
       "publishedAt": "2026-10-21"
     },
     {
@@ -594,6 +658,22 @@
       "publishedAt": "2026-10-19"
     },
     {
+      "id": 2401,
+      "source": "reddit",
+      "url": "https://www.reddit.com/r/cursor/comments/1x9qki4/is_closing_the_loop_with_your_coding_agent/",
+      "title": "Is closing the loop with your coding agent possible now?",
+      "summary": "The goal with coding agents is to have the whole process run without constant human involvement. The agent builds something, a tool tests it, the agent fixes whatever breaks, and a person only needs to step in when an actual judgment call is needed. Building works pretty well now. The problem is verification, because many testing tools are designed to show results to a person in a dashboard instea",
+      "aiSummary": "Explains autonomous coding loop (agent builds, tests, fixes with minimal human involvement) which maps well to agentic IDE definition vs traditional workflows.",
+      "author": null,
+      "score": 0,
+      "relevance": 10,
+      "category": "coding",
+      "topicSlug": "coding-agents",
+      "createdAt": "2026-10-28 13:28:35",
+      "lastSeenAt": "2026-10-28 13:28:35",
+      "publishedAt": "2026-10-19"
+    },
+    {
       "id": 2370,
       "source": "grounding",
       "url": "https://www.zovintra.com/blog/on-device-vs-cloud-ai-ios-android",
@@ -671,6 +751,22 @@
       "topicSlug": "mobile-ai",
       "createdAt": "2026-07-28 13:32:53",
       "lastSeenAt": "2026-10-23 13:34:53",
+      "publishedAt": "2026-10-19"
+    },
+    {
+      "id": 252,
+      "source": "grounding",
+      "url": "https://github.com/stevelaskaridis/awesome-mobile-llm",
+      "title": "GitHub - stevelaskaridis/awesome-mobile-llm: Awesome Mobile LLMs · GitHub",
+      "summary": "OLMoE.Swift: Ai2 <strong>OLMoE is an AI chatbot powered by the OLMoE model</strong>. Unlike cloud-based AI assistants, OLMoE runs entirely on your device, ensuring complete privacy and offline accessibility—even in Flight Mode.",
+      "aiSummary": "Strong entity match (mobile LLMs, on-device/offline) and likely useful resources; however it's a curated list rather than a concrete how-to architecture walkthrough.",
+      "author": null,
+      "score": 0,
+      "relevance": 10,
+      "category": "ai",
+      "topicSlug": "mobile-ai",
+      "createdAt": "2026-06-17 13:32:18",
+      "lastSeenAt": "2026-10-28 13:27:42",
       "publishedAt": "2026-10-19"
     },
     {
@@ -839,14 +935,14 @@
       "url": "https://apnews.com/article/ai-prices-dynamic-customers-technology-64c446cd117d3be664de4ab570fb9857",
       "title": "Consumer apprehension grows as US retailers adopt AI-assisted pricing tools",
       "summary": "Consumer apprehension grows as US retailers adopt AI-assisted pricing tools",
-      "aiSummary": "News about retailers adopting AI-assisted pricing tools; somewhat relevant to consumer-facing AI, but not clearly about specific consumer AI app launches.",
+      "aiSummary": "AI-assisted pricing for retailers is adjacent to consumer AI but not about consumer AI app launches.",
       "author": "geox",
       "score": 16,
       "relevance": 10,
       "category": "ai",
       "topicSlug": "consumer-ai-apps",
       "createdAt": "2026-10-19 13:29:44",
-      "lastSeenAt": "2026-10-27 13:29:08",
+      "lastSeenAt": "2026-10-28 13:28:08",
       "publishedAt": "2026-10-18"
     },
     {
@@ -1458,22 +1554,6 @@
       "publishedAt": "2026-10-15"
     },
     {
-      "id": 2383,
-      "source": "grounding",
-      "url": "https://paradev.com/compare/best-agentic-ide",
-      "title": "Best Agentic IDE in 2026: Multi-Agent Coding Tools Compared | Paradev",
-      "summary": "An agentic IDE is a development environment where AI agents can <strong>autonomously plan and execute multi-step coding tasks (editing files, running commands, iterating) rather than only autocompleting code</strong>.",
-      "aiSummary": "Contains a clear definition of an agentic IDE enabling autonomous multi-step coding (editing files, running commands, iterating) and is directly aligned with the requested overview intent.",
-      "author": null,
-      "score": 0,
-      "relevance": 10,
-      "category": "coding",
-      "topicSlug": "coding-agents",
-      "createdAt": "2026-10-26 13:34:39",
-      "lastSeenAt": "2026-10-27 13:29:37",
-      "publishedAt": "2026-10-15"
-    },
-    {
       "id": 2379,
       "source": "reddit",
       "url": "https://www.reddit.com/r/cursor/comments/1x6onge/final_straw_cancelled_cursor/",
@@ -1586,6 +1666,22 @@
       "publishedAt": "2026-10-14"
     },
     {
+      "id": 2406,
+      "source": "reddit",
+      "url": "https://www.reddit.com/r/cursor/comments/1x620iy/once_you_run_more_than_one_coding_agent_how_do/",
+      "title": "once you run more than one coding agent, how do you stop them stepping on each other",
+      "summary": "i had four sessions going: Cursor on the main repo, Claude Code in another terminal, and two more on side branches. by lunch i could not tell which one was waiting on me. one committed to the wrong branch. about 2 hours to unwind, plus a revert i did not want. past one agent, how are you managing multiple coding agents without losing track of them. the model coding is not the hard part. for me it",
+      "aiSummary": "Discusses operational aspects of running multiple coding agents, which is adjacent to autonomous coding, but not a clear definition/comparison of agentic IDE workflows.",
+      "author": null,
+      "score": 0,
+      "relevance": 10,
+      "category": "coding",
+      "topicSlug": "coding-agents",
+      "createdAt": "2026-10-28 13:28:37",
+      "lastSeenAt": "2026-10-28 13:28:37",
+      "publishedAt": "2026-10-14"
+    },
+    {
       "id": 2377,
       "source": "reddit",
       "url": "https://www.reddit.com/r/cursor/comments/1x5wavo/claude_20_vs_cursor_20/",
@@ -1602,115 +1698,19 @@
       "publishedAt": "2026-10-14"
     },
     {
-      "id": 2354,
-      "source": "reddit",
-      "url": "https://www.reddit.com/r/ArtificialInteligence/comments/1x5xslx/researchers_paid_14_to_plant_fake_research_in/",
-      "title": "Researchers paid $14 to plant fake research in China's biggest AI chatbot. It showed up in answers in under 90 minutes.",
-      "summary": "A team of researchers invented a research technique that doesn&#39;t exist, complete with made-up acronyms and stats, and paid a Chinese &quot;get your brand into AI answers&quot; vendor $14 to promote it. Within 28 minutes the vendor had 13 posts live on sites like Sohu, Toutiao and Zhihu. Within the hour, Doubao, ByteDance&#39;s chatbot and China&#39;s most-used AI app (382M monthly users), was",
-      "aiSummary": "Focuses on a research manipulation scam in an AI chatbot; not about consumer AI app launches.",
-      "author": null,
-      "score": 0,
-      "relevance": 10,
-      "category": "ai",
-      "topicSlug": "consumer-ai-apps",
-      "createdAt": "2026-10-22 13:33:38",
-      "lastSeenAt": "2026-10-22 13:33:38",
-      "publishedAt": "2026-10-14"
-    },
-    {
-      "id": 2349,
-      "source": "reddit",
-      "url": "https://www.reddit.com/r/ArtificialInteligence/comments/1x5dq83/what_happens_when_people_lose_access_to_ai/",
-      "title": "What Happens When People Lose Access to AI Assistance? A Study Found a Worrying Pattern",
-      "summary": "As AI becomes part of everyday work, an interesting question is what happens when that assistance suddenly disappears. In three randomized experiments involving 1,222 participants, AI initially improved performance, but participants performed worse than those who had worked without AI once the assistant was removed. The experiments only measured short-term effects, but they raise an interesting qu",
-      "aiSummary": "General study about losing AI assistance; no iOS vs Android assistant or on-device vs cloud comparison.",
-      "author": null,
-      "score": 0,
-      "relevance": 10,
-      "category": "ai",
-      "topicSlug": "mobile-ai",
-      "createdAt": "2026-10-22 13:32:56",
-      "lastSeenAt": "2026-10-22 13:32:57",
-      "publishedAt": "2026-10-14"
-    },
-    {
-      "id": 2334,
-      "source": "reddit",
-      "url": "https://www.reddit.com/r/programming/comments/1x5uh6j/where_do_you_go_for_help_when_youre_stuck_now/",
-      "title": "Where do you go for help when you're stuck now? Survey says 64% of developers visit Stack Overflow less for simple questions",
-      "summary": "The 2026 Stack Overflow survey reports that 83% of developers search online for answers and 70% ask an AI agent, and 64% say they visit Stack Overflow less for simple questions. When you&#39;re stuck as a learner, where do you start: search, an AI tool, a forum, a friend? Has the order changed in the past year, and what do you do to make sure you actually learn the answer? Source (first comment):",
-      "aiSummary": "Discusses developers using AI agents for help, but not an explicit definition or comparison of agentic IDE workflows vs traditional IDEs.",
-      "author": null,
-      "score": 0,
-      "relevance": 10,
-      "category": "coding",
-      "topicSlug": "coding-agents",
-      "createdAt": "2026-10-20 13:35:19",
-      "lastSeenAt": "2026-10-20 13:35:19",
-      "publishedAt": "2026-10-14"
-    },
-    {
-      "id": 2331,
-      "source": "grounding",
-      "url": "https://zapier.com/blog/best-ai-chatbot/",
-      "title": "The best AI chatbots in 2026 | Zapier",
-      "summary": "<strong>Meta AI</strong> comparison to learn more. ... The R1 reasoning model launch in early 2025 created controversy: a Chinese company had built a smarter model than OpenAI using a fraction of the budget.",
-      "aiSummary": "General guide to AI chatbots; not a factual launch/traction report for specific consumer AI apps.",
-      "author": null,
-      "score": 0,
-      "relevance": 10,
-      "category": "ai",
-      "topicSlug": "consumer-ai-apps",
-      "createdAt": "2026-10-20 13:34:42",
-      "lastSeenAt": "2026-10-20 13:34:42",
-      "publishedAt": "2026-10-14"
-    },
-    {
-      "id": 2258,
-      "source": "hackernews",
-      "url": "https://github.com/grigio/sonia-assistant",
-      "title": "Show HN: Sonia. Local AI Assistant Linux. 13Gb RAM, No GPU, Skills Supported",
-      "summary": "Show HN: Sonia. Local AI Assistant Linux. 13Gb RAM, No GPU, Skills Supported",
-      "aiSummary": "Local AI assistant project; engineering but not grounded to AI wearables/AI pins/smart glasses or voice-first wearable UX.",
-      "author": "grigio",
-      "score": 0,
-      "relevance": 10,
-      "category": "ai",
-      "topicSlug": "ai-wearables",
-      "createdAt": "2026-10-19 13:34:04",
-      "lastSeenAt": "2026-10-19 13:34:04",
-      "publishedAt": "2026-10-14"
-    },
-    {
-      "id": 2236,
-      "source": "grounding",
-      "url": "https://www.kucoin.com/news/flash/google-play-store-launches-ai-powered-personal-app-feature",
-      "title": "Google Play Store launches AI-powered personal app feature | KuCoin",
-      "summary": "CoinDesk reports:IT Home, <strong>October 14:</strong> On Tuesday local time, Google announced that apps created using vibe-coded tools can now run directly on Android smartphon",
-      "aiSummary": "Google Play Store launching an AI-powered personal app feature; somewhat relevant to AI app launches but not a specific consumer AI app launch and details are indirect.",
-      "author": null,
-      "score": 0,
-      "relevance": 10,
-      "category": "ai",
-      "topicSlug": "consumer-ai-apps",
-      "createdAt": "2026-10-18 13:36:40",
-      "lastSeenAt": "2026-10-26 13:34:09",
-      "publishedAt": "2026-10-14"
-    },
-    {
       "id": 2063,
       "source": "hackernews",
       "url": "https://distantprovince.substack.com/p/the-four-horsemen-of-agentic-coding",
       "title": "The Four Horsemen of Agentic Coding",
       "summary": "The Four Horsemen of Agentic Coding",
-      "aiSummary": "Agentic coding-focused conceptual piece; likely helpful for understanding autonomous coding, but may not specifically compare agentic IDE vs traditional IDE workflows.",
+      "aiSummary": "Agentic coding is mentioned, but the snippet provides no clear explanation of agentic IDEs or autonomous coding vs traditional IDE workflows.",
       "author": "haute_cuisine",
       "score": 100,
       "relevance": 10,
       "category": "coding",
       "topicSlug": "coding-agents",
       "createdAt": "2026-10-03 13:32:33",
-      "lastSeenAt": "2026-10-27 13:29:38",
+      "lastSeenAt": "2026-10-28 13:28:38",
       "publishedAt": "2026-10-02"
     },
     {
@@ -1719,14 +1719,14 @@
       "url": "https://www.youtube.com/watch?v=LuAgtZdOrg8",
       "title": "The Current State of Siri AI",
       "summary": "The Current State of Siri AI 📌 Stop letting your hub limit your monitor. Upgrade to the Anker Smart Display Hub and unlock the full 240Hz your setup should be getting. Use my code [2026AnkerHub] for 25% off — it’s basically sale-of-the-year pricing. Grab yours now and enjoy the upgrade sooner. Buy on Amazon：https://ankerfast.club/210CCampaign_SAMTIME_539126 Buy on Anker.com：https://shop.anker.com/210CCampaign_SAMTIME_091348 Learn more about Anker Smart Display Hub：https://shop.anker.com/210CCampaign_SAMTIME_692939 - Dual D",
-      "aiSummary": "About Siri AI generally; snippet doesn’t indicate offline local LLM setup steps.",
+      "aiSummary": "About the current state of Siri AI; snippet is unrelated to building an on-device assistant and lacks iOS/Android on-device/offline architecture how-to details.",
       "author": "SAMTIME",
       "score": 100,
       "relevance": 10,
       "category": "ai",
       "topicSlug": "mobile-ai",
       "createdAt": "2026-10-27 13:28:37",
-      "lastSeenAt": "2026-10-27 13:28:38",
+      "lastSeenAt": "2026-10-28 13:27:43",
       "publishedAt": "2026-09-30"
     },
     {
@@ -1735,15 +1735,31 @@
       "url": "https://pulseos.finance",
       "title": "Show HN: Pulse Local, a Mac budgeting app whose AI models run on your machine",
       "summary": "Show HN: Pulse Local, a Mac budgeting app whose AI models run on your machine",
-      "aiSummary": "Show HN for 'Pulse Local' (Mac budgeting app with AI models on-device); concrete consumer app example, but not necessarily a last-30-days launch and lacks broader launch context.",
+      "aiSummary": "Show HN for a specific Mac budgeting app with on-device AI models; directly relevant to an AI app launch.",
       "author": "niztk",
       "score": 66,
       "relevance": 10,
       "category": "ai",
       "topicSlug": "consumer-ai-apps",
       "createdAt": "2026-10-14 13:36:17",
-      "lastSeenAt": "2026-10-27 13:29:07",
+      "lastSeenAt": "2026-10-28 13:28:07",
       "publishedAt": "2026-10-13"
+    },
+    {
+      "id": 2052,
+      "source": "hackernews",
+      "url": "https://residentnewsnetwork.com/opinion-piece-consumer-ai-fatigue-is-overwhelming-and-why-local-businesses-should-re-consider-use/",
+      "title": "Consumer AI Fatigue Is Overwhelming, Local Businesses Should Reconsider Use",
+      "summary": "Consumer AI Fatigue Is Overwhelming, Local Businesses Should Reconsider Use",
+      "aiSummary": "Opinion piece about consumer AI fatigue; not about specific recent consumer AI app launches.",
+      "author": "PLenz",
+      "score": 54,
+      "relevance": 10,
+      "category": "ai",
+      "topicSlug": "consumer-ai-apps",
+      "createdAt": "2026-10-02 13:33:25",
+      "lastSeenAt": "2026-10-28 13:28:08",
+      "publishedAt": "2026-10-01"
     }
   ],
   "deepReads": [
