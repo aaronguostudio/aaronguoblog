@@ -54,8 +54,8 @@ describe('normalizeLast30DaysReport', () => {
         {
           ...fixture.ranked_candidates[0],
           final_score: 10,
-          rerank_score: 0.93,
-          local_relevance: 0.87,
+          rerank_score: 93,
+          local_relevance: 0.2,
         },
       ],
     }
@@ -63,6 +63,26 @@ describe('normalizeLast30DaysReport', () => {
     const items = normalizeLast30DaysReport({ report, topic })
 
     expect(items[0].relevance).toBe(9)
+  })
+
+  it.each([
+    [{ final_score: 8, rerank_score: 20, local_relevance: 0.21 }, 2],
+    [{ final_score: 0, rerank_score: 0, local_relevance: 0 }, 1],
+    [{ final_score: 0, rerank_score: 100, local_relevance: 0 }, 10],
+    [{ final_score: 0, rerank_score: 150, local_relevance: 0 }, 10],
+    [{ final_score: undefined, rerank_score: undefined, local_relevance: undefined }, 1],
+    [{ final_score: 'invalid', rerank_score: 'invalid', local_relevance: 'invalid' }, 1],
+    [{ final_score: 'invalid', rerank_score: 70, local_relevance: null }, 7],
+  ])('scores %j as %i independently of the topic threshold', (scores, relevance) => {
+    const report = {
+      ...fixture,
+      ranked_candidates: [{ ...fixture.ranked_candidates[0], ...scores }],
+    }
+
+    expect(normalizeLast30DaysReport({
+      report,
+      topic: { ...topic, minRelevance: 6 },
+    })[0].relevance).toBe(relevance)
   })
 
   it('stores compact raw trace data instead of the full candidate payload', () => {

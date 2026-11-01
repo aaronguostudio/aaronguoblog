@@ -145,6 +145,11 @@ export function validateRadarSnapshot(snapshot, { allowLocalRanking = false } = 
     blockers.push('Latest Radar run failed.')
   }
 
+  if (snapshot.latestWeeklyRun?.status === 'failed') {
+    const run = snapshot.latestWeeklyRun
+    warnings.push(`Weekly run for ${run.topicSlug} failed: ${String(run.errorMessage || 'Unknown error').slice(0, 300)}`)
+  }
+
   if (!snapshot.items.length) {
     blockers.push('Snapshot has no publishable Radar items.')
   }
@@ -191,7 +196,7 @@ export async function buildRadarSnapshot(
   } = {},
 ) {
   const fallbackFilter = fallbackFilterSql({ allowLocalRanking })
-  const [topics, latestRun, pulseResult, conclusionResult, stats, items, deepReadsResult] =
+  const [topics, latestRun, latestWeeklyRun, pulseResult, conclusionResult, stats, items, deepReadsResult] =
     await Promise.all([
       client.execute(
         `SELECT slug, name, category, cadence, mode
@@ -202,6 +207,15 @@ export async function buildRadarSnapshot(
       client.execute(
         `SELECT id, status, started_at, completed_at, warning_json, source_error_json
        FROM radar_runs
+       WHERE cadence = 'daily' OR cadence IS NULL
+       ORDER BY started_at DESC, id DESC
+       LIMIT 1`,
+      ),
+      client.execute(
+        `SELECT id, status, started_at, completed_at, warning_json, source_error_json,
+                topic_slug, error_message
+       FROM radar_runs
+       WHERE cadence = 'weekly'
        ORDER BY started_at DESC, id DESC
        LIMIT 1`,
       ),
@@ -317,6 +331,11 @@ export async function buildRadarSnapshot(
       warnings: [],
     },
     latestRun: mapLatestRun(latestRun.rows[0]),
+    latestWeeklyRun: latestWeeklyRun.rows[0] ? {
+      ...mapLatestRun(latestWeeklyRun.rows[0]),
+      topicSlug: String(latestWeeklyRun.rows[0].topic_slug),
+      errorMessage: latestWeeklyRun.rows[0].error_message || null,
+    } : null,
     pulse,
     topics: topics.rows.map(mapTopic),
     stats: stats.rows.map(mapStat),

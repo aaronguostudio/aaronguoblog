@@ -24,6 +24,10 @@ describe('Radar local publish scripts', () => {
     expect(PUBLISH_SCRIPT).toContain('git push')
     expect(PUBLISH_SCRIPT).toContain('git branch --show-current')
     expect(PUBLISH_SCRIPT).toContain('git push origin main')
+    expect(PUBLISH_SCRIPT).toContain('Radar WARN:')
+    expect(PUBLISH_SCRIPT).toContain('publish-warnings.log')
+    expect(PUBLISH_SCRIPT).toContain('pnpm radar:run --cadence weekly ||')
+    expect(PUBLISH_SCRIPT).toContain('pnpm radar:deep-read --max-topics 1 ||')
   })
 
   it('does not hard-code secrets in the publish script', () => {

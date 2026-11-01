@@ -4,17 +4,16 @@ function clamp(value, min, max) {
   return Math.max(min, Math.min(max, value))
 }
 
-function scoreToRelevance(candidate, topic) {
-  const finalScore = Number(candidate.final_score || 0)
-  const rerankScore = Number(candidate.rerank_score || 0)
-  const localRelevance = Number(candidate.local_relevance || 0)
+function scoreToRelevance(candidate) {
+  const finalScore = Number(candidate.final_score || 0) || 0
+  const rerankScore = Number(candidate.rerank_score || 0) || 0
+  const localRelevance = Number(candidate.local_relevance || 0) || 0
 
   const derived = Math.round(
     Math.max(
       finalScore / 10,
-      rerankScore * 10,
+      rerankScore / 10,
       localRelevance * 10,
-      topic.minRelevance || 1
     )
   )
 
@@ -57,7 +56,7 @@ export function normalizeLast30DaysReport({ report, topic }) {
         aiSummary: candidate.explanation || primary?.why_relevant || candidate.snippet || '',
         author: primary?.author,
         score: engagement,
-        relevance: scoreToRelevance(candidate, topic),
+        relevance: scoreToRelevance(candidate),
         category: topic.category,
         topicSlug: topic.slug,
         clusterId: candidate.cluster_id,

@@ -24,9 +24,24 @@ export function deployedSnapshotMatches(expected, actual) {
   )
 }
 
-export function signalHtmlContainsSnapshot(html, snapshot) {
+function signalHtmlSnapshotDateFormat(html, snapshot) {
   const date = snapshotDate(snapshot)
-  return Boolean(date && String(html || '').includes(date))
+  if (!date) return null
+  const text = String(html || '')
+  if (text.includes(date)) return 'ISO'
+  const utcDate = new Date(`${date}T00:00:00Z`)
+  if (Number.isNaN(utcDate.getTime())) return null
+  for (const locale of ['en-US', 'zh-CN']) {
+    const displayDate = new Intl.DateTimeFormat(locale, {
+      month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC',
+    }).format(utcDate)
+    if (text.includes(displayDate)) return locale
+  }
+  return null
+}
+
+export function signalHtmlContainsSnapshot(html, snapshot) {
+  return Boolean(signalHtmlSnapshotDateFormat(html, snapshot))
 }
 
 function readExpectedSnapshot(snapshotPath = DEFAULT_SNAPSHOT_PATH) {
@@ -66,16 +81,18 @@ export async function verifyDeployedRadarSnapshot({
       ])
 
       const jsonMatches = deployedSnapshotMatches(expectedSnapshot, remoteSnapshot)
-      const signalMatches = signalHtmlContainsSnapshot(signalHtml, expectedSnapshot)
+      const signalFormat = signalHtmlSnapshotDateFormat(signalHtml, expectedSnapshot)
+      const signalMatches = Boolean(signalFormat)
 
       if (jsonMatches && signalMatches) {
-        logger.log(`Verified deployed Radar snapshot ${expectedSnapshot.date} at ${baseUrl}`)
+        logger.log(`Verified deployed Radar snapshot ${expectedSnapshot.date} at ${baseUrl} (Signal HTML: ${signalFormat})`)
         return { ok: true, attempts: attempt }
       }
 
       lastMessage = [
         `remote JSON match: ${jsonMatches}`,
         `Signal HTML match: ${signalMatches}`,
+        `Signal HTML format: ${signalFormat || 'none'}`,
         `expected date: ${expectedSnapshot.date}`,
         `remote date: ${remoteSnapshot?.date || 'missing'}`,
       ].join('; ')

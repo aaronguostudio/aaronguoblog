@@ -1,68 +1,80 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
-REPO_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd -P)"
-ENV_FILE="${RADAR_ENV_FILE:-$HOME/.config/aaronguo/radar.env}"
-LOCK_DIR="$REPO_ROOT/.data/radar/publish.lock"
+warn_weekly_failure() {
+  local step="$1" exit_code="$2"
+  local message="Radar WARN: $step failed (exit $exit_code); continuing with daily export."
+  printf '%s\n' "$message" >&2
+  mkdir -p "$REPO_ROOT/.data/radar" 2>/dev/null || true
+  printf '[%s] %s\n' "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "$message" >> "$REPO_ROOT/.data/radar/publish-warnings.log" 2>/dev/null || true
+}
 
-cd "$REPO_ROOT"
-mkdir -p "$REPO_ROOT/.data/radar"
+main() {
+  SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
+  REPO_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd -P)"
+  ENV_FILE="${RADAR_ENV_FILE:-$HOME/.config/aaronguo/radar.env}"
+  LOCK_DIR="$REPO_ROOT/.data/radar/publish.lock"
 
-if ! mkdir "$LOCK_DIR" 2>/dev/null; then
-  echo "Radar publish is already running; lock exists at $LOCK_DIR"
-  exit 0
-fi
-trap 'rmdir "$LOCK_DIR"' EXIT
+  cd "$REPO_ROOT"
+  mkdir -p "$REPO_ROOT/.data/radar"
 
-if [ -f "$ENV_FILE" ]; then
-  set -a
-  # shellcheck disable=SC1090
-  . "$ENV_FILE"
-  set +a
-fi
+  if ! mkdir "$LOCK_DIR" 2>/dev/null; then
+    echo "Radar publish is already running; lock exists at $LOCK_DIR"
+    exit 0
+  fi
+  trap 'rmdir "$LOCK_DIR"' EXIT
 
-if ! git diff --quiet || ! git diff --cached --quiet; then
-  echo "Refusing to publish from a dirty worktree."
-  git status --short
-  exit 1
-fi
+  if [ -f "$ENV_FILE" ]; then
+    set -a
+    # shellcheck disable=SC1090
+    . "$ENV_FILE"
+    set +a
+  fi
 
-if [ "$(git branch --show-current)" != "main" ]; then
-  echo "Refusing to publish Radar from a non-main branch."
-  exit 1
-fi
+  if ! git diff --quiet || ! git diff --cached --quiet; then
+    echo "Refusing to publish from a dirty worktree."
+    git status --short
+    exit 1
+  fi
 
-git fetch origin
-git pull --rebase --autostash origin main
+  if [ "$(git branch --show-current)" != "main" ]; then
+    echo "Refusing to publish Radar from a non-main branch."
+    exit 1
+  fi
 
-pnpm radar:migrate
-pnpm radar:run --cadence daily
-pnpm radar:conclude
+  git fetch origin
+  git pull --rebase --autostash origin main
 
-if [ "$(date +%u)" = "1" ]; then
-  pnpm radar:run --cadence weekly
-  pnpm radar:deep-read --max-topics 1
-fi
+  pnpm radar:migrate
+  pnpm radar:run --cadence daily
+  pnpm radar:conclude
 
-if [ "${RADAR_ALLOW_LOCAL_RANKING:-}" = "1" ]; then
-  pnpm radar:export --allow-local-ranking
-else
-  pnpm radar:export
-fi
+  if [ "$(date +%u)" = "1" ]; then
+    pnpm radar:run --cadence weekly || warn_weekly_failure "weekly run" "$?"
+    pnpm radar:deep-read --max-topics 1 || warn_weekly_failure "weekly deep-read" "$?"
+  fi
 
-rm -rf .nuxt .output
-pnpm run generate
+  if [ "${RADAR_ALLOW_LOCAL_RANKING:-}" = "1" ]; then
+    pnpm radar:export --allow-local-ranking
+  else
+    pnpm radar:export
+  fi
 
-git add public/radar
+  rm -rf .nuxt .output
+  pnpm run generate
 
-if git diff --cached --quiet; then
-  echo "Radar snapshot unchanged; nothing to commit."
-else
-  git commit -m "chore(radar): update signal snapshot $(date +%F)"
-  git push origin main
-fi
+  git add public/radar
 
-if [ "${RADAR_SKIP_DEPLOY_VERIFY:-}" != "1" ]; then
-  pnpm radar:verify-deploy
-fi
+  if git diff --cached --quiet; then
+    echo "Radar snapshot unchanged; nothing to commit."
+  else
+    git commit -m "chore(radar): update signal snapshot $(date +%F)"
+    git push origin main
+  fi
+
+  if [ "${RADAR_SKIP_DEPLOY_VERIFY:-}" != "1" ]; then
+    pnpm radar:verify-deploy
+  fi
+}
+
+main "$@"

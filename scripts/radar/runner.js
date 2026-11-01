@@ -4,15 +4,24 @@ import { normalizeLast30DaysReport } from './normalizer.js'
 import { generateRadarPulse } from './pulse.js'
 import * as defaultRepository from './repository.js'
 
+function resolveLast30DaysTimeoutMs(topic, env) {
+  const value = env.RADAR_LAST30DAYS_TIMEOUT_MS
+  const override = Number(value)
+  if (/^\d+$/.test(value || '') && Number.isSafeInteger(override) && override > 0) return override
+  return topic.mode === 'deep' || topic.cadence === 'weekly' ? 600000 : 300000
+}
+
 export async function runRadarTopic({
   topic,
   dryRun = false,
   client,
   adapter = runLast30Days,
   repository = defaultRepository,
+  env = process.env,
 }) {
+  const timeoutMs = resolveLast30DaysTimeoutMs(topic, env)
   if (dryRun) {
-    const adapterResult = await adapter({ topic })
+    const adapterResult = await adapter({ topic, timeoutMs, env })
     const items = normalizeLast30DaysReport({ report: adapterResult.report, topic })
 
     return {
@@ -37,7 +46,7 @@ export async function runRadarTopic({
   let adapterResult
   let items
   try {
-    adapterResult = await adapter({ topic })
+    adapterResult = await adapter({ topic, timeoutMs, env })
     items = normalizeLast30DaysReport({ report: adapterResult.report, topic })
     const itemIds = await repository.upsertRadarItems(client, { runId, items })
     const pulseItems = items
@@ -82,6 +91,7 @@ export async function runRadar({
   maxAttempts = 2,
   today = new Date().toISOString().slice(0, 10),
   generatePulse = generateRadarPulse,
+  env = process.env,
 }) {
   const topics = topicSlug
     ? [getRadarTopicBySlug(topicSlug)].filter(Boolean)
@@ -103,7 +113,7 @@ export async function runRadar({
     let lastError
     for (let attempt = 1; attempt <= attemptsPerTopic; attempt += 1) {
       try {
-        const result = await runRadarTopic({ topic, dryRun, client, adapter, repository })
+        const result = await runRadarTopic({ topic, dryRun, client, adapter, repository, env })
         const { pulseItems = [], ...publicResult } = result
         results.push({
           ...publicResult,

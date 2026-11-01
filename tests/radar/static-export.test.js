@@ -118,6 +118,53 @@ async function createSnapshotClient({
 }
 
 describe('static Radar export', () => {
+  it('warns about the latest failed weekly run while exporting a completed daily run', async () => {
+    const client = await createSnapshotClient()
+    await upsertRadarTopic(client, createTopic({ slug: 'ai-wearables', cadence: 'weekly', mode: 'deep' }))
+    const runId = await createRadarRun(client, {
+      topicSlug: 'ai-wearables', mode: 'deep', lookbackDays: 30, cadence: 'weekly',
+    })
+    await finishRadarRun(client, {
+      runId, status: 'failed', itemsSeen: 0, itemsWritten: 0, errorMessage: 'timeout '.repeat(100),
+    })
+
+    const snapshot = await buildRadarSnapshot(client)
+    expect(snapshot.latestRun.status).toBe('completed')
+    expect(snapshot.latestWeeklyRun).toMatchObject({ status: 'failed', topicSlug: 'ai-wearables' })
+    expect(validateRadarSnapshot(snapshot)).toMatchObject({
+      status: 'ok', blockers: [], warnings: [expect.stringContaining('Weekly run for ai-wearables failed: timeout')],
+    })
+    expect(snapshot.quality.warnings[0].length).toBeLessThan(400)
+
+    const newerRunId = await createRadarRun(client, {
+      topicSlug: 'ai-wearables', mode: 'deep', lookbackDays: 30, cadence: 'weekly',
+    })
+    await finishRadarRun(client, {
+      runId: newerRunId, status: 'completed', itemsSeen: 0, itemsWritten: 0,
+    })
+    expect((await buildRadarSnapshot(client)).quality.warnings).toEqual([])
+  })
+
+  it('still blocks a failed daily run even when a newer weekly run completed', async () => {
+    const client = await createSnapshotClient()
+    await finishRadarRun(client, { runId: 1, status: 'failed', itemsSeen: 0, itemsWritten: 0 })
+    const runId = await createRadarRun(client, {
+      topicSlug: 'coding-agents', mode: 'deep', lookbackDays: 30, cadence: 'weekly',
+    })
+    await finishRadarRun(client, { runId, status: 'completed', itemsSeen: 0, itemsWritten: 0 })
+
+    const snapshot = await buildRadarSnapshot(client)
+    expect(validateRadarSnapshot(snapshot)).toMatchObject({
+      status: 'blocked', blockers: ['Latest Radar run failed.'],
+    })
+  })
+
+  it('includes legacy runs with null cadence in the daily gate', async () => {
+    const client = await createSnapshotClient()
+    await client.execute('UPDATE radar_runs SET cadence = NULL')
+    expect((await buildRadarSnapshot(client)).latestRun.status).toBe('completed')
+  })
+
   it('builds an SSG-friendly snapshot from Radar tables', async () => {
     const client = await createSnapshotClient()
     await insertRadarDeepRead(client, {

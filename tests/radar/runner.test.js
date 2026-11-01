@@ -27,6 +27,42 @@ const report = {
 }
 
 describe('runRadarTopic', () => {
+  describe.each([true, false])('timeout selection with dryRun=%s', (dryRun) => {
+    it.each([
+      ['weekly', 'deep', undefined, 600000],
+      ['weekly', 'quick', undefined, 600000],
+      ['daily', 'deep', undefined, 600000],
+      ['daily', 'quick', undefined, 300000],
+      ['weekly', 'deep', '450000', 450000],
+      ['daily', 'quick', '120000', 120000],
+      ['weekly', 'deep', 'invalid', 600000],
+      ['daily', 'quick', '0', 300000],
+      ['daily', 'quick', '-1', 300000],
+      ['daily', 'quick', '1.5', 300000],
+      ['daily', 'quick', 'Infinity', 300000],
+    ])('%s/%s override=%s receives %i ms', async (cadence, mode, override, timeoutMs) => {
+      const adapter = vi.fn(async () => ({ report, command: [] }))
+      const repository = {
+        upsertRadarTopic: vi.fn(),
+        createRadarRun: async () => 42,
+        upsertRadarItems: async () => [],
+        finishRadarRun: vi.fn(),
+      }
+
+      await runRadarTopic({
+        topic: { ...topic, cadence, mode },
+        dryRun,
+        client: {},
+        adapter,
+        repository,
+        env: { RADAR_LAST30DAYS_TIMEOUT_MS: override },
+      })
+
+      expect(adapter).toHaveBeenCalledWith(expect.objectContaining({ timeoutMs }))
+      expect(repository.upsertRadarTopic).toHaveBeenCalledTimes(dryRun ? 0 : 1)
+    })
+  })
+
   it('supports dry-run without repository writes', async () => {
     const result = await runRadarTopic({
       topic,
@@ -132,6 +168,17 @@ describe('runRadarTopic', () => {
 })
 
 describe('runRadar', () => {
+  it('passes timeout overrides through to topic runs', async () => {
+    const adapter = vi.fn(async () => ({ report, command: [] }))
+    await runRadar({
+      topicSlug: 'mobile-ai',
+      dryRun: true,
+      adapter,
+      env: { RADAR_LAST30DAYS_TIMEOUT_MS: '420000' },
+    })
+    expect(adapter).toHaveBeenCalledWith(expect.objectContaining({ timeoutMs: 420000 }))
+  })
+
   it('retries a transient topic failure once before returning success', async () => {
     const attempts = new Map()
     let nextRunId = 1
