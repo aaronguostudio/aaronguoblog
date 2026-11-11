@@ -1,17 +1,17 @@
 {
   "version": 1,
-  "date": "2026-11-10",
-  "generatedAt": "2026-11-10T13:30:59.010Z",
+  "date": "2026-11-11",
+  "generatedAt": "2026-11-11T13:34:58.692Z",
   "quality": {
     "status": "ok",
     "blockers": [],
     "warnings": []
   },
   "latestRun": {
-    "id": 525,
+    "id": 528,
     "status": "completed",
-    "startedAt": "2026-11-10 13:30:25",
-    "completedAt": "2026-11-10 13:30:58",
+    "startedAt": "2026-11-11 13:34:25",
+    "completedAt": "2026-11-11 13:34:58",
     "warnings": [],
     "sourceErrors": {}
   },
@@ -26,15 +26,15 @@
     "errorMessage": null
   },
   "pulse": {
-    "text": "Radar's read across coding-agents, consumer-ai-apps and mobile-ai. Top themes: Best Agentic IDE in 2026: Multi-Agent Coding Tools Compared | Paradev; What Is an Agentic IDE? A 2026 Guide | Paradev; MediaDailyNews: Meta Launches AI-Powered Consumer Apps.",
-    "date": "2026-11-10",
-    "generatedAt": "2026-11-10 13:30:58",
+    "text": "Radar's read across coding-agents and mobile-ai. Top themes: Best Agentic IDE in 2026: Multi-Agent Coding Tools Compared | Paradev; Apple Intelligence and Siri - Apple; Best AI Coding Agents (2026): IDEs, Terminals, Autonomous.",
+    "date": "2026-11-11",
+    "generatedAt": "2026-11-11 13:34:58",
     "topItemIds": [
       2383,
-      2533,
-      2432,
-      2632,
-      2631
+      240,
+      2646,
+      1438,
+      2515
     ],
     "takeaway": null,
     "sourceItemIds": []
@@ -83,11 +83,11 @@
     },
     {
       "source": "hackernews",
-      "count": 550
+      "count": 551
     },
     {
       "source": "grounding",
-      "count": 377
+      "count": 378
     },
     {
       "source": "github",
@@ -225,14 +225,14 @@
       "url": "https://paradev.com/compare/best-agentic-ide",
       "title": "Best Agentic IDE in 2026: Multi-Agent Coding Tools Compared | Paradev",
       "summary": "... For macOS on Apple Silicon and Intel. Linux AppImage is experimental. An agentic IDE is a development environment where AI agents can <strong>autonomously plan and execute multi-step coding tasks (editing files, running commands, iterating) rather than only autocompleting code</strong>.",
-      "aiSummary": "Clearly about agentic IDEs and compares multi-agent coding tools; snippet defines agentic IDE as enabling autonomous multi-step coding beyond autocomplete.",
+      "aiSummary": "Explicitly defines an agentic IDE in the snippet (autonomously plan and execute multi-step coding tasks) and compares agentic IDEs vs traditional autocomplete workflows.",
       "author": null,
       "score": 0,
       "relevance": 10,
       "category": "coding",
       "topicSlug": "coding-agents",
       "createdAt": "2026-10-26 13:34:39",
-      "lastSeenAt": "2026-11-10 13:30:56",
+      "lastSeenAt": "2026-11-11 13:34:54",
       "publishedAt": "2026-11-05"
     },
     {
@@ -257,14 +257,14 @@
       "url": "https://news.ycombinator.com/item?id=50376478",
       "title": "Ask HN: What are the fundamentals of agentic coding?",
       "summary": "Ask HN: What are the fundamentals of agentic coding?",
-      "aiSummary": "Directly about fundamentals of agentic coding; likely conceptually relevant, though not specifically framed as an agentic IDE overview comparison.",
+      "aiSummary": "Directly about fundamentals of agentic coding; likely includes conceptual explanation relevant to autonomous coding vs traditional workflows.",
       "author": "guitarlimeo",
       "score": 24,
       "relevance": 9,
       "category": "coding",
       "topicSlug": "coding-agents",
       "createdAt": "2026-11-05 13:32:30",
-      "lastSeenAt": "2026-11-10 13:30:57",
+      "lastSeenAt": "2026-11-11 13:34:55",
       "publishedAt": "2026-11-05"
     },
     {
@@ -281,22 +281,6 @@
       "topicSlug": "mobile-ai",
       "createdAt": "2026-11-09 13:33:47",
       "lastSeenAt": "2026-11-09 13:33:47",
-      "publishedAt": "2026-11-05"
-    },
-    {
-      "id": 2529,
-      "source": "grounding",
-      "url": "https://www.messagingadvisory.com/post/consumer-ai-is-moving-to-native-messaging-apps",
-      "title": "Consumer AI is moving to native messaging apps",
-      "summary": "On <strong>September 8, 2026</strong> it launched &quot;Muse&quot;, which passed 5M US downloads in 22 days and 10M in 40 days. The trend is accelerating: Meta proved the model early on its own channels, even restricting AI competitors inside Meta channels like WhatsApp.",
-      "aiSummary": "Directly discusses consumer AI moving into messaging apps and cites a specific launched app (“Muse”) with download milestones—useful breaking-news style launch evidence.",
-      "author": null,
-      "score": 0,
-      "relevance": 9,
-      "category": "ai",
-      "topicSlug": "consumer-ai-apps",
-      "createdAt": "2026-11-07 13:34:07",
-      "lastSeenAt": "2026-11-10 13:30:21",
       "publishedAt": "2026-11-05"
     },
     {
@@ -353,14 +337,14 @@
       "url": "https://www.ricursive.com/ripple",
       "title": "Ripple-65B Preview: U.S. Open-Weight SOTA on Agentic Coding",
       "summary": "Ripple-65B Preview: U.S. Open-Weight SOTA on Agentic Coding",
-      "aiSummary": "Mentions agentic coding in title/snippet, but focuses on a model preview (Ripple-65B) rather than explaining what an agentic IDE is and how it enables autonomous coding vs traditional IDEs.",
+      "aiSummary": "Mentions agentic coding in title/snippet, but focuses on a model preview (Ripple-65B) rather than defining agentic IDEs or comparing workflows.",
       "author": "Philpax",
       "score": 100,
       "relevance": 8,
       "category": "coding",
       "topicSlug": "coding-agents",
       "createdAt": "2026-11-05 13:32:31",
-      "lastSeenAt": "2026-11-10 13:30:57",
+      "lastSeenAt": "2026-11-11 13:34:57",
       "publishedAt": "2026-11-04"
     },
     {
@@ -369,14 +353,14 @@
       "url": "https://www.nordicsemi.com/Nordic-news/2026/11/Nordic-brings-edge-AI-to-battery-powered-WiFi-devices-20-times-lower-standby-power-with-nRF71-Series",
       "title": "nRF71: Wi-Fi, Bluetooth LE, Thread, and On-Device AI on a Single Chip",
       "summary": "nRF71: Wi-Fi, Bluetooth LE, Thread, and On-Device AI on a Single Chip",
-      "aiSummary": "Edge AI chip for Wi-Fi devices; not AI wearables/pins/smart glasses products or user limitations.",
+      "aiSummary": "On-device AI hardware (single-chip) relevant to mobile AI, but not specifically iOS/Android AI assistants or assistant capabilities.",
       "author": "hasheddan",
       "score": 11,
       "relevance": 6,
       "category": "ai",
       "topicSlug": "mobile-ai",
       "createdAt": "2026-11-05 13:31:23",
-      "lastSeenAt": "2026-11-09 13:33:48",
+      "lastSeenAt": "2026-11-11 13:33:45",
       "publishedAt": "2026-11-04"
     },
     {
@@ -449,14 +433,14 @@
       "url": "https://spectrum.ieee.org/ai-personal-assistant-intelligent-wearables",
       "title": "Consumer Appetite for Personal AI Goes Mainstream",
       "summary": "Consumer Appetite for Personal AI Goes Mainstream",
-      "aiSummary": "About consumer personal AI/wearables interest, but the snippet doesn’t clearly identify specific AI app launches or named launched apps.",
+      "aiSummary": "Relevant to consumer personal AI/wearables trend, but not clearly a specific recent consumer AI app launch with features and target users.",
       "author": "oldnetguy",
       "score": 14,
       "relevance": 6,
       "category": "ai",
       "topicSlug": "consumer-ai-apps",
       "createdAt": "2026-11-04 13:31:36",
-      "lastSeenAt": "2026-11-10 13:30:22",
+      "lastSeenAt": "2026-11-11 13:34:20",
       "publishedAt": "2026-11-03"
     },
     {
@@ -464,15 +448,15 @@
       "source": "grounding",
       "url": "https://www.simular.ai/alternatives/best-ai-coding-agents",
       "title": "Best AI Coding Agents in 2026: 8 Agentic Tools That Write, Debug, and Ship Code for You",
-      "summary": "... Pricing: Core from $20/mo + ACU (Agent Compute Unit) usage (devin.ai/pricing) Platform: Cloud-based (browser interface) Agent type: Fully autonomous software engineering agent · <strong>Devin is the most autonomous coding agent available</strong>.",
-      "aiSummary": "Focuses on autonomous AI coding agents (e.g., Devin) which is closely related to agentic IDE concepts, though less IDE-definition specific.",
+      "summary": "... Pricing: Core from $20/mo + ... the most autonomous coding agent available. It <strong>operates in its own cloud environment -- a full VM with a code editor, terminal, and browser</strong>....",
+      "aiSummary": "Lists agentic coding tools and describes autonomy (e.g., operating in a VM with editor/terminal/browser), which supports the concept of autonomous coding.",
       "author": null,
       "score": 0,
-      "relevance": 7,
+      "relevance": 8,
       "category": "coding",
       "topicSlug": "coding-agents",
       "createdAt": "2026-11-04 13:32:17",
-      "lastSeenAt": "2026-11-09 13:35:04",
+      "lastSeenAt": "2026-11-11 13:34:56",
       "publishedAt": "2026-11-02"
     },
     {
@@ -545,14 +529,14 @@
       "url": "https://usappteam.com/post/on-device-ai-for-mobile-apps",
       "title": "On-Device AI for Mobile Apps: When It Fits and When It Won't",
       "summary": "Apple&#x27;s September 2025 announcement says it is available with iOS 26, iPadOS 26 and macOS 26, works offline, and uses inference that is &quot;free of cost&quot;. It supports guided generation, where the model fills in a structure your code defines, and tool calling, where the model can ask your app for data. On Android, Google&#x27;s ML Kit GenAI APIs run on Gemini Nano through a system service called AICore.",
-      "aiSummary": "Directly about on-device AI on mobile apps with iOS and Android specifics (offline, guided generation, tool calling; Android ML Kit GenAI on Gemini Nano via AICore).",
+      "aiSummary": "Directly discusses on-device AI on iOS and Android with concrete mechanisms (offline, guided generation, tool calling, ML Kit GenAI/AICore).",
       "author": null,
       "score": 0,
       "relevance": 9,
       "category": "ai",
       "topicSlug": "mobile-ai",
       "createdAt": "2026-11-07 13:33:33",
-      "lastSeenAt": "2026-11-07 13:33:33",
+      "lastSeenAt": "2026-11-11 13:33:45",
       "publishedAt": "2026-11-01"
     },
     {
@@ -652,35 +636,19 @@
       "publishedAt": "2026-10-31"
     },
     {
-      "id": 2432,
-      "source": "grounding",
-      "url": "https://www.mediapost.com/publications/article/419105/meta-launches-new-ai-powered-consumer-apps.html",
-      "title": "MediaDailyNews: Meta Launches AI-Powered Consumer Apps",
-      "summary": "The newly launched apps both collect user data - &#x27;<strong>Waddle World</strong>,&#x27; a &#x27;pet care game,&#x27; and &#x27;Style Sketch,&#x27; an &#x27;outfit planner&#x27; that uses generative AI to recommend clothing pairings.",
-      "aiSummary": "Clear, recent news-style report of Meta launching AI-powered consumer apps with named examples (Waddle World, Style Sketch) and described features/target use cases.",
-      "author": null,
-      "score": 0,
-      "relevance": 10,
-      "category": "ai",
-      "topicSlug": "consumer-ai-apps",
-      "createdAt": "2026-11-01 13:29:01",
-      "lastSeenAt": "2026-11-10 13:30:20",
-      "publishedAt": "2026-10-30"
-    },
-    {
       "id": 2422,
       "source": "hackernews",
       "url": "https://www.nbcnews.com/business/consumer/etsy-restricts-ai-generated-seller-slop-rcna605216",
       "title": "Etsy to restrict AI-generated content in effort to combat seller slop",
       "summary": "Etsy to restrict AI-generated content in effort to combat seller slop",
-      "aiSummary": "Policy/content moderation by Etsy related to AI-generated content; not an AI app launch or specific consumer AI app/product launch.",
+      "aiSummary": "Consumer AI-related policy change by Etsy; not an AI app launch, and not focused on new consumer AI app features/target users.",
       "author": "entryleveljobsc",
       "score": 0,
       "relevance": 10,
       "category": "ai",
       "topicSlug": "consumer-ai-apps",
       "createdAt": "2026-10-31 13:31:04",
-      "lastSeenAt": "2026-11-10 13:30:23",
+      "lastSeenAt": "2026-11-11 13:34:21",
       "publishedAt": "2026-10-30"
     },
     {
@@ -828,6 +796,22 @@
       "publishedAt": "2026-10-29"
     },
     {
+      "id": 240,
+      "source": "grounding",
+      "url": "https://www.apple.com/apple-intelligence/",
+      "title": "Apple Intelligence and Siri - Apple",
+      "summary": "<strong>Apple Intelligence and Siri AI</strong> are designed to protect your privacy at every step. With powerful on-device processing, Apple Intelligence is aware of your personal information without collecting your personal information.",
+      "aiSummary": "Primary-source Apple Intelligence/Siri page with strong factual claims about on-device processing and privacy; directly relevant to iOS assistant capabilities.",
+      "author": null,
+      "score": 0,
+      "relevance": 10,
+      "category": "ai",
+      "topicSlug": "mobile-ai",
+      "createdAt": "2026-06-16 13:32:57",
+      "lastSeenAt": "2026-11-11 13:33:45",
+      "publishedAt": "2026-10-29"
+    },
+    {
       "id": 2416,
       "source": "reddit",
       "url": "https://www.reddit.com/r/LocalLLaMA/comments/1xhep6w/dirt_cheap_gpus_coming_next_year/",
@@ -897,14 +881,14 @@
       "url": "https://www.reuters.com/business/retail-consumer/apple-launches-m6-macbook-pro-imac-pitches-faster-on-device-ai-2026-10-27/",
       "title": "Apple launches M6 MacBook Pro and iMac, pitches faster on-device AI",
       "summary": "Apple launches M6 MacBook Pro and iMac, pitches faster on-device AI",
-      "aiSummary": "Apple hardware launch with on-device AI, but it’s not specifically about consumer AI apps or AI productivity app launches.",
+      "aiSummary": "Apple hardware launch with on-device AI; adjacent to consumer AI apps but not a specific consumer AI app launch with app features/target users.",
       "author": "tartoran",
       "score": 0,
       "relevance": 6,
       "category": "ai",
       "topicSlug": "consumer-ai-apps",
       "createdAt": "2026-10-29 13:32:23",
-      "lastSeenAt": "2026-11-10 13:30:22",
+      "lastSeenAt": "2026-11-11 13:34:20",
       "publishedAt": "2026-10-27"
     },
     {
@@ -985,6 +969,22 @@
       "topicSlug": "mobile-ai",
       "createdAt": "2026-10-27 13:28:35",
       "lastSeenAt": "2026-10-29 13:32:23",
+      "publishedAt": "2026-10-26"
+    },
+    {
+      "id": 2646,
+      "source": "grounding",
+      "url": "https://theaiagentindex.com/ai-coding-agents",
+      "title": "Best AI Coding Agents (2026): IDEs, Terminals, Autonomous",
+      "summary": "Coding agents provide inline code suggestions and autocomplete, generate entire functions and components from natural language descriptions, review and explain existing code, refactor across multiple files, run tests and debug failures, and in the most advanced cases operate as fully autonomous software engineers. ... AI coding agents are used by individual developers looking to ship faster, engineering teams increasing throughput without growing headcount, non-technical founders building with AI assistance, and enterprises standardizing code quality across large codebases. ... Look for IDE integration with your editor of choice, support for your primary programming languages, context window size for large codebase understanding, agentic capability for multi-step tasks, and pricing that fits your usage pattern.",
+      "aiSummary": "Strong conceptual coverage of AI coding agents (planning, multi-file refactors, running tests, autonomous engineering) and likely maps to agentic IDE capabilities.",
+      "author": null,
+      "score": 0,
+      "relevance": 9,
+      "category": "coding",
+      "topicSlug": "coding-agents",
+      "createdAt": "2026-11-11 13:34:55",
+      "lastSeenAt": "2026-11-11 13:34:56",
       "publishedAt": "2026-10-26"
     },
     {
@@ -1153,14 +1153,14 @@
       "url": "https://www.reddit.com/r/singularity/comments/1xduimx/hacker_reverse_engineers_his_samsung_tv_and_finds/",
       "title": "Samsung TV on-device AI listening, using soundbar's mic if the TV has none",
       "summary": "Samsung TV on-device AI listening, using soundbar's mic if the TV has none",
-      "aiSummary": "On-device AI listening on a Samsung TV; not iOS/Android AI assistants.",
+      "aiSummary": "Samsung TV on-device listening is off-target (not iOS/Android AI assistants) and lacks the primary entity.",
       "author": "saulapremium",
       "score": 100,
       "relevance": 10,
       "category": "ai",
       "topicSlug": "mobile-ai",
       "createdAt": "2026-10-24 13:31:05",
-      "lastSeenAt": "2026-11-09 13:33:50",
+      "lastSeenAt": "2026-11-11 13:33:48",
       "publishedAt": "2026-10-24"
     },
     {
@@ -1185,14 +1185,30 @@
       "url": "https://agentsroom.dev/agentic-ide",
       "title": "Agentic IDE: An IDE Built Around Agents, Not the Cursor | AgentsRoom",
       "summary": "An agentic IDE <strong>puts AI agents at the center, not a typing cursor</strong>. Multi-agent, multi-provider, per-agent review, shared context. AgentsRoom is the post-Cursor IDE.",
-      "aiSummary": "Agentic IDE concept article emphasizing agents at the center, multi-agent review, and shared context; relevant explanation of how agentic IDEs differ from traditional cursor/typing workflows.",
+      "aiSummary": "Directly about an agentic IDE and emphasizes agents at the center (multi-agent, shared context), aligning well with the definition and concept.",
       "author": null,
       "score": 0,
       "relevance": 10,
       "category": "coding",
       "topicSlug": "coding-agents",
       "createdAt": "2026-08-27 13:33:54",
-      "lastSeenAt": "2026-11-10 13:30:56",
+      "lastSeenAt": "2026-11-11 13:34:55",
+      "publishedAt": "2026-10-24"
+    },
+    {
+      "id": 264,
+      "source": "grounding",
+      "url": "https://github.com/openclaw/openclaw",
+      "title": "GitHub - openclaw/openclaw: The AI that really does things. Any OS. Any Platform. The lobster way. 🦞 · GitHub",
+      "summary": "<strong>OpenClaw</strong> is an open-source AI assistant that runs on your own computer and meets you in the channels you already use: Discord, iMessage, Slack, Teams, Telegram, WhatsApp, and 20+ more, plus native apps for macOS, iOS, Android, Windows, and Linux.",
+      "aiSummary": "Mentions an AI assistant with iOS/Android apps, but it’s a project description and not a broad factual overview of on-device assistant approaches.",
+      "author": null,
+      "score": 0,
+      "relevance": 10,
+      "category": "ai",
+      "topicSlug": "mobile-ai",
+      "createdAt": "2026-06-18 13:31:56",
+      "lastSeenAt": "2026-11-11 13:33:47",
       "publishedAt": "2026-10-24"
     },
     {
@@ -1265,14 +1281,14 @@
       "url": "https://www.neomindlabs.com/2026/10/22/agentic-coding-is-doing-to-cybersecurity-what-firearms-did-to-security/",
       "title": "Agentic coding is doing to cybersecurity what firearms did to security",
       "summary": "Agentic coding is doing to cybersecurity what firearms did to security",
-      "aiSummary": "Uses 'agentic coding' but is more of an analogy/opinion piece about cybersecurity than an agentic IDE concept and workflow comparison.",
+      "aiSummary": "Relevant to agentic coding concept, but framed as a cybersecurity analogy and not specifically about agentic IDE definition or IDE workflow comparison.",
       "author": "neomindryan",
       "score": 41,
       "relevance": 10,
       "category": "coding",
       "topicSlug": "coding-agents",
       "createdAt": "2026-10-24 13:32:17",
-      "lastSeenAt": "2026-11-10 13:30:58",
+      "lastSeenAt": "2026-11-11 13:34:58",
       "publishedAt": "2026-10-23"
     },
     {
@@ -1345,14 +1361,14 @@
       "url": "https://neurogrid.cc/en",
       "title": "How to turn consumer hardware into AI infra",
       "summary": "How to turn consumer hardware into AI infra",
-      "aiSummary": "Hardware/AI infrastructure concept; not clearly about consumer AI app launches or specific launched consumer productivity apps.",
+      "aiSummary": "Company/product about using consumer hardware as AI infra; unclear if it’s a consumer AI app launch and lacks app launch/features/target users.",
       "author": "cheyodev",
       "score": 0,
       "relevance": 10,
       "category": "ai",
       "topicSlug": "consumer-ai-apps",
       "createdAt": "2026-10-23 13:35:28",
-      "lastSeenAt": "2026-11-10 13:30:24",
+      "lastSeenAt": "2026-11-11 13:34:22",
       "publishedAt": "2026-10-23"
     },
     {
@@ -1369,6 +1385,22 @@
       "topicSlug": "mobile-ai",
       "createdAt": "2026-07-26 13:32:28",
       "lastSeenAt": "2026-10-24 13:31:03",
+      "publishedAt": "2026-10-23"
+    },
+    {
+      "id": 2637,
+      "source": "grounding",
+      "url": "https://omidsaffari.com/blog/on-device-ai",
+      "title": "On Device AI: What Can Run on Staff Laptops and Phones | Omid Saffari",
+      "summary": "On-device AI <strong>runs inference on local hardware; the app still decides what it sends elsewhere</strong>. Apple, Android, Chrome and Windows expose different features and hardware requirements.",
+      "aiSummary": "Explains what runs locally and differences across platforms (Apple/Android/Chrome/Windows), useful for understanding assistant capabilities.",
+      "author": null,
+      "score": 0,
+      "relevance": 7,
+      "category": "ai",
+      "topicSlug": "mobile-ai",
+      "createdAt": "2026-11-11 13:33:46",
+      "lastSeenAt": "2026-11-11 13:33:46",
       "publishedAt": "2026-10-23"
     },
     {
@@ -1393,14 +1425,14 @@
       "url": "https://github.com/oosexgang/hackios-xnu-kernel",
       "title": "Run full iOS 16.5 firmware on Android Devices",
       "summary": "Run full iOS 16.5 firmware on Android Devices",
-      "aiSummary": "iOS firmware/kernel emulation on Android; not about AI assistants or on-device AI assistant capabilities.",
+      "aiSummary": "Firmware/kernel hacking is unrelated to on-device AI assistants overview.",
       "author": "aghuang",
       "score": 100,
       "relevance": 10,
       "category": "ai",
       "topicSlug": "mobile-ai",
       "createdAt": "2026-10-25 13:33:16",
-      "lastSeenAt": "2026-11-07 13:33:36",
+      "lastSeenAt": "2026-11-11 13:33:48",
       "publishedAt": "2026-10-22"
     },
     {
@@ -1521,14 +1553,14 @@
       "url": "https://danluu.com/ai-coding/",
       "title": "Agentic test processes, LLM benchmarks, and other notes on agentic coding",
       "summary": "Agentic test processes, LLM benchmarks, and other notes on agentic coding",
-      "aiSummary": "Strong conceptual coverage of agentic coding processes/benchmarks; relevant to autonomous coding concepts, but may be less directly about agentic IDEs vs traditional IDE workflows.",
+      "aiSummary": "Agentic coding notes/benchmarks likely useful for concept, but may be more technical and not centered on agentic IDE definition.",
       "author": "surprisetalk",
       "score": 100,
       "relevance": 10,
       "category": "coding",
       "topicSlug": "coding-agents",
       "createdAt": "2026-07-10 13:32:57",
-      "lastSeenAt": "2026-11-10 13:30:58",
+      "lastSeenAt": "2026-11-11 13:34:57",
       "publishedAt": "2026-10-21"
     },
     {
@@ -1649,14 +1681,14 @@
       "url": "https://www.damiangalarza.com/posts/2026-10-21-agentic-coding-workflow/",
       "title": "My Agentic Coding Workflow: Claude Code, Codex, and Pi",
       "summary": "My Agentic Coding Workflow: Claude Code, Codex, and Pi",
-      "aiSummary": "Explicitly about an agentic coding workflow using tools like Claude Code/Codex/Pi; likely includes practical explanation of autonomous coding behavior.",
+      "aiSummary": "Provides an agentic coding workflow using tools (Claude Code/Codex/Pi), which should help explain how autonomous coding differs from traditional IDE usage.",
       "author": "dgalarza",
       "score": 0,
       "relevance": 10,
       "category": "coding",
       "topicSlug": "coding-agents",
       "createdAt": "2026-10-22 13:34:07",
-      "lastSeenAt": "2026-11-10 13:30:57",
+      "lastSeenAt": "2026-11-11 13:34:56",
       "publishedAt": "2026-10-21"
     },
     {
@@ -1674,70 +1706,6 @@
       "createdAt": "2026-10-22 13:32:54",
       "lastSeenAt": "2026-11-04 13:30:57",
       "publishedAt": "2026-10-21"
-    },
-    {
-      "id": 2368,
-      "source": "reddit",
-      "url": "https://www.reddit.com/r/programming/comments/1xbl8y1/eight_bits_of_trust_emudhras_ca_keys_cracked_in/",
-      "title": "Eight Bits of Trust; eMudhra's CA keys cracked in milliseconds",
-      "summary": "&#32; submitted by &#32; /u/Dear-Economics-315 [link] &#32; [comments]",
-      "aiSummary": "Certificate authority key compromise; unrelated to agentic IDE definition.",
-      "author": null,
-      "score": 0,
-      "relevance": 6,
-      "category": "coding",
-      "topicSlug": "coding-agents",
-      "createdAt": "2026-10-24 13:32:18",
-      "lastSeenAt": "2026-11-06 13:28:24",
-      "publishedAt": "2026-10-21"
-    },
-    {
-      "id": 2351,
-      "source": "reddit",
-      "url": "https://www.reddit.com/r/ArtificialInteligence/comments/1xap7mb/september_2026_app_revenue_ai_features_moved/",
-      "title": "September 2026 app revenue: AI features moved behind higher subscription tiers, and Grok entered the Top 30",
-      "summary": "The most interesting AI revenue signal in September wasn’t just ChatGPT holding #1. It was how AI features were packaged—Grok’s new model limited to higher paid tiers, Meta One bundling higher Meta AI/Business Agent quotas, and Google Photos tying Gemini/AI wardrobe features to Pro/Ultra. Top 30 AI signals - ChatGPT remained the global revenue champion with $417.3M in September, still growing MoM,",
-      "aiSummary": "Relevant to AI app monetization/feature packaging, but not specifically about which consumer AI apps launched recently.",
-      "author": null,
-      "score": 0,
-      "relevance": 10,
-      "category": "ai",
-      "topicSlug": "consumer-ai-apps",
-      "createdAt": "2026-10-22 13:33:35",
-      "lastSeenAt": "2026-11-06 13:27:39",
-      "publishedAt": "2026-10-20"
-    },
-    {
-      "id": 2632,
-      "source": "grounding",
-      "url": "https://mvpfactory.io/blog/wiring-ios-core-ml-to-a-quantized-on-device-llm-for-real-time-function-calling",
-      "title": "On-device LLM function calling on iPhone with Core ML — MVP Factory",
-      "summary": "They serialize a verbose OpenAI-style tool schema, bloat the context window, and then wonder why inference crashes on an A16 Bionic under mild memory pressure. On an iPhone 14 Pro (A16), the Neural Engine peaks at roughly 17 TOPS, with a practical sustained throughput of 40–60 tok/s for an INT4 model at 2K context. Push context to 4K and throughput drops 30–40%, while peak memory allocation climbs past the 3 GB iOS kill threshold on devices with 6 GB physical RAM under load.",
-      "aiSummary": "Concrete iOS Core ML wiring for an on-device LLM with real-time function calling; strong how-to relevance.",
-      "author": null,
-      "score": 0,
-      "relevance": 9,
-      "category": "ai",
-      "topicSlug": "mobile-ai",
-      "createdAt": "2026-11-10 13:29:49",
-      "lastSeenAt": "2026-11-10 13:29:49",
-      "publishedAt": "2026-10-19"
-    },
-    {
-      "id": 2631,
-      "source": "grounding",
-      "url": "https://unicoconnect.com/blogs/leveraging-on-device-ai-ios-app-development",
-      "title": "On-Device AI in iOS App Development, A Practical Guide | Unico Connect",
-      "summary": "<strong>On-device AI runs machine learning models locally on the iPhone or iPad rather than sending data to a remote server</strong>. Apps ship pre-trained models stored in the app bundle; Core ML loads them onto the Apple Neural Engine, GPU, or CPU as appropriate; ...",
-      "aiSummary": "Directly about on-device AI in iOS app development with Core ML/local execution; practical guide aligned to setup.",
-      "author": null,
-      "score": 0,
-      "relevance": 9,
-      "category": "ai",
-      "topicSlug": "mobile-ai",
-      "createdAt": "2026-11-10 13:29:48",
-      "lastSeenAt": "2026-11-10 13:29:49",
-      "publishedAt": "2026-10-16"
     }
   ],
   "deepReads": [
