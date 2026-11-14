@@ -1,0 +1,2215 @@
+{
+  "version": 1,
+  "date": "2026-11-14",
+  "generatedAt": "2026-11-14T13:36:06.193Z",
+  "quality": {
+    "status": "ok",
+    "blockers": [],
+    "warnings": []
+  },
+  "latestRun": {
+    "id": 537,
+    "status": "completed",
+    "startedAt": "2026-11-14 13:35:32",
+    "completedAt": "2026-11-14 13:36:05",
+    "warnings": [],
+    "sourceErrors": {}
+  },
+  "latestWeeklyRun": {
+    "id": 522,
+    "status": "running",
+    "startedAt": "2026-11-09 13:41:46",
+    "completedAt": null,
+    "warnings": [],
+    "sourceErrors": {},
+    "topicSlug": "personal-ai-systems",
+    "errorMessage": null
+  },
+  "pulse": {
+    "text": "Radar's read across coding-agents, consumer-ai-apps and mobile-ai. Top themes: Agentic IDE: An IDE Built Around Agents, Not the Cursor | AgentsRoom; Meta rolls out consumer AI agent in Singapore amid global safety, retail pushback - The Business Times; Best Agentic IDE in 2026: Multi-Agent Coding Tools Compared | Paradev.",
+    "date": "2026-11-14",
+    "generatedAt": "2026-11-14 13:36:05",
+    "topItemIds": [
+      1438,
+      2654,
+      2383,
+      2551,
+      2652
+    ],
+    "takeaway": null,
+    "sourceItemIds": []
+  },
+  "topics": [
+    {
+      "slug": "ai-wearables",
+      "name": "AI Wearables",
+      "category": "ai",
+      "cadence": "weekly",
+      "mode": "deep"
+    },
+    {
+      "slug": "coding-agents",
+      "name": "Coding Agents",
+      "category": "coding",
+      "cadence": "daily",
+      "mode": "quick"
+    },
+    {
+      "slug": "consumer-ai-apps",
+      "name": "Consumer AI Apps",
+      "category": "ai",
+      "cadence": "daily",
+      "mode": "quick"
+    },
+    {
+      "slug": "mobile-ai",
+      "name": "Mobile AI",
+      "category": "ai",
+      "cadence": "daily",
+      "mode": "quick"
+    },
+    {
+      "slug": "personal-ai-systems",
+      "name": "Personal AI Systems",
+      "category": "ai",
+      "cadence": "weekly",
+      "mode": "deep"
+    }
+  ],
+  "stats": [
+    {
+      "source": "reddit",
+      "count": 888
+    },
+    {
+      "source": "hackernews",
+      "count": 552
+    },
+    {
+      "source": "grounding",
+      "count": 388
+    },
+    {
+      "source": "github",
+      "count": 197
+    },
+    {
+      "source": "youtube",
+      "count": 101
+    },
+    {
+      "source": "tiktok",
+      "count": 9
+    },
+    {
+      "source": "instagram",
+      "count": 4
+    }
+  ],
+  "items": [
+    {
+      "id": 2653,
+      "source": "hackernews",
+      "url": "https://openos.space",
+      "title": "Show HN: EDNA – 100% on-device human sensing so AI can perceive the user",
+      "summary": "Show HN: EDNA – 100% on-device human sensing so AI can perceive the user",
+      "aiSummary": "On-device sensing for AI perception, but not specifically about iOS/Android AI assistants overview or assistant-building approaches.",
+      "author": "sebklaey",
+      "score": 10,
+      "relevance": 6,
+      "category": "ai",
+      "topicSlug": "mobile-ai",
+      "createdAt": "2026-11-14 13:35:00",
+      "lastSeenAt": "2026-11-14 13:35:00",
+      "publishedAt": "2026-11-14"
+    },
+    {
+      "id": 1952,
+      "source": "grounding",
+      "url": "https://support.apple.com/en-us/127893",
+      "title": "How to get Siri AI - Apple Support",
+      "summary": "To use Siri AI, you need an Apple Intelligence–capable iPhone, iPad, Mac, Apple Watch, Apple HomeView, Apple TV, or Apple Vision Pro with device language and Siri language set to a supported language: iOS 27 on iPhone 15 Pro models and later, iPhone 16 models or later, iPhone Duo, and iPhone Air",
+      "aiSummary": "Apple Support instructions for enabling Siri AI; useful setup prerequisites (supported devices/languages), but less about offline/low-connectivity configuration steps.",
+      "author": null,
+      "score": 0,
+      "relevance": 10,
+      "category": "ai",
+      "topicSlug": "mobile-ai",
+      "createdAt": "2026-09-27 14:33:12",
+      "lastSeenAt": "2026-11-13 13:31:36",
+      "publishedAt": "2026-11-13"
+    },
+    {
+      "id": 2636,
+      "source": "grounding",
+      "url": "https://antigravity.google/",
+      "title": "Google Antigravity",
+      "summary": "<strong>The lightweight, fast, terminal-first surface to work with Antigravity agents</strong>. Run autonomous coding agents, execute shell commands directly, and manage background subagents all from your keyboard.",
+      "aiSummary": "Mentions running autonomous coding agents from a terminal-first surface; relevant to autonomous coding, but not specifically an agentic IDE definition or comparison to traditional IDE workflows.",
+      "author": null,
+      "score": 0,
+      "relevance": 9,
+      "category": "coding",
+      "topicSlug": "coding-agents",
+      "createdAt": "2026-11-10 13:30:56",
+      "lastSeenAt": "2026-11-14 13:36:04",
+      "publishedAt": "2026-11-13"
+    },
+    {
+      "id": 2649,
+      "source": "grounding",
+      "url": "https://techcrunch.com/2026/11/10/metas-ai-agent-muse-lands-on-apple-watch-and-wear-os/",
+      "title": "Meta's AI agent Muse lands on Apple Watch and Android Wear OS | TechCrunch",
+      "summary": "Meta is bringing its <strong>Muse AI agent</strong> to the Apple Watch and Android’s Wear OS, the company announced on Monday. With the launch, users can now interact with Meta’s AI assistant through voice calls, text messages, or dictation directly on their ...",
+      "aiSummary": "Direct breaking-news style report on a consumer AI app/agent launch (Meta Muse) with clear platform rollout and user-facing capabilities.",
+      "author": null,
+      "score": 0,
+      "relevance": 9,
+      "category": "ai",
+      "topicSlug": "consumer-ai-apps",
+      "createdAt": "2026-11-13 13:32:05",
+      "lastSeenAt": "2026-11-13 13:32:06",
+      "publishedAt": "2026-11-11"
+    },
+    {
+      "id": 2654,
+      "source": "grounding",
+      "url": "https://www.businesstimes.com.sg/companies-markets/telcos-media-tech/meta-rolls-out-consumer-ai-agent-singapore-amid-global-safety-retail-pushback",
+      "title": "Meta rolls out consumer AI agent in Singapore amid global safety, retail pushback - The Business Times",
+      "summary": "From <strong>Oct 28,</strong> Singapore users can download the app from the Apple App Store or Google Play Store, establishing Muse as the first artificial intelligence (AI) personal agent designed for the mainstream consumer market.",
+      "aiSummary": "Clear breaking-news launch of a consumer AI agent app ('Muse') with specific release timing and availability details.",
+      "author": null,
+      "score": 0,
+      "relevance": 9,
+      "category": "ai",
+      "topicSlug": "consumer-ai-apps",
+      "createdAt": "2026-11-14 13:35:28",
+      "lastSeenAt": "2026-11-14 13:35:29",
+      "publishedAt": "2026-11-10"
+    },
+    {
+      "id": 2651,
+      "source": "grounding",
+      "url": "https://www.financialcontent.com/article/prunderground-2026-11-9-peppi-launches-on-iphone-and-android-building-the-future-of-personalized-ai",
+      "title": "Peppi Launches on iPhone and Android, Building the Future of Personalized AI | FinancialContent",
+      "summary": "<strong>Peppi is available now for iPhone and Android</strong>. New users can create and personalize their companion in minutes, while existing users can continue conversations across both SMS and mobile experiences.",
+      "aiSummary": "Clear consumer AI app launch (Peppi) with availability on iOS/Android and description of personalization/companion use.",
+      "author": null,
+      "score": 0,
+      "relevance": 8,
+      "category": "ai",
+      "topicSlug": "consumer-ai-apps",
+      "createdAt": "2026-11-13 13:32:06",
+      "lastSeenAt": "2026-11-13 13:32:06",
+      "publishedAt": "2026-11-09"
+    },
+    {
+      "id": 2650,
+      "source": "grounding",
+      "url": "https://www.prnewswire.com/news-releases/fsbocom-launches-native-ios-and-android-apps-bringing-its-agentic-ai-powered-real-estate-marketplace-directly-to-consumers-302933459.html",
+      "title": "FSBO.com Launches Native iOS and Android Apps, Bringing Its Agentic AI-Powered Real Estate Marketplace Directly to Consumers",
+      "summary": "9, 2026 /PRNewswire/ -- ­­­<strong>FSBO.com, the next-generation real estate marketplace powered by agentic AI, has officially launched its native mobile applications for Apple iOS and Android</strong>, marking a major milestone in the company&#x27;s continued evolution of the home buying and selling experience.",
+      "aiSummary": "Official launch announcement for a consumer-facing agentic AI-powered app (native iOS/Android) with target users and purpose.",
+      "author": null,
+      "score": 0,
+      "relevance": 8,
+      "category": "ai",
+      "topicSlug": "consumer-ai-apps",
+      "createdAt": "2026-11-13 13:32:06",
+      "lastSeenAt": "2026-11-13 13:32:06",
+      "publishedAt": "2026-11-09"
+    },
+    {
+      "id": 2554,
+      "source": "grounding",
+      "url": "https://startupcorners.com/digest/product-digest-2026-11-09",
+      "title": "Product Launches Today: AI, Dev Tools and More",
+      "summary": "Nov 8, 2026 · 3 minProduct Launches Today: AI Media Tools, Dev Tools and MoreToday&#x27;s recap covers AI image, video and music tools, developer products, SEO helpers and a handful of small consumer apps launched on <strong>November 7, 2026</strong>.Nov 7, 2026 ·",
+      "aiSummary": "Product launch digest likely includes multiple AI/consumer app launches, but the snippet is generic and doesn’t name specific consumer AI apps or key features.",
+      "author": null,
+      "score": 0,
+      "relevance": 6,
+      "category": "ai",
+      "topicSlug": "consumer-ai-apps",
+      "createdAt": "2026-11-09 13:34:27",
+      "lastSeenAt": "2026-11-10 13:30:21",
+      "publishedAt": "2026-11-09"
+    },
+    {
+      "id": 710,
+      "source": "grounding",
+      "url": "https://kiro.dev/ide/",
+      "title": "IDE - Kiro",
+      "summary": "Agents write the code, run tests, and verify correctness, while you review and decide. Kiro is an opinionated IDE experience compatible with VS Code extensions and settings. ... Available on macOS, Windows, and Linux. Get started for free. AI coding without structure produces code you can’t trust to match what you wanted. Kiro turns your prompts into structured requirements, architecture designs, and sequenced implementation tasks that agents execute in parallel.",
+      "aiSummary": "Describes an IDE experience where agents write code and run tests; relevant to agentic IDE concept and workflow.",
+      "author": null,
+      "score": 0,
+      "relevance": 10,
+      "category": "coding",
+      "topicSlug": "coding-agents",
+      "createdAt": "2026-07-15 13:33:19",
+      "lastSeenAt": "2026-11-09 13:35:02",
+      "publishedAt": "2026-11-08"
+    },
+    {
+      "id": 846,
+      "source": "grounding",
+      "url": "https://theairankings.com/best-ai-apps/",
+      "title": "Best AI Apps in 2026: Complete Consumer AI Guide | The AI Rankings",
+      "summary": "From <strong>9 October 2026</strong> the free tier picks Flash-Lite, Flash or Pro for each prompt instead of letting free users choose (Google), and on 13 October Gemini 4 Argon reached Google AI Pro and Ultra subscribers (9to5Google).",
+      "aiSummary": "Curated 'best AI apps' list with some dated changes, but not a focused breaking-news set of newly launched consumer AI apps.",
+      "author": null,
+      "score": 0,
+      "relevance": 10,
+      "category": "ai",
+      "topicSlug": "consumer-ai-apps",
+      "createdAt": "2026-07-23 13:32:44",
+      "lastSeenAt": "2026-11-12 13:35:03",
+      "publishedAt": "2026-11-06"
+    },
+    {
+      "id": 2538,
+      "source": "hackernews",
+      "url": "https://news.ycombinator.com/item?id=50399637",
+      "title": "Show HN: I asked HN about AI agentic setups, here are 750 of the comments mapped",
+      "summary": "Show HN: I asked HN about AI agentic setups, here are 750 of the comments mapped",
+      "aiSummary": "HN thread about AI agentic setups likely contains relevant discussion, but the snippet provides no concrete definition or explanation.",
+      "author": "eggbrain",
+      "score": 4,
+      "relevance": 6,
+      "category": "coding",
+      "topicSlug": "coding-agents",
+      "createdAt": "2026-11-07 13:34:44",
+      "lastSeenAt": "2026-11-07 13:34:44",
+      "publishedAt": "2026-11-06"
+    },
+    {
+      "id": 2544,
+      "source": "grounding",
+      "url": "https://www.scriptbyai.com/ai-product-release-calendar/",
+      "title": "AI Product Release Calendar: Major AI Tool Launch Dates",
+      "summary": "Find launch dates for Grok, ChatGPT, Claude, Gemini, Copilot, DeepSeek, Cursor, Manus and other AI tools, including previews and public releases.",
+      "aiSummary": "Useful for launch dates broadly, but more of a calendar/compilation than breaking news with consumer app specifics.",
+      "author": null,
+      "score": 0,
+      "relevance": 6,
+      "category": "ai",
+      "topicSlug": "consumer-ai-apps",
+      "createdAt": "2026-11-08 13:31:51",
+      "lastSeenAt": "2026-11-14 13:35:30",
+      "publishedAt": "2026-11-06"
+    },
+    {
+      "id": 2558,
+      "source": "grounding",
+      "url": "https://androidguys.com/news/aina-unveils-ai-ring-designed-to-predict-what-users-need-before-they-ask/",
+      "title": "Meet Aina: The AI Wearable That Puts Your Digital Agents at Your Fingertips",
+      "summary": "<strong>Aina believes it could be a wearable device that anticipates what users need and puts the right action within reach before they even ask</strong>. The San Francisco-based company has unveiled Aina, an AI-powered ring designed to ...",
+      "aiSummary": "Explicitly about an AI ring wearable; somewhat relevant to AI wearables landscape, but not AI pins/voice-first/smart glasses and lacks on-device vs cloud details in snippet.",
+      "author": null,
+      "score": 0,
+      "relevance": 5,
+      "category": "ai",
+      "topicSlug": "ai-wearables",
+      "createdAt": "2026-11-09 13:41:22",
+      "lastSeenAt": "2026-11-09 13:41:22",
+      "publishedAt": "2026-11-06"
+    },
+    {
+      "id": 2383,
+      "source": "grounding",
+      "url": "https://paradev.com/compare/best-agentic-ide",
+      "title": "Best Agentic IDE in 2026: Multi-Agent Coding Tools Compared | Paradev",
+      "summary": "These <strong>start as editors and add autonomous agents</strong>. You get familiar editing plus an agent that can plan, edit across files, run the terminal, and iterate on errors. Cursor, Zed, VS Code with Copilot, JetBrains with Junie, and Devin Desktop (the product formerly known as Windsurf) all fit here.",
+      "aiSummary": "Explicitly about “Best Agentic IDE” and explains how these tools add autonomous agents to editors, including planning/editing/running terminal—strong match to definition and workflow comparison.",
+      "author": null,
+      "score": 0,
+      "relevance": 10,
+      "category": "coding",
+      "topicSlug": "coding-agents",
+      "createdAt": "2026-10-26 13:34:39",
+      "lastSeenAt": "2026-11-14 13:36:02",
+      "publishedAt": "2026-11-05"
+    },
+    {
+      "id": 1492,
+      "source": "grounding",
+      "url": "https://en.wikipedia.org/wiki/AI_agent",
+      "title": "AI agent - Wikipedia",
+      "summary": "While there is no universally ... include <strong>goal</strong>-directed behavior, <strong>use</strong> of external <strong>tools</strong>, the ability to interact with and modify an external environment, and the ability to autonomously perform multi-step tasks. Their control flow is frequently <strong>driven</strong> by large language models (LLMs). <strong>Agent</strong> systems may also include memory components, <strong>planning</strong> logic, <strong>tool</strong> ...",
+      "aiSummary": "General overview of AI agents; too high-level and not a how-to for personal AI agents memory/knowledge/intention-driven pipelines.",
+      "author": null,
+      "score": 0,
+      "relevance": 10,
+      "category": "ai",
+      "topicSlug": "personal-ai-systems",
+      "createdAt": "2026-08-31 13:49:11",
+      "lastSeenAt": "2026-11-09 13:49:29",
+      "publishedAt": "2026-11-05"
+    },
+    {
+      "id": 2515,
+      "source": "hackernews",
+      "url": "https://news.ycombinator.com/item?id=50376478",
+      "title": "Ask HN: What are the fundamentals of agentic coding?",
+      "summary": "Ask HN: What are the fundamentals of agentic coding?",
+      "aiSummary": "Directly about fundamentals of agentic coding; likely relevant for concept, though not specifically about agentic IDE definition vs traditional IDE workflows.",
+      "author": "guitarlimeo",
+      "score": 24,
+      "relevance": 9,
+      "category": "coding",
+      "topicSlug": "coding-agents",
+      "createdAt": "2026-11-05 13:32:30",
+      "lastSeenAt": "2026-11-14 13:36:03",
+      "publishedAt": "2026-11-05"
+    },
+    {
+      "id": 2551,
+      "source": "grounding",
+      "url": "https://github.com/Mintplex-Labs/anythingllm-mobile",
+      "title": "GitHub - Mintplex-Labs/anythingllm-mobile: An AI Agent that lives in your pocket. Local-first and privacy focused. · GitHub",
+      "summary": "<strong>Basically imagine Openclaw or Heremes agent, but fully on-device first, with all the tools for true utility right out of the box, but no infrastructure to set-up or depend on</strong>. ... Default Assistant Set AnythingLLM as your phone&#x27;s assistant and ...",
+      "aiSummary": "Mobile, local-first, privacy-focused AI agent intended to live on-device; strong match to on-device assistant concept for phones.",
+      "author": null,
+      "score": 0,
+      "relevance": 9,
+      "category": "ai",
+      "topicSlug": "mobile-ai",
+      "createdAt": "2026-11-09 13:33:47",
+      "lastSeenAt": "2026-11-14 13:34:58",
+      "publishedAt": "2026-11-05"
+    },
+    {
+      "id": 2529,
+      "source": "grounding",
+      "url": "https://www.messagingadvisory.com/post/consumer-ai-is-moving-to-native-messaging-apps",
+      "title": "Consumer AI is moving to native messaging apps",
+      "summary": "On <strong>September 8, 2026</strong> it launched &quot;Muse&quot;, which passed 5M US downloads in 22 days and 10M in 40 days. The trend is accelerating: Meta proved the model early on its own channels, even restricting AI competitors inside Meta channels like WhatsApp.",
+      "aiSummary": "Directly discusses a consumer AI app launch ('Muse') with download milestones and mainstream messaging-app context.",
+      "author": null,
+      "score": 0,
+      "relevance": 9,
+      "category": "ai",
+      "topicSlug": "consumer-ai-apps",
+      "createdAt": "2026-11-07 13:34:07",
+      "lastSeenAt": "2026-11-14 13:35:29",
+      "publishedAt": "2026-11-05"
+    },
+    {
+      "id": 2603,
+      "source": "grounding",
+      "url": "https://medium.com/@pta.forwork/the-anatomy-of-agent-amnesia-why-memory-is-the-missing-piece-of-autonomous-ai-1811d42ef77e",
+      "title": "The Anatomy of Agent Amnesia: Why Memory Is the Missing Piece of Autonomous AI | by Pham The Anh | Nov, 2026 | Medium",
+      "summary": "While <strong>episodic memory is organized chronologically around experiences, long-term semantic memory is organized conceptually around meaning. This is your agent’s permanent knowledge base: business logic, world facts, user preferences, and domain schemas. Here, vector databases (like Pinecone, Qdrant, Milvus, or pgvector) serve as the underlying retrieval substrate</strong>...",
+      "aiSummary": "Explains episodic vs semantic memory and retrieval substrate (vector DBs); relevant to agent memory architecture with some practical guidance.",
+      "author": null,
+      "score": 0,
+      "relevance": 8,
+      "category": "ai",
+      "topicSlug": "personal-ai-systems",
+      "createdAt": "2026-11-09 13:49:22",
+      "lastSeenAt": "2026-11-09 13:49:22",
+      "publishedAt": "2026-11-05"
+    },
+    {
+      "id": 2610,
+      "source": "reddit",
+      "url": "https://www.reddit.com/r/PKMS/comments/1xoffqm/how_do_you_manage_your_personal_knowledge_base_in/",
+      "title": "How do you manage your personal knowledge base in a corporate environment?",
+      "summary": "I use Obsidian privately (with plugins like Templater) and love the flexibility and workflows it offers. At work, however, IT restricts software installations, and company data (meeting notes, screenshots, slides, etc.) obviously cannot be stored in a private vault. I&#39;d love to build a similar knowledge management system at work, but OneNote really isn&#39;t doing it for me. Maybe I&#39;m just",
+      "aiSummary": "PKMS management in corporate environment; relevant to pipeline constraints but not specifically about intention-driven agents or memory architecture.",
+      "author": null,
+      "score": 0,
+      "relevance": 5,
+      "category": "ai",
+      "topicSlug": "personal-ai-systems",
+      "createdAt": "2026-11-09 13:49:25",
+      "lastSeenAt": "2026-11-09 13:49:25",
+      "publishedAt": "2026-11-05"
+    },
+    {
+      "id": 2533,
+      "source": "grounding",
+      "url": "https://paradev.com/compare/what-is-an-agentic-ide",
+      "title": "What Is an Agentic IDE? A 2026 Guide | Paradev",
+      "summary": "An agentic IDE is a development environment where AI agents can autonomously plan and carry out multi-step coding tasks -- <strong>reading the codebase, editing multiple files, running commands and tests, and iterating on the results</strong> -- rather than only suggesting the next line of code.",
+      "aiSummary": "Clear conceptual definition of agentic IDEs with multi-step workflow (read codebase, edit multiple files, run commands/tests, iterate).",
+      "author": null,
+      "score": 0,
+      "relevance": 10,
+      "category": "coding",
+      "topicSlug": "coding-agents",
+      "createdAt": "2026-11-07 13:34:41",
+      "lastSeenAt": "2026-11-12 13:35:31",
+      "publishedAt": "2026-11-04"
+    },
+    {
+      "id": 2652,
+      "source": "grounding",
+      "url": "https://www.mindstudio.ai/blog/google-ai-edge-gallery-offline-llm-ios",
+      "title": "Google AI Edge Gallery: A Primer on On-Device AI on iPhone | MindStudio",
+      "summary": "This article explains what <strong>Google AI Edge Gallery</strong> is, how it works, which Gemma models it supports, how to install and use it on iOS, and where it fits in the broader on-device AI picture.",
+      "aiSummary": "iOS-focused on-device AI primer with installation/usage details; good conceptual overview for building on-device assistant experiences.",
+      "author": null,
+      "score": 0,
+      "relevance": 9,
+      "category": "ai",
+      "topicSlug": "mobile-ai",
+      "createdAt": "2026-11-14 13:34:59",
+      "lastSeenAt": "2026-11-14 13:34:59",
+      "publishedAt": "2026-11-04"
+    },
+    {
+      "id": 2516,
+      "source": "hackernews",
+      "url": "https://www.ricursive.com/ripple",
+      "title": "Ripple-65B Preview: U.S. Open-Weight SOTA on Agentic Coding",
+      "summary": "Ripple-65B Preview: U.S. Open-Weight SOTA on Agentic Coding",
+      "aiSummary": "Mentions agentic coding in title/snippet, but focuses on a model preview (Ripple-65B) rather than defining agentic IDEs or comparing workflows.",
+      "author": "Philpax",
+      "score": 100,
+      "relevance": 8,
+      "category": "coding",
+      "topicSlug": "coding-agents",
+      "createdAt": "2026-11-05 13:32:31",
+      "lastSeenAt": "2026-11-14 13:36:04",
+      "publishedAt": "2026-11-04"
+    },
+    {
+      "id": 2509,
+      "source": "hackernews",
+      "url": "https://www.nordicsemi.com/Nordic-news/2026/11/Nordic-brings-edge-AI-to-battery-powered-WiFi-devices-20-times-lower-standby-power-with-nRF71-Series",
+      "title": "nRF71: Wi-Fi, Bluetooth LE, Thread, and On-Device AI on a Single Chip",
+      "summary": "nRF71: Wi-Fi, Bluetooth LE, Thread, and On-Device AI on a Single Chip",
+      "aiSummary": "Strong on-device AI hardware angle, but not focused on iOS/Android AI assistants or building constraints for assistant apps.",
+      "author": "hasheddan",
+      "score": 11,
+      "relevance": 6,
+      "category": "ai",
+      "topicSlug": "mobile-ai",
+      "createdAt": "2026-11-05 13:31:23",
+      "lastSeenAt": "2026-11-14 13:35:01",
+      "publishedAt": "2026-11-04"
+    },
+    {
+      "id": 2523,
+      "source": "grounding",
+      "url": "https://www.semafor.com/article/11/04/2026/a-consumer-based-ai-wave-is-coming",
+      "title": "A consumer-based AI wave is coming | Semafor",
+      "summary": "Marissa Mayer, who recently started a consumer AI app called Dazzle and joined me on Semafor’s Future Proof, says that <strong>by 2030</strong>, consumer AI will be about twice the size of enterprise.",
+      "aiSummary": "Contains a claim about a consumer AI app (Dazzle) but is more forward-looking commentary than concrete launch details.",
+      "author": null,
+      "score": 0,
+      "relevance": 5,
+      "category": "ai",
+      "topicSlug": "consumer-ai-apps",
+      "createdAt": "2026-11-06 13:27:42",
+      "lastSeenAt": "2026-11-08 13:31:52",
+      "publishedAt": "2026-11-04"
+    },
+    {
+      "id": 2496,
+      "source": "reddit",
+      "url": "https://www.reddit.com/r/jenova_ai/comments/1xnh4xj/what_is_the_best_ai_uiux_prototype_generator/",
+      "title": "What Is the Best AI UI/UX Prototype Generator?",
+      "summary": "How Do AI Prototype Generators Compare on Platform Fidelity and Design Realism? In 2026, the AI UI/UX prototype generators that hold up in real product work are the ones that produce screens resembling actual device screenshots — native iOS, Android, or web patterns, plausible content, and a consistent visual system — rather than generic mockups. Jenova&#39;s UI/UX Prototype Generator is strongest",
+      "aiSummary": "Does not mention iOS/Android on-device AI assistants setup or Core ML/local inference; focuses on UI/UX prototype generators.",
+      "author": null,
+      "score": 0,
+      "relevance": 5,
+      "category": "ai",
+      "topicSlug": "mobile-ai",
+      "createdAt": "2026-11-04 13:30:59",
+      "lastSeenAt": "2026-11-10 13:29:51",
+      "publishedAt": "2026-11-04"
+    },
+    {
+      "id": 2601,
+      "source": "hackernews",
+      "url": "https://blog.apify.com/llm-grounding-with-live-data/",
+      "title": "AI agents hallucinate prices: LLM grounding with live data",
+      "summary": "AI agents hallucinate prices: LLM grounding with live data",
+      "aiSummary": "Grounding with live data to reduce hallucinations; strong match to grounding/citations and practical agent reliability.",
+      "author": "Dylan-Hayes",
+      "score": 50,
+      "relevance": 9,
+      "category": "ai",
+      "topicSlug": "personal-ai-systems",
+      "createdAt": "2026-11-09 13:49:21",
+      "lastSeenAt": "2026-11-09 13:49:22",
+      "publishedAt": "2026-11-03"
+    },
+    {
+      "id": 2535,
+      "source": "reddit",
+      "url": "https://www.reddit.com/r/junie_ai/comments/1xmyuyo/junie_vs_cursor_which_ai_coding_agent_fits_your/",
+      "title": "Junie vs Cursor: Which AI Coding Agent Fits Your Workflow?",
+      "summary": "You&#39;re choosing between an agent that lives inside the JetBrains toolchain and one built around its own editor, CLI and cloud agents. Most threads on junie vs cursor end in &quot;it depends&quot; without saying on what. This guide lays out what each tool does, where each one is limited, and which situations favor which. Processing img 1igh08zx0izh1... Junie vs Cursor: the decision in one minut",
+      "aiSummary": "Directly compares AI coding agents (Junie vs Cursor) and discusses where they live (IDE/editor/CLI/cloud agents), which is useful for understanding what an agentic IDE means in practice.",
+      "author": null,
+      "score": 0,
+      "relevance": 8,
+      "category": "coding",
+      "topicSlug": "coding-agents",
+      "createdAt": "2026-11-07 13:34:43",
+      "lastSeenAt": "2026-11-07 13:34:43",
+      "publishedAt": "2026-11-03"
+    },
+    {
+      "id": 2498,
+      "source": "hackernews",
+      "url": "https://spectrum.ieee.org/ai-personal-assistant-intelligent-wearables",
+      "title": "Consumer Appetite for Personal AI Goes Mainstream",
+      "summary": "Consumer Appetite for Personal AI Goes Mainstream",
+      "aiSummary": "About personal AI/wearables for consumers, but not clearly about specific consumer AI app launches or named launches/features.",
+      "author": "oldnetguy",
+      "score": 14,
+      "relevance": 6,
+      "category": "ai",
+      "topicSlug": "consumer-ai-apps",
+      "createdAt": "2026-11-04 13:31:36",
+      "lastSeenAt": "2026-11-14 13:35:30",
+      "publishedAt": "2026-11-03"
+    },
+    {
+      "id": 2503,
+      "source": "grounding",
+      "url": "https://www.simular.ai/alternatives/best-ai-coding-agents",
+      "title": "Best AI Coding Agents in 2026: 8 Agentic Tools That Write, Debug, and Ship Code for You",
+      "summary": "... Pricing: Core from $20/mo + ... the most autonomous coding agent available. It <strong>operates in its own cloud environment -- a full VM with a code editor, terminal, and browser</strong>....",
+      "aiSummary": "Lists agentic coding tools and describes autonomy (e.g., operating in a VM with editor/terminal/browser), which supports the concept of autonomous coding.",
+      "author": null,
+      "score": 0,
+      "relevance": 8,
+      "category": "coding",
+      "topicSlug": "coding-agents",
+      "createdAt": "2026-11-04 13:32:17",
+      "lastSeenAt": "2026-11-11 13:34:56",
+      "publishedAt": "2026-11-02"
+    },
+    {
+      "id": 2635,
+      "source": "reddit",
+      "url": "https://www.reddit.com/r/indianstartups/comments/1xlx2gl/firsttime_founder_how_did_you_get_your_first_100/",
+      "title": "First-time founder: how did you get your first 100 users for a consumer app with no following?",
+      "summary": "I’m a solo founder, doing my MBA alongside. I launched the beta of a consumer app yesterday (interactive stories for adults driven by AI, 18+). Free, Google sign-in. What I tried on day one: 5 Instagram Reels from a brand-new account: about 330 views total, 0 sign-ups A Reddit post that got caught by the spam filter When I worked out the funnel (Reel view → profile visit → link in bio → sign-in),",
+      "aiSummary": "Mentions launching a consumer AI app beta recently and describes target users/features at a high level, but it’s a founder anecdote on user acquisition rather than a clear news-style launch roundup.",
+      "author": null,
+      "score": 0,
+      "relevance": 6,
+      "category": "ai",
+      "topicSlug": "consumer-ai-apps",
+      "createdAt": "2026-11-10 13:30:21",
+      "lastSeenAt": "2026-11-10 13:30:21",
+      "publishedAt": "2026-11-02"
+    },
+    {
+      "id": 2519,
+      "source": "hackernews",
+      "url": "https://www.pcmag.com/news/sam-altman-suggests-running-ai-locally-is-a-waste-of-memory",
+      "title": "Sam Altman on Local AI",
+      "summary": "Sam Altman on Local AI",
+      "aiSummary": "Local AI discussion is relevant, but it’s not an iOS/Android on-device AI assistant overview and lacks practical constraints for building assistants.",
+      "author": "bozdemir",
+      "score": 29,
+      "relevance": 5,
+      "category": "ai",
+      "topicSlug": "mobile-ai",
+      "createdAt": "2026-11-06 13:27:00",
+      "lastSeenAt": "2026-11-14 13:35:01",
+      "publishedAt": "2026-11-02"
+    },
+    {
+      "id": 2609,
+      "source": "reddit",
+      "url": "https://www.reddit.com/r/PKMS/comments/1xlizuw/how_do_you_capture_reuse_aiassisted_solutions/",
+      "title": "How do you capture & reuse AI-assisted solutions before you forget them 2 weeks later?",
+      "summary": "&#32; submitted by &#32; /u/Teninchblack [link] &#32; [comments]",
+      "aiSummary": "PKMS question about capturing/reusing AI-assisted solutions; relevant to personal knowledge pipelines though likely discussion rather than step-by-step.",
+      "author": null,
+      "score": 0,
+      "relevance": 5,
+      "category": "ai",
+      "topicSlug": "personal-ai-systems",
+      "createdAt": "2026-11-09 13:49:25",
+      "lastSeenAt": "2026-11-09 13:49:25",
+      "publishedAt": "2026-11-02"
+    },
+    {
+      "id": 1965,
+      "source": "grounding",
+      "url": "https://en.wikipedia.org/wiki/Humane_Inc.",
+      "title": "Humane Inc. - Wikipedia",
+      "summary": "<strong>Humane</strong> Inc. (stylized as hu.ma.ne) was an American consumer electronics company founded in 2018 by Imran Chaudhri and Bethany Bongiorno. The company designed and developed the <strong>AI</strong> <strong>Pin</strong>, a wearable <strong>voice</strong>-operated virtual <strong>assistant</strong> <strong>device</strong>, which started shipping in April 2024 but received poor reviews.",
+      "aiSummary": "Directly mentions Humane’s AI Pin as a wearable voice-operated virtual assistant, including shipping timeframe (April 2024) and review context; strong grounding for AI pins & voice-first.",
+      "author": null,
+      "score": 0,
+      "relevance": 10,
+      "category": "ai",
+      "topicSlug": "ai-wearables",
+      "createdAt": "2026-09-28 13:35:53",
+      "lastSeenAt": "2026-11-09 13:41:22",
+      "publishedAt": "2026-11-01"
+    },
+    {
+      "id": 2525,
+      "source": "grounding",
+      "url": "https://usappteam.com/post/on-device-ai-for-mobile-apps",
+      "title": "On-Device AI for Mobile Apps: When It Fits and When It Won't",
+      "summary": "Apple&#x27;s September 2025 announcement says it is available with iOS 26, iPadOS 26 and macOS 26, works offline, and uses inference that is &quot;free of cost&quot;. It supports guided generation, where the model fills in a structure your code defines, and tool calling, where the model can ask your app for data. On Android, Google&#x27;s ML Kit GenAI APIs run on Gemini Nano through a system service called AICore.",
+      "aiSummary": "Directly discusses on-device AI on iOS and Android with concrete mechanisms (offline, guided generation, tool calling, ML Kit GenAI/AICore).",
+      "author": null,
+      "score": 0,
+      "relevance": 9,
+      "category": "ai",
+      "topicSlug": "mobile-ai",
+      "createdAt": "2026-11-07 13:33:33",
+      "lastSeenAt": "2026-11-11 13:33:45",
+      "publishedAt": "2026-11-01"
+    },
+    {
+      "id": 2605,
+      "source": "reddit",
+      "url": "https://www.reddit.com/r/PKMS/comments/1xl5xsi/in_our_shared_vault_a_note_isnt_done_when_its/",
+      "title": "In our shared vault a note isn't done when it's saved. It's done when search can find it",
+      "summary": "We run our small company out of one Obsidian vault in git, together with a few AI agents that file things into it. Capturing is easy for us. The part that slips is getting things from the inbox to a place where someone finds them again. So we wrote down when a new piece of knowledge counts as done. Five things have to be true. The original sits untouched in a raw folder. It gets copied with a chec",
+      "aiSummary": "Practical PKMS workflow (definition of 'done' for retrieval); relevant to personal knowledge system pipelines and retrieval reliability.",
+      "author": null,
+      "score": 0,
+      "relevance": 6,
+      "category": "ai",
+      "topicSlug": "personal-ai-systems",
+      "createdAt": "2026-11-09 13:49:23",
+      "lastSeenAt": "2026-11-09 13:49:24",
+      "publishedAt": "2026-11-01"
+    },
+    {
+      "id": 2435,
+      "source": "reddit",
+      "url": "https://www.reddit.com/r/cursor/comments/1xk1jyf/ive_been_seeing_a_lot_of_complaints_about_ai/",
+      "title": "I've been seeing a lot of complaints about AI coding tools recently. What's actually annoying people?",
+      "summary": "I&#39;m not a developer myself, but I&#39;ve been spending some time reading discussions about AI coding tools on Reddit and other platforms. One thing I&#39;ve noticed is that people aren&#39;t just frustrated with the code these tools generate. A few other things keep coming up too. 1.Pricing: Some people seem frustrated with usage limits and sudden increases in their bills. 2.Switching between",
+      "aiSummary": "Relevant to AI coding tools broadly, but not focused on defining agentic IDEs or explaining autonomous coding vs traditional IDE workflows.",
+      "author": null,
+      "score": 0,
+      "relevance": 10,
+      "category": "coding",
+      "topicSlug": "coding-agents",
+      "createdAt": "2026-11-01 13:29:34",
+      "lastSeenAt": "2026-11-03 13:36:39",
+      "publishedAt": "2026-10-31"
+    },
+    {
+      "id": 2534,
+      "source": "grounding",
+      "url": "https://www.activepieces.com/blog/best-agentic-ai-coding-tools-for-2026",
+      "title": "Best Agentic AI Coding Tools 2026: Cursor to Claude Code",
+      "summary": "You own the fallout when these ... In the modern IDE, <strong>autonomy is measured by a tool&#x27;s ability to decompose a high-level request into a sequenced execution plan without human intervention</strong>....",
+      "aiSummary": "Covers agentic AI coding tools and autonomy via decomposing requests into execution plans; conceptually aligned though less explicitly end-to-end in snippet.",
+      "author": null,
+      "score": 0,
+      "relevance": 9,
+      "category": "coding",
+      "topicSlug": "coding-agents",
+      "createdAt": "2026-11-07 13:34:42",
+      "lastSeenAt": "2026-11-12 13:35:33",
+      "publishedAt": "2026-10-31"
+    },
+    {
+      "id": 2441,
+      "source": "grounding",
+      "url": "https://www.tomsguide.com/computing/vr-ar/best-smart-glasses",
+      "title": "Best smart glasses in 2026: Top AR and AI glasses worth your money | Tom's Guide",
+      "summary": "Now, some AI glasses come with an AR display, but this isn&#x27;t for watching shows or playing games from a smartphone, PC or gaming device. AR glasses are basically an external display for your eyes, which are perfect for giving your laptop, smartphone or gaming handheld a 150+ inch display wherever you are. AI glasses are more of a wearable window into LLMs like ChatGPT or Meta AI to help you get things done or answer questions about the world around you. Buy AI smart glasses if you mainly want hands-free photos and video, calls, audio and voice assistance; buy AR glasses if you want a large virtual screen for watching, working or gaming from a compatible device.",
+      "aiSummary": "Direct smart glasses roundup (AI glasses) with product list; useful for device landscape though not deeply voice-first UX.",
+      "author": null,
+      "score": 0,
+      "relevance": 8,
+      "category": "ai",
+      "topicSlug": "ai-wearables",
+      "createdAt": "2026-11-02 13:35:50",
+      "lastSeenAt": "2026-11-02 13:35:50",
+      "publishedAt": "2026-10-31"
+    },
+    {
+      "id": 2546,
+      "source": "reddit",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1xkgzcu/i_built_an_app_where_my_ai_agents_delegate_to/",
+      "title": "I built an app where my AI agents delegate to each other and only ask me when they're stuck",
+      "summary": "I&#39;m a full-stack developer and like a lot of devs I use AI in my daily work, usually several Claude and Codex sessions in parallel, each on a different piece of work. At some point it was too much mental load and the bottleneck was me. I was passing context between sessions, reading what each agent said to figure out what to do next, and when I wanted to move a task from Claude to Codex I had",
+      "aiSummary": "Describes delegating tasks between AI agents and reducing manual bottlenecks, but not specifically an agentic IDE overview.",
+      "author": null,
+      "score": 0,
+      "relevance": 5,
+      "category": "coding",
+      "topicSlug": "coding-agents",
+      "createdAt": "2026-11-08 13:32:28",
+      "lastSeenAt": "2026-11-08 13:32:28",
+      "publishedAt": "2026-10-31"
+    },
+    {
+      "id": 2446,
+      "source": "github",
+      "url": "https://github.com/JDeun/AgentWearLink/issues/662",
+      "title": "Verify DAT 1.0.1 HFP+camera silence regression recovery and battery implications",
+      "summary": "Source: https://github.com/facebook/meta-wearables-dat-android/issues/196 ; https://github.com/facebook/meta-wearables-dat-android/issues/141\n\nA reporter observed HFP digital silence during camera streaming, then later reported recovery after updating SDK 0.7.0→1.0.1, Meta AI 293→295 and on-glasses",
+      "aiSummary": "Meta-wearables DAT regression/battery implications; technical issue, not a product landscape or user limitations for AI pins/voice-first/smart glasses.",
+      "author": "JDeun",
+      "score": 0,
+      "relevance": 5,
+      "category": "ai",
+      "topicSlug": "ai-wearables",
+      "createdAt": "2026-11-02 13:35:52",
+      "lastSeenAt": "2026-11-09 13:41:27",
+      "publishedAt": "2026-10-31"
+    },
+    {
+      "id": 2432,
+      "source": "grounding",
+      "url": "https://www.mediapost.com/publications/article/419105/meta-launches-new-ai-powered-consumer-apps.html",
+      "title": "MediaDailyNews: Meta Launches AI-Powered Consumer Apps",
+      "summary": "As Meta seeks third-party funding for its artificial intelligence pursuits, the tech giant is continuing to expand its consumer-facing AI-powered offerings, launching two new apps over the past week, which both collect user data.",
+      "aiSummary": "Reports Meta launching new AI-powered consumer apps; relevant to app launches though details are less specific in snippet.",
+      "author": null,
+      "score": 0,
+      "relevance": 10,
+      "category": "ai",
+      "topicSlug": "consumer-ai-apps",
+      "createdAt": "2026-11-01 13:29:01",
+      "lastSeenAt": "2026-11-14 13:35:30",
+      "publishedAt": "2026-10-30"
+    },
+    {
+      "id": 2422,
+      "source": "hackernews",
+      "url": "https://www.nbcnews.com/business/consumer/etsy-restricts-ai-generated-seller-slop-rcna605216",
+      "title": "Etsy to restrict AI-generated content in effort to combat seller slop",
+      "summary": "Etsy to restrict AI-generated content in effort to combat seller slop",
+      "aiSummary": "Retail policy on AI-generated content; tangential to consumer AI app launches and lacks launch details.",
+      "author": "entryleveljobsc",
+      "score": 0,
+      "relevance": 10,
+      "category": "ai",
+      "topicSlug": "consumer-ai-apps",
+      "createdAt": "2026-10-31 13:31:04",
+      "lastSeenAt": "2026-11-14 13:35:31",
+      "publishedAt": "2026-10-30"
+    },
+    {
+      "id": 567,
+      "source": "grounding",
+      "url": "https://www.promptquorum.com/power-local-llm/best-local-llm-apps-iphone-2026",
+      "title": "Best Local AI Apps for iPhone 2026 (Run LLMs Offline)",
+      "summary": "Last upstream updates (checked 2026-10-23): PocketPal AI v1.20.1 (19 Oct 2026) · Locally AI v1.66.0 (15 Oct 2026) · Google AI Edge Gallery v1.0.13 (8 Oct 2026) · Private LLM v1.9.16 (14 Sep 2026) · MLC Chat iPhone app v1.6 (27 Sep 2024 — stale) · LLM Farm release 1.4.3 (27 Jan 2025), last code push 30 Jan 2026 — stale. Reference devices for speed figures: iPhone 16 Pro (A18 Pro, 8 GB RAM) and iPhone 17 Pro (A19 Pro, 12 GB RAM). Speed figures are rough orientation ranges, not measurements by PromptQuorum. The iPhone 18 Pro, 18 Pro Max, and iPhone Duo (A20 Pro) have no speed figures here. Inference engines: llama.cpp (PocketPal AI, LLM Farm), Apple MLX (Locally...",
+      "aiSummary": "Useful for examples of local/offline iPhone AI apps, but not a setup tutorial for an on-device assistant using Core ML.",
+      "author": null,
+      "score": 0,
+      "relevance": 10,
+      "category": "ai",
+      "topicSlug": "mobile-ai",
+      "createdAt": "2026-07-09 13:33:05",
+      "lastSeenAt": "2026-11-10 13:29:50",
+      "publishedAt": "2026-10-30"
+    },
+    {
+      "id": 2517,
+      "source": "hackernews",
+      "url": "https://beolis.com",
+      "title": "Show HN: Beolis – Manage your coding AI agents",
+      "summary": "Show HN: Beolis – Manage your coding AI agents",
+      "aiSummary": "Product about managing coding AI agents; potentially relevant, but snippet lacks definition-level detail for agentic IDE meaning.",
+      "author": "fabioz",
+      "score": 6,
+      "relevance": 7,
+      "category": "coding",
+      "topicSlug": "coding-agents",
+      "createdAt": "2026-11-05 13:32:31",
+      "lastSeenAt": "2026-11-07 13:34:45",
+      "publishedAt": "2026-10-30"
+    },
+    {
+      "id": 2442,
+      "source": "github",
+      "url": "https://github.com/meta/meta-wearables-dat-android/issues/228",
+      "title": "[Android][DAT 1.0.1] Voice invocation never reaches a registered Beta app on Ray-Ban Meta: \"Hey Meta, start Mimir\" is answered by Meta AI instead",
+      "summary": "### Summary\r\n\r\nMy app is registered, Developer Mode is off, the integration version is Ready and published to the Beta release channel, I am an active tester, and the voice invocations stream reports `STARTED` with no error. Yet saying \"Hey Meta, start Mimir\" never launches the app and the stream ne",
+      "aiSummary": "Ray-Ban Meta voice invocation not launching registered app (Hey Meta start ... answered by Meta AI); concrete hands-free interaction limitation.",
+      "author": "nikotruc",
+      "score": 0,
+      "relevance": 7,
+      "category": "ai",
+      "topicSlug": "ai-wearables",
+      "createdAt": "2026-11-02 13:35:50",
+      "lastSeenAt": "2026-11-02 13:35:50",
+      "publishedAt": "2026-10-30"
+    },
+    {
+      "id": 2607,
+      "source": "reddit",
+      "url": "https://www.reddit.com/r/PKMS/comments/1xj50qn/best_aipowered_notetaking_system_for_work_and/",
+      "title": "Best AI-powered note-taking system for work and personal use?",
+      "summary": "I’m looking for a good note-taking system that I can use for both work and personal knowledge management. Ideally, I want somewhere to store meeting notes, random thoughts, research, things I’ve learned, and ongoing projects. More importantly, I want to be able to use AI to organize everything, connect related information, and easily retrieve things months later. I’m considering just using Claude",
+      "aiSummary": "User seeking AI-powered note-taking with retrieval months later; relevant to personal knowledge system pipeline, though not a direct how-to.",
+      "author": null,
+      "score": 0,
+      "relevance": 6,
+      "category": "ai",
+      "topicSlug": "personal-ai-systems",
+      "createdAt": "2026-11-09 13:49:24",
+      "lastSeenAt": "2026-11-09 13:49:24",
+      "publishedAt": "2026-10-30"
+    },
+    {
+      "id": 2434,
+      "source": "reddit",
+      "url": "https://www.reddit.com/r/cursor/comments/1xiqria/cursor_agents_or_ide/",
+      "title": "Cursor Agents or IDE?",
+      "summary": "Which one is the best? For a no coder. Does agents take more tokens and usage? &#32; submitted by &#32; /u/Dolyaa [link] &#32; [comments]",
+      "aiSummary": "Directly discusses Cursor “agents” vs “IDE” and touches on agentic coding, but is more opinion/Q&A than a clear definition.",
+      "author": null,
+      "score": 0,
+      "relevance": 10,
+      "category": "coding",
+      "topicSlug": "coding-agents",
+      "createdAt": "2026-11-01 13:29:33",
+      "lastSeenAt": "2026-11-03 13:36:38",
+      "publishedAt": "2026-10-29"
+    },
+    {
+      "id": 2430,
+      "source": "reddit",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1xif6lf/apsara_conference_qwen4_next_week/",
+      "title": "Apsara conference: Qwen4 next week",
+      "summary": "The Apsara conference is taking place right now in Amsterdam. According to a participant, the CTO of Alibaba Cloud said Qwen4 would be launching next week. &#32; submitted by &#32; /u/rerri [link] &#32; [comments]",
+      "aiSummary": "Conference/model release rumor; no on-device iOS/Android assistant overview or limitations.",
+      "author": null,
+      "score": 0,
+      "relevance": 10,
+      "category": "ai",
+      "topicSlug": "mobile-ai",
+      "createdAt": "2026-11-01 13:28:35",
+      "lastSeenAt": "2026-11-01 13:28:35",
+      "publishedAt": "2026-10-29"
+    },
+    {
+      "id": 2429,
+      "source": "reddit",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1xizbq1/sam_altman_local_inference_is_a_terrible/",
+      "title": "Sam Altman: “Local inference is a terrible allocation of scarce resources”",
+      "summary": "Sam Altman: “ Local inference is a terrible allocation of scarce resources. A lot of people want local inference, and somehow they assume that the problem is solved now because we have open-source models, we&#39;re going to be able to run them on our computers, and so we&#39;re not going to need all the stuff in the data centre but from a global allocation perspective, actually it&#39;s quite terr",
+      "aiSummary": "Mentions local inference conceptually, but not iOS/Android AI assistants or on-device assistant approaches/capabilities.",
+      "author": null,
+      "score": 0,
+      "relevance": 10,
+      "category": "ai",
+      "topicSlug": "mobile-ai",
+      "createdAt": "2026-11-01 13:28:33",
+      "lastSeenAt": "2026-11-01 13:28:33",
+      "publishedAt": "2026-10-29"
+    },
+    {
+      "id": 2428,
+      "source": "reddit",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1xiixew/meet_claudes_standards_or_else/",
+      "title": "Meet Claude's standards... or else.",
+      "summary": "&#32; submitted by &#32; /u/Puzzleheaded-King584 [link] &#32; [comments]",
+      "aiSummary": "Unclear/likely unrelated; no definition of agentic IDEs or coding agents.",
+      "author": null,
+      "score": 0,
+      "relevance": 10,
+      "category": "coding",
+      "topicSlug": "coding-agents",
+      "createdAt": "2026-10-31 13:31:39",
+      "lastSeenAt": "2026-11-05 13:32:33",
+      "publishedAt": "2026-10-29"
+    },
+    {
+      "id": 2201,
+      "source": "grounding",
+      "url": "https://iosapplists.com/best-offline-ai-apps-iphone-local-llms/",
+      "title": "9 Best Offline AI Apps for iPhone: Local LLMs 2026",
+      "summary": "Best paid option: Private LLM. $4.99 once, custom quantization, works offline after model download · Best for power users: OpenCat. Local plus cloud, MCP agents, Web search on OpenCat Cloud and select providers · Best with a desktop: Reins. Points at your own Ollama or LM Studio server · Best for image generation: Draw Things. Stable Diffusion offline, LoRA and ControlNet support · Best on older hardware: PocketPal AI. 88MB install, runs back to iOS 15.1",
+      "aiSummary": "Focused on offline iPhone local LLM apps; includes actionable setup details like model download and running locally.",
+      "author": null,
+      "score": 0,
+      "relevance": 10,
+      "category": "ai",
+      "topicSlug": "mobile-ai",
+      "createdAt": "2026-10-14 13:35:47",
+      "lastSeenAt": "2026-11-08 13:31:20",
+      "publishedAt": "2026-10-29"
+    },
+    {
+      "id": 240,
+      "source": "grounding",
+      "url": "https://www.apple.com/apple-intelligence/",
+      "title": "Apple Intelligence and Siri - Apple",
+      "summary": "<strong>Any app can tap into the on-device models that power Apple Intelligence, and the features you build work offline</strong>. And it’s all at no cost per request. App developers can easily integrate features like Siri, Writing Tools, and Image Playground.",
+      "aiSummary": "High-level Apple Intelligence overview mentioning offline capability, but not a concrete how-to for setting up an iOS assistant for offline/low-connectivity use.",
+      "author": null,
+      "score": 0,
+      "relevance": 10,
+      "category": "ai",
+      "topicSlug": "mobile-ai",
+      "createdAt": "2026-06-16 13:32:57",
+      "lastSeenAt": "2026-11-13 13:31:37",
+      "publishedAt": "2026-10-29"
+    },
+    {
+      "id": 2416,
+      "source": "reddit",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1xhep6w/dirt_cheap_gpus_coming_next_year/",
+      "title": "Dirt cheap GPUs coming next year",
+      "summary": "I think a turn of events are pointing towards a very likely crash in prices in the coming months. With a single gb300 rack being to serve all of Openrouter&#39;s traffic for DSV4.1 Flash( https://x.com/thdxr/status/2115165365630026178 ) Half of data center buildouts already being cancelled/stalled. Neoclouds unable to finance debt for their compute, and being stuck in a 5 year deal with no confirm",
+      "aiSummary": "GPU pricing speculation; weakly related to on-device AI and not about iOS/Android AI assistants.",
+      "author": null,
+      "score": 0,
+      "relevance": 10,
+      "category": "ai",
+      "topicSlug": "mobile-ai",
+      "createdAt": "2026-10-29 13:33:20",
+      "lastSeenAt": "2026-11-07 13:33:37",
+      "publishedAt": "2026-10-28"
+    },
+    {
+      "id": 2537,
+      "source": "reddit",
+      "url": "https://www.reddit.com/r/codex/comments/1xi0a86/how_to_optimize_your_coding_workflow_with_ai/",
+      "title": "How to Optimize Your Coding Workflow with AI Agents",
+      "summary": "A practical guide for developers who already use agents and want better code, shorter task completion times, and lower costs. Materials checked on October 28, 2026. Reading time, including examples and charts: about 15–20 minutes. An agent can write code quickly and still create more work for you: explore irrelevant files, change a neighboring module, repeat expensive checks, or offer a convincing",
+      "aiSummary": "Discusses AI agents improving coding workflow with examples, but is more about optimization than clearly defining agentic IDEs or contrasting with assistants.",
+      "author": null,
+      "score": 0,
+      "relevance": 7,
+      "category": "coding",
+      "topicSlug": "coding-agents",
+      "createdAt": "2026-11-07 13:34:44",
+      "lastSeenAt": "2026-11-07 13:34:44",
+      "publishedAt": "2026-10-28"
+    },
+    {
+      "id": 2608,
+      "source": "github",
+      "url": "https://github.com/sourabhJainR/AUREN/issues/1038",
+      "title": "Keep AUREN aligned with current AI/SI agent capabilities through evidence-gated capability radar",
+      "summary": "## Capability radar implementation checkpoint — 2026-10-28\n\nAdded the source-backed draft at `docs/AI_SI_AGENT_CAPABILITY_RADAR_2026-10-28.md` on branch `docs/issue-1038-ai-si-capability-radar`, commit `6f31aed1f696828e87183d99abdb39158fe23a9d`, based on main `cb0848f71e66dd3ca3ad6157cd2633d4d85b40e... ## Radar refresh — 2026-10-28, PR #1039\n\nThe living radar now maps each capability area to AUREN's existing owner, canonical matrix track, measurable gap, implementation gate, and rollback path. It does not add a runtime or dependency.\n\nFresh source signals included:\n- OpenAI's 2026-10-20 monitoring... ## Radar refresh moved to verified current main — PR #1043\n\nThe radar change has been rebased after the #696 P0 crash-matrix slice merged. [PR #1043](https://github.com/sourabhJainR/AUREN/pull/1043) is based on verified main `8a84ae712bc4bbeaf389297844703f9c404c6977` and has exact head `5f8d160808aa...",
+      "aiSummary": "Evidence-gated capability radar; touches agent capability/evidence but not a how-to for memory architecture or personal knowledge pipelines.",
+      "author": "sourabhJainR",
+      "score": 42,
+      "relevance": 5,
+      "category": "ai",
+      "topicSlug": "personal-ai-systems",
+      "createdAt": "2026-11-09 13:49:24",
+      "lastSeenAt": "2026-11-09 13:49:25",
+      "publishedAt": "2026-10-28"
+    },
+    {
+      "id": 2407,
+      "source": "hackernews",
+      "url": "https://www.reuters.com/business/retail-consumer/apple-launches-m6-macbook-pro-imac-pitches-faster-on-device-ai-2026-10-27/",
+      "title": "Apple launches M6 MacBook Pro and iMac, pitches faster on-device AI",
+      "summary": "Apple launches M6 MacBook Pro and iMac, pitches faster on-device AI",
+      "aiSummary": "On-device AI on Apple devices is relevant context, but it’s about Macs/iMac and not an iOS/Android assistant-building overview.",
+      "author": "tartoran",
+      "score": 0,
+      "relevance": 10,
+      "category": "ai",
+      "topicSlug": "mobile-ai",
+      "createdAt": "2026-10-29 13:32:23",
+      "lastSeenAt": "2026-11-14 13:35:02",
+      "publishedAt": "2026-10-27"
+    },
+    {
+      "id": 2111,
+      "source": "grounding",
+      "url": "https://support.apple.com/guide/iphone/get-started-with-siri-ai-iphv6zwrg8jvfgr/ios",
+      "title": "Get started with Siri AI on iPhone - Apple Support",
+      "summary": "These new capabilities make Siri a more capable assistant by allowing you to find what you need and get more done. <strong>Go to the Settings app on a supported iPhone</strong>. ... Follow the onscreen instructions. Siri AI can search your photos, mail, messages, calendar, and more to find exactly what you’re ...",
+      "aiSummary": "Step-by-step Apple Support guide to get started with Siri AI on iPhone; strongly aligned with setting up an iOS assistant (offline details are secondary).",
+      "author": null,
+      "score": 0,
+      "relevance": 10,
+      "category": "ai",
+      "topicSlug": "mobile-ai",
+      "createdAt": "2026-10-08 13:34:22",
+      "lastSeenAt": "2026-11-13 13:31:36",
+      "publishedAt": "2026-10-27"
+    },
+    {
+      "id": 252,
+      "source": "grounding",
+      "url": "https://github.com/stevelaskaridis/awesome-mobile-llm",
+      "title": "GitHub - stevelaskaridis/awesome-mobile-llm: Awesome Mobile LLMs · GitHub",
+      "summary": "<strong>Off Grid</strong>: Open-source React Native app for on-device LLM chat, vision models (SmolVLM, LLaVA), and Stable Diffusion image generation on iOS &amp; Android. Airgap: Open-source React Native framework for on-device, offline-first customer support chatbots.",
+      "aiSummary": "Curated list specifically for mobile LLMs with iOS/Android examples; helpful for overview of approaches and constraints.",
+      "author": null,
+      "score": 0,
+      "relevance": 10,
+      "category": "ai",
+      "topicSlug": "mobile-ai",
+      "createdAt": "2026-06-17 13:32:18",
+      "lastSeenAt": "2026-11-14 13:34:59",
+      "publishedAt": "2026-10-27"
+    },
+    {
+      "id": 2417,
+      "source": "reddit",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1xgy5ic/i_am_a_king_but_local/",
+      "title": "I am a King, but local 😂",
+      "summary": "I am a King, but local 😂",
+      "aiSummary": "No relevant content about coding agents or agentic IDEs.",
+      "author": null,
+      "score": 64,
+      "relevance": 6,
+      "category": "coding",
+      "topicSlug": "coding-agents",
+      "createdAt": "2026-10-29 13:33:20",
+      "lastSeenAt": "2026-10-29 13:33:20",
+      "publishedAt": "2026-10-27"
+    },
+    {
+      "id": 2399,
+      "source": "reddit",
+      "url": "https://www.reddit.com/r/jenova_ai/comments/1xgmpfh/what_is_the_best_ai_tutor_for_learning_sanskrit/",
+      "title": "What Is the Best AI Tutor for Learning Sanskrit?",
+      "summary": "Which Sanskrit Learning Tools Teach Sandhi Splitting and Text Reading, Not Just Vocabulary? For learners who want to read Sanskrit texts in the original, Jenova&#39;s Sanskrit Tutor is among the most comprehensive AI options in 2026. It teaches sandhi splitting, compound dissolution, and root-based grammar through conversation, with audio pronunciation for new material. Each alternative fills a di",
+      "aiSummary": "Off-topic (AI tutor for Sanskrit) and does not mention mobile AI/on-device iOS/Android assistants in title/snippet.",
+      "author": null,
+      "score": 0,
+      "relevance": 5,
+      "category": "ai",
+      "topicSlug": "mobile-ai",
+      "createdAt": "2026-10-28 13:27:43",
+      "lastSeenAt": "2026-10-28 13:27:43",
+      "publishedAt": "2026-10-27"
+    },
+    {
+      "id": 2388,
+      "source": "youtube",
+      "url": "https://www.youtube.com/watch?v=dw7RY-GTR8c",
+      "title": "Grok Bot Can Now Control Apps on Your Phone!",
+      "summary": "Grok Bot Can Now Control Apps on Your Phone! Want to make money and save time with AI? Join here: https://www.skool.com/ai-profit-lab-7462/about Video notes + links to the tools 👉 https://www.skool.com/ai-profit-lab-7462/about Get a FREE AI Course + Community + 1,000 AI Agents 👉https://www.skool.com/ai-seo-with-julian-goldie-1553/about Free GEO & AI SEO Checklist! https://orders.goldie.agency/signup Get a FREE GEO + AEO Strategy Session → https://go.juliangoldie.com/strategy-session?utm=julian Get 200+ Free AI SEO Prompts → https://go",
+      "aiSummary": "Phone app control by Grok; not focused on iOS offline on-device assistant setup with a local LLM.",
+      "author": "Julian Goldie SEO",
+      "score": 50,
+      "relevance": 10,
+      "category": "ai",
+      "topicSlug": "mobile-ai",
+      "createdAt": "2026-10-27 13:28:37",
+      "lastSeenAt": "2026-10-27 13:28:37",
+      "publishedAt": "2026-10-26"
+    },
+    {
+      "id": 2408,
+      "source": "reddit",
+      "url": "https://www.reddit.com/r/singularity/comments/1xgaw9b/openai_says_its_ai_invented_a_new_mathematical/",
+      "title": "OpenAI says its AI invented a new mathematical technique to solve a 35-year-old mystery about how waves focus, then used the breakthrough to crack several other decades-old problems involving how waves overlap, how signals can be reconstructed, and the geometry of space.",
+      "summary": "OpenAI says its AI invented a new mathematical technique to solve a 35-year-old mystery about how waves focus, then used the breakthrough to crack several other decades-old problems involving how waves overlap, how signals can be reconstructed, and the geometry of space.",
+      "aiSummary": "General AI research news; no clear connection to mobile on-device AI assistants.",
+      "author": null,
+      "score": 33,
+      "relevance": 10,
+      "category": "ai",
+      "topicSlug": "mobile-ai",
+      "createdAt": "2026-10-29 13:32:25",
+      "lastSeenAt": "2026-10-29 13:32:25",
+      "publishedAt": "2026-10-26"
+    },
+    {
+      "id": 2386,
+      "source": "grounding",
+      "url": "https://www.layer3labs.io/guides/best-offline-llm",
+      "title": "Best Offline LLM: Run AI With No Internet (Tested 2026)",
+      "summary": "Tested and reviewed by Jonathan West · Updated Oct 26, 2026 · <strong>An offline LLM runs entirely on your device without an internet connection</strong>, so anything you type stays on your machine.",
+      "aiSummary": "Useful offline LLM guidance and testing, but not specifically an iOS on-device assistant setup walkthrough.",
+      "author": null,
+      "score": 0,
+      "relevance": 10,
+      "category": "ai",
+      "topicSlug": "mobile-ai",
+      "createdAt": "2026-10-27 13:28:36",
+      "lastSeenAt": "2026-10-27 13:28:36",
+      "publishedAt": "2026-10-26"
+    },
+    {
+      "id": 2385,
+      "source": "grounding",
+      "url": "https://techyorker.com/run-an-ai-chatbot-locally-on-your-phone-offline-private-and-step-by-step/",
+      "title": "How to Run a Local LLM on Your Phone Offline",
+      "summary": "Google’s LiteRT-LM supports Android and iOS, with CPU and GPU execution plus NPU acceleration on supported Android hardware. <strong>MLC LLM</strong> takes another approach: it compiles model libraries and selects device-specific backends for iOS or Android. These are different implementation layers, but ...",
+      "aiSummary": "Explains running local LLMs on phones and contrasts implementation layers (e.g., LiteRT-LM vs MLC LLM) across Android/iOS—useful for assistant approach tradeoffs.",
+      "author": null,
+      "score": 0,
+      "relevance": 10,
+      "category": "ai",
+      "topicSlug": "mobile-ai",
+      "createdAt": "2026-10-27 13:28:35",
+      "lastSeenAt": "2026-10-29 13:32:23",
+      "publishedAt": "2026-10-26"
+    },
+    {
+      "id": 2646,
+      "source": "grounding",
+      "url": "https://theaiagentindex.com/ai-coding-agents",
+      "title": "Best AI Coding Agents (2026): IDEs, Terminals, Autonomous",
+      "summary": "Warp AI is an open-source agentic ... CLI, starting at $20/mo. Autonomous coding agents <strong>work independently on complete tasks: accepting an issue, planning the approach, writing code, running tests, and submitting the result</strong>....",
+      "aiSummary": "Clearly describes autonomous coding agents (plan, write code, run tests, submit results) and likely covers IDE/terminal setup; good conceptual relevance though less IDE-definition focused.",
+      "author": null,
+      "score": 0,
+      "relevance": 9,
+      "category": "coding",
+      "topicSlug": "coding-agents",
+      "createdAt": "2026-11-11 13:34:55",
+      "lastSeenAt": "2026-11-14 13:36:03",
+      "publishedAt": "2026-10-26"
+    },
+    {
+      "id": 2440,
+      "source": "grounding",
+      "url": "https://techcrunch.com/2026/10/25/the-hottest-ai-wearables-and-gadgets-you-should-know-about/",
+      "title": "The hottest AI wearables and gadgets you should know about | TechCrunch",
+      "summary": "The device has not yet shipped, but it is expected to feature Jolly, a playful digital avatar that represents the AI assistant. Housed in a pocket-sized device that can be carried around or attached to a keychain, the wearable includes a miniature display showing the avatar. Users will be able to interact with Muse through voice commands and have it complete tasks for them.",
+      "aiSummary": "TechCrunch listicle explicitly about AI wearables/gadgets with specific interaction details (voice commands, pocket device/avatar); good device landscape evidence.",
+      "author": null,
+      "score": 0,
+      "relevance": 8,
+      "category": "ai",
+      "topicSlug": "ai-wearables",
+      "createdAt": "2026-11-02 13:35:49",
+      "lastSeenAt": "2026-11-02 13:35:50",
+      "publishedAt": "2026-10-26"
+    },
+    {
+      "id": 2418,
+      "source": "reddit",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1xganwd/claude_throwing_punches_out_here/",
+      "title": "Claude throwing punches out here",
+      "summary": "Claude throwing punches out here",
+      "aiSummary": "General/irrelevant discussion; no definitions or taxonomy of coding agents.",
+      "author": null,
+      "score": 58,
+      "relevance": 6,
+      "category": "coding",
+      "topicSlug": "coding-agents",
+      "createdAt": "2026-10-29 13:33:20",
+      "lastSeenAt": "2026-10-29 13:33:21",
+      "publishedAt": "2026-10-26"
+    },
+    {
+      "id": 2539,
+      "source": "reddit",
+      "url": "https://www.reddit.com/r/junie_ai/comments/1xfs527/best_ai_coding_agent_five_options_ranked_and/",
+      "title": "Best AI Coding Agent: Five Options Ranked and Compared",
+      "summary": "Picking the best AI coding agent is hard because every vendor describes itself as the answer. This round-up ranks five options (Junie, Claude Code, Cursor, GitHub Copilot and OpenAI Codex) by what their own product pages say, and states each one&#39;s limits. This is posted on Junie&#39;s own subreddit, so Junie is listed first. It still gets the same plain treatment on trade-offs as everything el",
+      "aiSummary": "Round-up of AI coding agents can help context, but it’s more comparative/vendor-focused than a clear definition or explanation of agentic IDE vs code assistant.",
+      "author": null,
+      "score": 0,
+      "relevance": 6,
+      "category": "coding",
+      "topicSlug": "coding-agents",
+      "createdAt": "2026-11-07 13:34:44",
+      "lastSeenAt": "2026-11-07 13:34:45",
+      "publishedAt": "2026-10-26"
+    },
+    {
+      "id": 2414,
+      "source": "reddit",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1xer30z/openai_and_anthropic_blocked_the_reverse/",
+      "title": "OpenAI and Anthropic blocked the reverse engineering of smart TVs spying on us",
+      "summary": "REA (Reserve Engineer Anything) was blocked by Claude one day later... https://x.com/AbhinavXJ/status/2113590263373508704 Time for the pebbles to own the weights &#32; submitted by &#32; /u/kroggens [link] &#32; [comments]",
+      "aiSummary": "Reverse engineering smart TVs; not about iOS/Android on-device AI assistants overview.",
+      "author": null,
+      "score": 0,
+      "relevance": 10,
+      "category": "ai",
+      "topicSlug": "mobile-ai",
+      "createdAt": "2026-10-29 13:33:19",
+      "lastSeenAt": "2026-11-01 13:28:35",
+      "publishedAt": "2026-10-25"
+    },
+    {
+      "id": 2411,
+      "source": "grounding",
+      "url": "https://emergent.sh/news/aivi-apparel-group-s-ai-fashion-shopping-app",
+      "title": "AIVI: Apparel Group's AI Fashion Shopping App Launches",
+      "summary": "Apparel Group has officially launched AIVI, a next-generation mobile shopping application that leverages artificial intelligence to transform how consumers discover and purchase fashion and lifestyle products. Officially released on <strong>October 25, 2026</strong>...",
+      "aiSummary": "Clear announcement of an AI fashion shopping app launch with stated release date and consumer use case; strong for features and target users.",
+      "author": null,
+      "score": 0,
+      "relevance": 10,
+      "category": "ai",
+      "topicSlug": "consumer-ai-apps",
+      "createdAt": "2026-10-29 13:32:49",
+      "lastSeenAt": "2026-11-01 13:29:01",
+      "publishedAt": "2026-10-25"
+    },
+    {
+      "id": 2384,
+      "source": "reddit",
+      "url": "https://www.reddit.com/r/CursorAI/comments/1xexq92/im_building_an_ai_coding_ide_what_unique_features/",
+      "title": "I'm building an AI coding IDE — what unique features would make it stand out?",
+      "summary": "&#x200B; Hey everyone, I&#39;m exploring the idea of building an AI-powered coding IDE similar to Cursor and Windsurf, and I&#39;d love honest feedback from developers who use AI coding tools regularly. The idea is to build an AI coding agent that doesn&#39;t just generate code but can handle the entire development workflow: - Understand the existing codebase. - Plan and implement tasks autonomous",
+      "aiSummary": "Asks about building an AI coding IDE/agent that can understand codebases, plan, and implement tasks—strong practical framing for agentic IDE meaning vs assistants.",
+      "author": null,
+      "score": 0,
+      "relevance": 10,
+      "category": "coding",
+      "topicSlug": "coding-agents",
+      "createdAt": "2026-10-26 13:34:40",
+      "lastSeenAt": "2026-11-07 13:34:43",
+      "publishedAt": "2026-10-25"
+    },
+    {
+      "id": 2648,
+      "source": "youtube",
+      "url": "https://www.youtube.com/watch?v=fW1wKSBDBHA",
+      "title": "Beginner's Guide to Integrating On-Device AI Agents In Your Mobile App (Android + iOS)",
+      "summary": "Beginner's Guide to Integrating On-Device AI Agents In Your Mobile App (Android + iOS) In this video, I'll show how you can implement on-device AI agents with native tool calling on Android & iOS. Source code: https://github.com/philipplackner/TodoAI.git Download my 8 Android architecture Claude Code skills for FREE: https://pl-coding.com/claude-skills?utm_source=youtube&utm_medium=video&utm_campaign=claude-skills 💻 Become an AI-assisted professional mobile developer in 6 months: https://pl-coding.com/ai-mentoring?utm_source=youtube&utm_medium=video&utm_campaign=default&cmc_str",
+      "aiSummary": "Directly about integrating on-device AI agents for Android + iOS with code/source; practical how-to, though not specifically focused on offline/low-connectivity iOS assistant setup.",
+      "author": "Philipp Lackner",
+      "score": 50,
+      "relevance": 8,
+      "category": "ai",
+      "topicSlug": "mobile-ai",
+      "createdAt": "2026-11-13 13:31:35",
+      "lastSeenAt": "2026-11-13 13:31:36",
+      "publishedAt": "2026-10-25"
+    },
+    {
+      "id": 2419,
+      "source": "reddit",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1xetxga/seems_like_anthropic_enabled_safeguards_around/",
+      "title": "Seems like Anthropic enabled safeguards around reverse-enginering a TV",
+      "summary": "On the other hand, it did not trigger when asked about &quot;reversing&quot; a videogame. &#32; submitted by &#32; /u/targaryenNotJon [link] &#32; [comments]",
+      "aiSummary": "Safeguards/reverse-engineering discussion; not about agentic IDE meaning.",
+      "author": null,
+      "score": 84,
+      "relevance": 6,
+      "category": "coding",
+      "topicSlug": "coding-agents",
+      "createdAt": "2026-10-29 13:33:21",
+      "lastSeenAt": "2026-11-05 13:32:34",
+      "publishedAt": "2026-10-25"
+    },
+    {
+      "id": 2606,
+      "source": "github",
+      "url": "https://github.com/Tdat10052499/scitech-rag-agent/pull/109",
+      "title": "feat: W4-D2-DAT-1 real pipeline behind /chat, W4-D3-DAT-1 follow-ups v1",
+      "summary": "## W4-D3-DAT-1 manual check: follow-ups v1 on 5 golden questions (real model) Kaggle 2× T4, commit `7fce244`, same stack as the W4-D2 run (hybrid k=5, `llama3.2:3b`, temperature 0), `max_followups=4`, `followups_max_tokens=192`. Dev split only. **Format: 5/5.** Every call gave a parsable list of 4... Thanks @F4ol4n, all three addressed: 1. **Warm-up (ADR 0009), `1baccdb`.** `Agent.warm_up()` runs `retriever.search(\"warm-up\", k=1)` and only logs a warning on failure; `AgentAdapter.warm_up()` delegates; the lifespan runs it with `await asyncio.to_thread(...)` in real mode once the agent is built ... I re-checked at `6f2e776`: `75ca5f9`, `1baccdb` and the merge of #108. `ruff check .` is clean, and `pytest` passes (549 passed, 14 skipped). All three points are handled as proposed: - **Warm-up:** it runs once at startup, only...",
+      "aiSummary": "RAG pipeline implementation details (retriever/search, follow-ups); relevant to personal knowledge system retrieval, but not clearly about citations/grounding or intention-driven planning.",
+      "author": "Tdat10052499",
+      "score": 50,
+      "relevance": 6,
+      "category": "ai",
+      "topicSlug": "personal-ai-systems",
+      "createdAt": "2026-11-09 13:49:24",
+      "lastSeenAt": "2026-11-09 13:49:24",
+      "publishedAt": "2026-10-25"
+    },
+    {
+      "id": 2493,
+      "source": "grounding",
+      "url": "https://www.itechguides.com/on-device-ai-vs-cloud-ai-on-smartphones-privacy-speed-and-data-use-compared/",
+      "title": "On-Device vs Cloud AI on Phones: Privacy, Speed and Data Use",
+      "summary": "<strong>On-device AI keeps inference on your phone for privacy, offline reliability and low latency, while cloud AI offers larger models and deeper reasoning</strong>. This guide explains hybrid routing, data use, battery trade-offs and what Apple and Android disclose.",
+      "aiSummary": "Directly compares on-device vs cloud AI on phones (privacy/speed/offline), but not a head-to-head iOS vs Android assistant comparison.",
+      "author": null,
+      "score": 0,
+      "relevance": 6,
+      "category": "ai",
+      "topicSlug": "mobile-ai",
+      "createdAt": "2026-11-04 13:30:55",
+      "lastSeenAt": "2026-11-04 13:30:56",
+      "publishedAt": "2026-10-25"
+    },
+    {
+      "id": 2494,
+      "source": "grounding",
+      "url": "https://www.itechguides.com/on-device-ai-vs-cloud-ai-privacy-speed-and-features-compared/",
+      "title": "On-Device AI vs Cloud AI: Privacy, Speed and Features",
+      "summary": "<strong>On-device execution can continue without a network connection; cloud AI needs connectivity to reach the provider</strong>. The word “AI” alone does not tell you whether a particular app’s feature works offline. Android Developers lists Gemini Nano use cases including summarization, proofreading, ...",
+      "aiSummary": "Strong on on-device vs cloud and offline behavior, but lacks explicit iOS vs Android assistant comparison.",
+      "author": null,
+      "score": 0,
+      "relevance": 5,
+      "category": "ai",
+      "topicSlug": "mobile-ai",
+      "createdAt": "2026-11-04 13:30:56",
+      "lastSeenAt": "2026-11-04 13:30:56",
+      "publishedAt": "2026-10-25"
+    },
+    {
+      "id": 2362,
+      "source": "hackernews",
+      "url": "https://www.reddit.com/r/singularity/comments/1xduimx/hacker_reverse_engineers_his_samsung_tv_and_finds/",
+      "title": "Samsung TV on-device AI listening, using soundbar's mic if the TV has none",
+      "summary": "Samsung TV on-device AI listening, using soundbar's mic if the TV has none",
+      "aiSummary": "Samsung TV on-device listening is off-target (not iOS/Android AI assistants) and lacks the primary entity.",
+      "author": "saulapremium",
+      "score": 100,
+      "relevance": 10,
+      "category": "ai",
+      "topicSlug": "mobile-ai",
+      "createdAt": "2026-10-24 13:31:05",
+      "lastSeenAt": "2026-11-11 13:33:48",
+      "publishedAt": "2026-10-24"
+    },
+    {
+      "id": 2378,
+      "source": "reddit",
+      "url": "https://www.reddit.com/r/cursor/comments/1xe7rim/i_have_a_confession_i_was_wrong/",
+      "title": "I have a confession, I was wrong .",
+      "summary": "First, let me thank ELON ❤️ and the new team that took over Cursor for the latest pricing update that forced me to switch to orange🟧CC. I don&#39;t know if you&#39;ve seen my older comments and how hard I used to defend Cursor, but let me say this: I WAS WRONG. Cursor isn&#39;t going downhill. It&#39;s been dead in the water for a year now. It&#39;s a very outdated product and a shell of its forme",
+      "aiSummary": "Discusses Cursor pricing/capability changes; no clear definition or explanation of agentic IDEs/autonomous coding.",
+      "author": null,
+      "score": 0,
+      "relevance": 10,
+      "category": "coding",
+      "topicSlug": "coding-agents",
+      "createdAt": "2026-10-25 13:34:26",
+      "lastSeenAt": "2026-10-25 13:34:26",
+      "publishedAt": "2026-10-24"
+    },
+    {
+      "id": 1438,
+      "source": "grounding",
+      "url": "https://agentsroom.dev/agentic-ide",
+      "title": "Agentic IDE: An IDE Built Around Agents, Not the Cursor | AgentsRoom",
+      "summary": "<strong>A development environment where the unit of work is the AI agent, not the user&#x27;s cursor</strong>. You no longer type code with autocomplete. You hand intent to an agent, which plans, codes, tests, ships. The IDE becomes a cockpit for your team of agents.",
+      "aiSummary": "Directly defines “Agentic IDE” with clear explanation (unit of work is the AI agent; intent-to-agent planning/coding/testing/shipping) and aligns strongly with the requested concept.",
+      "author": null,
+      "score": 0,
+      "relevance": 10,
+      "category": "coding",
+      "topicSlug": "coding-agents",
+      "createdAt": "2026-08-27 13:33:54",
+      "lastSeenAt": "2026-11-14 13:36:02",
+      "publishedAt": "2026-10-24"
+    },
+    {
+      "id": 264,
+      "source": "grounding",
+      "url": "https://github.com/openclaw/openclaw",
+      "title": "GitHub - openclaw/openclaw: The AI that really does things. Any OS. Any Platform. The lobster way. 🦞 · GitHub",
+      "summary": "<strong>OpenClaw</strong> is an open-source AI assistant that runs on your own computer and meets you in the channels you already use: Discord, iMessage, Slack, Teams, Telegram, WhatsApp, and 20+ more, plus native apps for macOS, iOS, Android, Windows, and Linux.",
+      "aiSummary": "Mentions an AI assistant with iOS/Android apps, but it’s a project description and not a broad factual overview of on-device assistant approaches.",
+      "author": null,
+      "score": 0,
+      "relevance": 10,
+      "category": "ai",
+      "topicSlug": "mobile-ai",
+      "createdAt": "2026-06-18 13:31:56",
+      "lastSeenAt": "2026-11-11 13:33:47",
+      "publishedAt": "2026-10-24"
+    },
+    {
+      "id": 2602,
+      "source": "github",
+      "url": "https://github.com/zzhang82/Agent-Memory-Bridge/issues/72",
+      "title": "[Research][P0][Decision] ai-memory deep dive: automatic capture, cross-agent continuity, and AMB adoption — JD/Runtime closeout",
+      "summary": "> **Type:** decision-oriented research / competitive implementation audit — **NOT** implementation authorization.\n> **Execution target:** ORCA research runtime (owner-initiated, actual host binding must be verified).\n> **Method contracts:** **JD Eval Recruiter v0.4.3** (operating-1.0 / team-1.1) → *",
+      "aiSummary": "Directly about AI memory architecture (episodic/continuity) for agents; implementation-oriented research/closeout, though not clearly a how-to tutorial.",
+      "author": "zzhang82",
+      "score": 14,
+      "relevance": 8,
+      "category": "ai",
+      "topicSlug": "personal-ai-systems",
+      "createdAt": "2026-11-09 13:49:22",
+      "lastSeenAt": "2026-11-09 13:49:22",
+      "publishedAt": "2026-10-24"
+    },
+    {
+      "id": 2536,
+      "source": "reddit",
+      "url": "https://www.reddit.com/r/Kotlin/comments/1xe8uuh/standalone_cli_agents_vs_an_ide_integrated_ai/",
+      "title": "Standalone CLI agents vs an IDE integrated AI coding agent for Kotlin on a large legacy codebase (Claude Code, Cursor, Codex, and Junie /ide) comparison",
+      "summary": "when i run a terminal AI coding agent on a self-contained service or a greenfield script, ripgrep plus a big context window is usually enough to get a clean patch. i wanted to share a comparison sheet i put together for our backend team while we were evaluating an AI coding agent for large codebases, specifically comparing standalone terminal/editor setups against an IDE integrated AI coding agent",
+      "aiSummary": "Explicitly compares standalone CLI agents vs IDE-integrated AI coding agents for a legacy codebase, aligning well with the 'in practice' distinction.",
+      "author": null,
+      "score": 0,
+      "relevance": 8,
+      "category": "coding",
+      "topicSlug": "coding-agents",
+      "createdAt": "2026-11-07 13:34:43",
+      "lastSeenAt": "2026-11-07 13:34:43",
+      "publishedAt": "2026-10-24"
+    },
+    {
+      "id": 2545,
+      "source": "reddit",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1xdwquj/anthropics_new_guide_oct_22_argues_most_agents/",
+      "title": "Anthropic’s new guide (Oct 22) argues most agents should have fewer subagents: one main loop, skills and tool search instead. Includes “we cut Claude Code’s system prompt by over 80%”",
+      "summary": "Anthropic published an 18-minute guide on Oct 22 called &quot;When to fold subagents into your main agent loop.&quot; It is aimed at enterprise agent builders, but the lessons apply to anyone who set up a pile of subagents in Claude Code. Main points: - Default to one model, one context window, one open-ended tool loop. Put domain procedures into skills and hard limits and lookups into tools. Let",
+      "aiSummary": "Discusses Claude Code agent structure (subagents vs main loop) which is conceptually related, but not a general agentic IDE overview.",
+      "author": null,
+      "score": 0,
+      "relevance": 6,
+      "category": "coding",
+      "topicSlug": "coding-agents",
+      "createdAt": "2026-11-08 13:32:28",
+      "lastSeenAt": "2026-11-08 13:32:28",
+      "publishedAt": "2026-10-24"
+    },
+    {
+      "id": 2415,
+      "source": "reddit",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1xdhkzb/no_coding_or_gamedev_background_6_weeks_with_opus/",
+      "title": "No coding or gamedev background, 6 weeks with Opus 5.5 + Godot — from drawings to a playable game",
+      "summary": "No coding or gamedev background, 6 weeks with Opus 5.5 + Godot — from drawings to a playable game",
+      "aiSummary": "Personal experience with Opus/Godot; does not define or taxonomy coding agents/agentic IDEs.",
+      "author": null,
+      "score": 69,
+      "relevance": 10,
+      "category": "coding",
+      "topicSlug": "coding-agents",
+      "createdAt": "2026-10-29 13:33:20",
+      "lastSeenAt": "2026-10-29 13:33:20",
+      "publishedAt": "2026-10-23"
+    },
+    {
+      "id": 2366,
+      "source": "hackernews",
+      "url": "https://www.neomindlabs.com/2026/10/22/agentic-coding-is-doing-to-cybersecurity-what-firearms-did-to-security/",
+      "title": "Agentic coding is doing to cybersecurity what firearms did to security",
+      "summary": "Agentic coding is doing to cybersecurity what firearms did to security",
+      "aiSummary": "Agentic coding is mentioned, but the framing is analogy-focused and not clearly an agentic IDE definition or workflow comparison.",
+      "author": "neomindryan",
+      "score": 41,
+      "relevance": 10,
+      "category": "coding",
+      "topicSlug": "coding-agents",
+      "createdAt": "2026-10-24 13:32:17",
+      "lastSeenAt": "2026-11-14 13:36:05",
+      "publishedAt": "2026-10-23"
+    },
+    {
+      "id": 2410,
+      "source": "grounding",
+      "url": "https://www.globenewswire.com/news-release/2026/10/23/3387060/0/en/apparel-group-redefines-the-future-of-shopping-with-aivi-its-game-changing-ai-powered-shopping-app-launched-through-a-spectacular-star-studded-event.html",
+      "title": "Apparel Group Redefines the Future of Shopping With “AIVI”, Its Game-Changing AI-Powered Shopping App, Launched Through a Spectacular Star-Studded Event",
+      "summary": "With a retail ecosystem comprising over 2,600 stores, 85+ brands and a digital community of more than 15 million customers, Apparel Group has built an extraordinary foundation. AIVI takes that foundation into a new era, combining artificial intelligence, conversational commerce, Virtual Try-On and personalised discovery to create a shopping experience that understands, anticipates and evolves with every customer.",
+      "aiSummary": "Official press release for the AIVI AI-powered shopping app launch; includes core features and consumer shopping use case.",
+      "author": null,
+      "score": 0,
+      "relevance": 10,
+      "category": "ai",
+      "topicSlug": "consumer-ai-apps",
+      "createdAt": "2026-10-29 13:32:48",
+      "lastSeenAt": "2026-10-29 13:32:49",
+      "publishedAt": "2026-10-23"
+    },
+    {
+      "id": 2405,
+      "source": "reddit",
+      "url": "https://www.reddit.com/r/cursor/comments/1xd8wo4/do_you_actually_read_the_diffs_your_ai_agent/",
+      "title": "Do you actually read the diffs your AI agent produces, or just run it and see?",
+      "summary": "I&#39;ve been wondering how people handle this when using Cursor&#39;s agent mode. Some folks seem to review every change, others just test whether it works and move on. Curious where most people land and whether it has ever burned you. &#32; submitted by &#32; /u/Equivalent_Type6726 [link] &#32; [comments]",
+      "aiSummary": "Discusses how people review agent diffs, which is adjacent to autonomous coding, but not the requested agentic IDE definition/comparison.",
+      "author": null,
+      "score": 0,
+      "relevance": 10,
+      "category": "coding",
+      "topicSlug": "coding-agents",
+      "createdAt": "2026-10-28 13:28:37",
+      "lastSeenAt": "2026-11-03 13:36:39",
+      "publishedAt": "2026-10-23"
+    },
+    {
+      "id": 2382,
+      "source": "grounding",
+      "url": "https://www.centraloregondaily.com/news/consumer/anthropic-unveils-claude-duet-ai-agent-app-oct-21/article_b3f88f51-c077-55c4-923c-9edd3b2a3b50.html",
+      "title": "Anthropic unveils Claude Duet AI agent app (Oct 21) | Consumer | centraloregondaily.com",
+      "summary": "Oct 21 (Reuters) - Anthropic on Wednesday unveiled <strong>Claude Duet</strong>, a standalone AI agent app designed to act as a proactive assistant for professionals and small-business owners, as rivals such as OpenAI and Meta race to develop AI agents that ...",
+      "aiSummary": "Reuters-style report on Anthropic unveiling “Claude Duet,” a standalone AI agent app; strong evidence of a recent consumer/professional AI app launch with target users and purpose.",
+      "author": null,
+      "score": 0,
+      "relevance": 10,
+      "category": "ai",
+      "topicSlug": "consumer-ai-apps",
+      "createdAt": "2026-10-26 13:34:08",
+      "lastSeenAt": "2026-10-26 13:34:08",
+      "publishedAt": "2026-10-23"
+    },
+    {
+      "id": 2376,
+      "source": "reddit",
+      "url": "https://www.reddit.com/r/cursor/comments/1xdjhel/i_cancelled_my_cursor_subscription/",
+      "title": "I cancelled my Cursor subscription.",
+      "summary": "Hey everyone, I’ve been happily using Cursor for almost a year, but I’ve finally decided to cancel. Since Elon’s acquisition, the pricing strategy has gotten worse, the models have become significantly less capable, Composer 3 is nowhere to be seen, and Grok is nowhere near good enough to justify the direction they’re taking. Cursor has basically turned into a tool for amateurs who want to build s",
+      "aiSummary": "User experience and subscription cancellation; mentions Cursor but not an agentic IDE definition or autonomous coding workflow comparison.",
+      "author": null,
+      "score": 0,
+      "relevance": 10,
+      "category": "coding",
+      "topicSlug": "coding-agents",
+      "createdAt": "2026-10-25 13:34:25",
+      "lastSeenAt": "2026-10-25 13:34:25",
+      "publishedAt": "2026-10-23"
+    },
+    {
+      "id": 2359,
+      "source": "hackernews",
+      "url": "https://neurogrid.cc/en",
+      "title": "How to turn consumer hardware into AI infra",
+      "summary": "How to turn consumer hardware into AI infra",
+      "aiSummary": "Focuses on turning consumer hardware into AI infrastructure; not consumer AI app launches or specific app releases.",
+      "author": "cheyodev",
+      "score": 0,
+      "relevance": 10,
+      "category": "ai",
+      "topicSlug": "consumer-ai-apps",
+      "createdAt": "2026-10-23 13:35:28",
+      "lastSeenAt": "2026-11-14 13:35:32",
+      "publishedAt": "2026-10-23"
+    },
+    {
+      "id": 870,
+      "source": "grounding",
+      "url": "https://www.promptquorum.com/power-local-llm/run-ai-on-tablet-ipad-android",
+      "title": "Run a Local LLM on iPad and Android Tablet in 2026",
+      "summary": "Run a local LLM on your iPad or Android tablet in 2026: on-device apps (<strong>PocketPal AI, Locally AI, Google AI Edge Gallery), Termux + Ollama</strong>, and remote connection to a home Mac/PC running Ollama — with model picks per device.",
+      "aiSummary": "Directly about running local LLMs on iPad/Android tablets with concrete methods (on-device apps, Termux+Ollama, remote connection); strong factual overview of approaches.",
+      "author": null,
+      "score": 0,
+      "relevance": 10,
+      "category": "ai",
+      "topicSlug": "mobile-ai",
+      "createdAt": "2026-07-26 13:32:28",
+      "lastSeenAt": "2026-10-24 13:31:03",
+      "publishedAt": "2026-10-23"
+    },
+    {
+      "id": 2637,
+      "source": "grounding",
+      "url": "https://omidsaffari.com/blog/on-device-ai",
+      "title": "On Device AI: What Can Run on Staff Laptops and Phones | Omid Saffari",
+      "summary": "On-device AI <strong>runs inference on local hardware; the app still decides what it sends elsewhere</strong>. Apple, Android, Chrome and Windows expose different features and hardware requirements.",
+      "aiSummary": "Explains what runs locally and differences across platforms (Apple/Android/Chrome/Windows), useful for understanding assistant capabilities.",
+      "author": null,
+      "score": 0,
+      "relevance": 7,
+      "category": "ai",
+      "topicSlug": "mobile-ai",
+      "createdAt": "2026-11-11 13:33:46",
+      "lastSeenAt": "2026-11-11 13:33:46",
+      "publishedAt": "2026-10-23"
+    },
+    {
+      "id": 2444,
+      "source": "github",
+      "url": "https://github.com/meta/meta-wearables-dat-android/issues/222",
+      "title": "[Android][DAT 1.0.0] Ray-Ban Meta Audio (Clubmaster) missing from Developer Mode and Wearables.devices",
+      "summary": "## Summary\n\nApp registration succeeds, but my camera-free Ray-Ban Meta Audio glasses never become available to Android DAT. They are connected in Meta AI and Bluetooth audio playback works. I cannot install the glasses-side DAT app or start a session to test touchpad input.\n\nI previously added the A",
+      "aiSummary": "Ray-Ban Meta Audio Android DAT availability issue; relevant to smart glasses AI limitations but not a general factual overview.",
+      "author": "michaelnebeling",
+      "score": 0,
+      "relevance": 6,
+      "category": "ai",
+      "topicSlug": "ai-wearables",
+      "createdAt": "2026-11-02 13:35:51",
+      "lastSeenAt": "2026-11-09 13:41:24",
+      "publishedAt": "2026-10-23"
+    },
+    {
+      "id": 2372,
+      "source": "hackernews",
+      "url": "https://github.com/oosexgang/hackios-xnu-kernel",
+      "title": "Run full iOS 16.5 firmware on Android Devices",
+      "summary": "Run full iOS 16.5 firmware on Android Devices",
+      "aiSummary": "Firmware/kernel porting to Android is off-target for mobile AI assistant approaches and constraints.",
+      "author": "aghuang",
+      "score": 100,
+      "relevance": 10,
+      "category": "ai",
+      "topicSlug": "mobile-ai",
+      "createdAt": "2026-10-25 13:33:16",
+      "lastSeenAt": "2026-11-14 13:35:02",
+      "publishedAt": "2026-10-22"
+    },
+    {
+      "id": 2350,
+      "source": "hackernews",
+      "url": "https://news.ycombinator.com/item?id=50193014",
+      "title": "Run iOS on Android Phones",
+      "summary": "Run iOS on Android Phones",
+      "aiSummary": "Title is unrelated to on-device AI assistants (appears about running iOS on Android phones).",
+      "author": "spicygum",
+      "score": 21,
+      "relevance": 10,
+      "category": "ai",
+      "topicSlug": "mobile-ai",
+      "createdAt": "2026-10-22 13:32:57",
+      "lastSeenAt": "2026-11-09 13:33:51",
+      "publishedAt": "2026-10-22"
+    },
+    {
+      "id": 2421,
+      "source": "reddit",
+      "url": "https://www.reddit.com/r/SaaS/comments/1xcaoxo/i_spent_15_years_vibecoding_an_app/",
+      "title": "I spent 15 years vibe-coding an app.",
+      "summary": "Not because it took me 15 years to learn how to code. It took me 15 years to understand the market. I&#39;ve spent around 15 years working in photography, primarily editing photos and dealing with the problems photographers face in their daily workflows. Recently, I used AI coding tools to build and launch Fotoreto, a browser-based photo editing app. On launch morning, Fotoreto reached its first 1",
+      "aiSummary": "Mentions launching a consumer AI photo editing app (Fotoreto) with some launch details, but it’s a personal Reddit post and not clearly focused on AI productivity apps.",
+      "author": null,
+      "score": 0,
+      "relevance": 10,
+      "category": "ai",
+      "topicSlug": "consumer-ai-apps",
+      "createdAt": "2026-10-31 13:31:02",
+      "lastSeenAt": "2026-11-02 13:28:47",
+      "publishedAt": "2026-10-22"
+    },
+    {
+      "id": 2420,
+      "source": "grounding",
+      "url": "https://github.com/sebytzr16/on-device-llm",
+      "title": "GitHub - sebytzr16/on-device-llm: Private, offline AI assistant for Android and Windows: run local LLMs (Gemma 4, Qwen, any GGUF) on your phone or PC with llama.cpp, CUDA and Vulkan. Parallel local AI agents, voice, documents, photos, cited web research. No account, no cloud. · GitHub",
+      "summary": "Private, offline AI assistant for Android and Windows: run local LLMs (Gemma 4, Qwen, any GGUF) on your phone or PC with llama.cpp, CUDA and Vulkan. Parallel local AI agents, voice, documents, photos, cited web research. No account, no cloud. - sebytzr16/on-device-llm",
+      "aiSummary": "Directly about running an offline on-device AI assistant on Android (and Windows) with local LLM tooling; useful for approaches/constraints.",
+      "author": null,
+      "score": 0,
+      "relevance": 10,
+      "category": "ai",
+      "topicSlug": "mobile-ai",
+      "createdAt": "2026-10-31 13:27:55",
+      "lastSeenAt": "2026-11-14 13:35:00",
+      "publishedAt": "2026-10-22"
+    },
+    {
+      "id": 2358,
+      "source": "reddit",
+      "url": "https://www.reddit.com/r/localaiapps/comments/1xciy1q/title_i_built_a_selfhosted_private_ai_assistant/",
+      "title": "Title: I built a self-hosted, private AI assistant for Android - no cloud, your API keys stay on device [Open Source]",
+      "summary": "Hey selfhosters, I got tired of every AI app sending my data to their servers, so I built my own. **Xultron** - Mobile-first, self-hosted AI assistant **What it is:** - Flask backend + SQLite - runs on Android itself (127.0.0.1:5000), Termux, Linux, Windows, macOS - Two clients: React PWA for PC, Native Jetpack Compose app for Android (22MB APK) - Provider agnostic: OpenAI, Groq, Gemini, Anthropic",
+      "aiSummary": "Android-focused offline/self-hosted assistant; mentions no-cloud and on-device running, but lacks concrete offline capability/limitations details for iOS/Android assistants.",
+      "author": null,
+      "score": 0,
+      "relevance": 10,
+      "category": "ai",
+      "topicSlug": "mobile-ai",
+      "createdAt": "2026-10-23 13:34:52",
+      "lastSeenAt": "2026-10-23 13:34:52",
+      "publishedAt": "2026-10-22"
+    },
+    {
+      "id": 2357,
+      "source": "grounding",
+      "url": "https://www.llm-hub.app/blog/best-offline-ai-chatbots-iphone-2026",
+      "title": "Best Offline AI Chatbots for iPhone in 2026 | LLM Hub Blog | LLM Hub",
+      "summary": "The best apps go beyond text chat: voice input, image understanding, or creative tools can be genuinely useful without the cloud. <strong>LLM Hub is a private, on-device AI app for iOS (and Android) that runs entirely offline</strong>.",
+      "aiSummary": "Mentions private on-device AI app for iOS (and Android) running offline; relevant though more list/blog style than step-by-step.",
+      "author": null,
+      "score": 0,
+      "relevance": 10,
+      "category": "ai",
+      "topicSlug": "mobile-ai",
+      "createdAt": "2026-10-23 13:34:51",
+      "lastSeenAt": "2026-11-08 13:31:20",
+      "publishedAt": "2026-10-22"
+    }
+  ],
+  "deepReads": [
+    {
+      "topicSlug": "coding-agents",
+      "threadSlug": "coding-agents-own-workflows",
+      "readAt": "2026-10-19",
+      "status": "completed",
+      "title": {
+        "en": "The Rise of Agentic IDEs: Autonomous Multi-Step Coding Agents",
+        "zh": "代理式集成开发环境的崛起：自主多步骤编码代理"
+      },
+      "question": {
+        "en": "How do agentic IDEs and autonomous coding agents transform developer workflows beyond traditional autocomplete tools?",
+        "zh": "代理式集成开发环境和自主编码代理如何超越传统自动补全工具，改变开发者的工作流程？"
+      },
+      "synthesis": {
+        "en": "Agentic IDEs and autonomous coding agents represent a significant shift from traditional AI-assisted coding tools by enabling AI to independently plan, execute, debug, and iterate on multi-step coding tasks. Unlike autocomplete assistants that suggest code snippets, these agents manage complex workflows such as translating prompts into requirements, designing architectures, sequencing tasks, editing files, running tests, and submitting pull requests with minimal human intervention. This autonomy is achieved through parallel agents that maintain task context, chat history, and code changes to carry out comprehensive engineering workflows. For developers, this means a transition towards AI tools that act as proactive collaborators capable of managing entire development cycles, potentially accelerating productivity and reducing manual overhead.",
+        "zh": "代理式集成开发环境和自主编码代理标志着从传统AI辅助编码工具的重大转变，它们使AI能够自主规划、执行、调试并迭代多步骤编码任务。与仅提供代码片段建议的自动补全助手不同，这些代理能够管理复杂的工作流程，如将提示转化为需求、设计架构、任务排序、编辑文件、运行测试以及提交拉取请求，且几乎无需人工干预。通过并行代理维护任务上下文、聊天记录和代码变更，实现了全面的工程工作流管理。对于开发者而言，这意味着向能够管理整个开发周期的主动协作者型AI工具转变，有望提升生产力并减少手动负担。"
+      },
+      "caveat": {
+        "en": "Current evidence primarily comes from product descriptions, conceptual notes, and early demonstrations, with limited independent benchmarks or long-term user studies. The practical reliability, consistency, and integration challenges of agentic IDEs in diverse real-world projects remain underexplored, suggesting cautious optimism rather than definitive conclusions.",
+        "zh": "现有证据主要来自产品描述、概念性笔记和早期演示，缺乏独立基准测试或长期用户研究。代理式集成开发环境在多样化真实项目中的实际可靠性、一致性及集成挑战尚未充分探讨，因此应持谨慎乐观态度，而非得出确定性结论。"
+      },
+      "sources": [
+        {
+          "url": "https://kiro.dev",
+          "title": {
+            "en": "Kiro: Move beyond AI coding to agentic engineering",
+            "zh": "Kiro：超越AI编码，迈向代理式工程"
+          },
+          "finding": {
+            "en": "Kiro transforms prompts into requirements, architectural designs, and sequenced tasks, then implements them with parallel agents, exemplifying autonomous multi-step coding workflows.",
+            "zh": "Kiro将提示转化为需求、架构设计和任务序列，并通过并行代理实现，体现了自主多步骤编码工作流。"
+          }
+        },
+        {
+          "url": "https://superset.sh/compare/best-agentic-ide",
+          "title": {
+            "en": "Best Agentic IDE in 2026: Multi-Agent Coding Tools Compared | Superset",
+            "zh": "2026年最佳代理式集成开发环境：多代理编码工具比较 | Superset"
+          },
+          "finding": {
+            "en": "Defines agentic IDEs as environments where AI agents autonomously plan and execute multi-step coding tasks beyond simple code autocompletion.",
+            "zh": "定义代理式集成开发环境为AI代理能够自主规划并执行多步骤编码任务的环境，超越简单代码自动补全。"
+          }
+        },
+        {
+          "url": "https://mightybot.ai/blog/coding-ai-agents-for-accelerating-engineering-workflows",
+          "title": {
+            "en": "Best AI Coding Agents in 2026, Ranked | MightyBot",
+            "zh": "2026年最佳AI编码代理排名 | MightyBot"
+          },
+          "finding": {
+            "en": "AI coding agents are autonomous developer tools that plan tasks, edit code across repositories, run tests, and submit pull requests with less human handholding than autocomplete assistants.",
+            "zh": "AI编码代理是自主开发工具，能够规划任务、跨仓库编辑代码、运行测试并提交拉取请求，较自动补全助手更少依赖人工干预。"
+          }
+        }
+      ]
+    },
+    {
+      "topicSlug": "coding-agents",
+      "threadSlug": "coding-agents-own-workflows",
+      "readAt": "2026-09-28",
+      "status": "completed",
+      "title": {
+        "en": "The Rise of Agentic IDEs: Autonomous AI Agents Transforming Coding Workflows",
+        "zh": "代理式集成开发环境的崛起：自主AI代理改变编码工作流程"
+      },
+      "question": {
+        "en": "How do agentic IDEs and autonomous AI coding agents differ from traditional IDEs and developer tools, and what implications do these differences have for software builders?",
+        "zh": "代理式集成开发环境和自主AI编码代理与传统IDE和开发者工具有何不同，这些差异对软件开发者意味着什么？"
+      },
+      "synthesis": {
+        "en": "Agentic IDEs and autonomous AI coding agents represent a paradigm shift from traditional integrated development environments by embedding autonomous AI agents as core components of the coding workflow. Unlike traditional IDEs that rely on direct human input and manual control, agentic IDEs orchestrate multiple AI agents that can independently interpret tickets or tasks, generate code, test, and iterate with minimal human intervention. This is enabled by a control plane managing parallel agents and a design philosophy that centers the IDE around agents rather than cursors or manual commands. Examples include Devin Desktop, which runs an autonomous software engineer agent in its own cloud environment, and Voidleap Code, which supports model swapping mid-conversation and its own harness for agentic interaction. This shift matters to builders because it promises accelerated development cycles, scalability in handling complex feature sets, and a new methodology for managing software projects at scale through agentic task decomposition and autonomous execution. However, the ecosystem is still emerging, with many agents and IDEs in experimental or early production stages, and the exact boundaries between agentic IDEs and enhanced traditional IDEs remain fluid.",
+        "zh": "代理式集成开发环境（Agentic IDE）和自主AI编码代理标志着与传统集成开发环境的范式转变。它们将自主AI代理作为编码工作流程的核心组成部分。与依赖人工输入和手动控制的传统IDE不同，代理式IDE协调多个AI代理，能够独立理解任务票据，生成代码，进行测试和迭代，几乎无需人工干预。这通过一个控制平面管理并行代理，以及以代理而非光标或手动命令为中心的设计理念实现。典型例子包括在独立云环境中运行自主软件工程师代理的Devin Desktop，以及支持会话中模型切换和自有交互框架的Voidleap Code。对开发者而言，这种转变意味着开发周期加速、处理复杂功能集的可扩展性，以及通过代理任务分解和自主执行管理软件项目的新方法论。然而，该生态系统仍处于发展初期，许多代理和IDE仍在实验或早期生产阶段，代理式IDE与增强型传统IDE之间的界限尚不明确。"
+      },
+      "caveat": {
+        "en": "The current evidence is largely descriptive and promotional, focusing on listings, personal setups, and early-stage products without extensive empirical benchmarks or standardized definitions distinguishing agentic IDEs from traditional IDEs. Thus, conclusions about their practical superiority or limitations should be cautious until more rigorous evaluations and broader adoption data emerge.",
+        "zh": "现有证据主要是描述性和推广性的，侧重于代理列表、个人配置和早期产品，缺乏广泛的实证基准测试或标准化定义来明确区分代理式IDE与传统IDE。因此，在获得更严格的评估和更广泛的采用数据之前，应谨慎对待其实际优劣的结论。"
+      },
+      "sources": [
+        {
+          "url": "https://agentsroom.dev/agentic-coding",
+          "title": {
+            "en": "Agentic Coding: Autonomous AI Agents That Code | AgentsRoom",
+            "zh": "代理式编码：自主AI编码代理 | AgentsRoom"
+          },
+          "finding": {
+            "en": "Defines agentic coding as an IDE built around autonomous agents rather than manual cursor control, emphasizing a control plane to manage multiple agents running in parallel, enabling scalable autonomous feature development.",
+            "zh": "将代理式编码定义为围绕自主代理而非手动光标控制构建的IDE，强调管理多个并行运行代理的控制平面，实现可扩展的自主功能开发。"
+          }
+        },
+        {
+          "url": "https://www.sawyerhood.com/blog/an-agentic-ide-that-builds-itself",
+          "title": {
+            "en": "An Agentic IDE That Builds Itself",
+            "zh": "一个能自我构建的代理式IDE"
+          },
+          "finding": {
+            "en": "Explores the concept of an agentic IDE that autonomously evolves and builds itself, highlighting the fundamental difference from traditional IDEs by embedding AI agents as active participants in the development process.",
+            "zh": "探讨了一个能够自主演进和自我构建的代理式IDE，强调通过将AI代理作为开发过程中的主动参与者，与传统IDE的根本区别。"
+          }
+        },
+        {
+          "url": "https://voidleap.com",
+          "title": {
+            "en": "Show HN: Voidleap Code – agentic IDE, own harness, swap models mid-conversation",
+            "zh": "Show HN: Voidleap Code – 代理式IDE，自有框架，支持会话中模型切换"
+          },
+          "finding": {
+            "en": "Demonstrates a practical agentic IDE implementation featuring its own interaction harness and the ability to swap AI models dynamically during coding sessions, illustrating flexibility and agent orchestration capabilities.",
+            "zh": "展示了一个实际的代理式IDE实现，具有自有交互框架和在编码会话中动态切换AI模型的能力，体现了灵活性和代理协调能力。"
+          }
+        }
+      ]
+    },
+    {
+      "topicSlug": "coding-agents",
+      "threadSlug": "coding-agents-own-workflows",
+      "readAt": "2026-09-21",
+      "status": "completed",
+      "title": {
+        "en": "Emergence of Agentic IDEs: Autonomous AI Coding Agents Reshaping Developer Workflows",
+        "zh": "智能代理集成开发环境的兴起：自主AI编码代理重塑开发者工作流程"
+      },
+      "question": {
+        "en": "How do agentic IDEs and autonomous AI coding agents transform traditional software development workflows, and what are their core mechanisms?",
+        "zh": "智能代理集成开发环境和自主AI编码代理如何改变传统软件开发流程，其核心机制是什么？"
+      },
+      "synthesis": {
+        "en": "Agentic IDEs represent a paradigm shift from traditional cursor-driven coding to agent-centered workflows where autonomous AI agents manage multi-step tasks by leveraging explicit specifications, system design, and task decomposition before code generation. Platforms like Kiro and AgentsRoom illustrate this by integrating agents that store task context, chat history, and code changes to execute complex engineering workflows with fewer iterations. These IDEs function as control planes orchestrating parallel agents, enabling context-aware, multi-file editing and continuous reasoning documented explicitly to improve reliability and scalability. This agentic approach matters to builders as it accelerates development, reduces manual overhead, and fosters a more structured, explainable coding process that aligns with evolving AI developer tools.",
+        "zh": "智能代理集成开发环境（Agentic IDE）标志着从传统基于光标的编码向以智能代理为中心的工作流程的转变。自主AI代理通过在生成代码前利用明确的规格说明、系统设计和任务分解，管理多步骤任务。以Kiro和AgentsRoom为例，这些平台集成了能够存储任务上下文、聊天记录和代码变更的代理，以更少的迭代完成复杂的工程工作流程。这些IDE作为控制平面，协调并行代理，实现上下文感知的多文件编辑和持续推理，且推理过程被明确记录以提升可靠性和可扩展性。对于开发者而言，这种代理式方法加速了开发进程，减少了手动操作负担，促进了更结构化、可解释的编码流程，契合了不断发展的AI开发工具趋势。"
+      },
+      "caveat": {
+        "en": "Current evidence primarily highlights conceptual frameworks and early implementations of agentic IDEs, with limited empirical benchmarks on reliability, consistency, and operator sovereignty. Many sources are promotional or directory-style listings rather than rigorous comparative analyses, indicating a need for more systematic evaluation of agentic coding effectiveness and integration challenges in diverse development environments.",
+        "zh": "现有证据主要聚焦于智能代理IDE的概念框架和早期实现，缺乏关于其可靠性、一致性和操作主权的实证基准测试。许多来源偏向宣传或目录式列表，缺少严格的比较分析，表明需要更系统地评估代理式编码的有效性及其在多样化开发环境中的集成挑战。"
+      },
+      "sources": [
+        {
+          "url": "https://kiro.dev",
+          "title": {
+            "en": "Kiro: Move beyond AI coding to agentic engineering",
+            "zh": "Kiro：超越AI编码，迈向智能代理工程"
+          },
+          "finding": {
+            "en": "Kiro exemplifies an agentic IDE that uses explicit specifications and task decomposition to enable autonomous multi-step coding within IDE, CLI, web, and mobile environments, emphasizing documented reasoning and implementation decisions.",
+            "zh": "Kiro作为智能代理IDE的典范，通过明确规格和任务分解，实现了在IDE、命令行、网页和移动环境中自主完成多步骤编码，强调推理和实现决策的明确记录。"
+          }
+        },
+        {
+          "url": "https://agentsroom.dev/agentic-coding",
+          "title": {
+            "en": "Agentic Coding: Autonomous AI Agents That Code | AgentsRoom",
+            "zh": "智能代理编码：自主AI编码代理 | AgentsRoom"
+          },
+          "finding": {
+            "en": "AgentsRoom frames agentic coding as an IDE built around autonomous agents rather than cursors, providing a control plane to run multiple agents in parallel and turning tickets into agent tasks, illustrating a methodology for scaling agentic coding.",
+            "zh": "AgentsRoom将智能代理编码定义为以自主代理而非光标为核心的IDE，提供控制平面以并行运行多个代理，将任务单转化为代理任务，展示了代理式编码的规模化方法论。"
+          }
+        },
+        {
+          "url": "https://agentic.ai/best/coding-agents",
+          "title": {
+            "en": "23 Best AI Coding Agents in 2026 — Agentic.ai",
+            "zh": "2026年23款最佳AI编码代理 — Agentic.ai"
+          },
+          "finding": {
+            "en": "This directory lists various AI coding agents including an open-source VS Code extension supporting local, agentic coding with operator sovereignty features, highlighting the ecosystem growth though lacking detailed reliability evidence.",
+            "zh": "该目录列出了多款AI编码代理，包括支持本地代理式编码和操作主权的开源VS Code扩展，体现了生态系统的增长，但缺乏详细的可靠性证据。"
+          }
+        }
+      ]
+    },
+    {
+      "topicSlug": "coding-agents",
+      "threadSlug": "coding-agents-own-workflows",
+      "readAt": "2026-09-07",
+      "status": "completed",
+      "title": {
+        "en": "The Rise of Agentic IDEs: Autonomous AI Agents Transforming Coding Workflows",
+        "zh": "代理式集成开发环境的崛起：自主AI代理改变编码工作流程"
+      },
+      "question": {
+        "en": "How do agentic IDEs and autonomous coding agents differ from traditional IDE workflows, and what implications do these differences have for software developers?",
+        "zh": "代理式集成开发环境和自主编码代理与传统IDE工作流程有何不同，这些差异对软件开发者意味着什么？"
+      },
+      "synthesis": {
+        "en": "Agentic IDEs represent a paradigm shift from traditional cursor-driven coding environments to systems built around autonomous AI agents that manage coding tasks. Unlike conventional IDEs where developers manually write and edit code line-by-line, agentic IDEs enable developers to define high-level specifications or tickets that autonomous agents interpret and implement. For example, Kiro operates across IDE, CLI, web, and mobile platforms by first collaborating on requirements and system design before coding, explicitly documenting reasoning to handle complex tasks efficiently. Similarly, AgentsRoom emphasizes an IDE designed around managing a 'parc' of autonomous agents running in parallel, turning each ticket into an agent task. This agentic approach abstracts away manual code manipulation, allowing developers to focus on higher-level design and oversight, potentially accelerating engineering workflows and reducing repetitive coding effort. The shift matters because it redefines developer roles from direct code authorship to orchestrators of AI agents, promising increased productivity and scalability in software development processes.",
+        "zh": "代理式集成开发环境（Agentic IDE）代表了一种范式转变，从传统的基于光标的编码环境转向以自主AI代理管理编码任务的系统。与开发者逐行手动编写和编辑代码的传统IDE不同，代理式IDE允许开发者定义高级规格或任务单，由自主代理进行解读和实现。例如，Kiro跨IDE、命令行界面、网页和移动平台运行，先协作定义需求和系统设计，再进行编码，明确记录推理过程以高效处理复杂任务。同样，AgentsRoom强调一个围绕管理多个并行运行的自主代理的IDE，将每个任务单转化为代理任务。这种代理式方法抽象了手动代码操作，使开发者能够专注于更高级的设计和监督，可能加速工程工作流程并减少重复编码工作。此转变重要在于它重新定义了开发者的角色，从直接编写代码转变为AI代理的协调者，预示着软件开发过程中的生产力和可扩展性提升。"
+      },
+      "caveat": {
+        "en": "Current evidence primarily consists of promotional descriptions and conceptual notes rather than rigorous comparative studies or empirical benchmarks. Definitions and workflows of agentic IDEs vary across sources, and detailed evaluations of their effectiveness compared to traditional IDEs remain limited. Therefore, conclusions about their practical impact should be considered preliminary and subject to further validation.",
+        "zh": "现有证据主要为宣传性描述和概念性笔记，缺乏严格的比较研究或实证基准测试。代理式IDE的定义和工作流程在不同来源中存在差异，且关于其相较传统IDE的实际效果的详细评估仍有限。因此，关于其实际影响的结论应视为初步，需进一步验证。"
+      },
+      "sources": [
+        {
+          "url": "https://kiro.dev",
+          "title": {
+            "en": "Kiro: Move beyond AI coding to agentic engineering",
+            "zh": "Kiro：超越AI编码，迈向代理式工程"
+          },
+          "finding": {
+            "en": "Kiro exemplifies an agentic IDE that collaborates on requirements and system design before coding, documenting reasoning to enable complex task implementation across multiple platforms.",
+            "zh": "Kiro作为代理式IDE的典范，在编码前协作定义需求和系统设计，记录推理过程，从而支持跨多平台实现复杂任务。"
+          }
+        },
+        {
+          "url": "https://agentsroom.dev/agentic-coding",
+          "title": {
+            "en": "Agentic Coding: Autonomous AI Agents That Code | AgentsRoom",
+            "zh": "代理式编码：自主AI代理编码 | AgentsRoom"
+          },
+          "finding": {
+            "en": "AgentsRoom describes an IDE built around autonomous agents managing parallel tasks, turning tickets into agent tasks, highlighting a shift from cursor-based coding to agent orchestration.",
+            "zh": "AgentsRoom描述了一个围绕自主代理管理并行任务构建的IDE，将任务单转化为代理任务，强调了从基于光标的编码向代理协调的转变。"
+          }
+        }
+      ]
+    },
+    {
+      "topicSlug": "coding-agents",
+      "threadSlug": "coding-agents-own-workflows",
+      "readAt": "2026-08-17",
+      "status": "completed",
+      "title": {
+        "en": "Emergence of Agentic IDEs Enabling Autonomous Coding Workflows",
+        "zh": "支持自主编码工作流的智能代理集成开发环境的兴起"
+      },
+      "question": {
+        "en": "How do agentic IDEs and AI coding agents transform traditional development workflows towards autonomous coding?",
+        "zh": "智能代理集成开发环境和AI编码代理如何将传统开发工作流转变为自主编码？"
+      },
+      "synthesis": {
+        "en": "Agentic IDEs represent a new class of development environments where AI agents collaborate interactively with developers, enabling autonomous coding workflows. Unlike traditional IDEs that primarily assist through static code completion or linting, agentic IDEs support pair-programming style interactions where AI agents actively participate in code edits, reviews, and iterative improvements in real time. This shift is supported by open-source models like Ornith-1.0 that enable self-improving agentic coding, and practical scaling experiences such as those at Lovable, which highlight the token costs and operational considerations of autonomous coding. The agentic IDE concept also includes environments that can self-build or self-improve, further reducing human intervention. This evolution matters to builders as it promises to increase development velocity, improve code quality through continuous AI feedback, and enable new collaborative paradigms between humans and AI agents in software creation.",
+        "zh": "智能代理集成开发环境（Agentic IDE）代表了一类新型开发环境，AI代理与开发者进行交互式协作，实现自主编码工作流。与传统主要通过静态代码补全或语法检查辅助的IDE不同，智能代理IDE支持类似结对编程的交互，AI代理实时参与代码编辑、审查和迭代改进。该转变得益于如Ornith-1.0等开源自我改进模型，以及Lovable等实践中对自主编码的规模化经验，揭示了令牌成本和运营考量。智能代理IDE还涵盖可自我构建或自我改进的环境，进一步减少人工干预。此演进对开发者意义重大，因其有望提升开发速度，通过持续AI反馈改善代码质量，并开启人机协作的新范式。"
+      },
+      "caveat": {
+        "en": "Current evidence primarily focuses on conceptual explanations, open-source models, and anecdotal scaling experiences rather than comprehensive benchmarks or standardized definitions of agentic IDEs. The distinction between agentic IDEs and traditional IDE workflows remains somewhat fluid, and practical adoption challenges such as cost, integration complexity, and developer trust are not fully addressed.",
+        "zh": "现有证据主要集中于概念阐释、开源模型和个案规模化经验，缺乏全面的基准测试或标准化的智能代理IDE定义。智能代理IDE与传统IDE工作流的界限仍较模糊，且成本、集成复杂性和开发者信任等实际采用挑战尚未充分探讨。"
+      },
+      "sources": [
+        {
+          "url": "https://www.paralect.com/stack/top-agentic-ides",
+          "title": {
+            "en": "Top Agentic IDEs in 2026 — AI coding agents compared with video demos",
+            "zh": "2026年顶级智能代理IDE——AI编码代理对比及视频演示"
+          },
+          "finding": {
+            "en": "This source provides direct comparisons and demonstrations of agentic IDEs that enable real-time collaborative workflows between AI agents and developers, illustrating the core concept of agentic IDEs as interactive coding partners rather than passive tools.",
+            "zh": "该来源直接比较并演示了智能代理IDE，展示了AI代理与开发者之间实时协作的工作流，阐明了智能代理IDE作为交互式编码伙伴而非被动工具的核心概念。"
+          }
+        },
+        {
+          "url": "https://github.com/deepreinforce-ai/Ornith-1",
+          "title": {
+            "en": "Ornith-1.0: self-improving open-source models for agentic coding",
+            "zh": "Ornith-1.0：用于智能代理编码的自我改进开源模型"
+          },
+          "finding": {
+            "en": "Ornith-1.0 exemplifies self-improving AI models designed for agentic coding, supporting autonomous coding by enabling AI agents to iteratively enhance their coding capabilities without human intervention.",
+            "zh": "Ornith-1.0展示了用于智能代理编码的自我改进AI模型，支持自主编码，使AI代理能够在无人工干预下迭代提升其编码能力。"
+          }
+        },
+        {
+          "url": "https://lovable.dev/blog/85000-in-tokens-later-scaling-agentic-coding-at-lovable",
+          "title": {
+            "en": "$85,000 in tokens later: What I learned from scaling agentic coding at Lovable",
+            "zh": "花费8.5万美元令牌后：我在Lovable扩展智能代理编码的经验"
+          },
+          "finding": {
+            "en": "This practical case study reveals operational insights and challenges in scaling agentic coding, including the significant token costs involved, highlighting the resource considerations developers must manage when adopting autonomous coding workflows.",
+            "zh": "该实践案例揭示了扩展智能代理编码的运营见解和挑战，包括高额的令牌成本，凸显了开发者在采用自主编码工作流时必须管理的资源考量。"
+          }
+        }
+      ]
+    },
+    {
+      "topicSlug": "coding-agents",
+      "threadSlug": "coding-agents-own-workflows",
+      "readAt": "2026-08-10",
+      "status": "completed",
+      "title": {
+        "en": "The Rise of Agentic IDEs: Autonomous AI Coding Agents Transforming Developer Workflows",
+        "zh": "代理式集成开发环境的崛起：自主AI编码代理改变开发者工作流程"
+      },
+      "question": {
+        "en": "How do agentic IDEs and autonomous AI coding agents redefine software development workflows compared to traditional AI-assisted coding tools?",
+        "zh": "代理式集成开发环境和自主AI编码代理如何相比传统的AI辅助编码工具，重新定义软件开发工作流程？"
+      },
+      "synthesis": {
+        "en": "Agentic IDEs and autonomous AI coding agents represent a significant evolution beyond traditional AI-assisted coding tools by enabling AI agents to independently plan, execute, debug, and iterate on code with minimal human intervention. Unlike conventional tools that primarily assist developers through suggestions or code completions, agentic coding platforms facilitate asynchronous, continuous workflows where AI agents can read files, run code, identify lint or test failures, and autonomously loop to fix issues. This shift enables more collaborative, pair-programming-like interactions where developers and AI agents co-edit, review, and iterate in real time, enhancing productivity and code quality. The emergence of self-improving open-source models and scalable token-based architectures further supports this autonomous coding paradigm, allowing AI agents to adapt and optimize their coding strategies over time. For builders, this means designing development environments that integrate autonomous agents capable of managing complex coding tasks end-to-end, thus transforming the developer experience from reactive assistance to proactive partnership.",
+        "zh": "代理式集成开发环境和自主AI编码代理代表了超越传统AI辅助编码工具的重要演进，赋能AI代理能够在极少人工干预下自主规划、执行、调试和迭代代码。与主要通过建议或代码补全辅助开发者的传统工具不同，代理式编码平台支持异步、持续的工作流程，AI代理能够读取文件、运行代码、识别代码风格或测试失败，并自主循环修复问题。这种转变促成了类似结对编程的协作方式，开发者与AI代理实时共同编辑、审查和迭代代码，提高了生产力和代码质量。自我改进的开源模型和可扩展的基于token的架构进一步支持了这一自主编码范式，使AI代理能够随时间优化其编码策略。对于构建者而言，这意味着设计集成能够端到端管理复杂编码任务的自主代理的开发环境，从而将开发者体验从被动辅助转变为主动协作伙伴关系。"
+      },
+      "caveat": {
+        "en": "Current evidence primarily derives from early-stage implementations, blog posts, and open-source projects that emphasize conceptual definitions and practical setups rather than rigorous empirical benchmarks or broad user studies. Thus, while agentic IDEs show promising capabilities, comprehensive evaluations of their impact on developer productivity, code quality, and integration challenges remain limited. Builders should be cautious about overgeneralizing these early findings without further validation in diverse real-world development contexts.",
+        "zh": "现有证据主要来自早期实现、博客文章和开源项目，侧重于概念定义和实践设置，而缺乏严格的实证基准测试或广泛的用户研究。因此，尽管代理式集成开发环境展现出有前景的能力，但其对开发者生产力、代码质量及集成挑战的全面评估仍有限。构建者在未经过多样化真实开发环境进一步验证前，应谨慎避免过度推广这些早期发现。"
+      },
+      "sources": [
+        {
+          "url": "https://agentsroom.dev/agentic-coding",
+          "title": {
+            "en": "Agentic Coding: Autonomous AI Agents That Code | AgentsRoom",
+            "zh": "代理式编码：自主AI编码代理 | AgentsRoom"
+          },
+          "finding": {
+            "en": "Defines agentic coding as autonomous AI agents that plan, execute, debug, and iterate on code without constant human input, marking the next evolution of AI-assisted development.",
+            "zh": "将代理式编码定义为自主AI代理，能够在无需持续人工输入的情况下规划、执行、调试和迭代代码，标志着AI辅助开发的下一阶段演进。"
+          }
+        },
+        {
+          "url": "https://mightybot.ai/blog/coding-ai-agents-for-accelerating-engineering-workflows",
+          "title": {
+            "en": "Best AI Coding Agents in 2026, Ranked — MightyBot",
+            "zh": "2026年最佳AI编码代理排名 — MightyBot"
+          },
+          "finding": {
+            "en": "Describes agentic IDE 'Agent Mode' that reads files, runs code, identifies lint/test failures, and loops to fix issues autonomously, illustrating practical autonomous coding workflows.",
+            "zh": "介绍了代理式集成开发环境的“代理模式”，能够读取文件、运行代码、识别代码风格/测试失败并循环修复问题，展示了实际的自主编码工作流程。"
+          }
+        },
+        {
+          "url": "https://www.paralect.com/stack/top-agentic-ides",
+          "title": {
+            "en": "Top Agentic IDEs in 2026 — AI coding agents compared with video demos",
+            "zh": "2026年顶级代理式集成开发环境 — AI编码代理对比及视频演示"
+          },
+          "finding": {
+            "en": "Highlights collaborative pair-programming workflows where AI agents and developers work together on edits, reviews, and iterations in real time, emphasizing the shift from traditional IDEs to agentic IDEs.",
+            "zh": "强调了AI代理与开发者实时协作编辑、审查和迭代的结对编程工作流程，突出代理式集成开发环境相较传统IDE的转变。"
+          }
+        }
+      ]
+    },
+    {
+      "topicSlug": "coding-agents",
+      "threadSlug": "coding-agents-own-workflows",
+      "readAt": "2026-08-03",
+      "status": "completed",
+      "title": {
+        "en": "Agentic IDEs and Autonomous Coding: The Next Evolution in AI Developer Tools",
+        "zh": "智能代理集成开发环境与自主编码：AI开发工具的下一次演进"
+      },
+      "question": {
+        "en": "How do agentic IDEs and autonomous coding agents transform traditional software development workflows, and what implications do they have for developers?",
+        "zh": "智能代理集成开发环境和自主编码代理如何改变传统软件开发流程，对开发者有何影响？"
+      },
+      "synthesis": {
+        "en": "Agentic IDEs and autonomous coding agents represent an evolution beyond traditional AI-assisted coding by enabling AI to autonomously plan, execute, debug, and iterate on software development tasks with minimal human intervention. Platforms like Kiro integrate specifications and system design upfront, allowing the AI to perform complex multi-step implementations efficiently within IDEs, CLIs, or browsers. Agentic IDEs facilitate real-time collaborative workflows where AI agents and developers co-edit, review, and iterate code, enhancing productivity and reducing manual overhead. These agents maintain context, track code changes, and can autonomously fix lint and test failures by reading and running code, thus supporting continuous improvement cycles. This shift matters to builders as it moves AI from a passive assistant to an active coding partner, potentially accelerating development cycles and improving code quality. However, the technology is still emerging, with limited evidence on reliability and consistency across diverse projects.",
+        "zh": "智能代理集成开发环境（IDE）和自主编码代理代表了超越传统AI辅助编码的演进，能够让AI自主规划、执行、调试和迭代软件开发任务，减少对人类的持续依赖。以Kiro为例，它通过预先定义规格和系统设计，使AI能够在IDE、命令行界面或浏览器中高效完成复杂的多步骤实现。智能代理IDE支持AI代理与开发者实时协作，共同编辑、审查和迭代代码，提高生产力，减少手动工作量。这些代理能够维护上下文，跟踪代码变更，并通过读取和运行代码自主修复代码风格和测试失败，从而支持持续改进循环。对于开发者而言，这一转变意味着AI从被动助手转变为主动编码伙伴，有望加速开发周期并提升代码质量。但该技术仍处于发展初期，关于其在不同项目中的可靠性和一致性证据有限。"
+      },
+      "caveat": {
+        "en": "Current evidence is largely promotional or conceptual, with limited independent benchmarking or long-term reliability data. Claims about agentic IDEs and autonomous coding agents need cautious interpretation until more empirical validation is available.",
+        "zh": "现有证据多为宣传或概念性描述，缺乏独立的基准测试和长期可靠性数据。关于智能代理IDE和自主编码代理的声明需谨慎解读，直到获得更多实证验证。"
+      },
+      "sources": [
+        {
+          "url": "https://kiro.dev",
+          "title": {
+            "en": "Kiro: Move beyond AI coding to agentic engineering",
+            "zh": "Kiro：超越AI编码，迈向智能代理工程"
+          },
+          "finding": {
+            "en": "Kiro uses specifications to enable AI agents to plan and implement complex coding tasks within IDEs, CLIs, or browsers, explicitly documenting reasoning and decisions to reduce iteration cycles.",
+            "zh": "Kiro通过使用规格，使AI代理能够在IDE、命令行界面或浏览器中规划并实现复杂编码任务，明确记录推理和决策，减少迭代次数。"
+          }
+        },
+        {
+          "url": "https://www.paralect.com/stack/top-agentic-ides",
+          "title": {
+            "en": "Top Agentic IDEs in 2026 — AI coding agents compared with video demos",
+            "zh": "2026年顶级智能代理IDE——AI编码代理对比及视频演示"
+          },
+          "finding": {
+            "en": "Agentic IDEs support collaborative pair-programming workflows where AI agents and developers co-edit, review, and iterate code in real time, enhancing development efficiency.",
+            "zh": "智能代理IDE支持AI代理与开发者实时协作的结对编程工作流，共同编辑、审查和迭代代码，提高开发效率。"
+          }
+        },
+        {
+          "url": "https://agentsroom.dev/agentic-coding",
+          "title": {
+            "en": "Agentic Coding: Autonomous AI Agents That Code | AgentsRoom",
+            "zh": "智能代理编码：自主编码的AI代理 | AgentsRoom"
+          },
+          "finding": {
+            "en": "Agentic coding involves autonomous AI agents that plan, execute, debug, and iterate on code with minimal human input, marking a significant evolution in AI-assisted development.",
+            "zh": "智能代理编码指自主AI代理在极少人类输入下规划、执行、调试和迭代代码，标志着AI辅助开发的重大进化。"
+          }
+        }
+      ]
+    },
+    {
+      "topicSlug": "coding-agents",
+      "threadSlug": "coding-agents-own-workflows",
+      "readAt": "2026-07-27",
+      "status": "completed",
+      "title": {
+        "en": "Emergence of Agentic IDEs: Autonomous AI Coding Agents Transforming Developer Workflows",
+        "zh": "智能代理集成开发环境的兴起：自主AI编码代理改变开发者工作流程"
+      },
+      "question": {
+        "en": "How do agentic IDEs and autonomous AI coding agents redefine software development workflows and what capabilities distinguish them from traditional coding tools?",
+        "zh": "智能代理集成开发环境和自主AI编码代理如何重新定义软件开发工作流程？它们具备哪些区别于传统编码工具的能力？"
+      },
+      "synthesis": {
+        "en": "Agentic IDEs represent a new class of AI-powered development environments where autonomous coding agents can inspect codebases, execute multi-step actions, interact with local and remote tools, and iteratively improve code with limited human intervention. Unlike traditional IDEs that primarily offer code completion and static assistance, agentic IDEs enable AI agents to act independently—planning, executing commands, modifying files, and collaborating in real-time with developers. This shift is enabled by self-improving models (e.g., Ornith-1.0) and architectures that treat tasks as agent workflows, allowing parallel execution and scaling. Practical implementations like Cline for VS Code and Windsurf Editor demonstrate how agenticness is measured by autonomy, planning, and safety, providing developers with proactive, context-aware coding assistants. This evolution matters because it transforms the developer experience from reactive code editing to proactive, collaborative AI-driven software construction, potentially increasing productivity and code quality while reducing manual overhead.",
+        "zh": "智能代理集成开发环境（Agentic IDE）是一类新兴的AI驱动开发环境，具备自主编码代理能够检查代码库、执行多步骤操作、调用本地及远程工具，并在有限人工干预下迭代改进代码的能力。与传统主要提供代码补全和静态辅助的IDE不同，智能代理IDE允许AI代理独立行动——包括规划、执行命令、修改文件以及与开发者实时协作。此转变依赖于自我改进模型（如Ornith-1.0）和将任务视为代理工作流的架构，实现并行执行和规模化。诸如VS Code的Cline和Windsurf Editor等实际应用展示了通过自主性、规划性和安全性等指标衡量的智能代理特性，为开发者提供主动且具上下文感知的编码助手。这一演进意义重大，因为它将开发者体验从被动代码编辑转变为主动协作的AI驱动软件构建，可能提升生产力和代码质量，同时降低人工负担。"
+      },
+      "caveat": {
+        "en": "Current evidence primarily stems from early-stage implementations, open-source projects, and conceptual definitions. There is limited independent benchmarking of agentic IDEs' real-world effectiveness, user experience, and safety in diverse development contexts. Claims about autonomy and self-improvement are promising but require further empirical validation to assess reliability and integration challenges at scale.",
+        "zh": "现有证据主要来自早期实现、开源项目和概念定义，缺乏对智能代理IDE在真实开发环境中的独立性能评估、用户体验及安全性的广泛验证。关于自主性和自我改进的声明虽具潜力，但仍需更多实证研究以评估其可靠性及大规模集成的挑战。"
+      },
+      "sources": [
+        {
+          "url": "https://agentic.ai/best/coding-agents",
+          "title": {
+            "en": "20 Best AI Coding Agents in 2026 — Agentic.ai",
+            "zh": "2026年20款最佳AI编码代理 — Agentic.ai"
+          },
+          "finding": {
+            "en": "Defines agenticness as a measure of autonomy and planning in AI coding tools, highlighting examples like Cline for VS Code that can inspect projects, edit files, run commands, and interact with browsers with user permission, illustrating practical agentic IDE capabilities.",
+            "zh": "将智能代理性定义为AI编码工具的自主性和规划能力，举例说明了VS Code的Cline能够检查项目、编辑文件、执行命令并在用户许可下使用浏览器，展示了智能代理IDE的实际功能。"
+          }
+        },
+        {
+          "url": "https://www.paralect.com/stack/top-agentic-ides",
+          "title": {
+            "en": "Top Agentic IDEs in 2026 — AI coding agents compared with video demos",
+            "zh": "2026年顶级智能代理IDE — AI编码代理对比及视频演示"
+          },
+          "finding": {
+            "en": "Describes agentic IDEs supporting pair-programming workflows where AI agents and developers collaborate on edits, reviews, and iterations in real time, emphasizing the shift from traditional tools to interactive autonomous coding environments.",
+            "zh": "介绍了支持AI代理与开发者实时协作编辑、审查和迭代的智能代理IDE，强调了从传统工具向交互式自主编码环境的转变。"
+          }
+        },
+        {
+          "url": "https://agentsroom.dev/agentic-coding",
+          "title": {
+            "en": "Agentic Coding: Autonomous AI Agents That Code | AgentsRoom",
+            "zh": "智能代理编码：自主AI编码代理 | AgentsRoom"
+          },
+          "finding": {
+            "en": "Explains agentic coding methodology where tickets become agent tasks executed by autonomous agents within an IDE designed as a control plane to manage multiple agents in parallel, highlighting the end-to-end tooling and workflow enabling scalable autonomous coding.",
+            "zh": "阐述了智能代理编码方法论，将任务单转化为由自主代理执行的任务，IDE作为控制平台管理多个代理并行工作，突出支持规模化自主编码的端到端工具和工作流。"
+          }
+        }
+      ]
+    },
+    {
+      "topicSlug": "coding-agents",
+      "threadSlug": "coding-agents-own-workflows",
+      "readAt": "2026-07-20",
+      "status": "completed",
+      "title": {
+        "en": "Emergence of Agentic IDEs: Autonomous AI Coding Agents Integrated into Developer Workflows",
+        "zh": "代理式集成开发环境的兴起：集成于开发者工作流的自主AI编码代理"
+      },
+      "question": {
+        "en": "How do agentic IDEs and autonomous AI coding agents transform traditional software development workflows, and what mechanisms enable their effective collaboration with human developers?",
+        "zh": "代理式集成开发环境和自主AI编码代理如何改变传统软件开发工作流？它们通过哪些机制实现与人类开发者的有效协作？"
+      },
+      "synthesis": {
+        "en": "Agentic IDEs represent a significant shift from traditional AI code assistants by embedding autonomous AI agents directly within the development environment, enabling them to inspect repository state, invoke local or remote tools, modify code, run commands, and perform multi-step actions with limited human intervention. This integration allows real-time pair-programming workflows where AI agents collaborate closely with developers on edits, reviews, and iterations, enhancing productivity and code quality. Tools like the open-source ADE and JetBrains' Junie exemplify this approach by leveraging IDE semantic indexes, build configurations, test runners, debuggers, and database integrations to provide context-aware autonomous coding. The shared mechanism across these sources is the agent's ability to act as an autonomous collaborator within the IDE's ecosystem, transforming tickets or tasks into agent-driven workflows that parallel human development processes. This matters to builders as it enables scalable, efficient, and contextually intelligent coding assistance that goes beyond simple code suggestions to active participation in software creation and maintenance.",
+        "zh": "代理式集成开发环境（Agentic IDEs）标志着从传统AI代码助手向将自主AI代理直接嵌入开发环境的重大转变，使其能够检查代码库状态、调用本地或远程工具、修改代码、执行命令，并在有限的人类干预下完成多步骤操作。这种集成支持实时的结对编程工作流，AI代理与开发者紧密协作，共同完成代码编辑、审查和迭代，从而提升生产力和代码质量。开源ADE和JetBrains的Junie等工具通过利用IDE的语义索引、构建配置、测试运行器、调试器及数据库集成，提供上下文感知的自主编码能力。各来源共享的机制是代理作为IDE生态系统内的自主协作者，将任务或工单转化为代理驱动的工作流，与人类开发过程并行。这对开发者意义重大，因为它实现了可扩展、高效且具上下文智能的编码辅助，超越了简单代码建议，参与到软件的创建和维护中。"
+      },
+      "caveat": {
+        "en": "While the evidence strongly supports the conceptual framework and early implementations of agentic IDEs, detailed empirical evaluations comparing their effectiveness against traditional AI code assistants or human-only workflows are limited. Additionally, most sources focus on tooling and conceptual definitions without extensive user studies or long-term productivity metrics, so caution is warranted in generalizing their impact across diverse development contexts.",
+        "zh": "尽管证据强烈支持代理式IDE的概念框架和早期实现，但缺乏详细的实证评估来比较其与传统AI代码助手或纯人工工作流的效果。此外，大多数来源侧重于工具和概念定义，缺乏广泛的用户研究或长期生产力指标，因此在不同开发环境中推广其影响时需谨慎。"
+      },
+      "sources": [
+        {
+          "url": "https://www.paralect.com/stack/top-agentic-ides",
+          "title": {
+            "en": "Top Agentic IDEs in 2026 — AI coding agents compared with video demos",
+            "zh": "2026年顶级代理式IDE——AI编码代理对比及视频演示"
+          },
+          "finding": {
+            "en": "Demonstrates agentic IDEs enabling real-time pair-programming workflows where AI agents and developers collaborate on edits, reviews, and iterations.",
+            "zh": "展示了代理式IDE支持AI代理与开发者实时结对编程，共同进行编辑、审查和迭代。"
+          }
+        },
+        {
+          "url": "https://agentsroom.dev/agentic-coding",
+          "title": {
+            "en": "Agentic Coding: Autonomous AI Agents That Code | AgentsRoom",
+            "zh": "代理式编码：自主AI编码代理 | AgentsRoom"
+          },
+          "finding": {
+            "en": "Explains the methodology of agentic coding where tasks are turned into autonomous agent workflows within an IDE built around agents rather than cursors.",
+            "zh": "阐述了代理式编码的方法论，将任务转化为自主代理工作流，IDE围绕代理而非光标构建。"
+          }
+        },
+        {
+          "url": "https://blog.jetbrains.com/junie/2026/06/junie-coding-agent-out-of-beta",
+          "title": {
+            "en": "The JetBrains AI Coding Agent moves to general availability",
+            "zh": "JetBrains AI编码代理进入全面可用阶段"
+          },
+          "finding": {
+            "en": "Describes an IDE-integrated coding agent that leverages IDE semantic indexes, build configurations, test runners, debuggers, and database integration to perform autonomous coding tasks.",
+            "zh": "描述了一个集成于IDE的编码代理，利用IDE语义索引、构建配置、测试运行器、调试器及数据库集成执行自主编码任务。"
+          }
+        }
+      ]
+    }
+  ]
+}
