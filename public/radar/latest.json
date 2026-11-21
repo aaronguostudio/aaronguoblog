@@ -1,18 +1,22 @@
 {
   "version": 1,
-  "date": "2026-11-20",
-  "generatedAt": "2026-11-20T13:31:09.533Z",
+  "date": "2026-11-21",
+  "generatedAt": "2026-11-21T13:34:49.813Z",
   "quality": {
     "status": "ok",
     "blockers": [],
-    "warnings": []
+    "warnings": [
+      "Evidence is thin for this topic."
+    ]
   },
   "latestRun": {
-    "id": 554,
-    "status": "completed",
-    "startedAt": "2026-11-20 13:30:39",
-    "completedAt": "2026-11-20 13:31:09",
-    "warnings": [],
+    "id": 557,
+    "status": "completed_with_warnings",
+    "startedAt": "2026-11-21 13:34:29",
+    "completedAt": "2026-11-21 13:34:49",
+    "warnings": [
+      "Evidence is thin for this topic."
+    ],
     "sourceErrors": {}
   },
   "latestWeeklyRun": {
@@ -28,15 +32,15 @@
     "errorMessage": null
   },
   "pulse": {
-    "text": "Radar's read across coding-agents, consumer-ai-apps and mobile-ai. Top themes: IDE - Kiro; Agentic IDE: An IDE Built Around Agents, Not the Cursor | AgentsRoom; Proton's Lumo, a privacy-focused alternative to ChatGPT and Claude, arrives on desktop | TechCrunch.",
-    "date": "2026-11-20",
-    "generatedAt": "2026-11-20 13:31:09",
+    "text": "Radar's read across consumer-ai-apps, mobile-ai and coding-agents. Top themes: Proton's Lumo, a privacy-focused alternative to ChatGPT and Claude, arrives on desktop | TechCrunch; On-Device AI For Mobile Apps: Frameworks And Use Cases; Best Agentic IDE in 2026: Multi-Agent Coding Tools Compared | Paradev.",
+    "date": "2026-11-21",
+    "generatedAt": "2026-11-21 13:34:49",
     "topItemIds": [
-      710,
-      1438,
       2757,
-      2763,
-      2383
+      2766,
+      2383,
+      2654,
+      2764
     ],
     "takeaway": null,
     "sourceItemIds": []
@@ -89,7 +93,7 @@
     },
     {
       "source": "grounding",
-      "count": 410
+      "count": 411
     },
     {
       "source": "github",
@@ -126,6 +130,22 @@
       "publishedAt": "2026-11-19"
     },
     {
+      "id": 2764,
+      "source": "hackernews",
+      "url": "https://thedataexchange.media/pete-warden-moonshine/",
+      "title": "Pete Warden on local AI, open models, voice interfaces, the future of hardware",
+      "summary": "Pete Warden on local AI, open models, voice interfaces, the future of hardware",
+      "aiSummary": "Local/on-device AI and voice interfaces discussed; strong topical match though not specifically iOS/Android assistant implementations.",
+      "author": "datascientist",
+      "score": 94,
+      "relevance": 8,
+      "category": "ai",
+      "topicSlug": "mobile-ai",
+      "createdAt": "2026-11-20 13:30:12",
+      "lastSeenAt": "2026-11-21 13:34:03",
+      "publishedAt": "2026-11-19"
+    },
+    {
       "id": 2759,
       "source": "hackernews",
       "url": "https://adeindex.com",
@@ -139,22 +159,6 @@
       "topicSlug": "coding-agents",
       "createdAt": "2026-11-19 13:30:38",
       "lastSeenAt": "2026-11-19 13:30:38",
-      "publishedAt": "2026-11-19"
-    },
-    {
-      "id": 2764,
-      "source": "hackernews",
-      "url": "https://thedataexchange.media/pete-warden-moonshine/",
-      "title": "Pete Warden on local AI, open models, voice interfaces, the future of hardware",
-      "summary": "Pete Warden on local AI, open models, voice interfaces, the future of hardware",
-      "aiSummary": "Local/on-device AI and voice interfaces discussed by Pete Warden; likely relevant to iOS/Android assistant approaches, but not clearly focused on iOS/Android limitations.",
-      "author": "datascientist",
-      "score": 93,
-      "relevance": 6,
-      "category": "ai",
-      "topicSlug": "mobile-ai",
-      "createdAt": "2026-11-20 13:30:12",
-      "lastSeenAt": "2026-11-20 13:30:12",
       "publishedAt": "2026-11-19"
     },
     {
@@ -206,22 +210,6 @@
       "publishedAt": "2026-11-18"
     },
     {
-      "id": 2757,
-      "source": "grounding",
-      "url": "https://techcrunch.com/2026/11/17/protons-lumo-a-privacy-focused-alternative-to-chatgpt-and-claude-arrives-on-desktop/",
-      "title": "Proton's Lumo, a privacy-focused alternative to ChatGPT and Claude, arrives on desktop | TechCrunch",
-      "summary": "On Tuesday, the company launched <strong>Lumo Desktop</strong> for Windows, macOS, and Linux, allowing users to leverage its AI to carry out local tasks on their computer involving connected apps, personal files, and other automations.",
-      "aiSummary": "Clear breaking-news launch of a consumer AI app (Lumo Desktop) with stated capabilities (local tasks/automations) and target users.",
-      "author": null,
-      "score": 0,
-      "relevance": 9,
-      "category": "ai",
-      "topicSlug": "consumer-ai-apps",
-      "createdAt": "2026-11-19 13:30:04",
-      "lastSeenAt": "2026-11-20 13:30:37",
-      "publishedAt": "2026-11-18"
-    },
-    {
       "id": 2761,
       "source": "hackernews",
       "url": "https://github.com/Viktotovich/vb-harness-for-agentic-building",
@@ -238,19 +226,51 @@
       "publishedAt": "2026-11-18"
     },
     {
+      "id": 2766,
+      "source": "grounding",
+      "url": "https://www.xicom.biz/blog/on-device-ai-for-mobile-apps/",
+      "title": "On-Device AI For Mobile Apps: Frameworks And Use Cases",
+      "summary": "ExecuTorch is the PyTorch runtime for running models on mobile and edge devices. React Native ExecuTorch brings it to React Native with ready support for open LLMs, vision models, speech-to-text, text-to-speech, OCR and embeddings for local search. Best for: React Native apps that need the same on-device LLM features on Android and iOS",
+      "aiSummary": "Directly about on-device AI for mobile apps with iOS/Android framing; includes concrete tooling (ExecuTorch, React Native) and capabilities (LLMs, vision, speech, OCR, embeddings).",
+      "author": null,
+      "score": 0,
+      "relevance": 9,
+      "category": "ai",
+      "topicSlug": "mobile-ai",
+      "createdAt": "2026-11-21 13:34:03",
+      "lastSeenAt": "2026-11-21 13:34:03",
+      "publishedAt": "2026-11-17"
+    },
+    {
+      "id": 2757,
+      "source": "grounding",
+      "url": "https://techcrunch.com/2026/11/17/protons-lumo-a-privacy-focused-alternative-to-chatgpt-and-claude-arrives-on-desktop/",
+      "title": "Proton's Lumo, a privacy-focused alternative to ChatGPT and Claude, arrives on desktop | TechCrunch",
+      "summary": "On Tuesday, the company launched <strong>Lumo Desktop</strong> for Windows, macOS, and Linux, allowing users to leverage its AI to carry out local tasks on their computer involving connected apps, personal files, and other automations.",
+      "aiSummary": "Clear recent launch of a consumer-facing AI app (Lumo Desktop) with described functionality (local tasks/automations).",
+      "author": null,
+      "score": 0,
+      "relevance": 9,
+      "category": "ai",
+      "topicSlug": "consumer-ai-apps",
+      "createdAt": "2026-11-19 13:30:04",
+      "lastSeenAt": "2026-11-21 13:34:27",
+      "publishedAt": "2026-11-17"
+    },
+    {
       "id": 2758,
       "source": "grounding",
       "url": "https://www.techjuice.pk/alibaba-qwen-app-launch-chatgpt-rival/",
       "title": "Alibaba Launches Qwen 3.5 and Free AI App to Challenge ChatGPT",
       "summary": "Alibaba launched its most aggressive consumer AI play yet. On <strong>November 17,</strong> the Chinese tech giant unveiled its Qwen 3.5 model and released a free consumer chatbot app.",
-      "aiSummary": "Reports Alibaba launching a free consumer chatbot app alongside Qwen 3.5; relevant to consumer AI app launches though details may be lighter.",
+      "aiSummary": "Recent consumer AI app release tied to Qwen 3.5; includes launch timing and positioning vs ChatGPT.",
       "author": null,
       "score": 0,
       "relevance": 8,
       "category": "ai",
       "topicSlug": "consumer-ai-apps",
       "createdAt": "2026-11-19 13:30:05",
-      "lastSeenAt": "2026-11-20 13:30:37",
+      "lastSeenAt": "2026-11-21 13:34:27",
       "publishedAt": "2026-11-17"
     },
     {
@@ -275,14 +295,14 @@
       "url": "https://news.ycombinator.com/item?id=50535157",
       "title": "Show HN: Faros Desktop, a local app to see your AI traces and extend your usage",
       "summary": "Show HN: Faros Desktop, a local app to see your AI traces and extend your usage",
-      "aiSummary": "Local app for viewing AI traces; more about observability than on-device assistant architectures/limitations on iOS/Android.",
+      "aiSummary": "Local app for viewing AI traces; adjacent to assistant operation but not an overview of building on-device iOS/Android assistants.",
       "author": "sachinag",
       "score": 12,
       "relevance": 5,
       "category": "ai",
       "topicSlug": "mobile-ai",
       "createdAt": "2026-11-18 13:31:45",
-      "lastSeenAt": "2026-11-20 13:30:14",
+      "lastSeenAt": "2026-11-21 13:34:05",
       "publishedAt": "2026-11-17"
     },
     {
@@ -322,15 +342,15 @@
       "source": "grounding",
       "url": "https://paradev.com/compare/best-agentic-ide",
       "title": "Best Agentic IDE in 2026: Multi-Agent Coding Tools Compared | Paradev",
-      "summary": "... For macOS on Apple Silicon and Intel. Linux AppImage is experimental. An agentic IDE is <strong>a development environment where AI agents can autonomously plan and execute multi-step coding tasks (editing files, running commands, iterating) rather than only autocompleting code</strong>.",
-      "aiSummary": "Explicitly defines an agentic IDE as an environment where AI agents autonomously plan and execute multi-step coding tasks (edit, run, iterate); very aligned with the requested concept.",
+      "summary": "An agentic IDE is <strong>a development environment where AI agents can autonomously plan and execute multi-step coding tasks (editing files, running commands, iterating) rather than only autocompleting code</strong>.",
+      "aiSummary": "Defines agentic IDEs with explicit under-the-hood workflow (plan/execute, edit files, run commands, iterate) and matches the overview intent.",
       "author": null,
       "score": 0,
       "relevance": 10,
       "category": "coding",
       "topicSlug": "coding-agents",
       "createdAt": "2026-10-26 13:34:39",
-      "lastSeenAt": "2026-11-20 13:31:06",
+      "lastSeenAt": "2026-11-21 13:34:48",
       "publishedAt": "2026-11-16"
     },
     {
@@ -370,15 +390,15 @@
       "source": "grounding",
       "url": "https://dev.to/alichherawalla/what-is-the-best-app-to-run-ai-models-offline-on-your-phone-iphone-and-android-2026-9p0",
       "title": "What Is the Best App to Run AI Models Offline on Your Phone? (iPhone and Android, 2026) - DEV Community",
-      "summary": "<strong>Google AI Edge Gallery</strong> is Google&#x27;s showcase for on-device models running on its LiteRT runtime. You can chat with Gemma models, point the camera at something and ask about it with Ask Image, and transcribe or translate a recording with Audio ...",
-      "aiSummary": "Directly about running AI models offline on iPhone and Android and mentions on-device runtimes (e.g., LiteRT); useful for approaches/constraints.",
+      "summary": "MLC Chat is still free on the App ... app hasn&#x27;t kept up, so I left it off the list. Start with your phone. <strong>On Android, Locally AI and Private LLM are out</strong>....",
+      "aiSummary": "Covers offline AI apps for iPhone/Android; useful for assistant landscape but more list/recommendation than approaches/capabilities overview.",
       "author": null,
       "score": 0,
       "relevance": 8,
       "category": "ai",
       "topicSlug": "mobile-ai",
       "createdAt": "2026-11-18 13:31:43",
-      "lastSeenAt": "2026-11-20 13:30:13",
+      "lastSeenAt": "2026-11-21 13:34:04",
       "publishedAt": "2026-11-16"
     },
     {
@@ -451,14 +471,14 @@
       "url": "https://openos.space",
       "title": "Show HN: EDNA – 100% on-device human sensing so AI can perceive the user",
       "summary": "Show HN: EDNA – 100% on-device human sensing so AI can perceive the user",
-      "aiSummary": "On-device human sensing is adjacent to on-device assistants, but it’s not specifically about iOS/Android AI assistant approaches and limitations.",
+      "aiSummary": "On-device sensing for AI perception is relevant to on-device assistants, but not clearly about iOS/Android assistant building approaches.",
       "author": "sebklaey",
       "score": 10,
       "relevance": 6,
       "category": "ai",
       "topicSlug": "mobile-ai",
       "createdAt": "2026-11-14 13:35:00",
-      "lastSeenAt": "2026-11-20 13:30:14",
+      "lastSeenAt": "2026-11-21 13:34:04",
       "publishedAt": "2026-11-14"
     },
     {
@@ -610,15 +630,15 @@
       "source": "grounding",
       "url": "https://www.activepieces.com/blog/best-agentic-ai-coding-tools-for-2026",
       "title": "Best Agentic AI Coding Tools 2026: Cursor to Claude Code",
-      "summary": "Multi-file execution: The capacity to modify multiple files simultaneously to maintain architectural consistency. Tool-use: The integration of external compilers, debuggers, and terminal environments to validate code before it reaches a human reviewer. These pillars result in output that&#x27;s functionally integrated into your existing codebase. By allowing an agent to map out a multi-step solution before writing a single line of code, autonomous planning reduces the likelihood of architectural drift.",
-      "aiSummary": "Covers agentic AI coding tools and multi-step execution concepts; somewhat less focused on IDE overview specifically.",
+      "summary": "Agentic AI coding tools like <strong>Cursor, Claude Code, and Windsurf</strong> transform developers into system architects by autonomously planning, executing, and validating multi-file engineering workflows across entire repositories.",
+      "aiSummary": "Relevant overview of agentic AI coding tools with planning/execution/validation across repos; more comparative than deeply explanatory.",
       "author": null,
       "score": 0,
       "relevance": 9,
       "category": "coding",
       "topicSlug": "coding-agents",
       "createdAt": "2026-11-07 13:34:42",
-      "lastSeenAt": "2026-11-17 02:18:53",
+      "lastSeenAt": "2026-11-21 13:34:48",
       "publishedAt": "2026-11-09"
     },
     {
@@ -803,14 +823,14 @@
       "url": "https://news.ycombinator.com/item?id=50376478",
       "title": "Ask HN: What are the fundamentals of agentic coding?",
       "summary": "Ask HN: What are the fundamentals of agentic coding?",
-      "aiSummary": "Asks about fundamentals of agentic coding; potentially helpful conceptual coverage but likely Q&A rather than a clear end-to-end agentic IDE definition.",
+      "aiSummary": "Directly about agentic coding fundamentals; likely discusses planning/tool use/execution via community answers, but snippet lacks concrete under-the-hood detail.",
       "author": "guitarlimeo",
       "score": 24,
       "relevance": 9,
       "category": "coding",
       "topicSlug": "coding-agents",
       "createdAt": "2026-11-05 13:32:30",
-      "lastSeenAt": "2026-11-20 13:31:08",
+      "lastSeenAt": "2026-11-21 13:34:49",
       "publishedAt": "2026-11-05"
     },
     {
@@ -818,15 +838,15 @@
       "source": "grounding",
       "url": "https://github.com/Mintplex-Labs/anythingllm-mobile",
       "title": "GitHub - Mintplex-Labs/anythingllm-mobile: An AI Agent that lives in your pocket. Local-first and privacy focused. · GitHub",
-      "summary": "On-device LLM inference - <strong>Run GGUF models locally with llama.rn (llama.cpp for React Native).</strong> Works with no signal at all. On-device vision - Attach images and chat about them using multimodal models, fully offline.",
-      "aiSummary": "Local-first mobile AI agent with explicit on-device inference and offline multimodal support; strong evidence for on-device assistant approach (platform details may be broader than iOS/Android).",
+      "summary": "<strong>Basically imagine Openclaw or Heremes agent, but fully on-device first, with all the tools for true utility right out of the box, but no infrastructure to set-up or depend on</strong>. ... Default Assistant Set AnythingLLM as your phone&#x27;s assistant and ...",
+      "aiSummary": "Describes a local-first, fully on-device AI agent for a phone with assistant integration; strong on-device assistant relevance though not explicitly iOS/Android implementation details.",
       "author": null,
       "score": 0,
       "relevance": 9,
       "category": "ai",
       "topicSlug": "mobile-ai",
       "createdAt": "2026-11-09 13:33:47",
-      "lastSeenAt": "2026-11-20 13:30:12",
+      "lastSeenAt": "2026-11-21 13:34:04",
       "publishedAt": "2026-11-05"
     },
     {
@@ -963,14 +983,14 @@
       "url": "https://www.nordicsemi.com/Nordic-news/2026/11/Nordic-brings-edge-AI-to-battery-powered-WiFi-devices-20-times-lower-standby-power-with-nRF71-Series",
       "title": "nRF71: Wi-Fi, Bluetooth LE, Thread, and On-Device AI on a Single Chip",
       "summary": "nRF71: Wi-Fi, Bluetooth LE, Thread, and On-Device AI on a Single Chip",
-      "aiSummary": "Edge/on-device AI hardware (nRF71) is relevant background for running assistants on-device, but it’s not specifically about iOS/Android assistant limitations.",
+      "aiSummary": "Hardware/edge AI chip enabling on-device AI; useful background but not specifically about iOS/Android assistant approaches.",
       "author": "hasheddan",
       "score": 11,
       "relevance": 6,
       "category": "ai",
       "topicSlug": "mobile-ai",
       "createdAt": "2026-11-05 13:31:23",
-      "lastSeenAt": "2026-11-20 13:30:13",
+      "lastSeenAt": "2026-11-21 13:34:05",
       "publishedAt": "2026-11-04"
     },
     {
@@ -1026,15 +1046,15 @@
       "source": "grounding",
       "url": "https://agentsroom.dev/agentic-coding",
       "title": "Agentic Coding: Autonomous AI Agents That Code | AgentsRoom",
-      "summary": "Tools: AgentsRoom + Claude / Codex / Antigravity CLI / Aider · <strong>AgentsRoom was designed from the ground up as an agentic coding platform</strong>. Every feature supports the autonomous development workflow.",
-      "aiSummary": "Agentic coding platform description with autonomous development workflow; relevant to how agentic coding works end-to-end, though less explicitly an IDE definition.",
+      "summary": "AgentsRoom handles the orchestration so you can focus on architecture. DevOps, Frontend, Backend, QA, Architect, Security, and more. Each role comes with optimized system prompts that make agents genuinely effective at autonomous coding in their domain. Watch your agentic coding agents work in real time. See who&#x27;s planning, who&#x27;s executing, who&#x27;s debugging, and who&#x27;s done.",
+      "aiSummary": "Clearly about agentic coding/autonomous coding and explicitly references planning, executing, debugging, and feedback loops.",
       "author": null,
       "score": 0,
       "relevance": 10,
       "category": "coding",
       "topicSlug": "coding-agents",
       "createdAt": "2026-06-23 13:33:39",
-      "lastSeenAt": "2026-11-20 13:31:07",
+      "lastSeenAt": "2026-11-21 13:34:48",
       "publishedAt": "2026-11-03"
     },
     {
@@ -1075,14 +1095,14 @@
       "url": "https://spectrum.ieee.org/ai-personal-assistant-intelligent-wearables",
       "title": "Consumer Appetite for Personal AI Goes Mainstream",
       "summary": "Consumer Appetite for Personal AI Goes Mainstream",
-      "aiSummary": "Discusses personal AI/wearables for consumers, but not clearly tied to specific AI app launches with launch details.",
+      "aiSummary": "General discussion of personal AI/wearables; not clearly about specific last-30-days consumer AI app launches.",
       "author": "oldnetguy",
       "score": 15,
       "relevance": 6,
       "category": "ai",
       "topicSlug": "consumer-ai-apps",
       "createdAt": "2026-11-04 13:31:36",
-      "lastSeenAt": "2026-11-20 13:30:38",
+      "lastSeenAt": "2026-11-21 13:34:28",
       "publishedAt": "2026-11-03"
     },
     {
@@ -1315,14 +1335,14 @@
       "url": "https://www.mediapost.com/publications/article/419105/meta-launches-new-ai-powered-consumer-apps.html",
       "title": "MediaDailyNews: Meta Launches AI-Powered Consumer Apps",
       "summary": "The newly launched apps both collect user data - &#x27;<strong>Waddle World</strong>,&#x27; a &#x27;pet care game,&#x27; and &#x27;Style Sketch,&#x27; an &#x27;outfit planner&#x27; that uses generative AI to recommend clothing pairings.",
-      "aiSummary": "Directly about Meta launching new AI-powered consumer apps (Waddle World, Style Sketch) with described features and audience.",
+      "aiSummary": "Directly about Meta launching new AI-powered consumer apps (Waddle World, Style Sketch) with target use cases.",
       "author": null,
       "score": 0,
       "relevance": 10,
       "category": "ai",
       "topicSlug": "consumer-ai-apps",
       "createdAt": "2026-11-01 13:29:01",
-      "lastSeenAt": "2026-11-20 13:30:38",
+      "lastSeenAt": "2026-11-21 13:34:28",
       "publishedAt": "2026-10-30"
     },
     {
@@ -1331,14 +1351,14 @@
       "url": "https://www.nbcnews.com/business/consumer/etsy-restricts-ai-generated-seller-slop-rcna605216",
       "title": "Etsy to restrict AI-generated content in effort to combat seller slop",
       "summary": "Etsy to restrict AI-generated content in effort to combat seller slop",
-      "aiSummary": "Policy/content moderation update related to AI-generated content; not about launching consumer AI productivity/apps.",
+      "aiSummary": "Consumer AI-related policy update (Etsy restrictions) but not about launching new consumer AI apps or their core features.",
       "author": "entryleveljobsc",
       "score": 0,
       "relevance": 10,
       "category": "ai",
       "topicSlug": "consumer-ai-apps",
       "createdAt": "2026-10-31 13:31:04",
-      "lastSeenAt": "2026-11-20 13:30:38",
+      "lastSeenAt": "2026-11-21 13:34:28",
       "publishedAt": "2026-10-30"
     },
     {
@@ -1523,14 +1543,14 @@
       "url": "https://www.businesstimes.com.sg/companies-markets/telcos-media-tech/meta-rolls-out-consumer-ai-agent-singapore-amid-global-safety-retail-pushback",
       "title": "Meta rolls out consumer AI agent in Singapore amid global safety, retail pushback - The Business Times",
       "summary": "From <strong>Oct 28,</strong> Singapore users can download the app from the Apple App Store or Google Play Store, establishing Muse as the first artificial intelligence (AI) personal agent designed for the mainstream consumer market.",
-      "aiSummary": "Breaking-news launch of a mainstream consumer AI agent app (Muse) with availability details and positioning for consumer market.",
+      "aiSummary": "Recent rollout of a consumer AI agent app (Muse) with download availability and mainstream consumer framing.",
       "author": null,
       "score": 0,
       "relevance": 9,
       "category": "ai",
       "topicSlug": "consumer-ai-apps",
       "createdAt": "2026-11-14 13:35:28",
-      "lastSeenAt": "2026-11-20 13:30:37",
+      "lastSeenAt": "2026-11-21 13:34:28",
       "publishedAt": "2026-10-28"
     },
     {
@@ -1619,14 +1639,14 @@
       "url": "https://github.com/stevelaskaridis/awesome-mobile-llm",
       "title": "GitHub - stevelaskaridis/awesome-mobile-llm: Awesome Mobile LLMs · GitHub",
       "summary": "OLMoE.Swift: Ai2 <strong>OLMoE is an AI chatbot powered by the OLMoE model</strong>. Unlike cloud-based AI assistants, OLMoE runs entirely on your device, ensuring complete privacy and offline accessibility—even in Flight Mode.",
-      "aiSummary": "Curated list of mobile LLMs; helpful for examples of on-device assistants, but not a focused explanation of main approaches and trade-offs.",
+      "aiSummary": "Curated mobile LLM resources; includes an on-device chatbot example, but likely not a focused overview of iOS/Android assistant approaches.",
       "author": null,
       "score": 0,
       "relevance": 10,
       "category": "ai",
       "topicSlug": "mobile-ai",
       "createdAt": "2026-06-17 13:32:18",
-      "lastSeenAt": "2026-11-18 13:31:45",
+      "lastSeenAt": "2026-11-21 13:34:06",
       "publishedAt": "2026-10-27"
     },
     {
@@ -1651,14 +1671,14 @@
       "url": "https://www.brangus.io/survival-llm",
       "title": "Survival LLM: AI assistant and emergency library that runs on your own computer",
       "summary": "Survival LLM: AI assistant and emergency library that runs on your own computer",
-      "aiSummary": "AI assistant running on your own computer; relevant to offline/local assistants but not grounded in iOS/Android assistant capabilities.",
+      "aiSummary": "Local AI assistant concept runs on your computer; somewhat relevant to on-device assistants but not iOS/Android-focused.",
       "author": "Luc",
       "score": 100,
       "relevance": 5,
       "category": "ai",
       "topicSlug": "mobile-ai",
       "createdAt": "2026-11-09 13:33:49",
-      "lastSeenAt": "2026-11-19 13:29:36",
+      "lastSeenAt": "2026-11-21 13:34:06",
       "publishedAt": "2026-10-27"
     },
     {
@@ -1691,22 +1711,6 @@
       "topicSlug": "mobile-ai",
       "createdAt": "2026-10-27 13:28:37",
       "lastSeenAt": "2026-10-27 13:28:37",
-      "publishedAt": "2026-10-26"
-    },
-    {
-      "id": 2408,
-      "source": "reddit",
-      "url": "https://www.reddit.com/r/singularity/comments/1xgaw9b/openai_says_its_ai_invented_a_new_mathematical/",
-      "title": "OpenAI says its AI invented a new mathematical technique to solve a 35-year-old mystery about how waves focus, then used the breakthrough to crack several other decades-old problems involving how waves overlap, how signals can be reconstructed, and the geometry of space.",
-      "summary": "OpenAI says its AI invented a new mathematical technique to solve a 35-year-old mystery about how waves focus, then used the breakthrough to crack several other decades-old problems involving how waves overlap, how signals can be reconstructed, and the geometry of space.",
-      "aiSummary": "General AI research news; no clear connection to mobile on-device AI assistants.",
-      "author": null,
-      "score": 33,
-      "relevance": 10,
-      "category": "ai",
-      "topicSlug": "mobile-ai",
-      "createdAt": "2026-10-29 13:32:25",
-      "lastSeenAt": "2026-10-29 13:32:25",
       "publishedAt": "2026-10-26"
     }
   ],
