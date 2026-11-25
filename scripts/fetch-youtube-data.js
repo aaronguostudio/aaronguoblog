@@ -113,7 +113,7 @@ if (!YOUTUBE_API_KEY) {
  */
 async function fetchChannelStats(channelId) {
   const url = new URL('https://www.googleapis.com/youtube/v3/channels')
-  url.searchParams.append('part', 'statistics,snippet,brandingSettings')
+  url.searchParams.append('part', 'statistics,snippet,brandingSettings,contentDetails')
   url.searchParams.append('id', channelId)
   url.searchParams.append('key', YOUTUBE_API_KEY)
 
@@ -127,6 +127,7 @@ async function fetchChannelStats(channelId) {
   const thumbnail = selectBestThumbnail(channel.snippet.thumbnails)
 
   return {
+    uploadsPlaylist: channel.contentDetails.relatedPlaylists.uploads,
     id: channel.id,
     title: decodeHtmlEntities(channel.snippet.title),
     description: decodeHtmlEntities(channel.snippet.description),
@@ -142,13 +143,11 @@ async function fetchChannelStats(channelId) {
 /**
  * Fetch videos from a channel
  */
-async function fetchVideos(channelId) {
-  const url = new URL('https://www.googleapis.com/youtube/v3/search')
-  url.searchParams.append('part', 'snippet')
-  url.searchParams.append('channelId', channelId)
+async function fetchVideos(uploadsPlaylist) {
+  const url = new URL('https://www.googleapis.com/youtube/v3/playlistItems')
+  url.searchParams.append('part', 'contentDetails')
+  url.searchParams.append('playlistId', uploadsPlaylist)
   url.searchParams.append('maxResults', MAX_RESULTS.toString())
-  url.searchParams.append('order', 'date')
-  url.searchParams.append('type', 'video')
   url.searchParams.append('key', YOUTUBE_API_KEY)
 
   const response = await fetch(url.toString())
@@ -157,10 +156,10 @@ async function fetchVideos(channelId) {
   const data = await response.json()
   if (!data.items || data.items.length === 0) return []
 
-  const videoIds = data.items.map((item) => item.id.videoId).join(',')
+  const videoIds = data.items.map((item) => item.contentDetails.videoId).join(',')
 
   const detailsUrl = new URL('https://www.googleapis.com/youtube/v3/videos')
-  detailsUrl.searchParams.append('part', 'snippet,contentDetails,statistics')
+  detailsUrl.searchParams.append('part', 'snippet,contentDetails,statistics,status')
   detailsUrl.searchParams.append('id', videoIds)
   detailsUrl.searchParams.append('key', YOUTUBE_API_KEY)
 
@@ -168,32 +167,32 @@ async function fetchVideos(channelId) {
   if (!detailsResponse.ok) throw new Error(`Failed to fetch video details: ${detailsResponse.statusText}`)
 
   const detailsData = await detailsResponse.json()
-  const detailsMap = new Map(detailsData.items.map((item) => [item.id, item]))
+  return detailsData.items
+    .filter(video => video.status.privacyStatus === 'public')
+    .sort((a, b) => b.snippet.publishedAt.localeCompare(a.snippet.publishedAt))
+    .map((details) => {
+      const duration = details.contentDetails.duration
+      const durationSeconds = parseDuration(duration)
+      const isShort = durationSeconds > 0 && durationSeconds <= 60
+      const thumbnail = selectBestThumbnail(details.snippet.thumbnails)
 
-  return data.items.map((item) => {
-    const details = detailsMap.get(item.id.videoId)
-    const duration = details?.contentDetails?.duration || 'PT0S'
-    const durationSeconds = parseDuration(duration)
-    const isShort = durationSeconds > 0 && durationSeconds <= 60
-    const thumbnail = selectBestThumbnail(details?.snippet?.thumbnails || item.snippet.thumbnails)
-
-    return {
-      id: item.id.videoId,
-      title: decodeHtmlEntities(item.snippet.title),
-      description: decodeHtmlEntities(item.snippet.description),
-      thumbnail: thumbnail.url,
-      thumbnailWidth: thumbnail.width,
-      thumbnailHeight: thumbnail.height,
-      thumbnailQuality: thumbnail.quality,
-      publishedAt: item.snippet.publishedAt,
-      duration,
-      durationSeconds,
-      isShort,
-      viewCount: parseInt(details?.statistics?.viewCount || 0),
-      likeCount: parseInt(details?.statistics?.likeCount || 0),
-      commentCount: parseInt(details?.statistics?.commentCount || 0),
-    }
-  })
+      return {
+        id: details.id,
+        title: decodeHtmlEntities(details.snippet.title),
+        description: decodeHtmlEntities(details.snippet.description),
+        thumbnail: thumbnail.url,
+        thumbnailWidth: thumbnail.width,
+        thumbnailHeight: thumbnail.height,
+        thumbnailQuality: thumbnail.quality,
+        publishedAt: details.snippet.publishedAt,
+        duration,
+        durationSeconds,
+        isShort,
+        viewCount: parseInt(details?.statistics?.viewCount || 0),
+        likeCount: parseInt(details?.statistics?.likeCount || 0),
+        commentCount: parseInt(details?.statistics?.commentCount || 0),
+      }
+    })
 }
 
 /**
@@ -216,10 +215,8 @@ async function fetchChannelData(channelConfig) {
   console.log(`\n--- ${channelConfig.handle} ---`)
   console.log('  Fetching stats and videos...')
 
-  const [channelStats, videos] = await Promise.all([
-    fetchChannelStats(channelConfig.id),
-    fetchVideos(channelConfig.id),
-  ])
+  const { uploadsPlaylist, ...channelStats } = await fetchChannelStats(channelConfig.id)
+  const videos = await fetchVideos(uploadsPlaylist)
 
   const shorts = videos.filter((v) => v.isShort)
   const regularVideos = videos.filter((v) => !v.isShort)
@@ -252,6 +249,21 @@ async function main() {
       metadata: {
         fetchedAt: new Date().toISOString(),
       },
+    }
+
+    const expectedId = process.argv.find(arg => arg.startsWith('--expect='))?.slice('--expect='.length)
+    if (expectedId && !results['ai-native-builder'].videos.some(video => video.id === expectedId)) {
+      throw new Error('The published episode is not in the public uploads feed yet')
+    }
+
+    if (process.argv.includes('--scheduled')) {
+      const previous = JSON.parse(readFileSync(OUTPUT_FILE, 'utf8'))
+      const day = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Edmonton' })
+      const sameDay = day.format(new Date(previous.metadata.fetchedAt)) === day.format(new Date())
+      // Refresh counters daily. Within the day, publish only actual catalog changes.
+      const catalog = channels => JSON.stringify(channels, (key, value) =>
+        ['subscriberCount', 'viewCount', 'commentCount', 'likeCount'].includes(key) ? undefined : value)
+      if (sameDay && catalog(previous.channels) === catalog(results)) return
     }
 
     writeFileSync(OUTPUT_FILE, JSON.stringify(outputData, null, 2), 'utf-8')

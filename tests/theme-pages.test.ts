@@ -70,7 +70,7 @@ describe('editorial page themes', () => {
     expect(page).toContain('youtubeChannels.find')
     expect(page).toContain('lg:max-w-[36rem]')
     expect(fetcher).toContain("['maxres', 'standard', 'high', 'medium', 'default']")
-    expect(fetcher).toContain("'snippet,contentDetails,statistics'")
+    expect(fetcher).toContain("'snippet,contentDetails,statistics,status'")
   })
 
   it('gives Signal disclosure rows stable gutters and icon-only controls', () => {

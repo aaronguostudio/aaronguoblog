@@ -38,6 +38,7 @@ useHead({
         <MainNotes />
       </div>
     </section>
+    <MainLatestBrief />
     <MainWriting :signal-snapshot="staticSnapshot">
       <MainChannels />
     </MainWriting>
