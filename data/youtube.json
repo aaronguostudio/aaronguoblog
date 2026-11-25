@@ -9,7 +9,7 @@
         "thumbnail": "https://yt3.ggpht.com/SWdh-WpG7y2zncoqDb4WKIyph24NRRz8ep6XxJdAdU08zGSegMMfPuLvEo1zCVpGvVlsqVIgmw=s800-c-k-c0x00ffffff-no-rj",
         "subscriberCount": 218,
         "videoCount": 126,
-        "viewCount": 100238,
+        "viewCount": 100243,
         "bannerUrl": null
       },
       "videos": [
@@ -830,7 +830,7 @@
         "customUrl": "@ai-native-builder",
         "thumbnail": "https://yt3.ggpht.com/-Ysz0GWR4v56xMiXznz2_2buYJnkeTdXUGM643yrBm8xi2Ix9EC2J3S-LTr_HAHoMjrGTkLj=s800-c-k-c0x00ffffff-no-rj",
         "subscriberCount": 197,
-        "videoCount": 29,
+        "videoCount": 30,
         "viewCount": 16287,
         "bannerUrl": null
       },
@@ -863,7 +863,7 @@
           "duration": "PT6M32S",
           "durationSeconds": 392,
           "isShort": false,
-          "viewCount": 279,
+          "viewCount": 289,
           "likeCount": 2,
           "commentCount": 0
         },
@@ -1349,7 +1349,7 @@
           "duration": "PT1M15S",
           "durationSeconds": 75,
           "isShort": false,
-          "viewCount": 1,
+          "viewCount": 2,
           "likeCount": 0,
           "commentCount": 0
         },
@@ -1607,7 +1607,7 @@
           "duration": "PT33S",
           "durationSeconds": 33,
           "isShort": true,
-          "viewCount": 4,
+          "viewCount": 2,
           "likeCount": 0,
           "commentCount": 0
         },
@@ -1623,7 +1623,7 @@
           "duration": "PT34S",
           "durationSeconds": 34,
           "isShort": true,
-          "viewCount": 251,
+          "viewCount": 248,
           "likeCount": 4,
           "commentCount": 0
         },
@@ -1655,7 +1655,7 @@
           "duration": "PT33S",
           "durationSeconds": 33,
           "isShort": true,
-          "viewCount": 84,
+          "viewCount": 86,
           "likeCount": 1,
           "commentCount": 0
         },
@@ -2148,6 +2148,6 @@
     }
   },
   "metadata": {
-    "fetchedAt": "2026-11-25T19:58:02.012Z"
+    "fetchedAt": "2026-11-25T19:59:09.402Z"
   }
 }
