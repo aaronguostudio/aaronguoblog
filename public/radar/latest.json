@@ -2,9 +2,9 @@
   "version": 1,
   "producer": "grokbot",
   "date": "2026-11-25",
-  "generatedAt": "2026-11-25T14:32:48.000Z",
+  "generatedAt": "2026-11-25T19:17:19.000Z",
   "latestRun": {
-    "completedAt": "2026-11-25T14:32:48.000Z"
+    "completedAt": "2026-11-25T19:17:19.000Z"
   },
   "topics": [
     {
@@ -44,6 +44,10 @@
       "count": 10
     },
     {
+      "source": "TechCrunch",
+      "count": 9
+    },
+    {
       "source": "The Verge",
       "count": 9
     },
@@ -52,8 +56,8 @@
       "count": 9
     },
     {
-      "source": "Zenn",
-      "count": 8
+      "source": "Android Authority",
+      "count": 9
     },
     {
       "source": "9to5Mac",
@@ -64,7 +68,11 @@
       "count": 8
     },
     {
-      "source": "TechCrunch",
+      "source": "YouTube · OpenAI",
+      "count": 8
+    },
+    {
+      "source": "Zenn",
       "count": 8
     },
     {
@@ -73,10 +81,6 @@
     },
     {
       "source": "Bilibili",
-      "count": 8
-    },
-    {
-      "source": "Android Authority",
       "count": 8
     },
     {
@@ -92,15 +96,15 @@
       "count": 8
     },
     {
+      "source": "Qiita",
+      "count": 7
+    },
+    {
       "source": "Latent Space",
       "count": 7
     },
     {
-      "source": "YouTube · OpenAI",
-      "count": 7
-    },
-    {
-      "source": "Qiita",
+      "source": "Hugging Face Blog",
       "count": 6
     },
     {
@@ -112,11 +116,11 @@
       "count": 6
     },
     {
-      "source": "IT之家",
+      "source": "CNBC",
       "count": 5
     },
     {
-      "source": "Hugging Face Blog",
+      "source": "IT之家",
       "count": 5
     },
     {
@@ -136,15 +140,7 @@
       "count": 5
     },
     {
-      "source": "Cloudflare blog",
-      "count": 5
-    },
-    {
       "source": "Ars Technica",
-      "count": 4
-    },
-    {
-      "source": "Google AI (The Keyword)",
       "count": 4
     },
     {
@@ -176,19 +172,23 @@
       "count": 4
     },
     {
-      "source": "CNBC",
-      "count": 3
+      "source": "Cloudflare blog",
+      "count": 4
     },
     {
       "source": "The Pragmatic Engineer",
       "count": 3
     },
     {
-      "source": "X @theo",
+      "source": "Google Research",
       "count": 3
     },
     {
-      "source": "Google DeepMind",
+      "source": "Google AI (The Keyword)",
+      "count": 3
+    },
+    {
+      "source": "X @theo",
       "count": 3
     },
     {
@@ -228,7 +228,7 @@
       "count": 2
     },
     {
-      "source": "Google Research",
+      "source": "Google DeepMind",
       "count": 2
     },
     {
@@ -266,6 +266,10 @@
     {
       "source": "GitHub releases cline/cline",
       "count": 2
+    },
+    {
+      "source": "X @darioamodei",
+      "count": 1
     },
     {
       "source": "Cloudflare",
@@ -661,6 +665,186 @@
     }
   ],
   "items": [
+    {
+      "id": "88bd06d7e0e9b82f43a3c7b4",
+      "title": "Where scientists draw the line on AI agents",
+      "url": "https://huggingface.co/blog/allenai/where-scientists-draw-the-line-on-ai-agents",
+      "source": "Hugging Face Blog",
+      "publishedAt": "2026-11-25T18:52:55.000Z",
+      "category": "general",
+      "topicSlug": "general"
+    },
+    {
+      "id": "9ed88987e3d50e1ec702df52",
+      "title": "1Password said hackers broke into its internal systems, but customer passwords are safe",
+      "url": "https://techcrunch.com/2026/11/25/1password-said-hackers-broke-into-its-internal-systems-but-customer-passwords-are-safe/",
+      "source": "TechCrunch",
+      "publishedAt": "2026-11-25T18:49:52.000Z",
+      "category": "general",
+      "topicSlug": "general"
+    },
+    {
+      "id": "6b9a193bbb38041da94de93f",
+      "title": "SpaceX wins FCC approval to deploy 1 million orbital data center satellites",
+      "url": "https://www.cnbc.com/2026/11/25/spacex-fcc-satellite-approval.html",
+      "source": "CNBC",
+      "publishedAt": "2026-11-25T18:22:59.000Z",
+      "category": "general",
+      "topicSlug": "general"
+    },
+    {
+      "id": "34fd211e40ab5d944d529b52",
+      "title": "No, I do not believe that we should “surrender human free will” to AI systems, and it’s absurd to suggest that I do.",
+      "url": "https://x.com/darioamodei/status/2125656399392690605",
+      "source": "X @darioamodei",
+      "publishedAt": "2026-11-25T18:22:33.000Z",
+      "category": "general",
+      "topicSlug": "general"
+    },
+    {
+      "id": "8b23f29d590b586f5e61e5b4",
+      "title": "Want to buy your kid an AI toy this Christmas? Not in New York",
+      "url": "https://techcrunch.com/2026/11/25/want-to-buy-your-kid-an-ai-toy-this-christmas-not-in-new-york/",
+      "source": "TechCrunch",
+      "publishedAt": "2026-11-25T18:11:46.000Z",
+      "category": "ai",
+      "topicSlug": "consumer-ai-apps"
+    },
+    {
+      "id": "0317290573c7d70f598bbc0b",
+      "title": "Apple touts ‘longest battery life ever in an iPhone’ in playful new 18 Pro Max ad",
+      "url": "https://9to5mac.com/2026/11/25/apple-touts-longest-battery-life-ever-in-an-iphone-in-playful-new-18-pro-max-ad/",
+      "source": "9to5Mac",
+      "publishedAt": "2026-11-25T18:11:34.000Z",
+      "category": "ai",
+      "topicSlug": "mobile-ai"
+    },
+    {
+      "id": "4f570faddc68b16cdd8fc9d7",
+      "title": "The Fairphone 6 Plus is modular, repairable, and $100 off right now",
+      "url": "https://www.theverge.com/gadgets/1041460/fairphone-6-plus-repairable-phone-black-friday-2026-deal-sale",
+      "source": "The Verge",
+      "publishedAt": "2026-11-25T18:00:00.000Z",
+      "category": "ai",
+      "topicSlug": "mobile-ai"
+    },
+    {
+      "id": "431988d54f2cbc15f2c92536",
+      "title": "Britain's ghost stations",
+      "url": "https://spectator.com/article/britains-ghost-stations-are-fascinating/",
+      "source": "Hacker News",
+      "publishedAt": "2026-11-25T17:43:46.000Z",
+      "category": "general",
+      "topicSlug": "general"
+    },
+    {
+      "id": "5b2e3451b1a570f55bbadfb6",
+      "title": "State AGs fight Character AI’s plan to auction off users’ private chats",
+      "url": "https://techcrunch.com/2026/11/25/state-ags-fight-character-ais-plan-to-auction-off-users-private-chats/",
+      "source": "TechCrunch",
+      "publishedAt": "2026-11-25T17:35:58.000Z",
+      "category": "ai",
+      "topicSlug": "personal-ai-systems"
+    },
+    {
+      "id": "cbbac7c3e4543d8e26ad6f38",
+      "title": "How Anthropic builds software in 2026 with Katelyn Lesse",
+      "url": "https://newsletter.pragmaticengineer.com/p/how-anthropic-builds-software-in",
+      "source": "The Pragmatic Engineer",
+      "publishedAt": "2026-11-25T17:31:32.000Z",
+      "category": "general",
+      "topicSlug": "general"
+    },
+    {
+      "id": "c232ab95006f02e0b53c6351",
+      "title": "Verifiable Social Reasoning for LLM Assistants",
+      "url": "https://research.google/blog/verifiable-social-reasoning-for-llm-assistants/",
+      "source": "Google Research",
+      "publishedAt": "2026-11-25T17:10:27.000Z",
+      "category": "general",
+      "topicSlug": "general"
+    },
+    {
+      "id": "66a59f8b1cb718e6b6a083f1",
+      "title": "Nvidia leads tech sell-off as Huang comeback rally fizzles and AI concerns return",
+      "url": "https://www.cnbc.com/2026/11/25/nvidia-ai-stock-tech-selloff.html",
+      "source": "CNBC",
+      "publishedAt": "2026-11-25T17:10:17.000Z",
+      "category": "general",
+      "topicSlug": "general"
+    },
+    {
+      "id": "2657378cc9a01249adc524ec",
+      "title": "How data centers are driving a US natural-gas boom",
+      "url": "https://www.technologyreview.com/2026/11/25/1149836/data-centers-gas-power-plants/",
+      "source": "MIT Technology Review",
+      "publishedAt": "2026-11-25T17:00:00.000Z",
+      "category": "general",
+      "topicSlug": "general"
+    },
+    {
+      "id": "e5f0adb554e78c6cdaef6e94",
+      "title": "School Day | Make a day do anything with ChatGPT (Official)",
+      "url": "https://www.youtube.com/watch?v=kfGYU_-SuaE",
+      "source": "YouTube · OpenAI",
+      "publishedAt": "2026-11-25T16:45:33.000Z",
+      "category": "ai",
+      "topicSlug": "consumer-ai-apps"
+    },
+    {
+      "id": "a2507683600766584df03d2b",
+      "title": "Black Friday deals: PROLED touch MacBook $290 off, AirPods Pro 3 $100 off, OLED iPad mini $100 off, Watch, much more",
+      "url": "https://9to5mac.com/2026/11/25/black-friday-deals-proled-macbook-airpods-ipad-mini/",
+      "source": "9to5Mac",
+      "publishedAt": "2026-11-25T16:29:00.000Z",
+      "category": "ai",
+      "topicSlug": "ai-wearables"
+    },
+    {
+      "id": "927dd6b10beb1b9592b8a7f1",
+      "title": "Nothing offers a full look at its AI earbuds and charging case",
+      "url": "https://www.theverge.com/gadgets/1042162/nothing-ear-note-ai-earbuds-reveal",
+      "source": "The Verge",
+      "publishedAt": "2026-11-25T16:00:59.000Z",
+      "category": "ai",
+      "topicSlug": "ai-wearables"
+    },
+    {
+      "id": "ef02d096cf97eadcf115b879",
+      "title": "AI data centers are becoming harder to build, and neoclouds are feeling it",
+      "url": "https://techcrunch.com/podcast/ai-data-centers-are-becoming-harder-to-build-and-neoclouds-are-feeling-it/",
+      "source": "TechCrunch",
+      "publishedAt": "2026-11-25T15:41:43.000Z",
+      "category": "general",
+      "topicSlug": "general"
+    },
+    {
+      "id": "65eafc36013aeab5d7d8c960",
+      "title": "Samsung quietly expands Modes and Routines with AI and 7 presets in One UI 9.5",
+      "url": "https://www.androidauthority.com/samsung-one-ui-9-5-modes-and-routines-ask-ai-presets-apk-teardown-3738354/",
+      "source": "Android Authority",
+      "publishedAt": "2026-11-25T15:06:17.000Z",
+      "category": "ai",
+      "topicSlug": "consumer-ai-apps"
+    },
+    {
+      "id": "0bee2e184b29abb19452900a",
+      "title": "Museの週間トークン使用率を可視化する「Muse利用状況」スペースを作るプロンプト",
+      "url": "https://qiita.com/d_yan/items/e5fc8ebee3bba4df6123",
+      "source": "Qiita",
+      "publishedAt": "2026-11-25T14:16:02.000Z",
+      "category": "ai",
+      "topicSlug": "personal-ai-systems"
+    },
+    {
+      "id": "0dfce4cc370271b3e5c27623",
+      "title": "Finances in ChatGPT: A Beginner’s Guide",
+      "url": "https://www.youtube.com/watch?v=hwKct_1ilEQ",
+      "source": "YouTube · OpenAI",
+      "publishedAt": "2026-11-25T14:00:28.000Z",
+      "category": "ai",
+      "topicSlug": "consumer-ai-apps"
+    },
     {
       "id": "fe1b5044b969b6eb0dd4530b",
       "title": "I Listened to ‘Sandstorm’ Through a Sex Toy",
@@ -1076,6 +1260,15 @@
       "topicSlug": "general"
     },
     {
+      "id": "df3be113c8aed13fbadf7f5f",
+      "title": "Hill-climbing Inkling 2 Mini inference on one RTX PRO 6000",
+      "url": "https://huggingface.co/blog/inkling-2-mini-inference-hillclimb",
+      "source": "Hugging Face Blog",
+      "publishedAt": "2026-11-25T00:00:00.000Z",
+      "category": "general",
+      "topicSlug": "general"
+    },
+    {
       "id": "c5d0c4cbe360ccfd3b191019",
       "title": "Serving Qwen via 5,600 Lambdas for fun and 80x negative profit",
       "url": "https://noahbuilt.it/writing/qwen-on-5600-lambdas",
@@ -1220,24 +1413,6 @@
       "topicSlug": "coding-agents"
     },
     {
-      "id": "a18f6caa7fc18d5b78fd6852",
-      "title": "Walmart teams up with Meta to bring Black Friday deals to AI agent Muse",
-      "url": "https://techcrunch.com/2026/11/24/walmart-teams-up-with-meta-to-bring-black-friday-deals-to-ai-agent-muse/",
-      "source": "TechCrunch",
-      "publishedAt": "2026-11-24T21:32:38.000Z",
-      "category": "general",
-      "topicSlug": "general"
-    },
-    {
-      "id": "9fd8a5bde39c37e2783d0108",
-      "title": "Maple raises $5.3M to build AI products that protect your data, even from itself",
-      "url": "https://techcrunch.com/2026/11/24/maple-raises-5-3m-to-build-ai-products-that-protect-your-data-even-from-itself/",
-      "source": "TechCrunch",
-      "publishedAt": "2026-11-24T21:19:52.000Z",
-      "category": "general",
-      "topicSlug": "general"
-    },
-    {
       "id": "1b60b7ab8cccc4c4d6cd2cf4",
       "title": "New Gemini setting lets you keep chat history, but turn off AI training [U]",
       "url": "https://9to5google.com/2026/11/24/gemini-history-ai-training/",
@@ -1281,15 +1456,6 @@
       "publishedAt": "2026-11-24T19:56:34.000Z",
       "category": "ai",
       "topicSlug": "consumer-ai-apps"
-    },
-    {
-      "id": "ac64a3fde082e22a8cc6a41e",
-      "title": "Ask HN: Am I the only one whose AI hype is cooling down a lot?",
-      "url": "https://news.ycombinator.com/item?id=50633601",
-      "source": "Hacker News",
-      "publishedAt": "2026-11-24T19:51:01.000Z",
-      "category": "general",
-      "topicSlug": "general"
     },
     {
       "id": "0c752685bbc25d9d2bc8bdc1",
@@ -1355,15 +1521,6 @@
       "topicSlug": "general"
     },
     {
-      "id": "a15f266d5fa6e5a5fe678e8e",
-      "title": "UK warns AI-driven cyberattacks are exposing years of weak security",
-      "url": "https://techcrunch.com/2026/11/24/uk-warns-ai-driven-cyberattacks-are-exposing-years-of-weak-security/",
-      "source": "TechCrunch",
-      "publishedAt": "2026-11-24T18:02:59.000Z",
-      "category": "general",
-      "topicSlug": "general"
-    },
-    {
       "id": "e612b5415dc5213a765ebf46",
       "title": "Tidal announces ban on AI-generated music; 27 million tracks will be deleted",
       "url": "https://arstechnica.com/ai/2026/11/tidal-will-ban-fully-ai-generated-music-on-december-9/",
@@ -1387,15 +1544,6 @@
       "url": "https://www.youtube.com/watch?v=2DUJ2whBJRM",
       "source": "YouTube · OpenAI",
       "publishedAt": "2026-11-24T17:14:03.000Z",
-      "category": "ai",
-      "topicSlug": "consumer-ai-apps"
-    },
-    {
-      "id": "dc4c49c102f94ec2957cbb35",
-      "title": "School Day | Make A Day Do Anything with ChatGPT",
-      "url": "https://www.youtube.com/watch?v=bGiFYYrmnAg",
-      "source": "YouTube · OpenAI",
-      "publishedAt": "2026-11-24T17:09:11.000Z",
       "category": "ai",
       "topicSlug": "consumer-ai-apps"
     },
@@ -1517,15 +1665,6 @@
       "topicSlug": "consumer-ai-apps"
     },
     {
-      "id": "598f8a888796a28ea9fbd723",
-      "title": "PSA: AirPods Pro 3 are back in stock for $149 ($100 off)",
-      "url": "https://9to5mac.com/2026/11/24/airpods-pro-3-best-black-friday-price/",
-      "source": "9to5Mac",
-      "publishedAt": "2026-11-24T15:39:45.000Z",
-      "category": "ai",
-      "topicSlug": "ai-wearables"
-    },
-    {
       "id": "89335320727d8b60994a248c",
       "title": "Raising the stakes for enterprise networks with AI modernization",
       "url": "https://www.technologyreview.com/2026/11/24/1148091/raising-the-stakes-for-enterprise-networks-with-ai-modernization/",
@@ -1580,6 +1719,15 @@
       "topicSlug": "ai-wearables"
     },
     {
+      "id": "60c1d763294a084d645f89f4",
+      "title": "月薪18k的ai应用开发工程师，现在一个offer都没有了",
+      "url": "https://www.bilibili.com/video/av117671802706042",
+      "source": "Bilibili",
+      "publishedAt": "2026-11-24T14:11:01.000Z",
+      "category": "ai",
+      "topicSlug": "consumer-ai-apps"
+    },
+    {
       "id": "fdc6d1b1be3da9202139d385",
       "title": "🚀T3 Code完整使用教程！比Orca更好用的开源AI IDE？手机下发任务！1条指令拉起多个AI线程并行改代码！统一调度Claude Code、Codex",
       "url": "https://www.bilibili.com/video/av117671802705979",
@@ -1587,15 +1735,6 @@
       "publishedAt": "2026-11-24T14:09:25.000Z",
       "category": "coding",
       "topicSlug": "coding-agents"
-    },
-    {
-      "id": "ee7c5db7bbacb7f4b87f7838",
-      "title": "iPhone Handoff: Here’s the latest on carrier availability and pricing",
-      "url": "https://9to5mac.com/2026/11/24/iphone-handoff-carriers-support-ios-27/",
-      "source": "9to5Mac",
-      "publishedAt": "2026-11-24T13:40:56.000Z",
-      "category": "ai",
-      "topicSlug": "mobile-ai"
     },
     {
       "id": "147d5e7cb3993f801e260dba",
@@ -1778,11 +1917,11 @@
       "topicSlug": "coding-agents"
     },
     {
-      "id": "1e909a888319f49cdc34914b",
-      "title": "炸弹人时光倒流，坦克造炮塔，我用这台手机实现童年游戏梦",
-      "url": "https://www.bilibili.com/video/av117664672451187",
+      "id": "04532d423213b8f743d20459",
+      "title": "【牛圣/褪色的老牛】库洛投资的AI公司翻车，刷了5千虚假投票,在盲测对决里时胜率刷出了99%的逆天偏好,实则只有33%,还矢口否认。买票刷榜?只能说有库洛没意外",
+      "url": "https://www.bilibili.com/video/av117669252566077",
       "source": "Bilibili",
-      "publishedAt": "2026-11-24T03:00:00.000Z",
+      "publishedAt": "2026-11-24T03:22:07.000Z",
       "category": "ai",
       "topicSlug": "mobile-ai"
     },
@@ -1794,15 +1933,6 @@
       "publishedAt": "2026-11-24T02:57:56.000Z",
       "category": "general",
       "topicSlug": "general"
-    },
-    {
-      "id": "53157dd453649010c17e161f",
-      "title": "爽文照进现实，黄仁勋再次回归！【英伟达风暴始末分析】",
-      "url": "https://www.bilibili.com/video/av117668833139439",
-      "source": "Bilibili",
-      "publishedAt": "2026-11-24T02:54:15.000Z",
-      "category": "coding",
-      "topicSlug": "coding-agents"
     },
     {
       "id": "6ff14787182c834069afa0af",
@@ -2057,15 +2187,6 @@
       "topicSlug": "general"
     },
     {
-      "id": "4ce697c6dbd75e8a8795f7ef",
-      "title": "Welcome to elite impunity, Jensen Huang",
-      "url": "https://www.theverge.com/ai-artificial-intelligence/1040819/welcome-to-elite-impunity-jensen-huang",
-      "source": "The Verge",
-      "publishedAt": "2026-11-23T22:09:26.000Z",
-      "category": "general",
-      "topicSlug": "general"
-    },
-    {
       "id": "4cd5332bd463576492b55610",
       "title": "We’re introducing Shirudo, an open-source Linux runtime allowing agents to defend systems without downtime.",
       "url": "https://x.com/OpenAI/status/2124980590717911527",
@@ -2082,15 +2203,6 @@
       "publishedAt": "2026-11-23T21:30:44.000Z",
       "category": "ai",
       "topicSlug": "consumer-ai-apps"
-    },
-    {
-      "id": "b6aa410db677fb56592177cd",
-      "title": "AI data centers throw another wrench into chaotic UN climate talks",
-      "url": "https://www.theverge.com/science/1040497/ai-data-centers-electricity-un-climate-summit",
-      "source": "The Verge",
-      "publishedAt": "2026-11-23T21:09:37.000Z",
-      "category": "general",
-      "topicSlug": "general"
     },
     {
       "id": "bcbec71eecd123113303f40c",
@@ -2406,15 +2518,6 @@
       "publishedAt": "2026-11-23T11:42:00.000Z",
       "category": "coding",
       "topicSlug": "coding-agents"
-    },
-    {
-      "id": "82cbb51768979670393b2a33",
-      "title": "Why using rocks for carbon removal could eventually reduce crop growth",
-      "url": "https://www.technologyreview.com/2026/11/23/1149392/why-using-rocks-for-carbon-removal-could-eventually-reduce-crop-growth/",
-      "source": "MIT Technology Review",
-      "publishedAt": "2026-11-23T11:00:00.000Z",
-      "category": "general",
-      "topicSlug": "general"
     },
     {
       "id": "40718baab14d75f4aa78a510",
@@ -3844,51 +3947,6 @@
       "url": "https://huggingface.co/blog/RadixArk/daisyrose-27b-pushing-the-frontier-of-post-trainin",
       "source": "Hugging Face Blog",
       "publishedAt": "2026-11-18T19:54:56.000Z",
-      "category": "general",
-      "topicSlug": "general"
-    },
-    {
-      "id": "cac57b5217ba2caa29c847df",
-      "title": "Genie 4 is now available",
-      "url": "https://deepmind.google/blog/genie-4-is-now-available/",
-      "source": "Google DeepMind",
-      "publishedAt": "2026-11-18T18:13:42.000Z",
-      "category": "general",
-      "topicSlug": "general"
-    },
-    {
-      "id": "8f48c3599f5e6e237507cb0c",
-      "title": "Software factories and code reviews with Harjot Gill",
-      "url": "https://newsletter.pragmaticengineer.com/p/software-factories-and-code-reviews",
-      "source": "The Pragmatic Engineer",
-      "publishedAt": "2026-11-18T18:08:52.000Z",
-      "category": "general",
-      "topicSlug": "general"
-    },
-    {
-      "id": "00a064e6720eae62fd0b2612",
-      "title": "The Gemini app is now available on lower-memory Android devices.",
-      "url": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-lower-memory-devices/",
-      "source": "Google AI (The Keyword)",
-      "publishedAt": "2026-11-18T17:00:00.000Z",
-      "category": "ai",
-      "topicSlug": "consumer-ai-apps"
-    },
-    {
-      "id": "aef632472a5e3af7f91b4cd9",
-      "title": "Time-Series Models in the Streamhouse: A New Frontier and Use Cases",
-      "url": "https://huggingface.co/blog/ibm-research/time-series-powered-streamhouse",
-      "source": "Hugging Face Blog",
-      "publishedAt": "2026-11-18T15:00:23.000Z",
-      "category": "general",
-      "topicSlug": "general"
-    },
-    {
-      "id": "a0792ea92321f1439be1e94c",
-      "title": "How Cloudflare WAF helps protect against Java4Shell (CVE-2026-114938)",
-      "url": "https://blog.cloudflare.com/java4shell-waf-protection/",
-      "source": "Cloudflare blog",
-      "publishedAt": "2026-11-18T14:52:10.000Z",
       "category": "general",
       "topicSlug": "general"
     }
