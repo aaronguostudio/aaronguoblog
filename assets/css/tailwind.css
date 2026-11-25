@@ -231,15 +231,11 @@ body {
 
 /* Signal keeps its research-desk identity while inheriting the site theme. */
 .signal-page {
-  --signal-accent: #0e7490;
-  --signal-accent-hover: #155e75;
-  --signal-accent-ink: #ffffff;
-  --signal-accent-soft: rgb(14 116 144 / 0.055);
-  --signal-accent-glow: rgb(14 116 144 / 0.1);
+  --signal-accent: #44403c;
   --signal-line: color-mix(in srgb, var(--foreground) 11%, transparent);
   --signal-line-strong: color-mix(in srgb, var(--foreground) 18%, transparent);
-  --signal-row-hover: rgb(14 116 144 / 0.035);
-  --signal-row-focus: rgb(14 116 144 / 0.06);
+  --signal-row-hover: rgb(68 64 60 / 0.035);
+  --signal-row-focus: rgb(68 64 60 / 0.06);
   --signal-control: color-mix(in srgb, var(--foreground) 3.5%, transparent);
   --signal-control-border: color-mix(in srgb, var(--foreground) 14%, transparent);
   --signal-sticky: color-mix(in srgb, var(--background) 94%, transparent);
@@ -249,11 +245,7 @@ body {
 }
 
 .dark .signal-page {
-  --signal-accent: #67e8f9;
-  --signal-accent-hover: #a5f3fc;
-  --signal-accent-ink: #061014;
-  --signal-accent-soft: rgb(103 232 249 / 0.045);
-  --signal-accent-glow: rgb(34 211 238 / 0.1);
+  --signal-accent: #d6d3d1;
   --signal-line: rgb(255 255 255 / 0.1);
   --signal-line-strong: rgb(255 255 255 / 0.16);
   --signal-row-hover: rgb(255 255 255 / 0.022);
@@ -325,19 +317,4 @@ body {
 .signal-row:focus-visible .signal-disclosure {
   border-color: color-mix(in srgb, var(--signal-accent) 48%, transparent);
   color: var(--signal-accent);
-}
-
-.signal-primary-button {
-  background: var(--signal-accent);
-  color: var(--signal-accent-ink);
-}
-
-.signal-primary-button:hover {
-  background: var(--signal-accent-hover);
-}
-
-.signal-thesis {
-  border-color: color-mix(in srgb, var(--signal-accent) 62%, transparent);
-  background: var(--signal-accent-soft);
-  box-shadow: 0 0 64px var(--signal-accent-glow);
 }

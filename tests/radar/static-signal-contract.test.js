@@ -1,10 +1,10 @@
 import { existsSync, readFileSync } from 'node:fs'
 import { describe, expect, it } from 'vitest'
 
-const SIGNAL_PAGE = readFileSync(new URL('../../pages/signal.vue', import.meta.url), 'utf8')
+const SIGNAL_PAGE = readFileSync(new URL('../../pages/signal/index.vue', import.meta.url), 'utf8')
 const SIGNAL_BRIEFS_DATA = new URL('../../data/signal/briefs.ts', import.meta.url)
 const SIGNAL_BRIEFS_COMPONENT = new URL('../../components/signal/Briefs.vue', import.meta.url)
-const SIGNAL_HERO_COMPONENT = new URL('../../components/signal/Hero.vue', import.meta.url)
+const SIGNAL_FINDING_COMPONENT = new URL('../../components/signal/EditionFinding.vue', import.meta.url)
 const SIGNAL_PULSE_COMPONENT = new URL('../../components/signal/Pulse.vue', import.meta.url)
 const EN_SIGNAL_BRIEF_BLOG_POST = new URL(
   '../../content/blogs/en/26.signal-brief-ai-native-work-2026-06-21.md',
@@ -102,25 +102,25 @@ describe('static Signal contract', () => {
   })
 
   it('renders Signal as a wider research desk product surface', () => {
-    expect(existsSync(SIGNAL_HERO_COMPONENT)).toBe(true)
+    expect(existsSync(SIGNAL_FINDING_COMPONENT)).toBe(true)
     expect(existsSync(SIGNAL_PULSE_COMPONENT)).toBe(true)
-    expect(SIGNAL_PAGE).toContain('<SignalHero')
+    expect(SIGNAL_PAGE).toContain('<SignalEditionFinding :edition="signalEditions[0]"')
     expect(SIGNAL_PAGE).toContain('<SignalPulse')
-    expect(SIGNAL_PAGE).toContain('const focusedThread = computed')
-    expect(SIGNAL_PAGE).toContain('const heroEyebrow = computed')
+    expect(SIGNAL_PAGE).not.toContain('focusedThread')
+    expect(SIGNAL_PAGE).toContain('signal.radarReadout')
     expect(SIGNAL_PAGE).toContain('const pulseCards = computed')
     expect(SIGNAL_PAGE).toContain('showPulseEvidence')
     expect(SIGNAL_PAGE).toContain('selectFreshestSignalPulse')
     expect(SIGNAL_PAGE).toContain('server: false')
     expect(SIGNAL_PAGE).toContain('max-w-[90rem]')
 
-    const signalHeroComponent = readFileSync(SIGNAL_HERO_COMPONENT, 'utf8')
+    const findingComponent = readFileSync(SIGNAL_FINDING_COMPONENT, 'utf8')
     const signalPulseComponent = readFileSync(SIGNAL_PULSE_COMPONENT, 'utf8')
 
-    expect(signalHeroComponent).toContain('visibleEvidence')
-    expect(signalHeroComponent).toContain('hiddenEvidenceCount')
-    expect(signalHeroComponent).toContain('ph:git-merge-duotone')
-    expect(signalHeroComponent).not.toContain('sourceMixRows')
+    expect(findingComponent).toContain('edition.signal.claim[language]')
+    expect(findingComponent).toContain('edition.signal.nextCheck[language]')
+    expect(findingComponent).toContain('v-for="item in edition.items"')
+    expect(findingComponent).toContain(':href="item.evidence"')
     expect(signalPulseComponent).toContain('pulseCards')
     expect(signalPulseComponent).toContain('machineLabel')
     expect(signalPulseComponent).toContain('v-if="open"')

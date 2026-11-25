@@ -134,7 +134,7 @@ function isActive(path: string, exact = false) {
 
       <!-- Mobile menu button -->
       <button
-        class="2xl:hidden p-2 rounded-md hover:bg-secondary"
+        class="xl:hidden p-2 rounded-md hover:bg-secondary"
         aria-label="Toggle menu"
         @click="toggleMobileMenu"
       >
@@ -142,9 +142,9 @@ function isActive(path: string, exact = false) {
       </button>
 
       <!-- Desktop Navigation -->
-      <nav class="hidden 2xl:flex items-center space-x-6">
+      <nav class="hidden xl:flex items-center space-x-4 2xl:space-x-6">
         <!-- Navigation Links -->
-        <ul class="flex items-center space-x-6 text-sm sm:text-base">
+        <ul class="flex items-center space-x-4 text-sm 2xl:space-x-6 2xl:text-base">
           <li v-for="item in navItems" :key="item.path">
             <NuxtLink
               :to="item.path.startsWith('https://') ? item.path : localePath(item.path)"
@@ -207,7 +207,7 @@ function isActive(path: string, exact = false) {
     </div>
 
     <!-- Mobile Navigation Menu -->
-    <div v-show="isMobileMenuOpen" id="mobile-site-navigation" class="2xl:hidden">
+    <div v-show="isMobileMenuOpen" id="mobile-site-navigation" class="xl:hidden">
       <nav class="container max-w-8xl mx-auto px-4 py-4 flex flex-col space-y-4">
         <ul class="flex flex-col space-y-3">
           <li v-for="item in navItems" :key="item.path">

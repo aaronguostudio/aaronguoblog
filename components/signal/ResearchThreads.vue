@@ -44,20 +44,14 @@ const horizonMeta = computed(() => ({
   now: {
     label: props.nowLabel,
     icon: 'ph:pulse',
-    labelClass: 'text-cyan-700 dark:text-cyan-300',
-    dotClass: 'bg-cyan-600 dark:bg-cyan-300',
   },
   emerging: {
     label: props.emergingLabel,
     icon: 'ph:circles-three-plus',
-    labelClass: 'text-violet-700 dark:text-violet-300',
-    dotClass: 'bg-violet-600 dark:bg-violet-300',
   },
   watch: {
     label: props.watchLabel,
     icon: 'ph:eye',
-    labelClass: 'text-amber-700 dark:text-amber-300',
-    dotClass: 'bg-amber-600 dark:bg-amber-300',
   },
 }))
 
@@ -103,8 +97,7 @@ function toggleThread(slug: string) {
           <span class="flex items-center gap-3">
             <Icon :name="horizonMeta[thread.horizon].icon" class="h-5 w-5 text-muted-foreground" />
             <span
-              class="font-mono text-[11px] font-semibold uppercase tracking-[0.16em]"
-              :class="horizonMeta[thread.horizon].labelClass"
+              class="font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground"
             >
               {{ horizonMeta[thread.horizon].label }}
             </span>
@@ -112,8 +105,7 @@ function toggleThread(slug: string) {
 
           <span class="flex min-w-0 items-center gap-4">
             <span
-              class="hidden h-2 w-2 shrink-0 rounded-full sm:block"
-              :class="horizonMeta[thread.horizon].dotClass"
+              class="hidden h-2 w-2 shrink-0 rounded-full bg-current sm:block"
             />
             <span
               class="text-base font-medium leading-snug text-foreground opacity-80 transition-opacity group-hover:opacity-100 sm:text-lg"

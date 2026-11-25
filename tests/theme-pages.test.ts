@@ -19,18 +19,19 @@ describe('editorial page themes', () => {
   })
 
   it('gives Signal semantic light and dark palettes without a forced dark root', () => {
-    const page = read('pages', 'signal.vue')
+    const page = read('pages', 'signal', 'index.vue')
     const styles = read('assets', 'css', 'tailwind.css')
-    const components = ['Hero.vue', 'Pulse.vue', 'ResearchThreads.vue', 'Briefs.vue']
+    const components = ['EditionFinding.vue', 'Pulse.vue', 'ResearchThreads.vue', 'Briefs.vue']
       .map((file) => read('components', 'signal', file))
       .join('\n')
 
     expect(page).toContain('<div class="signal-page">')
     expect(page).not.toContain('<div class="dark')
+    expect(read('components', 'signal', 'ReadingDesk.vue')).not.toContain('site-header-glass')
     expect(styles).toContain('.signal-page {')
     expect(styles).toContain('.dark .signal-page {')
-    expect(styles).toContain('--signal-accent: #0e7490')
-    expect(styles).toContain('--signal-accent: #67e8f9')
+    expect(styles).toContain('--signal-accent: #44403c')
+    expect(styles).toContain('--signal-accent: #d6d3d1')
     expect(components).not.toMatch(/(?:border|divide)-white/)
     expect(components).not.toContain('text-[#f8f1e4]')
   })
@@ -76,7 +77,7 @@ describe('editorial page themes', () => {
     const threads = read('components', 'signal', 'ResearchThreads.vue')
     const briefs = read('components', 'signal', 'Briefs.vue')
     const pulse = read('components', 'signal', 'Pulse.vue')
-    const signalPage = read('pages', 'signal.vue')
+    const signalPage = read('pages', 'signal', 'index.vue')
 
     expect(threads).toContain('signal-disclosure')
     expect(briefs).toContain('signal-disclosure')

@@ -310,3 +310,13 @@ final result: passed
 - Targeted ESLint and Prettier checks passed. Both targeted Vitest suites passed: 14/14 tests.
 
 final result: passed
+
+## Signal constellation edition
+
+The first approved cover illustration is the visual reference for the November 24 issue. The desktop comparison used a 1586 × 992 CSS viewport with a measured device pixel ratio of 0.92. Local captures are available in `tmp/cover-qa/Signal.webp` (desktop), `tmp/cover-qa/atlas-compare.png` (comparison), and `tmp/cover-qa/mobile-reader.jpg` (mobile reading).
+
+The desktop cover preserves the engraved navy-and-gold atlas, three connected stars, large serif issue title and adjacent reader. The engraving was recreated for responsive cropping, and the live bilingual edition supplies the titles and source labels. Visual review led to adjustments to the active star glow and Chinese label wrapping.
+
+Clicking the stars updates the selected article and source. Keyboard selection also works on the English page. On mobile, selection scrolls to the reader, and the return control restores focus to the chosen star. The mobile layout showed no horizontal overflow. The eclipse, field notes and aurora layouts were also previewed with the same edition data. Local verification passed lint, all 303 tests and the full site build.
+
+final result: passed

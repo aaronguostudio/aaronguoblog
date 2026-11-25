@@ -1,0 +1,67 @@
+{
+  "cover": "atlas",
+  "date": "2026-11-24",
+  "headline": {
+    "en": "What would make you keep an agent’s change?",
+    "zh": "Agent 改完了，凭什么留下这次改动？"
+  },
+  "intro": {
+    "en": "A benchmark grader, a Rust port and an internal agent skill each offer a different way to get a convincing result for the wrong reason.",
+    "zh": "一道评测题、一段重写的 Rust 代码、一项给 Agent 新装的技能，都可能交出漂亮的成绩。接下来该检查什么？"
+  },
+  "items": [
+    {
+      "id": "p_a4ea85254a88a379",
+      "title": {
+        "en": "Can the grader catch a swapped answer?",
+        "zh": "把两个数字对调，评分器看得出来吗？"
+      },
+      "note": {
+        "en": "Eugene Yan reviewed twelve public benchmarks and found reports of graders rejecting valid work in eight. One AutomationBench check has the opposite problem. It looks for both counts in an email, so swapping the counts can still pass. The review identifies failure modes. It does not estimate how often your own grader is wrong.",
+        "zh": "Eugene Yan 拆解了十二个公开评测，其中八个有评分器误判正确作答的记录。AutomationBench 里还有一道题会放过错答：邮件里只要出现两个指定的数字，把它们对应的类别写反也能过关。这个例子能拿来检查自己的评分器，误判率则要用自己的任务来测。"
+      },
+      "evidence": "https://eugeneyan.com/writing/public-evals",
+      "discovery": "https://eugeneyan.com/writing/public-evals"
+    },
+    {
+      "id": "p_30ca3e0fc9a07f6b",
+      "title": {
+        "en": "Replay the call that broke the port",
+        "zh": "哪次调用让重写的函数露了馅？"
+      },
+      "note": {
+        "en": "The fast-anything README shows a Rust port that treated bytes as characters. Replaying 500 recorded calls exposed 148 mismatches. The original function supplies a reference for the behavior callers already rely on. Agreement on those calls leaves unobserved inputs open, and it can preserve a bug in the original.",
+        "zh": "fast-anything 的仓库举了一个例子：改写后的 Rust 函数把字节当成字符处理。回放 500 次真实调用，148 次结果对不上。旧函数留下了一个很实用的参照：调用方原来会得到什么。回放覆盖不到的输入仍要另测，旧函数本身的错误也可能被原样保留。"
+      },
+      "evidence": "https://github.com/EL4CTEO/fast-anything",
+      "discovery": "https://github.com/EL4CTEO/fast-anything"
+    },
+    {
+      "id": "p_4632ff997deb7d01",
+      "title": {
+        "en": "Give the same prompt to both versions",
+        "zh": "拿掉这项技能，同一道题再跑一次"
+      },
+      "note": {
+        "en": "Uber Engineering describes replaying real prompts with a skill enabled and disabled, then asking a blind judge to choose between the answers. That gives the skill a meaningful opponent: the same agent working unaided. The comparison still depends on the prompts chosen and what the judge rewards.",
+        "zh": "Uber 工程团队把真实请求跑两遍，一遍启用技能，一遍关掉，再让评审在不知道答案来自哪一组的情况下挑更好的那个。这样才能看出，加上技能以后，Agent 比它自己原先做得好在哪里。结论仍受两件事影响：挑了哪些请求，以及评审认为什么算好。"
+      },
+      "evidence": "https://www.uber.com/us/en/blog/optimizing-ubers-agent-skills/",
+      "discovery": "https://www.uber.com/us/en/blog/optimizing-ubers-agent-skills/"
+    }
+  ],
+  "signal": {
+    "claim": {
+      "en": "Before shipping, keep one case that could reverse the decision",
+      "zh": "决定上线之前，留一道能让自己改主意的题"
+    },
+    "reasoning": {
+      "en": "Imagine reviewing an agent’s rewrite of a text function. The new version runs faster and every test is green. I’d ask to see one input containing a character that takes several bytes. If the two versions disagree on where that character ends, the speedup can wait.\n\nThe three readings give that question some teeth. Yan’s swapped counts expose a check that accepts a wrong answer. The Rust replay shows how an ordinary input can reveal a regression. Uber’s experiment asks a different question: even if the new version works, would the old one have done as well? A useful comparison needs both a way to fail and a baseline worth beating.\n\nFor the next rollout, I’d put one real input, both outputs and the reason for preferring one into the review. For a function, that reason might be preserving character boundaries. For a writing skill, it might be a reviewer finding the right answer more often. The choice of test belongs to the person who will live with the result.",
+      "zh": "假设 Agent 重写了一个处理文本的函数，速度快了，测试也全绿。我想先看它怎么处理一个「郭」字。如果新旧版本连这个字在哪里结束都算不一样，提速再多，这次改动也得先搁一搁。\n\n三份材料给了我三个追问。把邮件里的两个数字写反，测试还会亮绿灯吗？把用户真的输过的一段文字交给新旧函数，两边的结果一样吗？把技能关掉，让同一个 Agent 再答一次，评审还会更喜欢装了技能的那一版吗？前两问能找出验收漏掉的错误，最后一问才开始回答这次改动值不值得留。\n\n下次审这样的改动，我会让提交者留下一个真实输入、前后两份输出，再写清楚凭什么选其中一份。对文本函数，理由可以具体到一个字的边界；对写作技能，则要看读者能不能更容易找到正确答案。这道题该由最后要用结果的人来挑。"
+    },
+    "nextCheck": {
+      "en": "I’d try this on the next batch of changes. Have reviewers record a ship decision from the score alone, then show the paired outputs. Check both decisions against failures found after release and log the extra review time. If paired review repeatedly costs time without catching consequential mistakes, I’d reserve it for changes where a regression is expensive.",
+      "zh": "我会在下一批改动上试一次：先让评审只看分数，记下是否同意上线，再给他们看前后两份输出。等上线后，把两次判断与实际暴露的问题对照，也记下多花的时间。如果连续几批都只增加工时，没多拦下一次影响用户的错误，我会把这一步留给出错代价高的改动。"
+    }
+  }
+}

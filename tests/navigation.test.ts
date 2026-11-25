@@ -26,9 +26,9 @@ describe('main navigation', () => {
   it('uses the compact navigation below the width needed for the full menu', () => {
     const header = readFileSync(join(root, 'components', 'main', 'header.vue'), 'utf8')
 
-    expect(header).toContain('class="2xl:hidden p-2 rounded-md hover:bg-secondary"')
-    expect(header).toContain('class="hidden 2xl:flex items-center space-x-6"')
-    expect(header).toContain('id="mobile-site-navigation" class="2xl:hidden"')
+    expect(header).toContain('class="xl:hidden p-2 rounded-md hover:bg-secondary"')
+    expect(header).toContain('class="hidden xl:flex items-center space-x-4 2xl:space-x-6"')
+    expect(header).toContain('id="mobile-site-navigation" class="xl:hidden"')
     expect(header).not.toContain('class="hidden md:flex items-center space-x-6"')
   })
 

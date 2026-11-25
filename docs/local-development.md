@@ -35,6 +35,48 @@ For interactive review use `corepack pnpm run dev -- --host 127.0.0.1`.
 Browser/device/visual acceptance remains a separate appropriate check when UI
 changes. A successful local build does not prove production or customer acceptance.
 
+## Refresh the Signal reading desk
+
+Use the America/Edmonton issue date. Check origin/main and the production dated
+page for an existing issue before selecting stories. Confirm the evening run from
+the digest receipt and Notion intake, including a completed run with zero additions.
+Match the rolling export to the run. Compare all three sessions and previous editions
+by event and original URL. Leave Notion reading status and Drive permissions intact.
+
+Download the current private `signal-feed.json` from the digest's fixed Drive file.
+Keep that export outside this repository. Copy a dated snapshot from `data/signal/editions/` to a
+working selection file. Set the edition date, write the English and Chinese copy,
+and select exactly three distinct Notion picks for one theme by their feed IDs. Choose a `cover` for the theme of the issue:
+`atlas` connects related readings, `eclipse` features a single event,
+`fieldnotes` suits a close reading, and `aurora` follows a sequence of sources. Use the source record's primary URL or
+one of its attached evidence links for `evidence`.
+
+```sh
+node scripts/signal/import-edition.mjs /private/signal-feed.json /private/selection.json
+```
+
+Read all three primary sources before writing the bilingual `signal` for the edition.
+Use `claim` for one defensible inference, `reasoning` for the concrete observations
+that connect the readings and any limitations, and `nextCheck` for a comparison or
+result that could change that inference. Compare with the previous issue before
+calling a pattern new. The edition date and its three evidence links travel with
+the finding into the archive. Radar timestamps describe the separate radar digest.
+
+The importer checks every selected record and writes the public edition only
+after all three records pass. Each date has one snapshot. Importing the same
+selection again is safe. A different selection with an existing date is rejected
+to protect the archived edition. The newest date appears on the Signal landing
+page, and every snapshot has a stable `/signal/editions/YYYY-MM-DD` URL linked
+from `/signal/editions`. Review the index and edition in English and Chinese
+(`/zh/signal/editions`) before publication. The
+Drive file is a rolling window, so an older selection can require a full archive
+export. A digest refresh does not publish a website revision.
+
+Run `pnpm run verify:local` on the integrated revision. Exercise all three
+source controls, check both languages on the latest, date and archive pages,
+and repeat the page checks on the real domain after verifying the Git/main
+deployment SHA. Resume a pending release from its existing commit and date.
+
 ## Cloud triggers
 
 | Event | Work |

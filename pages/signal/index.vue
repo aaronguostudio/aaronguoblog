@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { useI18n } from 'vue-i18n'
 import type { StaticRadarItem } from '~/composables/useStaticRadarSnapshot'
+import { signalEditions } from '~/data/signal/editions'
 import { SIGNAL_BRIEFS } from '~/data/signal/briefs'
 import { SIGNAL_RESEARCH_THREADS } from '~/data/signal/threads'
 import { formatSignalPulseText, selectFreshestSignalPulse } from '~/utils/signal-pulse'
@@ -389,21 +390,6 @@ function sourceIcon(source: string) {
   return icons[source] || 'heroicons:link'
 }
 
-function sourceDotClass(source: string) {
-  const colors: Record<string, string> = {
-    grounding: 'bg-emerald-300',
-    web: 'bg-emerald-300',
-    reddit: 'bg-orange-300',
-    hackernews: 'bg-orange-400',
-    github: 'bg-violet-300',
-    youtube: 'bg-red-300',
-    'x-twitter': 'bg-zinc-600 dark:bg-white/75',
-    x: 'bg-zinc-600 dark:bg-white/75',
-    arxiv: 'bg-cyan-300',
-  }
-  return colors[source] || 'bg-zinc-400 dark:bg-white/36'
-}
-
 function categoryLabel(category: string) {
   const labels: Record<string, string> = {
     ai: 'AI',
@@ -461,35 +447,16 @@ const threadCards = computed(() =>
   }),
 )
 
+const lastThreadUpdate = SIGNAL_RESEARCH_THREADS.map((thread) => thread.lastUpdated)
+  .sort()
+  .at(-1)
+
 const briefCards = computed(() =>
   createSignalBriefCards({
     briefs: SIGNAL_BRIEFS,
     locale: locale.value,
   }),
 )
-
-const focusedThread = computed(
-  () => threadCards.value.find((thread) => thread.horizon === 'now') || threadCards.value[0],
-)
-
-function firstSentence(value: string) {
-  const match = value.match(/^.*?[.!?](?:\s|$)/)
-  return (match?.[0] || value).trim()
-}
-
-const heroEyebrow = computed(() => {
-  const date = pulseDate.value
-    ? formatDisplayDate(pulseDate.value, true)
-    : t('signal.dateUnavailable')
-  return `${t('signal.latestRead')} · ${date}`
-})
-
-const focusedTopicLabel = computed(() => {
-  const slug = focusedThread.value?.primaryTopicSlug
-  return (
-    topics.value.find((topic) => topic.slug === slug)?.name || slug || t('signal.researchTopic')
-  )
-})
 
 const pulseCards = computed(() =>
   pulseItems.value.map((item) => ({
@@ -510,16 +477,6 @@ async function scrollToSection(id: string) {
   document.getElementById(id)?.scrollIntoView({ behavior, block: 'start' })
 }
 
-async function openPulseEvidence() {
-  showPulseEvidence.value = true
-  await scrollToSection('signal-evidence')
-}
-
-async function readAaronsTake() {
-  activeThreadSlug.value = focusedThread.value?.slug || ''
-  await scrollToSection('signal-horizon')
-}
-
 async function openEvidenceWorkbench(topic = '') {
   activeTopic.value = topic
   activeSource.value = ''
@@ -533,30 +490,26 @@ async function openEvidenceWorkbench(topic = '') {
 
 <template>
   <div class="signal-page">
+    <SignalReadingDesk :edition="signalEditions[0]" />
     <main class="mx-auto max-w-[90rem] px-5 sm:px-8 lg:px-12 xl:px-16">
-      <SignalHero
-        :eyebrow="heroEyebrow"
-        :headline="focusedThread?.title || t('signal.title')"
-        :why-label="t('signal.whyItMatters')"
-        :why-text="focusedThread?.builderImplication || t('signal.researchDeskDescription')"
-        :evidence-label="t('signal.convergingEvidence')"
-        :evidence-items="pulseCards"
-        :more-evidence-label="t('signal.moreEvidence')"
-        :topic-label="focusedTopicLabel"
-        :thesis-label="t('signal.workingThesis')"
-        :thesis="focusedThread ? firstSentence(focusedThread.thesis) : t('signal.subtitle')"
-        :explore-label="t('signal.exploreEvidence')"
-        :read-take-label="t('signal.readAaronsTake')"
-        @explore="openPulseEvidence"
-        @read-take="readAaronsTake"
-      />
+      <SignalEditionFinding :edition="signalEditions[0]" />
+
+      <button
+        type="button"
+        class="signal-accent py-5 text-sm underline underline-offset-4"
+        :aria-expanded="showPulseEvidence"
+        @click="showPulseEvidence = !showPulseEvidence"
+      >
+        {{ t('signal.radarReadout')
+        }}<template v-if="pulseDate"> · {{ formatDisplayDate(pulseDate, true) }}</template>
+      </button>
 
       <SignalPulse
         :open="showPulseEvidence"
         :pulse-text="pulseText"
         :pulse-date="pulseDate ? formatDisplayDate(pulseDate, true) : null"
-        :heading="t('signal.evidenceBehindFocus')"
-        :description="t('signal.evidenceBehindFocusDescription')"
+        :heading="t('signal.radarReadout')"
+        :description="t('signal.radarScope')"
         :machine-label="t('signal.machineReadout')"
         :evidence-label="t('signal.pulseEvidenceLabel')"
         :close-label="t('signal.close')"
@@ -566,37 +519,42 @@ async function openEvidenceWorkbench(topic = '') {
         @open-workbench="openEvidenceWorkbench()"
       />
 
-      <SignalResearchThreads
-        v-model:open-slug="activeThreadSlug"
-        :threads="threadCards"
-        :heading="t('signal.horizonTitle')"
-        :description="t('signal.horizonDescription')"
-        :now-label="t('signal.horizonNow')"
-        :emerging-label="t('signal.horizonEmerging')"
-        :watch-label="t('signal.horizonWatch')"
-        :thesis-label="t('signal.activeThesis')"
-        :take-label="t('signal.aaronsTake')"
-        :question-label="t('signal.openQuestion')"
-        :product-angle-label="t('signal.productHypothesis')"
-        :supporting-signals-label="t('signal.supportingSignals')"
-        :deep-read-section-label="t('signal.deepRead')"
-        :deep-read-question-label="t('signal.deepReadQuestion')"
-        :deep-read-synthesis-label="t('signal.deepReadSynthesis')"
-        :deep-read-evidence-label="t('signal.deepReadEvidence')"
-        :deep-read-caveat-label="t('signal.deepReadCaveat')"
-        :deep-read-read-at-label="t('signal.deepReadReadAt')"
-        :selected-source-label="t('signal.selectedSource')"
-        :deep-read-label="t('signal.deepReadSource')"
-        :research-note-label="t('signal.researchNote')"
-        :archived-source-label="t('signal.archivedSource')"
-        :related-items-label="t('signal.relatedItems')"
-        :explore-related-label="t('signal.exploreRelatedEvidence')"
-        :explore-all-label="t('signal.exploreAllEvidence')"
-        :expand-label="t('signal.expand')"
-        :collapse-label="t('signal.collapse')"
-        @explore-topic="openEvidenceWorkbench"
-        @explore-all="openEvidenceWorkbench()"
-      />
+      <details class="signal-rule border-y py-5">
+        <summary class="cursor-pointer text-sm font-medium">
+          {{ t('signal.priorThreads') }} · {{ formatDisplayDate(lastThreadUpdate, true) }}
+        </summary>
+        <SignalResearchThreads
+          v-model:open-slug="activeThreadSlug"
+          :threads="threadCards"
+          :heading="t('signal.horizonTitle')"
+          :description="t('signal.horizonDescription')"
+          :now-label="t('signal.horizonNow')"
+          :emerging-label="t('signal.horizonEmerging')"
+          :watch-label="t('signal.horizonWatch')"
+          :thesis-label="t('signal.activeThesis')"
+          :take-label="t('signal.aaronsTake')"
+          :question-label="t('signal.openQuestion')"
+          :product-angle-label="t('signal.productHypothesis')"
+          :supporting-signals-label="t('signal.supportingSignals')"
+          :deep-read-section-label="t('signal.deepRead')"
+          :deep-read-question-label="t('signal.deepReadQuestion')"
+          :deep-read-synthesis-label="t('signal.deepReadSynthesis')"
+          :deep-read-evidence-label="t('signal.deepReadEvidence')"
+          :deep-read-caveat-label="t('signal.deepReadCaveat')"
+          :deep-read-read-at-label="t('signal.deepReadReadAt')"
+          :selected-source-label="t('signal.selectedSource')"
+          :deep-read-label="t('signal.deepReadSource')"
+          :research-note-label="t('signal.researchNote')"
+          :archived-source-label="t('signal.archivedSource')"
+          :related-items-label="t('signal.relatedItems')"
+          :explore-related-label="t('signal.exploreRelatedEvidence')"
+          :explore-all-label="t('signal.exploreAllEvidence')"
+          :expand-label="t('signal.expand')"
+          :collapse-label="t('signal.collapse')"
+          @explore-topic="openEvidenceWorkbench"
+          @explore-all="openEvidenceWorkbench()"
+        />
+      </details>
 
       <SignalBriefs
         :briefs="briefCards"
@@ -717,7 +675,7 @@ async function openEvidenceWorkbench(topic = '') {
               <span
                 class="flex flex-wrap items-center gap-2 font-mono text-[10px] text-muted-foreground opacity-75"
               >
-                <span class="h-1.5 w-1.5 rounded-full" :class="sourceDotClass(item.source)" />
+                <span class="h-1.5 w-1.5 rounded-full bg-current" />
                 <span>{{ sourceLabel(item.source) }}</span>
                 <span aria-hidden="true">·</span>
                 <span>{{ categoryLabel(item.category) }}</span>
