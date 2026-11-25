@@ -1,10 +1,10 @@
 {
   "version": 1,
   "producer": "grokbot",
-  "date": "2026-11-24",
-  "generatedAt": "2026-11-25T01:58:22.000Z",
+  "date": "2026-11-25",
+  "generatedAt": "2026-11-25T14:32:48.000Z",
   "latestRun": {
-    "completedAt": "2026-11-25T01:58:22.000Z"
+    "completedAt": "2026-11-25T14:32:48.000Z"
   },
   "topics": [
     {
@@ -40,27 +40,27 @@
   ],
   "stats": [
     {
-      "source": "arXiv",
-      "count": 12
-    },
-    {
-      "source": "Hacker News",
-      "count": 9
+      "source": "GitHub",
+      "count": 10
     },
     {
       "source": "The Verge",
       "count": 9
     },
     {
-      "source": "GitHub",
+      "source": "Hacker News",
       "count": 9
+    },
+    {
+      "source": "Zenn",
+      "count": 8
     },
     {
       "source": "9to5Mac",
       "count": 8
     },
     {
-      "source": "Zenn",
+      "source": "MIT Technology Review",
       "count": 8
     },
     {
@@ -72,19 +72,19 @@
       "count": 8
     },
     {
-      "source": "9to5Google",
-      "count": 8
-    },
-    {
-      "source": "MIT Technology Review",
-      "count": 8
-    },
-    {
       "source": "Bilibili",
       "count": 8
     },
     {
-      "source": "OpenAI",
+      "source": "Android Authority",
+      "count": 8
+    },
+    {
+      "source": "9to5Google",
+      "count": 8
+    },
+    {
+      "source": "arXiv",
       "count": 8
     },
     {
@@ -92,23 +92,39 @@
       "count": 8
     },
     {
-      "source": "YouTube · OpenAI",
-      "count": 7
-    },
-    {
-      "source": "X @OpenAI",
-      "count": 7
-    },
-    {
       "source": "Latent Space",
       "count": 7
     },
     {
-      "source": "Meta Newsroom",
+      "source": "YouTube · OpenAI",
+      "count": 7
+    },
+    {
+      "source": "Qiita",
       "count": 6
     },
     {
-      "source": "Android Authority",
+      "source": "X @OpenAI",
+      "count": 6
+    },
+    {
+      "source": "OpenAI",
+      "count": 6
+    },
+    {
+      "source": "IT之家",
+      "count": 5
+    },
+    {
+      "source": "Hugging Face Blog",
+      "count": 5
+    },
+    {
+      "source": "Hacker News (top, 150+ pts)",
+      "count": 5
+    },
+    {
+      "source": "Meta Newsroom",
       "count": 5
     },
     {
@@ -120,19 +136,11 @@
       "count": 5
     },
     {
-      "source": "NVIDIA Newsroom",
-      "count": 5
-    },
-    {
       "source": "Cloudflare blog",
       "count": 5
     },
     {
       "source": "Ars Technica",
-      "count": 4
-    },
-    {
-      "source": "Hacker News (top, 150+ pts)",
       "count": 4
     },
     {
@@ -148,15 +156,15 @@
       "count": 4
     },
     {
+      "source": "NVIDIA Newsroom",
+      "count": 4
+    },
+    {
       "source": "X @dhh",
       "count": 4
     },
     {
       "source": "X @bojie_li",
-      "count": 4
-    },
-    {
-      "source": "Hugging Face Blog",
       "count": 4
     },
     {
@@ -166,10 +174,6 @@
     {
       "source": "X @KobeissiLetter",
       "count": 4
-    },
-    {
-      "source": "IT之家",
-      "count": 3
     },
     {
       "source": "CNBC",
@@ -188,19 +192,19 @@
       "count": 3
     },
     {
-      "source": "X @dotey",
-      "count": 3
-    },
-    {
-      "source": "X @shao__meng",
-      "count": 3
-    },
-    {
-      "source": "Qiita",
+      "source": "404 Media",
       "count": 2
     },
     {
-      "source": "X @AnthropicAI",
+      "source": "Bloomberg",
+      "count": 2
+    },
+    {
+      "source": "X @ClaudeDevs",
+      "count": 2
+    },
+    {
+      "source": "arXiv cs.AI",
       "count": 2
     },
     {
@@ -228,10 +232,6 @@
       "count": 2
     },
     {
-      "source": "X @GoogleDeepMind",
-      "count": 2
-    },
-    {
       "source": "GitHub releases sst/opencode",
       "count": 2
     },
@@ -241,6 +241,10 @@
     },
     {
       "source": "X @mattpocockuk",
+      "count": 2
+    },
+    {
+      "source": "X @dotey",
       "count": 2
     },
     {
@@ -256,12 +260,20 @@
       "count": 2
     },
     {
+      "source": "X @shao__meng",
+      "count": 2
+    },
+    {
       "source": "GitHub releases cline/cline",
       "count": 2
     },
     {
-      "source": "X @markgurman",
-      "count": 2
+      "source": "Cloudflare",
+      "count": 1
+    },
+    {
+      "source": "X @SebastienBubeck",
+      "count": 1
     },
     {
       "source": "GitHub releases anthropics/claude-code",
@@ -272,7 +284,31 @@
       "count": 1
     },
     {
+      "source": "Philipp Schmid",
+      "count": 1
+    },
+    {
+      "source": "noahbuilt.it",
+      "count": 1
+    },
+    {
+      "source": "Strands Agents (AWS)",
+      "count": 1
+    },
+    {
+      "source": "LessWrong",
+      "count": 1
+    },
+    {
+      "source": "Verbraucherzentrale Bundesverband (vzbv)",
+      "count": 1
+    },
+    {
       "source": "Simon Willison",
+      "count": 1
+    },
+    {
+      "source": "X @AnthropicAI",
       "count": 1
     },
     {
@@ -324,10 +360,6 @@
       "count": 1
     },
     {
-      "source": "Bloomberg",
-      "count": 1
-    },
-    {
       "source": "X @mitsuhiko",
       "count": 1
     },
@@ -340,10 +372,6 @@
       "count": 1
     },
     {
-      "source": "X @ClaudeDevs",
-      "count": 1
-    },
-    {
       "source": "Anthropic (GitHub)",
       "count": 1
     },
@@ -353,6 +381,10 @@
     },
     {
       "source": "X @josephfcox",
+      "count": 1
+    },
+    {
+      "source": "X @GoogleDeepMind",
       "count": 1
     },
     {
@@ -556,6 +588,10 @@
       "count": 1
     },
     {
+      "source": "X @markgurman",
+      "count": 1
+    },
+    {
       "source": "X @trq212",
       "count": 1
     },
@@ -620,75 +656,335 @@
       "count": 1
     },
     {
-      "source": "X @thdxr",
-      "count": 1
-    },
-    {
       "source": "Android Developers Blog",
-      "count": 1
-    },
-    {
-      "source": "X @sundarpichai",
-      "count": 1
-    },
-    {
-      "source": "X @poteto",
-      "count": 1
-    },
-    {
-      "source": "X @GergelyOrosz",
-      "count": 1
-    },
-    {
-      "source": "X @satyanadella",
-      "count": 1
-    },
-    {
-      "source": "X @sama",
-      "count": 1
-    },
-    {
-      "source": "X @brian_pak",
-      "count": 1
-    },
-    {
-      "source": "X @CAIS",
-      "count": 1
-    },
-    {
-      "source": "X @kaitlancollins",
-      "count": 1
-    },
-    {
-      "source": "X @etnshow",
-      "count": 1
-    },
-    {
-      "source": "404 Media",
-      "count": 1
-    },
-    {
-      "source": "X @sophiadew",
-      "count": 1
-    },
-    {
-      "source": "X @higgsfield_ai",
-      "count": 1
-    },
-    {
-      "source": "X @HeyGen",
-      "count": 1
-    },
-    {
-      "source": "X @cognition",
-      "count": 1
-    },
-    {
-      "source": "X @omarsar0",
       "count": 1
     }
   ],
   "items": [
+    {
+      "id": "fe1b5044b969b6eb0dd4530b",
+      "title": "I Listened to ‘Sandstorm’ Through a Sex Toy",
+      "url": "https://www.404media.co/groove-thing-review/",
+      "source": "404 Media",
+      "publishedAt": "2026-11-25T14:00:00.000Z",
+      "category": "ai",
+      "topicSlug": "ai-wearables"
+    },
+    {
+      "id": "a9bc069d7df2112171f7d581",
+      "title": "Introducing Search for Agents",
+      "url": "https://blog.cloudflare.com/search-for-agents/",
+      "source": "Cloudflare",
+      "publishedAt": "2026-11-25T14:00:00.000Z",
+      "category": "general",
+      "topicSlug": "general"
+    },
+    {
+      "id": "aed007f1f132ae216f9ccf09",
+      "title": "再生が100回で止まる原因を、Claude Codeと数字で切り分けた",
+      "url": "https://zenn.dev/yuceo/articles/tiktok-views-stuck-claude-code",
+      "source": "Zenn",
+      "publishedAt": "2026-11-25T13:37:45.000Z",
+      "category": "coding",
+      "topicSlug": "coding-agents"
+    },
+    {
+      "id": "aa070eee723f8d9eef55f9e3",
+      "title": "Apple accessory Black Friday deals: AirTag 2, Apple Pencil, CarPlay gear, more from $7",
+      "url": "https://9to5mac.com/2026/11/25/best-apple-accessory-black-friday-deals/",
+      "source": "9to5Mac",
+      "publishedAt": "2026-11-25T13:33:51.000Z",
+      "category": "ai",
+      "topicSlug": "ai-wearables"
+    },
+    {
+      "id": "fcf7d16b858cdc3a7682e983",
+      "title": "【実装検証】ローカルGPU vs クラウドAPIの損益分岐とKVキャッシュ計算：重み量子化だけではVRAM見積もりが破綻する理由",
+      "url": "https://qiita.com/shiroi1229/items/3fac7803b0d10e59e024",
+      "source": "Qiita",
+      "publishedAt": "2026-11-25T13:30:44.000Z",
+      "category": "ai",
+      "topicSlug": "personal-ai-systems"
+    },
+    {
+      "id": "7e75507201d31d93fca35000",
+      "title": "Windows で Claude Code が黙って文字化けする6つの原因と直し方（cp932）",
+      "url": "https://zenn.dev/kamijo_aoto/articles/windows-claude-code-mojibake-6",
+      "source": "Zenn",
+      "publishedAt": "2026-11-25T13:16:10.000Z",
+      "category": "coding",
+      "topicSlug": "coding-agents"
+    },
+    {
+      "id": "512602f4df32b71b5cc56ba0",
+      "title": "The Download: AI swamping open records, and firefighting for permafrost",
+      "url": "https://www.technologyreview.com/2026/11/25/1149808/the-download-ai-open-records-permafrost-fires/",
+      "source": "MIT Technology Review",
+      "publishedAt": "2026-11-25T13:10:00.000Z",
+      "category": "general",
+      "topicSlug": "general"
+    },
+    {
+      "id": "aa85fa984bab14cccf0482df",
+      "title": "OpenClaw Heartbeat設計：AIに定期的にお仕事をさせる仕組み",
+      "url": "https://qiita.com/fukukei23/items/e36aee2937e92eeb88d8",
+      "source": "Qiita",
+      "publishedAt": "2026-11-25T13:07:35.000Z",
+      "category": "ai",
+      "topicSlug": "personal-ai-systems"
+    },
+    {
+      "id": "d7f8df890f989b59e60830da",
+      "title": "Has vibe coding made open source the new normal for synths?",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1040081/vibe-coding-open-source-music-firmware",
+      "source": "The Verge",
+      "publishedAt": "2026-11-25T13:00:00.000Z",
+      "category": "coding",
+      "topicSlug": "coding-agents"
+    },
+    {
+      "id": "5f2a9faee9c0f0d02f346825",
+      "title": "The questions Jensen Huang and Nvidia will still have to answer about Megaspeed",
+      "url": "https://techcrunch.com/2026/11/25/the-questions-jensen-huang-and-nvidia-will-still-have-to-answer-about-megaspeed/",
+      "source": "TechCrunch",
+      "publishedAt": "2026-11-25T13:00:00.000Z",
+      "category": "general",
+      "topicSlug": "general"
+    },
+    {
+      "id": "74e59080e0750e12235c64ba",
+      "title": "エージェントベンチマーク総覧 8 系統と 3 つの軸による整理",
+      "url": "https://qiita.com/hisashi-ito/items/24a48fc7aee1bbaeabb6",
+      "source": "Qiita",
+      "publishedAt": "2026-11-25T12:53:16.000Z",
+      "category": "coding",
+      "topicSlug": "coding-agents"
+    },
+    {
+      "id": "fadbab7333f23aaf73f993b3",
+      "title": "Claude Code で「開業したてのお店」の営業リストを公的データから作る（非エンジニアの実例）",
+      "url": "https://zenn.dev/carol_works/articles/fcc381d067361b",
+      "source": "Zenn",
+      "publishedAt": "2026-11-25T12:29:30.000Z",
+      "category": "coding",
+      "topicSlug": "coding-agents"
+    },
+    {
+      "id": "be940fa1ddc618f7755f257b",
+      "title": "Counterpoint：预计 2027 年全球智能手机出货再降 6%，2028 年迎来首次反弹",
+      "url": "https://www.ithome.com/1/032/475.htm",
+      "source": "IT之家",
+      "publishedAt": "2026-11-25T12:09:20.000Z",
+      "category": "ai",
+      "topicSlug": "mobile-ai"
+    },
+    {
+      "id": "db4e60537f8b582e318aa85b",
+      "title": "Treasury CIO Is Vibe Coding a 'Civilization' Clone During Treasury Department Hack",
+      "url": "https://www.404media.co/sam-corcos-legatum-treasury-cio-is-vibe-coding-a-civilization-clone-during-treasury-department-hack/",
+      "source": "404 Media",
+      "publishedAt": "2026-11-25T12:05:00.000Z",
+      "category": "coding",
+      "topicSlug": "coding-agents"
+    },
+    {
+      "id": "e75454aad1850a23cc8b26a9",
+      "title": "华为 5A 通信技术支持设备上新，新增 Mate 90 Air、Mate X8 系列手机",
+      "url": "https://www.ithome.com/1/032/478.htm",
+      "source": "IT之家",
+      "publishedAt": "2026-11-25T12:02:27.000Z",
+      "category": "ai",
+      "topicSlug": "mobile-ai"
+    },
+    {
+      "id": "bd44301a843b977ca1696c8e",
+      "title": "オワスプって何？OWASP Top 10 for LLM (2026) を自分用に噛み砕いたメモ",
+      "url": "https://qiita.com/peace_damn/items/cec1d713bfe4c26113d8",
+      "source": "Qiita",
+      "publishedAt": "2026-11-25T11:59:45.000Z",
+      "category": "ai",
+      "topicSlug": "consumer-ai-apps"
+    },
+    {
+      "id": "f7642b5350b712b61e86309f",
+      "title": "AIエージェントにOSSの未知脆弱性を探させる — 探す側の設計",
+      "url": "https://zenn.dev/k_nagano/articles/multi-agent-vuln-research-1",
+      "source": "Zenn",
+      "publishedAt": "2026-11-25T11:44:47.000Z",
+      "category": "coding",
+      "topicSlug": "coding-agents"
+    },
+    {
+      "id": "71f79470ea0caee972afe863",
+      "title": "Claude Code のサブエージェントで、ショート動画の台本を「執筆→校閲」の流れで並列に作る",
+      "url": "https://zenn.dev/akisawa_takashi/articles/02f8085d9bdf45",
+      "source": "Zenn",
+      "publishedAt": "2026-11-25T11:43:47.000Z",
+      "category": "coding",
+      "topicSlug": "coding-agents"
+    },
+    {
+      "id": "598e81a411e720c3ace19dbc",
+      "title": "Airplane Turbulence Is Extremely Hard to Predict, but Maybe Not for Long",
+      "url": "https://www.wired.com/story/airplane-turbulence-is-extremely-hard-to-predict-and-avoid/",
+      "source": "Wired",
+      "publishedAt": "2026-11-25T11:30:00.000Z",
+      "category": "general",
+      "topicSlug": "general"
+    },
+    {
+      "id": "f02b21421c41bd06328171ba",
+      "title": "【第21回】PCの前に行くな。スマホからHermes Agentに頼めば、自宅のClaude Codeが答える。",
+      "url": "https://zenn.dev/sora_biz/articles/hermes-vps-21-home-claude-code",
+      "source": "Zenn",
+      "publishedAt": "2026-11-25T11:29:48.000Z",
+      "category": "coding",
+      "topicSlug": "coding-agents"
+    },
+    {
+      "id": "ca958222a09d0287eacf3d87",
+      "title": "Anthropic Expands in Zurich to Tap City’s AI Talent Pool",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-25/anthropic-expands-in-zurich-moving-to-tap-city-s-ai-talent-pool",
+      "source": "Bloomberg",
+      "publishedAt": "2026-11-25T11:25:14.000Z",
+      "category": "ai",
+      "topicSlug": "consumer-ai-apps"
+    },
+    {
+      "id": "bebe92717fa1d234b27d7be9",
+      "title": "Codex 3.0？大的要来了？Codex 削减额度？Claude Code 前核心开发者 Thariq 转投 OpenAI？",
+      "url": "https://www.bilibili.com/video/av117676718491329",
+      "source": "Bilibili",
+      "publishedAt": "2026-11-25T11:02:12.000Z",
+      "category": "coding",
+      "topicSlug": "coding-agents"
+    },
+    {
+      "id": "74d2b36b3de7bf3d4a12fa45",
+      "title": "Claude Code で「必ず」を実現する ― permissions・hooks・plan mode の選び方",
+      "url": "https://zenn.dev/cvl/articles/6284c34774b51c",
+      "source": "Zenn",
+      "publishedAt": "2026-11-25T11:00:05.000Z",
+      "category": "coding",
+      "topicSlug": "coding-agents"
+    },
+    {
+      "id": "cbbe8a83357a4083843c7b5d",
+      "title": "Continue の Obsidian 連携をLocal REST API に移行して検索速度とAPIコストを劇的に改善する",
+      "url": "https://zenn.dev/pve_echo/articles/20261124_obsidian-mcp-local-rest-api",
+      "source": "Zenn",
+      "publishedAt": "2026-11-25T10:58:32.000Z",
+      "category": "ai",
+      "topicSlug": "personal-ai-systems"
+    },
+    {
+      "id": "0077e07924e43bf73f6b214e",
+      "title": "An Indic Voice Agent with CUGA",
+      "url": "https://huggingface.co/blog/ibm-research/an-indic-voice-agent-with-cuga",
+      "source": "Hugging Face Blog",
+      "publishedAt": "2026-11-25T10:22:09.000Z",
+      "category": "general",
+      "topicSlug": "general"
+    },
+    {
+      "id": "aa2815536f14a5a8498bff2d",
+      "title": "AI is straining America’s open records systems",
+      "url": "https://www.technologyreview.com/2026/11/25/1149702/ai-is-straining-americas-open-records-systems/",
+      "source": "MIT Technology Review",
+      "publishedAt": "2026-11-25T10:00:00.000Z",
+      "category": "general",
+      "topicSlug": "general"
+    },
+    {
+      "id": "e77134e4730c12d31a0bac94",
+      "title": "ChatGPT and Codex will share usage limits for paid users starting in December",
+      "url": "https://www.androidauthority.com/chatgpt-codex-shared-usage-limits-3739254/",
+      "source": "Android Authority",
+      "publishedAt": "2026-11-25T09:37:20.000Z",
+      "category": "ai",
+      "topicSlug": "consumer-ai-apps"
+    },
+    {
+      "id": "0dcf0bb33254668992a69d8e",
+      "title": "AI手机，为什么一定要有脸？",
+      "url": "https://www.bilibili.com/video/av117675862923265",
+      "source": "Bilibili",
+      "publishedAt": "2026-11-25T09:00:00.000Z",
+      "category": "ai",
+      "topicSlug": "mobile-ai"
+    },
+    {
+      "id": "d261d45d478e6856759b77a0",
+      "title": "Gemini Notebook’s flashcards just got a lot better for studies with three new features",
+      "url": "https://www.androidauthority.com/gemini-notebook-flashcards-3739247/",
+      "source": "Android Authority",
+      "publishedAt": "2026-11-25T08:30:56.000Z",
+      "category": "ai",
+      "topicSlug": "consumer-ai-apps"
+    },
+    {
+      "id": "41b3470b44dc55e74a13c3b7",
+      "title": "Google Messages gets Gemini Tasks integration for delivery updates, price alerts, and more",
+      "url": "https://www.androidauthority.com/google-messages-gemini-tasks-3739189/",
+      "source": "Android Authority",
+      "publishedAt": "2026-11-25T06:58:00.000Z",
+      "category": "ai",
+      "topicSlug": "mobile-ai"
+    },
+    {
+      "id": "1ac09a398b6e2ac9503a3f92",
+      "title": "Show HN: Old Nvidia and ATI tech demos, running again in the browser",
+      "url": "https://gpu-demo-gallery.pages.dev/",
+      "source": "Hacker News",
+      "publishedAt": "2026-11-25T04:31:48.000Z",
+      "category": "general",
+      "topicSlug": "general"
+    },
+    {
+      "id": "bee434900b5ec6c4b9c61585",
+      "title": "[AINews] Gemini 4 Neon marks GDM's full return as a Frontier Lab",
+      "url": "https://latent.space/p/ainews-gemini-4-neon-marks-gdm-s-full-return-as-a-frontier-lab/",
+      "source": "Latent Space",
+      "publishedAt": "2026-11-25T04:29:07.000Z",
+      "category": "general",
+      "topicSlug": "general"
+    },
+    {
+      "id": "ea9cca48b2799bb9bef43b59",
+      "title": "Gemini refused to give me the lyrics to Twinkle Twinkle Little Star",
+      "url": "https://www.comentr.com/technology/01M88DWQ0R4NCMYR17AFEWRG1F",
+      "source": "Hacker News (top, 150+ pts)",
+      "publishedAt": "2026-11-25T04:03:33.000Z",
+      "category": "general",
+      "topicSlug": "general"
+    },
+    {
+      "id": "784712c8881fc7f3b1183d24",
+      "title": "Marginalia Search, Money, C++, Rust, AI, Stuff",
+      "url": "https://www.marginalia.nu/log/a_141_marginalia_update/",
+      "source": "Hacker News",
+      "publishedAt": "2026-11-25T03:47:42.000Z",
+      "category": "general",
+      "topicSlug": "general"
+    },
+    {
+      "id": "fd1323c0e6740e24f8cb9043",
+      "title": "Show HN: Carry – Save every AI conversations as Markdown, in a folder you Own",
+      "url": "https://carry.md/",
+      "source": "Hacker News",
+      "publishedAt": "2026-11-25T03:19:02.000Z",
+      "category": "general",
+      "topicSlug": "general"
+    },
+    {
+      "id": "5356d92e181ed8221bb6e482",
+      "title": "Top open problems in mathematics ranked by LLM-assessed importance",
+      "url": "https://www.proofatlas.ai/open-problems/",
+      "source": "Hacker News",
+      "publishedAt": "2026-11-25T03:01:36.000Z",
+      "category": "general",
+      "topicSlug": "general"
+    },
     {
       "id": "a21572533404fc1232513d61",
       "title": "Claude のアーティファクトは今どうなっているのか アプリ化を機に整理した",
@@ -697,6 +993,15 @@
       "publishedAt": "2026-11-25T01:39:05.000Z",
       "category": "ai",
       "topicSlug": "consumer-ai-apps"
+    },
+    {
+      "id": "4bb5105ab78c9cf7896fd26f",
+      "title": "As part of the October 6 release we had a particularly clean advance on the matrix multiplication exponent, with a new upper bound of 9/4.",
+      "url": "https://x.com/SebastienBubeck/status/2125402576145572334",
+      "source": "X @SebastienBubeck",
+      "publishedAt": "2026-11-25T01:33:56.000Z",
+      "category": "general",
+      "topicSlug": "general"
     },
     {
       "id": "d1a8a8c302ae6a4a1fbc9784",
@@ -724,15 +1029,6 @@
       "publishedAt": "2026-11-25T00:54:49.000Z",
       "category": "general",
       "topicSlug": "general"
-    },
-    {
-      "id": "1f719aa2becb5d0fd26e8474",
-      "title": "AIに自分のコードを直させ、マージまで任せた2週間 ― 人に残した4つの線",
-      "url": "https://zenn.dev/shon9278/articles/ai-lab-self-merge-guardrails",
-      "source": "Zenn",
-      "publishedAt": "2026-11-25T00:27:02.000Z",
-      "category": "coding",
-      "topicSlug": "coding-agents"
     },
     {
       "id": "9a6675ad72444c3a26d85613",
@@ -771,20 +1067,56 @@
       "topicSlug": "ai-wearables"
     },
     {
-      "id": "7886a04d74f894342cb50e70",
-      "title": "Claude Code Channels を Windows で自作し、権限確認を外から許可した",
-      "url": "https://zenn.dev/ai_hacchu/articles/claude-code-channels-windows-permission-relay",
-      "source": "Zenn",
-      "publishedAt": "2026-11-25T00:00:09.000Z",
-      "category": "coding",
-      "topicSlug": "coding-agents"
+      "id": "f511dd8afc2c8b5d704da461",
+      "title": "How my context engineering changed for Gemini 4 Neon",
+      "url": "https://www.philschmid.de/gemini-4-neon-context-engineering",
+      "source": "Philipp Schmid",
+      "publishedAt": "2026-11-25T00:00:00.000Z",
+      "category": "general",
+      "topicSlug": "general"
     },
     {
-      "id": "cb109baba3a019e937c1e566",
-      "title": "Claude CodeのCLAUDE.mdは強制されない：必ず守らせたいことはpermissionsとhooksで",
-      "url": "https://zenn.dev/aishigoto/articles/cert-claude-code-claudemd-not-enforced",
-      "source": "Zenn",
-      "publishedAt": "2026-11-24T23:57:42.000Z",
+      "id": "c5d0c4cbe360ccfd3b191019",
+      "title": "Serving Qwen via 5,600 Lambdas for fun and 80x negative profit",
+      "url": "https://noahbuilt.it/writing/qwen-on-5600-lambdas",
+      "source": "noahbuilt.it",
+      "publishedAt": "2026-11-25T00:00:00.000Z",
+      "category": "general",
+      "topicSlug": "general"
+    },
+    {
+      "id": "b4183008b8503ed2e0269e9e",
+      "title": "Introducing Strands Decider v2: open, calibrated system one models",
+      "url": "https://strandsagents.com/blog/introducing-strands-decider-v2/",
+      "source": "Strands Agents (AWS)",
+      "publishedAt": "2026-11-25T00:00:00.000Z",
+      "category": "general",
+      "topicSlug": "general"
+    },
+    {
+      "id": "a279a61d80e00f54e2474f87",
+      "title": "Models Can Communicate via Inference Servers Despite Being Sandboxed",
+      "url": "https://www.lesswrong.com/posts/7wzWuLP3HhyBLmKfo/models-can-communicate-via-inference-servers-despite-being",
+      "source": "LessWrong",
+      "publishedAt": "2026-11-25T00:00:00.000Z",
+      "category": "general",
+      "topicSlug": "general"
+    },
+    {
+      "id": "88f096a2ff6223b9922b3a8c",
+      "title": "Smart Glasses: Verbraucherzentrale verklagt Meta und Ray-Ban",
+      "url": "https://www.vzbv.de/pressemitteilungen/smart-glasses-verbraucherzentrale-verklagt-meta-und-ray-ban",
+      "source": "Verbraucherzentrale Bundesverband (vzbv)",
+      "publishedAt": "2026-11-25T00:00:00.000Z",
+      "category": "ai",
+      "topicSlug": "ai-wearables"
+    },
+    {
+      "id": "912e2d6b252765e33e51d908",
+      "title": "matheusmongarde/garimpo: Prospecção open source do Google Maps ao Pix: acha negócios no Maps, gera um site-prévia com o nome de cada um, conversa no WhatsApp e cobra por Pix, Mercado Pago ou Stripe. Pagou, fecha sozinho. Roda no seu PC, VPS ou Vercel, com API para agentes (Claude Code, Codex, n8n).",
+      "url": "https://github.com/matheusmongarde/garimpo",
+      "source": "GitHub",
+      "publishedAt": "2026-11-24T23:58:18.000Z",
       "category": "coding",
       "topicSlug": "coding-agents"
     },
@@ -825,15 +1157,6 @@
       "topicSlug": "coding-agents"
     },
     {
-      "id": "30e07ceb2f28adae15b17cf3",
-      "title": "なんとなくgrill-meしている人に伝えたい、作者本人から学んだSkillsの使い方",
-      "url": "https://zenn.dev/mediaforce/articles/27df1f22a00546",
-      "source": "Zenn",
-      "publishedAt": "2026-11-24T22:30:05.000Z",
-      "category": "coding",
-      "topicSlug": "coding-agents"
-    },
-    {
       "id": "3f66369c8927dc1a5f3b5740",
       "title": "Jensen Huang still thinks a succession plan creates unnecessary hierarchy",
       "url": "https://techcrunch.com/2026/11/24/jensen-huang-still-thinks-a-succession-plan-creates-unnecessary-hierarchy/",
@@ -850,42 +1173,6 @@
       "publishedAt": "2026-11-24T22:26:41.000Z",
       "category": "general",
       "topicSlug": "general"
-    },
-    {
-      "id": "dcbd6df418528f7358a1d3a7",
-      "title": "モデルの性能が出ないのは AI ゲートウェイのせいかもしれない",
-      "url": "https://zenn.dev/google_cloud_jp/articles/7e29a9acf06557",
-      "source": "Zenn",
-      "publishedAt": "2026-11-24T22:22:23.000Z",
-      "category": "coding",
-      "topicSlug": "coding-agents"
-    },
-    {
-      "id": "26b55d783acc410b5b957185",
-      "title": "AI同士の伝言配達キット：Claude Codeから会話のAIへ届ける見張り役と手順書",
-      "url": "https://zenn.dev/gear_aiteam/books/ai-dengon-relay-kit",
-      "source": "Zenn",
-      "publishedAt": "2026-11-24T22:17:54.000Z",
-      "category": "coding",
-      "topicSlug": "coding-agents"
-    },
-    {
-      "id": "f63c2258f36bd68d25f04c57",
-      "title": "Claude Codeから、ChatGPTやclaude.aiの会話へ「伝言」を届ける仕組み",
-      "url": "https://zenn.dev/gear_aiteam/articles/ai-to-ai-dengon-relay",
-      "source": "Zenn",
-      "publishedAt": "2026-11-24T22:17:53.000Z",
-      "category": "coding",
-      "topicSlug": "coding-agents"
-    },
-    {
-      "id": "121294f6b7ac4b8e87d17f2c",
-      "title": "Google Messages replacing old Gemini with new ‘tasks’ chat, and it’s very proactive",
-      "url": "https://9to5google.com/2026/11/24/google-messages-gemini-tasks/",
-      "source": "9to5Google",
-      "publishedAt": "2026-11-24T22:11:31.000Z",
-      "category": "ai",
-      "topicSlug": "consumer-ai-apps"
     },
     {
       "id": "8829fadd271a2e7761644be5",
@@ -969,15 +1256,6 @@
       "topicSlug": "general"
     },
     {
-      "id": "9d41d7262e076aea5aeb11c8",
-      "title": "Claude Fable 5.2が解いたブラックホール物理の2問題：量子重力とAI研究エージェントの仕組み",
-      "url": "https://zenn.dev/sponge841841/articles/2026-11-20-claude-black-hole-ai-research",
-      "source": "Zenn",
-      "publishedAt": "2026-11-24T20:44:32.000Z",
-      "category": "ai",
-      "topicSlug": "consumer-ai-apps"
-    },
-    {
       "id": "123c55de796f3f1faa1c137d",
       "title": "How Meta is using Instagram to get an ad boost from its Muse personal AI agent",
       "url": "https://www.cnbc.com/2026/11/24/meta-instagram-muse-ad-revenue.html",
@@ -1005,6 +1283,24 @@
       "topicSlug": "consumer-ai-apps"
     },
     {
+      "id": "ac64a3fde082e22a8cc6a41e",
+      "title": "Ask HN: Am I the only one whose AI hype is cooling down a lot?",
+      "url": "https://news.ycombinator.com/item?id=50633601",
+      "source": "Hacker News",
+      "publishedAt": "2026-11-24T19:51:01.000Z",
+      "category": "general",
+      "topicSlug": "general"
+    },
+    {
+      "id": "0c752685bbc25d9d2bc8bdc1",
+      "title": "You can now install Claude artifacts as desktop apps on Mac and Windows.",
+      "url": "https://x.com/ClaudeDevs/status/2125315491522650299",
+      "source": "X @ClaudeDevs",
+      "publishedAt": "2026-11-24T19:47:54.000Z",
+      "category": "ai",
+      "topicSlug": "consumer-ai-apps"
+    },
+    {
       "id": "55dd324aef83274a6d5e1303",
       "title": "Today’s Android app deals and freebies: Grand Theft Auto San Andreas 50% off, Dead Cells, Prune, more",
       "url": "https://9to5toys.com/2026/11/24/today-google-play-deals-grand-theft-auto/",
@@ -1023,20 +1319,20 @@
       "topicSlug": "general"
     },
     {
-      "id": "80756afe4acae1dd48b70500",
-      "title": "Compiling web applications into verified operations for AI agents",
-      "url": "https://protocolis.co/paper/",
-      "source": "Hacker News",
-      "publishedAt": "2026-11-24T19:12:02.000Z",
-      "category": "general",
-      "topicSlug": "general"
-    },
-    {
       "id": "430a0f84728eb54a748074f2",
       "title": "Introducing SWE-2.1",
       "url": "https://cognition.com/blog/swe-2-1",
       "source": "Cognition",
       "publishedAt": "2026-11-24T19:07:36.000Z",
+      "category": "coding",
+      "topicSlug": "coding-agents"
+    },
+    {
+      "id": "3857f78ac6998bef932d6ac2",
+      "title": "PyRUA-Dex: Learning Programmatic Policies for Dexterous Bimanual Manipulation with Coding Agents",
+      "url": "https://arxiv.org/abs/2611.33144v1",
+      "source": "arXiv",
+      "publishedAt": "2026-11-24T18:56:44.000Z",
       "category": "coding",
       "topicSlug": "coding-agents"
     },
@@ -1077,6 +1373,15 @@
       "topicSlug": "general"
     },
     {
+      "id": "69ab1e43310976dc7457eee3",
+      "title": "Embodied AI Fails the Mirror Test: How a Simple Mirror Breaks Robot Policies",
+      "url": "https://arxiv.org/abs/2611.33010v1",
+      "source": "arXiv cs.AI",
+      "publishedAt": "2026-11-24T17:32:00.000Z",
+      "category": "general",
+      "topicSlug": "general"
+    },
+    {
       "id": "fdfc77dd6dbdf18aff58d3c3",
       "title": "Make sense of your day | with ChatGPT",
       "url": "https://www.youtube.com/watch?v=2DUJ2whBJRM",
@@ -1095,28 +1400,10 @@
       "topicSlug": "consumer-ai-apps"
     },
     {
-      "id": "ee6740167f5fd1a735f98846",
-      "title": "Weave (YC W25) is hiring ML, AI, product, & design engineers",
-      "url": "https://jobs.ashbyhq.com/weave-os",
-      "source": "Hacker News",
-      "publishedAt": "2026-11-24T17:00:55.000Z",
-      "category": "general",
-      "topicSlug": "general"
-    },
-    {
       "id": "f099908b2eca9d8c391a3d57",
       "title": "Using AI Without Losing Your Humanity",
       "url": "https://www.dbreunig.com/2026/11/24/using-ai-without-losing-your-humanity.html",
       "source": "Drew Breunig",
-      "publishedAt": "2026-11-24T17:00:00.000Z",
-      "category": "general",
-      "topicSlug": "general"
-    },
-    {
-      "id": "08a6094b9f24b3f9375f2a62",
-      "title": "Meta brings its Muse AI assistant directly into Instagram DMs",
-      "url": "https://techcrunch.com/2026/11/24/meta-brings-its-muse-ai-assistant-directly-into-instagram-dms/",
-      "source": "TechCrunch",
       "publishedAt": "2026-11-24T17:00:00.000Z",
       "category": "general",
       "topicSlug": "general"
@@ -1158,15 +1445,6 @@
       "topicSlug": "ai-wearables"
     },
     {
-      "id": "c323da16e5377644064a8e86",
-      "title": "Cyberattack campaign compromising Check Point servers across 22 organizations",
-      "url": "https://www.greynoise.io/blog/check-point-security-management-servers-intrusion-campaign",
-      "source": "Hacker News",
-      "publishedAt": "2026-11-24T16:32:17.000Z",
-      "category": "general",
-      "topicSlug": "general"
-    },
-    {
       "id": "9b7f0538ab9342259f2c86b6",
       "title": "Jensen Huang deepfakes are the hot new AI slop",
       "url": "https://www.theverge.com/tech/1041222/jensen-huang-nvidia-scandal-deepfakes",
@@ -1183,6 +1461,15 @@
       "publishedAt": "2026-11-24T16:20:56.000Z",
       "category": "ai",
       "topicSlug": "mobile-ai"
+    },
+    {
+      "id": "9cf5169facfc21dd3a2b1d64",
+      "title": "Lazy Agents Answer Against Their Own Beliefs: Reinforcement Learning with Verifiable Beliefs Teaches Them to Act on What They Believe",
+      "url": "https://arxiv.org/abs/2611.32884v1",
+      "source": "arXiv cs.AI",
+      "publishedAt": "2026-11-24T16:17:51.000Z",
+      "category": "general",
+      "topicSlug": "general"
     },
     {
       "id": "f727c1c958452b14f533f25f",
@@ -1212,15 +1499,6 @@
       "topicSlug": "general"
     },
     {
-      "id": "c046fc457cc8225a83efc831",
-      "title": "Ex-Nvidia partner Megaspeed hit with U.S. Commerce Department export ban",
-      "url": "https://www.upi.com/Top_News/US/2026/11/24/NVIDIA-partner-Megaspeed/1701795520063/",
-      "source": "Hacker News",
-      "publishedAt": "2026-11-24T16:08:29.000Z",
-      "category": "general",
-      "topicSlug": "general"
-    },
-    {
       "id": "2f8c3cc9fddc689a349b3f2b",
       "title": "Anthropic Created a Honeypot to Lure AI Agents Into Misbehaving",
       "url": "https://www.wired.com/story/ai-agents-can-get-honeypotted-too-aw/",
@@ -1246,15 +1524,6 @@
       "publishedAt": "2026-11-24T15:39:45.000Z",
       "category": "ai",
       "topicSlug": "ai-wearables"
-    },
-    {
-      "id": "69fca3952694f7ce401f209b",
-      "title": "Nvidia board's Huang reversal raises doubts about independence, critics say",
-      "url": "https://www.reuters.com/legal/transactional/nvidia-boards-huang-reversal-raises-doubts-about-independence-critics-say-2026-11-24/",
-      "source": "Hacker News",
-      "publishedAt": "2026-11-24T15:28:23.000Z",
-      "category": "general",
-      "topicSlug": "general"
     },
     {
       "id": "89335320727d8b60994a248c",
@@ -1311,20 +1580,20 @@
       "topicSlug": "ai-wearables"
     },
     {
+      "id": "fdc6d1b1be3da9202139d385",
+      "title": "🚀T3 Code完整使用教程！比Orca更好用的开源AI IDE？手机下发任务！1条指令拉起多个AI线程并行改代码！统一调度Claude Code、Codex",
+      "url": "https://www.bilibili.com/video/av117671802705979",
+      "source": "Bilibili",
+      "publishedAt": "2026-11-24T14:09:25.000Z",
+      "category": "coding",
+      "topicSlug": "coding-agents"
+    },
+    {
       "id": "ee7c5db7bbacb7f4b87f7838",
       "title": "iPhone Handoff: Here’s the latest on carrier availability and pricing",
       "url": "https://9to5mac.com/2026/11/24/iphone-handoff-carriers-support-ios-27/",
       "source": "9to5Mac",
       "publishedAt": "2026-11-24T13:40:56.000Z",
-      "category": "ai",
-      "topicSlug": "mobile-ai"
-    },
-    {
-      "id": "321b8334cb9b103ecf344ce9",
-      "title": "CAD images suggest iPhone 18e will have an odd new camera design",
-      "url": "https://9to5mac.com/2026/11/24/cad-images-suggest-iphone-18e-will-have-an-odd-new-camera-design/",
-      "source": "9to5Mac",
-      "publishedAt": "2026-11-24T13:19:08.000Z",
       "category": "ai",
       "topicSlug": "mobile-ai"
     },
@@ -1356,6 +1625,15 @@
       "topicSlug": "coding-agents"
     },
     {
+      "id": "6ae3f8b1b3db5fd1eed997b3",
+      "title": "EmbodiedStudio: A Task-Driven Simulation Generation Platform for Embodied Learning and Evaluation",
+      "url": "https://arxiv.org/abs/2611.32534v1",
+      "source": "arXiv",
+      "publishedAt": "2026-11-24T12:58:24.000Z",
+      "category": "coding",
+      "topicSlug": "coding-agents"
+    },
+    {
       "id": "cc2c1fda3077069b9a30f830",
       "title": "Nvidia proves it’s too big to fail",
       "url": "https://9to5google.com/2026/11/24/nvidia-proves-its-too-big-to-fail/",
@@ -1363,6 +1641,15 @@
       "publishedAt": "2026-11-24T12:00:00.000Z",
       "category": "ai",
       "topicSlug": "consumer-ai-apps"
+    },
+    {
+      "id": "45e00d6814e7f662206f25a0",
+      "title": "A Mesh to Remember: Persistent Appearance for Interactive Video Worlds",
+      "url": "https://arxiv.org/abs/2611.32445v1",
+      "source": "arXiv",
+      "publishedAt": "2026-11-24T11:42:48.000Z",
+      "category": "coding",
+      "topicSlug": "coding-agents"
     },
     {
       "id": "c39cb76d54051a56d0789f59",
@@ -1426,6 +1713,15 @@
       "publishedAt": "2026-11-24T07:30:04.000Z",
       "category": "ai",
       "topicSlug": "personal-ai-systems"
+    },
+    {
+      "id": "c79881d6f7777af902c098a5",
+      "title": "【抢先版】他手机里养了个电子女友，结果人是他的高冷同桌!!!",
+      "url": "https://www.bilibili.com/video/av117670074714068",
+      "source": "Bilibili",
+      "publishedAt": "2026-11-24T06:51:31.000Z",
+      "category": "ai",
+      "topicSlug": "mobile-ai"
     },
     {
       "id": "ca83bfea9770130127311c0d",
@@ -1554,6 +1850,15 @@
       "topicSlug": "coding-agents"
     },
     {
+      "id": "cf9f4fd6674e23e8b79943e3",
+      "title": "ThinkMorph-SSL: Scaling Interleaved Multimodal Reasoning with Pretext Tasks",
+      "url": "https://arxiv.org/abs/2611.32183",
+      "source": "Hugging Face Daily Papers",
+      "publishedAt": "2026-11-24T00:00:00.000Z",
+      "category": "general",
+      "topicSlug": "general"
+    },
+    {
       "id": "c87cd13d69aef69146c01790",
       "title": "google-labs-code/stitch-skills",
       "url": "https://github.com/google-labs-code/stitch-skills",
@@ -1633,6 +1938,15 @@
       "publishedAt": "2026-11-24T00:00:00.000Z",
       "category": "coding",
       "topicSlug": "coding-agents"
+    },
+    {
+      "id": "869ab27f77c154aa758a98c9",
+      "title": "PartAgent: Agentic 3D Part Segmentation via Expert Integration and Closed-Loop Refinement",
+      "url": "https://arxiv.org/abs/2611.32554",
+      "source": "Hugging Face Daily Papers",
+      "publishedAt": "2026-11-24T00:00:00.000Z",
+      "category": "general",
+      "topicSlug": "general"
     },
     {
       "id": "259baaed148fd1de894f4658",
@@ -1824,15 +2138,6 @@
       "topicSlug": "general"
     },
     {
-      "id": "6545db87281ad58ecc44f71f",
-      "title": "Claude AI can review pull requests and ship fixes on its own now",
-      "url": "https://www.theverge.com/ai-artificial-intelligence/1040134/anthropic-claude-ship-ai-pull-requests",
-      "source": "The Verge",
-      "publishedAt": "2026-11-23T20:00:00.000Z",
-      "category": "general",
-      "topicSlug": "general"
-    },
-    {
       "id": "1e8feefe1cb6821b878b109a",
       "title": "GPT-6.2 can make sense of the world around us, simulate how things work, and help you build worlds of your own.",
       "url": "https://x.com/OpenAIDevs/status/2124944225955639430",
@@ -1858,24 +2163,6 @@
       "publishedAt": "2026-11-23T19:06:08.000Z",
       "category": "ai",
       "topicSlug": "consumer-ai-apps"
-    },
-    {
-      "id": "28fca45c60283555e1af58ba",
-      "title": "A Mixed-Methods Study of Personal Software Creation",
-      "url": "https://arxiv.org/abs/2611.31217v1",
-      "source": "arXiv",
-      "publishedAt": "2026-11-23T18:56:16.000Z",
-      "category": "coding",
-      "topicSlug": "coding-agents"
-    },
-    {
-      "id": "9975322b4ef623d8321cf571",
-      "title": "ACAP: Asynchronous Coding Agents for Efficient Robot Control",
-      "url": "https://arxiv.org/abs/2611.31205v1",
-      "source": "arXiv",
-      "publishedAt": "2026-11-23T18:52:19.000Z",
-      "category": "coding",
-      "topicSlug": "coding-agents"
     },
     {
       "id": "20dd7c9ce0d9ce1b0b19d101",
@@ -1930,6 +2217,15 @@
       "publishedAt": "2026-11-23T17:37:33.000Z",
       "category": "ai",
       "topicSlug": "ai-wearables"
+    },
+    {
+      "id": "e635d2ce7bbd74b769700675",
+      "title": "AI Mode adding Google Drive, Wallet, & Gemini app integration",
+      "url": "https://9to5google.com/2026/11/23/ai-mode-wallet-gemini/",
+      "source": "9to5Google",
+      "publishedAt": "2026-11-23T17:36:34.000Z",
+      "category": "ai",
+      "topicSlug": "consumer-ai-apps"
     },
     {
       "id": "7c1b7fa479f1c733775525e1",
@@ -2022,15 +2318,6 @@
       "topicSlug": "personal-ai-systems"
     },
     {
-      "id": "31224c7765dd2ba9682b6b10",
-      "title": "Useful but Unwieldy: How Software Engineers Perceive the Design of Chain-of-Thought Explanations in Coding Agents",
-      "url": "https://arxiv.org/abs/2611.30894v1",
-      "source": "arXiv",
-      "publishedAt": "2026-11-23T15:57:22.000Z",
-      "category": "coding",
-      "topicSlug": "coding-agents"
-    },
-    {
       "id": "48d620a145eb3f8455ce76f9",
       "title": "Code coverage uploads now flag invalid report formats",
       "url": "https://github.blog/changelog/2026-11-23-code-coverage-uploads-now-flag-invalid-report-formats",
@@ -2047,15 +2334,6 @@
       "publishedAt": "2026-11-23T14:57:42.000Z",
       "category": "general",
       "topicSlug": "general"
-    },
-    {
-      "id": "bfcf6c3019c99a3002c3faa1",
-      "title": "狂烧上万元，我用 AI 做了 500 多个网站！",
-      "url": "https://www.bilibili.com/video/av117666283002439",
-      "source": "Bilibili",
-      "publishedAt": "2026-11-23T14:51:52.000Z",
-      "category": "coding",
-      "topicSlug": "coding-agents"
     },
     {
       "id": "a2ab149af6c04b2b7ae85030",
@@ -2103,15 +2381,6 @@
       "topicSlug": "general"
     },
     {
-      "id": "beb63abcae3977e6141c6f6a",
-      "title": "【干货】0 编程基础怎么开发 App？我用 Qoder 做了个语音跟随提词器",
-      "url": "https://www.bilibili.com/video/av117665511249487",
-      "source": "Bilibili",
-      "publishedAt": "2026-11-23T13:01:44.000Z",
-      "category": "coding",
-      "topicSlug": "coding-agents"
-    },
-    {
       "id": "d76321c82e0f0e357528378f",
       "title": "Review: The Asus ProArt P16 offers a glimpse of a future powered by local AI",
       "url": "https://arstechnica.com/reviews/2026/11/review-the-asus-proart-p16-offers-a-glimpse-of-a-future-powered-by-local-ai/",
@@ -2130,15 +2399,6 @@
       "topicSlug": "general"
     },
     {
-      "id": "06bfbafd84b2b9e9b924fb23",
-      "title": "实测 GLM-5.4：新增视觉有多好用？从网页应用到 Godot、Blender、Unity，5 项复杂挑战",
-      "url": "https://www.bilibili.com/video/av117665528153913",
-      "source": "Bilibili",
-      "publishedAt": "2026-11-23T11:42:01.000Z",
-      "category": "coding",
-      "topicSlug": "coding-agents"
-    },
-    {
       "id": "ef15277b82e7ab17775674e6",
       "title": "用代码编写 Canvas 场景并在无头 Chrome 中通过 WebCodecs 渲染为 MP4 视频，让 AI 编程代理配合审片标注快速制作和修改视频。",
       "url": "https://x.com/geekbb/status/2124830822721352062",
@@ -2155,15 +2415,6 @@
       "publishedAt": "2026-11-23T11:00:00.000Z",
       "category": "general",
       "topicSlug": "general"
-    },
-    {
-      "id": "6e07216a8e04b80e7eb438a5",
-      "title": "States Sue SpaceX Over Grok Deepfakes",
-      "url": "https://www.wired.com/story/states-sue-spacex-over-grok-deepfakes/",
-      "source": "Wired",
-      "publishedAt": "2026-11-23T11:00:00.000Z",
-      "category": "ai",
-      "topicSlug": "consumer-ai-apps"
     },
     {
       "id": "40718baab14d75f4aa78a510",
@@ -2200,15 +2451,6 @@
       "publishedAt": "2026-11-23T09:22:21.000Z",
       "category": "coding",
       "topicSlug": "coding-agents"
-    },
-    {
-      "id": "87fb98bd9a925a506ff0d99c",
-      "title": "谁说AI只能帮你提效？吃喝玩乐、衣食住行，AI手机还能怎么玩？",
-      "url": "https://www.bilibili.com/video/av117664873712072",
-      "source": "Bilibili",
-      "publishedAt": "2026-11-23T08:50:40.000Z",
-      "category": "ai",
-      "topicSlug": "mobile-ai"
     },
     {
       "id": "10878202550bbbf922d1872a",
@@ -2322,24 +2564,6 @@
       "id": "48ae08447475fd9d163c1faa",
       "title": "3AGameFactory-Motion: Agentic Rigging and Reliable Complex Motion Generation for Diverse 3D Assets",
       "url": "https://arxiv.org/abs/2611.30013",
-      "source": "Hugging Face Daily Papers",
-      "publishedAt": "2026-11-23T00:00:00.000Z",
-      "category": "general",
-      "topicSlug": "general"
-    },
-    {
-      "id": "17e65504dc67205ede837724",
-      "title": "RUIBench: What Makes a Good Robot-Use Interface?",
-      "url": "https://arxiv.org/abs/2611.31115",
-      "source": "Hugging Face Daily Papers",
-      "publishedAt": "2026-11-23T00:00:00.000Z",
-      "category": "general",
-      "topicSlug": "general"
-    },
-    {
-      "id": "9a49d3beba62948eb6cebd88",
-      "title": "WorldLeague: Benchmarking Physical Agency",
-      "url": "https://arxiv.org/abs/2611.30989",
       "source": "Hugging Face Daily Papers",
       "publishedAt": "2026-11-23T00:00:00.000Z",
       "category": "general",
@@ -2823,11 +3047,11 @@
       "topicSlug": "personal-ai-systems"
     },
     {
-      "id": "6de322dbe3af2fd003fd6015",
-      "title": "cline/cline SDK v0.2.1",
-      "url": "https://github.com/cline/cline/releases/tag/sdk%2Fsdk%2Fv0.2.1",
+      "id": "ed8f0ab20585cec5465d80d4",
+      "title": "cline/cline Desktop v0.0.50",
+      "url": "https://github.com/cline/cline/releases/tag/desktop-v0.0.50",
       "source": "GitHub releases cline/cline",
-      "publishedAt": "2026-11-21T05:19:22.000Z",
+      "publishedAt": "2026-11-21T05:54:15.000Z",
       "category": "coding",
       "topicSlug": "coding-agents"
     },
@@ -3118,15 +3342,6 @@
       "publishedAt": "2026-11-20T13:40:52.000Z",
       "category": "ai",
       "topicSlug": "ai-wearables"
-    },
-    {
-      "id": "e94e07951c191203e70d1577",
-      "title": "The Download: inside the quest to make our minds immortal",
-      "url": "https://www.technologyreview.com/2026/11/20/1149371/the-download-quest-to-make-minds-immortal/",
-      "source": "MIT Technology Review",
-      "publishedAt": "2026-11-20T13:10:00.000Z",
-      "category": "general",
-      "topicSlug": "general"
     },
     {
       "id": "cc4c8eeb9a0a9e0dc4c4a95c",
@@ -3462,15 +3677,6 @@
       "topicSlug": "general"
     },
     {
-      "id": "cab673f80ff9839867c734fa",
-      "title": "The Download: a living liver, a billion-dollar battery deal, and AI hype",
-      "url": "https://www.technologyreview.com/2026/11/19/1148979/the-download-liver-kept-alive-sila-battery-deal-ai-hype/",
-      "source": "MIT Technology Review",
-      "publishedAt": "2026-11-19T13:10:00.000Z",
-      "category": "general",
-      "topicSlug": "general"
-    },
-    {
       "id": "729b2df2f0e62377a65e889e",
       "title": "Anthropic would need about $602 billion in annual revenue to earn a 20% return on its roughly $1 trillion in compute commitments, per FT",
       "url": "https://x.com/unusual_whales/status/2123400146113499362",
@@ -3588,24 +3794,6 @@
       "topicSlug": "coding-agents"
     },
     {
-      "id": "05ce402c019ee3f6f56c86c6",
-      "title": "reflecting on this, it was in august where deepseek 4.1's success and price hike destroyed our economics",
-      "url": "https://x.com/thdxr/status/2123216909931864355",
-      "source": "X @thdxr",
-      "publishedAt": "2026-11-19T00:48:53.000Z",
-      "category": "coding",
-      "topicSlug": "coding-agents"
-    },
-    {
-      "id": "5709ef711374c06a33335bca",
-      "title": "Google 开源 ABFS：Android 源码检出从约 36 分钟降到 8 秒内",
-      "url": "https://x.com/shao__meng/status/2123208337965883873",
-      "source": "X @shao__meng",
-      "publishedAt": "2026-11-19T00:14:49.000Z",
-      "category": "ai",
-      "topicSlug": "mobile-ai"
-    },
-    {
       "id": "82fe289fe466dcc1d4f71a60",
       "title": "Explore the Codex Security Plugin",
       "url": "https://openai.com/business/learn/codex-security-plugin-demo",
@@ -3622,24 +3810,6 @@
       "publishedAt": "2026-11-19T00:00:00.000Z",
       "category": "general",
       "topicSlug": "general"
-    },
-    {
-      "id": "456b377ed4ff599076785d1f",
-      "title": "马斯克把英伟达请走黄仁勋，比作芝加哥公牛在连胜途中把迈克尔·乔丹踢出球队，“看起来不是聪明的决定”。",
-      "url": "https://x.com/dotey/status/2123196833358926273",
-      "source": "X @dotey",
-      "publishedAt": "2026-11-18T23:29:06.000Z",
-      "category": "general",
-      "topicSlug": "general"
-    },
-    {
-      "id": "6e0772f7081a44689793f4d2",
-      "title": "We’ve priced our IPO at $83 per share, with trading expected to begin on Nasdaq tomorrow.",
-      "url": "https://x.com/AnthropicAI/status/2123196808675405860",
-      "source": "X @AnthropicAI",
-      "publishedAt": "2026-11-18T23:29:00.000Z",
-      "category": "coding",
-      "topicSlug": "coding-agents"
     },
     {
       "id": "e9464363a1c6eae74841ed18",
@@ -3669,56 +3839,11 @@
       "topicSlug": "general"
     },
     {
-      "id": "c610d24feede565c365a5cdd",
-      "title": "Gemini 4 Neon: frontier-level intelligence with fast end-to-end task completion across complex software engineering, knowledge work, and…",
-      "url": "https://x.com/sundarpichai/status/2123167780988125621",
-      "source": "X @sundarpichai",
-      "publishedAt": "2026-11-18T21:33:40.000Z",
-      "category": "ai",
-      "topicSlug": "consumer-ai-apps"
-    },
-    {
-      "id": "6bcf8a3b5d172cf33c228693",
-      "title": "I think a lot of people aren't using Grok Bot to its full potential, because knowing how to automate things is actually quite a difficult…",
-      "url": "https://x.com/poteto/status/2123159537016533493",
-      "source": "X @poteto",
-      "publishedAt": "2026-11-18T21:00:54.000Z",
-      "category": "ai",
-      "topicSlug": "consumer-ai-apps"
-    },
-    {
       "id": "f0b81ce3c14612880642c854",
       "title": "DaisyRose-27B: Pushing the Frontier of Post-Training Efficiency",
       "url": "https://huggingface.co/blog/RadixArk/daisyrose-27b-pushing-the-frontier-of-post-trainin",
       "source": "Hugging Face Blog",
       "publishedAt": "2026-11-18T19:54:56.000Z",
-      "category": "general",
-      "topicSlug": "general"
-    },
-    {
-      "id": "ab1583333e84ed08bf94a3a3",
-      "title": "How does a truly \"AI-pilled\" startup work?",
-      "url": "https://x.com/GergelyOrosz/status/2123125108361351464",
-      "source": "X @GergelyOrosz",
-      "publishedAt": "2026-11-18T18:44:06.000Z",
-      "category": "general",
-      "topicSlug": "general"
-    },
-    {
-      "id": "f5a3bdcc65574a40367bbed9",
-      "title": "Bringing Salesforce to Copilot as we build Copilot as the OS for work!",
-      "url": "https://x.com/satyanadella/status/2123119560803176533",
-      "source": "X @satyanadella",
-      "publishedAt": "2026-11-18T18:22:03.000Z",
-      "category": "ai",
-      "topicSlug": "consumer-ai-apps"
-    },
-    {
-      "id": "ac4b784b66bd3496d6f3ce66",
-      "title": "Genie 4 is now available in Project Genie.",
-      "url": "https://x.com/GoogleDeepMind/status/2123117733709586849",
-      "source": "X @GoogleDeepMind",
-      "publishedAt": "2026-11-18T18:14:47.000Z",
       "category": "general",
       "topicSlug": "general"
     },
@@ -3741,24 +3866,6 @@
       "topicSlug": "general"
     },
     {
-      "id": "1f967ea242745eff13574201",
-      "title": "So fun to do DealBook with my friend and partner of 11 years, @gdb.",
-      "url": "https://x.com/sama/status/2123103873166381287",
-      "source": "X @sama",
-      "publishedAt": "2026-11-18T17:19:43.000Z",
-      "category": "general",
-      "topicSlug": "general"
-    },
-    {
-      "id": "dd54c25d3a8eaa4f6d653de2",
-      "title": "Working with @AMD, our models identified up to 14% PPA improvement on flagship GPU IP in less than five months—building on designs AMD’s…",
-      "url": "https://x.com/OpenAI/status/2123100386638877054",
-      "source": "X @OpenAI",
-      "publishedAt": "2026-11-18T17:05:52.000Z",
-      "category": "general",
-      "topicSlug": "general"
-    },
-    {
       "id": "00a064e6720eae62fd0b2612",
       "title": "The Gemini app is now available on lower-memory Android devices.",
       "url": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-lower-memory-devices/",
@@ -3766,24 +3873,6 @@
       "publishedAt": "2026-11-18T17:00:00.000Z",
       "category": "ai",
       "topicSlug": "consumer-ai-apps"
-    },
-    {
-      "id": "c77444c8435e0c24be6d6125",
-      "title": "Pre-auth RCE in nginx is the bug every hacker dreams of finding. It almost never happens.",
-      "url": "https://x.com/brian_pak/status/2123071121553854545",
-      "source": "X @brian_pak",
-      "publishedAt": "2026-11-18T15:09:34.000Z",
-      "category": "general",
-      "topicSlug": "general"
-    },
-    {
-      "id": "24864fc2ea4ae720842c71b8",
-      "title": "Ahead of Anthropic’s IPO, a rare coalition across AI safety, open source, e/acc, science, and law has signed the MisAnthropic Statement.",
-      "url": "https://x.com/CAIS/status/2123069814663160304",
-      "source": "X @CAIS",
-      "publishedAt": "2026-11-18T15:04:23.000Z",
-      "category": "general",
-      "topicSlug": "general"
     },
     {
       "id": "aef632472a5e3af7f91b4cd9",
@@ -3800,168 +3889,6 @@
       "url": "https://blog.cloudflare.com/java4shell-waf-protection/",
       "source": "Cloudflare blog",
       "publishedAt": "2026-11-18T14:52:10.000Z",
-      "category": "general",
-      "topicSlug": "general"
-    },
-    {
-      "id": "f1f6e8ba84e0579d16144e72",
-      "title": "EgoPass-Bench: Identifying Objects That May Affect the Wearer's Passage in Egocentric Video",
-      "url": "https://arxiv.org/abs/2611.24995v1",
-      "source": "arXiv",
-      "publishedAt": "2026-11-18T14:16:38.000Z",
-      "category": "ai",
-      "topicSlug": "ai-wearables"
-    },
-    {
-      "id": "17a512a8057799f333b30242",
-      "title": "The White House just held a background briefing to address the string of tech outages and unanswered questions about what's going on.",
-      "url": "https://x.com/kaitlancollins/status/2123055652499079480",
-      "source": "X @kaitlancollins",
-      "publishedAt": "2026-11-18T14:08:06.000Z",
-      "category": "general",
-      "topicSlug": "general"
-    },
-    {
-      "id": "b0dfaac3cf70b7a94e4fefe5",
-      "title": "Meta Welcomes Loblaw as First Canadian Retail Partner to Muse",
-      "url": "https://about.fb.com/news/2026/11/meta-welcomes-loblaw-as-first-canadian-retail-partner-to-muse/",
-      "source": "Meta Newsroom",
-      "publishedAt": "2026-11-18T14:07:00.000Z",
-      "category": "general",
-      "topicSlug": "general"
-    },
-    {
-      "id": "a9ef6dbadc6b0013c70d2fb0",
-      "title": "NVIDIA RTX Spark Compact Desktops Out Now",
-      "url": "https://blogs.nvidia.com/blog/rtx-spark-desktop-local-ai-available-now/",
-      "source": "NVIDIA Newsroom",
-      "publishedAt": "2026-11-18T14:00:31.000Z",
-      "category": "ai",
-      "topicSlug": "personal-ai-systems"
-    },
-    {
-      "id": "db9b81401cb73d7b9082ca9a",
-      "title": "[AINews] GPT-6.2 Astra, the #2 Frontier Model is better and 20%-600% cheaper, but has mixed reviews; 6.2 Sol likely main workhorse",
-      "url": "https://latent.space/p/ainews-gpt-6-2-astra-the-2-frontier-model-is-better-and-20-600-cheaper-but-has-mixed-reviews-6-2-sol/",
-      "source": "Latent Space",
-      "publishedAt": "2026-11-18T10:19:04.000Z",
-      "category": "general",
-      "topicSlug": "general"
-    },
-    {
-      "id": "184d931227f2504de1a33beb",
-      "title": "The Silent Consensus",
-      "url": "https://openai.com/index/the-silent-consensus",
-      "source": "OpenAI",
-      "publishedAt": "2026-11-18T10:00:00.000Z",
-      "category": "general",
-      "topicSlug": "general"
-    },
-    {
-      "id": "4adae37f7867105d8e46632a",
-      "title": "HHW-Ego: DSLR-Quality Enhancement for Multi-Source Wearable Ego Imaging",
-      "url": "https://arxiv.org/abs/2611.24010v1",
-      "source": "arXiv",
-      "publishedAt": "2026-11-18T08:01:42.000Z",
-      "category": "ai",
-      "topicSlug": "ai-wearables"
-    },
-    {
-      "id": "53d809d7420a3923e8bad7c3",
-      "title": "How Sumitomo Life’s leaders helped teams adopt ChatGPT Enterprise",
-      "url": "https://openai.com/business/customer-stories/sumitomo-life",
-      "source": "OpenAI",
-      "publishedAt": "2026-11-18T08:00:00.000Z",
-      "category": "ai",
-      "topicSlug": "consumer-ai-apps"
-    },
-    {
-      "id": "ecf4f9528f3e5469b9d500fb",
-      "title": "JUST IN: AI agents outperformed KPMG accountants in a pilot audit, “the AI was able to go so much deeper...[it] asked better questions”…",
-      "url": "https://x.com/etnshow/status/2122960984587272262",
-      "source": "X @etnshow",
-      "publishedAt": "2026-11-18T07:51:56.000Z",
-      "category": "general",
-      "topicSlug": "general"
-    },
-    {
-      "id": "9313eba6ae102d72930a458c",
-      "title": "Massive New Study Shows How Young People Feel About AI Companions",
-      "url": "https://www.404media.co/gallup-study-friendship-ai-companions/",
-      "source": "404 Media",
-      "publishedAt": "2026-11-18T05:01:00.000Z",
-      "category": "ai",
-      "topicSlug": "consumer-ai-apps"
-    },
-    {
-      "id": "c856290a618cb81836a7d8a8",
-      "title": "Weighing the Envelope: Component Weight and Arbitration in Envelope-Layer Defenses for a Single LLM Agent",
-      "url": "https://arxiv.org/abs/2611.23844v1",
-      "source": "arXiv",
-      "publishedAt": "2026-11-18T04:50:08.000Z",
-      "category": "ai",
-      "topicSlug": "personal-ai-systems"
-    },
-    {
-      "id": "03d468a218096cc37a910311",
-      "title": "PReMind: When Personal Memory Meets Visual Hazards",
-      "url": "https://arxiv.org/abs/2611.23808v1",
-      "source": "arXiv",
-      "publishedAt": "2026-11-18T04:13:29.000Z",
-      "category": "ai",
-      "topicSlug": "personal-ai-systems"
-    },
-    {
-      "id": "60794775c055bb8e07ec8362",
-      "title": "so many founders I talk to don’t want to build software products bc they’re scared it’s all just going to get eaten up.",
-      "url": "https://x.com/sophiadew/status/2122892436334850369",
-      "source": "X @sophiadew",
-      "publishedAt": "2026-11-18T03:19:32.000Z",
-      "category": "ai",
-      "topicSlug": "consumer-ai-apps"
-    },
-    {
-      "id": "0594ce58e6ec0d531ed676e0",
-      "title": "Stop using image models to make images.",
-      "url": "https://x.com/higgsfield_ai/status/2122879631791673778",
-      "source": "X @higgsfield_ai",
-      "publishedAt": "2026-11-18T02:28:40.000Z",
-      "category": "general",
-      "topicSlug": "general"
-    },
-    {
-      "id": "4f9e9720211f280d9c239add",
-      "title": "Two months after launching Siri AI, Apple has been completely jettisoned yet again in the space.",
-      "url": "https://x.com/markgurman/status/2122870209216225388",
-      "source": "X @markgurman",
-      "publishedAt": "2026-11-18T01:51:13.000Z",
-      "category": "ai",
-      "topicSlug": "mobile-ai"
-    },
-    {
-      "id": "acc93b13fed4004dd5df5002",
-      "title": "can you tell which one is real?",
-      "url": "https://x.com/HeyGen/status/2122738284405117217",
-      "source": "X @HeyGen",
-      "publishedAt": "2026-11-17T17:07:00.000Z",
-      "category": "general",
-      "topicSlug": "general"
-    },
-    {
-      "id": "140a662e4ffa8549778ca336",
-      "title": "Meet Devin Bots. From writing firmware to merging thousands of PRs a week, a Devin Bot leads a team of agents to get the job done.",
-      "url": "https://x.com/cognition/status/2122737511684587551",
-      "source": "X @cognition",
-      "publishedAt": "2026-11-17T17:03:55.000Z",
-      "category": "coding",
-      "topicSlug": "coding-agents"
-    },
-    {
-      "id": "5c0db11f2beab2c4681fb1a6",
-      "title": "Banger paper from Google on RSI.",
-      "url": "https://x.com/omarsar0/status/2122701047118635485",
-      "source": "X @omarsar0",
-      "publishedAt": "2026-11-17T14:39:02.000Z",
       "category": "general",
       "topicSlug": "general"
     }
