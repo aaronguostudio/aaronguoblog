@@ -4,7 +4,6 @@ import type { StaticRadarItem } from '~/composables/useStaticRadarSnapshot'
 import { signalEditions } from '~/data/signal/editions'
 import { SIGNAL_BRIEFS } from '~/data/signal/briefs'
 import { SIGNAL_RESEARCH_THREADS } from '~/data/signal/threads'
-import { formatSignalPulseText, selectFreshestSignalPulse } from '~/utils/signal-pulse'
 import { selectPulseSnapshotItems, sortRadarItemsByDateDesc } from '~/utils/radar-snapshot'
 import { createSignalBriefCards } from '~/utils/signal-briefs'
 import { createSignalThreadCards } from '~/utils/signal-threads'
@@ -27,31 +26,6 @@ type SignalItem = {
   topic_slug?: string
 }
 
-type SignalStat = {
-  source: string
-  count: number | string
-}
-
-type RadarTopicOption = {
-  slug: string
-  name: string
-}
-
-type SignalResponse = {
-  available?: boolean
-  items?: SignalItem[]
-  total?: number | string
-  stats?: SignalStat[]
-  topics?: RadarTopicOption[]
-}
-
-type SignalPulseResponse = {
-  pulse?: string | null
-  date?: string | null
-  generatedAt?: string | null
-  items?: SignalItem[]
-}
-
 useHead({
   title: t('signal.title'),
   meta: [
@@ -72,27 +46,10 @@ const activeSource = ref('')
 const activeCategory = ref('')
 const activeTopic = ref('')
 const searchQuery = ref('')
-const offset = ref(0)
-const allItems = ref<SignalItem[]>([])
-const totalCount = ref(0)
-const statsData = ref<SignalStat[] | null>(null)
-
+const visibleLimit = ref(50)
 const showPulseEvidence = ref(false)
 const activeThreadSlug = ref('')
-const liveFeedReady = ref(false)
-
-const { data: staticSnapshot } = await useStaticRadarSnapshot('signal-radar-latest')
-
-const hasStaticSnapshot = computed(() => Boolean(staticSnapshot.value?.items?.length))
-
-const { data: pulseData, refresh: refreshPulse } = await useFetch<SignalPulseResponse>(
-  '/api/signal-pulse',
-  {
-    immediate: false,
-    server: false,
-    watch: false,
-  },
-)
+const { data: staticSnapshot, status } = await useStaticRadarSnapshot('signal-radar-latest')
 
 function mapStaticItem(item: StaticRadarItem): SignalItem {
   return {
@@ -112,179 +69,36 @@ function mapStaticItem(item: StaticRadarItem): SignalItem {
   }
 }
 
-function getStaticItems() {
-  return sortRadarItemsByDateDesc((staticSnapshot.value?.items || []).map(mapStaticItem))
-}
-
-function getStaticPulseItems() {
-  const items = getStaticItems()
-  const topIds = staticSnapshot.value?.pulse?.topItemIds || []
-  return selectPulseSnapshotItems<SignalItem>(items, topIds, 5)
-}
-
-const activePulse = computed(() =>
-  selectFreshestSignalPulse<SignalItem>(
-    staticSnapshot.value?.pulse
-      ? {
-          text: staticSnapshot.value.pulse.text,
-          date: staticSnapshot.value.pulse.date,
-          generatedAt: staticSnapshot.value.generatedAt,
-          items: getStaticPulseItems(),
-        }
-      : null,
-    pulseData.value?.date || pulseData.value?.pulse
-      ? {
-          text: pulseData.value.pulse,
-          date: pulseData.value.date,
-          generatedAt: pulseData.value.generatedAt,
-          items: (pulseData.value.items || []).slice(0, 5),
-        }
-      : null,
-  ),
+const researchSignalItems = computed(() =>
+  sortRadarItemsByDateDesc((staticSnapshot.value?.items || []).map(mapStaticItem)),
 )
-
-const rawPulseText = computed(() => activePulse.value?.text || null)
+const pulseDate = computed(() => staticSnapshot.value?.date || null)
+const pulseItems = computed(() =>
+  selectPulseSnapshotItems(researchSignalItems.value, staticSnapshot.value?.pulse?.topItemIds, 5),
+)
 const pulseText = computed(() =>
-  formatSignalPulseText({
-    text: rawPulseText.value,
-    locale: locale.value,
-  }),
+  t('signal.radarCoverage', { count: researchSignalItems.value.length }),
 )
-const pulseDate = computed(() => activePulse.value?.date || null)
-const pulseItems = computed(() => activePulse.value?.items || [])
 
-function applyStaticFilters({ append = false } = {}) {
+const filteredItems = computed(() => {
   const query = searchQuery.value.trim().toLowerCase()
-  const filtered = getStaticItems().filter((item) => {
+  return researchSignalItems.value.filter((item) => {
     if (activeSource.value && item.source !== activeSource.value) return false
     if (activeCategory.value && item.category !== activeCategory.value) return false
     if (activeTopic.value && item.topic_slug !== activeTopic.value) return false
-    if (!query) return true
-
-    return [item.title, item.summary, item.ai_summary]
-      .filter(Boolean)
-      .join(' ')
-      .toLowerCase()
-      .includes(query)
+    return !query || [item.title, item.source, item.summary, item.ai_summary]
+      .filter(Boolean).join(' ').toLowerCase().includes(query)
   })
-
-  const nextItems = filtered.slice(offset.value, offset.value + 50)
-  allItems.value = append ? [...allItems.value, ...nextItems] : nextItems
-  totalCount.value = filtered.length
-  statsData.value = staticSnapshot.value?.stats || []
-}
-
-const {
-  data,
-  refresh: refreshApi,
-  status,
-  error: feedError,
-} = await useFetch<SignalResponse>('/api/signal', {
-  query: computed(() => ({
-    source: activeSource.value,
-    category: activeCategory.value,
-    topic: activeTopic.value,
-    minRelevance: 5,
-    offset: offset.value,
-    q: searchQuery.value,
-    limit: 50,
-  })),
-  immediate: false,
-  server: false,
-  watch: false,
-  onResponse({ response }) {
-    const result = response._data
-    if (!result) return
-
-    if (result.available === false) {
-      return
-    }
-
-    liveFeedReady.value = true
-    const nextItems = result.items || []
-    if (offset.value === 0) {
-      allItems.value = sortRadarItemsByDateDesc(nextItems)
-    } else {
-      const uniqueItems = new Map(
-        [...allItems.value, ...nextItems].map((item) => [String(item.id), item]),
-      )
-      allItems.value = sortRadarItemsByDateDesc([...uniqueItems.values()])
-    }
-    totalCount.value = Number(result.total) || 0
-    if (result.stats) statsData.value = result.stats
-  },
 })
-
-async function refreshSignalData() {
-  await refreshApi()
-
-  if (feedError.value || data.value?.available === false) {
-    applyStaticFilters()
-  }
-}
-
-if (hasStaticSnapshot.value) {
-  applyStaticFilters()
-}
-
-watch(staticSnapshot, (snapshot) => {
-  if (!snapshot?.items?.length || liveFeedReady.value) return
-  offset.value = 0
-  applyStaticFilters()
+watch([searchQuery, activeSource, activeCategory, activeTopic, staticSnapshot], () => {
+  visibleLimit.value = 50
 })
-
-let searchTimer: ReturnType<typeof setTimeout>
-function onSearch(value: string) {
-  clearTimeout(searchTimer)
-  searchTimer = setTimeout(() => {
-    searchQuery.value = value
-    offset.value = 0
-    refreshSignalData()
-  }, 300)
-}
-
-onMounted(() => {
-  void Promise.allSettled([refreshPulse(), refreshSignalData()])
-})
-
-onBeforeUnmount(() => clearTimeout(searchTimer))
-
-function setSource(source: string) {
-  activeSource.value = source
-  offset.value = 0
-  refreshSignalData()
-}
-
-function setCategory(category: string) {
-  activeCategory.value = category
-  offset.value = 0
-  refreshSignalData()
-}
-
-function setTopic(topic: string) {
-  activeTopic.value = topic
-  offset.value = 0
-  refreshSignalData()
-}
-
-const isLoadingMore = ref(false)
-const canLoadMore = computed(() => allItems.value.length < totalCount.value)
+const totalCount = computed(() => filteredItems.value.length)
+const allItems = computed(() => filteredItems.value.slice(0, visibleLimit.value))
+const canLoadMore = computed(() => visibleLimit.value < totalCount.value)
 const loadMoreSentinel = ref<HTMLElement | null>(null)
-
-async function loadMore() {
-  if (isLoadingMore.value || !canLoadMore.value) return
-
-  isLoadingMore.value = true
-  offset.value = allItems.value.length
-
-  try {
-    await refreshApi()
-    if (feedError.value || data.value?.available === false) {
-      applyStaticFilters({ append: true })
-    }
-  } finally {
-    isLoadingMore.value = false
-  }
+function loadMore() {
+  visibleLimit.value += 50
 }
 
 useIntersectionObserver(
@@ -403,40 +217,11 @@ function categoryLabel(category: string) {
   return labels[category] || category
 }
 
-const topics = computed(() => {
-  const sourceTopics =
-    (liveFeedReady.value ? data.value?.topics : staticSnapshot.value?.topics) ||
-    staticSnapshot.value?.topics ||
-    []
-  return sourceTopics.map((topic) => ({ slug: topic.slug, name: topic.name }))
-})
-
-const filterItems = computed(() =>
-  liveFeedReady.value
-    ? allItems.value
-    : hasStaticSnapshot.value
-      ? getStaticItems()
-      : allItems.value,
+const topics = computed(() => staticSnapshot.value?.topics || [])
+const availableSources = computed(() => (staticSnapshot.value?.stats || []).map(stat => stat.source))
+const availableCategories = computed(() =>
+  [...new Set(researchSignalItems.value.map(item => item.category).filter(Boolean))].sort(),
 )
-
-const availableSources = computed(() => {
-  const counts = new Map<string, number>()
-  for (const stat of statsData.value || []) counts.set(stat.source, Number(stat.count) || 0)
-  for (const item of filterItems.value) {
-    if (!counts.has(item.source)) counts.set(item.source, 0)
-  }
-  return [...counts.entries()].sort((a, b) => b[1] - a[1]).map(([source]) => source)
-})
-
-const availableCategories = computed(() => {
-  const values = new Set(filterItems.value.map((item) => item.category).filter(Boolean))
-  return [...values].sort()
-})
-
-const researchSignalItems = computed(() => {
-  if (hasStaticSnapshot.value) return getStaticItems()
-  return allItems.value
-})
 
 const threadCards = computed(() =>
   createSignalThreadCards({
@@ -482,8 +267,7 @@ async function openEvidenceWorkbench(topic = '') {
   activeSource.value = ''
   activeCategory.value = ''
   searchQuery.value = ''
-  offset.value = 0
-  await refreshSignalData()
+  visibleLimit.value = 50
   await scrollToSection('signal-workbench')
 }
 </script>
@@ -594,20 +378,18 @@ async function openEvidenceWorkbench(topic = '') {
               class="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground opacity-70"
             />
             <input
+              v-model="searchQuery"
               type="search"
-              :value="searchQuery"
               :placeholder="t('signal.searchEvidence')"
               class="signal-control form-input w-full rounded-lg py-2.5 pl-10 pr-3 text-sm"
-              @input="onSearch(($event.target as HTMLInputElement).value)"
             />
           </label>
 
           <label>
             <span class="sr-only">{{ t('signal.sourceFilter') }}</span>
             <select
-              :value="activeSource"
+              v-model="activeSource"
               class="signal-control form-select w-full rounded-lg py-2.5 text-sm"
-              @change="setSource(($event.target as HTMLSelectElement).value)"
             >
               <option value="">{{ t('signal.allSources') }}</option>
               <option v-for="source in availableSources" :key="source" :value="source">
@@ -619,9 +401,8 @@ async function openEvidenceWorkbench(topic = '') {
           <label>
             <span class="sr-only">{{ t('signal.categoryFilter') }}</span>
             <select
-              :value="activeCategory"
+              v-model="activeCategory"
               class="signal-control form-select w-full rounded-lg py-2.5 text-sm"
-              @change="setCategory(($event.target as HTMLSelectElement).value)"
             >
               <option value="">{{ t('signal.allCategories') }}</option>
               <option v-for="category in availableCategories" :key="category" :value="category">
@@ -633,9 +414,8 @@ async function openEvidenceWorkbench(topic = '') {
           <label>
             <span class="sr-only">{{ t('signal.topicFilter') }}</span>
             <select
-              :value="activeTopic"
+              v-model="activeTopic"
               class="signal-control form-select w-full rounded-lg py-2.5 text-sm"
-              @change="setTopic(($event.target as HTMLSelectElement).value)"
             >
               <option value="">{{ t('signal.allTopics') }}</option>
               <option v-for="topic in topics" :key="topic.slug" :value="topic.slug">
@@ -718,11 +498,9 @@ async function openEvidenceWorkbench(topic = '') {
           <button
             type="button"
             class="signal-rule-strong inline-flex items-center gap-2 rounded-lg border px-5 py-2.5 text-sm font-medium text-muted-foreground outline-none transition-colors hover:border-[var(--signal-accent)] hover:text-foreground focus-visible:ring-2 focus-visible:ring-[var(--signal-accent)] disabled:cursor-wait disabled:opacity-60"
-            :disabled="isLoadingMore"
             @click="loadMore"
           >
-            <Icon v-if="isLoadingMore" name="svg-spinners:180-ring" class="h-4 w-4" />
-            {{ isLoadingMore ? t('signal.loading') : t('signal.loadMore') }}
+            {{ t('signal.loadMore') }}
           </button>
         </div>
       </section>

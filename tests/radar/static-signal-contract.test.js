@@ -38,7 +38,7 @@ describe('static Signal contract', () => {
 
   it('makes the full Signal page read the static Radar snapshot first', () => {
     expect(SIGNAL_PAGE).toContain("useStaticRadarSnapshot('signal-radar-latest')")
-    expect(SIGNAL_PAGE.indexOf('useStaticRadarSnapshot')).toBeLessThan(SIGNAL_PAGE.indexOf("'/api/signal'"))
+    expect(SIGNAL_PAGE).not.toContain("'/api/signal'")
   })
 
   it('makes the homepage Signal preview read the static Radar snapshot first', () => {
@@ -48,7 +48,7 @@ describe('static Signal contract', () => {
     expect(MAIN_WRITING).toContain(':snapshot="signalSnapshot"')
     expect(MAIN_SIGNAL).toContain('snapshot?: StaticRadarSnapshot | null')
     expect(MAIN_SIGNAL).toMatch(/useStaticRadarSnapshot\(\s*'homepage-signal-radar-latest'/)
-    expect(MAIN_SIGNAL.indexOf('useStaticRadarSnapshot')).toBeLessThan(MAIN_SIGNAL.indexOf("'/api/signal'"))
+    expect(MAIN_SIGNAL).not.toContain("'/api/signal'")
     expect(MAIN_SIGNAL).toContain('selectRadarTakeaway')
     expect(MAIN_SIGNAL).toContain('pulseTakeaway')
     expect(EN_LOCALE).toContain('"dailyReadoutLabel": "Today\'s takeaway"')
@@ -82,7 +82,6 @@ describe('static Signal contract', () => {
     expect(SIGNAL_PAGE).toContain("import { SIGNAL_RESEARCH_THREADS } from '~/data/signal/threads'")
     expect(SIGNAL_PAGE).toContain("import { createSignalThreadCards } from '~/utils/signal-threads'")
     expect(SIGNAL_PAGE).toContain('const researchSignalItems = computed')
-    expect(SIGNAL_PAGE).toContain('if (hasStaticSnapshot.value) return getStaticItems()')
     expect(SIGNAL_PAGE).toContain('const threadCards = computed')
     expect(SIGNAL_PAGE).toContain('items: researchSignalItems.value')
     expect(SIGNAL_PAGE).toContain('locale: locale.value')
@@ -110,8 +109,7 @@ describe('static Signal contract', () => {
     expect(SIGNAL_PAGE).toContain('signal.radarReadout')
     expect(SIGNAL_PAGE).toContain('const pulseCards = computed')
     expect(SIGNAL_PAGE).toContain('showPulseEvidence')
-    expect(SIGNAL_PAGE).toContain('selectFreshestSignalPulse')
-    expect(SIGNAL_PAGE).toContain('server: false')
+    expect(SIGNAL_PAGE).not.toContain('/api/signal-pulse')
     expect(SIGNAL_PAGE).toContain('max-w-[90rem]')
 
     const findingComponent = readFileSync(SIGNAL_FINDING_COMPONENT, 'utf8')
@@ -139,15 +137,13 @@ describe('static Signal contract', () => {
     expect(SIGNAL_PAGE).toContain('ref="loadMoreSentinel"')
     expect(SIGNAL_PAGE).toContain('useIntersectionObserver(')
     expect(SIGNAL_PAGE).toContain("rootMargin: '600px 0px'")
-    expect(SIGNAL_PAGE).toContain('isLoadingMore.value || !canLoadMore.value')
-    expect(SIGNAL_PAGE).toContain('liveFeedReady.value = true')
-    expect(SIGNAL_PAGE).toContain('data.value?.available === false')
+    expect(SIGNAL_PAGE).toContain('filteredItems.value.slice(0, visibleLimit.value)')
+    expect(SIGNAL_PAGE).toContain('visibleLimit.value += 50')
   })
 
   it('turns Signal into a progressive evidence-to-thesis path', () => {
     expect(existsSync(SIGNAL_PULSE_UTIL)).toBe(true)
-    expect(SIGNAL_PAGE).toContain('formatSignalPulseText, selectFreshestSignalPulse')
-    expect(SIGNAL_PAGE).toContain('formatSignalPulseText')
+    expect(SIGNAL_PAGE).toContain('signal.radarCoverage')
 
     const signalBriefsData = readFileSync(SIGNAL_BRIEFS_DATA, 'utf8')
     const signalBriefsComponent = readFileSync(SIGNAL_BRIEFS_COMPONENT, 'utf8')

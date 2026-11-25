@@ -1,35 +1,15 @@
 <script lang="ts" setup>
 import { useI18n } from 'vue-i18n'
+import { signalEditions } from '~/data/signal/editions'
 import type { StaticRadarItem, StaticRadarSnapshot } from '~/composables/useStaticRadarSnapshot'
 import {
   extractRadarPulseThemes,
   selectPulseSnapshotItems,
   selectRadarTakeaway,
-  type RadarTakeaway,
 } from '~/utils/radar-snapshot'
 
 const { t, locale } = useI18n()
 const localePath = useLocalePath()
-
-type SignalPreviewItem = {
-  id?: number | string
-  source: string
-  title: string
-  url: string
-  relevance: number | string
-  category?: string
-  score?: number | string
-}
-
-type SignalPulseResponse = {
-  pulse?: string | null
-  takeaway?: RadarTakeaway | null
-  items?: SignalPreviewItem[]
-}
-
-type SignalResponse = {
-  items?: SignalPreviewItem[]
-}
 
 const props = defineProps<{
   snapshot?: StaticRadarSnapshot | null
@@ -44,51 +24,16 @@ const { data: fetchedStaticSnapshot } = await useStaticRadarSnapshot(
 
 const staticSnapshot = computed(() => props.snapshot || fetchedStaticSnapshot.value)
 
-const hasStaticSnapshot = computed(() => Boolean(staticSnapshot.value?.items?.length))
-const shouldFetchApi = !staticSnapshot.value?.items?.length
-
-// Fetch dynamic pulse data
-const { data: pulseData } = await useFetch<SignalPulseResponse>('/api/signal-pulse', {
-  immediate: shouldFetchApi,
-})
-
-// Fallback to regular signal API if pulse has no items
-const { data: fallbackData } = await useFetch<SignalResponse>('/api/signal', {
-  query: { limit: 20, minRelevance: 7 },
-  immediate: shouldFetchApi,
-})
-
-const pulseText = computed(() => {
-  return staticSnapshot.value?.pulse?.text || pulseData.value?.pulse || t('signal.pulse')
-})
-
-const pulseItems = computed(() => {
-  if (hasStaticSnapshot.value) {
-    const topIds = staticSnapshot.value?.pulse?.topItemIds || []
-    return selectPulseSnapshotItems<StaticRadarItem>(
-      staticSnapshot.value?.items || [],
-      topIds,
-      Math.max(topIds.length, 3),
-    )
-  }
-
-  const dynamicPulseItems = pulseData.value?.items || []
-  if (dynamicPulseItems.length > 0) return dynamicPulseItems
-
-  const items = fallbackData.value?.items || []
-  return [...items].sort((a, b) => Number(b.relevance) - Number(a.relevance))
-})
-
-const topItems = computed(() => pulseItems.value.slice(0, 3))
-
-const pulseTakeaway = computed(() => {
-  return staticSnapshot.value?.pulse?.takeaway || pulseData.value?.takeaway || null
-})
-
+const topItems = computed(() => selectPulseSnapshotItems<StaticRadarItem>(
+  staticSnapshot.value?.items || [],
+  staticSnapshot.value?.pulse?.topItemIds,
+  3,
+))
+const pulseTakeaway = computed(() => signalEditions[0]?.signal?.claim || staticSnapshot.value?.pulse?.takeaway)
 const pulseRead = computed(() => {
   return (
     selectRadarTakeaway(pulseTakeaway.value, locale.value) ||
-    extractRadarPulseThemes(pulseText.value) ||
+    extractRadarPulseThemes(staticSnapshot.value?.pulse?.text) ||
     stripHtml(topItems.value[0]?.title || '') ||
     t('signal.pulse')
   )

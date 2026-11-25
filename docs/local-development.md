@@ -126,3 +126,14 @@ from an incorrect skip, correct the skip rules and commit the script to main;
 script changes are themselves build inputs. Never bypass the production policy
 with local uploads, promotions or alias swaps. Report measured per-project CPU
 minutes and cost after rollout; deployment count is not a dollar estimate.
+
+### Mirror the GrokBot Radar
+
+Download the fixed private Drive file `radar-public.json` to a temporary directory.
+After a completed collection, run `node scripts/signal/import-radar.mjs /private/radar-public.json`
+from a current website checkout. The importer validates the public projection and
+atomically replaces `public/radar/latest.json`. Both the Signal workbench and
+homepage read that snapshot. Earlier dated Radar files remain available as archives.
+Publish the changed snapshot through Git on main. Verify its generation timestamp
+and a headline on both production Signal pages. The separate editorial feed
+`signal-feed.json` supplies the three selections for the daily edition.
