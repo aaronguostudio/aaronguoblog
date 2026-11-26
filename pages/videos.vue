@@ -4,6 +4,7 @@ import { youtubeChannels } from '~/data/channels'
 import youtubeData from '~/data/youtube.json'
 
 const { t, locale } = useI18n()
+const route = useRoute()
 
 type VideoFormat = 'videos' | 'shorts'
 
@@ -50,6 +51,7 @@ const activeChannelId = ref(channels[0].id)
 const activeFormat = ref<VideoFormat>('videos')
 const visibleCount = ref(chunkSize)
 const releaseList = ref<HTMLUListElement | null>(null)
+const channelHeading = ref<HTMLHeadingElement | null>(null)
 
 const activeChannel = computed(
   () => channels.find((channel) => channel.id === activeChannelId.value) ?? channels[0],
@@ -93,6 +95,24 @@ function selectChannel(channelId: string) {
   activeChannelId.value = channelId
   selectFormat('videos')
 }
+
+// Prerendered pages share the default channel. Read the URL once the page has hydrated.
+onMounted(() => {
+  watch(
+    () => route.query.channel,
+    async (requestedId) => {
+      const channel = channels.find(({ id }) => id === requestedId)
+      selectChannel(channel?.id ?? channels[0].id)
+
+      // The section may not exist when the router first tries to scroll to the hash.
+      if (route.hash === '#video-channel-heading') {
+        await nextTick()
+        channelHeading.value?.scrollIntoView({ block: 'start' })
+      }
+    },
+    { immediate: true },
+  )
+})
 
 async function showMore() {
   const firstNewIndex = visibleVideos.value.length
@@ -174,7 +194,8 @@ const getVideoUrl = (id: string) => `https://www.youtube.com/watch?v=${id}`
     <section aria-labelledby="video-channel-heading" class="pt-5 sm:pt-6">
       <h2
         id="video-channel-heading"
-        class="text-xl font-semibold tracking-tight text-foreground sm:text-2xl"
+        ref="channelHeading"
+        class="scroll-mt-24 text-xl font-semibold tracking-tight text-foreground sm:text-2xl"
       >
         {{ t('videos.channelLineup') }}
       </h2>
