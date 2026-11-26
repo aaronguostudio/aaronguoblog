@@ -82,7 +82,6 @@ const navItems = computed(() => [
   { name: t('navigation.videos'), path: '/videos', exact: false },
   { name: t('navigation.signal'), path: '/signal', exact: false },
   { name: t('navigation.build'), path: '/build', exact: false },
-  { name: t('navigation.skills'), path: 'https://skills.aaronguo.com', exact: false },
   { name: t('navigation.learn'), path: '/learn', exact: false },
   { name: t('navigation.about'), path: '/about', exact: false },
 ])
@@ -147,8 +146,7 @@ function isActive(path: string, exact = false) {
         <ul class="flex items-center space-x-4 text-sm 2xl:space-x-6 2xl:text-base">
           <li v-for="item in navItems" :key="item.path">
             <NuxtLink
-              :to="item.path.startsWith('https://') ? item.path : localePath(item.path)"
-              :external="item.path.startsWith('https://')"
+              :to="localePath(item.path)"
               :class="[
                 'py-2 transition-colors hover:text-primary',
                 isActive(item.path, item.exact)
@@ -159,6 +157,7 @@ function isActive(path: string, exact = false) {
               {{ item.name }}
             </NuxtLink>
           </li>
+          <li><MainSkillsLink /></li>
         </ul>
 
         <!-- Language & Theme Toggle Pill -->
@@ -212,8 +211,7 @@ function isActive(path: string, exact = false) {
         <ul class="flex flex-col space-y-3">
           <li v-for="item in navItems" :key="item.path">
             <NuxtLink
-              :to="item.path.startsWith('https://') ? item.path : localePath(item.path)"
-              :external="item.path.startsWith('https://')"
+              :to="localePath(item.path)"
               :class="[
                 'block py-2 transition-colors hover:text-primary',
                 isActive(item.path, item.exact)
@@ -225,6 +223,7 @@ function isActive(path: string, exact = false) {
               {{ item.name }}
             </NuxtLink>
           </li>
+          <li><MainSkillsLink class="min-h-11" @click="isMobileMenuOpen = false" /></li>
         </ul>
 
         <div class="flex items-center justify-between pt-4 border-t border-border">

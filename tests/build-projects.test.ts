@@ -3,6 +3,7 @@ import { join } from 'node:path'
 import { describe, expect, it } from 'vitest'
 
 const root = process.cwd()
+const projectData = readFileSync(join(root, 'composables', 'useBuildProjects.ts'), 'utf8')
 
 function readProject(locale: 'en' | 'zh', slug: string) {
   return readFileSync(
@@ -152,32 +153,37 @@ describe('Build projects content', () => {
   it('renders release links on project cards', () => {
     const buildPage = readFileSync(join(root, 'pages', 'build.vue'), 'utf8')
 
-    expect(buildPage).toContain('release?: string')
+    expect(projectData).toContain('release?: string')
     expect(buildPage).toContain('project.release')
     expect(buildPage).toContain("t('build.viewRelease')")
   })
 
-  it('filters unpublished projects in every environment', () => {
+  it('uses the same published projects on the homepage and Build page', () => {
     const buildPage = readFileSync(join(root, 'pages', 'build.vue'), 'utf8')
+    const homeBuild = readFileSync(join(root, 'components', 'main', 'Build.vue'), 'utf8')
+    const homePage = readFileSync(join(root, 'pages', 'index.vue'), 'utf8')
 
-    expect(buildPage).toContain('projectsEn.filter(isPublishedEntry)')
-    expect(buildPage).toContain('projectsZh.filter(isPublishedEntry)')
-    expect(buildPage).toContain('mapped.filter((p) => p.published)')
-    expect(buildPage).not.toContain('process.env.NODE_ENV')
+    expect(projectData).toContain('en: publicProjects(en), zh: publicProjects(zh)')
+    expect(projectData).toContain('.filter((project) => project.published)')
+    expect(projectData).not.toContain('process.env.NODE_ENV')
+    expect(buildPage).toContain('await useBuildProjects()')
+    expect(homeBuild).toContain('await useBuildProjects()')
+    expect(homePage).toMatch(/<MainBuild \/>\s*<MainChannels \/>/)
+    expect(buildPage).toContain(':id="project.slug"')
   })
 
   it('uses a featured-first, alternating project dossier layout without status badges', () => {
     const buildPage = readFileSync(join(root, 'pages', 'build.vue'), 'utf8')
 
-    expect(buildPage).toContain('featured?: boolean')
-    expect(buildPage).toContain('const featured = Boolean(meta?.featured ?? root?.featured ?? false)')
-    expect(buildPage).toContain('featured,')
-    expect(buildPage).toMatch(
+    expect(projectData).toContain('featured?: boolean')
+    expect(projectData).toContain('const featured = Boolean(meta.featured ?? root.featured ?? false)')
+    expect(projectData).toContain('featured,')
+    expect(projectData).toMatch(
       /a\.featured !== b\.featured[\s\S]*?return a\.featured \? -1 : 1/,
     )
     expect(buildPage).toContain('build-project-list')
     expect(buildPage).toContain('build-project-dossier')
-    expect(buildPage).toContain("layout?: 'copy-media' | 'media-copy'")
+    expect(projectData).toContain("layout?: 'copy-media' | 'media-copy'")
     expect(buildPage).toContain('build-project-dossier--copy-media')
     expect(buildPage).toContain('build-project-dossier--media-copy')
     expect(buildPage).toContain("project.layout === 'copy-media'")

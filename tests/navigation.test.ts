@@ -32,6 +32,17 @@ describe('main navigation', () => {
     expect(header).not.toContain('class="hidden md:flex items-center space-x-6"')
   })
 
+  it('ends both menus with a clearly marked Skills link that opens a new tab', () => {
+    const header = readFileSync(join(root, 'components', 'main', 'header.vue'), 'utf8')
+    const skillsLink = readFileSync(join(root, 'components', 'main', 'SkillsLink.vue'), 'utf8')
+
+    expect(header.match(/<MainSkillsLink\b[^>]*\/>\s*<\/li>\s*<\/ul>/g)).toHaveLength(2)
+    expect(skillsLink).toContain('href="https://skills.aaronguo.com"')
+    expect(skillsLink).toContain('target="_blank"')
+    expect(skillsLink).toContain('rel="noopener noreferrer"')
+    expect(skillsLink).toContain("t('navigation.opensInNewTab')")
+  })
+
   it('keeps both Notes and Learn in the footer navigation', () => {
     const footer = readFileSync(join(root, 'components', 'main', 'footer.vue'), 'utf8')
 

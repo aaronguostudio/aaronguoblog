@@ -1,155 +1,15 @@
 <script setup lang="ts">
 import { motion, useReducedMotion } from 'motion-v'
 import { useI18n } from 'vue-i18n'
+import type { BuildProject } from '~/composables/useBuildProjects'
 
 const { t, locale } = useI18n()
 const localePath = useLocalePath()
 const prefersReducedMotion = useReducedMotion()
 
-/**
- * Project frontmatter shape from content/projects/{en,zh}/*.md.
- * The visual metadata keeps the ledger extensible as new public projects land.
- */
-interface ProjectMeta {
-  title?: string
-  description?: string
-  status?: 'shipped' | 'building'
-  tech?: string[]
-  published?: boolean
-  logo?: string
-  screenshots?: string[]
-  screenshotLabels?: string[]
-  mediaPresentation?: 'slideshow'
-  github?: string
-  release?: string
-  appStore?: string
-  demo?: string
-  blog?: string
-  caseStudy?: string
-  featured?: boolean
-  order?: number
-  layout?: 'copy-media' | 'media-copy'
-  tone?: string
-  mediaFit?: 'cover' | 'contain'
-  mediaAspect?: 'standard' | 'wide' | 'landscape'
-  mediaLabel?: string
-  imageAlt?: string
-}
-
-interface ProjectCard {
-  name: string
-  description: string
-  status: 'shipped' | 'building'
-  tech: string[]
-  published: boolean
-  logo?: string
-  screenshots?: string[]
-  screenshotLabels?: string[]
-  mediaPresentation?: 'slideshow'
-  github?: string
-  release?: string
-  appStore?: string
-  demo?: string
-  blog?: string
-  caseStudy?: string
-  featured: boolean
-  order: number
-  layout: 'copy-media' | 'media-copy'
-  tone?: string
-  mediaFit: 'cover' | 'contain'
-  mediaAspect: 'standard' | 'wide' | 'landscape'
-  mediaLabel?: string
-  imageAlt?: string
-}
-
-type ContentProjectEntry = {
-  title?: string
-  description?: string
-  meta?: unknown
-  [key: string]: unknown
-}
-
-function getProjectFrontmatter(entry: ContentProjectEntry) {
-  const root = entry as unknown as ProjectMeta
-  const meta = (entry.meta || root) as ProjectMeta
-  return { root, meta }
-}
-
-function isPublishedEntry(entry: ContentProjectEntry) {
-  const { root, meta } = getProjectFrontmatter(entry)
-  return Boolean(meta?.published ?? root?.published ?? true)
-}
-
-function normalizeOrder(value: unknown) {
-  const order = Number(value)
-  return Number.isFinite(order) ? order : Number.MAX_SAFE_INTEGER
-}
-
-/** Query project entries from both locale collections (pre-rendered at build). */
-const { data } = await useAsyncData('build-projects', async () => {
-  const [projectsEn, projectsZh] = await Promise.all([
-    queryCollection('projectsEn').all(),
-    queryCollection('projectsZh').all(),
-  ])
-
-  return [projectsEn.filter(isPublishedEntry), projectsZh.filter(isPublishedEntry)]
-})
-
-/** Normalize a content entry to the project-ledger model. */
-function toProjectCard(entry: ContentProjectEntry): ProjectCard {
-  const { root, meta } = getProjectFrontmatter(entry)
-  const featured = Boolean(meta?.featured ?? root?.featured ?? false)
-  const requestedLayout = meta?.layout ?? root?.layout
-  const layout =
-    requestedLayout === 'copy-media' || requestedLayout === 'media-copy'
-      ? requestedLayout
-      : featured
-        ? 'copy-media'
-        : 'media-copy'
-
-  return {
-    name: entry.title || meta?.title || root?.title || 'Project',
-    description: entry.description ?? meta?.description ?? root?.description ?? '',
-    status: meta?.status === 'shipped' || root?.status === 'shipped' ? 'shipped' : 'building',
-    tech: Array.isArray(meta?.tech) ? meta.tech : Array.isArray(root?.tech) ? root.tech : [],
-    published: Boolean(meta?.published ?? root?.published ?? true),
-    logo: meta?.logo ?? root?.logo,
-    screenshots: Array.isArray(meta?.screenshots)
-      ? meta.screenshots
-      : Array.isArray(root?.screenshots)
-        ? root.screenshots
-        : undefined,
-    github: meta?.github ?? root?.github,
-    screenshotLabels: meta?.screenshotLabels ?? root?.screenshotLabels,
-    mediaPresentation: meta?.mediaPresentation ?? root?.mediaPresentation,
-    release: meta?.release ?? root?.release,
-    appStore: meta?.appStore ?? root?.appStore,
-    demo: meta?.demo ?? root?.demo,
-    blog: meta?.blog ?? root?.blog,
-    caseStudy: meta?.caseStudy ?? root?.caseStudy,
-    featured,
-    order: normalizeOrder(meta?.order ?? root?.order),
-    layout,
-    tone: meta?.tone ?? root?.tone,
-    mediaFit: meta?.mediaFit ?? root?.mediaFit ?? 'cover',
-    mediaAspect: meta?.mediaAspect ?? root?.mediaAspect ?? 'standard',
-    mediaLabel: meta?.mediaLabel ?? root?.mediaLabel,
-    imageAlt: meta?.imageAlt ?? root?.imageAlt,
-  }
-}
-
-/** Featured work leads; explicit frontmatter order makes later additions predictable. */
+const { data } = await useBuildProjects()
 const projects = computed(() => {
-  if (!data.value) return []
-  const localeIndex = locale.value === 'en' ? 0 : 1
-  const raw = data.value[localeIndex] || []
-  const mapped = raw.map(toProjectCard)
-  const published = mapped.filter((p) => p.published)
-
-  return [...published].sort((a, b) => {
-    if (a.featured !== b.featured) return a.featured ? -1 : 1
-    return a.order - b.order
-  })
+  return data.value?.[locale.value === 'zh' ? 'zh' : 'en'] ?? []
 })
 
 const lightboxImage = ref<string | null>(null)
@@ -158,19 +18,19 @@ const previewCloseButton = ref<HTMLButtonElement | null>(null)
 let previewTrigger: HTMLElement | null = null
 const selectedImages = ref<Record<string, number>>({})
 
-function selectedIndex(project: ProjectCard) {
+function selectedIndex(project: BuildProject) {
   return selectedImages.value[project.name] ?? 0
 }
 
-function selectedImage(project: ProjectCard) {
+function selectedImage(project: BuildProject) {
   return project.screenshots?.[selectedIndex(project)] || ''
 }
 
-function imageLabel(project: ProjectCard, index: number) {
+function imageLabel(project: BuildProject, index: number) {
   return project.screenshotLabels?.[index] || `${project.name} · ${index + 1}`
 }
 
-function stepImage(project: ProjectCard, direction: number) {
+function stepImage(project: BuildProject, direction: number) {
   const count = project.screenshots?.length || 1
   selectedImages.value[project.name] = (selectedIndex(project) + direction + count) % count
 }
@@ -195,11 +55,11 @@ function formatProjectNumber(index: number) {
   return String(index + 1).padStart(2, '0')
 }
 
-function getImageAlt(project: ProjectCard) {
+function getImageAlt(project: BuildProject) {
   return project.imageAlt || `${project.name} ${t('build.projectVisual')}`
 }
 
-function getDemoLabel(project: ProjectCard) {
+function getDemoLabel(project: BuildProject) {
   return `${t('build.openProject')} ${project.name}`
 }
 
@@ -264,8 +124,9 @@ defineOgImageComponent('Test', {
       <section v-else class="build-project-list" :aria-label="t('build.title')">
         <motion.article
           v-for="(project, index) in projects"
-          :key="project.name"
-          class="build-project"
+          :id="project.slug"
+          :key="project.slug"
+          class="build-project scroll-mt-24"
           :class="{
             'build-project--tesra': project.tone === 'tesra',
             'build-project--drumnext': project.tone === 'drumnext',
@@ -705,6 +566,10 @@ defineOgImageComponent('Test', {
   justify-self: center;
   background: #0b1017;
   color: #a6b8cd;
+}
+
+.build-project--drumnext .build-project-gallery img {
+  aspect-ratio: 1200 / 2596;
 }
 
 .build-project-slideshow {

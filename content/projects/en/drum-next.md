@@ -1,5 +1,7 @@
 ---
 title: DrumNext
+cardSummary: A metronome and timing trainer for drummers.
+cardImage: /projects/drum-next/drum-next-mark.png
 description: Now on the App Store for iPhone and iPad. A metronome built for drum practice, with Gap, Random, Speed and Displace trainers, presets, setlists, and automatic practice tracking. Free to download; start practicing without an account.
 status: shipped
 tech: ['React', 'TypeScript', 'iOS', 'iPadOS', 'Supabase']

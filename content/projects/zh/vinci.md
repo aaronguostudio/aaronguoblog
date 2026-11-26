@@ -1,5 +1,6 @@
 ---
 title: Vinci
+cardSummary: 用 AI 自动化重复工作，并复核运行结果。
 description: '面向企业自动化的 Agent Harness。接入模型和工具，把重复工作交给 Agent，并复核每次运行的结果。'
 status: building
 tech: ['macOS', 'Electron', 'TypeScript']

@@ -1,5 +1,7 @@
 ---
 title: Orbit Courier
+cardSummary: 在浏览器里驾驶小车穿越浮空岛屿。
+cardImage: /projects/orbit-courier/orbit-courier-logo.png
 description: '一场穿越浮空世界的浏览器冒险。驾驶陶瓷小车，找准时机跨过变化的道路，抵达下一座信标。从 Morning Crossing 开始，逐步解锁三关旅程，在桌面 Chrome 中用键盘体验，无需账号。'
 status: shipped
 tech: ['JavaScript', 'Three.js', 'WebGL', 'Vercel']

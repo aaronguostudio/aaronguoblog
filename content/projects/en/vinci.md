@@ -1,5 +1,6 @@
 ---
 title: Vinci
+cardSummary: AI agents for recurring work.
 description: 'An agent harness for enterprise automation. Connect models and tools, run recurring workflows, and review each outcome.'
 status: building
 tech: ['macOS', 'Electron', 'TypeScript']

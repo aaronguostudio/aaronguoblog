@@ -1,5 +1,7 @@
 ---
 title: Orbit Courier
+cardSummary: A browser adventure across floating worlds.
+cardImage: /projects/orbit-courier/orbit-courier-logo.png
 description: 'A browser crossing adventure through floating worlds. Guide a ceramic courier through three increasingly challenging crossings toward the next beacon. Play in desktop Chrome with a keyboard. No account required.'
 status: shipped
 tech: ['JavaScript', 'Three.js', 'WebGL', 'Vercel']

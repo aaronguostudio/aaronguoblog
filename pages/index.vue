@@ -41,6 +41,7 @@ useHead({
     <MainSignal class="mx-4 lg:hidden" />
     <MainLatestBrief class="lg:hidden" />
     <MainWriting>
+      <MainBuild />
       <MainChannels />
     </MainWriting>
   </main>

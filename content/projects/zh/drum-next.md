@@ -1,5 +1,7 @@
 ---
 title: DrumNext
+cardSummary: 给鼓手的节拍器与节奏训练工具。
+cardImage: /projects/drum-next/drum-next-mark.png
 description: 已在 App Store 上架，支持 iPhone 和 iPad。为鼓手日常练习打造的节拍器，包含 Gap、Random、Speed、Displace 训练模式、预设、曲目单和自动练习记录。免费下载，无需注册即可开始练习。
 status: shipped
 tech: ['React', 'TypeScript', 'iOS', 'iPadOS', 'Supabase']
