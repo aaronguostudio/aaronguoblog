@@ -46,10 +46,13 @@ by event and original URL. Leave Notion reading status and Drive permissions int
 Download the current private `signal-feed.json` from the digest's fixed Drive file.
 Keep that export outside this repository. Copy a dated snapshot from `data/signal/editions/` to a
 working selection file. Set the edition date, write the English and Chinese copy,
-and select exactly three distinct Notion picks for one theme by their feed IDs. Choose a `cover` for the theme of the issue:
-`atlas` connects related readings, `eclipse` features a single event,
-`fieldnotes` suits a close reading, and `aurora` follows a sequence of sources. Use the source record's primary URL or
-one of its attached evidence links for `evidence`.
+and select exactly three distinct Notion picks for one theme by their feed IDs.
+Set `cover` to `editorial` and create a new 3:2 illustration based on this issue’s
+headline and picks. Export it as `public/signal/covers/YYYY-MM-DD.webp` for the
+edition date. Keep typography in the page so both languages can share the artwork.
+The importer expects that dated file before it writes the edition. The artwork
+appears on the issue, in the archive and in the issue’s social preview. Use the
+source record’s primary URL or one of its attached links for `evidence`.
 
 ```sh
 node scripts/signal/import-edition.mjs /private/signal-feed.json /private/selection.json

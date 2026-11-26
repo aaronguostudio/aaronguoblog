@@ -2,7 +2,7 @@
 // The edition supplies date, a bilingual headline and intro, and an ordered list of
 // { id, evidence, title, note }. Each text field has en and zh versions.
 // Only editorial copy and the selected public sources are written to the site.
-import { readFile, link, writeFile, rm } from 'node:fs/promises'
+import { readFile, link, writeFile, rm, stat } from 'node:fs/promises'
 import { randomUUID } from 'node:crypto'
 import { pathToFileURL } from 'node:url'
 
@@ -31,8 +31,8 @@ export function buildEdition(feed, edition) {
     throw new Error('Expected a calendar date for the edition')
   }
   if (!Array.isArray(edition.items) || edition.items.length !== 3) throw new Error('Select exactly three picks')
-  const cover = edition.cover ?? 'atlas'
-  if (!['atlas', 'eclipse', 'fieldnotes', 'aurora'].includes(cover)) throw new Error('Unknown Signal cover')
+  const cover = edition.cover ?? 'editorial'
+  if (!['editorial', 'atlas', 'eclipse', 'fieldnotes', 'aurora'].includes(cover)) throw new Error('Unknown Signal cover')
   const byId = new Map(feed.items.map(item => [item.id, item]))
   const selected = new Set()
   const items = edition.items.map(pick => {
@@ -62,6 +62,14 @@ export function buildEdition(feed, edition) {
   return { cover, date: edition.date, headline: bilingual(edition.headline), intro: bilingual(edition.intro), items, signal }
 }
 
+export async function requireEditorialCover(edition, directory = new URL('../../public/signal/covers/', import.meta.url)) {
+  const filename = edition.date + '.webp'
+  const cover = await stat(new URL(filename, directory), { throwIfNoEntry: false })
+  if (edition.cover !== 'editorial' || !cover?.isFile() || cover.size === 0) {
+    throw new Error('Use an editorial cover and add public/signal/covers/' + filename + ' before importing this edition')
+  }
+}
+
 // A complete, dated file becomes visible in one operation. Concurrent imports can
 // safely add separate dates or retry the same selection without replacing an issue.
 export async function saveEdition(result, directory = new URL('../../data/signal/editions/', import.meta.url)) {
@@ -88,5 +96,6 @@ if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) 
   if (!feedPath || !editionPath) throw new Error('Pass a private feed file and an editorial selection file')
   const readJson = async path => JSON.parse(await readFile(path, 'utf8'))
   const result = buildEdition(await readJson(feedPath), await readJson(editionPath))
+  await requireEditorialCover(result)
   await saveEdition(result)
 }

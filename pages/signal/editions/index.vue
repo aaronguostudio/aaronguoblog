@@ -8,21 +8,22 @@ useSeoMeta({ title: () => 'Signal · ' + t('signal.coverArchive') })
 </script>
 
 <template>
-  <main class="archive">
+  <main class="signal-page archive">
     <div class="shelf">
-      <NuxtLink class="return" :to="localePath('/signal')"
-        >← {{ t('signal.backToSignal') }}</NuxtLink
-      >
+      <NuxtLink class="return" :to="localePath('/signal')">
+        <span aria-hidden="true">←</span> {{ t('signal.backToSignal') }}
+      </NuxtLink>
       <h1>{{ t('signal.coverArchive') }}</h1>
       <ol class="covers">
         <li v-for="issue in signalEditions" :key="issue.date">
           <NuxtLink :to="localePath('/signal/editions/' + issue.date)" class="cover">
-            <img :src="coverImage(issue)" alt="" width="560" height="352" />
+            <img :src="coverImage(issue)" alt="" width="1200" height="800" loading="lazy" />
             <div class="caption">
               <time :datetime="issue.date">{{ issue.date.replaceAll('-', '.') }}</time>
               <h2>{{ issue.headline[language] }}</h2>
               <p>{{ issue.signal?.claim[language] || issue.intro[language] }}</p>
             </div>
+            <span class="arrow" aria-hidden="true">→</span>
           </NuxtLink>
         </li>
       </ol>
@@ -32,63 +33,97 @@ useSeoMeta({ title: () => 'Signal · ' + t('signal.coverArchive') })
 
 <style scoped>
 .archive {
-  background: var(--background);
-  color: var(--foreground);
-  min-height: 75vh;
-  padding: clamp(2rem, 5vw, 5rem) clamp(1.25rem, 6vw, 6rem);
-  font-family: Georgia, 'Songti SC', serif;
+  padding-block: clamp(1rem, 3vw, 2.75rem) 4rem;
 }
+
 .shelf {
-  margin: auto;
-  max-width: 76rem;
+  width: min(100% - 2.5rem, 70rem);
+  margin-inline: auto;
 }
+
 .return,
 time {
-  font:
-    0.82rem/1.6 system-ui,
-    sans-serif;
   color: var(--muted-foreground);
+  font-size: 0.82rem;
 }
+
 .return:hover,
 .cover:hover h2 {
   text-decoration: underline;
   text-underline-offset: 0.2em;
 }
+
+h1,
+h2 {
+  font-family: Georgia, 'Songti SC', 'Noto Serif CJK SC', 'Noto Serif SC', SimSun, serif;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+}
+
 h1 {
-  margin: 1.5rem 0 2.5rem;
-  font-size: clamp(2.7rem, 6vw, 5rem);
+  margin: 0.5rem 0 1.4rem;
+  font-size: clamp(2.2rem, 4.5vw, 3.5rem);
   line-height: 1.1;
 }
+
 .covers {
   display: grid;
-  gap: 2.5rem;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 28rem), 1fr));
+  gap: 0.85rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 26rem), 1fr));
 }
+
 .cover {
-  display: block;
-  border-top: 1px solid var(--border);
-  padding-top: 1rem;
+  display: grid;
+  grid-template-columns: minmax(0, 32%) minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 0.8rem;
+  height: 100%;
+  border: 1px solid var(--signal-line);
+  border-radius: 0.6rem;
+  padding: clamp(0.65rem, 1.5vw, 1rem);
 }
+
+.cover:hover {
+  background: var(--signal-row-hover);
+}
+
 .cover img {
   width: 100%;
-  aspect-ratio: 1.85;
-  object-fit: cover;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: contain;
+  border-radius: 0.28rem;
+  background: var(--signal-control);
 }
-.caption {
-  padding-block: 1rem;
-}
+
 time {
-  letter-spacing: 0.13em;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.055em;
 }
+
 h2 {
-  font-size: clamp(1.55rem, 3vw, 2.35rem);
-  line-height: 1.2;
-  margin: 0.6rem 0;
-  text-wrap: balance;
+  font-size: clamp(1.15rem, 2.1vw, 1.55rem);
+  line-height: 1.17;
+  margin: 0.2rem 0 0.35rem;
 }
+
 p {
   color: var(--muted-foreground);
-  line-height: 1.65;
-  max-width: 48ch;
+  font-size: 0.87rem;
+  line-height: 1.45;
+}
+
+.arrow {
+  color: var(--muted-foreground);
+}
+
+@media (max-width: 460px) {
+  .cover {
+    grid-template-columns: minmax(0, 28%) minmax(0, 1fr);
+  }
+
+  .arrow {
+    display: none;
+  }
 }
 </style>

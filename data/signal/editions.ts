@@ -1,7 +1,7 @@
 type Copy = { en: string; zh: string }
 export type SignalEdition = {
   date: string
-  cover: 'atlas' | 'aurora' | 'eclipse' | 'fieldnotes'
+  cover: 'editorial' | 'atlas' | 'aurora' | 'eclipse' | 'fieldnotes'
   headline: Copy
   intro: Copy
   signal?: { claim: Copy; reasoning: Copy; nextCheck: Copy }
@@ -15,5 +15,6 @@ const snapshots = import.meta.glob<SignalEdition>('./editions/????-??-??.json', 
 export const signalEditions = Object.values(snapshots).sort((a, b) => b.date.localeCompare(a.date))
 
 export function coverImage(edition: SignalEdition) {
-  return '/signal/covers/' + (edition.cover === 'fieldnotes' ? 'plate' : edition.cover) + '.webp'
+  const cover = edition.cover === 'editorial' ? edition.date : edition.cover
+  return '/signal/covers/' + (cover === 'fieldnotes' ? 'plate' : cover) + '.webp'
 }
