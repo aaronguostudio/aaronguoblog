@@ -384,6 +384,8 @@
     "building": "Building",
     "viewSource": "Source",
     "viewRelease": "Release",
+    "readCaseStudy": "Read case study",
+    "openCaseStudy": "Read the {project} case study",
     "downloadAppStore": "Download on the App Store",
     "viewDemo": "Demo",
     "readMore": "Read More",
@@ -391,6 +393,40 @@
     "projects": {
       "clawmemory": "A clean UI for managing OpenClaw AI agent memory files. FTS5-powered search, daily filters, and real-time indexing."
     }
+  },
+  "vinciCase": {
+    "back": "Back to Build",
+    "category": "Agent harness",
+    "purpose": "for enterprise automation",
+    "description": "Vinci connects AI models and tools to run recurring workflows. Teams can review what each workflow can access and what each run produced.",
+    "status": "Independent product · macOS · In development",
+    "sampleCaption": "Development build · Sample data",
+    "openScreen": "Open the {screen} screenshot at full size",
+    "screens": {
+      "workspace": {
+        "label": "Workspace",
+        "alt": "The Vinci workspace, showing a conversation and a release-readiness document open on Canvas."
+      },
+      "connections": {
+        "label": "Connections",
+        "alt": "The Vinci Connections directory with sample Notion, Atlassian, and GitHub connections."
+      },
+      "automations": {
+        "label": "Automations",
+        "alt": "The Vinci Automations page with a dependency release watch and its run history."
+      }
+    },
+    "workflowTitle": "From a schedule to a result",
+    "workflowDescription": "A dependency release watch checks for changes that affect a team’s software. These screens use sample data in the Vinci development build.",
+    "reviewTitle": "Review the run before saving",
+    "reviewDescription": "See the cadence, selected model, data that leaves the Mac, and spend limits before saving the schedule.",
+    "reviewImageAlt": "The Vinci review screen with the release watch’s schedule, model, data and budget terms.",
+    "resultTitle": "Open the output and its sources",
+    "resultDescription": "Open a completed run from its history to see what it found and where the information came from.",
+    "resultImageAlt": "A sample release watch result with two findings and their source references.",
+    "decisionTitle": "The decision behind the approval step",
+    "decision": "I designed the approval to apply to a specific job definition. Changing the schedule, scope, or budget calls for another review, so the person delegating the work can see what changed before the next run.",
+    "about": "About Aaron"
   },
   "playbooks": {
     "title": "Playbooks",

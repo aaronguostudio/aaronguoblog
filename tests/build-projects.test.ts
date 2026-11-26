@@ -60,7 +60,19 @@ describe('Build projects content', () => {
     )
   })
 
-  it('publishes DrumNext first in both locales with its App Store release', () => {
+  it('places Vinci first in both locales with its case study link', () => {
+    for (const locale of ['en', 'zh'] as const) {
+      const vinci = readProject(locale, 'vinci')
+
+      expect(vinci).toContain('published: true')
+      expect(vinci).toContain('featured: true')
+      expect(vinci).toContain('order: 0')
+      expect(vinci).toContain('  - /projects/vinci/cover.webp')
+      expect(vinci).toContain('caseStudy: /build/vinci')
+    }
+  })
+
+  it('publishes DrumNext second in both locales with its App Store release', () => {
     const english = readProject('en', 'drum-next')
     const chinese = readProject('zh', 'drum-next')
 
@@ -70,7 +82,7 @@ describe('Build projects content', () => {
     )
     expect(english).toContain('published: true')
     expect(english).toContain('featured: true')
-    expect(english).toContain('order: 0')
+    expect(english).toContain('order: 1')
     expect(english).toContain('layout: copy-media')
     expect(english).toContain('tone: drumnext')
     expect(english).toContain("tech: ['React', 'TypeScript', 'iOS', 'iPadOS', 'Supabase']")
@@ -85,7 +97,7 @@ describe('Build projects content', () => {
     expect(chinese).toContain('title: DrumNext')
     expect(chinese).toContain('published: true')
     expect(chinese).toContain('featured: true')
-    expect(chinese).toContain('order: 0')
+    expect(chinese).toContain('order: 1')
     expect(chinese).toContain('layout: copy-media')
     expect(chinese).toContain('tone: drumnext')
     expect(chinese).toContain("tech: ['React', 'TypeScript', 'iOS', 'iPadOS', 'Supabase']")

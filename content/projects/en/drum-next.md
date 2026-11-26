@@ -5,7 +5,7 @@ status: shipped
 tech: ['React', 'TypeScript', 'iOS', 'iPadOS', 'Supabase']
 published: true
 featured: true
-order: 0
+order: 1
 layout: copy-media
 tone: drumnext
 logo: /projects/drum-next/app-store/icon.jpg

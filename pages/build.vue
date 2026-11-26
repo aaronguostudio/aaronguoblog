@@ -3,6 +3,7 @@ import { motion, useReducedMotion } from 'motion-v'
 import { useI18n } from 'vue-i18n'
 
 const { t, locale } = useI18n()
+const localePath = useLocalePath()
 const prefersReducedMotion = useReducedMotion()
 
 /**
@@ -24,6 +25,7 @@ interface ProjectMeta {
   appStore?: string
   demo?: string
   blog?: string
+  caseStudy?: string
   featured?: boolean
   order?: number
   layout?: 'copy-media' | 'media-copy'
@@ -49,6 +51,7 @@ interface ProjectCard {
   appStore?: string
   demo?: string
   blog?: string
+  caseStudy?: string
   featured: boolean
   order: number
   layout: 'copy-media' | 'media-copy'
@@ -123,6 +126,7 @@ function toProjectCard(entry: ContentProjectEntry): ProjectCard {
     appStore: meta?.appStore ?? root?.appStore,
     demo: meta?.demo ?? root?.demo,
     blog: meta?.blog ?? root?.blog,
+    caseStudy: meta?.caseStudy ?? root?.caseStudy,
     featured,
     order: normalizeOrder(meta?.order ?? root?.order),
     layout,
@@ -265,6 +269,7 @@ defineOgImageComponent('Test', {
           :class="{
             'build-project--tesra': project.tone === 'tesra',
             'build-project--drumnext': project.tone === 'drumnext',
+            'build-project--vinci': project.tone === 'vinci',
             'build-project--featured': project.featured,
           }"
           :initial="prefersReducedMotion ? false : { opacity: 0, y: 34 }"
@@ -278,8 +283,25 @@ defineOgImageComponent('Test', {
               'build-project-dossier--media-copy': project.layout === 'media-copy',
             }"
           >
+            <NuxtLink
+              v-if="project.caseStudy && project.screenshots?.[0]"
+              :to="localePath(project.caseStudy)"
+              :aria-label="t('build.openCaseStudy', { project: project.name })"
+              class="build-project-media group relative block aspect-[16/10] w-full overflow-hidden rounded-lg border outline-none focus-visible:ring-2"
+            >
+              <img
+                :src="project.screenshots[0]"
+                :alt="getImageAlt(project)"
+                class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.018] motion-reduce:transition-none"
+                width="1280"
+                height="800"
+                :loading="index === 0 ? 'eager' : 'lazy'"
+                :fetchpriority="index === 0 ? 'high' : undefined"
+                decoding="async"
+              />
+            </NuxtLink>
             <div
-              v-if="project.mediaPresentation === 'slideshow' && project.screenshots?.length"
+              v-else-if="project.mediaPresentation === 'slideshow' && project.screenshots?.length"
               class="build-project-slideshow"
               role="region"
               :aria-label="t('build.imageGallery', { project: project.name })"
@@ -481,6 +503,14 @@ defineOgImageComponent('Test', {
               </div>
 
               <div class="mt-9 flex flex-wrap items-center gap-x-6 gap-y-4 sm:mt-12">
+                <NuxtLink
+                  v-if="project.caseStudy"
+                  :to="localePath(project.caseStudy)"
+                  class="build-primary-action inline-flex items-center gap-2.5 rounded-md px-4 py-2.5 text-sm font-semibold outline-none transition-colors focus-visible:ring-2"
+                >
+                  {{ t('build.readCaseStudy') }}
+                  <Icon name="heroicons:arrow-right" class="h-4 w-4" aria-hidden="true" />
+                </NuxtLink>
                 <a
                   v-if="project.appStore"
                   :href="project.appStore"
@@ -795,6 +825,16 @@ defineOgImageComponent('Test', {
 .build-project--drumnext .build-project-logo {
   border-color: color-mix(in srgb, var(--build-accent) 62%, var(--build-line-strong));
   background: #0a0f16;
+}
+
+.build-project--vinci {
+  --build-accent: #2a6951;
+  --build-accent-hover: #1b513e;
+}
+
+:global(html.dark .build-project--vinci) {
+  --build-accent: #b9dbc9;
+  --build-accent-hover: #d1eddd;
 }
 
 .build-project--tesra .build-project-name {
