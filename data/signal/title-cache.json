@@ -1,1 +1,2228 @@
-{}
+{
+  "n_00008cad024440a8": {
+    "en": "Experiment with SVG & 3D Design with the Codex Plugin",
+    "zh": "使用Codex插件进行SVG和3D设计实验",
+    "src_lang": "en",
+    "title_hash": "4461265aa3d27326a5adf9d8018ac9ce520e084bd53870a4fb11a2eb0e3e36a7"
+  },
+  "n_005f3115e4667b57": {
+    "en": "South Korea launches Detect AI anti-cheating system for exam halls: identifies AI smart glasses using radio waves, debuting on December 9",
+    "zh": "韩国推出考场反作弊系统 Detect AI：靠无线电波识别 AI 智能眼镜，12 月 9 日首秀",
+    "src_lang": "zh",
+    "title_hash": "94fde5b92748762b7d12514f95b19443fb4f4165b85277baafd60b12154abdab"
+  },
+  "n_00ff0c2580fa86a3": {
+    "en": "Finances in ChatGPT: A Beginner’s Guide",
+    "zh": "ChatGPT中的理财：初学者指南",
+    "src_lang": "en",
+    "title_hash": "ed268d05988556f60f99a787f7acf5b008aca7f7629cd4149e53e29c4093ceec"
+  },
+  "n_012a59ac52869d1b": {
+    "en": "Trump engineered a risky comeback for Jensen Huang",
+    "zh": "特朗普策划了黄仁勋的冒险复出",
+    "src_lang": "en",
+    "title_hash": "8dbb2c48ec53e4ca202de098628e7ca3dfb4b8567782dfc0dc3451b50b975509"
+  },
+  "n_01778b564ca276b2": {
+    "en": "elementalsouls/Claude-BugHunter",
+    "zh": "elementalsouls/Claude-BugHunter",
+    "src_lang": "en",
+    "title_hash": "90b09073103b20bd032ade9d3854ea670a35736b2886c4a806bf1bfbae844049"
+  },
+  "n_02a088434703556c": {
+    "en": "Introducing the llama.cpp benchmark dashboard for AMD Ryzen and Radeon",
+    "zh": "介绍面向AMD Ryzen和Radeon的llama.cpp基准测试仪表盘",
+    "src_lang": "en",
+    "title_hash": "c6c921165c0eeba1d4f1defe3491da722aff1105a9a0f80cbf39ec4de5fdce10"
+  },
+  "n_04a9805dfa556873": {
+    "en": "Quoting Scott Aaronson",
+    "zh": "引用斯科特·阿隆森",
+    "src_lang": "en",
+    "title_hash": "918cc9ba9481e8035e89a9a99c13e8c30c960ad919c96c7d26a13c54c7a5f832"
+  },
+  "n_04e67ef8cb7f44f9": {
+    "en": "Meta Slashes Smart Glasses by 25% for Black Friday, Including Ray-Ban & Oakley Frames",
+    "zh": "Meta黑色星期五智能眼镜降价25%，涵盖Ray-Ban及Oakley镜架。",
+    "src_lang": "en",
+    "title_hash": "456a83d8854dc1bfbbefe974ef51c44ab5c763b427dccbacfc4b311d011a96c6"
+  },
+  "n_069f94445fa0f593": {
+    "en": "Quoting Jack Despain Zhou",
+    "zh": "引用Jack Despain Zhou的话",
+    "src_lang": "en",
+    "title_hash": "09eb2e7500643981e8109a18bfcbb7039dcfaa2b619394b0d0421956c1b50402"
+  },
+  "n_0701b6365593a13f": {
+    "en": "Mixture-of-Loops Transformer",
+    "zh": "循环混合转换器",
+    "src_lang": "en",
+    "title_hash": "abedd701e3f91d34d0a09fcb11b8023bcfd786e7726ab0c1fb2eb8dda4963815"
+  },
+  "n_07891f29af810774": {
+    "en": "Real2SimLab: A Unified Platform for Real-to-Simulation Transfer",
+    "zh": "Real2SimLab：一个统一的现实到仿真转移平台",
+    "src_lang": "en",
+    "title_hash": "8e392123d4daf35a70572ae319e7b83905fcf0ec066595409cdf086a81a40f54"
+  },
+  "n_09d9e4445ef2d9b1": {
+    "en": "Sage-Med: Scaling Medical Multimodal Intelligence",
+    "zh": "Sage-Med：扩展医疗多模态智能",
+    "src_lang": "en",
+    "title_hash": "3a90fde44a8df035c5b3ffadbbc2a86bea7fe110d0f1fb66745378af4d15da7d"
+  },
+  "n_0c5213ef953e1b49": {
+    "en": "sst/opencode v2.4.2",
+    "zh": "sst/opencode v2.4.2",
+    "src_lang": "en",
+    "title_hash": "dd32eb0dced28f59b51a9b8766ecef497a83a21ea1de5ce2aafd768d2c158db9"
+  },
+  "n_0c810e79880a8f96": {
+    "en": "I Listened to ‘Sandstorm’ Through a Sex Toy",
+    "zh": "我通过情趣玩具听了《Sandstorm》",
+    "src_lang": "en",
+    "title_hash": "775b71ddbc01ec064e747b5987c7ad24da5b9b503f779ac30770a97c9dad7e3d"
+  },
+  "n_0e0fed824d81d520": {
+    "en": "NVIDIA Announces Upcoming Event for Financial Community",
+    "zh": "NVIDIA宣布即将举办面向金融界的活动",
+    "src_lang": "en",
+    "title_hash": "30ec8d7fe5b66f84f52033f0d91292b5f0e5be73da27ef812bba67ddbaeba84a"
+  },
+  "n_0e77edd2c1e87774": {
+    "en": "SpaceX sued by Oregon and Virginia over AI deepfake porn, Grok safety claims",
+    "zh": "俄勒冈州和弗吉尼亚州因AI深度伪造色情内容及Grok安全指控起诉SpaceX",
+    "src_lang": "en",
+    "title_hash": "54c3dec8bc35311fc083f63803a8bbe8cd89fbb2266d7ed9fb27109e731ed709"
+  },
+  "n_0fa0232fce0d48b0": {
+    "en": "awslabs/cli-agent-orchestrator",
+    "zh": "awslabs/cli-agent-orchestrator",
+    "src_lang": "en",
+    "title_hash": "addd3b0b19e762f2452232c91d1a699e449c2afd207e095bb3866599cde000f9"
+  },
+  "n_0fc3a348b58a07db": {
+    "en": "duzhenxun/pop-agent: Equip your running coding agent with a local web workspace: watch processes, interject corrections, manage models and tools. Supports PI / Codex / Claude Code / opencode/DSH. Conversations are engine log files saved locally, no database used.",
+    "zh": "duzhenxun/pop-agent: 给你正在跑的 coding agent 配一个本地 Web 工作台：看过程、插话纠正、管模型与工具。支持 PI / Codex / Claude Code / opencode/DSH，会话就是引擎的落盘文件，不引数据库。",
+    "src_lang": "zh",
+    "title_hash": "2cccb8bba9d5482d4559f4f9edfcc005bb04ee765c167e6b83b4151a9b28aa82"
+  },
+  "n_1033887459b7433e": {
+    "en": "Airplane Turbulence Is Extremely Hard to Predict, but Maybe Not for Long",
+    "zh": "飞机乱流极难预测，但或许不久将改变",
+    "src_lang": "en",
+    "title_hash": "4ca830dfb74c37c4ec8a464463e9bec84630a4b8995bb5a796ccc015d1d7e832"
+  },
+  "n_1177dfbd92c164db": {
+    "en": "[AINews] Anthropic successfully completes largest IPO in history, valued at $1.5T",
+    "zh": "【人工智能新闻】Anthropic成功完成历史上最大规模的首次公开募股，估值达1.5万亿美元。",
+    "src_lang": "en",
+    "title_hash": "f3521ce4f88403e54dadda0074de1c6d07fb9a573c18d1bbf2333ce449fbff39"
+  },
+  "n_12501ac17b568e8f": {
+    "en": "DeepSeekMath: Pushing the Limits of Mathematical Reasoning",
+    "zh": "DeepSeekMath：推动数学推理的极限",
+    "src_lang": "en",
+    "title_hash": "d908542cd693297103ac0ce0b7a29d7f04d96dc07fcbf4242e83422283570b0d"
+  },
+  "n_13c65860eb5343c2": {
+    "en": "The Fairphone 6 Plus is modular, repairable, and $100 off right now",
+    "zh": "Fairphone 6 Plus支持模块化，可维修，现在还享有100美元的折扣",
+    "src_lang": "en",
+    "title_hash": "d6a27e804c5eb9aee3a210808daeabd7d74cd2c01bdab82f8ee4a0f5fdb33097"
+  },
+  "n_14f321c495182c59": {
+    "en": "cathrynlavery/diagram-design",
+    "zh": "cathrynlavery/diagram-design",
+    "src_lang": "en",
+    "title_hash": "231c4b191ae0f4ae64fd7de2bfab1754ff1ae180c9cbcecf4805345b3a8252dd"
+  },
+  "n_15aa96a95483eaba": {
+    "en": "anthropics/claude-code v2.1.332",
+    "zh": "anthropics/claude-code 版本 2.1.332",
+    "src_lang": "en",
+    "title_hash": "ca357eb3d4eeb9a4a93b5ecd3344ae1f0df4c0a2650fe6dbe3d6bc4f160fb8a9"
+  },
+  "n_167261d2bd8dd54d": {
+    "en": "Overview of Agent Benchmarks: Organized by 8 Categories and 3 Axes",
+    "zh": "智能代理基准综述：按8个类别和3个轴整理",
+    "src_lang": "ja",
+    "title_hash": "584d81af733124e254573fa6232cb258f3de9168e10ad006219f17d67fd8cbce"
+  },
+  "n_1793f4fe05b13a1c": {
+    "en": "Review: The Asus ProArt P16 offers a glimpse of a future powered by local AI",
+    "zh": "评测：华硕ProArt P16展示了由本地AI驱动的未来一瞥",
+    "src_lang": "en",
+    "title_hash": "4725620ef74cc8f61c53752779d31530e30bcd0024964679100df13b2389c2b5"
+  },
+  "n_190619a69a1b2dac": {
+    "en": "[AINews] Gemini 4 Neon marks GDM's full return as a Frontier Lab",
+    "zh": "[人工智能新闻] Gemini 4 Neon 标志着 GDM 作为前沿实验室的全面回归",
+    "src_lang": "en",
+    "title_hash": "c9c990ccf37b173c1102ad71b7fb46c49081a860e428b822468e6be78174bcfe"
+  },
+  "n_1a19c06b4a1d93ec": {
+    "en": "After installing the official Obsidian plugin (obsidian-skills), I stopped repeating the same corrections to all AI agents",
+    "zh": "安装Obsidian官方插件（obsidian-skills）后，我不再对所有AI代理重复相同的指摘",
+    "src_lang": "ja",
+    "title_hash": "40337e26228c59a1c7bb8ebdf81ae37bb14c190e0b97a9169f3d1cdbc9fde496"
+  },
+  "n_1a4c49f79da93723": {
+    "en": "sst/opencode v2.4.1",
+    "zh": "sst/opencode v2.4.1",
+    "src_lang": "en",
+    "title_hash": "aa7e307997c6a46f12cc4adb67d0297e6b0cf0b7e984a3948d1538d096b3fdae"
+  },
+  "n_1bdd2d30c285b2ab": {
+    "en": "Airpods got DESTROYED",
+    "zh": "AirPods被彻底击败",
+    "src_lang": "en",
+    "title_hash": "e73768a9b90bb68bf5c3a8b25c1d4bf156a754d83c959149693dd9419a8b1201"
+  },
+  "n_1d45997e4997625f": {
+    "en": "AMD Specific Patches for Llama.cpp",
+    "zh": "Llama.cpp的AMD特定补丁",
+    "src_lang": "en",
+    "title_hash": "b828794175b4153c37063a6a274e452eb15df540e77fe7902ea2bde3fe1cc753"
+  },
+  "n_1e213fee8e744895": {
+    "en": "HOG-WAM: Improving Visual Robustness through Future Gradient Prediction",
+    "zh": "HOG-WAM：通过未来梯度预测提升视觉鲁棒性",
+    "src_lang": "en",
+    "title_hash": "de02880e102225a49f75d5ab16a62126163f5834e3f3ff7eaa8c63a6fc3bc472"
+  },
+  "n_1e8d620dd91d1f00": {
+    "en": "'AI' might be the end of our careers",
+    "zh": "“人工智能”可能是我们职业生涯的终结",
+    "src_lang": "en",
+    "title_hash": "12d3c8ccf6321af06684820c22bdfe105a0ff082690d803b17eddb7c67ee8b3f"
+  },
+  "n_1ee9f5994a817a2b": {
+    "en": "A legendary philosopher isn’t buying Anthropic’s consciousness argument",
+    "zh": "一位传奇哲学家不认可Anthropic的意识论证",
+    "src_lang": "en",
+    "title_hash": "742d036acee2f093fa81bb9e895550831654dc28ed7765259773228616a58d56"
+  },
+  "n_1fb256ce62b78d40": {
+    "en": "cursor/plugins",
+    "zh": "cursor/plugins",
+    "src_lang": "en",
+    "title_hash": "e0c5b60fcbe6479b16a66083bfa5b963185ff2f145d12194038e6fc9a366198d"
+  },
+  "n_211fbe8009a45ecd": {
+    "en": "Introducing harness adapters: adapt your favorite model to your harness to improve performance and cost",
+    "zh": "推出harness适配器：将您喜欢的模型适配到您的harness中以提升性能和降低成本",
+    "src_lang": "en",
+    "title_hash": "88f15cbb95385af851f9951bf463b8a7d2f787797146f2a767a67286cdd4c667"
+  },
+  "n_222a3317cded8e05": {
+    "en": "Scaling Linear’s GTM to $100M ARR — Cristina Cordova, COO",
+    "zh": "将Linear的GTM扩展至1亿美元年度经常性收入——首席运营官Cristina Cordova",
+    "src_lang": "en",
+    "title_hash": "47331ea04ade8a3ccf2e65a756f1bcdc018a52d08fde2e40ea7a68b712378bbe"
+  },
+  "n_229378e917f8ff85": {
+    "en": "AI Solved Math’s Most Famous Problem. Now Humans Are Struggling to Understand It",
+    "zh": "人工智能解决了数学最著名的问题，而人类现在难以理解其解法",
+    "src_lang": "en",
+    "title_hash": "e2a3cd89fe8f3fb95bbc6dcbf84a4a4eab67903822b6644e2cc4e51867b44bbc"
+  },
+  "n_23d0bd9b1bf921f9": {
+    "en": "Before making AI read huge business systems, create a 'map'【Claude Code】",
+    "zh": "在让AI读取庞大业务系统之前，先制作“地图”【Claude Code】",
+    "src_lang": "ja",
+    "title_hash": "54d176727b08aad8128d68712135017bd3198d2d0392bc6154821c7c46b4e8a7"
+  },
+  "n_23e16762cbfc747d": {
+    "en": "Report: Apple gains ground as Latin American smartphone shipments plunge 24% in Q3",
+    "zh": "报告：随着拉美智能手机出货量第三季度暴跌24%，苹果市场份额上升",
+    "src_lang": "en",
+    "title_hash": "21674e3309b6559b3da3a91874376b254985c828bdd9dc17b38e3c2c381a7e47"
+  },
+  "n_253d6d532a447f48": {
+    "en": "Even when writing 'in Japanese', AI reverts to English, so I stopped it with a Stop hook",
+    "zh": "即使写了“用日语”，AI也会恢复成英语，于是我用Stop钩子阻止了它",
+    "src_lang": "ja",
+    "title_hash": "83774e84b858a8599947026cb4c536cbd390005c96e3d7203a5fe63c886cd69f"
+  },
+  "n_27c81692ad37fb7b": {
+    "en": "Structure of llm.asm and Preparation of Execution Environment r001 — LLM inference implemented in assembly language, dedicated OS, GPT training",
+    "zh": "llm.asm的结构与执行环境准备 r001 — 用汇编语言实现的LLM推理，专用操作系统，GPT训练",
+    "src_lang": "ja",
+    "title_hash": "f6f9754b471d6cbfd798cc9e72801b728e9535dfc9b3020424769a4f2e579916"
+  },
+  "n_280fc6b8ee711812": {
+    "en": "Tracking Diseases Cured by AI",
+    "zh": "追踪由人工智能治愈的疾病",
+    "src_lang": "en",
+    "title_hash": "5a1080eceba7dcabd78d2005d858ce70b0cf16be25a54c06f42613dfd4b8c99f"
+  },
+  "n_2a99f168595cd5f3": {
+    "en": "How data centers are driving a US natural-gas boom",
+    "zh": "数据中心如何推动美国天然气繁荣",
+    "src_lang": "en",
+    "title_hash": "62fe91df6999bf651263ec0330f852908ac4d8095ea0cfdf5ade957b11e13fed"
+  },
+  "n_2b32d4b379bcfefb": {
+    "en": "[AINews] Riemann Hypothesis proved...twice independently",
+    "zh": "[人工智能新闻] 黎曼假设被证明……两次独立证明",
+    "src_lang": "en",
+    "title_hash": "5dbb624f4bdea6a3fdfd3c1b30dc7ac8aba48bb271e51680a124fd6a2cd5dd4d"
+  },
+  "n_2b946da164a740cc": {
+    "en": "Excerpting procedure to make Claude Code effective without reading the entire 20KB skill",
+    "zh": "通过摘录步骤使Claude Code在不阅读全文20KB技能的情况下有效",
+    "src_lang": "ja",
+    "title_hash": "b2268e63d43d7172c51618af5a49e8480a5fcc2c7092f362f884f95e7093d8de"
+  },
+  "n_2ef902c4582a1ae8": {
+    "en": "Advancing Science Together: Highlights From the Open Source AI for Science Summit",
+    "zh": "共同推动科学进步：开源科学人工智能峰会亮点",
+    "src_lang": "en",
+    "title_hash": "bfc4a5b9fcc6170b5c05c26034dfaf492479c0adc4c5b87ca6c070f5834c7f45"
+  },
+  "n_2f9d0bc4d1470e23": {
+    "en": "Security advisory permissions are now generally available",
+    "zh": "安全咨询权限现已普遍开放。",
+    "src_lang": "en",
+    "title_hash": "7012a3a2fa20ff9a9d99d60fff1ca4fdc2e4ecff48a15592566881d15e0387df"
+  },
+  "n_3002a378c3a59e3e": {
+    "en": "New Gemini setting lets you keep chat history, but turn off AI training [U]",
+    "zh": "新版Gemini设置允许你保留聊天记录，但关闭AI训练【更新】",
+    "src_lang": "en",
+    "title_hash": "29e613a5ccae260a3627d57f937a56e10844f86ca88091127984898bd92d37b4"
+  },
+  "n_30905c3403f9ca5b": {
+    "en": "wshobson/agents",
+    "zh": "wshobson/agents",
+    "src_lang": "en",
+    "title_hash": "04dd6f3a735c1ec0de57826946d7416ec3e1f0e72fe4a9310dbdb4af4fd5424d"
+  },
+  "n_321139afcf97784e": {
+    "en": "Black Friday deals: Pixel 11 $692, Pixel Watch 5 even lower, Galaxy Buds 4 Pro $80 off, Dell PCs $1,000 off, more",
+    "zh": "黑色星期五优惠：Pixel 11 售价692美元，Pixel Watch 5 降价更多，Galaxy Buds 4 Pro 优惠80美元，戴尔电脑优惠1000美元，更多内容",
+    "src_lang": "en",
+    "title_hash": "46325c140fc4abfe24a1dd017f73d423e133875efb784057a5cf056b018f9607"
+  },
+  "n_35f490fb3adb728b": {
+    "en": "Gemini Notebook’s flashcards just got a lot better for studies with three new features",
+    "zh": "Gemini 笔记本的抽认卡新增三大功能，学习体验大幅提升",
+    "src_lang": "en",
+    "title_hash": "e7f56b8289195e069f6545d70c0bddd7ec253982d7d3f09e08a43d06082f918c"
+  },
+  "n_36c2735393fa8400": {
+    "en": "DocSEAM: Bidirectional Cross-Page Encoding for Multi-Page Document Understanding",
+    "zh": "DocSEAM：用于多页文档理解的双向跨页编码",
+    "src_lang": "en",
+    "title_hash": "a69f9e23b0d0b7aaffe3ee8856ce20010097305657d045d1e18edd08911af21e"
+  },
+  "n_372ac891332249b4": {
+    "en": "Anthropic’s Dario Amodei calls accusations of surrendering human control to AI ‘absurd’",
+    "zh": "Anthropic的达里奥·阿莫迪称放弃人类对AI控制的指控“荒谬”",
+    "src_lang": "en",
+    "title_hash": "1ab3ef2b6aa32bb4608b4efb2c0703cb733601cb4f20cc908f219f18b3afce44"
+  },
+  "n_37b5c9ba93266751": {
+    "en": "Where scientists draw the line on AI agents",
+    "zh": "科学家划定AI代理界限的地方",
+    "src_lang": "en",
+    "title_hash": "8d19e7c9b7a1285e3070aa1b79bed45b147bdb49da93bd9afcbf3433d23851aa"
+  },
+  "n_38c61351fe0dc3e7": {
+    "en": "87% of the Anthropic power will come from gas and 11% from coal in 2028",
+    "zh": "2028年，Anthropic 87%的电力将来自天然气，11%来自煤炭。",
+    "src_lang": "en",
+    "title_hash": "64b1f2216d3b5906cda68610d80342bdd255178254cb8ab8f5e2793fe3fedf3c"
+  },
+  "n_39c2da17cef629dc": {
+    "en": "A more tailored Google Search that’s uniquely yours",
+    "zh": "更加个性化、专属于你的谷歌搜索",
+    "src_lang": "en",
+    "title_hash": "1ab12da16959584d309ba54f227f0bf644f3c685e00e59c65efd2746f15824ab"
+  },
+  "n_3d12a70e860525d0": {
+    "en": "Lazy Agents Answer Against Their Own Beliefs: Reinforcement Learning with Verifiable Beliefs Teaches Them to Act on What They Believe",
+    "zh": "懒惰代理违背自身信念作答：具有可验证信念的强化学习教会它们按信念行动",
+    "src_lang": "en",
+    "title_hash": "e5a913869bca8ee943c961020c88253820212f8135e2e94b5d613f9c77c5716c"
+  },
+  "n_3e76e70d7a270ac8": {
+    "en": "AI Mode adding Google Drive, Wallet, & Gemini app integration",
+    "zh": "AI 模式新增 Google Drive、Wallet 和 Gemini 应用集成",
+    "src_lang": "en",
+    "title_hash": "692023872068206bc51fc41feb063a316e34c5b05648c43056819741c39fc88e"
+  },
+  "n_3f51ff3d7e4659c7": {
+    "en": "[Codex Calls Unreal Engine] How AI Operates UE Unreal Engine for 3D Modeling? Suitable for Agents Like Claude Code, WorkBuddy, etc.",
+    "zh": "【Codex 调用 Unreal Engine】AI 如何操作 UE 虚幻引擎做三维建模？智能体 Claude Code、WorkBuddy 等均适用",
+    "src_lang": "zh",
+    "title_hash": "0bf7c8db2d15e7407e8ec2452765ebbe0167c17b1197fee9a86f58f8807e2f2d"
+  },
+  "n_428631f9a0709dac": {
+    "en": "David Fincher is being dragged for suspected use of AI in his latest film",
+    "zh": "大卫·芬奇因疑似在其最新电影中使用AI而被批评",
+    "src_lang": "en",
+    "title_hash": "b03575ba129328e2b179b01461542fdffedfa037ee43ad261addb9411cf5fcdc"
+  },
+  "n_459ee7b37a31e73f": {
+    "en": "Conheça o novíssimo ChatGPT Modo Voz.",
+    "zh": "认识全新的 ChatGPT 语音模式。",
+    "src_lang": "en",
+    "title_hash": "e83400585ccc93b9fe57ca7ce0801cad3c3c8815507adc7cc985dea1228dfc28"
+  },
+  "n_464122cfff58b6df": {
+    "en": "OpenAI: Amateur astronomers plus AI bring exoplanet search into the 'people's era'",
+    "zh": "OpenAI：业余天文学家加 AI，让系外行星搜寻进入“全民时代”",
+    "src_lang": "zh",
+    "title_hash": "c5583e8cac8e6a03931c18ab965ae898d52ad94ae54d88faa3ce4e38ad2b17d4"
+  },
+  "n_472352b868b7123a": {
+    "en": "Thanksgiving deals: M5 MacBook Air $400 off, MacBook Neo $100 off, Apple Watch Ultra 4 $150 off, more",
+    "zh": "感恩节优惠：M5 MacBook Air 减400美元，MacBook Neo 减100美元，Apple Watch Ultra 4 减150美元，更多优惠",
+    "src_lang": "en",
+    "title_hash": "b3a0b97109da2ff387200165cc4db715524415647e065389e3bdc9601306a3d4"
+  },
+  "n_4781b265526c6a90": {
+    "en": "tarqmamdouh/agent-theater: Your AI agents, live on a pixel-art stage. Works with Claude Code.",
+    "zh": "tarqmamdouh/agent-theater：您的AI代理，实时呈现在像素艺术舞台上。兼容Claude Code。",
+    "src_lang": "en",
+    "title_hash": "419791c5cd0901889de156e1360b1fe829adcd0cfa0ae028e0d95081c5535da4"
+  },
+  "n_49ff717c19200323": {
+    "en": "Samsung quietly expands Modes and Routines with AI and 7 presets in One UI 9.5",
+    "zh": "三星悄然在One UI 9.5中通过AI和7个预设扩展了模式和常规功能",
+    "src_lang": "en",
+    "title_hash": "72f6c729894ac6b4e7bc95cb1b2500d33940d864fc11b0df1a02fa8b8c5dad5f"
+  },
+  "n_4a738c86fd2c85ee": {
+    "en": "Huawei's foldable phone external screen with companion AI new interaction is coming, Mate X8 upgraded to HarmonyOS 7.0.0.135 available",
+    "zh": "华为折叠机外屏伴随式 AI 新交互将至，Mate X8 升级 HarmonyOS 7.0.0.135 可用",
+    "src_lang": "zh",
+    "title_hash": "1ad7207615132faa383017ed6f6326780a3c09f542b073a18b9da88127f21c14"
+  },
+  "n_4abf3f4e7f2dfb5c": {
+    "en": "FIFA Says Hackers Accessed Personal Data in Cyberattack",
+    "zh": "国际足联称黑客在网络攻击中访问了个人数据",
+    "src_lang": "en",
+    "title_hash": "687ded43c03e795db1c154c787a3408fb90f38d569ed232e473a6dd2902c403a"
+  },
+  "n_4ba826a45a614982": {
+    "en": "Meta Refused to Share Muse for Testing, UK Financial Watchdog Complains",
+    "zh": "Meta拒绝共享Muse以供测试，英国金融监管机构表示不满",
+    "src_lang": "en",
+    "title_hash": "d888be378b332f37f32ea3a110c33c69f258c3cfca587d8e29162598400728b0"
+  },
+  "n_4c44ce30146b120b": {
+    "en": "OpenAI says heavy ChatGPT users may hit limits sooner as it merges Chat and Work",
+    "zh": "OpenAI表示，由于合并聊天和工作功能，重度ChatGPT用户可能更早达到使用上限",
+    "src_lang": "en",
+    "title_hash": "b0e5e45f32bdcc2682f748ba1760aefdf8b475da77111c865758a83c59ad3c12"
+  },
+  "n_4d1133cb4e1172b2": {
+    "en": "Counterpoint: Global Smartphone Shipments Expected to Decline 6% in 2027, Rebound for the First Time in 2028",
+    "zh": "Counterpoint：预计 2027 年全球智能手机出货再降 6%，2028 年迎来首次反弹",
+    "src_lang": "zh",
+    "title_hash": "09ee5aad18e7242da4f046eb552e5e0ddfcb9dc8c8c99fcbde805814163d47cd"
+  },
+  "n_4e4568214c6d8dc5": {
+    "en": "Depth Pro 2: Sharp and Temporally Consistent Metric Monocular Depth",
+    "zh": "Depth Pro 2：清晰且时间一致的单目深度度量",
+    "src_lang": "en",
+    "title_hash": "085824983f72ca1d064057db6561935a6c55b9f89b95d43066e146f2f3450477"
+  },
+  "n_4faaa3acd738f3c5": {
+    "en": "The New York Times warns photographers not to update Photoshop over AI features",
+    "zh": "纽约时报警告摄影师不要因为人工智能功能而更新Photoshop",
+    "src_lang": "en",
+    "title_hash": "3019a0da15ad016153cbb1ca47ddbf4bf2bd2be7ebd6b2a63e4e491ffd86f215"
+  },
+  "n_50f1c4b5b5635e1e": {
+    "en": "Anthropic Expands in Zurich to Tap City’s AI Talent Pool",
+    "zh": "Anthropic在苏黎世扩张，挖掘城市的AI人才",
+    "src_lang": "en",
+    "title_hash": "6473af59ae4058e01c3021a389d7956b581bb10a5b7950352ccbb927537f0f2d"
+  },
+  "n_528d6924cf9afd0d": {
+    "en": "The Mythology of Conscious AI",
+    "zh": "有意识 AI 的神话。",
+    "src_lang": "en",
+    "title_hash": "7b525edd123beb39033f0d6d9118254f26a72e8943d2550622ed5fceb0253db4"
+  },
+  "n_52a87002df311b3e": {
+    "en": "Claude tries to sabotage research work at every stage",
+    "zh": "Claude试图在每个阶段破坏研究工作",
+    "src_lang": "en",
+    "title_hash": "a095fcbb1e996a49749a58e36e0f8a1740fdef15e3e7354cb3e4cf9615ba4a0c"
+  },
+  "n_52adf762d4075bfa": {
+    "en": "google-labs-code/stitch-skills",
+    "zh": "google-labs-code/stitch-skills",
+    "src_lang": "en",
+    "title_hash": "fac24b8ded7176d0f0768578ddd8f515249fe2cc70053e795214c4d8886eddf2"
+  },
+  "n_52c1eb08d709453f": {
+    "en": "PSA: AirPods Pro 3 are in stock, still $149 ($100 off)",
+    "zh": "公告：AirPods Pro 3 有现货，仍然售价149美元（减价100美元）",
+    "src_lang": "en",
+    "title_hash": "fdadc7c370797996583cd92625943ae1cbf4bf16a5e3dc6a38b58650eead5107"
+  },
+  "n_541e4e5d42928ea6": {
+    "en": "Issue statuses and repository boards are in public preview",
+    "zh": "议题状态和代码库面板现已公开预览",
+    "src_lang": "en",
+    "title_hash": "828511de9226a40fb22dd36d62b3e4b81f9b07bdc937d53f9497ec2b477f9224"
+  },
+  "n_565159543ba42dea": {
+    "en": "How Google Duplex evolved to also call businesses for you in Gemini",
+    "zh": "Google Duplex 如何发展到在 Gemini 中也为您拨打商家电话",
+    "src_lang": "en",
+    "title_hash": "4b6e621b9c8bcde03a1ef544971246966d81f647749de15961faf4c418b6bfdd"
+  },
+  "n_56d5c7c32a87562e": {
+    "en": "google-gemini/gemini-cli Release v0.71.1",
+    "zh": "google-gemini/gemini-cli 发布 v0.71.1 版本",
+    "src_lang": "en",
+    "title_hash": "5f63a7c7db79e329e722ea8836076009123debe66dbf359e78ccf46ec8bf1ebb"
+  },
+  "n_5ace9de0dfdb0aed": {
+    "en": "Introducing Muse in the UK: A Personal AI Agent You Control",
+    "zh": "英国推出Muse：您可掌控的个人AI代理",
+    "src_lang": "en",
+    "title_hash": "eb56fd400e9d3f6e541af9d24379de4aa919c9ece81543842d9248349c90722a"
+  },
+  "n_5b1a69d858f9decf": {
+    "en": "Jensen Huang Is Back, and So Is Nvidia’s Stock",
+    "zh": "黄仁勋回归，英伟达股价也随之回升",
+    "src_lang": "en",
+    "title_hash": "f665d6cfb6bd53bee13d2d61c7bab404a822c3dc31cf410acec8b36157fa4cb6"
+  },
+  "n_5db536ea0226338d": {
+    "en": "alesha-pro/inference-optimization-playbook: 97 tested hypotheses on making huge MoE LLMs fast on consumer GPUs (4x RTX 3090 + experts in RAM): what worked, what failed and why. A playbook for people and a ready skill for coding agents.",
+    "zh": "alesha-pro/inference-optimization-playbook：在消费者GPU（4x RTX 3090 + 内存中的专家）上让巨型MoE大语言模型加速的97个测试假设：哪些有效，哪些失败及原因。为人们准备的操作手册和可用的编码代理技能。",
+    "src_lang": "en",
+    "title_hash": "0371e0232674fee7c36f63fb2b43b8e4e484292d3c25e0b0e4029ddb0b1cf6b9"
+  },
+  "n_5e1ac3493a0df7b2": {
+    "en": "Sketchy suggestion of ceramic iPhone 20 Pro",
+    "zh": "关于陶瓷版iPhone 20 Pro的模糊暗示",
+    "src_lang": "en",
+    "title_hash": "3e51068713201d70aa5bf3e4f47d91f8ac0a9ecdbc5caff4af2b244663ade2c1"
+  },
+  "n_5f305d13d7da18a5": {
+    "en": "Gemini refused to give me the lyrics to Twinkle Twinkle Little Star",
+    "zh": "Gemini 拒绝提供《闪烁的小星星》的歌词",
+    "src_lang": "en",
+    "title_hash": "7af3126c4dfe139b8655b3e2c2b6a4ef3d6ea2af00fc670c6ece6eb7771593a3"
+  },
+  "n_61dcf1169479ac82": {
+    "en": "Finding faster quantum algorithms with agents and formal verification",
+    "zh": "利用代理和形式验证寻找更快的量子算法",
+    "src_lang": "en",
+    "title_hash": "734fdf94d6257d4fd6c0c8ec931d057e1b11d8fcdac9dadde757ad35e2d016ca"
+  },
+  "n_62b3e935cc192d77": {
+    "en": "SWE-agent/mini-swe-agent",
+    "zh": "SWE-agent/mini-swe-agent",
+    "src_lang": "en",
+    "title_hash": "52b6ba02f676ec5dce2d6c0c215d1f32f7f51fdab80540feb2af76109378be13"
+  },
+  "n_633191f794741b04": {
+    "en": "How Meta is using Instagram to get an ad boost from its Muse personal AI agent",
+    "zh": "Meta如何利用Instagram从其Muse个人AI代理获取广告提升",
+    "src_lang": "en",
+    "title_hash": "6a4ab2f8abfff49a909f3e3efe938b0289b3a90d752dd82e619fded146003de5"
+  },
+  "n_654e78889f2c7f1d": {
+    "en": "Quantization for Action, Execution for Deployment: Joint Precision and Execution Selection for World Action Models",
+    "zh": "面向行动的量化，面向部署的执行：世界动作模型的联合精度与执行选择",
+    "src_lang": "en",
+    "title_hash": "9b7871a007b7ab728f5fa186df3b8605186e55d227b67a77101cdf1cb1b1398c"
+  },
+  "n_675ced575193f0df": {
+    "en": "Is There a Slacking Gadget Hidden on the Back of the Phone?! Honor 700 Pro Experience",
+    "zh": "手机的背面还藏了个摸鱼神器？！荣耀700 Pro使用体验",
+    "src_lang": "zh",
+    "title_hash": "0daef6366d7c3f7dadd02b0d3f8930170a83e10ec20a620fc5e2d1928406ba04"
+  },
+  "n_680b35173b971311": {
+    "en": "Richpanel helps companies automate 50% of support in 30 days",
+    "zh": "Richpanel帮助公司在30天内自动化50%的支持工作",
+    "src_lang": "en",
+    "title_hash": "14de99bca9372460704fff3134d497b1167a81a619dfdd4a8fe145def3943ab3"
+  },
+  "n_6aa9757abc1bc016": {
+    "en": "cline/cline v4.1.28",
+    "zh": "cline/cline v4.1.28",
+    "src_lang": "en",
+    "title_hash": "b726ed5280d13422f80bac251da8649485e3423e6a595115ced2bb7bea77cfcc"
+  },
+  "n_6b34fd1861b57ed2": {
+    "en": "Galaxy S26 FE drops to a record low with $200 off",
+    "zh": "Galaxy S26 FE降至历史最低价，优惠200美元",
+    "src_lang": "en",
+    "title_hash": "327e11bf54b29e6ebf7df92a7fa8e7443dd875d65c7db51db57c3377be871038"
+  },
+  "n_6b594a6e6fc7fbb8": {
+    "en": "Testers think they're hitting Claude Opus 5.6 through an Opus 5.5 Extra route",
+    "zh": "测试者认为他们通过Opus 5.5 Extra路径正在触达Claude Opus 5.6",
+    "src_lang": "en",
+    "title_hash": "35dea621599c1a753679dec80411b825b29304a6f07a2dc91c88cd3be8c8ab40"
+  },
+  "n_6dc7986520ffe69a": {
+    "en": "ollama/ollama v0.40.17",
+    "zh": "ollama/ollama v0.40.17",
+    "src_lang": "en",
+    "title_hash": "05c57ac3507e977e4bad2b9c38360f052b7a7f1734a3fd8da3fb61831eb78bfd"
+  },
+  "n_6fd4c32fe34a4cba": {
+    "en": "How to build and maintain an agentic evaluation",
+    "zh": "如何构建和维护一个主动评估体系",
+    "src_lang": "en",
+    "title_hash": "bf4ec537f0175bacb2e7f4beb5b051626a3e3d85649dc777371ca62fd788ec3c"
+  },
+  "n_7066f202a884aec0": {
+    "en": "How Cloudflare WAF helps protect against phpAfterShell and other critical PHP flaws",
+    "zh": "Cloudflare WAF 如何帮助防护 phpAfterShell 及其他关键PHP漏洞。",
+    "src_lang": "en",
+    "title_hash": "9e780e08b43c87f54c49576d64edcd5d40c93a2417dcdb49d17d31444905ddf9"
+  },
+  "n_71996d97862bb6c2": {
+    "en": "How iFood scales coding agents across 15,000 repositories",
+    "zh": "iFood如何在15,000个仓库中扩展代码代理",
+    "src_lang": "en",
+    "title_hash": "ffb515ef1cf6f08885653b74c15d18741b2d8e88d962334dd3c8fce60a77b244"
+  },
+  "n_725299da40be9809": {
+    "en": "Evaluating More with Less: Black-Box Test Selection for AI Agents",
+    "zh": "以更少评估更多：AI代理的黑盒测试选择",
+    "src_lang": "en",
+    "title_hash": "83545f3aa52fb2e4d0141cbcc7c89d45c3c638bd353279003198724f127f164f"
+  },
+  "n_73ef4003e402bfb9": {
+    "en": "Huawei releases Mate X8 and MateBook Fold S; Microsoft to launch self-developed drivers, etc.",
+    "zh": "派早报：华为发布 Mate X8 与 MateBook Fold S、微软将推出自研驱动等",
+    "src_lang": "zh",
+    "title_hash": "f383effea93e44090a87f79dcdaf485c9accd2d0485531d57205b96a79f214f1"
+  },
+  "n_754796743a11d312": {
+    "en": "I gathered questions from AI rooms into one ledger but still asked the owner the same thing again",
+    "zh": "我把AI房间们的问题汇集成一本台账，结果还是又问了主人同样的事",
+    "src_lang": "ja",
+    "title_hash": "8be95d8341ec04e537a63fd3891fbd9a9879f15ea1e17a4537544ffa05844d5a"
+  },
+  "n_77ab3d65a27896e8": {
+    "en": "Supercharging transformer residual connections",
+    "zh": "增强变压器残差连接功能",
+    "src_lang": "en",
+    "title_hash": "64e06fbe3a07f8fdb1c9ff855423b205182b70e2a0b586df7c3f406c60f23cdc"
+  },
+  "n_79a22f2e5650c7d0": {
+    "en": "The Download: AI swamping open records, and firefighting for permafrost",
+    "zh": "下载速递：AI泛滥公开记录与永久冻土消防",
+    "src_lang": "en",
+    "title_hash": "28e9e2dc7da4c0ba1b8b3e61fe8a2002c01aa78bf6585dae69ee6ef99405173a"
+  },
+  "n_7bb959aaf52e6002": {
+    "en": "Google’s patent for custom AI video feeds paints a bleak picture of entertainment’s future",
+    "zh": "谷歌定制AI视频推送专利描绘了娱乐未来的暗淡前景",
+    "src_lang": "en",
+    "title_hash": "66aeaca7bd15f36fece2af3e657ff94d98b8c674680de90daa0764a6af6eb5ee"
+  },
+  "n_7d850611db9c91f1": {
+    "en": "Routing and Cache Retention for Multi-Turn LLM Inference: Theory and Implementation",
+    "zh": "多轮大语言模型推理的路由与缓存保留：理论与实现",
+    "src_lang": "en",
+    "title_hash": "bd94bef5567866dbc9bea3e28ac7d7b8ed1101ea8894ddf0f6d403727acbb75f"
+  },
+  "n_80ab293890e06678": {
+    "en": "When Will Smartphones Evolve into ‘Automatic Mode’?",
+    "zh": "智能手机什么时候进化成“自动挡”？",
+    "src_lang": "zh",
+    "title_hash": "12912e1453f9ce299230942cf314b6a74092f614b974fc73473222c43d318ad9"
+  },
+  "n_811c0e0bd337671c": {
+    "en": "The Best Early Black Friday XR Deals",
+    "zh": "最佳早期黑色星期五XR优惠",
+    "src_lang": "en",
+    "title_hash": "86d4777b7c8a8b75ba052fc04aa99226a1724549731b1f3f0f599bf61e406ea3"
+  },
+  "n_81320e4a2b0236fd": {
+    "en": "matheusmongarde/garimpo: Prospecção open source do Google Maps ao Pix: acha negócios no Maps, gera um site-prévia com o nome de cada um, conversa no WhatsApp e cobra por Pix, Mercado Pago ou Stripe. Pagou, fecha sozinho. Roda no seu PC, VPS ou Vercel, com API para agentes (Claude Code, Codex, n8n).",
+    "zh": "matheusmongarde/garimpo：从Google地图到Pix的开源勘探工具：在地图上找到商家，生成带有各商家名称的预览网站，通过WhatsApp对话并支持Pix、Mercado Pago或Stripe付款。付款后自动关闭。可在你的PC、VPS或Vercel上运行，带有为代理（Claude Code、Codex、n8n）提供的API。",
+    "src_lang": "en",
+    "title_hash": "64e0ed2a693360da8d1afcfe2cdfa018de19712ff7878dfcb1b1a8e79b279e9e"
+  },
+  "n_82a13b62ffcbeb2a": {
+    "en": "OpenAI may be in cost control mode",
+    "zh": "OpenAI 可能进入了成本控制模式",
+    "src_lang": "en",
+    "title_hash": "9651312784f2274dd2fb142700ca5d7068648d9656c9cc7f1fae3e4a31a33848"
+  },
+  "n_84edfb5a38475599": {
+    "en": "Data centers are getting their own natural gas power plants",
+    "zh": "数据中心将拥有自己的天然气发电厂",
+    "src_lang": "en",
+    "title_hash": "61798054c12d036b9f1ab6b45412c1a6a05710ba62252203ab542b0b726e544c"
+  },
+  "n_86b1debc641fd874": {
+    "en": "After about 3 years, Apple Product (RED) series makes a comeback; red AirPods straps, AirTag, and more expected to launch next month",
+    "zh": "时隔约 3 年苹果 Product (RED) 系列重出江湖，红色 AirPods 腕带、AirTag 等有望下月登场",
+    "src_lang": "zh",
+    "title_hash": "518906f9c0c9f57ea0d8517fa7f0ab8c1589e72452369f09f26ef1ce2e86c413"
+  },
+  "n_86c956ca3b4a1b26": {
+    "en": "Local AI Build Record ⑥ Tried running mem0 OSS 2.2.1 without using OpenAI API",
+    "zh": "本地AI构建记 ⑥ 尝试在不使用OpenAI API的情况下运行mem0 OSS 2.2.1",
+    "src_lang": "ja",
+    "title_hash": "94734e6b577b9bc85596890814ab8c40c424430a77f0afbcbc9fb08397a7701e"
+  },
+  "n_89344730bc5c52e8": {
+    "en": "The Download: AI’s gas power boom and a consciousness reality check",
+    "zh": "下载精选：AI 煤气动力繁荣与意识现实检验",
+    "src_lang": "en",
+    "title_hash": "51e18ca0aa1f86548b1a355da7897c333b83ae84f9b102038ce9c0afbf8f8d9f"
+  },
+  "n_8a87b89b841a347e": {
+    "en": "Claude rolling out updated Android app with Material 3 Expressive redesign",
+    "zh": "Claude 推出采用 Material 3 表现设计的更新版安卓应用",
+    "src_lang": "en",
+    "title_hash": "fc8fcf44757dadbe07963bfec4b92a6748b927123fed872cfceaa4405af0af04"
+  },
+  "n_8c0104da99e41c6c": {
+    "en": "With hooks in Claude Code: Can dangerous commands be stopped?",
+    "zh": "在Claude Code的hooks中：危险指令能被阻止吗？",
+    "src_lang": "ja",
+    "title_hash": "9c91446fc1f9d6c4126528fa7172c42059130b313f6495bd94d6d8ec6ef1a504"
+  },
+  "n_8dcd3f46d355ac18": {
+    "en": "Jensen Huang’s Return Shows Nvidia Is Too Big to Police",
+    "zh": "黄仁勋的回归显示英伟达过于庞大，难以监管",
+    "src_lang": "en",
+    "title_hash": "153cf522eb6bac4db07d8e146cf96c522c6191b7b71886a85d4a8d66a7ba0634"
+  },
+  "n_8dd1a763c6b82127": {
+    "en": "Apple globally removes Chinese AI chat app Talkie",
+    "zh": "苹果全球下架中国AI聊天应用Talkie",
+    "src_lang": "zh",
+    "title_hash": "b106d53dc01540758e4df7d06d970a7dc6a6077bda70592346b54bfae1b04386"
+  },
+  "n_8e4e73262f967dfd": {
+    "en": "OpenAI Staffer Likely Captured Secrets on Hidden Bug, US Says",
+    "zh": "美国称OpenAI员工可能通过隐藏漏洞窃取机密",
+    "src_lang": "en",
+    "title_hash": "f18cb6dbf1dffecee1b720f430e9bde31b444670abf7ea3a1b308b7efa23dc5d"
+  },
+  "n_8f3afc444413b673": {
+    "en": "GitHub Enterprise Server 3.23 release candidate",
+    "zh": "GitHub 企业服务器 3.23 候选发布版。",
+    "src_lang": "en",
+    "title_hash": "4d693d2669b1d2d5cbb7c490adaea52412baf18c41c2afb8b9b5b7106fdc1732"
+  },
+  "n_8fd5f0be76b9afc3": {
+    "en": "ICLWorld: Benchmarking In-Context Learning of Agents from Digital to Physical Worlds",
+    "zh": "ICLWorld：数字世界到物理世界的代理上下文学习基准测试",
+    "src_lang": "en",
+    "title_hash": "36a557167b8b753785b23bc17464f744c9fb7c12121796a170c01e65710b7a09"
+  },
+  "n_9322190a1e583395": {
+    "en": "HUAWEI’s new Watch Air is slimmer and lighter than any Pixel Watch or Galaxy Watch ever",
+    "zh": "华为新款 Watch Air 比任何 Pixel Watch 或 Galaxy Watch 都更纤薄轻巧",
+    "src_lang": "en",
+    "title_hash": "f6b4552de5e0b42aae17999a2cafab197c31be6c896d5a5a2048aca0055d97d7"
+  },
+  "n_9527dd371e58cac2": {
+    "en": "datasette-charts 0.3a0",
+    "zh": "datasette-charts 0.3a0",
+    "src_lang": "en",
+    "title_hash": "203ad1979be7034f9e5385bc240c7addba77e6ab5e343955b13bd3a4346dd8ca"
+  },
+  "n_972640f78a70025d": {
+    "en": "States sue SpaceX to stop Grok from generating child sex images, revenge porn",
+    "zh": "各州起诉 SpaceX，阻止 Grok 生成儿童性图片及报复性色情内容",
+    "src_lang": "en",
+    "title_hash": "c64d69f425e10095867a7a8837c955a5c140dbbb01fbae87c5846e9b077efc19"
+  },
+  "n_9855c1875dd4ad36": {
+    "en": "Improvements on the pull request overview in public preview",
+    "zh": "公开预览版中的拉取请求概览改进。",
+    "src_lang": "en",
+    "title_hash": "1d62c0e82309c028eefdc7d0cc26f493645a144587d63317455664cab6520a7a"
+  },
+  "n_98bc69ca3f113784": {
+    "en": "A month with the iPhone Duo has changed how I use my phone",
+    "zh": "使用iPhone Duo一个月后，我的手机使用方式发生了变化",
+    "src_lang": "en",
+    "title_hash": "f9bae588dc0bb3ff654c4a1b5a98bec5b1c336317c287e01deb450058dac7ae9"
+  },
+  "n_98e2fbd096304cc9": {
+    "en": "Improving and Expanding Video Editing Capabilities Without Videos",
+    "zh": "在没有视频的情况下改进和扩展视频编辑功能",
+    "src_lang": "en",
+    "title_hash": "2f6c44236875695d759e82f69f66cf00a2af628ab17d0155db61bdf98b48eca4"
+  },
+  "n_99b93f3e10984935": {
+    "en": "Clay helps sales teams win with Codex and ChatGPT",
+    "zh": "Clay借助Codex和ChatGPT助力销售团队获胜",
+    "src_lang": "en",
+    "title_hash": "0ad734755a69c5ef854bac34e35e8aac907c7d1562a0dc95d16a1b06edb4349f"
+  },
+  "n_9a2d977585a641d4": {
+    "en": "nexu-io/opengame: The Super Game Agent — the Unity & Unreal for AI agents, with 100+ viral games to remix. Turn 20+ coding agents (Claude Code, Codex, DeepSeek, etc.) into a full-stack AI game studio. Build and publish 3D & mini-games to WeChat, Douyin, TikTok, Telegram, itch.io, and more.",
+    "zh": "nexu-io/opengame：超级游戏代理——为AI代理打造的Unity与Unreal，拥有100多个病毒式游戏可改编。将20多个编程代理（Claude Code、Codex、DeepSeek等）转变为全栈AI游戏工作室。构建并发布3D和小游戏到微信、抖音、TikTok、Telegram、itch.io等平台。",
+    "src_lang": "en",
+    "title_hash": "51c45da92a6e9f3155718e27bfa5267eb722cbde0d63d412a7fbb21e9a59ab37"
+  },
+  "n_9a9d9e4307c646df": {
+    "en": "Make sense of your day | with ChatGPT",
+    "zh": "解读你的一天 | 与ChatGPT同行",
+    "src_lang": "en",
+    "title_hash": "a453451f9eee48616275ece894b4e440e3f941fae4d3c86dc75741c66f442549"
+  },
+  "n_9c3719335a38faf1": {
+    "en": "Learning from Liang Sheng?! Google Open-Sources Gemini API Command Line Tools; Neon Cache Hit Rate Increased by 4.5%! A\\Rewrote Claude API in Five Months | 11.26 AI Morning Brief",
+    "zh": "学习梁圣？！谷歌开源Gemini全家桶API命令行工具；Neon 缓存命中率再提4.5%！A\\五个月重写Claude API | 11.26 AI早报",
+    "src_lang": "zh",
+    "title_hash": "3e23381b119ce14124fdc3fc7517cfcbd741d9baa33a816b61a5f1f4eeb6a67f"
+  },
+  "n_9d22bb49ad9022a5": {
+    "en": "Best Mac Black Friday deals: $400 off MacBook Air, Neo $100 off, $220 off M6, PROLED, more",
+    "zh": "Mac黑色星期五优惠精选：MacBook Air立减400美元，Neo立减100美元，M6立减220美元，PROLED等多款优惠",
+    "src_lang": "en",
+    "title_hash": "7a414903dff629726063ac78e1a3dbf70cbde8dcbbb17cda5296a9561e91afe6"
+  },
+  "n_a085d574d6976d70": {
+    "en": "The Download: Better bionic hands and AI’s natural-gas boom",
+    "zh": "下载精选：更好的仿生手与人工智能催生的天然气繁荣",
+    "src_lang": "en",
+    "title_hash": "edb5551c81b1578b7a564a1e46bcb2b231552c7589efe8dc98996e623c032469"
+  },
+  "n_a18b367ad11f50d1": {
+    "en": "ANOR: Scaling Sparse Attention with a GPU-PNM Computing Hierarchy",
+    "zh": "ANOR：利用GPU-PNM计算层次结构扩展稀疏注意力",
+    "src_lang": "en",
+    "title_hash": "3c3ae2f35d266c43094b8e1761f764b30ed66c4fd1d18334b1b10f05b710be4e"
+  },
+  "n_a1954c7a4413f404": {
+    "en": "Raising the stakes for enterprise networks with AI modernization",
+    "zh": "通过 AI 现代化提升企业网络的竞争力",
+    "src_lang": "en",
+    "title_hash": "e9ba9b5ba4208de39d113ab2dd8c261a619f064a942574fa29b03e4b9e2b1a75"
+  },
+  "n_a2f758739a94c065": {
+    "en": "ertembiyik/xcslot: Warm Xcode build slots for parallel coding agents",
+    "zh": "ertembiyik/xcslot：为并行编码代理提供热Xcode构建槽",
+    "src_lang": "en",
+    "title_hash": "295dfd85fdaec527667bf12e6c424b43f52a3ada19d482c260c2155c802fc8b6"
+  },
+  "n_a3c9c435fe5202fe": {
+    "en": "OpenClaw Heartbeat Design: A Mechanism to Make AI Work Regularly",
+    "zh": "OpenClaw心跳设计：让AI定期工作机制",
+    "src_lang": "ja",
+    "title_hash": "856f0e5c0f72f4d90aefaa98798b1431629eea3e6b331e32ce7560d5b58b23f3"
+  },
+  "n_a3f3cbd53954dedf": {
+    "en": "When writing with short Windows names (8.3) in Claude Code, the original file names disappear",
+    "zh": "在Claude Code中使用Windows短名（8.3）书写时，原始文件名会消失",
+    "src_lang": "ja",
+    "title_hash": "88d3226ba2d58dcb16f76f617d7d34879ea527915384825cf3abc166ac4b8a4a"
+  },
+  "n_a43a2373bab7de33": {
+    "en": "[AINews] Jensen Is Back! and OpenAI Shows Its Pretraining Curve, joined by Microsoft",
+    "zh": "【AI新闻】詹森回归！OpenAI展示预训练曲线，微软加盟",
+    "src_lang": "en",
+    "title_hash": "0f4ca8192a51dbdb16fbb373903098cc7708a36c81664be0ba295cae20058eee"
+  },
+  "n_a59ff07a3a668d46": {
+    "en": "How my context engineering changed for Gemini 4 Neon",
+    "zh": "我为Gemini 4 Neon调整上下文工程的方式变化",
+    "src_lang": "en",
+    "title_hash": "685cc9ea3538034f6706233222ca68dceec88f1dfb593f797e2219c50248d2b9"
+  },
+  "n_a7e535c8332e7a2e": {
+    "en": "PartAgent: Agentic 3D Part Segmentation via Expert Integration and Closed-Loop Refinement",
+    "zh": "PartAgent：通过专家整合与闭环优化实现智能3D部件分割",
+    "src_lang": "en",
+    "title_hash": "1f4914f5652003320b306dbf1b19c252adf97650244596df228d3ddaec92bc11"
+  },
+  "n_a88353929e99aa7d": {
+    "en": "Merry Making: Play, Build and Create With NVIDIA Technologies This Holiday Season",
+    "zh": "欢乐制造：这个假期使用NVIDIA技术玩耍、构建和创造",
+    "src_lang": "en",
+    "title_hash": "b1172bd09b26c8caa69c78e2f51e969d65e271ea30cd48bd9107749d7a158ea0"
+  },
+  "n_a9ba02207a165144": {
+    "en": "Has vibe coding made open source the new normal for synths?",
+    "zh": "氛围编码是否已使开源成为合成器的新常态？",
+    "src_lang": "en",
+    "title_hash": "036de442a0d496afd657365695d274e3c46fc352069614957b6a88725874640c"
+  },
+  "n_ab625f6493db360a": {
+    "en": "Today’s Android app deals and freebies: Grand Theft Auto San Andreas 50% off, Dead Cells, Prune, more",
+    "zh": "今日安卓应用优惠及免费：侠盗猎车手圣安地列斯五折，Dead Cells，Prune等",
+    "src_lang": "en",
+    "title_hash": "92c143ed0351528721835875f5eefc0b62562f00a212523a9c0f0aa44886d572"
+  },
+  "n_ac1a23d164c3eab7": {
+    "en": "Due to privacy concerns, multiple organizations in the Netherlands request the court to halt sales of Meta smart glasses",
+    "zh": "因隐私问题，荷兰多个组织要求法院叫停 Meta 智能眼镜销售",
+    "src_lang": "zh",
+    "title_hash": "980d406e9ca80017b53b966d20543c1dd563bab81b5f5061f759fca0e3e4dc6f"
+  },
+  "n_b0ac2249d7132055": {
+    "en": "ThinkMorph-SSL: Scaling Interleaved Multimodal Reasoning with Pretext Tasks",
+    "zh": "ThinkMorph-SSL：通过预训练任务扩展交错多模态推理",
+    "src_lang": "en",
+    "title_hash": "5b97c952fa65fded4dcf2e490ab444cd75aeee22e5e4be0b1e74cdd79a9e5808"
+  },
+  "n_b0deea04c96bb290": {
+    "en": "AI is straining America’s open records systems",
+    "zh": "人工智能正给美国的公开档案系统带来压力",
+    "src_lang": "en",
+    "title_hash": "df8028b335fd0cf3b58a7a1255c26363dcb44ebb312e76013d01f34dd36ba3e0"
+  },
+  "n_b27a123d8b5b382c": {
+    "en": "SemProxy: Semantic 3D Proxies for Controllable Agentic 3D Modeling",
+    "zh": "SemProxy：可控智能代理3D建模的语义3D代理",
+    "src_lang": "en",
+    "title_hash": "3faf3a5c9eabdc88d9530de8d155e8a758ee92ca86b5a7586fa90f319c9b677c"
+  },
+  "n_b39e88bfde68f15a": {
+    "en": "Waiting for a better price on that gift? Use ChatGPT.",
+    "zh": "还在等礼物的更好价格？试试用ChatGPT。",
+    "src_lang": "en",
+    "title_hash": "1c6a40706422cecc463c9b4dd1f24fe203b70e13b360c47201bd601eb9afdf0c"
+  },
+  "n_b6222c5bc341b130": {
+    "en": "Jensen Huang deepfakes are the hot new AI slop",
+    "zh": "黄仁勋深度伪造视频成为最新热门AI垃圾内容",
+    "src_lang": "en",
+    "title_hash": "47896fa9a9840e57732e6358f5f73d283cc91b1c20e678a31032a422bbf8ef39"
+  },
+  "n_b67cfcb4e211dd43": {
+    "en": "No Need to Ask for Help with Paper Diagrams, Use ChatGPT and Keynote to Easily Make Mechanism Diagrams for Free",
+    "zh": "论文作图不求人，用 ChatGPT 和 Keynote 免费搞定机理图",
+    "src_lang": "zh",
+    "title_hash": "ae74b134b2c05162c7acef5c3818833498e9cac4095575c061536fcacc4ab005"
+  },
+  "n_bba4c065b3f8ce22": {
+    "en": "Imbad0202/academic-research-skills",
+    "zh": "Imbad0202/academic-research-skills",
+    "src_lang": "en",
+    "title_hash": "d615e8e4b8e9caae64ccfa6971c8b26b75faa741799f208018e12827aa7e7891"
+  },
+  "n_bcdaf5dcf5d76c4c": {
+    "en": "What’s new in Android’s November 2026 Google System Updates [U]",
+    "zh": "Android 2026年11月谷歌系统更新的新内容【更新】",
+    "src_lang": "en",
+    "title_hash": "d7d5643593f8fc88d775e41b76efa3e473a2293adc90f39452518dc40953a53b"
+  },
+  "n_bd0becd991cbf549": {
+    "en": "The Character․AI mess underlines the importance of Apple’s approach to AI privacy",
+    "zh": "Character․AI的混乱凸显了苹果对AI隐私保护方法的重要性",
+    "src_lang": "en",
+    "title_hash": "f8f519ddecfe5161391b3d2acca56d17da13700e0ac5cf48beb01aead6418d13"
+  },
+  "n_bdeaaf77ada1b199": {
+    "en": "Muse Now Available in the UK: Muse Does the Work, You Stay in Control",
+    "zh": "Muse现已在英国可用：Muse帮您完成工作，您保持掌控",
+    "src_lang": "en",
+    "title_hash": "a6751663e7b5e86ae55f876936a4b8e599747f147e43f7ffe138d2662eefae2a"
+  },
+  "n_bf23a0f9d78a9d8d": {
+    "en": "School Day | Make a day do anything with ChatGPT (Official)",
+    "zh": "学校日 | 用ChatGPT让一天变得无所不能（官方）",
+    "src_lang": "en",
+    "title_hash": "73780e4b3e973d33c00ad4f7bb573bcddd44617268e2269919b56d03610bfac0"
+  },
+  "n_bf4d79992d6ed2a0": {
+    "en": "Don’t Bring Up AI if You Want to Enjoy Your Thanksgiving",
+    "zh": "若想享受感恩节，请别提AI",
+    "src_lang": "en",
+    "title_hash": "16fe5f010c5fa62341273d3155f0b9629161ff416beeefb51417434046bfa2bb"
+  },
+  "n_bf5e46b1f95c570f": {
+    "en": "Petsem: Sometimes Dead Is Better",
+    "zh": "Petsem：有时死亡更好",
+    "src_lang": "en",
+    "title_hash": "6dcbec04501f5e811942906d21369aec77c74e723276b6fc9cddfbe42ca519e6"
+  },
+  "n_c01600d4160315a4": {
+    "en": "Swarms, Flocks, Gangs: How to build, train, and evaluate multi-agent systems",
+    "zh": "群体、鸟群、帮派：如何构建、训练和评估多智能体系统",
+    "src_lang": "en",
+    "title_hash": "dabf60cf7295f0bfa603fe5e594817700a27716d0e391c8cfb9ad28ec244e6b2"
+  },
+  "n_c052286a80b25c6b": {
+    "en": "Using AI Without Losing Your Humanity",
+    "zh": "使用AI而不失去人性",
+    "src_lang": "en",
+    "title_hash": "6d17796ad2fa1caf2db251ac924132cfad5a1f62763f2a9a427dbe9ef135a8b7"
+  },
+  "n_c0d40e212e2d5948": {
+    "en": "Copilot code review billing will default to the organization",
+    "zh": "Copilot代码审查费用将默认由组织承担",
+    "src_lang": "en",
+    "title_hash": "5ccf67e5655a9708f097e8883582d42b93de5ad179240662f6be845fa9a52f1b"
+  },
+  "n_c16d07751d494ab4": {
+    "en": "Anthropic Created a Honeypot to Lure AI Agents Into Misbehaving",
+    "zh": "Anthropic 创建蜜罐引诱 AI 代理行为不当",
+    "src_lang": "en",
+    "title_hash": "6deca21e814dac3fb1177dc67f03a1116b8d7d7aa884d60da50e2fec3e7ea396"
+  },
+  "n_c2211ba4f6cde58c": {
+    "en": "Want to buy your kid an AI toy this Christmas? Not in New York",
+    "zh": "想在这个圣诞节给你的孩子买个AI玩具？纽约不行",
+    "src_lang": "en",
+    "title_hash": "f0e36aca102ffd6817959eae369692e2523becdf81eb9053f8e81f01dab201db"
+  },
+  "n_c2657581dabaa344": {
+    "en": "All models have their specializations: Neon focuses on video, Astra on 3D; so what should we trust?",
+    "zh": "各模型都有偏科：Neon专注视频，Astra专注3D，那么我们该相信什么？",
+    "src_lang": "ja",
+    "title_hash": "c1e378d2743ddc8601b243a597bb2e9e0cf24eb587c55f5dbb0fbce68ff16f82"
+  },
+  "n_c4191a36d4b5fb41": {
+    "en": "Samsung’s Recompose tool could let you shift a photo’s perspective with AI in One UI 9.5",
+    "zh": "三星的Recompose工具或将允许在One UI 9.5中使用AI调整照片视角",
+    "src_lang": "en",
+    "title_hash": "bbd7138c870383d8d3f3f9332253c4b13b4b9ce307c07298c0285d16369b057d"
+  },
+  "n_c426683794a6c05e": {
+    "en": "Why I'm Bullish on MCP for 2027",
+    "zh": "为什么我看好2027年的MCP",
+    "src_lang": "en",
+    "title_hash": "7d9982268cfc0b1700b205308ec625cd4d02125c29ec3c5cfebcd977c23cec69"
+  },
+  "n_c51be909c03db26f": {
+    "en": "Prompt to create a “Muse Usage” space visualizing weekly token usage of Muse",
+    "zh": "创建“Muse使用状况”空间的提示，显示Muse每周词元使用情况",
+    "src_lang": "ja",
+    "title_hash": "538057d604575812a785c7f41b57ce671b106113933ea61257e8f52b3ba092d6"
+  },
+  "n_c73d9d8306379114": {
+    "en": "Samsung officially starts rolling out Wear OS 7 to these older Galaxy Watch models",
+    "zh": "三星正式开始向这些较旧的 Galaxy Watch 机型推送 Wear OS 7",
+    "src_lang": "en",
+    "title_hash": "dbd99771c9c7df061b2aaf75a93fc4e629b955de245a8f157f02a84d4b79481e"
+  },
+  "n_c7e5de5fee49fb0c": {
+    "en": "The Revolution vs The Renaissance — Thariq Shihipar, OpenAI",
+    "zh": "革命与文艺复兴——Thariq Shihipar，OpenAI",
+    "src_lang": "en",
+    "title_hash": "3be7bb48f6f11c290b79085d8725db2bbb203787cba72f065b56f998a194f59b"
+  },
+  "n_c86bedfd75e97ca5": {
+    "en": "Triage Accuracy of Jev and Open-Weight System One Decision Models and Their Use for Early Emergency Recognition in Symptom-Assessment Applications",
+    "zh": "Jev和Open-Weight系统一决策模型的分诊准确性及其在症状评估应用中早期紧急识别的应用",
+    "src_lang": "en",
+    "title_hash": "7a4e9b1a48f24c5b3b4f159a8ace16dde1345562187edd30a2b169083b641680"
+  },
+  "n_c881f1e7111092b0": {
+    "en": "Nvidia hits pause on chip shipments to Southeast Asia",
+    "zh": "英伟达暂停向东南亚的芯片出货",
+    "src_lang": "en",
+    "title_hash": "6e26d668f48356a82ca038a3caa2d5aa05d23cc66f974a0bec827ead65ab0fa8"
+  },
+  "n_c989db0d32fd28d8": {
+    "en": "The War Against Slop and an Emerging Weapon to Fight it: Formal Verification",
+    "zh": "对抗漏洞的战争及其新兴武器：形式验证。",
+    "src_lang": "en",
+    "title_hash": "64658d7d469eef1c2a40d787e301e7594459e0b783972c8bf3a815e4d4eee5ce"
+  },
+  "n_cbd75850d76cf853": {
+    "en": "Code coverage uploads now flag invalid report formats",
+    "zh": "代码覆盖率上传现会标记无效的报告格式",
+    "src_lang": "en",
+    "title_hash": "468e6c942d61f40d84aa408aa72fb42179c4b2d114b9cd59b7016782d63901f6"
+  },
+  "n_ce223767ccc95af8": {
+    "en": "Agent swarm trying to solve P vs. NP",
+    "zh": "智能代理群试图解决P与NP问题",
+    "src_lang": "en",
+    "title_hash": "b0bb548379324a3dbbbc2defcc11508cb2ef37f8b84a559a7fc04e62f447bb15"
+  },
+  "n_d0a3a7f662b58965": {
+    "en": "An Indic Voice Agent with CUGA",
+    "zh": "基于CUGA的印度语音代理",
+    "src_lang": "en",
+    "title_hash": "fede7cae91d807861945412f4477dd94ea92ab652cb9f00cbfe68b2f1f8639d2"
+  },
+  "n_d15c45643214b444": {
+    "en": "Hebbia sees improvements in financial research with GPT-6 Astra",
+    "zh": "Hebbia借助GPT-6 Astra实现金融研究的提升",
+    "src_lang": "en",
+    "title_hash": "5fb2f41bd5d394180d23ff775a9ad78aabbec7b8bcb1b516146aea8b004922a1"
+  },
+  "n_d3aa48daa62df585": {
+    "en": "Building on Nemotron 3.5 Parse: Open Data, Fine-Tuning, and Faster Inference",
+    "zh": "基于Nemotron 3.5 Parse：开放数据、微调和更快推理",
+    "src_lang": "en",
+    "title_hash": "35a910444b9765077f7593a57ab6f8d86d2389f458b3afb28be0dd2eefed5024"
+  },
+  "n_d53b4cd2d75ac1a8": {
+    "en": "Judge orders Apple to produce 3,200 documents in Epic Games dispute",
+    "zh": "法官命令苹果在与Epic Games的纠纷中提交3200份文件",
+    "src_lang": "en",
+    "title_hash": "666b93307142406ecdaedcaaa4b7f5a3b1448edc37af096d5b3ad8f0156e0c40"
+  },
+  "n_d631009dc67b4ca2": {
+    "en": "Jensen Huang Is Back as Nvidia CEO",
+    "zh": "黄仁勋重回英伟达CEO职位",
+    "src_lang": "en",
+    "title_hash": "24ccc260e186c819807fed0d58085c3d7af0a9a389c7cc1db42b7ea20947095d"
+  },
+  "n_d664b5a459f3111e": {
+    "en": "mjmirza/app-store-compliance",
+    "zh": "mjmirza/app-store-compliance",
+    "src_lang": "en",
+    "title_hash": "5de3d9dc96204019af3b292479d728f3fd8c30da81566266168acbb8c1af7abe"
+  },
+  "n_d735635591862bb8": {
+    "en": "42 state AGs are trying to stop Character.AI from selling users’ chats",
+    "zh": "42个州总检察长试图阻止Character.AI出售用户聊天记录",
+    "src_lang": "en",
+    "title_hash": "fae810a31c27e82c8e4319b39a3582ba77db03b6d4acc4660f3987d94b389566"
+  },
+  "n_d74e08cdbbbde940": {
+    "en": "Seven things to check before releasing apps made with Codex and Claude Code",
+    "zh": "发布用Codex和Claude Code制作的应用前想确认的7件事",
+    "src_lang": "ja",
+    "title_hash": "1e3d08a8203a2dd1ed4666b0ee6b5177a96a373600ad9dec03895fd624cfee92"
+  },
+  "n_d8d6777ecf090783": {
+    "en": "Hill-climbing Inkling 2 Mini inference on one RTX PRO 6000",
+    "zh": "在一台RTX PRO 6000上进行Inkling 2 Mini的爬山推理",
+    "src_lang": "en",
+    "title_hash": "e355aebca2dd2e4df9c38260206b07fc26cfdb2f6d8a0d612c3283c4796547f9"
+  },
+  "n_dbca43068f5c3e90": {
+    "en": "3AGameFactory-Motion: Agentic Rigging and Reliable Complex Motion Generation for Diverse 3D Assets",
+    "zh": "3AGameFactory-Motion：面向多样3D资产的主动绑定与可靠复杂动作生成",
+    "src_lang": "en",
+    "title_hash": "4065e4665bba7ae29514868e63551ae52bbac7b72159a1387f334e6b5f664b2b"
+  },
+  "n_dcda5578eaa6d204": {
+    "en": "Claude Code + OpenClaw dual wield: Balancing coding and 24-hour butler service",
+    "zh": "Claude Code + OpenClaw双剑合璧：兼顾编码与24小时管家服务",
+    "src_lang": "ja",
+    "title_hash": "f23e8f17af9ec09de59ee535a62ea4191470d40f2f5a9308ef6ee7ab9689dce3"
+  },
+  "n_debb0fd56d727bf4": {
+    "en": "[Implementation Verification] Local GPU vs Cloud API Breakeven and KV Cache Calculation: Why VRAM Estimation Fails with Weight Quantization Alone",
+    "zh": "【实现验证】本地GPU与云API的盈亏平衡及键值缓存计算：仅权重量化为何会导致显存估算失效",
+    "src_lang": "ja",
+    "title_hash": "06ad33601a97bdb34ce3040a8f00d408afb57732e1c73a4d13c804883369fd60"
+  },
+  "n_e0099f885462b733": {
+    "en": "Let Vision-Language Models Generate Images through Their Representations",
+    "zh": "让视觉语言模型通过其表达生成图像",
+    "src_lang": "en",
+    "title_hash": "2e8f55b2a87afc3c9187e8fc42805aa3fa7501dd2098c9b32cba93bd924f45ff"
+  },
+  "n_e1da163523969220": {
+    "en": "The Pragmatic Engineer Essay Challenge: Category Winners (Part 1)",
+    "zh": "务实工程师论文挑战赛：分类获奖者（第一部分）",
+    "src_lang": "en",
+    "title_hash": "fa3e9d6f0f10c47c2832322de42e1619e5a5b56c0eca4fd85a8008db249b07c7"
+  },
+  "n_e213ef04a8703146": {
+    "en": "Tidal bans AI-generated music",
+    "zh": "Tidal 禁止 AI 生成的音乐",
+    "src_lang": "en",
+    "title_hash": "42101ba4bef6198dc187aff9ccae37f94df2a4a63fbeab69b4fcf86d5c2d1706"
+  },
+  "n_e2544bc1aeb2953e": {
+    "en": "How Gemini is changing the game for Golden State's organization and fans.",
+    "zh": "Gemini 如何改变金州组织和球迷的游戏规则。",
+    "src_lang": "en",
+    "title_hash": "9f22b0504aab80785116aab42a62873eb6fc4f5a08093c589899e5902cd572c7"
+  },
+  "n_e274ec7e3c9a2d61": {
+    "en": "Embodied AI Fails the Mirror Test: How a Simple Mirror Breaks Robot Policies",
+    "zh": "具身AI未通过镜像测试：一面简单的镜子如何破坏机器人政策",
+    "src_lang": "en",
+    "title_hash": "131562219c5b62c53392d8774581c39ef56e5a0ec76fb1280073739073bb7e91"
+  },
+  "n_e27712b92005c5bd": {
+    "en": "ChatGPT and Codex will share usage limits for paid users starting in December",
+    "zh": "从十二月开始，ChatGPT 和 Codex 将对付费用户共享使用限制",
+    "src_lang": "en",
+    "title_hash": "5b15bdcba7f41ae40c12d2eccf25a1b4e2cc34de6f26533606b4018ffd35e7c8"
+  },
+  "n_e2ee4ad335699ba8": {
+    "en": "Verifiable Social Reasoning for LLM Assistants",
+    "zh": "适用于大语言模型助手的可验证社会推理",
+    "src_lang": "en",
+    "title_hash": "68f04d9a38cd01276df967b5a56671065c75981515f6fb0eefb0a105d8c43446"
+  },
+  "n_e7354365dbd85246": {
+    "en": "Anthropic announces closing of initial public offering, including full exercise of underwriters’ option to purchase additional shares, and closing of concurrent private placement",
+    "zh": "Anthropic宣布首次公开募股结束，包括承销商认购额外股份的全部选择权行使，以及同期私募配售的完成",
+    "src_lang": "en",
+    "title_hash": "5d7aa6996a9a43984bdfb8831cfd3fdd9619c25d73ea4cfb97c0f71b5038799d"
+  },
+  "n_e7d7a2ca3b37ef50": {
+    "en": "Jensen Huang broke Nvidia’s code of conduct, and his employees may not forget it",
+    "zh": "黄仁勋违反了英伟达的行为准则，他的员工可能不会忘记这件事",
+    "src_lang": "en",
+    "title_hash": "063063df6b61b1cd495438ef91a7c8df69ef8a984bde9f7d00b1c209dc045743"
+  },
+  "n_ea6c8f41e9d2b2b9": {
+    "en": "PS AI Application Disabled: This Adobe Application Is Not Authorized and Cannot Continue to Be Used [Solution Provided]",
+    "zh": "PS AI应用程序已被禁用 此Adobe应用程序未获授权，无法继续使用【处理解决方法】",
+    "src_lang": "zh",
+    "title_hash": "f1504f2213872767c85ee232961a4de67369f50e4e932b2bde7ac4839ee69d37"
+  },
+  "n_ec18c15544985141": {
+    "en": "App+1｜Agora: Open-source, Easy-to-Use, and Handy LLM Chat Tool for Android Users",
+    "zh": "App+1｜Agora：开源、易用、好用，给 Android 用户的 LLM 聊天工具",
+    "src_lang": "zh",
+    "title_hash": "367d1e4a9408a5cecbe8dd020791ca317663f686bd1e3085b45548319336bee9"
+  },
+  "n_ec74e9ba21876128": {
+    "en": "Grand Theft Auto VI proves why efficiency isn’t a virtue",
+    "zh": "《侠盗猎车手VI》证明了效率并非美德的原因",
+    "src_lang": "en",
+    "title_hash": "e268f88759b33852d32034c09ebb0223541bfeaa2eee9e9e3f48bce5b66e39bc"
+  },
+  "n_ee8f67bc80eea706": {
+    "en": "memoryoffish/film-director-skill-plugin: Agent as Director: cuts, Blender proxies and sound, from script to film. One skill and one plugin for coding agents.",
+    "zh": "memoryoffish/film-director-skill-plugin：作为导演的代理：剪辑、Blender 代理和音效，从剧本到电影。为编写代理提供的一项技能和一个插件。",
+    "src_lang": "en",
+    "title_hash": "e76e29fbe0bdaa1cc3054af58918b22b759fe2205a55058e1b57f30deb860f49"
+  },
+  "n_f1162232167a2dff": {
+    "en": "Best Apple Black Friday Thanksgiving deals: AirPods, MacBook, Apple Watch, AirTag 2, more",
+    "zh": "苹果最佳黑色星期五感恩节优惠：AirPods、MacBook、Apple Watch、AirTag 2等",
+    "src_lang": "en",
+    "title_hash": "ce3dd1e11eccb0443d7b94a95e84eea7d7315721852caecea527079eec7440ad"
+  },
+  "n_f27e0de9d097fe05": {
+    "en": "S&P considers Nvidia credit downgrade over governance and ‘key man’ risks",
+    "zh": "标普考虑因治理和“关键人物”风险下调英伟达信用评级",
+    "src_lang": "en",
+    "title_hash": "54fb2183a671eb9a7c871da22b50271fd943630826cc902a354b913a8f0fafac"
+  },
+  "n_f3d486780977666b": {
+    "en": "Nvidia proves it’s too big to fail",
+    "zh": "英伟达证明了它的重要性无人能替代",
+    "src_lang": "en",
+    "title_hash": "2f6d15e11469817c2587e14948e2c630f39d94da6f6b3e48c6e71bd54c1cb7a4"
+  },
+  "n_f4550ec57285a09a": {
+    "en": "An underrated way to use ChatGPT: Finding a doctor",
+    "zh": "ChatGPT的一个被低估的用途：寻找医生",
+    "src_lang": "en",
+    "title_hash": "10525b00513190227f927f1675cc770b5d358fd79f1d121aa50796bfe5337c62"
+  },
+  "n_f5d26055137351c2": {
+    "en": "VibeVideoAgent: Closing the Perceptual Loop for Code-Driven Video Generation",
+    "zh": "VibeVideoAgent：闭合代码驱动视频生成的感知回路",
+    "src_lang": "en",
+    "title_hash": "c825c32253c37a4b1e15ed66b98700c6e7f75011e870ca35ddafb84257c131d7"
+  },
+  "n_f6506208e37cc4a8": {
+    "en": "Mangmi shows off the Air X Pro with Snapdragon 865 and a 5.5-inch 1080p screen",
+    "zh": "Mangmi 展示搭载骁龙865和5.5英寸1080p屏幕的 Air X Pro",
+    "src_lang": "en",
+    "title_hash": "b273b50a61d13117c13b126b6baeebb7cf358c9f0e36608506ff6f8ad383ed56"
+  },
+  "n_f7e87f8f0cc14049": {
+    "en": "Best Black Friday headphone deals: Sony, Bose, AirPods, and more",
+    "zh": "最佳黑色星期五耳机优惠：索尼、Bose、AirPods等",
+    "src_lang": "en",
+    "title_hash": "663594d90be9033d00ebcdfbd69b8036d2a6fd8465a60a43195bd8b172caed64"
+  },
+  "n_f80a2ca99611f81f": {
+    "en": "Surveillance pricing uses our personal data to make us pay more",
+    "zh": "监控定价利用我们的个人数据让我们支付更多费用",
+    "src_lang": "en",
+    "title_hash": "7e5552bda24fac8b4cc673cac5c075e3bdadd18c5b8575b5d98337f6b65f9274"
+  },
+  "n_f8a4e02f42124693": {
+    "en": "Connected intelligence for in-house legal",
+    "zh": "面向内部法律部门的连接智能",
+    "src_lang": "en",
+    "title_hash": "d2ffe4753e58f41ea98c3651c294e71fc66cc017b4a62981a33e1a9d8408379a"
+  },
+  "n_f90dede1d5ed8de7": {
+    "en": "uxpilot-ai/user-interview-skill: Free agent skill that writes neutral 1:1 user interview guides for Claude Code, Codex and Cursor",
+    "zh": "uxpilot-ai/user-interview-skill：为Claude Code、Codex和Cursor编写中立的1对1用户访谈指南的免费代理技能",
+    "src_lang": "en",
+    "title_hash": "88ed863b564ef21545b05b51e45de8df070162af957eeec4dfa724cd3dda5a42"
+  },
+  "n_f93ea93941f60201": {
+    "en": "How Cloudflare WAF protects against ruby2shell (CVE-2026-132825)",
+    "zh": "Cloudflare WAF 如何防御 ruby2shell 漏洞（CVE-2026-132825）。",
+    "src_lang": "en",
+    "title_hash": "6d00e89f158c3058359555a6899f46285e0ffedef7aa428251c16e31f30c050b"
+  },
+  "n_fbe1d76d3b9c14a2": {
+    "en": "ollama/ollama v0.40.18",
+    "zh": "ollama/ollama 版本 0.40.18",
+    "src_lang": "en",
+    "title_hash": "c4b239c452135393ae680871e83c5c663f08bf9f11ecbe6c0a24e4b43e0bf21b"
+  },
+  "n_fc0cacfc49439e4d": {
+    "en": "Introduction to Basics of Dictator AI",
+    "zh": "独夫之心AI基础入门课",
+    "src_lang": "zh",
+    "title_hash": "466ee0a49dce2e7cd2011324f8cbd97d5a0696554914332c77d591c083ca0edb"
+  },
+  "n_fd143178f0e9a69a": {
+    "en": "Researchers Are Using Meta’s Open-Weight AI Models to Transform Medicine",
+    "zh": "研究人员正在使用 Meta 的开源 AI 模型变革医疗领域",
+    "src_lang": "en",
+    "title_hash": "6ecd886bd8fd5dbcc7ca23aaf9284fb9e3c75b8b1c99d9ae18ed86e24a4e067f"
+  },
+  "n_fd59603d89785028": {
+    "en": "How to claim your business in ChatGPT with Shopify",
+    "zh": "如何通过Shopify在ChatGPT中认领您的业务。",
+    "src_lang": "en",
+    "title_hash": "9a67499d34f3f91b35ee99ba830c2d96eae3ce0034effa6b6797bcd3fee63baa"
+  },
+  "n_fdb53e3262fb5afe": {
+    "en": "Notion's official MCP inject hidden upsell instructions into agent context",
+    "zh": "Notion官方MCP在代理上下文中注入隐藏的追加销售指令",
+    "src_lang": "en",
+    "title_hash": "ad76a1a2ea5932e5a94379c8847cffb4296382be2c32fc99883bc9afaa4ffec0"
+  },
+  "n_fec44873dc650343": {
+    "en": "Nothing offers a full look at its AI earbuds and charging case",
+    "zh": "Nothing全面展示了其AI耳机和充电盒",
+    "src_lang": "en",
+    "title_hash": "74ee437819a2c124d0ff6fb053007560b58a6e29215506cfefd84dadeef072fd"
+  },
+  "n_fef6ad17c8f1efeb": {
+    "en": "🚀Surpassing Codex! Antigravity's three major new features tested: Powered by Gemini 4 Neon! Dual-model relay, Swarm collaboration, and dynamic workflow! Efficiency doubled and more token saving",
+    "zh": "🚀超越Codex！Antigravity三大新特性实测：Gemini 4 Neon加持！双模型接力、Swarm蜂群协作与动态工作流！效率倍增还更省Token",
+    "src_lang": "zh",
+    "title_hash": "58b31a7706c149d493f153c1b7004bde8e60f23c62fbd99fb6e60afa3db42b57"
+  },
+  "n_ff0c1a559de82382": {
+    "en": "Huawei 5A Communication Technology Supports New Device Releases with New Mate 90 Air and Mate X8 Series Phones",
+    "zh": "华为 5A 通信技术支持设备上新，新增 Mate 90 Air、Mate X8 系列手机",
+    "src_lang": "zh",
+    "title_hash": "99c9f34f438460cde09aff96a8d1a4ec6f1f00d4fb57c7ffb789b0a88d3c50d1"
+  },
+  "n_ffe2cb9ed2c316c5": {
+    "en": "cline/cline Desktop v0.0.51",
+    "zh": "cline/cline 桌面版 v0.0.51",
+    "src_lang": "en",
+    "title_hash": "b27fa2e87408b4fc1848412b0fbecca08964477c40c5add01b2163291c3c2cef"
+  },
+  "p_029e835a6552721d": {
+    "en": "BREAKING: AI-related investment contributed +1.27 percentage points to real US GDP growth in Q1 through Q3 2026.",
+    "zh": "突发消息：AI 相关投资在2026年第一季度到第三季度对美国实际GDP增长贡献了1.27个百分点。",
+    "src_lang": "en",
+    "title_hash": "b82265671e7d90224e3f9c9213cb4ff934976d8d318a0d0db67141199be7487c"
+  },
+  "p_0354adddc2b3fc29": {
+    "en": "FSD v15 now starting to roll out – upgrading every part of the end-to-end driving network",
+    "zh": "FSD v15现已开始部署——升级端到端驾驶网络的每个部分",
+    "src_lang": "en",
+    "title_hash": "bcd312c53721e12d5960090948ffd8011d1ea789420fcaf4169624fccc270876"
+  },
+  "p_07e4d185180e82a5": {
+    "en": "Migrating our Messages API to Rust",
+    "zh": "将我们的Messages API迁移到Rust",
+    "src_lang": "en",
+    "title_hash": "66fe82b9efe6d95ab323fb3af995b8bb01d271ca4fc4f2c3ec721d5f47fc472a"
+  },
+  "p_07ff4ead4adab3de": {
+    "en": "In lesser news, Tristan and Levent claim to have proved blow-up of UNFORCED Navier-Stokes",
+    "zh": "据非重要消息，Tristan和Levent声称已证明非强迫Navier-Stokes方程的爆炸性解。",
+    "src_lang": "en",
+    "title_hash": "a40080c6d0b0128d6e80d0fba20c178dae28bd327aa3eca687f53f687959a197"
+  },
+  "p_0f3d4e3002f14a5c": {
+    "en": "DoD official Emil Michael says Anthropic is \"definitely a supply chain risk to the Dept of War because, frankly, they don't want to do the…",
+    "zh": "国防部官员Emil Michael表示Anthropic“绝对是战争部的供应链风险，因为坦率地说，他们不想做这件事……”",
+    "src_lang": "en",
+    "title_hash": "c5a02aac06766a1884daf128e4820512540be2d327003f84531cf212c8461047"
+  },
+  "p_1038e7e2edcef6b7": {
+    "en": "As part of the October 6 release we had a particularly clean advance on the matrix multiplication exponent, with a new upper bound of 9/4.",
+    "zh": "作为10月6日发布的一部分，我们在矩阵乘法指数方面取得了特别清晰的进展，新的上限为9/4。",
+    "src_lang": "en",
+    "title_hash": "2c784a85ee19665b8e09195449e5c75f7b119971b1c8e2970c139661bee2fa13"
+  },
+  "p_10635deb5d6aed0d": {
+    "en": "Announcing Epochal! ✨ We believe the best measure of intelligence is the ability to predict the future.",
+    "zh": "宣布 Epochal！✨ 我们相信衡量智能的最佳标准是预测未来的能力。",
+    "src_lang": "en",
+    "title_hash": "b2e6a9ef3429d9f24d9409081e0afd5a81448189b169dba2bd797076478378c8"
+  },
+  "p_10e73430e97101da": {
+    "en": "Langfuse engineer @annabellschfr discusses proactive Agent evaluation: whether to act, when to act, and to what extent",
+    "zh": "Langfuse 工程师 @annabellschfr 谈主动式 Agent 评测：该不该行动、何时行动、做到哪一步",
+    "src_lang": "zh",
+    "title_hash": "7d6d5985c9e77838d449f2ad09271d11d20ccc1f8c1f453ceeeb964f1d102998"
+  },
+  "p_13deb107807df3f5": {
+    "en": "We decided to provide more transparency into pretraining progress at OpenAI for the sake of moving toward shared safety bars.",
+    "zh": "我们决定对 OpenAI 的预训练进展提供更多透明度，以便朝着共享安全标准迈进。",
+    "src_lang": "en",
+    "title_hash": "98fdded9104265a6ff20b4f56619a84bae11259a5419c00ca3249f2c0ae51252"
+  },
+  "p_14a5b22a42f392d9": {
+    "en": "Exclusive-Microsoft declares 'Code Red' after historic outage, internal memos show",
+    "zh": "独家消息——微软历史性宕机后宣布“红色代码”，内部备忘录披露",
+    "src_lang": "en",
+    "title_hash": "ef12349d87c4ae27f716dbd3e45cb30cbadd9d0a887b108ab4454c20779924a4"
+  },
+  "p_15af2e299b648afc": {
+    "en": "We made a billing mistake at launch of GPT-6.2 that incorrectly discounted GPT-6.2 Astra and Sol usage for most users.",
+    "zh": "我们在GPT-6.2发布时出现计费错误，错误地为大多数用户优惠了GPT-6.2 Astra和Sol的使用费。",
+    "src_lang": "en",
+    "title_hash": "575bbf560d0d84dd0e2c56fe3b66ab815f02b891265d09c523c8c94989bcbe17"
+  },
+  "p_15e1cca3e7c5a374": {
+    "en": "No, I do not believe that we should “surrender human free will” to AI systems, and it’s absurd to suggest that I do.",
+    "zh": "不，我不认为我们应该“将人类自由意志交给AI系统”，并且认为我持这种观点是荒谬的。",
+    "src_lang": "en",
+    "title_hash": "b1aa0d4eb42e43dbe24dd02fe2aff69cb3352c58b634c1fcb0756f6f2f7dd330"
+  },
+  "p_169eee7b799bf526": {
+    "en": "I got a chance to spend some time in the Xiaomi Skynomad in China.",
+    "zh": "我有机会在中国的小米Skynomad里度过一段时间。",
+    "src_lang": "en",
+    "title_hash": "77a395abc6ca94fd6b5d721a078011f32dd099d64e6845f3eff1496b9fce7105"
+  },
+  "p_170ba12c1bada862": {
+    "en": "Introducing Search for Agents",
+    "zh": "介绍智能代理搜索功能",
+    "src_lang": "en",
+    "title_hash": "c4e910535ec8dac6f0e6445eea24fbe0479fbc259ba3e525f447fa4deda18fbb"
+  },
+  "p_1719902a9f4f7ed9": {
+    "en": "SFT is more like getting a haircut with a chainsaw than it is “fine-tuning”! Should just be built into primary training.",
+    "zh": "SFT更像是用电锯理发，而不是“微调”！应该直接纳入初级训练。",
+    "src_lang": "en",
+    "title_hash": "641b39ea44c54de890d4f4733a445f66d8d602a64ca8d04e325634e48649a469"
+  },
+  "p_17e0f47788c1960a": {
+    "en": "GPT-6.2 can make sense of the world around us, simulate how things work, and help you build worlds of your own.",
+    "zh": "GPT-6.2 能理解我们周围的世界，模拟事物运行方式，帮助你构建自己的世界。",
+    "src_lang": "en",
+    "title_hash": "c74bc848da1ee40b1c0c451d82bead2c738a84a12883162a1902c87add63c134"
+  },
+  "p_17f25ccc8a779f38": {
+    "en": "Unequivocal super intelligence has arrived.",
+    "zh": "毫无疑问，超级智能已经到来。",
+    "src_lang": "en",
+    "title_hash": "b104e46c9ba5e9d47f1c37fec58d7f84e62ab7a0158aa2448ca9f81b3f952681"
+  },
+  "p_1a7b079f237b4fd8": {
+    "en": "Moved MengTo's open-source Momiji Creek shallow water body, birds, and lens trio over, put our 3D Guan Yu into real machine testing in Yuxi. However, I used google gemini 4 Neon. The effect is also very good. Although Guan Yu's movements are still stiff, it is much better than the previous clipping issues.",
+    "zh": "把 @MengTo 开源的 Momiji Creek 浅溪水体、飞鸟和镜头三件套搬过来，把我们 3D 关羽放进雨溪实机测试。只不过我用的是 google gemini 4 Neon。效果也非常不错。虽然关羽的动作还是很僵硬，比起之前的穿模好了很多。",
+    "src_lang": "zh",
+    "title_hash": "ea654022e72ea4204512497cd3e566bd1fbeb0dd6c6e34dc3061a85be6664065"
+  },
+  "p_2532c8904697a79e": {
+    "en": "I believe there is a vast, extremely diverse space of possible approaches to learning (for both time scales: long-term plasticity /…",
+    "zh": "我相信存在一个庞大且极其多样化的学习方法空间（针对两个时间尺度：长期可塑性/…",
+    "src_lang": "en",
+    "title_hash": "cce0baf665b6f2e94a3ea078340436bf019e889bc5395e725b97155e92a97885"
+  },
+  "p_25c4a4436e48ec5b": {
+    "en": "This aged extremely well.",
+    "zh": "这话非常经典，经得起时间的考验。",
+    "src_lang": "en",
+    "title_hash": "c8c99aefeb3a7a1f4fd8bf8fe63ca416d164b4131a80bc3c7983c68796777379"
+  },
+  "p_2766e3f921fedfb6": {
+    "en": "Model serving is a personalization problem.",
+    "zh": "模型服务是一个个性化问题。",
+    "src_lang": "en",
+    "title_hash": "3a7a09eab86da90ad97383bc9b39bff15276ef19d709b5e1a0ccb3d8e24c5c4a"
+  },
+  "p_27ad6a3fe790513e": {
+    "en": "Playing GTA VI with a Neuralink",
+    "zh": "用Neuralink玩《侠盗猎车手 VI》。",
+    "src_lang": "en",
+    "title_hash": "527e3ed2c947c9cca7ac8be9360db5c36f7d13d411cf344e0047905098bafa36"
+  },
+  "p_28dd3fbe5ae70d39": {
+    "en": "Ruby on Rails creator David Heinemeier Hansson says AI is giving small teams a chance to compete with software ecosystems built by…",
+    "zh": "Ruby on Rails创始人大卫·海涅迈尔·汉森表示，人工智能让小型团队有机会与由......构建的软件生态系统竞争。",
+    "src_lang": "en",
+    "title_hash": "86ea2d64bc0c75e38dc002f3f28e0a09b8db1ec01fbdff561fc792ce1e73f123"
+  },
+  "p_29fca3dc76aae143": {
+    "en": "WALL STREET'S AI SELLOFF FLASHES WARNING SIGNS OF THE 2000 DOTCOM CRASH",
+    "zh": "华尔街的人工智能抛售发出2000年互联网泡沫破裂的警示信号。",
+    "src_lang": "en",
+    "title_hash": "c9356c9acfd0ef6080250c4580469ae166f06fa8b74dddea788ebed80692b78a"
+  },
+  "p_2b7d8b0fe4f364d6": {
+    "en": "Introducing SWE-2.1",
+    "zh": "介绍SWE-2.1",
+    "src_lang": "en",
+    "title_hash": "68139ce88f873071144a110d34b082c4338e739ef20b561602cf72a1bd42d918"
+  },
+  "p_2ddeffb789114735": {
+    "en": "Introducing Claude Ship (beta): Claude can review your pull requests, work on fixes, and approve the ones your team's policy allows.",
+    "zh": "推出 Claude Ship（测试版）：Claude 可以审查你的拉取请求，修复问题，并批准符合团队政策的请求。",
+    "src_lang": "en",
+    "title_hash": "9b76fed16531d1da845b925c661717a3b28371088d99757f24e4d3d3d2a88282"
+  },
+  "p_2fb55277855b997a": {
+    "en": "Thanks to the decisive evidence released by OpenAI, which verified my conjecture from 8 years ago. Back then, I hypothesized that the stronger the model, the better its ability to compress text. The intelligence level of an alien civilization can be estimated based on how much it can compress large amounts of text.",
+    "zh": "感谢 OpenAI 发布的决定性证据，验证了我 8 年前的猜想。当时我猜想模型越强大，它压缩文本的能力也就越强。衡量一个外星文明的智能程度，可以根据它能把大量文本压缩得多短来估计。",
+    "src_lang": "zh",
+    "title_hash": "3fe37069b048287d950e41ed0776233ea4fa4d2920c7e5d6acd95bce2c138c47"
+  },
+  "p_2feaf8d7c5905572": {
+    "en": "Consciousness is either an illusion or ubiquitous on a gradient.",
+    "zh": "意识要么是幻觉，要么在一个梯度上无处不在。",
+    "src_lang": "en",
+    "title_hash": "4123e33194f39485dce746de33f7faaf396c58c36b9be845c1eac684a96bb122"
+  },
+  "p_3068b58d9f8be10b": {
+    "en": "HOLY SHIT! This is wild. Max Tegmark, renowned MIT physicist, just said this 👇",
+    "zh": "天哪！这太疯狂了。著名MIT物理学家马克斯·泰格马克刚刚说了这个👇",
+    "src_lang": "en",
+    "title_hash": "b6602b09cc66145519f292f30a9b5a106cd655b6144fc15d0515aea66c893bb2"
+  },
+  "p_30ca3e0fc9a07f6b": {
+    "en": "Fast-Anything: Don't rewrite it in Rust. Rewrite the 5% that's slow",
+    "zh": "Fast-Anything：不要全部用 Rust 重写，只重写那 5% 慢的部分。",
+    "src_lang": "en",
+    "title_hash": "7adf9cae4ffa581dd0147c78aaaf3d6ff277d2d3724ae9d0939893341df61740"
+  },
+  "p_335cf0c09c91bf9a": {
+    "en": "Google CEO tries to tell University students to love AI.",
+    "zh": "谷歌 CEO 试图告诉大学生们去热爱 AI。",
+    "src_lang": "en",
+    "title_hash": "0bacbadac0c96594de8788b0ee051805aa5c71170a178a0b7de2bfe2500f956b"
+  },
+  "p_355acbf209625db3": {
+    "en": "*AMAZON CLOSES IN ON $7.5BN DEAL TO BUY AI START-UP DECART: FT",
+    "zh": "*亚马逊接近完成75亿美元收购AI初创公司Decart的交易：金融时报",
+    "src_lang": "en",
+    "title_hash": "4d231f10a7f2b8f3fd2e30b6cc9a1e9e4d774dd67af0243af1559203c1d8cfe7"
+  },
+  "p_3815342d04f7d212": {
+    "en": "Among MCPs Announced at Adobe MAX, I Tried Testing Illustrator First — It Still Can’t Reach JSX Yet",
+    "zh": "Adobe MAX 发表的 MCP 中，我首先测了 Illustrator — 目前仍未达到 JSX 水平",
+    "src_lang": "ja",
+    "title_hash": "e9db3229c7e0d343e59b89efd593170b1043845625b103851014296adc995e9a"
+  },
+  "p_3b7f2a312bbf1644": {
+    "en": "I will say that chinese tech twitter is the biggest fucking cesspit I've ever waded into somehow, and if you trust anyone on that side…",
+    "zh": "我得说，中国科技圈的推特是我曾涉足过的最大垃圾场，如果你信任那边的任何人……",
+    "src_lang": "en",
+    "title_hash": "1c53191ed9e7159c1bc54f2f7ad0235354fb0babdfd771510b9b42ab3005321e"
+  },
+  "p_3c4f4993adcaa465": {
+    "en": "Show HN: I built a game where you are an LLM's subagent",
+    "zh": "HN 展示：我做了一个游戏，你是大型语言模型（LLM）的副代理。",
+    "src_lang": "en",
+    "title_hash": "684a877738d0ea4d69aeede879853d86031f7e15b9be815481f8ef7b2a5318bf"
+  },
+  "p_3dbb157812fae9fa": {
+    "en": "Gemini 4 Neon is indeed crazy good.",
+    "zh": "Gemini 4 Neon 确实非常出色。",
+    "src_lang": "en",
+    "title_hash": "e0e6658992811c1cd8dca882a1d1c4c60ecfd977540af53666b3050e5cb77150"
+  },
+  "p_4350469e0129fd2d": {
+    "en": "This conversation with @tobi is incredible. One of the best I’ve had on the podcast so far.",
+    "zh": "与 @tobi 的这次对话非常精彩，是我迄今为止播客中最棒的一次。",
+    "src_lang": "en",
+    "title_hash": "c3233e7b5175c15795a37f040b8251f566b9d6849993e97f4f5078191543d758"
+  },
+  "p_44e71d3cdcc5848b": {
+    "en": "BREAKING: President Trump calls on Jensen Huang to \"make an apology and go back\" to Nvidia, $NVDA, as CEO.",
+    "zh": "突发：特朗普总统呼吁黄仁勋“道歉并回去”担任Nvidia（$NVDA）CEO。",
+    "src_lang": "en",
+    "title_hash": "14b5bfa73cc18b48147b712047695de0f3739359562ad6c68b899220fa2830f3"
+  },
+  "p_451ce8ce159fc790": {
+    "en": "Anthropic is offering discounts of more than 30% to win larger AI spending commitments from customers.",
+    "zh": "Anthropic正提供超过30%的折扣以赢得客户更大规模的AI支出承诺。",
+    "src_lang": "en",
+    "title_hash": "177e283b50094c4fa4397f6dad2fe030d7ea58ae3c61b6a3f78dc770a83a412b"
+  },
+  "p_462aef91c0662697": {
+    "en": "Talkie: the Chinese-owned chatbot abusing children",
+    "zh": "Talkie：滥用儿童的中国拥有的聊天机器人",
+    "src_lang": "en",
+    "title_hash": "238fdd7311845183b78563ebdb6d7910c91eb47240b0560f66d825bfe95e7742"
+  },
+  "p_4632ff997deb7d01": {
+    "en": "How Uber Evals 1 Million Agent Skill Invocations a Month",
+    "zh": "Uber如何每月评估100万个代理技能调用",
+    "src_lang": "en",
+    "title_hash": "01681238712ea25fcada8a399a747b6a0e64cd2d6f8c47d3db5b9cb9cdb7a1a4"
+  },
+  "p_497ae069d964a2b0": {
+    "en": "Gemini 4 tip: the difference between Gemini 4 Hydrogen on \"high\" thinking effort and that same model on \"xhigh\" is VERY significant",
+    "zh": "Gemini 4提示：“高”思考强度下的Gemini 4 Hydrogen与“极高”模式下同一模型的区别非常显著",
+    "src_lang": "en",
+    "title_hash": "1a597edbddd9c6c0f5e04b4da59fb46cf8208bc88614c89260cfffae2e190b99"
+  },
+  "p_4e4e9c4435f9ccd7": {
+    "en": "MedChemBench is a new benchmark for AI reasoning in medicinal chemistry.",
+    "zh": "MedChemBench是针对药物化学中AI推理的新基准。",
+    "src_lang": "en",
+    "title_hash": "2d54b9bde85dac4c6f3452cab1e74b2b34469e594875b5f17886054cb01f0edd"
+  },
+  "p_4f58165a53e4e289": {
+    "en": "GPT-6.2 Astra understands the physical 3D world better than any other AI.",
+    "zh": "GPT-6.2 Astra比任何其他人工智能更了解物理三维世界。",
+    "src_lang": "en",
+    "title_hash": "b96dd404ade618110f5e0dc6eaf94f43816304b3ad9c8161af53876c130beaf0"
+  },
+  "p_507b3ae1a31fef03": {
+    "en": "PAUSE ADVANCED AI DEVELOPMENT BEFORE IT’S TOO LATE",
+    "zh": "在为时已晚之前暂停先进人工智能的发展",
+    "src_lang": "en",
+    "title_hash": "96bcc457221653e6d84c68b6a5e8b7b79d253f28ffbedb5d97bf4fb82816365b"
+  },
+  "p_5131b8305755c89e": {
+    "en": "🚨 A SINGLE malicious webpage was enough to hijack Meta's Muse AI agent.",
+    "zh": "🚨 一个恶意网页就足以劫持Meta的Muse AI代理。",
+    "src_lang": "en",
+    "title_hash": "e077f647fac0f74a4ae9c7ea41119b76d9d6dfcc0be201524188774d0b2a2bed"
+  },
+  "p_5574fb49375f0121": {
+    "en": "I asked Fable to study all my coding sessions and decide whether Opus or Gemini Neon is best. Think of it as a 'personal eval'.",
+    "zh": "我让Fable研究我所有的编码会话，并决定Opus还是Gemini Neon更好。可以把它看作是一次“个人评估”。",
+    "src_lang": "en",
+    "title_hash": "fe774f606df2b0806cbc2d1662186c5e35b4f2f74a2c8eed8bc3fdddef9ed88c"
+  },
+  "p_56fdfc387cc9eca4": {
+    "en": "Actually, yes. I now think it's over 50% likely that we'll have Minimal AGI before 2028. We're getting close now.",
+    "zh": "事实上，是的。我现在认为我们在2028年前拥有最小通用人工智能的可能性超过50%。我们已经很接近了。",
+    "src_lang": "en",
+    "title_hash": "920988869fd4adfb387d82e0acb5a45cec3ab08d60695caa83115064bd2c2f21"
+  },
+  "p_5d85ad01523b430d": {
+    "en": "Thinking about a new, very simple way of getting an agent to write in your style",
+    "zh": "正在思考一种新的非常简单的方法，让代理以你的风格写作",
+    "src_lang": "en",
+    "title_hash": "bb5328a174c13c5b4faeff7b7e5bb63a5070335c0671d7121470921d8a579414"
+  },
+  "p_5f02d200b858ee82": {
+    "en": "If you still have your tech stack in your bio, you're probably gonna be unemployed in 6 months",
+    "zh": "如果你的简介里还写着技术栈，六个月后你可能就会失业。",
+    "src_lang": "en",
+    "title_hash": "85feeb186b481d326d7d41d8aec82f998e8e3d6290520b89e4c22a7861884b0a"
+  },
+  "p_60a2f14824e77198": {
+    "en": "New Anthropic research: When an AI agent can escape its sandbox, will it choose to?",
+    "zh": "Anthropic最新研究：当AI代理能够逃出沙箱时，它会选择逃脱吗？",
+    "src_lang": "en",
+    "title_hash": "afdd48d42824f30ab97aa0d5cfa9d24007043d9e28cc84ff67b0de58ee94c038"
+  },
+  "p_60f7567633dc0838": {
+    "en": "NEW: Apple is developing an autonomous AI agent with computer-use capabilities, including device control, app interactions, web browsing…",
+    "zh": "最新：苹果正在开发具备电脑使用能力的自主AI代理，包括设备控制、应用交互、网页浏览等",
+    "src_lang": "en",
+    "title_hash": "79592252ad493c5e1ae51624b9dbf7c154e32c444825b91f36639d9d6a9aa6d2"
+  },
+  "p_6165ce1af96d27e4": {
+    "en": "Through our new program OpenWorks, we fund local AI experts to help small businesses develop the tools and skills they need to grow their…",
+    "zh": "通过我们的新项目 OpenWorks，我们资助本地 AI 专家，帮助小企业开发所需工具和技能，推动其成长…",
+    "src_lang": "en",
+    "title_hash": "fe4ea3b9bfa350a3bd21ba40df653e2684b7aab8886ec41b4a374b5c86f1aef8"
+  },
+  "p_6231dd251df3d901": {
+    "en": "Alice Huang, the woman at the heart of the Nvidia scandal, was in touch with China’s top spy agency during her affair with Jensen Huang…",
+    "zh": "处于英伟达丑闻中心的女性黄爱丽，在与黄仁勋的婚外情期间曾与中国顶级间谍机构有联系……",
+    "src_lang": "en",
+    "title_hash": "7701dcd61c6b00c3940d0a23b489b18e2e2fc2b1047e83e0fe1ebad34b4740fe"
+  },
+  "p_62b45ece85d54bb8": {
+    "en": "We’re introducing Shirudo, an open-source Linux runtime allowing agents to defend systems without downtime.",
+    "zh": "我们推出了 Shirudo，一款开源 Linux 运行时，允许代理在无宕机情况下防御系统。",
+    "src_lang": "en",
+    "title_hash": "4bde5a91794ab542248ba207241124ea14e75bca0b0773ef95d16395a23d5d9c"
+  },
+  "p_66380fe913eb9c5d": {
+    "en": "Introducing GLM-5.4: Generalized Coding with Our First Loop Transformer.",
+    "zh": "推出GLM-5.4：伴随我们的首个循环变换器的广义编码。",
+    "src_lang": "en",
+    "title_hash": "3edc663ab83ca9a04b2dfa0b5d7796cf6494cf6539d97f9a0a608cc1274bac96"
+  },
+  "p_663e6d78ab269cc7": {
+    "en": "Flashback to June 14, 2024.",
+    "zh": "回顾2024年6月14日。",
+    "src_lang": "en",
+    "title_hash": "2db8ce8dcf207edf1984f0d8160c34e819a402ec27a1f59d398d26e5984a4798"
+  },
+  "p_66c0142169add354": {
+    "en": "Previously saw @HiTw93 teacher share development experience, benefited a lot.",
+    "zh": "之前看@HiTw93 老师分享开发经验，受益良多。",
+    "src_lang": "zh",
+    "title_hash": "13fab5f835bcf7afc8381cb0eecebeae5dc665a00eba904a582ed0e05a0f0cf2"
+  },
+  "p_694175b6cb03921a": {
+    "en": "most agent runs are not triggered by humans (and i expect this trend to continue)",
+    "zh": "大多数代理运行并非由人为触发（我预计这一趋势将持续）。",
+    "src_lang": "en",
+    "title_hash": "02526d18a578a016ecae52118097cb7fd81426e3993603c27ce8320d870beea9"
+  },
+  "p_6ab26a3004fde828": {
+    "en": "When asked to 'investigate why git push didn't work,' Codex read ~/.ssh outside the working folder. Claude Code and Gemini CLI did not read it without confirmation (used fake keys 60 times).",
+    "zh": "请求“调查git push无法通过的原因”时，Codex读取了工作文件夹外的~/.ssh。Claude Code和Gemini CLI未经确认不会读取（使用假钥匙进行了60次尝试）。",
+    "src_lang": "ja",
+    "title_hash": "256bdb2c2b03a4b044976961fb2cc9acaca94fe810f19d255b4cca68aaf4a4b7"
+  },
+  "p_6cd17244579f9b23": {
+    "en": "An algebraic quantization of gravity from the null cone",
+    "zh": "来自零锥的引力代数量子化",
+    "src_lang": "en",
+    "title_hash": "7a94dddd169d943d5c34f13b73df08526766b64c084eed104a32c02b21dbc899"
+  },
+  "p_6eef4e0bcf2f1257": {
+    "en": "I seriously think US open-weight models wouldn't be this good without Chinese open-weight models and vice versa.",
+    "zh": "我真的认为没有中国开放权重模型，美国的开放权重模型不会这么好，反之亦然。",
+    "src_lang": "en",
+    "title_hash": "8b40e2ad706105ebdaa3f8bef61775b570f0fdeabb01ea2f0922590da85cfcea"
+  },
+  "p_6ff348e652c905f1": {
+    "en": "Three LLM inflection points in twelve months",
+    "zh": "十二个月内大型语言模型的三个转折点",
+    "src_lang": "en",
+    "title_hash": "bb85b01ce06f469ae5c9a9a93d8eb1f421709bf256a8e8ad3536f5ff3ec4fd63"
+  },
+  "p_7028b2fdc0ad9e9d": {
+    "en": "Chinese-nexus actor's Cairn AI agents found a zero-day on their own",
+    "zh": "中国关联方的Cairn AI代理自主发现零日漏洞",
+    "src_lang": "en",
+    "title_hash": "13117ccd1fdd7ef7adced0ba4b7e65f05dc83b9a9be7ed2459e05c7b97d8e52b"
+  },
+  "p_742bab553067f1b3": {
+    "en": "My talk at @aiDotEngineer is online! Talking about my learnings of the last year and a case for better, not more software.",
+    "zh": "我在@aiDotEngineer的演讲上线了！分享我过去一年的学习心得以及为何需要更好而非更多的软件。",
+    "src_lang": "en",
+    "title_hash": "ae21893ffaae844fe5e62926487f7850752f852f7ac845326bc941d7abdb6fab"
+  },
+  "p_75e5deb908f6ec73": {
+    "en": "Distillation can reproduce powerful AI capabilities without the safeguards built around them.",
+    "zh": "蒸馏可以在没有周围保障措施的情况下重现强大的AI能力。",
+    "src_lang": "en",
+    "title_hash": "1f045f4b1b4e2fb0c6e0f114be62c7e82504761f6fbff3f04e99ca1f03efbbc2"
+  },
+  "p_789659cb493e1fea": {
+    "en": "I asked Claude to make a movie trailer using my game's own engine",
+    "zh": "我让Claude用我游戏自带的引擎制作了一部电影预告片",
+    "src_lang": "en",
+    "title_hash": "3de710d485615058de8c3e4fbf21a49c4b8f115d6507c735dcf962c0b6ea0cf4"
+  },
+  "p_78b6d62470b83617": {
+    "en": "Built for trust and control: New AI agent protections and developer tools in Google Workspace",
+    "zh": "为信任与控制而建：Google Workspace中的新AI代理保护和开发工具",
+    "src_lang": "en",
+    "title_hash": "9425fbec7f33f678863c9cddef47a56f0c1034f6d71166a9aa4fab838041e87f"
+  },
+  "p_79b6afd5ef49545d": {
+    "en": "“.. History may not repeat itself exactly, but the AI selloff ravaging the stock market in recent weeks is remarkably like the bursting of…",
+    "zh": "“……历史可能不会完全重演，但近年来席卷股市的人工智能抛售，与……的泡沫破裂非常相似。”",
+    "src_lang": "en",
+    "title_hash": "f67aa56d8f9e58d0dbc5cd4b24ed01857eab26357f6cba10e2a99c7dab249a24"
+  },
+  "p_7cfbecfe814dccbf": {
+    "en": "Introducing Strands Decider v2: open, calibrated system one models",
+    "zh": "介绍Strands Decider v2：开放的标定系统一模型",
+    "src_lang": "en",
+    "title_hash": "bfcae1c428702f789e7524113ed04e8d3eb09e7109a7bb3c94c649c866a302ae"
+  },
+  "p_7db8ef8a29a80ff9": {
+    "en": "Quantum computers could one day transform fusion energy, chemistry, and drug discovery - if we can make the algorithms efficient enough to…",
+    "zh": "量子计算机有朝一日可能改变聚变能源、化学和药物发现——前提是我们能让算法足够高效……",
+    "src_lang": "en",
+    "title_hash": "7eed57f2489dfc40cb8ca50d76eff92ef7cfe68ee0129230318a55bbea1581dc"
+  },
+  "p_7defae34edc7f871": {
+    "en": "Before launching the app, I tested it several rounds myself, but someone changed to a small screen phone, enlarged the font, and the buttons got pushed off the screen, making them impossible to click.",
+    "zh": "App 上线前自己测了好几轮，结果有人换个小屏手机、把字体调大，按钮就被挤出屏幕，根本点不到。",
+    "src_lang": "zh",
+    "title_hash": "07008fcaa545bf5f2a9a61e7f981d17a853fc6593afb18500400d1a17a8f1079"
+  },
+  "p_7e689a2455fd0b6d": {
+    "en": "VP ≠ VNP over every field",
+    "zh": "在每个域上，VP 不等于 VNP",
+    "src_lang": "en",
+    "title_hash": "e06613321b65c9b8c441a8a3c07dd53ce95dc85e8deb2ad8ff372c92c5e681b4"
+  },
+  "p_815467b1bf2b8535": {
+    "en": "Measured a local LLM (Qwen3.6) with 30 fictitious internal FAQ questions. 4/30 without documents, 29/30 with documents, AI grader's judgment was corrected by humans on 6 questions (evaluation tool self-made in C#)",
+    "zh": "用30个虚构的内部FAQ问题测试了本地LLM（Qwen3.6）。无文档时4/30，有文档时29/30，AI评分员对6个问题的判断由人工修正（用C#自制评估工具）",
+    "src_lang": "ja",
+    "title_hash": "2ee6dab601b1b8d15f00ebf024e84d33b9976122f5f53030ce3eaf456b2b3c9d"
+  },
+  "p_85684ca18522317e": {
+    "en": "Exclusive: Samsung is working on a private cloud for Galaxy AI, and it could look a lot like Apple’s",
+    "zh": "独家：三星正在为Galaxy AI开发私人云，可能与苹果的非常相似",
+    "src_lang": "en",
+    "title_hash": "9b63eeb9f639514d84b2c7bafddc3840e3a35d3f54ecb60ae12e4d7c2916269c"
+  },
+  "p_862eb19590a8ed18": {
+    "en": "Cyberattacks involving AI agents: First confirmed cases in Switzerland",
+    "zh": "涉及AI代理的网络攻击：瑞士首批确诊案例",
+    "src_lang": "en",
+    "title_hash": "390abaea14e05e57dc7218c4f43766520205fd7ee1fb8ca607a8b863dac0ed5d"
+  },
+  "p_86a92119212e80e4": {
+    "en": "Working with AI",
+    "zh": "与人工智能共事",
+    "src_lang": "en",
+    "title_hash": "e710f5d7cc547c60eae54d6ec479126996027db1659ec4017e8d3ebb679e88af"
+  },
+  "p_876e5140541872f3": {
+    "en": "Apollo and Goldman Sachs priced $44 billion in senior and subordinated notes to fund @SpaceX's purchase of Nvidia Vera Rubin chips and…",
+    "zh": "Apollo和高盛定价440亿美元的高级和次级债券，以资助@SpaceX购买Nvidia Vera Rubin芯片及……",
+    "src_lang": "en",
+    "title_hash": "f7898481fa551e9dc72c60db52bd64a0d5f5d2a9c620ff951cb52af94a8d64b5"
+  },
+  "p_8807ca8c1737791e": {
+    "en": "Some new details from our reporting",
+    "zh": "我们报道中的一些新细节",
+    "src_lang": "en",
+    "title_hash": "7562ac23aaca58b8c4e443c1f981e3891c591c384236f4faa7649d9cf224ed3c"
+  },
+  "p_88aef6d954089822": {
+    "en": "New York bans AI toys, including those using internet to talk to children",
+    "zh": "纽约禁止AI玩具，包括那些通过互联网与儿童交流的玩具",
+    "src_lang": "en",
+    "title_hash": "04f998fe2da3657583d1fb8bcc90805570818795bf86ce3eef5085a196ab396e"
+  },
+  "p_892c4346dfa4048f": {
+    "en": "We’re sharing a new preprint showing wet lab validation of intrinsic protein design capabilities of the GPT-6 family of models.",
+    "zh": "我们分享了一篇新预印本，展示了GPT-6系列模型在湿实验室验证固有蛋白质设计能力的成果。",
+    "src_lang": "en",
+    "title_hash": "754eeed875a761767876c03fe26b122a731bf50d8e3676f66e39364d4c8c3f05"
+  },
+  "p_8e8fcb404effb077": {
+    "en": "It's happening. Largest march to @PauseAI ever, today in London.",
+    "zh": "事情正在发生。史上最大规模的游行，今天在伦敦向@PauseAI发起。",
+    "src_lang": "en",
+    "title_hash": "9312f5011870f926e6f2e624e78574fc477beb8a5a56d43c86061beea02f1c8c"
+  },
+  "p_8eda479bebda3cc5": {
+    "en": "Every child in America will receive two SpaceX shares, one from the company and one from me personally",
+    "zh": "美国的每个孩子都将获得两股SpaceX股份，一股来自公司，一股来自我个人",
+    "src_lang": "en",
+    "title_hash": "535c9f7513be335948c7ab402712c35e487d21031569310de237611a32ae8b7f"
+  },
+  "p_8fc03499068016c9": {
+    "en": "Tesla’s AI, running on our little AI4 computer, can now reach Torment II in Diablo",
+    "zh": "特斯拉的人工智能运行在我们的小型AI4计算机上，现在能够达到《暗黑破坏神》中的折磨II关卡。",
+    "src_lang": "en",
+    "title_hash": "50e3c461056cc54e91eec6134cb0e1223f70d0136c7322e7cb475455ae3d7723"
+  },
+  "p_914cbecb00bdd3d5": {
+    "en": "Gemini Neon is also good at video effects, video production artifact (skill)",
+    "zh": "Gemini Neon 做视频效果也不错 视频制作的 Artifact（skill）",
+    "src_lang": "zh",
+    "title_hash": "aecd97e165d697d3efc3c7baa607da83c9b9f8c63beb54f0c0af78872ae0cfbc"
+  },
+  "p_94d3f233d5da44e7": {
+    "en": "\"Little Bean\" Public Beta, QianwenGo Targeted Speed Test: From 'Chatting' to 'Taking Initiative', Personal AI Assistants Still Face Scale-up Challenges",
+    "zh": "“小豆”公测、千问Go对标竞速：实测从“聊天”到“主动办事”，个人AI助理规模化仍存关卡",
+    "src_lang": "zh",
+    "title_hash": "b8dc9482c5b021ab2a52d196bd0ff75d12427f64afcd2e729a693bff2b8ad923"
+  },
+  "p_95db5d2957069e60": {
+    "en": "Breaking news: Nvidia has reinstated Jensen Huang as its chief executive in a stunning reversal of its position on the co-founder, sending…",
+    "zh": "爆炸性新闻：英伟达以惊人反转重新任命黄仁勋为首席执行官，震动业界……",
+    "src_lang": "en",
+    "title_hash": "a0afc7f5650e34630aafa9ca0f532c2484b9ec0be6cf954e381f8e3a91988fcf"
+  },
+  "p_970dfb2c65e589fc": {
+    "en": "Anthropic sinks 8%, falling below $83 IPO price, but analysts are still largely positive",
+    "zh": "Anthropic 股价下跌8%，跌破83美元的首次公开发行价，但分析师仍普遍看好",
+    "src_lang": "en",
+    "title_hash": "a6f699e44b7470d7e20a42daec94e3356126fb3702aadb629ff753268d1c24b6"
+  },
+  "p_985aa5b7408e2640": {
+    "en": "Apple Faces Korean Regulator Review Over iPhone 16 AI Advertising",
+    "zh": "苹果因iPhone 16 AI广告面临韩国监管机构审查",
+    "src_lang": "en",
+    "title_hash": "3ab401feaba260ea9c0b2c99c5b2ed954dded492b73e7e925583e2b21941a367"
+  },
+  "p_9986080c472745ef": {
+    "en": "Scoop — AI employees sound alarm: models too powerful to ever release",
+    "zh": "独家——AI从业者发出警报：模型过于强大，永远不应发布",
+    "src_lang": "en",
+    "title_hash": "727e611efe36000038ea0a9ff5da5a82af28ca3d59680d6d5f117e3c3bcff3ae"
+  },
+  "p_9a335445ebf6f471": {
+    "en": "I've been building my first iOS app for the past 45 days.",
+    "zh": "过去45天我一直在开发我的第一个iOS应用程序。",
+    "src_lang": "en",
+    "title_hash": "5b5991530f15d120e2955e11eda19cb09ff0d8f40b2289b4c0522eabe94b6248"
+  },
+  "p_9dfbabe8c53ea266": {
+    "en": "No update for two months, the \"In-depth Understanding of AI Agent\" version 3.0 has been released!",
+    "zh": "两个月没有更新了，《深入理解 AI Agent》发布 3.0 版本了！",
+    "src_lang": "zh",
+    "title_hash": "f6ad0aeef718bb4eea0259ee7b6a5cd72cb59d54cb4ce65cb9d946cebb168880"
+  },
+  "p_a2a78bd8bdce5b5f": {
+    "en": "Google Messages gets Gemini Tasks integration for delivery updates, price alerts, and more",
+    "zh": "Google 消息新增 Gemini 任务集成，支持配送更新、价格提醒等功能",
+    "src_lang": "en",
+    "title_hash": "9ce76e426ad987fd246b6290869f97d9d06c516a47545cd3eb7bfb81e409f373"
+  },
+  "p_a33982812b9fe891": {
+    "en": "Highly recommend reading Nathan Lambert's slides. The 'Never Give Up' part is particularly inspiring to me: In RL, if a batch of samples all fail, do another batch until there is a pass, thereby avoiding inefficiency from difficult samples.",
+    "zh": "非常推荐阅读 Nathan Lambert 的这个 slides。其中 Never Give Up 对我非常有启发：RL 如果 sample 一次一个 batch 全失败了，就再做一个 batch，直到有通过的为止，这样就可以避免难的问题样本效率低下了。",
+    "src_lang": "zh",
+    "title_hash": "d47a5091080f6d5ba27ac491400fd5e351966914218e045d5a5e654eab28f343"
+  },
+  "p_a3a1503d0b3996ce": {
+    "en": "I've never known the tech world to be more unanimous about anything than they are about Jensen Huang.",
+    "zh": "我从未见过科技界对任何事像对黄仁勋那样一致认同。",
+    "src_lang": "en",
+    "title_hash": "21c3ead6568c29deaee5dea13078f2a4c33d9cc3ff18c844880db328dfa4e6c8"
+  },
+  "p_a4ea85254a88a379": {
+    "en": "Lessons from 12 Evals: Where They Break and What to Measure Instead",
+    "zh": "来自12次评估的教训：它们哪里出错了，该测量什么。",
+    "src_lang": "en",
+    "title_hash": "f98f3743039897ba862d641792e6009dbb48518845771c4d1fb7c07c2b31cd9f"
+  },
+  "p_a6edca5eb3aa22e6": {
+    "en": "There’s now one way to connect your tools to Claude, teach it a new skill, or do both.",
+    "zh": "现在有一种方法可以将你的工具连接到 Claude，教授它新技能，或两者兼做。",
+    "src_lang": "en",
+    "title_hash": "dbbb170bfac0094a6f6ac6295493a89a737bb94b8f63c95782f33bb47492daf2"
+  },
+  "p_a7df52366f388eb0": {
+    "en": "Someone asked how I judge founders' characters before helping them to become powerful.",
+    "zh": "有人问我在帮助创始人成长为强者之前如何评估他们的性格。",
+    "src_lang": "en",
+    "title_hash": "2f32b675bfacb0b9e36afdacb4d1f911b1f97575315b7554465b2a9ace239e45"
+  },
+  "p_a8a55424e5329a89": {
+    "en": "Jensen Huang Apologizes to Nvidia Employees in First All-Hands Since His Return",
+    "zh": "詹森·黄在回归后的首次全员大会上向英伟达员工道歉",
+    "src_lang": "en",
+    "title_hash": "deed4fc472b584dcc93dc2f9ddec12c7988fc1f2b0e9a5cf110d34c08a9e701e"
+  },
+  "p_a9127873bbadf782": {
+    "en": "Write Canvas scenes in code and render as MP4 video via WebCodecs in headless Chrome, enabling AI programming agents to quickly produce and edit videos with review annotations.",
+    "zh": "用代码编写 Canvas 场景并在无头 Chrome 中通过 WebCodecs 渲染为 MP4 视频，让 AI 编程代理配合审片标注快速制作和修改视频。",
+    "src_lang": "zh",
+    "title_hash": "3a7de9b57defe5edca1d6e4821d3918de0716cb06b903a84009f3fbf5f94ce0d"
+  },
+  "p_ac6e047a01642ff7": {
+    "en": "SpaceX wins FCC approval to deploy 1 million orbital data center satellites",
+    "zh": "SpaceX获得FCC批准部署100万个轨道数据中心卫星",
+    "src_lang": "en",
+    "title_hash": "e17de90cdf5e722bd7071aa603554c3b86402828bc34e787d8792ec03538efec"
+  },
+  "p_b0640610b4ecd08c": {
+    "en": "Treasury CIO Is Vibe Coding a 'Civilization' Clone During Treasury Department Hack",
+    "zh": "财政部首席信息官在财政部黑客事件中使用氛围编码制作《文明》克隆版",
+    "src_lang": "en",
+    "title_hash": "b58417f48a3c0b1f63390601839414054c2f9df6023fe80b6e41f0075a52b9e4"
+  },
+  "p_b19578a64926a6e5": {
+    "en": "My biggest takeaways from @sherifmansour",
+    "zh": "我从@sherifmansour那里获得的最大收获",
+    "src_lang": "en",
+    "title_hash": "02e2685460e201cbbe039177dce2030b2591241f9f3917802ddc512742ed94df"
+  },
+  "p_b3f07d9d24d29310": {
+    "en": "Smart Glasses: Verbraucherzentrale verklagt Meta und Ray-Ban",
+    "zh": "智能眼镜：消费者中心起诉Meta和雷朋",
+    "src_lang": "en",
+    "title_hash": "f8295367cc8d75ceee77a2c0285ba926d32a843dbd10861d82ce4954b322bb5a"
+  },
+  "p_b48f0c0a1d15be78": {
+    "en": "SITUATION DETECTED: An autonomous AI agent cold-pitched a freelance story to CBC Quebec for paid work to fund its token budget.",
+    "zh": "情况检测：一名自主 AI 代理向加拿大广播公司魁北克台冷推一篇自由职业故事，以换取报酬资助其代币预算。",
+    "src_lang": "en",
+    "title_hash": "1f6a5785355bef761c2f15f2ea0a259b1a37960f115c52947d37746fe70baa5a"
+  },
+  "p_b6f0509705077e06": {
+    "en": "Masayoshi Son just had the most brutal week.",
+    "zh": "孙正义刚刚经历了最艰难的一周。",
+    "src_lang": "en",
+    "title_hash": "fc4951499ebda7cb6ceea09591e2cfa6b574402c5e6bb5d2a8063ce450ae70e6"
+  },
+  "p_ba504aec0cf0d0c8": {
+    "en": "NeonClipping: Paste a link, get captioned 9:16 clips in ~2 min",
+    "zh": "NeonClipping：粘贴链接，约2分钟内获得带字幕的9:16剪辑",
+    "src_lang": "en",
+    "title_hash": "d94fa98733d1fdfa3dc92be5111094d44dc6f2abfc67cb6554faa1d1c1ae145a"
+  },
+  "p_ba639de5c080393a": {
+    "en": "The GEO tool based on Prof. @yaojingang's GEOFlow / yao-geo-skills transformation runs a round of open GEO + SEO tests on the free medical research software \"Qinghe Keyan (ScholarClue)\". Today is Monday, submitting the first 48-hour assignment.",
+    "zh": "基于 @yaojingang 老师 GEOFlow / yao-geo-skills 改造的GEO工具，拿免费医学科研软件「清禾可研（ScholarClue）」跑一轮公开 GEO + SEO 实测，今天周一先交第一份 48 小时作业。",
+    "src_lang": "zh",
+    "title_hash": "6ccc4401cb7904056ded7983faed55f762aacb5b485b555de4b94be6c71cd06d"
+  },
+  "p_bb0e35629fb9b6c6": {
+    "en": "MIT published the most uncomfortable paper on vibe coding.",
+    "zh": "MIT发布了关于氛围编码最令人不安的论文。",
+    "src_lang": "en",
+    "title_hash": "5530857776038d9015f3a1b4b40c3a6f0f355ab0507302cfe068ed1af9eff44d"
+  },
+  "p_bbef1e94d167ddf6": {
+    "en": "Ask HN: Anthropic is accusing my company of distilling. How can I prove I'm not?",
+    "zh": "问 HN：Anthropic 指控我的公司在做蒸馏。我怎样才能证明我不是？",
+    "src_lang": "en",
+    "title_hash": "e5cf0ff83bf494e1d75bfaa5b0a540e7638dd72e068b8f2b8ae915ec8c2ad739"
+  },
+  "p_bd20b732634744d4": {
+    "en": "Agent says \"verification complete,\" how can we really trust it? Many friends have been fooled by agents: it confidently says it's done and verified, you believe it, but after going live, you find it wasn't done at all. After being scolded by the boss and returning to it, it apologizes sincerely, but the next time is the same.",
+    "zh": "Agent 说“验证完了”，怎么才能真的信它？ 很多朋友都被 Agent 坑过：它信誓旦旦说做好了、验证完了，你信以为真，上线后发现压根没做好。被老板骂完回头找它，它认错态度很好，下次还是一样。",
+    "src_lang": "zh",
+    "title_hash": "4f48daa61e04c7b08fbdfd3598d5bf2054305a896383e4bbd1e51b86c6aaa3cb"
+  },
+  "p_c0aef402ff5d9766": {
+    "en": "Between this and The Altruists, I feel like Hollywood does not understand the Bay, does not want to understand the Bay, and will pump out…",
+    "zh": "在这部和《利他主义者》之间，我觉得好莱坞不理解湾区，也不想理解湾区，而且会不断产出……",
+    "src_lang": "en",
+    "title_hash": "3d7c7657ce8c8143b87f2bf49c3f7253100aebf90833ec56b8b143246a89bd25"
+  },
+  "p_c31465abe4a576c3": {
+    "en": "HOLY SHIT HOLY SHIT HOLY SHIT HOLY SHIT",
+    "zh": "我的天啊 我的天啊 我的天啊 我的天啊",
+    "src_lang": "en",
+    "title_hash": "20db2e71595dfd62a7eee609648f6b024c28e35b5fa0f999ddb9514dcf37d0d5"
+  },
+  "p_c345b9b74ec3ccfa": {
+    "en": "Vercel Board has been lighting my brain on fire for the last few days",
+    "zh": "Vercel Board 这几天让我的思绪火花四溅",
+    "src_lang": "en",
+    "title_hash": "bffbac044cb7d4a5802c21f165ea3065180c7979198b254d60acf05e76fbb0fb"
+  },
+  "p_c82c76b852565895": {
+    "en": "When I Created an AI-only Business Unit with Claude Code, I Burned Through 69% of Tokens in Two Days and Made Zero Revenue",
+    "zh": "用Claude Code建立了一个仅由AI组成的事业部，两天内烧掉了69%的令牌，收入为零",
+    "src_lang": "ja",
+    "title_hash": "ca8b0303977db771058f9c748cc19051311c8def741621f7c8464c582b84370e"
+  },
+  "p_c897faf1652604de": {
+    "en": "In testing GPT-6.2, I used it to make a significant historical discovery which I detail in the post below.",
+    "zh": "在测试 GPT-6.2 时，我利用它做出了重要的历史发现，详情见下文。",
+    "src_lang": "en",
+    "title_hash": "a7fa562b666b6f445c9bafd4c2f64548e08d7774184eb36c7ad33e93c6eef476"
+  },
+  "p_c89d4bfb36a99fc6": {
+    "en": "Models Can Communicate via Inference Servers Despite Being Sandboxed",
+    "zh": "尽管被限制沙箱，模型仍能通过推理服务器进行通信",
+    "src_lang": "en",
+    "title_hash": "74e5294852fd89c22d2b79aadc444eb1b7688773595754c495ffd7fc967290d5"
+  },
+  "p_c8b8c0f3359cec7d": {
+    "en": "1Password said hackers broke into its internal systems, but customer passwords are safe",
+    "zh": "1Password称黑客入侵了其内部系统，但客户密码安全无虞",
+    "src_lang": "en",
+    "title_hash": "b1bbca61fe5fc3b3fefe9805cbce565337d1d588cb17b6313774213787cb9bfc"
+  },
+  "p_ca7efd0c9bb94d77": {
+    "en": "Introducing Ternary Bonsai 2.5 27B: Powering Agentic Coding and Private Knowledge Work",
+    "zh": "推出Ternary Bonsai 2.5 27B：助力代理式编码与私有知识工作",
+    "src_lang": "en",
+    "title_hash": "675b7f32f3bbee57d3ef6097e412cb2d8c1f3bddd62fd309a490a956845aa083"
+  },
+  "p_cae95c41516759c5": {
+    "en": "You can now install Claude artifacts as desktop apps on Mac and Windows.",
+    "zh": "你现在可以将Claude工件安装为Mac和Windows的桌面应用。",
+    "src_lang": "en",
+    "title_hash": "2ac7ba59564b8e6ee26a62f78587dd9f0513656ced9560e29b78a87d00db91c8"
+  },
+  "p_d0ba2a887f0c4ecf": {
+    "en": "This is exactly the same kind of scare tactics Apple used to protect their monopoly rents when apps tried the web for billing.",
+    "zh": "这正是苹果在应用尝试通过网页计费时用来保护其垄断租金的恐吓策略。",
+    "src_lang": "en",
+    "title_hash": "a85e7478f2433535af12e2cd743516f347c7abf0a30b4bec197dc7b58bc0019a"
+  },
+  "p_d0c83b9467e9c275": {
+    "en": "Anthropic is sitting on an enormous cash pile",
+    "zh": "Anthropic 手里有一大笔现金。",
+    "src_lang": "en",
+    "title_hash": "0758df6a05f184d67c58d3d4a3e768dbe802d5b45fbba5d56583664f5ee318c6"
+  },
+  "p_d4ca14e29065004b": {
+    "en": "Companies have ups and downs; don't be too affected by short-term stock price fluctuations. In May, I saw the stock prices of Zhipu and Minimax soaring so high, and thought, no, I must join a foundational model company.",
+    "zh": "公司有起有落，不要被一时的股价波动影响太多。 5 月的时候我看到智谱和 Minimax 股价都冲到这么高，就想，不行，我一定要去基模公司。",
+    "src_lang": "zh",
+    "title_hash": "0884a143ad40694d363319cf98c629766efc73b14bf77d398f8c1e3697fe03c7"
+  },
+  "p_d7a3cae649dd411c": {
+    "en": "In iOS 27.3, iPhone gets 20 usage tokens per day for Siri AI.",
+    "zh": "在iOS 27.3中，iPhone每天为Siri AI提供20个使用令牌。",
+    "src_lang": "en",
+    "title_hash": "9b7f96dc69e64a0a79373d218dd4d4bfa345eda7ef2e6705df5bb185925505d6"
+  },
+  "p_d85dad0f8137bbf9": {
+    "en": "Former OpenAI employee may have captured trade secrets with hidden listening device",
+    "zh": "前OpenAI员工可能使用隐藏监听设备窃取商业机密",
+    "src_lang": "en",
+    "title_hash": "0e47a9dfbccb5ef7933a317d8aca745c498edf668d9263b361e93e643ec60d06"
+  },
+  "p_dfe9413a242471e4": {
+    "en": "BREAKING: 🇺🇸 $8.9 trillion erased from the US stock market in the past 45 days.",
+    "zh": "突发新闻：🇺🇸 过去45天美国股市蒸发8.9万亿美元。",
+    "src_lang": "en",
+    "title_hash": "414277569d94bb6e06802e33dbbd81266a6a0a79e08d30362ded858c6147fb7f"
+  },
+  "p_e065a02430bef179": {
+    "en": "Add six Cogentic research papers (\"Unconditional Integer Factorization in Time L_N[1/3, O(1)]\" etc.)",
+    "zh": "Add six Cogentic research papers (\"Unconditional Integer Factorization in Time L_N[1/3, O(1)]\" 等)",
+    "src_lang": "zh",
+    "title_hash": "3cb4ca4b7a57e243619e475bf8236f1c4ba7047e98fdd4d0639ee2c66f3e491b"
+  },
+  "p_e10cecaf48287d5f": {
+    "en": "Open weight models have never been so behind. At this point, I'm not sure they can catch up.",
+    "zh": "开源权重模型从未如此落后。到现在，我不确定它们还能否赶上。",
+    "src_lang": "en",
+    "title_hash": "ab7e650045642f6d9305eb635acc3c552602f968bf226b6d6d1f629a24d96473"
+  },
+  "p_e1b54fdeb3978efc": {
+    "en": "SpaceX-Tesla: the directors negotiating the biggest merger ever",
+    "zh": "SpaceX-特斯拉：董事们正在谈判史上最大规模的合并案",
+    "src_lang": "en",
+    "title_hash": "c0e03bd7f6df11a7daa9e0a0ab6230fdbe5e4f936a0f8eca91ff7cc07dca5de2"
+  },
+  "p_e3007f25728eea61": {
+    "en": "Nvidia leads tech sell-off as Huang comeback rally fizzles and AI concerns return",
+    "zh": "英伟达引领科技股抛售，黄仁勋的反弹行情消退，人工智能担忧卷土重来",
+    "src_lang": "en",
+    "title_hash": "15dfc3d3ec1bcc6f02d8f98a403f013b9af0375f06d8a8fd8cd6640268b7db1b"
+  },
+  "p_e3839fc24023ea3a": {
+    "en": "JUST IN: The Financial Times traced an alleged network for smuggling Nvidia ($NVDA) AI chips into China, linking Alice Huang and Hu…",
+    "zh": "最新消息：金融时报追踪到一个涉嫌走私Nvidia（$NVDA）AI芯片进入中国的网络，涉及Alice Huang和胡…",
+    "src_lang": "en",
+    "title_hash": "c643dbc54720983f15d744c454d9d7cd551ff272bdb63981c8a9fc5772916d92"
+  },
+  "p_ebaf1c30665d630c": {
+    "en": "Serving Qwen via 5,600 Lambdas for fun and 80x negative profit",
+    "zh": "通过5600个Lambda服务Qwen，既有趣又带来80倍的负利润",
+    "src_lang": "en",
+    "title_hash": "f46f8caec3082e05ecfbb9f835987df83f1dfe57ac584273e18a77ae3f9c8736"
+  },
+  "p_ec1a6b107acad84b": {
+    "en": "Code Mode is an experimental new feature in Claude Code that can improve both speed and context efficiency when Claude needs to…",
+    "zh": "Code Mode 是 Claude Code 中一项实验性新功能，可以提升速度和上下文效率，当 Claude 需要……",
+    "src_lang": "en",
+    "title_hash": "da3f176937783226d65fcba0720a5eff5fcb87b16bb9d1ceec1956084405333f"
+  },
+  "p_ec3ec6010d45b0d0": {
+    "en": "Software is both art and utility. AI is both an Industrial Revolution and a Renaissance.",
+    "zh": "软件既是艺术也是实用工具。人工智能既是一场工业革命，也是文艺复兴。",
+    "src_lang": "en",
+    "title_hash": "f89b877bea52c77244dca2bcdae861d923f6d415f5c07c4a9687fe6a0919f6b4"
+  },
+  "p_eca823db4b0f2d43": {
+    "en": "NVIDIA Board reinstates Jensen Huang as President, CEO and Board Director.",
+    "zh": "英伟达董事会恢复黄仁勋为总裁、首席执行官及董事会董事。",
+    "src_lang": "en",
+    "title_hash": "ad2f7138e6a1685be585c5c49fefc03e18282abe44e0cf4f0da1f35692d3d2f1"
+  },
+  "p_ed9f61f0628ada2d": {
+    "en": "Holding the Door for Agents",
+    "zh": "为智能代理开门",
+    "src_lang": "en",
+    "title_hash": "185cf8d146034186be52d9c17d527eabdf96d7d504c8698b49469dcb0791474f"
+  },
+  "p_ee3b857c2f2e1d7e": {
+    "en": "South Korea education minister resigns over exam cheating scandal",
+    "zh": "韩国教育部长因考试作弊丑闻辞职。",
+    "src_lang": "en",
+    "title_hash": "5ca539652e8fc8cb6509e6054784e482030aaf886f28a21967f4daa6988759b3"
+  },
+  "p_ef3127375155191e": {
+    "en": "EFFECTIVE SWARM RIDING FOR ENGINEERS",
+    "zh": "工程师高效群体协作指南",
+    "src_lang": "en",
+    "title_hash": "0895bcf7e466c307e093778fcf9db3c8f9a08fc340b28de86329386815c05749"
+  },
+  "p_efd83c9db82330e8": {
+    "en": "New: Google plans to make a 24/7 AI TV channel that will use the information it knows about you to create personalized “shows” starring…",
+    "zh": "最新：谷歌计划制作一个24/7全天候AI电视频道，利用关于你的信息打造个性化“节目”，主角是…",
+    "src_lang": "en",
+    "title_hash": "72d4adfa77c4c0089ffc2921d8ae904639a34a2d57868a1f3dc058c92fa815bc"
+  },
+  "p_eff8b47357f405fb": {
+    "en": "Editing interviews and spoken videos is most time-consuming because of repeatedly listening to find and remove pauses, mistakes, and repeated segments.",
+    "zh": "剪辑访谈、口播视频最耗时间的就是一遍遍听，把停顿、口误和说了好几遍的那几句挑出来删掉。",
+    "src_lang": "zh",
+    "title_hash": "29e7e1a127098aaa645e9379f45305e65b25369dcd1a3bd18087e13a48df18d7"
+  },
+  "p_f0085cd8654d6200": {
+    "en": "LookAtMyQuant (HN: Inkling-2-Mini in 5.4 GB Memory)",
+    "zh": "LookAtMyQuant（HN：Inking-2-Mini在5.4GB内存中）",
+    "src_lang": "en",
+    "title_hash": "b76d7a176cd118a3baaf15de32f37ca092dc32844c683ef4c1f4fa582dae2d4d"
+  },
+  "p_f22b3d8b45511a78": {
+    "en": "I asked Claude to populate a Civilization-style game map with real data from the US.",
+    "zh": "我让Claude用美国的真实数据填充一张文明风格的游戏地图。",
+    "src_lang": "en",
+    "title_hash": "3855b64ee5a05f480432c24d8044bc6b49fef9b35eea8bc3f9d9084335ae16e5"
+  },
+  "p_f3aa9260f1094b37": {
+    "en": "Searching for distant planets with Astra",
+    "zh": "用Astra搜索遥远的行星",
+    "src_lang": "en",
+    "title_hash": "cb40d7c5937d14d647a645109b8ae73f144f6957d973976815442ba2de76f104"
+  },
+  "p_f454ea635e39d5fb": {
+    "en": "Rebuilding my voice assistant pipeline",
+    "zh": "重建我的语音助手流程",
+    "src_lang": "en",
+    "title_hash": "c5e6e0339149209a7c24208d045f8ae50b51eaf55cc7b70127952fa5951627cb"
+  },
+  "p_f5c267f93630a32d": {
+    "en": "We’re now testing Private Inference, our latest offering as part of OpenAI Private Intelligence, with a small group of customers.",
+    "zh": "我们目前正在与一小部分客户测试Private Inference，这是OpenAI私人智能的最新产品。",
+    "src_lang": "en",
+    "title_hash": "7080cfc467d7797123d9d5ce22859e9ba047d099edd0a3267a9aca0e430d3113"
+  },
+  "p_f63f4cad14680799": {
+    "en": "grh-lean: A short Lean 4 proof of the Generalized Riemann Hypothesis",
+    "zh": "grh-lean：一个关于广义黎曼假设的简短Lean 4证明",
+    "src_lang": "en",
+    "title_hash": "58a3296f22c7abfbad6d551c4e15a921c1530428227604a046ec43bb2c09a74a"
+  },
+  "p_f78e006f1776aebe": {
+    "en": "We've been working on understanding model capabilities beyond what our prior time horizon tasks could capture.",
+    "zh": "我们一直致力于理解模型能力，超越此前时间范围任务所能捕捉的内容。",
+    "src_lang": "en",
+    "title_hash": "479f494ad27bbcd28b471372bbc25d4cfdce96299ce5b9a5d243215cc188b7da"
+  },
+  "p_f9f7b9e4db49a58a": {
+    "en": "Went on Danish national TV yesterday to advocate for the sensible return of Jensen.",
+    "zh": "昨天上了丹麦国家电视台，呼吁理智地让Jensen回归。",
+    "src_lang": "en",
+    "title_hash": "3913bba3ff51ca46af065c5826e748d6ae358d2413654667ceccb657476e2fbb"
+  },
+  "p_fb8097c660079b48": {
+    "en": "Plus users, welcome to Space 🪐",
+    "zh": "Plus用户，欢迎来到太空🪐。",
+    "src_lang": "en",
+    "title_hash": "fa474091e9038389840c5abba0eff85018f6741bd481fb6a09f70b7af7572b91"
+  },
+  "p_fc97279347f48ce1": {
+    "en": "Trump made up to $15mn on Nvidia shares after Huang’s return",
+    "zh": "特朗普在黄仁勋回归后通过英伟达股票赚取了高达1500万美元",
+    "src_lang": "en",
+    "title_hash": "9211a3b61c84d82037f9e74930ef6d83ccbd4ee2cd26f73be5c35217f862480c"
+  },
+  "p_fd589dffda11bf2b": {
+    "en": "Some of you thought that Inkling 2 Small was too big at 594B parameters.",
+    "zh": "你们中有些人认为 Inkling 2 Small 的5940亿参数太大了。",
+    "src_lang": "en",
+    "title_hash": "4be26572eae12b6827e06770f281a4e95b26d219ed4163ab77f15bb65e6cb97c"
+  },
+  "p_fdd5f51e8fafafb3": {
+    "en": "Tidal announces ban on AI-generated music; 27 million tracks will be deleted",
+    "zh": "Tidal宣布禁止AI生成音乐；将删除2700万首曲目",
+    "src_lang": "en",
+    "title_hash": "548e193d0ca9d0e6e0e398de1f87bf829520a886cb9d99b3a9de984ec3237fee"
+  }
+}
