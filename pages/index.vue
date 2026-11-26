@@ -7,8 +7,6 @@ const socialImageUrl = new URL('/social/aaron-guo-midnight-v1.jpg', seoData.mySi
 const socialImageAlt =
   'Aaron Guo — I build with AI and share what works. A blue glass sphere and lavender triangle on a dark background.'
 
-const { data: staticSnapshot } = await useStaticRadarSnapshot('home-radar-latest')
-
 useHead({
   title: t('navigation.home'),
   meta: [
@@ -29,7 +27,7 @@ useHead({
 </script>
 
 <template>
-  <main class="container max-w-8xl mx-auto flex flex-col gap-5 sm:gap-6">
+  <main class="container max-w-8xl mx-auto flex flex-col gap-4 sm:gap-5">
     <section class="px-4">
       <div
         class="grid overflow-hidden border-y border-[color:var(--line-subtle)] lg:grid-cols-[minmax(0,1.1fr)_minmax(22rem,0.9fr)]"
@@ -38,8 +36,9 @@ useHead({
         <MainNotes />
       </div>
     </section>
-    <MainLatestBrief />
-    <MainWriting :signal-snapshot="staticSnapshot">
+    <MainSignal class="mx-4 lg:hidden" />
+    <MainLatestBrief class="lg:hidden" />
+    <MainWriting>
       <MainChannels />
     </MainWriting>
   </main>

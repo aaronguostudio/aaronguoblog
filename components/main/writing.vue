@@ -4,14 +4,9 @@ import { formatDate } from '~/utils/date'
 import { sortBlogPosts } from '~/utils/blog-order'
 import { getBlogCategories, getBlogCategoryLabel } from '~/utils/blog-taxonomy'
 import { extractBlogPostMeta } from '~/utils/type-guards'
-import type { StaticRadarSnapshot } from '~/composables/useStaticRadarSnapshot'
 
 const { locale, t } = useI18n()
 const localePath = useLocalePath()
-
-defineProps<{
-  signalSnapshot?: StaticRadarSnapshot | null
-}>()
 
 /**
  * Query all blog posts from both locale collections
@@ -83,20 +78,20 @@ function categoryLabels(categories: string[]) {
 <template>
   <div class="pb-10 px-4">
     <!-- Hero + Compact Sidebar -->
-    <div v-if="heroPost" class="grid grid-cols-1 lg:grid-cols-5 gap-6 mb-8">
+    <div v-if="heroPost" class="mb-8 grid grid-cols-1 items-start gap-6 lg:grid-cols-5 lg:items-stretch">
       <!-- Hero Card (left, 3 cols) -->
       <NuxtLink :to="localePath(heroPost.path)" class="lg:col-span-3 group block">
         <article
-          class="relative flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:shadow-lg hover:border-primary/20"
+          class="overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:shadow-lg hover:border-primary/20 lg:flex lg:h-full lg:flex-col"
         >
           <NuxtImg
             :src="heroPost.image || '/blogs-img/blog.jpg'"
             :alt="heroPost.alt"
             sizes="100vw lg:60vw"
-            class="aspect-video w-full shrink-0 bg-muted object-contain"
+            class="aspect-video w-full bg-muted object-contain lg:shrink-0"
           />
-          <div class="flex flex-1 flex-col p-6">
-            <div class="flex items-center gap-2 mb-3">
+          <div class="p-5 lg:flex lg:grow lg:flex-col lg:justify-center">
+            <div class="mb-2 flex flex-wrap items-center gap-2">
               <span
                 v-for="category in categoryLabels(heroPost.categories)"
                 :key="category"
@@ -114,7 +109,7 @@ function categoryLabels(categories: string[]) {
               {{ heroPost.description }}
             </p>
             <div
-              class="mt-auto flex items-center justify-between gap-4 pt-5 text-sm text-muted-foreground"
+              class="mt-3 flex items-center justify-between gap-4 text-sm text-muted-foreground"
             >
               <span class="flex items-center">
                 <LogoDate class="mr-1.5 h-4 w-4" />
@@ -135,30 +130,30 @@ function categoryLabels(categories: string[]) {
       </NuxtLink>
 
       <!-- Compact Sidebar (right, 2 cols) -->
-      <div class="lg:col-span-2 flex flex-col gap-3 lg:h-full">
-        <!-- Signal card -->
-        <MainSignal :snapshot="signalSnapshot" class="shrink-0" />
+      <div class="flex flex-col gap-2.5 lg:col-span-2">
+        <MainSignal class="hidden shrink-0 lg:block" />
+        <MainLatestBrief class="hidden lg:block" />
 
         <!-- Sidebar blog posts (posts 2-4) -->
         <NuxtLink
           v-for="post in sidebarPosts"
           :key="post.title"
           :to="localePath(post.path)"
-          class="group flex-1 flex flex-col min-h-0"
+          class="group block lg:flex lg:grow lg:flex-col"
         >
           <article
-            class="h-full flex flex-row overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:shadow-md hover:border-primary/20"
+            class="flex overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:shadow-md hover:border-primary/20 lg:grow"
           >
-            <div class="w-56 shrink-0 overflow-hidden">
+            <div class="relative w-[34%] max-w-44 shrink-0 overflow-hidden bg-muted">
               <NuxtImg
                 :src="post.image || '/blogs-img/blog.jpg'"
                 :alt="post.alt"
                 loading="lazy"
-                sizes="224px"
-                class="w-full h-full object-cover object-center group-hover:scale-[1.02] transition-all duration-500"
+                sizes="176px"
+                class="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.02]"
               />
             </div>
-            <div class="flex flex-col justify-center p-4 flex-1 min-w-0">
+            <div class="flex min-w-0 flex-1 flex-col justify-center px-3 py-2.5">
               <div
                 class="mb-1.5 flex min-w-0 flex-col items-start gap-1 md:flex-row md:items-center md:gap-1.5"
               >
@@ -184,7 +179,7 @@ function categoryLabels(categories: string[]) {
               >
                 {{ post.title }}
               </h4>
-              <p class="text-xs text-muted-foreground line-clamp-2">
+              <p class="line-clamp-1 text-xs text-muted-foreground">
                 {{ post.description }}
               </p>
             </div>

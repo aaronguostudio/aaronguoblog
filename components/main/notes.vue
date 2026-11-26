@@ -163,8 +163,8 @@ onBeforeUnmount(() => {
     class="border-t border-[color:var(--line-subtle)] lg:hidden"
     :aria-label="t('notes.latest')"
   >
-    <div class="px-5 py-4 sm:px-6 sm:py-5">
-      <div class="mb-3 flex items-center justify-between gap-3">
+    <div class="px-5 py-2.5 sm:px-6">
+      <div class="mb-1 flex items-center justify-between gap-3">
         <span
           class="font-mono text-[11px] uppercase tracking-[0.16em] text-[color:var(--notes-accent)]"
         >
@@ -203,18 +203,22 @@ onBeforeUnmount(() => {
           class="flex will-change-transform transition-transform duration-700 ease-out motion-reduce:transition-none"
           :style="mobileTrackStyle"
         >
-          <article v-for="note in latestNotes" :key="note.path" class="w-full shrink-0">
+          <article
+            v-for="note in latestNotes"
+            :key="note.path"
+            class="grid w-full shrink-0 grid-cols-[minmax(0,1fr)_auto] items-center md:gap-3"
+          >
             <NuxtLink
               v-if="note.image"
               :to="localePath(note.path)"
-              class="group relative mb-4 hidden aspect-video overflow-hidden rounded-xl bg-muted outline-none focus-visible:ring-2 focus-visible:ring-[var(--notes-accent)] md:block"
+              class="group relative col-start-2 row-start-1 hidden aspect-video w-28 overflow-hidden rounded-lg bg-muted outline-none focus-visible:ring-2 focus-visible:ring-[var(--notes-accent)] md:block"
             >
               <NuxtImg
                 :src="note.image"
                 :alt="note.alt || note.title"
                 width="768"
                 height="432"
-                sizes="(max-width: 639px) calc(100vw - 40px), 640px"
+                sizes="112px"
                 format="webp"
                 quality="82"
                 loading="lazy"
@@ -228,14 +232,14 @@ onBeforeUnmount(() => {
 
             <NuxtLink
               :to="localePath(note.path)"
-              class="group block outline-none focus-visible:ring-2 focus-visible:ring-[var(--notes-accent)]"
+              class="group col-start-1 row-start-1 block min-w-0 outline-none focus-visible:ring-2 focus-visible:ring-[var(--notes-accent)]"
             >
               <h2
-                class="mb-1.5 text-xl font-semibold leading-snug tracking-tight text-foreground transition-colors group-hover:text-[color:var(--notes-accent)]"
+                class="mb-0.5 line-clamp-2 text-base font-semibold leading-snug tracking-tight text-foreground transition-colors group-hover:text-[color:var(--notes-accent)]"
               >
                 {{ note.title }}
               </h2>
-              <p class="line-clamp-2 text-[15px] leading-6 text-muted-foreground">
+              <p class="line-clamp-1 text-sm leading-5 text-muted-foreground">
                 {{ note.hook }}
               </p>
             </NuxtLink>
@@ -243,14 +247,14 @@ onBeforeUnmount(() => {
         </div>
       </div>
 
-      <div v-if="hasMultipleNotes" class="mt-4 flex items-center justify-center gap-2">
+      <div v-if="hasMultipleNotes" class="mt-1 flex items-center justify-center">
         <button
           v-for="(_, index) in latestNotes"
           :key="index"
           type="button"
           :aria-label="t('notes.showSlide', { number: index + 1 })"
           :aria-current="index === activeMobileIndex ? 'true' : undefined"
-          class="h-3 min-w-3 rounded-full p-1 outline-none focus-visible:ring-2 focus-visible:ring-[var(--notes-accent)]"
+          class="flex h-6 min-w-6 items-center justify-center rounded-full outline-none focus-visible:ring-2 focus-visible:ring-[var(--notes-accent)]"
           @click="goToNote(index)"
         >
           <span
@@ -275,100 +279,95 @@ onBeforeUnmount(() => {
     @focusin="pauseCarousel"
     @focusout="handleCarouselFocusOut"
   >
-    <div class="h-full overflow-hidden px-7 py-6">
-      <div class="flex h-full flex-col">
-        <div class="min-h-0 flex-1 overflow-hidden">
-          <Transition :name="desktopTransitionName" mode="out-in">
-            <article
-              :key="desktopNote.path"
-              class="grid h-full w-full gap-6"
-              :class="
-                desktopNote.image
-                  ? 'grid-cols-[minmax(0,1fr)_minmax(9.5rem,0.52fr)]'
-                  : 'grid-cols-1'
-              "
-            >
-              <div class="min-w-0">
-                <NuxtLink
-                  :to="localePath(desktopNote.path)"
-                  class="group block outline-none focus-visible:ring-2 focus-visible:ring-[var(--notes-accent)]"
-                >
-                  <div
-                    class="mb-3 flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.16em] text-[color:var(--notes-accent)]"
-                  >
-                    <span>{{ t('notes.latest') }}</span>
-                    <span class="h-3 w-px bg-[var(--notes-accent-muted)]" aria-hidden="true" />
-                    <span>{{ formatNoteNumber(desktopNote.number, activeMobileIndex) }}</span>
-                  </div>
-                  <h2
-                    class="mb-2 text-lg font-semibold leading-snug tracking-tight text-foreground transition-colors group-hover:text-[color:var(--notes-accent)]"
-                  >
-                    {{ desktopNote.title }}
-                  </h2>
-                  <p class="line-clamp-2 text-sm leading-6 text-muted-foreground">
-                    {{ desktopNote.hook }}
-                  </p>
-                </NuxtLink>
-              </div>
-
-              <div v-if="desktopNote.image" class="flex min-w-0 flex-col">
-                <time
-                  :datetime="desktopNote.date"
-                  class="mb-2 text-right font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground"
-                >
-                  {{ noteDate(desktopNote.date) }}
-                </time>
-                <NuxtLink
-                  :to="localePath(desktopNote.path)"
-                  class="group relative aspect-video w-full flex-none overflow-hidden rounded-xl bg-muted outline-none focus-visible:ring-2 focus-visible:ring-[var(--notes-accent)]"
-                >
-                  <NuxtImg
-                    :src="desktopNote.image"
-                    :alt="desktopNote.alt || desktopNote.title"
-                    width="640"
-                    height="360"
-                    sizes="(max-width: 1279px) 164px, 252px"
-                    format="webp"
-                    quality="82"
-                    class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.025] motion-reduce:transition-none"
-                  />
-                  <Icon
-                    name="heroicons:arrow-up-right"
-                    class="absolute right-3 top-3 h-4 w-4 text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.55)]"
-                  />
-                </NuxtLink>
-              </div>
-            </article>
-          </Transition>
-        </div>
-
-        <div class="mt-4 flex min-h-9 shrink-0 items-center justify-between gap-4">
-          <NuxtLink
-            :to="localePath('/notes')"
-            class="inline-flex min-h-9 items-center gap-1.5 rounded-md text-sm font-medium text-foreground outline-none transition-colors hover:text-[color:var(--notes-accent)] focus-visible:ring-2 focus-visible:ring-[var(--notes-accent)]"
+    <div class="flex h-full flex-col justify-center overflow-hidden px-6 py-3">
+      <div class="min-h-[6.25rem]">
+        <Transition :name="desktopTransitionName" mode="out-in">
+          <article
+            :key="desktopNote.path"
+            class="grid w-full grid-cols-[minmax(0,1fr)_auto] items-start gap-x-4 gap-y-1.5"
           >
-            {{ t('notes.viewAll') }}
-            <Icon name="heroicons:arrow-right" class="h-4 w-4" />
-          </NuxtLink>
-
-          <div v-if="hasMultipleNotes" class="flex shrink-0 items-center gap-1">
-            <button
-              v-for="(_, index) in latestNotes"
-              :key="index"
-              type="button"
-              :aria-label="t('notes.showSlide', { number: index + 1 })"
-              :aria-current="index === activeMobileIndex ? 'true' : undefined"
-              class="inline-flex h-8 min-w-4 items-center justify-center rounded-full outline-none focus-visible:ring-2 focus-visible:ring-[var(--notes-accent)]"
-              @click="goToNote(index)"
+            <div
+              class="col-span-full flex items-center justify-between gap-3 font-mono text-[11px]"
             >
-              <span
-                class="block h-1.5 rounded-full transition-all duration-300 motion-reduce:transition-none"
-                :class="
-                  index === activeMobileIndex ? 'w-5 bg-[var(--notes-accent)]' : 'w-1.5 bg-border'
-                "
+              <div
+                class="flex items-center gap-2 uppercase tracking-[0.16em] text-[color:var(--notes-accent)]"
+              >
+                <span>{{ t('notes.latest') }}</span>
+                <span class="h-3 w-px bg-[var(--notes-accent-muted)]" aria-hidden="true" />
+                <span>{{ formatNoteNumber(desktopNote.number, activeMobileIndex) }}</span>
+              </div>
+              <time
+                :datetime="desktopNote.date"
+                class="truncate text-right uppercase tracking-wider text-muted-foreground"
+              >
+                {{ noteDate(desktopNote.date) }}
+              </time>
+            </div>
+
+            <NuxtLink
+              :to="localePath(desktopNote.path)"
+              class="group block min-w-0 outline-none focus-visible:ring-2 focus-visible:ring-[var(--notes-accent)]"
+            >
+              <h2
+                class="mb-0.5 line-clamp-2 text-base font-semibold leading-snug tracking-tight text-foreground transition-colors group-hover:text-[color:var(--notes-accent)] xl:text-lg"
+              >
+                {{ desktopNote.title }}
+              </h2>
+              <p class="line-clamp-1 text-sm leading-5 text-muted-foreground">
+                {{ desktopNote.hook }}
+              </p>
+            </NuxtLink>
+
+            <NuxtLink
+              v-if="desktopNote.image"
+              :to="localePath(desktopNote.path)"
+              class="group relative aspect-video w-28 overflow-hidden rounded-lg bg-muted outline-none focus-visible:ring-2 focus-visible:ring-[var(--notes-accent)] xl:w-32"
+            >
+              <NuxtImg
+                :src="desktopNote.image"
+                :alt="desktopNote.alt || desktopNote.title"
+                width="320"
+                height="180"
+                sizes="112px xl:128px"
+                format="webp"
+                quality="82"
+                class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.025] motion-reduce:transition-none"
               />
-            </button>
-          </div>
+              <Icon
+                name="heroicons:arrow-up-right"
+                class="absolute right-2 top-2 h-3.5 w-3.5 text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.55)]"
+              />
+            </NuxtLink>
+          </article>
+        </Transition>
+      </div>
+
+      <div class="mt-1 flex min-h-7 shrink-0 items-center justify-between gap-4">
+        <NuxtLink
+          :to="localePath('/notes')"
+          class="inline-flex min-h-7 items-center gap-1.5 rounded-md text-sm font-medium text-foreground outline-none transition-colors hover:text-[color:var(--notes-accent)] focus-visible:ring-2 focus-visible:ring-[var(--notes-accent)]"
+        >
+          {{ t('notes.viewAll') }}
+          <Icon name="heroicons:arrow-right" class="h-4 w-4" />
+        </NuxtLink>
+
+        <div v-if="hasMultipleNotes" class="flex shrink-0 items-center gap-1">
+          <button
+            v-for="(_, index) in latestNotes"
+            :key="index"
+            type="button"
+            :aria-label="t('notes.showSlide', { number: index + 1 })"
+            :aria-current="index === activeMobileIndex ? 'true' : undefined"
+            class="inline-flex h-7 min-w-5 items-center justify-center rounded-full outline-none focus-visible:ring-2 focus-visible:ring-[var(--notes-accent)]"
+            @click="goToNote(index)"
+          >
+            <span
+              class="block h-1.5 rounded-full transition-all duration-300 motion-reduce:transition-none"
+              :class="
+                index === activeMobileIndex ? 'w-5 bg-[var(--notes-accent)]' : 'w-1.5 bg-border'
+              "
+            />
+          </button>
         </div>
       </div>
     </div>

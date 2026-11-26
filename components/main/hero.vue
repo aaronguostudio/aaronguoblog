@@ -7,18 +7,18 @@ const localePath = useLocalePath()
 </script>
 
 <template>
-  <div
-    class="relative flex min-h-[12rem] items-center overflow-hidden px-5 py-5 sm:min-h-[13rem] sm:px-7 sm:py-6 lg:min-h-[15rem] lg:px-10 lg:py-6 xl:px-12"
-  >
+  <div class="relative flex items-center overflow-hidden px-5 py-4 sm:px-7 lg:px-8 xl:px-10">
     <!-- Decorative subtle background -->
     <div
       class="pointer-events-none absolute inset-0 bg-foreground/[0.02] blur-3xl dark:bg-foreground/[0.03]"
     />
 
     <div class="relative w-full max-w-3xl">
-      <div class="flex flex-col gap-3 sm:gap-4">
+      <div class="flex flex-col gap-3">
         <!-- Headline -->
-        <h1 class="font-bold leading-[1.05] text-3xl text-foreground sm:text-4xl md:text-5xl">
+        <h1
+          class="text-balance text-[1.75rem] font-bold leading-[1.1] tracking-tight text-foreground sm:text-4xl xl:text-[2.5rem]"
+        >
           {{ t('home.title') }}
         </h1>
 

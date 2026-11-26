@@ -41,25 +41,25 @@ describe('static Signal contract', () => {
     expect(SIGNAL_PAGE).not.toContain("'/api/signal'")
   })
 
-  it('makes the homepage Signal preview read the static Radar snapshot first', () => {
-    expect(HOME_PAGE).toContain("useStaticRadarSnapshot('home-radar-latest')")
-    expect(HOME_PAGE).toContain(':signal-snapshot="staticSnapshot"')
-    expect(MAIN_WRITING).toContain('signalSnapshot?: StaticRadarSnapshot | null')
-    expect(MAIN_WRITING).toContain(':snapshot="signalSnapshot"')
-    expect(MAIN_SIGNAL).toContain('snapshot?: StaticRadarSnapshot | null')
-    expect(MAIN_SIGNAL).toMatch(/useStaticRadarSnapshot\(\s*'homepage-signal-radar-latest'/)
-    expect(MAIN_SIGNAL).not.toContain("'/api/signal'")
-    expect(MAIN_SIGNAL).toContain('selectRadarTakeaway')
-    expect(MAIN_SIGNAL).toContain('pulseTakeaway')
-    expect(EN_LOCALE).toContain('"dailyReadoutLabel": "Today\'s takeaway"')
-    expect(ZH_LOCALE).toContain('"dailyReadoutLabel": "今日结论"')
+  it('features the current dated Signal edition and links to the archive', () => {
+    expect(MAIN_SIGNAL).toContain("import { coverImage, signalEditions } from '~/data/signal/editions'")
+    expect(MAIN_SIGNAL).toContain('const latestEdition = signalEditions[0]')
+    expect(MAIN_SIGNAL).not.toContain('previousEditions')
+    expect(MAIN_SIGNAL).toContain("localePath('/signal/editions/' + latestEdition.date)")
+    expect(MAIN_SIGNAL).toContain(':src="coverImage(latestEdition)"')
+    expect(MAIN_SIGNAL).toContain("localePath('/signal/editions')")
+    expect(HOME_PAGE + MAIN_SIGNAL).not.toContain('useStaticRadarSnapshot')
   })
 
-  it('keeps the homepage featured row compact and intentional', () => {
-    expect(MAIN_SIGNAL).toContain('line-clamp-3')
-    expect(MAIN_SIGNAL).toContain('role="tooltip"')
-    expect(MAIN_SIGNAL).toContain('group-hover/takeaway:opacity-100')
-    expect(MAIN_SIGNAL).toContain('group-focus-within/takeaway:opacity-100')
+  it('places the latest video below Signal on desktop and mobile', () => {
+    expect(HOME_PAGE).toMatch(/<MainSignal class="mx-4 lg:hidden" \/>\s*<MainLatestBrief class="lg:hidden" \/>/)
+    expect(MAIN_WRITING).toMatch(/<MainSignal class="hidden shrink-0 lg:block" \/>\s*<MainLatestBrief class="hidden lg:block" \/>/)
+    expect(MAIN_WRITING.indexOf(':to="localePath(heroPost.path)"')).toBeLessThan(
+      MAIN_WRITING.indexOf('<MainSignal'),
+    )
+    expect(MAIN_WRITING.indexOf('<MainLatestBrief')).toBeLessThan(
+      MAIN_WRITING.indexOf('v-for="post in sidebarPosts"'),
+    )
     expect(MAIN_WRITING).toContain("t('home.readArticle')")
     expect(EN_LOCALE).toContain('"readArticle": "Read article"')
     expect(ZH_LOCALE).toContain('"readArticle": "阅读全文"')
@@ -92,11 +92,6 @@ describe('static Signal contract', () => {
     expect(SIGNAL_RESEARCH_THREADS_COMPONENT).not.toContain('thread.unmatchedSignalCount > 0')
     expect(EN_LOCALE).toContain('"watchingTitle": "What I\'m Watching"')
     expect(ZH_LOCALE).toContain('"watchingTitle": "我正在关注"')
-    expect(MAIN_SIGNAL).toContain("t('signal.previewDescription')")
-    expect(EN_LOCALE).toContain(
-      '"previewDescription": "Daily signals from my AI-native product research desk."',
-    )
-    expect(ZH_LOCALE).toContain('"previewDescription": "来自我的 AI 原生产品研究台的每日信号。"')
   })
 
   it('renders Signal as a wider research desk product surface', () => {

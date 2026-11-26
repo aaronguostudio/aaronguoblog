@@ -1,155 +1,64 @@
 <script lang="ts" setup>
+import { useId } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { signalEditions } from '~/data/signal/editions'
-import type { StaticRadarItem, StaticRadarSnapshot } from '~/composables/useStaticRadarSnapshot'
-import {
-  extractRadarPulseThemes,
-  selectPulseSnapshotItems,
-  selectRadarTakeaway,
-} from '~/utils/radar-snapshot'
+import { coverImage, signalEditions } from '~/data/signal/editions'
 
 const { t, locale } = useI18n()
 const localePath = useLocalePath()
-
-const props = defineProps<{
-  snapshot?: StaticRadarSnapshot | null
-}>()
-
-const hasProvidedSnapshot = Boolean(props.snapshot?.items?.length)
-
-const { data: fetchedStaticSnapshot } = await useStaticRadarSnapshot(
-  'homepage-signal-radar-latest',
-  { immediate: !hasProvidedSnapshot },
-)
-
-const staticSnapshot = computed(() => props.snapshot || fetchedStaticSnapshot.value)
-
-const topItems = computed(() => selectPulseSnapshotItems<StaticRadarItem>(
-  staticSnapshot.value?.items || [],
-  staticSnapshot.value?.pulse?.topItemIds,
-  3,
-))
-const pulseTakeaway = computed(() => signalEditions[0]?.signal?.claim || staticSnapshot.value?.pulse?.takeaway)
-const pulseRead = computed(() => {
-  return (
-    selectRadarTakeaway(pulseTakeaway.value, locale.value) ||
-    extractRadarPulseThemes(staticSnapshot.value?.pulse?.text) ||
-    stripHtml(topItems.value[0]?.title || '') ||
-    t('signal.pulse')
-  )
-})
-
-function sourceColor(s: string) {
-  const map: Record<string, string> = {
-    hackernews: 'text-orange-400',
-    'x-twitter': 'text-slate-200',
-    x: 'text-slate-200',
-    reddit: 'text-violet-400',
-    producthunt: 'text-amber-400',
-    github: 'text-pink-400',
-    lobsters: 'text-red-400',
-    arxiv: 'text-cyan-300',
-    youtube: 'text-red-400',
-    tiktok: 'text-sky-400',
-    instagram: 'text-fuchsia-400',
-    polymarket: 'text-blue-400',
-    web: 'text-emerald-400',
-  }
-  return map[s] || 'text-slate-500'
-}
-
-function stripHtml(str: string) {
-  if (!str) return ''
-  return str
-    .replace(/<[^>]*>/g, '')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&amp;/g, '&')
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;/g, "'")
-    .replace(/<[^>]*>/g, '')
-    .trim()
-}
+const language = computed(() => (locale.value === 'zh' ? 'zh' : 'en'))
+const headingId = useId()
+const editionTitleId = useId()
+const latestEdition = signalEditions[0]
 </script>
 
 <template>
-  <div v-if="topItems.length > 0" class="relative w-full">
-    <section
-      class="overflow-hidden rounded-[1.25rem] border border-sky-400/55 bg-[#07101d] text-white shadow-[0_20px_45px_rgb(2_8_23_/_0.25)]"
+  <section
+    v-if="latestEdition"
+    class="min-w-0 rounded-xl border border-border bg-card"
+    :aria-labelledby="headingId"
+  >
+    <div class="flex items-center justify-between gap-3 px-3 pt-0.5 sm:px-4 sm:pt-1">
+      <h2 :id="headingId" class="text-xl font-semibold tracking-tight text-foreground">Signal</h2>
+      <NuxtLink
+        :to="localePath('/signal/editions')"
+        class="inline-flex min-h-10 items-center gap-1.5 rounded-sm text-sm font-medium text-muted-foreground underline-offset-4 hover:text-foreground hover:underline focus-visible:outline-2 focus-visible:outline-primary"
+      >
+        {{ t('signal.allEditions') }} <span aria-hidden="true">→</span>
+      </NuxtLink>
+    </div>
+
+    <NuxtLink
+      :to="localePath('/signal/editions/' + latestEdition.date)"
+      :aria-labelledby="editionTitleId"
+      class="group mx-1 grid grid-cols-[minmax(0,32%)_minmax(0,1fr)] items-center gap-3 rounded-lg px-2 pb-3 pt-1 focus-visible:outline-2 focus-visible:outline-primary sm:grid-cols-[minmax(0,8rem)_minmax(0,1fr)] sm:px-3"
     >
-      <div class="px-5 pb-4 pt-4 sm:px-6 sm:pb-5 sm:pt-5">
-        <div class="flex items-center justify-between gap-4">
-          <div class="flex items-center gap-3">
-            <span class="font-mono text-[11px] font-medium uppercase tracking-[0.2em] text-sky-300">
-              {{ t('navigation.signal') }}
-            </span>
-            <span class="relative flex h-2.5 w-2.5" aria-hidden="true">
-              <Icon
-                name="mdi:circle"
-                class="absolute h-2.5 w-2.5 animate-ping text-emerald-300/60 motion-reduce:animate-none"
-              />
-              <Icon name="mdi:circle" class="relative h-2.5 w-2.5 text-emerald-400" />
-            </span>
-            <span class="sr-only">{{ t('signal.previewDescription') }}</span>
-          </div>
-          <NuxtLink
-            :to="localePath('/signal')"
-            class="group -my-2 -mr-2 inline-flex min-h-11 items-center gap-1.5 px-2 font-mono text-[11px] tracking-[0.08em] text-sky-200/75 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 sm:text-xs"
-          >
-            {{ t('signal.viewAll') }}
-            <Icon
-              name="heroicons:arrow-right"
-              class="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5"
-            />
-          </NuxtLink>
-        </div>
-
-        <div class="group/takeaway relative mt-4 min-w-0 sm:mt-5">
-          <p class="font-mono text-[10px] tracking-[0.1em] text-sky-300">
-            {{ t('signal.dailyReadoutLabel') }}
-          </p>
-          <NuxtLink
-            :to="localePath('/signal')"
-            aria-describedby="homepage-signal-takeaway-tooltip"
-            class="mt-2 line-clamp-3 rounded-sm text-lg font-medium leading-[1.25] tracking-[-0.025em] text-white transition-colors hover:text-sky-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 sm:text-[1.55rem]"
-          >
-            {{ pulseRead }}
-          </NuxtLink>
-          <div
-            id="homepage-signal-takeaway-tooltip"
-            role="tooltip"
-            class="pointer-events-none absolute inset-x-0 top-full z-20 mt-2 max-h-72 translate-y-1 overflow-y-auto rounded-lg border border-sky-300/30 bg-[#0b1728] px-4 py-3 text-sm leading-relaxed text-white opacity-0 shadow-2xl transition duration-150 group-hover/takeaway:pointer-events-auto group-hover/takeaway:translate-y-0 group-hover/takeaway:opacity-100 group-focus-within/takeaway:pointer-events-auto group-focus-within/takeaway:translate-y-0 group-focus-within/takeaway:opacity-100"
-          >
-            {{ pulseRead }}
-          </div>
-        </div>
-      </div>
-
-      <div class="border-t border-white/15 pb-2 sm:pb-3">
-        <a
-          v-for="item in topItems"
-          :key="item.id"
-          :href="item.url"
-          target="_blank"
-          rel="noopener"
-          class="group grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-x-3 border-b border-white/10 px-5 py-3 transition-colors hover:bg-white/[0.055] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-sky-300 sm:gap-x-4 sm:px-6 sm:py-3.5"
+      <img
+        :src="coverImage(latestEdition)"
+        alt=""
+        width="1200"
+        height="800"
+        class="aspect-[3/2] h-auto w-full rounded-md bg-muted object-contain"
+      />
+      <div class="min-w-0">
+        <time
+          :datetime="latestEdition.date"
+          class="block text-xs font-medium tabular-nums tracking-wide text-muted-foreground"
+          >{{ latestEdition.date.replaceAll('-', '.') }}</time
         >
-          <Icon
-            name="mdi:circle"
-            class="h-2.5 w-2.5 shrink-0 self-center"
-            :class="sourceColor(item.source)"
-          />
-          <span
-            class="min-w-0 truncate text-sm leading-tight text-white/80 transition-colors group-hover:text-white sm:text-[0.95rem]"
-          >
-            {{ stripHtml(item.title) }}
-          </span>
-          <Icon
-            name="heroicons:arrow-right"
-            class="h-4 w-4 shrink-0 text-sky-300/75 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:text-sky-200"
-          />
-        </a>
+        <h3
+          :id="editionTitleId"
+          class="edition-title mt-1.5 break-words text-lg font-semibold leading-[1.14] tracking-tight text-foreground underline-offset-4 group-hover:underline group-focus-visible:underline sm:text-xl xl:text-[1.375rem]"
+        >
+          {{ latestEdition.headline[language] }}
+        </h3>
       </div>
-    </section>
-  </div>
+    </NuxtLink>
+  </section>
 </template>
+
+<style scoped>
+.edition-title {
+  font-family: Georgia, 'Songti SC', 'Noto Serif CJK SC', 'Noto Serif SC', SimSun, serif;
+  text-wrap: balance;
+}
+</style>

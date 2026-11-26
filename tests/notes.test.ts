@@ -136,9 +136,9 @@ describe('Builder Notes surface', () => {
     const homeNotes = readFileSync(join(root, 'components', 'main', 'notes.vue'), 'utf8')
 
     expect(homeNotes).toContain(".slice(0, 5)")
-    expect(homeNotes).toContain("grid-cols-[minmax(0,1fr)_minmax(9.5rem,0.52fr)]")
-    expect(homeNotes).toContain('class="group relative aspect-video w-full')
-    expect(homeNotes).toContain('height="360"')
+    expect(homeNotes).toContain("grid-cols-[minmax(0,1fr)_auto]")
+    expect(homeNotes).toContain('class="group relative aspect-video w-28')
+    expect(homeNotes).toContain('height="180"')
     expect(homeNotes).toContain("window.matchMedia('(prefers-reduced-motion: reduce)')")
     expect(homeNotes).toContain('aria-roledescription="carousel"')
     expect(homeNotes).toContain('@touchend.passive="handleTouchEnd"')
@@ -153,7 +153,7 @@ describe('Builder Notes surface', () => {
     expect(homeNotes).not.toContain('isMobileViewport')
 
     const desktopSection = homeNotes.slice(homeNotes.indexOf('v-if="desktopNote"'))
-    expect(desktopSection.indexOf('mt-4 flex min-h-9 shrink-0')).toBeGreaterThan(
+    expect(desktopSection.indexOf('mt-1 flex min-h-7 shrink-0')).toBeGreaterThan(
       desktopSection.indexOf('</Transition>'),
     )
   })
@@ -166,7 +166,11 @@ describe('Builder Notes surface', () => {
     expect(featuredImage).toContain('object-contain')
     expect(featuredImage).not.toContain('scale-')
     expect(writing).not.toContain('lg:h-[360px]')
-    expect(writing).toContain('class="flex flex-1 flex-col p-6"')
+    const featuredCard = writing.match(/<NuxtLink\b[^>]*:to="localePath\(heroPost\.path\)"[^>]*>[\s\S]*?<\/NuxtLink>/)?.[0]
+    expect(featuredCard).toBeDefined()
+    expect(featuredCard).toMatch(/\blg:h-full\b/)
+    expect(featuredCard).not.toMatch(/(?:^|\s)h-full\b|\bmt-auto\b/)
+    expect(writing).toMatch(/<div v-if="heroPost" class="[^"]*\bitems-start\b[^"]*\blg:items-stretch\b/)
     expect(writing).toContain("t('home.readArticle')")
     expect(writing).toContain('class="group flex h-full"')
     expect(writing).toContain('min-h-[6.75rem] flex-1 flex-col justify-between p-4')

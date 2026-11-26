@@ -7,9 +7,9 @@ const mobileNotes = notes.slice(0, notes.indexOf('v-if="desktopNote"'))
 
 describe('homepage mobile density', () => {
   it('keeps the mobile hero compact enough to reveal more homepage content', () => {
-    expect(hero).toContain('min-h-[12rem]')
-    expect(hero).toContain('sm:min-h-[13rem]')
-    expect(hero).not.toContain('min-h-[14rem]')
+    expect(hero).toContain('px-5 py-4')
+    expect(hero).toContain('text-balance')
+    expect(hero).not.toContain('min-h-[')
   })
 
   it('puts the latest note date and notes shortcut in the section header', () => {
