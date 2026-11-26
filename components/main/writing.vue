@@ -139,21 +139,21 @@ function categoryLabels(categories: string[]) {
           v-for="post in sidebarPosts"
           :key="post.title"
           :to="localePath(post.path)"
-          class="group block lg:flex lg:grow lg:flex-col"
+          class="group block lg:flex lg:flex-1 lg:flex-col"
         >
           <article
             class="flex overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:shadow-md hover:border-primary/20 lg:grow"
           >
-            <div class="relative w-[34%] max-w-44 shrink-0 overflow-hidden bg-muted">
+            <div class="relative w-[34%] max-w-44 shrink-0 overflow-hidden bg-muted xl:w-[38%] xl:max-w-52">
               <NuxtImg
                 :src="post.image || '/blogs-img/blog.jpg'"
                 :alt="post.alt"
                 loading="lazy"
-                sizes="176px"
+                sizes="176px xl:208px"
                 class="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.02]"
               />
             </div>
-            <div class="flex min-w-0 flex-1 flex-col justify-center px-3 py-2.5">
+            <div class="flex min-w-0 flex-1 flex-col justify-center px-3 py-2.5 lg:py-2">
               <div
                 class="mb-1.5 flex min-w-0 flex-col items-start gap-1 md:flex-row md:items-center md:gap-1.5"
               >

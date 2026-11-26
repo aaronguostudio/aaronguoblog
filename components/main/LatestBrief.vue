@@ -26,7 +26,7 @@ const duration = computed(() => {
     <a
       :href="'https://www.youtube.com/watch?v=' + episode.id"
       :aria-labelledby="titleId + ' ' + destinationId"
-      class="group grid grid-cols-[5rem_minmax(0,1fr)] items-center gap-3 border-y border-[color:var(--line-subtle)] bg-card py-1.5 focus-visible:outline-2 focus-visible:outline-primary sm:grid-cols-[7rem_minmax(0,1fr)] lg:grid-cols-[6.25rem_minmax(0,1fr)] lg:rounded-xl lg:border lg:border-border lg:px-2.5 lg:py-2"
+      class="group grid grid-cols-[var(--home-media-width)_minmax(0,1fr)] items-center gap-3 rounded-xl border border-border bg-card px-3 py-1.5 focus-visible:outline-2 focus-visible:outline-primary sm:px-4 lg:py-2"
     >
       <div class="relative aspect-video overflow-hidden rounded-md bg-muted">
         <img
@@ -53,21 +53,21 @@ const duration = computed(() => {
       </div>
       <div class="min-w-0 pr-1">
         <p
-          class="flex flex-wrap items-baseline gap-x-2 text-xs font-medium leading-4 text-muted-foreground"
+          class="relative flex flex-wrap items-baseline gap-x-2 pr-5 text-xs font-medium leading-4 text-muted-foreground"
         >
           <span>{{ t('home.latestBrief') }}</span>
           <time class="hidden sm:inline" :datetime="episode.publishedAt">{{ date }}</time>
+          <Icon
+            name="heroicons:arrow-up-right"
+            aria-hidden="true"
+            class="absolute right-0 top-px h-3.5 w-3.5"
+          />
         </p>
         <h2
           :id="titleId"
           class="break-words text-base font-semibold leading-snug text-foreground underline-offset-4 group-hover:underline sm:text-lg lg:text-base"
         >
           {{ episode.headline }}
-          <Icon
-            name="heroicons:arrow-up-right"
-            aria-hidden="true"
-            class="ml-0.5 inline h-3.5 w-3.5 text-muted-foreground"
-          />
         </h2>
         <span :id="destinationId" class="sr-only">{{ t('home.watchBrief') }}</span>
       </div>

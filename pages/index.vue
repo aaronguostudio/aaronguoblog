@@ -27,7 +27,9 @@ useHead({
 </script>
 
 <template>
-  <main class="container max-w-8xl mx-auto flex flex-col gap-4 sm:gap-5">
+  <main
+    class="container max-w-8xl mx-auto flex flex-col gap-4 [--home-media-width:6.5rem] sm:gap-5 sm:[--home-media-width:8rem]"
+  >
     <section class="px-4">
       <div
         class="grid overflow-hidden border-y border-[color:var(--line-subtle)] lg:grid-cols-[minmax(0,1.1fr)_minmax(22rem,0.9fr)]"

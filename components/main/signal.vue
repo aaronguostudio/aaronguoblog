@@ -30,7 +30,7 @@ const latestEdition = signalEditions[0]
     <NuxtLink
       :to="localePath('/signal/editions/' + latestEdition.date)"
       :aria-labelledby="editionTitleId"
-      class="group mx-1 grid grid-cols-[minmax(0,32%)_minmax(0,1fr)] items-center gap-3 rounded-lg px-2 pb-3 pt-1 focus-visible:outline-2 focus-visible:outline-primary sm:grid-cols-[minmax(0,8rem)_minmax(0,1fr)] sm:px-3"
+      class="group grid grid-cols-[var(--home-media-width)_minmax(0,1fr)] items-center gap-3 rounded-lg px-3 pb-3 pt-1 focus-visible:outline-2 focus-visible:outline-primary sm:px-4"
     >
       <img
         :src="coverImage(latestEdition)"
