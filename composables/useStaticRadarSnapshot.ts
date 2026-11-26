@@ -3,16 +3,22 @@ import type { SignalDeepRead } from '~/data/signal/threads'
 import { isNewerRadarSnapshot } from '~/utils/radar-snapshot'
 import type { RadarTakeaway } from '~/utils/radar-snapshot'
 
+export type RadarLanguage = 'en' | 'zh' | 'ja' | 'ko' | 'other'
+
 export type StaticRadarItem = {
   id: number | string
   source: string
   url: string
-  title: string
+  title: string | { en?: string | null; zh?: string | null; original: string }
+  lang?: RadarLanguage
+  image?: string
+  topic?: string
+  published_at?: string | null
   summary?: string | null
   aiSummary?: string | null
   score?: number | string | null
   relevance?: number | string
-  category: string
+  category?: string
   topicSlug?: string
   createdAt?: string | null
   lastSeenAt?: string | null

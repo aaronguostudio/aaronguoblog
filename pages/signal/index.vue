@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { useI18n } from 'vue-i18n'
-import type { StaticRadarItem } from '~/composables/useStaticRadarSnapshot'
+import type { RadarLanguage, StaticRadarItem } from '~/composables/useStaticRadarSnapshot'
 import { signalEditions } from '~/data/signal/editions'
 import { SIGNAL_BRIEFS } from '~/data/signal/briefs'
 import { SIGNAL_RESEARCH_THREADS } from '~/data/signal/threads'
@@ -16,6 +16,9 @@ type SignalItem = {
   source: string
   url: string
   title: string
+  searchTitles: string[]
+  lang?: RadarLanguage
+  image?: string
   summary?: string | null
   ai_summary?: string | null
   score?: number | string | null
@@ -51,22 +54,44 @@ const visibleLimit = ref(50)
 const showPulseEvidence = ref(false)
 const activeThreadSlug = ref('')
 const { data: staticSnapshot, status } = await useStaticRadarSnapshot('signal-radar-latest')
+const titleLanguage = computed(() => locale.value === 'zh' ? 'zh' : 'en')
+const topics = computed(() => staticSnapshot.value?.topics || [])
+const topicCategories = computed(() => new Map(topics.value.map(topic => [topic.slug, topic.category])))
+
+function languageLabel(lang?: RadarLanguage) {
+  return lang && lang !== titleLanguage.value ? lang.toUpperCase() : ''
+}
+
+function trackSignalClick(item: Pick<SignalItem, 'id' | 'source' | 'topic_slug' | 'lang'>) {
+  window.rybbit?.event('signal_click', {
+    id: String(item.id),
+    source: item.source,
+    topic: item.topic_slug || 'general',
+    lang: item.lang || 'other',
+    locale: locale.value,
+  })
+}
 
 function mapStaticItem(item: StaticRadarItem): SignalItem {
+  const title = typeof item.title === 'string' ? { original: item.title } : item.title
+  const topic = item.topic ?? item.topicSlug
   return {
     id: item.id,
     source: item.source,
     url: item.url,
-    title: item.title,
+    title: title[titleLanguage.value]?.trim() || title.original,
+    searchTitles: Object.values(title).filter((value): value is string => Boolean(value)),
+    lang: item.lang,
+    image: item.image,
     summary: item.summary || '',
     ai_summary: item.aiSummary || '',
     score: item.score,
     relevance: item.relevance,
-    category: item.category,
-    topic_slug: item.topicSlug,
+    category: item.category ?? topicCategories.value.get(topic || '') ?? 'general',
+    topic_slug: topic,
     created_at: item.createdAt || '',
     last_seen_at: item.lastSeenAt || null,
-    published_at: item.publishedAt || null,
+    published_at: item.published_at ?? item.publishedAt ?? null,
   }
 }
 
@@ -87,7 +112,7 @@ const filteredItems = computed(() => {
     if (activeSource.value && item.source !== activeSource.value) return false
     if (activeCategory.value && item.category !== activeCategory.value) return false
     if (activeTopic.value && item.topic_slug !== activeTopic.value) return false
-    return !query || [item.title, item.source, item.summary, item.ai_summary]
+    return !query || [...item.searchTitles, item.source, item.summary, item.ai_summary]
       .filter(Boolean).join(' ').toLowerCase().includes(query)
   })
 })
@@ -218,7 +243,6 @@ function categoryLabel(category: string) {
   return labels[category] || category
 }
 
-const topics = computed(() => staticSnapshot.value?.topics || [])
 const availableSources = computed(() => (staticSnapshot.value?.stats || []).map(stat => stat.source))
 const availableCategories = computed(() =>
   [...new Set(researchSignalItems.value.map(item => item.category).filter(Boolean))].sort(),
@@ -249,6 +273,11 @@ const pulseCards = computed(() =>
     id: String(item.id),
     url: item.url,
     title: stripHtml(item.title),
+    lang: item.lang,
+    languageLabel: languageLabel(item.lang),
+    image: item.image,
+    source: item.source,
+    topic_slug: item.topic_slug,
     summary: getSummary(item)?.text || '',
     sourceLabel: sourceLabel(item.source),
     sourceIcon: sourceIcon(item.source),
@@ -300,6 +329,7 @@ async function openEvidenceWorkbench(topic = '') {
         :close-label="t('signal.close')"
         :full-evidence-label="t('signal.openWorkbench')"
         :pulse-cards="pulseCards"
+        @signal-click="trackSignalClick"
         @close="showPulseEvidence = false"
         @open-workbench="openEvidenceWorkbench()"
       />
@@ -450,7 +480,8 @@ async function openEvidenceWorkbench(topic = '') {
             :href="item.url"
             target="_blank"
             rel="noopener noreferrer"
-            class="signal-row group grid gap-3 px-5 py-5 outline-none transition-colors focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--signal-accent)] sm:grid-cols-[minmax(0,1fr)_auto] sm:items-start sm:px-6 sm:py-6"
+            class="signal-row group grid grid-cols-[minmax(0,1fr)_auto] items-start gap-3 px-5 py-5 outline-none transition-colors focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--signal-accent)] sm:px-6 sm:py-6"
+            @click="trackSignalClick(item)"
           >
             <span class="min-w-0">
               <span
@@ -467,6 +498,10 @@ async function openEvidenceWorkbench(topic = '') {
                 class="mt-2 block text-base font-semibold leading-snug text-foreground opacity-80 transition-opacity group-hover:opacity-100 sm:text-lg"
               >
                 {{ stripHtml(item.title) }}
+                <span
+                  v-if="languageLabel(item.lang)"
+                  class="ml-1 rounded border px-1 py-0.5 align-middle font-mono text-[10px] font-normal text-muted-foreground"
+                >{{ languageLabel(item.lang) }}</span>
               </span>
               <span
                 v-if="getSummary(item)"
@@ -475,10 +510,7 @@ async function openEvidenceWorkbench(topic = '') {
                 {{ getSummary(item)!.text }}
               </span>
             </span>
-            <Icon
-              name="heroicons:arrow-up-right"
-              class="h-4 w-4 text-muted-foreground opacity-50 transition-colors group-hover:text-[var(--signal-accent)] group-hover:opacity-100"
-            />
+            <SignalEvidenceThumbnail :image="item.image" />
           </a>
         </div>
 

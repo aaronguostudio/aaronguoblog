@@ -1,10 +1,16 @@
 <script setup lang="ts">
 import { motion, useReducedMotion } from 'motion-v'
+import type { RadarLanguage } from '~/composables/useStaticRadarSnapshot'
 
 type SignalPulseCard = {
   id: string
   url: string
   title: string
+  lang?: RadarLanguage
+  languageLabel: string
+  image?: string
+  source: string
+  topic_slug?: string
   summary: string
   sourceLabel: string
   sourceIcon: string
@@ -26,6 +32,7 @@ defineProps<{
 
 const emit = defineEmits<{
   close: []
+  signalClick: [item: SignalPulseCard]
   openWorkbench: []
 }>()
 
@@ -84,7 +91,8 @@ const prefersReducedMotion = useReducedMotion()
           :href="item.url"
           target="_blank"
           rel="noopener noreferrer"
-          class="signal-row group grid gap-3 px-5 py-4 outline-none transition-colors focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--signal-accent)] sm:grid-cols-[auto_minmax(0,1fr)_auto] sm:items-start sm:px-6 sm:py-5"
+          class="signal-row group grid grid-cols-[auto_minmax(0,1fr)_auto] items-start gap-3 px-5 py-4 outline-none transition-colors focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--signal-accent)] sm:px-6 sm:py-5"
+          @click="emit('signalClick', item)"
         >
           <span
             class="signal-icon-surface flex h-9 w-9 items-center justify-center rounded-full border transition-colors group-hover:border-[var(--signal-accent)] group-hover:text-[var(--signal-accent)]"
@@ -96,6 +104,10 @@ const prefersReducedMotion = useReducedMotion()
               class="text-sm font-semibold leading-snug text-foreground opacity-80 transition-opacity group-hover:opacity-100 sm:text-base"
             >
               {{ item.title }}
+              <span
+                v-if="item.languageLabel"
+                class="ml-1 rounded border px-1 py-0.5 align-middle font-mono text-[10px] font-normal text-muted-foreground"
+              >{{ item.languageLabel }}</span>
             </span>
             <span
               v-if="item.summary"
@@ -103,15 +115,13 @@ const prefersReducedMotion = useReducedMotion()
             >
               {{ item.summary }}
             </span>
+            <span class="mt-1.5 flex flex-wrap items-center gap-2 font-mono text-[10px] text-muted-foreground opacity-75">
+              <span>{{ item.sourceLabel }}</span>
+              <span aria-hidden="true">·</span>
+              <span>{{ item.publishedLabel }}</span>
+            </span>
           </span>
-          <span
-            class="flex items-center gap-2 font-mono text-[10px] text-muted-foreground opacity-75 sm:pt-1"
-          >
-            <span>{{ item.sourceLabel }}</span>
-            <span aria-hidden="true">·</span>
-            <span>{{ item.publishedLabel }}</span>
-            <Icon name="heroicons:arrow-up-right" class="h-3.5 w-3.5" />
-          </span>
+          <SignalEvidenceThumbnail :image="item.image" />
         </a>
       </div>
     </div>

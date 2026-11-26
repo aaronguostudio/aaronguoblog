@@ -134,9 +134,12 @@ minutes and cost after rollout; deployment count is not a dollar estimate.
 
 Download the fixed private Drive file `radar-public.json` to a temporary directory.
 After a completed collection, run `node scripts/signal/import-radar.mjs /private/radar-public.json`
-from a current website checkout. The importer validates the public projection and
-atomically replaces `public/radar/latest.json`. Both the Signal workbench and
-homepage read that snapshot. Earlier dated Radar files remain available as archives.
-Publish the changed snapshot through Git on main. Verify its generation timestamp
-and a headline on both production Signal pages. The separate editorial feed
+from a current website checkout with `OPENAI_API_KEY` in the process environment.
+The importer validates the public projection and atomically replaces
+`public/radar/latest.json` for both Signal locales. Follow the
+[Context Engine spec](context-engine-spec.md) for the import contract and
+enrichment settings. Earlier dated Radar files remain available as archives.
+Include the changed snapshot and both `data/signal/*-cache.json` files in the
+Git change. Publish through Git on main. Verify the generation timestamp and
+a localized headline on both production Signal pages. The separate editorial feed
 `signal-feed.json` supplies the three selections for the daily edition.
