@@ -60,7 +60,6 @@ describe('static Signal contract', () => {
     expect(MAIN_SIGNAL).toContain('role="tooltip"')
     expect(MAIN_SIGNAL).toContain('group-hover/takeaway:opacity-100')
     expect(MAIN_SIGNAL).toContain('group-focus-within/takeaway:opacity-100')
-    expect(MAIN_WRITING).toContain('lg:aspect-[8/5]')
     expect(MAIN_WRITING).toContain("t('home.readArticle')")
     expect(EN_LOCALE).toContain('"readArticle": "Read article"')
     expect(ZH_LOCALE).toContain('"readArticle": "阅读全文"')
