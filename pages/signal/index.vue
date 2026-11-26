@@ -9,6 +9,7 @@ import { createSignalBriefCards } from '~/utils/signal-briefs'
 import { createSignalThreadCards } from '~/utils/signal-threads'
 
 const { t, locale } = useI18n()
+const previousEditions = signalEditions.slice(1, 3)
 
 type SignalItem = {
   id: number | string
@@ -274,7 +275,7 @@ async function openEvidenceWorkbench(topic = '') {
 
 <template>
   <div class="signal-page">
-    <SignalReadingDesk :edition="signalEditions[0]" />
+    <SignalReadingDesk :edition="signalEditions[0]" :previous-editions="previousEditions" />
     <main class="mx-auto max-w-[90rem] px-5 sm:px-8 lg:px-12 xl:px-16">
       <SignalEditionFinding :edition="signalEditions[0]" />
 

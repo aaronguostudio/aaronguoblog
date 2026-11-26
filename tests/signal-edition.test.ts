@@ -1,9 +1,11 @@
 import { describe, expect, it } from 'vitest'
-import { mkdtemp, readFile, readdir, rm } from 'node:fs/promises'
+import { mkdtemp, readFile, readdir, rm, writeFile } from 'node:fs/promises'
+import { createHash } from 'node:crypto'
 import { tmpdir } from 'node:os'
 import { join, sep } from 'node:path'
 import { pathToFileURL } from 'node:url'
-import { buildEdition, saveEdition } from '../scripts/signal/import-edition.mjs'
+import { buildEdition, requireEditorialCover, saveEdition } from '../scripts/signal/import-edition.mjs'
+import { coverImage, signalEditions } from '../data/signal/editions'
 import edition from '../data/signal/editions/2026-11-24.json'
 
 const items = edition.items.map(pick => ({
@@ -17,12 +19,36 @@ describe('public reading desk', () => {
     expect(buildEdition(feed, edition)).toEqual(edition)
   })
 
-  it('preserves each editorial cover and defaults older selections to the atlas', () => {
-    for (const cover of ['atlas', 'eclipse', 'fieldnotes', 'aurora']) {
+  it('recognizes older cover presets and defaults new editions to dated artwork', () => {
+    for (const cover of ['editorial', 'atlas', 'eclipse', 'fieldnotes', 'aurora']) {
       expect(buildEdition(feed, { ...edition, cover }).cover).toBe(cover)
     }
-    expect(buildEdition(feed, { ...edition, cover: undefined }).cover).toBe('atlas')
+    expect(buildEdition(feed, { ...edition, cover: undefined }).cover).toBe('editorial')
     expect(() => buildEdition(feed, { ...edition, cover: 'missing' })).toThrow(/cover/)
+  })
+
+  it('requires a dated artwork file when importing a new edition', async () => {
+    const dir = await mkdtemp(join(tmpdir(), 'signal-covers-'))
+    const directory = pathToFileURL(dir + sep)
+    try {
+      await expect(requireEditorialCover(edition, directory)).rejects.toThrow(edition.date + '.webp')
+      await writeFile(new URL(edition.date + '.webp', directory), await readFile(new URL('../public' + coverImage(edition), import.meta.url)))
+      await expect(requireEditorialCover(edition, directory)).resolves.toBeUndefined()
+      await expect(requireEditorialCover({ ...edition, cover: 'atlas' }, directory)).rejects.toThrow(/editorial cover/)
+    } finally {
+      await rm(dir, { recursive: true, force: true })
+    }
+  })
+
+  it('ships a distinct WebP illustration for each date using the editorial cover', async () => {
+    const checksums = new Set()
+    for (const issue of signalEditions.filter(issue => issue.cover === 'editorial')) {
+      const image = await readFile(new URL('../public' + coverImage(issue), import.meta.url))
+      expect(image.toString('ascii', 8, 12)).toBe('WEBP')
+      const checksum = createHash('sha256').update(image).digest('hex')
+      expect(checksums.has(checksum)).toBe(false)
+      checksums.add(checksum)
+    }
   })
 
   it('reads artifact links from the compact Drive export', () => {

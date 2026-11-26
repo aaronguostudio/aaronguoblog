@@ -232,6 +232,7 @@ body {
 /* Signal keeps its research-desk identity while inheriting the site theme. */
 .signal-page {
   --signal-accent: #44403c;
+  --signal-editorial-accent: #8f4736;
   --signal-line: color-mix(in srgb, var(--foreground) 11%, transparent);
   --signal-line-strong: color-mix(in srgb, var(--foreground) 18%, transparent);
   --signal-row-hover: rgb(68 64 60 / 0.035);
@@ -246,6 +247,7 @@ body {
 
 .dark .signal-page {
   --signal-accent: #d6d3d1;
+  --signal-editorial-accent: #e0a28e;
   --signal-line: rgb(255 255 255 / 0.1);
   --signal-line-strong: rgb(255 255 255 / 0.16);
   --signal-row-hover: rgb(255 255 255 / 0.022);
