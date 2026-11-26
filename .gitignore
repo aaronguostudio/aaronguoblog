@@ -13,3 +13,7 @@ dist
 .DS_Store
 .vercel
 tmp/
+
+# Context Engine local report output and importer lock
+/feedback/feedback-weekly-*.json
+/public/radar/.import-radar.lock
