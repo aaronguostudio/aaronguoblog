@@ -1,0 +1,67 @@
+{
+  "cover": "atlas",
+  "date": "2026-11-25",
+  "headline": {
+    "en": "Who gets a say when AI takes notes?",
+    "zh": "AI 替你记笔记，别人有机会说不吗？"
+  },
+  "intro": {
+    "en": "The person wearing the camera, the team making the API call and the owner of a searchable website each control a different part of a note’s life.",
+    "zh": "戴眼镜的人、调用模型的团队、管理网站的人，各自能决定一份笔记的不同去向。"
+  },
+  "items": [
+    {
+      "id": "p_b3f07d9d24d29310",
+      "title": {
+        "en": "Who notices the camera?",
+        "zh": "谁看见了录制灯？"
+      },
+      "note": {
+        "en": "Germany’s consumer federation vzbv argues that a small blinking light on Ray-Ban Meta glasses tells a passerby too little about what is being recorded or why. Its statement gives the perspective of the person facing the lens. It sets out the federation’s case, and a court would have to decide its merits.",
+        "zh": "德国消费者组织 vzbv 认为，Ray-Ban Meta 眼镜上的小灯即使在闪，路人也很难据此弄清眼镜收集了什么、用来做什么。这份声明值得读，因为它站在镜头另一侧看产品。文中说的是消费者组织提出的主张，是否成立仍要由法院裁断。"
+      },
+      "evidence": "https://www.vzbv.de/pressemitteilungen/smart-glasses-verbraucherzentrale-verklagt-meta-und-ray-ban",
+      "discovery": "https://www.vzbv.de/pressemitteilungen/smart-glasses-verbraucherzentrale-verklagt-meta-und-ray-ban"
+    },
+    {
+      "id": "p_f5c267f93630a32d",
+      "title": {
+        "en": "What does private inference cover?",
+        "zh": "推理时，谁能接触内容？"
+      },
+      "note": {
+        "en": "OpenAI describes Private Inference as an API preview for eligible workflows. It uses confidential computing to restrict access while a request is being processed. OpenAI lists retention and agent permissions separately. A team assessing the preview still has to trace what its own application does with the response.",
+        "zh": "OpenAI 将 Private Inference 列为面向符合条件工作流的 API 预览，用机密计算限制推理期间对内容的访问。产品页把数据保留和 Agent 权限分别列出。团队即使采用这项功能，也还得查清自己的应用收到回复后把它存到哪里。"
+      },
+      "evidence": "https://openai.com/business/private-intelligence/",
+      "discovery": "https://x.com/sama/status/2125638790593274259"
+    },
+    {
+      "id": "p_170ba12c1bada862",
+      "title": {
+        "en": "Who can find the published page?",
+        "zh": "发布后，谁搜得到？"
+      },
+      "note": {
+        "en": "Cloudflare’s Search for Agents lets a site operator turn on indexing and advertises a search endpoint in page metadata. Agents can query it subject to the site’s access rules. The announcement shows how an allowed page becomes easier to find. It provides no basis for assuming that a private page becomes public.",
+        "zh": "站点管理员开启 Cloudflare 的 Search for Agents 后，系统会建立索引，并在网页元数据里公布搜索入口。Agent 能查到的内容仍受站点访问规则约束。这份说明交代了网页怎样变得容易被找到；一张原本需要授权的页面是否可见，还得看实际配置。"
+      },
+      "evidence": "https://blog.cloudflare.com/search-for-agents/",
+      "discovery": "https://blog.cloudflare.com/search-for-agents/"
+    }
+  ],
+  "signal": {
+    "claim": {
+      "en": "A private model call covers only the middle of the meeting",
+      "zh": "一次私密的模型调用，只管得到会议的中间一步"
+    },
+    "reasoning": {
+      "en": "Suppose I wear camera glasses to a meeting and use an AI service to draft the minutes. Across the table, a colleague sees a white light blink. Later she asks who can read her remarks. If I tell her that the model processed them privately, I’ve answered a real question. She may have been asking why her remarks went into the minutes at all, or whether a customer can now search for her name.\n\nThree announcements help untangle those questions. The German complaint starts before a recording exists, when a person still has a chance to ask me to put the glasses away. OpenAI’s preview concerns the interval when a model is working on a request. Cloudflare’s search feature starts with a site owner who has chosen to index content. These are separate products. A team could get the model settings exactly right and still put an accurate summary on the wrong website.\n\nIf I were designing that meeting tool, I’d let the person across the table ask for two things: stop taking notes now, and show me who can find the copy you already made. I’d give the meeting host a way to demonstrate both with a sample note before the first real meeting. That would tell a guest more about the fate of her words than a badge on the model settings page.",
+      "zh": "假设我戴着能录像的眼镜开会，请 AI 整理纪要。坐在对面的同事看见一盏白灯闪了几下。散会后她问：「我刚才说的那句话，谁看得到？」我回答「模型处理的时候有加密」，说的可以完全属实。可她也许想问，我为什么把那句话记下来了，或者客户现在能不能搜到她的名字。\n\n今天的三份材料恰好落在三个不同的时刻。德国消费者组织关心的是录制开始时，对面的人还有没有机会请我摘下眼镜。OpenAI 介绍的是模型处理请求时，谁能接触里面的内容。Cloudflare 讲的是站点管理员开启索引以后，Agent 怎样找到一篇已经发布的网页。这是三种独立的产品。即使团队把推理环节配置得完全正确，也可能把一份准确的纪要发错地方。\n\n如果由我设计这个会议工具，我会给坐在对面的人留两个说得出口的请求：「这段先别记」和「给我看看，刚才记下来的那份谁搜得到」。第一次开会前，主持人就该能用一份假纪要把两件事演给大家看。这样一来，来宾不用懂什么是机密计算，也知道自己刚才那句话会去哪里。"
+    },
+    "nextCheck": {
+      "en": "I’d test the two requests in a mock meeting. Can a guest stop capture in time? Can the host show that an invited reader finds the test note and an outside reader cannot? If one control reliably delivers both outcomes, including for copies already indexed, I’d back the simpler interface. The three sources make no such claim.",
+      "zh": "我会用一场模拟会议来试：来宾能否及时叫停记录？主持人能否当场证明，获邀者找得到测试纪要，外部读者搜不到？如果一个开关就能稳定做到这两件事，连已进索引的副本也管得住，我会支持把界面简化成一个开关。目前这三份材料都没给出这样的证据。"
+    }
+  }
+}
