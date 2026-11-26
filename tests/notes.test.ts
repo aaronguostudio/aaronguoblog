@@ -161,8 +161,10 @@ describe('Builder Notes surface', () => {
   it('uses the responsive featured writing layout on the homepage', () => {
     const writing = readFileSync(join(root, 'components', 'main', 'writing.vue'), 'utf8')
 
-    expect(writing).toContain('aspect-video w-full shrink-0 object-cover')
-    expect(writing).toContain('lg:aspect-[8/5]')
+    const featuredImage = writing.match(/<NuxtImg\b[^>]*:src="heroPost\.image[^>]*\/>/)?.[0]
+    expect(featuredImage).toContain('aspect-video')
+    expect(featuredImage).toContain('object-contain')
+    expect(featuredImage).not.toContain('scale-')
     expect(writing).not.toContain('lg:h-[360px]')
     expect(writing).toContain('class="flex flex-1 flex-col p-6"')
     expect(writing).toContain("t('home.readArticle')")

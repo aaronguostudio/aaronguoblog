@@ -93,7 +93,7 @@ function categoryLabels(categories: string[]) {
             :src="heroPost.image || '/blogs-img/blog.jpg'"
             :alt="heroPost.alt"
             sizes="100vw lg:60vw"
-            class="aspect-video w-full shrink-0 object-cover object-center transition-all duration-500 group-hover:scale-[1.02] lg:aspect-[8/5]"
+            class="aspect-video w-full shrink-0 bg-muted object-contain"
           />
           <div class="flex flex-1 flex-col p-6">
             <div class="flex items-center gap-2 mb-3">
