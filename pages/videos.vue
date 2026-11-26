@@ -5,53 +5,38 @@ import youtubeData from '~/data/youtube.json'
 
 const { t, locale } = useI18n()
 
-type YouTubeVideo = {
+type VideoFormat = 'videos' | 'shorts'
+
+type ChannelVideo = {
   id: string
   title: string
   thumbnail: string
-  thumbnailWidth?: number
-  thumbnailHeight?: number
-  thumbnailQuality?: string
   publishedAt: string
   durationSeconds: number
   viewCount: number
 }
 
-type YouTubeChannelData = {
+type ChannelLibrary = {
   channel: {
     subscriberCount: number
-    videoCount: number
     viewCount: number
+    videoCount: number
   }
-  videos: YouTubeVideo[]
-  shorts: YouTubeVideo[]
+  videos: ChannelVideo[]
+  shorts: ChannelVideo[]
 }
 
-type YouTubeData = {
-  channels: Record<string, YouTubeChannelData>
-  metadata: {
-    fetchedAt?: string
-  }
-}
+const libraries: Record<string, ChannelLibrary> = youtubeData.channels
+const channels = youtubeChannels.map((channel) => ({
+  ...channel,
+  library: libraries[channel.id === 'drum' ? 'drumnext' : channel.id],
+}))
 
-type ChannelTab = {
-  key: string
-  channelId: string
-  nameKey: string
-  descriptionKey: string
-  icon: string
-}
-
-const typedYoutubeData = youtubeData as YouTubeData
+const { data: premiere } = await useFetch('/api/latest-ai-brief')
 
 useHead({
   title: t('videos.title'),
-  meta: [
-    {
-      name: 'description',
-      content: t('videos.description'),
-    },
-  ],
+  meta: [{ name: 'description', content: t('videos.description') }],
 })
 
 defineOgImageComponent('About', {
@@ -60,352 +45,367 @@ defineOgImageComponent('About', {
   description: t('videos.description'),
 })
 
-const tabs: ChannelTab[] = [
-  {
-    key: 'ai-native-builder',
-    channelId: 'ai-native-builder',
-    nameKey: 'channels.aiNativeBuilder.name',
-    descriptionKey: 'channels.aiNativeBuilder.description',
-    icon: 'heroicons:cpu-chip',
-  },
-  {
-    key: 'drumnext',
-    channelId: 'drum',
-    nameKey: 'channels.drum.name',
-    descriptionKey: 'channels.drum.description',
-    icon: 'mdi:music-circle',
-  },
-  {
-    key: 'visual-and-sound',
-    channelId: 'visual-and-sound',
-    nameKey: 'channels.visualAndSound.name',
-    descriptionKey: 'channels.visualAndSound.description',
-    icon: 'heroicons:sparkles',
-  },
-]
+const chunkSize = 6
+const activeChannelId = ref(channels[0].id)
+const activeFormat = ref<VideoFormat>('videos')
+const visibleCount = ref(chunkSize)
+const releaseList = ref<HTMLUListElement | null>(null)
 
-const activeTab = ref(tabs[0].key)
-
-const activeChannelData = computed(() => typedYoutubeData.channels[activeTab.value] || null)
-const activeChannel = computed(() => tabs.find((tab) => tab.key === activeTab.value) || tabs[0])
-const activeChannelProfile = computed(() =>
-  youtubeChannels.find((channel) => channel.id === activeChannel.value.channelId),
+const activeChannel = computed(
+  () => channels.find((channel) => channel.id === activeChannelId.value) ?? channels[0],
 )
-const activeChannelName = computed(() => t(activeChannel.value.nameKey))
-const activeChannelDescription = computed(() => t(activeChannel.value.descriptionKey))
-const featuredVideo = computed(
-  () => activeChannelData.value?.videos[0] || activeChannelData.value?.shorts[0] || null,
-)
-const recentVideos = computed(() => {
-  const videos = activeChannelData.value?.videos || []
-
-  return featuredVideo.value && videos[0]?.id === featuredVideo.value.id
-    ? videos.slice(1, 7)
-    : videos.slice(0, 6)
-})
-
-const channelStats = computed(() => {
-  const channel = activeChannelData.value?.channel
-
-  if (!channel) return []
-
-  return [
-    {
-      key: 'subscribers',
-      label: t('drum.subscribers'),
-      icon: 'mdi:account-multiple',
-      value: formatNumber(channel.subscriberCount),
-    },
-    {
-      key: 'views',
-      label: t('drum.totalViews'),
-      icon: 'mdi:eye',
-      value: formatNumber(channel.viewCount),
-    },
-    {
-      key: 'videos',
-      label: t('drum.totalVideos'),
-      icon: 'mdi:video',
-      value: formatNumber(channel.videoCount),
-    },
+const formats = computed(() => {
+  const library = activeChannel.value.library
+  const options: { id: VideoFormat; label: string }[] = [
+    { id: 'videos', label: t('videos.fullLength') },
+    { id: 'shorts', label: t('drum.shorts') },
   ]
+  return options.filter(({ id }) => library?.[id].length)
 })
 
-const formatNumber = (num: number) => num.toLocaleString(locale.value === 'zh' ? 'zh-CN' : 'en-US')
-const formatDate = (dateString: string) =>
-  new Intl.DateTimeFormat(locale.value === 'zh' ? 'zh-CN' : 'en-US', {
+const currentFormat = computed(
+  () =>
+    formats.value.find(({ id }) => id === activeFormat.value)?.id ??
+    formats.value[0]?.id ??
+    'videos',
+)
+const channelVideos = computed(() => activeChannel.value.library?.[currentFormat.value] ?? [])
+const channelStats = computed(() => {
+  const stats = activeChannel.value.library?.channel
+  return stats
+    ? [
+        { label: t('drum.subscribers'), value: stats.subscriberCount },
+        { label: t('drum.totalViews'), value: stats.viewCount },
+        { label: t('drum.totalVideos'), value: stats.videoCount },
+      ]
+    : []
+})
+const visibleVideos = computed(() => channelVideos.value.slice(0, visibleCount.value))
+
+function selectFormat(format: VideoFormat) {
+  activeFormat.value = format
+  visibleCount.value = chunkSize
+}
+
+function selectChannel(channelId: string) {
+  if (activeChannelId.value === channelId) return
+
+  activeChannelId.value = channelId
+  selectFormat('videos')
+}
+
+async function showMore() {
+  const firstNewIndex = visibleVideos.value.length
+  visibleCount.value += chunkSize
+  await nextTick()
+  releaseList.value?.children[firstNewIndex]?.querySelector('a')?.focus()
+}
+
+const formatDate = (value: string) =>
+  new Intl.DateTimeFormat(locale.value, {
     year: 'numeric',
     month: 'short',
     day: 'numeric',
-  }).format(new Date(dateString))
-const formatDuration = (seconds: number) => {
-  if (seconds < 60) return `${seconds}s`
-  const minutes = Math.floor(seconds / 60)
-  const remainingSeconds = seconds % 60
+    timeZone: 'America/Edmonton',
+  }).format(new Date(value))
 
-  return remainingSeconds > 0
-    ? `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`
-    : `${minutes}:00`
+const formatNumber = (value: number) => new Intl.NumberFormat(locale.value).format(value)
+
+function formatDuration(seconds: number) {
+  const minutes = Math.floor(seconds / 60)
+  const remainder = String(seconds % 60).padStart(2, '0')
+  if (minutes < 60) return `${minutes}:${remainder}`
+
+  return `${Math.floor(minutes / 60)}:${String(minutes % 60).padStart(2, '0')}:${remainder}`
 }
-const getVideoUrl = (videoId: string) => `https://www.youtube.com/watch?v=${videoId}`
+
+const getVideoUrl = (id: string) => `https://www.youtube.com/watch?v=${id}`
 </script>
 
 <template>
-  <main class="videos-page mx-auto max-w-[90rem] px-5 pb-20 pt-9 sm:px-8 sm:pt-12 lg:px-12 xl:px-16">
-    <section class="border-b border-[var(--line-subtle)] pb-12 sm:pb-14">
-      <div class="flex flex-col gap-7 lg:flex-row lg:items-end lg:justify-between">
-        <div class="max-w-3xl">
-          <p class="font-mono text-[10px] font-medium uppercase tracking-[0.18em] text-red-700 dark:text-red-300">
-            {{ t('videos.eyebrow') }}
-          </p>
-          <h1 class="mt-4 text-4xl font-semibold leading-[1.05] text-foreground sm:text-5xl">
-            {{ t('videos.title') }}
-          </h1>
-          <p class="mt-4 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
-            {{ t('videos.description') }}
-          </p>
-        </div>
+  <main class="videos-page mx-auto max-w-[90rem] px-4 pb-16 pt-5 sm:px-8 sm:pt-8 lg:px-12 xl:px-16">
+    <h1
+      class="border-b border-[var(--line-subtle)] pb-3 text-3xl font-semibold tracking-tight text-foreground sm:pb-4 sm:text-4xl"
+    >
+      {{ t('videos.title') }}
+    </h1>
 
-        <p class="font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground">
-          {{ tabs.length }} {{ t('videos.channels') }}
-        </p>
-      </div>
+    <section v-if="premiere" aria-labelledby="video-premiere-title">
+      <a
+        :href="getVideoUrl(premiere.id)"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-labelledby="video-premiere-title video-premiere-watch"
+        class="video-premiere group grid items-center gap-5 border-b border-[var(--line-subtle)] py-5 sm:gap-8 md:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)] md:py-7 lg:gap-12"
+      >
+        <div class="min-w-0">
+          <p class="video-kicker text-xs font-semibold uppercase tracking-[0.12em]">The AI Brief</p>
+          <h2 id="video-premiere-title" class="video-premiere-title mt-2 sm:mt-3">
+            {{ premiere.headline }}
+          </h2>
+          <p
+            class="mt-3 flex flex-wrap items-baseline gap-x-2 text-sm text-muted-foreground sm:mt-4 sm:text-base"
+          >
+            <time :datetime="premiere.publishedAt">{{ formatDate(premiere.publishedAt) }}</time>
+            <template v-if="premiere.durationSeconds > 0">
+              <span aria-hidden="true">·</span>
+              <span class="tabular-nums">{{ formatDuration(premiere.durationSeconds) }}</span>
+            </template>
+          </p>
+          <span
+            id="video-premiere-watch"
+            class="video-watch mt-4 inline-flex min-h-11 items-center gap-2 rounded-md px-4 py-2 text-sm font-semibold transition-colors sm:mt-6"
+          >
+            <Icon name="heroicons:play-solid" class="h-4 w-4" />
+            {{ t('drum.watchOnYouTube') }}
+          </span>
+        </div>
+        <img
+          :src="premiere.thumbnail"
+          alt=""
+          width="1280"
+          height="720"
+          fetchpriority="high"
+          class="order-first aspect-video w-full rounded-lg bg-muted object-contain md:order-none"
+        />
+      </a>
     </section>
 
-    <section class="border-b border-[var(--line-subtle)] py-10 sm:py-12">
-      <div class="flex items-end justify-between gap-6">
-        <div>
-          <p class="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
-            {{ t('videos.channelLineup') }}
-          </p>
-          <h2 class="mt-3 text-2xl font-semibold text-foreground sm:text-3xl">
-            {{ t('videos.channels') }}
-          </h2>
-        </div>
-      </div>
-
-      <div class="mt-7 grid gap-3 lg:grid-cols-3">
-        <div
-          v-for="tab in tabs"
-          :key="tab.key"
-          class="flex min-h-[7.5rem] overflow-hidden rounded-lg border transition-colors"
-          :class="
-            activeTab === tab.key
-              ? 'border-foreground bg-card'
-              : 'border-[var(--line-card)] bg-card/50 hover:border-[var(--line-control)]'
-          "
+    <section aria-labelledby="video-channel-heading" class="pt-5 sm:pt-6">
+      <h2
+        id="video-channel-heading"
+        class="text-xl font-semibold tracking-tight text-foreground sm:text-2xl"
+      >
+        {{ t('videos.channelLineup') }}
+      </h2>
+      <div
+        class="mt-2 grid grid-cols-3 divide-x divide-[var(--line-subtle)] border-b border-[var(--line-subtle)]"
+      >
+        <button
+          v-for="channel in channels"
+          :key="channel.id"
+          type="button"
+          :aria-pressed="activeChannelId === channel.id"
+          :aria-label="t('videos.selectChannel', { channel: t(channel.nameKey) })"
+          aria-controls="video-channel-library"
+          class="video-channel-option relative flex min-w-0 flex-col items-center justify-start gap-2 px-2 py-3 text-center text-xs font-semibold text-foreground transition-colors sm:flex-row sm:justify-start sm:gap-3 sm:px-4 sm:py-3 sm:text-left sm:text-sm lg:text-base"
+          @click="selectChannel(channel.id)"
         >
-          <button
-            type="button"
-            class="group flex min-w-0 flex-1 items-start gap-4 px-5 py-5 text-left outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-foreground"
-            :aria-pressed="activeTab === tab.key"
-            :aria-label="t('videos.selectChannel', { channel: t(tab.nameKey) })"
-            @click="activeTab = tab.key"
+          <img
+            v-if="channel.logo"
+            :src="channel.logo"
+            width="44"
+            height="44"
+            alt=""
+            class="h-9 w-9 shrink-0 rounded-full bg-muted object-cover sm:h-11 sm:w-11"
+          />
+          <span
+            v-else
+            class="grid h-9 w-9 place-items-center rounded-full bg-muted sm:h-11 sm:w-11"
           >
-            <span
-              class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border"
-              :class="
-                activeTab === tab.key
-                  ? 'border-red-600/45 bg-red-600/10 text-red-700 dark:border-red-300/40 dark:bg-red-300/10 dark:text-red-300'
-                  : 'border-[var(--line-card)] text-muted-foreground'
-              "
-            >
-              <Icon :name="tab.icon" class="h-5 w-5" />
-            </span>
-            <span class="min-w-0">
-              <span class="block text-base font-semibold text-foreground">
-                {{ t(tab.nameKey) }}
-              </span>
-              <span class="mt-2 block text-sm leading-5 text-muted-foreground">
-                {{ t(tab.descriptionKey) }}
-              </span>
-            </span>
-          </button>
-          <a
-            v-if="youtubeChannels.find((channel) => channel.id === tab.channelId)"
-            :href="youtubeChannels.find((channel) => channel.id === tab.channelId)?.url"
-            target="_blank"
-            rel="noopener noreferrer"
-            :title="t('videos.openChannel')"
-            :aria-label="t('videos.openChannel')"
-            class="flex w-12 shrink-0 items-center justify-center border-l border-[var(--line-subtle)] text-muted-foreground outline-none transition-colors hover:bg-red-600/5 hover:text-red-700 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-foreground dark:hover:text-red-300"
-          >
-            <Icon name="heroicons:arrow-up-right" class="h-4 w-4" />
-          </a>
-        </div>
+            <Icon :name="channel.icon" class="h-5 w-5" />
+          </span>
+          <span>{{ t(channel.nameKey) }}</span>
+          <span class="ml-auto hidden shrink-0 text-muted-foreground md:block">
+            <Icon name="heroicons:chevron-right" class="h-4 w-4" />
+          </span>
+        </button>
       </div>
-    </section>
 
-    <template v-if="activeChannelData">
-      <section class="grid gap-9 border-b border-[var(--line-subtle)] py-12 lg:grid-cols-[minmax(0,0.88fr)_minmax(22rem,1.12fr)] lg:items-end lg:gap-14">
-        <div>
-          <p class="font-mono text-[10px] uppercase tracking-[0.18em] text-red-700 dark:text-red-300">
-            {{ t('videos.selectedChannel') }}
-          </p>
-          <h2 class="mt-4 text-3xl font-semibold leading-tight text-foreground sm:text-4xl">
-            {{ activeChannelName }}
-          </h2>
-          <p class="mt-4 max-w-xl text-base leading-7 text-muted-foreground">
-            {{ activeChannelDescription }}
-          </p>
-
+      <section
+        id="video-channel-library"
+        aria-labelledby="video-channel-title"
+        class="mt-4 sm:mt-6"
+      >
+        <div
+          class="flex flex-wrap items-center gap-x-5 gap-y-1 border-b border-[var(--line-subtle)] sm:gap-x-7"
+        >
+          <h3
+            id="video-channel-title"
+            aria-live="polite"
+            class="py-2 text-xl font-semibold tracking-tight text-foreground sm:text-2xl"
+          >
+            {{ t(activeChannel.nameKey) }}
+          </h3>
+          <div
+            v-if="formats.length"
+            class="order-last flex basis-full gap-4 sm:order-none sm:basis-auto"
+          >
+            <button
+              v-for="format in formats"
+              :key="format.id"
+              type="button"
+              :aria-pressed="currentFormat === format.id"
+              aria-controls="video-releases"
+              class="video-format inline-flex min-h-11 items-center border-b-2 border-transparent text-sm font-medium text-muted-foreground transition-colors"
+              @click="selectFormat(format.id)"
+            >
+              {{ format.label }}
+            </button>
+          </div>
           <a
-            v-if="activeChannelProfile"
-            :href="activeChannelProfile.url"
+            :href="activeChannel.url"
             target="_blank"
             rel="noopener noreferrer"
-            class="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-foreground outline-none transition-colors hover:text-red-700 focus-visible:ring-2 focus-visible:ring-foreground dark:hover:text-red-300"
+            class="ml-auto inline-flex min-h-11 items-center gap-1.5 text-xs font-medium text-muted-foreground underline-offset-4 hover:text-foreground hover:underline sm:text-sm"
           >
             {{ t('videos.openChannel') }}
-            <Icon name="heroicons:arrow-up-right" class="h-4 w-4" />
+            <Icon name="heroicons:arrow-up-right" class="h-3.5 w-3.5" />
           </a>
-
-          <dl class="mt-9 grid grid-cols-3 border-y border-[var(--line-subtle)]">
-            <div
-              v-for="(stat, index) in channelStats"
-              :key="stat.key"
-              class="min-w-0 py-4 sm:py-5"
-              :class="index > 0 ? 'border-l border-[var(--line-subtle)] pl-4 sm:pl-6' : 'pr-4 sm:pr-6'"
-            >
-              <dt class="flex items-center gap-2 text-xs text-muted-foreground">
-                <Icon :name="stat.icon" class="h-3.5 w-3.5" />
-                <span class="line-clamp-1">{{ stat.label }}</span>
-              </dt>
-              <dd class="mt-2 text-2xl font-semibold text-foreground sm:text-3xl">
-                {{ stat.value }}
-              </dd>
-            </div>
-          </dl>
         </div>
 
-        <a
-          v-if="featuredVideo"
-          :href="getVideoUrl(featuredVideo.id)"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="group relative block w-full overflow-hidden rounded-lg border border-[var(--line-card)] bg-card outline-none focus-visible:ring-2 focus-visible:ring-foreground lg:justify-self-end lg:max-w-[36rem]"
-        >
-          <div class="relative aspect-video overflow-hidden">
-            <img
-              :src="featuredVideo.thumbnail"
-              :alt="featuredVideo.title"
-              class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.025] motion-reduce:transition-none"
-            />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/5 to-transparent" />
-            <div class="absolute inset-x-0 bottom-0 flex items-end justify-between gap-5 p-5 sm:p-6">
-              <div class="min-w-0">
-                <p class="font-mono text-[10px] uppercase tracking-[0.16em] text-white/70">
-                  {{ t('videos.latestRelease') }}
-                </p>
-                <h3 class="mt-2 line-clamp-2 text-lg font-semibold leading-snug text-white sm:text-xl">
-                  {{ featuredVideo.title }}
-                </h3>
-              </div>
-              <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white text-black transition-transform duration-300 group-hover:scale-105 motion-reduce:transition-none">
-                <Icon name="heroicons:play-solid" class="ml-0.5 h-4 w-4" />
-              </span>
-            </div>
-          </div>
-        </a>
-      </section>
+        <p class="mt-3 text-sm leading-relaxed text-muted-foreground">
+          {{ t(activeChannel.descriptionKey) }}
+        </p>
 
-      <section v-if="recentVideos.length > 0" class="border-b border-[var(--line-subtle)] py-12">
-        <div class="flex items-end justify-between gap-6">
-          <div>
-            <p class="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
-              {{ t('videos.latestRelease') }}
-            </p>
-            <h2 class="mt-3 text-2xl font-semibold text-foreground sm:text-3xl">
-              {{ t('videos.moreReleases') }}
-            </h2>
-          </div>
-        </div>
-
-        <div class="mt-7 grid gap-x-5 gap-y-8 md:grid-cols-2 xl:grid-cols-3">
-          <a
-            v-for="video in recentVideos"
-            :key="video.id"
-            :href="getVideoUrl(video.id)"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="group block outline-none focus-visible:ring-2 focus-visible:ring-foreground"
+        <div id="video-releases" class="mt-2 sm:mt-3">
+          <ul
+            v-if="visibleVideos.length"
+            ref="releaseList"
+            :key="`${activeChannelId}-${currentFormat}`"
+            class="grid gap-x-6 gap-y-1 sm:grid-cols-2 lg:grid-cols-3"
           >
-            <div class="relative aspect-video overflow-hidden rounded-lg border border-[var(--line-card)] bg-card">
-              <img
-                :src="video.thumbnail"
-                :alt="video.title"
-                class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.025] motion-reduce:transition-none"
-              />
-              <span class="absolute bottom-3 right-3 rounded-sm bg-black/85 px-2 py-1 font-mono text-[10px] text-white">
-                {{ formatDuration(video.durationSeconds) }}
-              </span>
-            </div>
-            <div class="pt-4">
-              <h3 class="line-clamp-2 text-base font-semibold leading-snug text-foreground transition-colors group-hover:text-red-700 dark:group-hover:text-red-300">
-                {{ video.title }}
-              </h3>
-              <p class="mt-2 flex items-center gap-2 text-xs text-muted-foreground">
-                <Icon name="mdi:eye" class="h-3.5 w-3.5" />
-                <span>{{ formatNumber(video.viewCount) }} {{ t('drum.views') }}</span>
-                <span aria-hidden="true">·</span>
-                <span>{{ formatDate(video.publishedAt) }}</span>
-              </p>
-            </div>
-          </a>
-        </div>
-      </section>
-
-      <section v-if="activeChannelData.shorts.length > 0" class="border-b border-[var(--line-subtle)] py-12">
-        <div>
-          <p class="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
-            {{ activeChannelName }}
+            <li v-for="video in visibleVideos" :key="video.id">
+              <a
+                :href="getVideoUrl(video.id)"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="video-release group flex min-h-full items-center gap-3 rounded-lg px-2 py-2.5 transition-colors sm:gap-4"
+              >
+                <div
+                  class="relative shrink-0 overflow-hidden rounded-md bg-muted"
+                  :class="
+                    currentFormat === 'shorts'
+                      ? 'aspect-[9/16] w-16 sm:w-[4.5rem]'
+                      : 'aspect-video w-[6.5rem] sm:w-[7.25rem]'
+                  "
+                >
+                  <img
+                    :src="video.thumbnail"
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                    :width="currentFormat === 'shorts' ? 72 : 160"
+                    :height="currentFormat === 'shorts' ? 128 : 90"
+                    class="h-full w-full object-cover"
+                  />
+                  <span
+                    v-if="video.durationSeconds > 0"
+                    class="absolute bottom-1 right-1 rounded bg-black/85 px-1 py-0.5 text-[10px] tabular-nums text-white"
+                    >{{ formatDuration(video.durationSeconds) }}</span
+                  >
+                </div>
+                <div class="min-w-0">
+                  <p
+                    class="text-sm font-semibold leading-snug text-foreground underline-offset-4 group-hover:underline sm:text-base"
+                  >
+                    {{ video.title }}
+                  </p>
+                  <p
+                    class="mt-1 flex flex-wrap items-baseline gap-x-1.5 text-xs text-muted-foreground"
+                  >
+                    <time :datetime="video.publishedAt">{{ formatDate(video.publishedAt) }}</time>
+                    <span aria-hidden="true">·</span>
+                    <span>{{ formatNumber(video.viewCount) }} {{ t('drum.views') }}</span>
+                  </p>
+                </div>
+              </a>
+            </li>
+          </ul>
+          <p v-else class="py-8 text-sm text-muted-foreground">
+            {{ t('drum.noVideos') }}
           </p>
-          <h2 class="mt-3 text-2xl font-semibold text-foreground sm:text-3xl">
-            {{ t('drum.shorts') }}
-          </h2>
-        </div>
-
-        <div class="mt-7 grid grid-cols-2 gap-x-4 gap-y-7 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-6">
-          <a
-            v-for="short in activeChannelData.shorts.slice(0, 12)"
-            :key="short.id"
-            :href="getVideoUrl(short.id)"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="group block outline-none focus-visible:ring-2 focus-visible:ring-foreground"
+          <button
+            v-if="channelVideos.length > visibleVideos.length"
+            type="button"
+            class="video-more mt-4 inline-flex min-h-11 items-center gap-2 rounded-md border border-[var(--line-subtle)] px-4 py-2 text-sm font-medium transition-colors"
+            @click="showMore"
           >
-            <div class="relative aspect-[9/16] overflow-hidden rounded-lg border border-[var(--line-card)] bg-card">
-              <img
-                :src="short.thumbnail"
-                :alt="short.title"
-                class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.025] motion-reduce:transition-none"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
-              <span class="absolute bottom-3 left-3 right-3 line-clamp-2 text-sm font-semibold leading-snug text-white">
-                {{ short.title }}
-              </span>
-            </div>
-            <p class="mt-2 flex items-center gap-1.5 text-xs text-muted-foreground">
-              <Icon name="mdi:eye" class="h-3.5 w-3.5" />
-              <span>{{ formatNumber(short.viewCount) }}</span>
-            </p>
-          </a>
+            {{ t('videos.loadMore') }}
+            <Icon name="heroicons:chevron-down" class="h-4 w-4" />
+          </button>
         </div>
+
+        <dl
+          v-if="channelStats.length"
+          class="mt-6 flex flex-wrap gap-x-5 gap-y-1 border-t border-[var(--line-subtle)] pt-3 text-xs text-muted-foreground"
+        >
+          <div v-for="stat in channelStats" :key="stat.label" class="flex items-baseline gap-1.5">
+            <dt>{{ stat.label }}</dt>
+            <dd class="font-semibold tabular-nums text-foreground">
+              {{ formatNumber(stat.value) }}
+            </dd>
+          </div>
+        </dl>
       </section>
-
-      <div
-        v-if="activeChannelData.videos.length === 0 && activeChannelData.shorts.length === 0"
-        class="border-b border-[var(--line-subtle)] py-16 text-center"
-      >
-        <p class="text-muted-foreground">{{ t('drum.noVideos') }}</p>
-      </div>
-    </template>
-
-    <p
-      v-if="typedYoutubeData.metadata.fetchedAt"
-      class="pt-6 text-right font-mono text-[10px] text-muted-foreground"
-    >
-      {{ t('drum.lastUpdated') }} · {{ formatDate(typedYoutubeData.metadata.fetchedAt) }}
-    </p>
+    </section>
   </main>
 </template>
+
+<style scoped>
+.videos-page {
+  --video-accent: #915009;
+  --video-warm-ink: var(--foreground);
+  --video-glow: rgb(237 174 86 / 0.13);
+  --video-tint: rgb(145 80 9 / 0.07);
+  --video-watch-bg: #21180f;
+  --video-watch-ink: #fff6e8;
+}
+
+:global(html.dark .videos-page) {
+  --video-accent: #ffcb70;
+  --video-warm-ink: #f8eee0;
+  --video-glow: rgb(183 100 29 / 0.18);
+  --video-tint: rgb(255 203 112 / 0.08);
+  --video-watch-bg: #f7ebd8;
+  --video-watch-ink: #1d160f;
+}
+
+.video-premiere {
+  background: radial-gradient(ellipse at 57% 52%, var(--video-glow), transparent 72%);
+}
+
+.video-kicker {
+  color: var(--video-accent);
+}
+
+.video-premiere-title {
+  color: var(--video-warm-ink);
+  font-family: Georgia, 'Songti SC', 'Noto Serif SC', serif;
+  font-size: clamp(1.95rem, 4.4vw, 3.65rem);
+  font-weight: 600;
+  letter-spacing: -0.032em;
+  line-height: 1.04;
+  text-wrap: balance;
+}
+
+.video-watch {
+  background-color: var(--video-watch-bg);
+  color: var(--video-watch-ink);
+}
+
+.video-premiere:hover .video-watch,
+.video-premiere:focus-visible .video-watch {
+  background-color: color-mix(in srgb, var(--video-watch-bg) 90%, var(--video-accent));
+}
+
+.video-channel-option[aria-pressed='true'] {
+  box-shadow: inset 0 -2px var(--video-accent);
+}
+
+.video-channel-option:hover,
+.video-channel-option[aria-pressed='true'],
+.video-release:hover,
+.video-more:hover {
+  background-color: var(--video-tint);
+}
+
+.video-format:hover,
+.video-format[aria-pressed='true'] {
+  color: var(--foreground);
+}
+
+.video-format[aria-pressed='true'] {
+  border-color: var(--video-accent);
+}
+</style>

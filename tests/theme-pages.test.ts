@@ -56,19 +56,18 @@ describe('editorial page themes', () => {
     expect(card).not.toMatch(/dark:text-(?:gray|slate|zinc)-/)
   })
 
-  it('uses a channel-driven media layout for Videos', () => {
+  it('keeps the Videos premiere separate from the channel library', () => {
     const page = read('pages', 'videos.vue')
     const fetcher = read('scripts', 'fetch-youtube-data.js')
 
-    expect(page).toContain('const featuredVideo')
-    expect(page).toContain('const recentVideos')
-    expect(page).toContain("t('videos.channelLineup')")
-    expect(page).toContain("t('videos.selectedChannel')")
-    expect(page).toContain("t('videos.moreReleases')")
-    expect(page).toContain('v-for="video in recentVideos"')
-    expect(page).toContain('activeChannelData.shorts.slice(0, 12)')
-    expect(page).toContain('youtubeChannels.find')
-    expect(page).toContain('lg:max-w-[36rem]')
+    expect(page).toContain("await useFetch('/api/latest-ai-brief')")
+    expect(page).toContain(':href="getVideoUrl(premiere.id)"')
+    expect(page).toContain('@click="selectChannel(channel.id)"')
+    expect(page).toContain('activeChannel.value.library?.[currentFormat.value]')
+    expect(page).toContain('v-for="video in visibleVideos"')
+    expect(page).toContain('@click="showMore"')
+    expect(page).toContain(':href="activeChannel.url"')
+    expect(page).toContain(':global(html.dark .videos-page)')
     expect(fetcher).toContain("['maxres', 'standard', 'high', 'medium', 'default']")
     expect(fetcher).toContain("'snippet,contentDetails,statistics,status'")
   })
