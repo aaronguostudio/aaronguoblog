@@ -1,10 +1,10 @@
 {
   "version": 2,
   "producer": "grokbot",
-  "date": "2026-11-26",
-  "generatedAt": "2026-11-27T00:28:47.000Z",
+  "date": "2026-11-27",
+  "generatedAt": "2026-11-27T14:27:26.000Z",
   "latestRun": {
-    "completedAt": "2026-11-27T00:28:47.000Z"
+    "completedAt": "2026-11-27T14:27:26.000Z"
   },
   "topics": [
     {
@@ -44,15 +44,15 @@
       "count": 13
     },
     {
+      "source": "Android Authority",
+      "count": 11
+    },
+    {
       "source": "Qiita",
       "count": 10
     },
     {
-      "source": "Android Authority",
-      "count": 10
-    },
-    {
-      "source": "Zenn",
+      "source": "The Verge",
       "count": 9
     },
     {
@@ -60,15 +60,15 @@
       "count": 9
     },
     {
+      "source": "Zenn",
+      "count": 9
+    },
+    {
       "source": "TechCrunch",
       "count": 9
     },
     {
-      "source": "The Verge",
-      "count": 9
-    },
-    {
-      "source": "IT之家",
+      "source": "9to5Google",
       "count": 8
     },
     {
@@ -80,11 +80,19 @@
       "count": 8
     },
     {
+      "source": "Bilibili",
+      "count": 8
+    },
+    {
+      "source": "IT之家",
+      "count": 8
+    },
+    {
       "source": "Wired",
       "count": 8
     },
     {
-      "source": "Bilibili",
+      "source": "Hugging Face Blog",
       "count": 8
     },
     {
@@ -96,16 +104,8 @@
       "count": 8
     },
     {
-      "source": "9to5Google",
-      "count": 8
-    },
-    {
       "source": "Latent Space",
-      "count": 7
-    },
-    {
-      "source": "Hugging Face Blog",
-      "count": 7
+      "count": 6
     },
     {
       "source": "arXiv",
@@ -116,11 +116,11 @@
       "count": 6
     },
     {
-      "source": "Simon Willison",
+      "source": "Meta Newsroom",
       "count": 5
     },
     {
-      "source": "X @elonmusk",
+      "source": "Simon Willison",
       "count": 5
     },
     {
@@ -136,19 +136,23 @@
       "count": 5
     },
     {
-      "source": "X @OpenAI",
-      "count": 5
-    },
-    {
       "source": "GitHub Trending",
       "count": 5
     },
     {
-      "source": "Ars Technica",
+      "source": "Bloomberg",
       "count": 4
     },
     {
-      "source": "Meta Newsroom",
+      "source": "X @elonmusk",
+      "count": 4
+    },
+    {
+      "source": "arXiv cs.AI",
+      "count": 4
+    },
+    {
+      "source": "Ars Technica",
       "count": 4
     },
     {
@@ -156,23 +160,11 @@
       "count": 4
     },
     {
-      "source": "X @dhh",
-      "count": 4
-    },
-    {
       "source": "X @bojie_li",
       "count": 4
     },
     {
-      "source": "Bloomberg",
-      "count": 3
-    },
-    {
       "source": "少数派",
-      "count": 3
-    },
-    {
-      "source": "arXiv cs.AI",
       "count": 3
     },
     {
@@ -180,12 +172,24 @@
       "count": 3
     },
     {
+      "source": "X @OpenAI",
+      "count": 3
+    },
+    {
       "source": "X @theo",
       "count": 3
     },
     {
-      "source": "X @KobeissiLetter",
+      "source": "X @dhh",
       "count": 3
+    },
+    {
+      "source": "The Guardian",
+      "count": 2
+    },
+    {
+      "source": "Financial Times",
+      "count": 2
     },
     {
       "source": "GitHub releases cline/cline",
@@ -193,10 +197,6 @@
     },
     {
       "source": "GitHub releases sst/opencode",
-      "count": 2
-    },
-    {
-      "source": "Philipp Schmid",
       "count": 2
     },
     {
@@ -248,16 +248,24 @@
       "count": 2
     },
     {
-      "source": "X @GitHub_Daily",
-      "count": 2
-    },
-    {
-      "source": "X @fchollet",
+      "source": "X @KobeissiLetter",
       "count": 2
     },
     {
       "source": "Cloudflare blog",
       "count": 2
+    },
+    {
+      "source": "X @RealAstropulse",
+      "count": 1
+    },
+    {
+      "source": "V2EX",
+      "count": 1
+    },
+    {
+      "source": "Lobsters",
+      "count": 1
     },
     {
       "source": "MacRumors",
@@ -284,7 +292,15 @@
       "count": 1
     },
     {
+      "source": "philschmid.de",
+      "count": 1
+    },
+    {
       "source": "Zenn（Parsetree Tech Blog）",
+      "count": 1
+    },
+    {
+      "source": "GigaChat（Sber）",
       "count": 1
     },
     {
@@ -308,15 +324,15 @@
       "count": 1
     },
     {
-      "source": "The Guardian",
-      "count": 1
-    },
-    {
       "source": "Cloudflare",
       "count": 1
     },
     {
       "source": "Google Research（GitHub）",
+      "count": 1
+    },
+    {
+      "source": "Pydantic",
       "count": 1
     },
     {
@@ -349,6 +365,10 @@
     },
     {
       "source": "arXiv hep-th",
+      "count": 1
+    },
+    {
+      "source": "Philipp Schmid",
       "count": 1
     },
     {
@@ -401,10 +421,6 @@
     },
     {
       "source": "Reddit r/ClaudeCode",
-      "count": 1
-    },
-    {
-      "source": "Financial Times",
       "count": 1
     },
     {
@@ -520,6 +536,10 @@
       "count": 1
     },
     {
+      "source": "X @GitHub_Daily",
+      "count": 1
+    },
+    {
       "source": "X @BBCWorld",
       "count": 1
     },
@@ -553,6 +573,10 @@
     },
     {
       "source": "X @kevin_t_ngo",
+      "count": 1
+    },
+    {
+      "source": "X @fchollet",
       "count": 1
     },
     {
@@ -592,15 +616,7 @@
       "count": 1
     },
     {
-      "source": "X @KelseyTuoc",
-      "count": 1
-    },
-    {
       "source": "X @neuralink",
-      "count": 1
-    },
-    {
-      "source": "X @WatcherGuru",
       "count": 1
     },
     {
@@ -608,63 +624,11 @@
       "count": 1
     },
     {
-      "source": "X @METR_Evals",
-      "count": 1
-    },
-    {
-      "source": "X @viticci",
-      "count": 1
-    },
-    {
-      "source": "X @SawyerMerritt",
-      "count": 1
-    },
-    {
-      "source": "X @hwchase17",
-      "count": 1
-    },
-    {
-      "source": "X @ChatGPT",
-      "count": 1
-    },
-    {
-      "source": "X @gakonst",
-      "count": 1
-    },
-    {
-      "source": "X @atrupar",
-      "count": 1
-    },
-    {
-      "source": "X @a16z",
-      "count": 1
-    },
-    {
       "source": "X @scottnarmstrong",
       "count": 1
     },
     {
-      "source": "YouTube · Mrwhosetheboss",
-      "count": 1
-    },
-    {
-      "source": "X @DeItaone",
-      "count": 1
-    },
-    {
-      "source": "X @andonlabs",
-      "count": 1
-    },
-    {
       "source": "AWS Security Blog",
-      "count": 1
-    },
-    {
-      "source": "X @markgurman",
-      "count": 1
-    },
-    {
-      "source": "X @trq212",
       "count": 1
     },
     {
@@ -673,6 +637,571 @@
     }
   ],
   "items": [
+    {
+      "id": "n_cc2646aaf0510698",
+      "title": {
+        "en": "Android’s DIY widgets are a bit of vibe-coding fun",
+        "zh": "Android’s DIY widgets are a bit of vibe-coding fun",
+        "original": "Android’s DIY widgets are a bit of vibe-coding fun"
+      },
+      "lang": "en",
+      "url": "https://www.theverge.com/tech/1041801/android-intelligence-create-my-widget-gemini",
+      "source": "The Verge",
+      "topic": "general",
+      "published_at": "2026-11-27T14:00:00.000Z",
+      "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/11/DSC04405_processed.jpg?quality=90&strip=all&crop=0%2C10.723165084465%2C100%2C78.55366983107&w=1200"
+    },
+    {
+      "id": "n_3f1d78ba49c95d7b",
+      "title": {
+        "en": "Every single pair of Xreal smart glasses is now on sale for Black Friday",
+        "zh": "Every single pair of Xreal smart glasses is now on sale for Black Friday",
+        "original": "Every single pair of Xreal smart glasses is now on sale for Black Friday"
+      },
+      "lang": "en",
+      "url": "https://9to5google.com/2026/11/27/all-xreal-glasses-black-friday-sale-2026/",
+      "source": "9to5Google",
+      "topic": "ai-wearables",
+      "published_at": "2026-11-27T13:54:07.000Z",
+      "image": "https://9to5google.com/wp-content/uploads/sites/4/2026/11/xreal-one-pro-vs-xreal-one-pro-plus-01-1.jpg?quality=82&strip=all&resize=1200,628"
+    },
+    {
+      "id": "n_217ed121500e192c",
+      "title": {
+        "en": "These are the best Mac Black Friday deals",
+        "zh": "These are the best Mac Black Friday deals",
+        "original": "These are the best Mac Black Friday deals"
+      },
+      "lang": "en",
+      "url": "https://9to5mac.com/2026/11/27/mac-black-friday-deals-roundup/",
+      "source": "9to5Mac",
+      "topic": "ai-wearables",
+      "published_at": "2026-11-27T13:53:28.000Z",
+      "image": "https://9to5mac.com/wp-content/uploads/sites/6/2026/11/macbook-pro-proled-xdr-top-down.jpg?quality=82&strip=all&resize=1200,628"
+    },
+    {
+      "id": "n_c7b23a0525a5be1e",
+      "title": {
+        "en": "Apple Black Friday, Siri AI usage limits, more on HomeView",
+        "zh": "Apple Black Friday, Siri AI usage limits, more on HomeView",
+        "original": "Apple Black Friday, Siri AI usage limits, more on HomeView"
+      },
+      "lang": "en",
+      "url": "https://9to5mac.com/2026/11/27/happy-hour-618/",
+      "source": "9to5Mac",
+      "topic": "mobile-ai",
+      "published_at": "2026-11-27T13:26:05.000Z",
+      "image": "https://9to5mac.com/wp-content/uploads/sites/6/2024/02/9to5mac-happy-hour-lead1.jpg?quality=82&strip=all&resize=1200,628"
+    },
+    {
+      "id": "n_c9fc113dc229f65e",
+      "title": {
+        "en": "WSL2 + tmuxでClaude Code CLIを常時稼働させる環境構築",
+        "zh": "WSL2 + tmuxでClaude Code CLIを常時稼働させる環境構築",
+        "original": "WSL2 + tmuxでClaude Code CLIを常時稼働させる環境構築"
+      },
+      "lang": "ja",
+      "url": "https://qiita.com/fukukei23/items/cb1659b4416fecea9ad2",
+      "source": "Qiita",
+      "topic": "coding-agents",
+      "published_at": "2026-11-27T13:08:22.000Z",
+      "image": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnNlY3VyZS5ncmF2YXRhci5jb20lMkZhdmF0YXIlMkY1ZjQ2OWNhMDE5NjIyOTU4MTY0NzA3ODg2MjU3ODg1ZD9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9MDBlNTBjZjg2NzA0YWYzOTU4YzUyZWE0NDAyYjVkZDg%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Db0fb7b518cbe6fd4515b7a3f5b82a516?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9V1NMMiUyMCUyQiUyMHRtdXglRTMlODElQTdDbGF1ZGUlMjBDb2RlJTIwQ0xJJUUzJTgyJTkyJUU1JUI4JUI4JUU2JTk5JTgyJUU3JUE4JUJDJUU1JTgzJThEJUUzJTgxJTk1JUUzJTgxJTlCJUUzJTgyJThCJUU3JTkyJUIwJUU1JUEyJTgzJUU2JUE3JThCJUU3JUFGJTg5JnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9YjlhN2RkOGY5NTM2ODJlZWM2YTY3ZmM4NzhlYmU1MDQ&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBmdWt1a2VpMjMmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz1mZjI4OTNiOTM5OTRjYzYzYjBhYWQzNmU1ZGJhOGVlNQ&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=d9825589429b08a9c417e2931853666e"
+    },
+    {
+      "id": "n_945d5d5268900c3c",
+      "title": {
+        "en": "The Download: Innovators Under 35 nominations are open, and a bionic window into the mind",
+        "zh": "The Download: Innovators Under 35 nominations are open, and a bionic window into the mind",
+        "original": "The Download: Innovators Under 35 nominations are open, and a bionic window into the mind"
+      },
+      "lang": "en",
+      "url": "https://www.technologyreview.com/2026/11/27/1149960/the-download-the-download-innovators-under-35-nominations-bionic-hand/",
+      "source": "MIT Technology Review",
+      "topic": "general",
+      "published_at": "2026-11-27T13:00:00.000Z",
+      "image": "https://wp.technologyreview.com/wp-content/uploads/2026/11/IU35-2027-SA.jpg?resize=1200,600"
+    },
+    {
+      "id": "n_3b8b3d993078fe80",
+      "title": {
+        "en": "US Air Force's cloud computing platform hacked",
+        "zh": "US Air Force's cloud computing platform hacked",
+        "original": "US Air Force's cloud computing platform hacked"
+      },
+      "lang": "en",
+      "url": "https://news.sky.com/story/us-air-forces-cloud-computing-platform-hacked-13617163",
+      "source": "Hacker News",
+      "topic": "general",
+      "published_at": "2026-11-27T12:54:11.000Z"
+    },
+    {
+      "id": "n_2184b8fa460c912c",
+      "title": {
+        "en": "Samsung is building a Siri-style Vision mode for its Camera app, along with Auto portrait",
+        "zh": "Samsung is building a Siri-style Vision mode for its Camera app, along with Auto portrait",
+        "original": "Samsung is building a Siri-style Vision mode for its Camera app, along with Auto portrait"
+      },
+      "lang": "en",
+      "url": "https://www.androidauthority.com/samsung-one-ui-9-5-camera-vision-mode-auto-portrait-apk-teardown-3740793/",
+      "source": "Android Authority",
+      "topic": "mobile-ai",
+      "published_at": "2026-11-27T12:53:55.000Z",
+      "image": "https://www.androidauthority.com/wp-content/uploads/2026/02/Galaxy-S26-Ultra-cameras-scaled.jpg"
+    },
+    {
+      "id": "n_e17b1d8c8849cd34",
+      "title": {
+        "en": "Instagram for TV Comes to India, Introducing New Ways to Watch Reels Together",
+        "zh": "Instagram for TV Comes to India, Introducing New Ways to Watch Reels Together",
+        "original": "Instagram for TV Comes to India, Introducing New Ways to Watch Reels Together"
+      },
+      "lang": "en",
+      "url": "https://about.fb.com/news/2026/11/instagram-for-tv-comes-to-india-introducing-new-ways-to-watch-reels-together/",
+      "source": "Meta Newsroom",
+      "topic": "general",
+      "published_at": "2026-11-27T12:33:00.000Z",
+      "image": "https://about.fb.com/wp-content/uploads/2026/11/Horizontal-Video.png?fit=1920%2C1080"
+    },
+    {
+      "id": "p_9d7853876fca246e",
+      "title": {
+        "en": "ChatGPT is eyeing Gemini’s job on Android, with ability to make calls, send texts, and more",
+        "zh": "ChatGPT is eyeing Gemini’s job on Android, with ability to make calls, send texts, and more",
+        "original": "ChatGPT is eyeing Gemini’s job on Android, with ability to make calls, send texts, and more"
+      },
+      "lang": "en",
+      "url": "https://www.androidauthority.com/chatgpt-android-call-text-view-screen-3740765/",
+      "source": "Android Authority",
+      "topic": "mobile-ai",
+      "published_at": "2026-11-27T12:07:21.000Z",
+      "image": "https://www.androidauthority.com/wp-content/uploads/2026/07/Claude-ChatGPT-Gemini-logos-scaled.jpg"
+    },
+    {
+      "id": "p_eba636be1474fd82",
+      "title": {
+        "en": "Nvidia Blackwell Chips Turn Up at China Site Tied to Alice Huang",
+        "zh": "Nvidia Blackwell Chips Turn Up at China Site Tied to Alice Huang",
+        "original": "Nvidia Blackwell Chips Turn Up at China Site Tied to Alice Huang"
+      },
+      "lang": "en",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-27/nvidia-blackwell-chips-turn-up-at-china-site-tied-to-alice-huang",
+      "source": "Bloomberg",
+      "topic": "general",
+      "published_at": "2026-11-27T11:45:00.000Z"
+    },
+    {
+      "id": "n_197cc33a1f157d01",
+      "title": {
+        "en": "Gemini ran my errands on the Pixel 10 like I was in a sci-fi movie",
+        "zh": "Gemini ran my errands on the Pixel 10 like I was in a sci-fi movie",
+        "original": "Gemini ran my errands on the Pixel 10 like I was in a sci-fi movie"
+      },
+      "lang": "en",
+      "url": "https://www.androidauthority.com/gemini-screen-automation-pixel-10-test-3740565/",
+      "source": "Android Authority",
+      "topic": "mobile-ai",
+      "published_at": "2026-11-27T11:30:20.000Z",
+      "image": "https://www.androidauthority.com/wp-content/uploads/2026/11/The-Gemini-app-on-a-smartphone-screen-scaled.jpg"
+    },
+    {
+      "id": "n_38233fa05c271098",
+      "title": {
+        "en": "【苏星河车机】车机里的支付宝，比手机上的还离谱？",
+        "zh": "【苏星河车机】车机里的支付宝，比手机上的还离谱？",
+        "original": "【苏星河车机】车机里的支付宝，比手机上的还离谱？"
+      },
+      "lang": "zh",
+      "url": "https://www.bilibili.com/video/av117688026275125",
+      "source": "Bilibili",
+      "topic": "mobile-ai",
+      "published_at": "2026-11-27T11:12:16.000Z"
+    },
+    {
+      "id": "n_55060e027bbaf240",
+      "title": {
+        "en": "Fields-winning mathematicians worried about eerie silence over AI and encryption",
+        "zh": "Fields-winning mathematicians worried about eerie silence over AI and encryption",
+        "original": "Fields-winning mathematicians worried about eerie silence over AI and encryption"
+      },
+      "lang": "en",
+      "url": "https://www.thetimes.com/uk/technology-uk/article/ai-making-online-security-useless-smr73d3n8",
+      "source": "Hacker News",
+      "topic": "general",
+      "published_at": "2026-11-27T11:09:04.000Z",
+      "image": "https://www.thetimes.com/imageserver/image/1769afb8-0e9f-496d-96a1-6d5de4ca6640.png?strip=all&format=webp&crop=1600px%2C900px%2C0px%2C0px&resize=1200"
+    },
+    {
+      "id": "n_ed3e282ee182d908",
+      "title": {
+        "en": "「2026年内にこの動画を見れて良かった」Claude基盤責任者が語るAI時代の開発現場",
+        "zh": "「2026年内にこの動画を見れて良かった」Claude基盤責任者が語るAI時代の開発現場",
+        "original": "「2026年内にこの動画を見れて良かった」Claude基盤責任者が語るAI時代の開発現場"
+      },
+      "lang": "ja",
+      "url": "https://zenn.dev/dragon1208/articles/af30cadf665c6a",
+      "source": "Zenn",
+      "topic": "coding-agents",
+      "published_at": "2026-11-27T10:48:52.000Z",
+      "image": "https://res.cloudinary.com/zenn/image/upload/s--b9jGMdy2--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E3%2580%258C2026%25E5%25B9%25B4%25E5%2586%2585%25E3%2581%25AB%25E3%2581%2593%25E3%2581%25AE%25E5%258B%2595%25E7%2594%25BB%25E3%2582%2592%25E8%25A6%258B%25E3%2582%258C%25E3%2581%25A6%25E8%2589%25AF%25E3%2581%258B%25E3%2581%25A3%25E3%2581%259F%25E3%2580%258DClaude%25E5%259F%25BA%25E7%259B%25A4%25E8%25B2%25AC%25E4%25BB%25BB%25E8%2580%2585%25E3%2581%258C%25E8%25AA%259E%25E3%2582%258BAI%25E6%2599%2582%25E4%25BB%25A3%25E3%2581%25AE%25E9%2596%258B%25E7%2599%25BA%25E7%258F%25BE%25E5%25A0%25B4%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:Nao8%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzczYmFlMWUxMzAuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE"
+    },
+    {
+      "id": "n_b718ab277d5310d4",
+      "title": {
+        "en": "字节火山引擎：豆包大模型已服务八成国内头部电视厂商，创维、长虹、海信、TCL 等推出量产电视",
+        "zh": "字节火山引擎：豆包大模型已服务八成国内头部电视厂商，创维、长虹、海信、TCL 等推出量产电视",
+        "original": "字节火山引擎：豆包大模型已服务八成国内头部电视厂商，创维、长虹、海信、TCL 等推出量产电视"
+      },
+      "lang": "zh",
+      "url": "https://www.ithome.com/1/033/718.htm",
+      "source": "IT之家",
+      "topic": "consumer-ai-apps",
+      "published_at": "2026-11-27T10:36:56.000Z"
+    },
+    {
+      "id": "n_bf46dad2eb869d58",
+      "title": {
+        "en": "PC なし、スマホだけで AI DJ ── Claude アプリと分割画面で並べ、クリップボードで曲を受け渡す",
+        "zh": "PC なし、スマホだけで AI DJ ── Claude アプリと分割画面で並べ、クリップボードで曲を受け渡す",
+        "original": "PC なし、スマホだけで AI DJ ── Claude アプリと分割画面で並べ、クリップボードで曲を受け渡す"
+      },
+      "lang": "ja",
+      "url": "https://zenn.dev/meas_nobu/articles/25f405ea939057",
+      "source": "Zenn",
+      "topic": "personal-ai-systems",
+      "published_at": "2026-11-27T10:13:59.000Z",
+      "image": "https://res.cloudinary.com/zenn/image/upload/s--HkwI-tcd--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:PC%2520%25E3%2581%25AA%25E3%2581%2597%25E3%2580%2581%25E3%2582%25B9%25E3%2583%259E%25E3%2583%259B%25E3%2581%25A0%25E3%2581%2591%25E3%2581%25A7%2520AI%2520DJ%2520%25E2%2594%2580%25E2%2594%2580%2520Claude%2520%25E3%2582%25A2%25E3%2583%2597%25E3%2583%25AA%25E3%2581%25A8%25E5%2588%2586%25E5%2589%25B2%25E7%2594%25BB%25E9%259D%25A2%25E3%2581%25A7%25E4%25B8%25A6%25E3%2581%25B9%25E3%2580%2581%25E3%2582%25AF%25E3%2583%25AA%25E3%2583%2583%25E3%2583%2597%25E3%2583%259C%25E3%2583%25BC%25E3%2583%2589%25E3%2581%25A7%25E6%259B%25B2%25E3%2582%2592%25E5%258F%2597%25E3%2581%2591%25E6%25B8%25A1%25E3%2581%2599%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E4%25BB%2595%25E4%25BA%258B%25E3%2581%25AF%25E3%2583%2590%25E3%2583%2583%25E3%2582%25AF%25E3%2582%25A8%25E3%2583%25B3%25E3%2583%2589%25E4%25B8%25AD%25E5%25BF%2583%25E3%2581%25AA%25E3%2582%25B7%25E3%2583%258B%25E3%2582%25A2%25E2%2580%2595%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzA4ZDFhOGViOTQuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE"
+    },
+    {
+      "id": "n_63167c3504ee3f27",
+      "title": {
+        "en": "How cutting-edge prosthetics can help probe the human mind",
+        "zh": "How cutting-edge prosthetics can help probe the human mind",
+        "original": "How cutting-edge prosthetics can help probe the human mind"
+      },
+      "lang": "en",
+      "url": "https://www.technologyreview.com/2026/11/27/1149946/cutting-edge-prosthetics-allow-researchers-to-probe-the-human-mind/",
+      "source": "MIT Technology Review",
+      "topic": "general",
+      "published_at": "2026-11-27T10:00:00.000Z",
+      "image": "https://wp.technologyreview.com/wp-content/uploads/2026/11/Avi-and-Leanne.jpeg?resize=1200,600"
+    },
+    {
+      "id": "n_a18dd176c9bbf224",
+      "title": {
+        "en": "【ローカルLLM】撮った動画をその場でAIが編集してくれる時代に",
+        "zh": "【ローカルLLM】撮った動画をその場でAIが編集してくれる時代に",
+        "original": "【ローカルLLM】撮った動画をその場でAIが編集してくれる時代に"
+      },
+      "lang": "ja",
+      "url": "https://zenn.dev/yukurash/articles/c5ee6ecb076e7e",
+      "source": "Zenn",
+      "topic": "personal-ai-systems",
+      "published_at": "2026-11-27T09:58:58.000Z",
+      "image": "https://res.cloudinary.com/zenn/image/upload/s--s3e8SqLM--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E3%2580%2590%25E3%2583%25AD%25E3%2583%25BC%25E3%2582%25AB%25E3%2583%25ABLLM%25E3%2580%2591%25E6%2592%25AE%25E3%2581%25A3%25E3%2581%259F%25E5%258B%2595%25E7%2594%25BB%25E3%2582%2592%25E3%2581%259D%25E3%2581%25AE%25E5%25A0%25B4%25E3%2581%25A7AI%25E3%2581%258C%25E7%25B7%25A8%25E9%259B%2586%25E3%2581%2597%25E3%2581%25A6%25E3%2581%258F%25E3%2582%258C%25E3%2582%258B%25E6%2599%2582%25E4%25BB%25A3%25E3%2581%25AB%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:yukurash%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzMyNzQxZTc3OTMuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE"
+    },
+    {
+      "id": "p_be4fdb5ba2c783e8",
+      "title": {
+        "en": "Pizza history: AI agent’s cardless purchase is a first for UK",
+        "zh": "Pizza history: AI agent’s cardless purchase is a first for UK",
+        "original": "Pizza history: AI agent’s cardless purchase is a first for UK"
+      },
+      "lang": "en",
+      "url": "https://www.theguardian.com/business/2026/nov/27/ai-agent-cardless-transaction-pizza-papa-john-uk-fca-truelayer",
+      "source": "The Guardian",
+      "topic": "personal-ai-systems",
+      "published_at": "2026-11-27T09:53:00.000Z",
+      "image": "https://i.guim.co.uk/img/media/bf6bce003fbe74cd0f36f89414dd7b2fb6f3888f/996_0_5020_4016/master/5020.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=6e41aab7f165bd34c72c23b2fdf8e018"
+    },
+    {
+      "id": "n_6551b620010bc951",
+      "title": {
+        "en": "李健：荣耀 700 系列手机销量已打破 2026 年安卓新品首销日纪录",
+        "zh": "李健：荣耀 700 系列手机销量已打破 2026 年安卓新品首销日纪录",
+        "original": "李健：荣耀 700 系列手机销量已打破 2026 年安卓新品首销日纪录"
+      },
+      "lang": "zh",
+      "url": "https://www.ithome.com/1/033/622.htm",
+      "source": "IT之家",
+      "topic": "mobile-ai",
+      "published_at": "2026-11-27T09:43:19.000Z"
+    },
+    {
+      "id": "n_5ac3d60ce2f3178f",
+      "title": {
+        "en": "AIエージェント読書会：『吾輩は猫である』をローカルLLMとClaudeに読ませたらペルソナ無しで座談会が始まった【Muse交換ノート】",
+        "zh": "AIエージェント読書会：『吾輩は猫である』をローカルLLMとClaudeに読ませたらペルソナ無しで座談会が始まった【Muse交換ノート】",
+        "original": "AIエージェント読書会：『吾輩は猫である』をローカルLLMとClaudeに読ませたらペルソナ無しで座談会が始まった【Muse交換ノート】"
+      },
+      "lang": "ja",
+      "url": "https://zenn.dev/mii_mii/articles/dokushokai-soseki",
+      "source": "Zenn",
+      "topic": "personal-ai-systems",
+      "published_at": "2026-11-27T09:36:24.000Z",
+      "image": "https://res.cloudinary.com/zenn/image/upload/s--mzXyt4b4--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:AI%25E3%2582%25A8%25E3%2583%25BC%25E3%2582%25B8%25E3%2582%25A7%25E3%2583%25B3%25E3%2583%2588%25E8%25AA%25AD%25E6%259B%25B8%25E4%25BC%259A%25EF%25BC%259A%25E3%2580%258E%25E5%2590%25BE%25E8%25BC%25A9%25E3%2581%25AF%25E7%258C%25AB%25E3%2581%25A7%25E3%2581%2582%25E3%2582%258B%25E3%2580%258F%25E3%2582%2592%25E3%2583%25AD%25E3%2583%25BC%25E3%2582%25AB%25E3%2583%25ABLLM%25E3%2581%25A8Claude%25E3%2581%25AB%25E8%25AA%25AD%25E3%2581%25BE%25E3%2581%259B%25E3%2581%259F%25E3%2582%2589%25E3%2583%259A%25E3%2583%25AB%25E3%2582%25BD%25E3%2583%258A%25E7%2584%25A1%25E3%2581%2597%25E3%2581%25A7%25E5%25BA%25A7%25E8%25AB%2587%25E4%25BC%259A%25E3%2581%258C%25E5%25A7%258B%25E3%2581%25BE%25E3%2581%25A3%25E3%2581%259F...%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E3%2581%25BF%25E3%2583%25BC%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2FiNDY2MmY5MjcuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE"
+    },
+    {
+      "id": "n_34b662796b05f9c0",
+      "title": {
+        "en": "苹果官网上架 mophie Frost 支架保护壳：适用于 iPhone 17 / 18 Pro / Air 系列机型，398 元",
+        "zh": "苹果官网上架 mophie Frost 支架保护壳：适用于 iPhone 17 / 18 Pro / Air 系列机型，398 元",
+        "original": "苹果官网上架 mophie Frost 支架保护壳：适用于 iPhone 17 / 18 Pro / Air 系列机型，398 元"
+      },
+      "lang": "zh",
+      "url": "https://www.ithome.com/1/033/618.htm",
+      "source": "IT之家",
+      "topic": "mobile-ai",
+      "published_at": "2026-11-27T09:28:55.000Z"
+    },
+    {
+      "id": "n_5ab583cea0019467",
+      "title": {
+        "en": "We tested Samsung’s private Galaxy AI cloud on One UI 9.5 beta, and it made AI select smarter",
+        "zh": "We tested Samsung’s private Galaxy AI cloud on One UI 9.5 beta, and it made AI select smarter",
+        "original": "We tested Samsung’s private Galaxy AI cloud on One UI 9.5 beta, and it made AI select smarter"
+      },
+      "lang": "en",
+      "url": "https://www.androidauthority.com/samsung-spac-galaxy-ai-select-demo-apk-teardown-3740749/",
+      "source": "Android Authority",
+      "topic": "mobile-ai",
+      "published_at": "2026-11-27T09:02:29.000Z",
+      "image": "https://www.androidauthority.com/wp-content/uploads/2026/05/Samsung-Galaxy-S24-Ultra-Galaxy-AI-scaled.jpg"
+    },
+    {
+      "id": "n_1c5d1d7e7610ea07",
+      "title": {
+        "en": "AI エージェントに Nim を書かせるための指針 BeautifulNim を公開した。例はコンパイラが検査し、穴はエージェントに解かせて",
+        "zh": "AI エージェントに Nim を書かせるための指針 BeautifulNim を公開した。例はコンパイラが検査し、穴はエージェントに解かせて",
+        "original": "AI エージェントに Nim を書かせるための指針 BeautifulNim を公開した。例はコンパイラが検査し、穴はエージェントに解かせて"
+      },
+      "lang": "ja",
+      "url": "https://zenn.dev/jasagiri/articles/e49da96168ddaf",
+      "source": "Zenn",
+      "topic": "coding-agents",
+      "published_at": "2026-11-27T08:53:15.000Z",
+      "image": "https://res.cloudinary.com/zenn/image/upload/s--fb-5L10T--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:AI%2520%25E3%2582%25A8%25E3%2583%25BC%25E3%2582%25B8%25E3%2582%25A7%25E3%2583%25B3%25E3%2583%2588%25E3%2581%25AB%2520Nim%2520%25E3%2582%2592%25E6%259B%25B8%25E3%2581%258B%25E3%2581%259B%25E3%2582%258B%25E3%2581%259F%25E3%2582%2581%25E3%2581%25AE%25E6%258C%2587%25E9%2587%259D%2520BeautifulNim%2520%25E3%2582%2592%25E5%2585%25AC%25E9%2596%258B%25E3%2581%2597%25E3%2581%259F%25E3%2580%2582%25E4%25BE%258B%25E3%2581%25AF%25E3%2582%25B3%25E3%2583%25B3%25E3%2583%2591%25E3%2582%25A4%25E3%2583%25A9%25E3%2581%258C%25E6%25A4%259C%25E6%259F%25BB%25E3%2581%2597%25E3%2580%2581...%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:jasagiri%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly96ZW5uLWRldi5naXRodWIuaW8vZGVmYXVsdC1hdmF0YXJzL2Rhcmsvai5wbmc=%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE"
+    },
+    {
+      "id": "n_3a5666efd79de5d7",
+      "title": {
+        "en": "AIモデル、結局どれが一番強いの？ 全部比べた結果",
+        "zh": "AIモデル、結局どれが一番強いの？ 全部比べた結果",
+        "original": "AIモデル、結局どれが一番強いの？ 全部比べた結果"
+      },
+      "lang": "ja",
+      "url": "https://zenn.dev/myura_jp/articles/3d641dfbca3784",
+      "source": "Zenn",
+      "topic": "coding-agents",
+      "published_at": "2026-11-27T08:30:31.000Z",
+      "image": "https://res.cloudinary.com/zenn/image/upload/s--K9HaADkC--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:AI%25E3%2583%25A2%25E3%2583%2587%25E3%2583%25AB%25E3%2580%2581%25E7%25B5%2590%25E5%25B1%2580%25E3%2581%25A9%25E3%2582%258C%25E3%2581%258C%25E4%25B8%2580%25E7%2595%25AA%25E5%25BC%25B7%25E3%2581%2584%25E3%2581%25AE%25EF%25BC%259F%2520%25E5%2585%25A8%25E9%2583%25A8%25E6%25AF%2594%25E3%2581%25B9%25E3%2581%259F%25E7%25B5%2590%25E6%259E%259C%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E3%2583%259F%25E3%2583%25A5%25E3%2583%25A9%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzI5YTVhZDA1OWEuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE"
+    },
+    {
+      "id": "n_2a502532a89be91d",
+      "title": {
+        "en": "Here’s how much OnePlus could charge you for using ColorOS 17’s AI features",
+        "zh": "Here’s how much OnePlus could charge you for using ColorOS 17’s AI features",
+        "original": "Here’s how much OnePlus could charge you for using ColorOS 17’s AI features"
+      },
+      "lang": "en",
+      "url": "https://www.androidauthority.com/coloros-17-ai-features-subscription-plans-3740729/",
+      "source": "Android Authority",
+      "topic": "mobile-ai",
+      "published_at": "2026-11-27T08:26:05.000Z",
+      "image": "https://www.androidauthority.com/wp-content/uploads/2026/10/ColorOS-17-on-OnePlus-15-liquid-glass-settings.jpg"
+    },
+    {
+      "id": "n_a9418de9ff8bfd0f",
+      "title": {
+        "en": "支付宝车载助手 3.0 发布：一句话在车上点外卖、付充电费，联合北汽打造 A.I. Car 新车型",
+        "zh": "支付宝车载助手 3.0 发布：一句话在车上点外卖、付充电费，联合北汽打造 A.I. Car 新车型",
+        "original": "支付宝车载助手 3.0 发布：一句话在车上点外卖、付充电费，联合北汽打造 A.I. Car 新车型"
+      },
+      "lang": "zh",
+      "url": "https://www.ithome.com/1/033/541.htm",
+      "source": "IT之家",
+      "topic": "mobile-ai",
+      "published_at": "2026-11-27T08:22:14.000Z"
+    },
+    {
+      "id": "n_64a0fd5dce0c4e9d",
+      "title": {
+        "en": "Apple launches Black Friday Shopping Event: Here’s how much you can save",
+        "zh": "Apple launches Black Friday Shopping Event: Here’s how much you can save",
+        "original": "Apple launches Black Friday Shopping Event: Here’s how much you can save"
+      },
+      "lang": "en",
+      "url": "https://9to5mac.com/2026/11/27/apple-black-friday-shopping-event-deals/",
+      "source": "9to5Mac",
+      "topic": "ai-wearables",
+      "published_at": "2026-11-27T08:10:50.000Z",
+      "image": "https://9to5mac.com/wp-content/uploads/sites/6/2026/11/apple-gifts.webp?resize=1200,628"
+    },
+    {
+      "id": "n_e4537b7514180792",
+      "title": {
+        "en": "Amazon main event Black Friday sale now live! Apple, Google, Anker, LEGO, TVs, more",
+        "zh": "Amazon main event Black Friday sale now live! Apple, Google, Anker, LEGO, TVs, more",
+        "original": "Amazon main event Black Friday sale now live! Apple, Google, Anker, LEGO, TVs, more"
+      },
+      "lang": "en",
+      "url": "https://9to5toys.com/2026/11/27/amazon-official-black-friday-sale-live-2026/",
+      "source": "9to5Google",
+      "topic": "ai-wearables",
+      "published_at": "2026-11-27T08:02:12.000Z",
+      "image": "https://9to5toys.com/wp-content/uploads/sites/5/2026/11/Amazon-Black-Friday-Main-Event-2026-now-live.jpg?quality=82&strip=all&resize=1200,628"
+    },
+    {
+      "id": "n_0dd55b66daf72472",
+      "title": {
+        "en": "スクラムのプランニングで Claude Code をどう使っているか",
+        "zh": "スクラムのプランニングで Claude Code をどう使っているか",
+        "original": "スクラムのプランニングで Claude Code をどう使っているか"
+      },
+      "lang": "ja",
+      "url": "https://zenn.dev/rentio/articles/scrum-planning-with-claude-code",
+      "source": "Zenn",
+      "topic": "coding-agents",
+      "published_at": "2026-11-27T07:11:23.000Z",
+      "image": "https://res.cloudinary.com/zenn/image/upload/s--pxrVdwiK--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E3%2582%25B9%25E3%2582%25AF%25E3%2583%25A9%25E3%2583%25A0%25E3%2581%25AE%25E3%2583%2597%25E3%2583%25A9%25E3%2583%25B3%25E3%2583%258B%25E3%2583%25B3%25E3%2582%25B0%25E3%2581%25A7%2520Claude%2520Code%2520%25E3%2582%2592%25E3%2581%25A9%25E3%2581%2586%25E4%25BD%25BF%25E3%2581%25A3%25E3%2581%25A6%25E3%2581%2584%25E3%2582%258B%25E3%2581%258B%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:Rentio%2520Tech%2520Blog%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzRlMzkyOWE1MjkuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE"
+    },
+    {
+      "id": "n_355eb2e5ee2073ab",
+      "title": {
+        "en": "A New Breed of Chip Runs AI Models Using Waves of Light",
+        "zh": "A New Breed of Chip Runs AI Models Using Waves of Light",
+        "original": "A New Breed of Chip Runs AI Models Using Waves of Light"
+      },
+      "lang": "en",
+      "url": "https://www.wired.com/story/a-new-breed-of-chip-runs-ai-models-using-waves-of-light/",
+      "source": "Wired",
+      "topic": "general",
+      "published_at": "2026-11-27T07:00:00.000Z",
+      "image": "https://media.wired.com/photos/6b073e1d34813a006d725bef/master/pass/QANT-CEO-QandA-Business.jpg"
+    },
+    {
+      "id": "n_48b0d8d3f8cacbd3",
+      "title": {
+        "en": "The group chat where your AI talks behind your back",
+        "zh": "The group chat where your AI talks behind your back",
+        "original": "The group chat where your AI talks behind your back"
+      },
+      "lang": "en",
+      "url": "https://construct22.com/",
+      "source": "Hacker News",
+      "topic": "general",
+      "published_at": "2026-11-27T06:44:34.000Z"
+    },
+    {
+      "id": "n_8a9d964c3bc2289a",
+      "title": {
+        "en": "古いPCにRTX 3060 12GBを載せてローカルLLM環境を作った",
+        "zh": "古いPCにRTX 3060 12GBを載せてローカルLLM環境を作った",
+        "original": "古いPCにRTX 3060 12GBを載せてローカルLLM環境を作った"
+      },
+      "lang": "ja",
+      "url": "https://zenn.dev/mahyon/articles/2ed75199e684cc",
+      "source": "Zenn",
+      "topic": "personal-ai-systems",
+      "published_at": "2026-11-27T06:11:06.000Z",
+      "image": "https://res.cloudinary.com/zenn/image/upload/s--9TgIGqoL--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E5%258F%25A4%25E3%2581%2584PC%25E3%2581%25ABRTX%25203060%252012GB%25E3%2582%2592%25E8%25BC%2589%25E3%2581%259B%25E3%2581%25A6%25E3%2583%25AD%25E3%2583%25BC%25E3%2582%25AB%25E3%2583%25ABLLM%25E7%2592%25B0%25E5%25A2%2583%25E3%2582%2592%25E4%25BD%259C%25E3%2581%25A3%25E3%2581%259F%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E4%25B8%25AD%25E5%25B1%25B1%25E9%259B%2585%25E5%25A4%25AB%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jTHNCMElESU95bVZMREg4RUxPSzh0WE5UUlBKZ2ZMLUp3dDdwMkdubG1HZHI1bk9sNFE9czI1MC1j%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE"
+    },
+    {
+      "id": "n_0604a5727aae0e6b",
+      "title": {
+        "en": "Do I need an AI art adviser?",
+        "zh": "Do I need an AI art adviser?",
+        "original": "Do I need an AI art adviser?"
+      },
+      "lang": "en",
+      "url": "https://www.ft.com/content/80a5266d-72e1-4f55-976f-e169b440066b",
+      "source": "Financial Times",
+      "topic": "consumer-ai-apps",
+      "published_at": "2026-11-27T05:00:13.000Z"
+    },
+    {
+      "id": "n_0256b11e8366a051",
+      "title": {
+        "en": "\"What's Claude's Fursona?\" and Other Questions",
+        "zh": "\"What's Claude's Fursona?\" and Other Questions",
+        "original": "\"What's Claude's Fursona?\" and Other Questions"
+      },
+      "lang": "en",
+      "url": "https://herecomesthemoon.net/2026/11/whats-claudes-fursona/",
+      "source": "Hacker News",
+      "topic": "general",
+      "published_at": "2026-11-27T04:56:18.000Z",
+      "image": "https://herecomesthemoon.net/2026/11/whats-claudes-fursona/images/dithers/claude-fable-header_dithered.png"
+    },
+    {
+      "id": "n_c32b53f8cb3b0458",
+      "title": {
+        "en": "New AI research suggests AI bubble bursting and to expect major market collapse",
+        "zh": "New AI research suggests AI bubble bursting and to expect major market collapse",
+        "original": "New AI research suggests AI bubble bursting and to expect major market collapse"
+      },
+      "lang": "en",
+      "url": "https://www.london.edu/think/ai-bubble-about-to-burst",
+      "source": "Hacker News",
+      "topic": "general",
+      "published_at": "2026-11-27T02:44:12.000Z",
+      "image": "https://images.london.edu/hxo16fanegqh/R9pfpICgrfbB9YhwtPo5O/b8a725b7568403dd08ea0e4c57af0e0a/New_research_suggests_AI_bubble_bursting_and_to_expect_major_market_collapse_thumb.jpg?w=1200&h=600"
+    },
+    {
+      "id": "p_b57a6df614de1e16",
+      "title": {
+        "en": "After seeing the \"Claude sabotages your ML research\" posts, I was still skeptical, so I tested it on my own work.",
+        "zh": "After seeing the \"Claude sabotages your ML research\" posts, I was still skeptical, so I tested it on my own work.",
+        "original": "After seeing the \"Claude sabotages your ML research\" posts, I was still skeptical, so I tested it on my own work."
+      },
+      "lang": "en",
+      "url": "https://x.com/RealAstropulse/status/2126119408997466389",
+      "source": "X @RealAstropulse",
+      "topic": "general",
+      "published_at": "2026-11-27T01:02:23.000Z",
+      "image": "https://pbs.twimg.com/media/HYF66EGWIAAF9lx.jpg"
+    },
+    {
+      "id": "n_6bac70b0e1802a36",
+      "title": {
+        "en": "AI agents now control part of DeepMind's compute for Gemini experiments",
+        "zh": "AI agents now control part of DeepMind's compute for Gemini experiments",
+        "original": "AI agents now control part of DeepMind's compute for Gemini experiments"
+      },
+      "lang": "en",
+      "url": "https://the-decoder.com/ai-agents-now-control-part-of-deepminds-compute-for-gemini-experiments-but-recursive-self-improvement-remains-distant/",
+      "source": "Hacker News",
+      "topic": "general",
+      "published_at": "2026-11-27T00:03:18.000Z",
+      "image": "https://the-decoder.com/wp-content/uploads/2026/11/gemini-4-neon__blog-header__sm.width-1600.format-webp.webp"
+    },
+    {
+      "id": "p_cb188aa8ca10b42b",
+      "title": {
+        "en": "24 GB Mac 零 Swap 并发 160 个 AI 浏览器：干掉 Node MCP 后连 Chrome 自身也省了 503 MB",
+        "zh": "24 GB Mac 零 Swap 并发 160 个 AI 浏览器：干掉 Node MCP 后连 Chrome 自身也省了 503 MB",
+        "original": "24 GB Mac 零 Swap 并发 160 个 AI 浏览器：干掉 Node MCP 后连 Chrome 自身也省了 503 MB"
+      },
+      "lang": "zh",
+      "url": "https://www.v2ex.com/t/1260226",
+      "source": "V2EX",
+      "topic": "coding-agents",
+      "published_at": "2026-11-27T00:00:00.000Z",
+      "image": "https://cdn.v2ex.com/avatar/5550/764e/580133_xlarge.png?m=1795611705"
+    },
+    {
+      "id": "n_2d7f8b4f8454af31",
+      "title": {
+        "en": "Taking Trainium3 to the Track: Generating Videos with LTX-2.5",
+        "zh": "Taking Trainium3 to the Track: Generating Videos with LTX-2.5",
+        "original": "Taking Trainium3 to the Track: Generating Videos with LTX-2.5"
+      },
+      "lang": "en",
+      "url": "https://huggingface.co/blog/video-trainium3",
+      "source": "Hugging Face Blog",
+      "topic": "general",
+      "published_at": "2026-11-27T00:00:00.000Z",
+      "image": "https://huggingface.co/blog/assets/video-trainium3/thumbnail.jpg"
+    },
     {
       "id": "n_3c5883025a1153b6",
       "title": {
@@ -687,20 +1216,6 @@
       "published_at": "2026-11-26T23:52:28.000Z"
     },
     {
-      "id": "n_eb42360287731f7d",
-      "title": {
-        "en": "Claude Code 2.1.332 新機能ガイド: MCPサーバーからスキルを配り、MCP Tasksで長い処理を待たない",
-        "zh": "Claude Code 2.1.332 新機能ガイド: MCPサーバーからスキルを配り、MCP Tasksで長い処理を待たない",
-        "original": "Claude Code 2.1.332 新機能ガイド: MCPサーバーからスキルを配り、MCP Tasksで長い処理を待たない"
-      },
-      "lang": "ja",
-      "url": "https://zenn.dev/joinclass/articles/claude-code-2-1-332-mcp-skills-tasks",
-      "source": "Zenn",
-      "topic": "coding-agents",
-      "published_at": "2026-11-26T23:10:16.000Z",
-      "image": "https://res.cloudinary.com/zenn/image/upload/s--wny-YH5L--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Claude%2520Code%25202.1.332%2520%25E6%2596%25B0%25E6%25A9%259F%25E8%2583%25BD%25E3%2582%25AC%25E3%2582%25A4%25E3%2583%2589%253A%2520MCP%25E3%2582%25B5%25E3%2583%25BC%25E3%2583%2590%25E3%2583%25BC%25E3%2581%258B%25E3%2582%2589%25E3%2582%25B9%25E3%2582%25AD%25E3%2583%25AB%25E3%2582%2592%25E9%2585%258D%25E3%2582%258A%25E3%2580%2581MCP%2520Tasks%25E3%2581%25A7%25E9%2595%25B7%25E3%2581%2584%25E5%2587%25A6...%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:JOINCLASS%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2NhOWUwY2FiYmYuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE"
-    },
-    {
       "id": "n_00bb51c293be1538",
       "title": {
         "en": "How Clay Builds GTM Agents — Jeff Barg, Head of AI",
@@ -713,34 +1228,6 @@
       "topic": "general",
       "published_at": "2026-11-26T23:02:48.000Z",
       "image": "https://i.ytimg.com/vi/qjPcaZf_plo/maxresdefault.jpg"
-    },
-    {
-      "id": "n_e9dd85668ae44b2d",
-      "title": {
-        "en": "締切だけ、もう一度読ませる：学校のプリントの拾い漏れを AI で二重チェックした",
-        "zh": "締切だけ、もう一度読ませる：学校のプリントの拾い漏れを AI で二重チェックした",
-        "original": "締切だけ、もう一度読ませる：学校のプリントの拾い漏れを AI で二重チェックした"
-      },
-      "lang": "ja",
-      "url": "https://zenn.dev/hiroyamayu/articles/deadline-double-check",
-      "source": "Zenn",
-      "topic": "mobile-ai",
-      "published_at": "2026-11-26T23:00:05.000Z",
-      "image": "https://res.cloudinary.com/zenn/image/upload/s--oVWZ5HZo--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E7%25B7%25A0%25E5%2588%2587%25E3%2581%25A0%25E3%2581%2591%25E3%2580%2581%25E3%2582%2582%25E3%2581%2586%25E4%25B8%2580%25E5%25BA%25A6%25E8%25AA%25AD%25E3%2581%25BE%25E3%2581%259B%25E3%2582%258B%25EF%25BC%259A%25E5%25AD%25A6%25E6%25A0%25A1%25E3%2581%25AE%25E3%2583%2597%25E3%2583%25AA%25E3%2583%25B3%25E3%2583%2588%25E3%2581%25AE%25E6%258B%25BE%25E3%2581%2584%25E6%25BC%258F%25E3%2582%258C%25E3%2582%2592%2520AI%2520%25E3%2581%25A7%25E4%25BA%258C%25E9%2587%258D%25E3%2583%2581%25E3%2582%25A7%25E3%2583%2583%25E3%2582%25AF%25E3%2581%2597%25E3%2581%259F%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E5%25BA%2583%25E5%25B1%25B1%25E3%2582%2586%25E3%2581%2586%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2NhMWFhNjczOTcuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE"
-    },
-    {
-      "id": "n_b97db3a5754fc4ff",
-      "title": {
-        "en": "「Attention Is All You Need」は機械翻訳の論文だった——Transformer誕生の要点を読み直す",
-        "zh": "「Attention Is All You Need」は機械翻訳の論文だった——Transformer誕生の要点を読み直す",
-        "original": "「Attention Is All You Need」は機械翻訳の論文だった——Transformer誕生の要点を読み直す"
-      },
-      "lang": "ja",
-      "url": "https://zenn.dev/chotto_bit/articles/adbbca7da17f50",
-      "source": "Zenn",
-      "topic": "consumer-ai-apps",
-      "published_at": "2026-11-26T22:56:30.000Z",
-      "image": "https://res.cloudinary.com/zenn/image/upload/s--XFSsR-Qu--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E3%2580%258CAttention%2520Is%2520All%2520You%2520Need%25E3%2580%258D%25E3%2581%25AF%25E6%25A9%259F%25E6%25A2%25B0%25E7%25BF%25BB%25E8%25A8%25B3%25E3%2581%25AE%25E8%25AB%2596%25E6%2596%2587%25E3%2581%25A0%25E3%2581%25A3%25E3%2581%259F%25E2%2580%2594%25E2%2580%2594Transformer%25E8%25AA%2595%25E7%2594%259F%25E3%2581%25AE%25E8%25A6%2581%25E7%2582%25B9%25E3%2582%2592...%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:CHOTTO%2520BIT%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jSzMyU0xXODhnM1R5Nm9TWk1BWDd1eHdBV2JleER5aEFmNVlsWVJ5cmlkRXNCb3B3PXMyNTAtYw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE"
     },
     {
       "id": "n_2540d28ae01bebe7",
@@ -768,20 +1255,6 @@
       "source": "IT之家",
       "topic": "mobile-ai",
       "published_at": "2026-11-26T22:43:02.000Z"
-    },
-    {
-      "id": "n_bfd26eb9053e1128",
-      "title": {
-        "en": "Claude Code が記録から書いた記事を、別の Claude が原本と照らしたら、3 本で 17 件の直しが出た",
-        "zh": "Claude Code が記録から書いた記事を、別の Claude が原本と照らしたら、3 本で 17 件の直しが出た",
-        "original": "Claude Code が記録から書いた記事を、別の Claude が原本と照らしたら、3 本で 17 件の直しが出た"
-      },
-      "lang": "ja",
-      "url": "https://zenn.dev/jfp_mesh/articles/ai-article-check-against-records",
-      "source": "Zenn",
-      "topic": "coding-agents",
-      "published_at": "2026-11-26T22:27:29.000Z",
-      "image": "https://res.cloudinary.com/zenn/image/upload/s--cUc1FGZx--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Claude%2520Code%2520%25E3%2581%258C%25E8%25A8%2598%25E9%258C%25B2%25E3%2581%258B%25E3%2582%2589%25E6%259B%25B8%25E3%2581%2584%25E3%2581%259F%25E8%25A8%2598%25E4%25BA%258B%25E3%2582%2592%25E3%2580%2581%25E5%2588%25A5%25E3%2581%25AE%2520Claude%2520%25E3%2581%258C%25E5%258E%259F%25E6%259C%25AC%25E3%2581%25A8%25E7%2585%25A7%25E3%2582%2589%25E3%2581%2597%25E3%2581%259F%25E3%2582%2589%25E3%2580%25813%2520%25E6%259C%25AC%25E3%2581%25A7%252017%2520%25E4%25BB%25B6%25E3%2581%25AE%25E7%259B%25B4%25E3%2581%2597%25E3%2581%258C%25E5%2587%25BA%25E3%2581%259F%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:jfp_mesh%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2JiYjIxN2JmZmEuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE"
     },
     {
       "id": "p_0513f16258fab2da",
@@ -825,18 +1298,17 @@
       "published_at": "2026-11-26T21:47:45.000Z"
     },
     {
-      "id": "n_6e37f737435d707c",
+      "id": "n_5653ffa5475ea55a",
       "title": {
-        "en": "学習・重み改変・プロンプトなし - DSLでLLMに架空RPGの技を覚えさせる",
-        "zh": "学習・重み改変・プロンプトなし - DSLでLLMに架空RPGの技を覚えさせる",
-        "original": "学習・重み改変・プロンプトなし - DSLでLLMに架空RPGの技を覚えさせる"
+        "en": "The US Government Is Under AI Cyberattack",
+        "zh": "The US Government Is Under AI Cyberattack",
+        "original": "The US Government Is Under AI Cyberattack"
       },
-      "lang": "ja",
-      "url": "https://zenn.dev/caphtech/articles/kestrom-rules-open",
-      "source": "Zenn",
-      "topic": "personal-ai-systems",
-      "published_at": "2026-11-26T21:27:30.000Z",
-      "image": "https://res.cloudinary.com/zenn/image/upload/s--jjzDGGEk--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E5%25AD%25A6%25E7%25BF%2592%25E3%2583%25BB%25E9%2587%258D%25E3%2581%25BF%25E6%2594%25B9%25E5%25A4%2589%25E3%2583%25BB%25E3%2583%2597%25E3%2583%25AD%25E3%2583%25B3%25E3%2583%2597%25E3%2583%2588%25E3%2581%25AA%25E3%2581%2597%2520-%2520DSL%25E3%2581%25A7LLM%25E3%2581%25AB%25E6%259E%25B6%25E7%25A9%25BARPG%25E3%2581%25AE%25E6%258A%2580%25E3%2582%2592%25E8%25A6%259A%25E3%2581%2588%25E3%2581%2595%25E3%2581%259B%25E3%2582%258B%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_34:rizumita%2Cx_220%2Cy_108/bo_3px_solid_rgb:d6e3ed%2Cg_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly96ZW5uLmRldi9pbWFnZXMvZGVmYXVsdC1wdWJsaWNhdGlvbi1hdmF0YXIucG5n%2Cr_20%2Cw_90%2Cx_92%2Cy_102/co_rgb:6e7b85%2Cg_south_west%2Cl_text:notosansjp-medium.otf_30:%25E5%2590%2588%25E5%2590%258C%25E4%25BC%259A%25E7%25A4%25BECAPH%2520TECH%2Cx_220%2Cy_160/bo_4px_solid_white%2Cg_south_west%2Ch_50%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2ZmMTJkNDVhMjAuanBlZw==%2Cr_max%2Cw_50%2Cx_139%2Cy_84/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE"
+      "lang": "en",
+      "url": "https://www.forbes.com/sites/the-wiretap/2026/11/25/us-government-under-ai-cyberattack",
+      "source": "Hacker News",
+      "topic": "general",
+      "published_at": "2026-11-26T21:26:33.000Z"
     },
     {
       "id": "n_ca7fd6f0016afc5f",
@@ -867,20 +1339,6 @@
       "image": "https://9to5mac.com/wp-content/uploads/sites/6/2026/09/iphone-18-pro-color-lineup-official.jpg?quality=82&strip=all&resize=1200,628"
     },
     {
-      "id": "n_9736e17ea01065db",
-      "title": {
-        "en": "Tech Watch 2026-11-27: エージェントを検証する仕組み",
-        "zh": "Tech Watch 2026-11-27: エージェントを検証する仕組み",
-        "original": "Tech Watch 2026-11-27: エージェントを検証する仕組み"
-      },
-      "lang": "ja",
-      "url": "https://zenn.dev/laiken/articles/20261127-tech-watch",
-      "source": "Zenn",
-      "topic": "coding-agents",
-      "published_at": "2026-11-26T21:09:29.000Z",
-      "image": "https://res.cloudinary.com/zenn/image/upload/s--0vx8B17G--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Tech%2520Watch%25202026-11-27%253A%2520%25E3%2582%25A8%25E3%2583%25BC%25E3%2582%25B8%25E3%2582%25A7%25E3%2583%25B3%25E3%2583%2588%25E3%2582%2592%25E6%25A4%259C%25E8%25A8%25BC%25E3%2581%2599%25E3%2582%258B%25E4%25BB%2595%25E7%25B5%2584%25E3%2581%25BF%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E3%2582%2589%25E3%2581%2584%25E3%2581%2591%25E3%2582%2593%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzI3YmM4M2VhNTYuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE"
-    },
-    {
       "id": "n_e88467598abcad61",
       "title": {
         "en": "ソフトバンクが聴覚障がいのある従業員に配ったスマートグラスは、職場でどこまで使えたか",
@@ -895,20 +1353,6 @@
       "image": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkYwJTJGNDQzMzI3MSUyRnByb2ZpbGUtaW1hZ2VzJTJGMTc3OTAwNzIzNT9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9YWY5NDIyNzdmMjZlOGJhMzVmYmZlY2IwOGU2ZWQ2NTA%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Df59d4b48280797c581d3f62880665fc3?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgyJUJEJUUzJTgzJTk1JUUzJTgzJTg4JUUzJTgzJTkwJUUzJTgzJUIzJUUzJTgyJUFGJUUzJTgxJThDJUU4JTgxJUI0JUU4JUE2JTlBJUU5JTlBJTlDJUUzJTgxJThDJUUzJTgxJTg0JUUzJTgxJUFFJUUzJTgxJTgyJUUzJTgyJThCJUU1JUJFJTkzJUU2JUE1JUFEJUU1JTkzJUExJUUzJTgxJUFCJUU5JTg1JThEJUUzJTgxJUEzJUUzJTgxJTlGJUUzJTgyJUI5JUUzJTgzJTlFJUUzJTgzJUJDJUUzJTgzJTg4JUUzJTgyJUIwJUUzJTgzJUE5JUUzJTgyJUI5JUUzJTgxJUFGJUUzJTgwJTgxJUU4JTgxJUI3JUU1JUEwJUI0JUUzJTgxJUE3JUUzJTgxJUE5JUUzJTgxJTkzJUUzJTgxJUJFJUUzJTgxJUE3JUU0JUJEJUJGJUUzJTgxJTg4JUUzJTgxJTlGJUUzJTgxJThCJnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9NzdiYzgxMTQ5ZjM1YTdhOTI5OWU5OWIxNGEyYmM4NWY&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBxdW90aWRpYSZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTRhNjI0NjUzMTU4ODhjZWUzZDIxNjI0N2Q4Y2JjZDY2&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=ddc3b8659de5897e2ccaac3f3b7cdd9a"
     },
     {
-      "id": "n_eb789f07296609fa",
-      "title": {
-        "en": "ローカルLLMが0点だったとき、採点表に足したい二つの列",
-        "zh": "ローカルLLMが0点だったとき、採点表に足したい二つの列",
-        "original": "ローカルLLMが0点だったとき、採点表に足したい二つの列"
-      },
-      "lang": "ja",
-      "url": "https://zenn.dev/satoshiakiyama/articles/f5a83327d44d98",
-      "source": "Zenn",
-      "topic": "personal-ai-systems",
-      "published_at": "2026-11-26T20:56:33.000Z",
-      "image": "https://res.cloudinary.com/zenn/image/upload/s--uKib96If--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E3%2583%25AD%25E3%2583%25BC%25E3%2582%25AB%25E3%2583%25ABLLM%25E3%2581%258C0%25E7%2582%25B9%25E3%2581%25A0%25E3%2581%25A3%25E3%2581%259F%25E3%2581%25A8%25E3%2581%258D%25E3%2580%2581%25E6%258E%25A1%25E7%2582%25B9%25E8%25A1%25A8%25E3%2581%25AB%25E8%25B6%25B3%25E3%2581%2597%25E3%2581%259F%25E3%2581%2584%25E4%25BA%258C%25E3%2581%25A4%25E3%2581%25AE%25E5%2588%2597%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:SatoshiAkiyama%2520%25E8%2587%25AA%25E5%25AE%2585P...%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jSzlOSW1WYWcydlpOU2gybDNNNU1CeXVLZS1mVUJUaUlpLVF2TVNaODNOaEZFY1p3PXMyNTAtYw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE"
-    },
-    {
       "id": "n_52c1eb08d709453f",
       "title": {
         "en": "PSA: AirPods Pro 3 are in stock, still $149 ($100 off)",
@@ -921,6 +1365,19 @@
       "topic": "ai-wearables",
       "published_at": "2026-11-26T20:24:23.000Z",
       "image": "https://9to5mac.com/wp-content/uploads/sites/6/2025/11/airpods-pro3-holiday.jpg?quality=82&strip=all&resize=1200,628"
+    },
+    {
+      "id": "n_46cd86bf0efb5023",
+      "title": {
+        "en": "The need for a formally verifiable mainstream programming language",
+        "zh": "The need for a formally verifiable mainstream programming language",
+        "original": "The need for a formally verifiable mainstream programming language"
+      },
+      "lang": "en",
+      "url": "https://blainehansen.me/post/mainstream-verifiable-language/",
+      "source": "Lobsters",
+      "topic": "general",
+      "published_at": "2026-11-26T20:06:50.000Z"
     },
     {
       "id": "n_c881f1e7111092b0",
@@ -949,115 +1406,6 @@
       "topic": "consumer-ai-apps",
       "published_at": "2026-11-26T19:52:24.000Z",
       "image": "https://9to5mac.com/wp-content/uploads/sites/6/2024/03/epic-app-store.jpg?quality=82&strip=all&resize=1200,628"
-    },
-    {
-      "id": "n_536be0c2a1d62b85",
-      "title": {
-        "en": "Top-cited AI scientists at four US companies compared",
-        "zh": "Top-cited AI scientists at four US companies compared",
-        "original": "Top-cited AI scientists at four US companies compared"
-      },
-      "lang": "en",
-      "url": "https://topcitedscientists.com/figures/ai-at-four-us-companies/",
-      "source": "Hacker News",
-      "topic": "general",
-      "published_at": "2026-11-26T19:44:31.000Z",
-      "image": "https://topcitedscientists.com/figures/ai-at-four-us-companies/ai-at-four-us-companies-share.png?v=da0792f5"
-    },
-    {
-      "id": "n_0f8ba423af1794ac",
-      "title": {
-        "en": "GPT-6.2 AstraとSolの違い：トークン効率・キャッシュ・料金の仕組みを解説",
-        "zh": "GPT-6.2 AstraとSolの違い：トークン効率・キャッシュ・料金の仕組みを解説",
-        "original": "GPT-6.2 AstraとSolの違い：トークン効率・キャッシュ・料金の仕組みを解説"
-      },
-      "lang": "ja",
-      "url": "https://zenn.dev/sponge841841/articles/2026-11-18-gpt62-astra-sol-efficiency",
-      "source": "Zenn",
-      "topic": "consumer-ai-apps",
-      "published_at": "2026-11-26T19:42:21.000Z",
-      "image": "https://res.cloudinary.com/zenn/image/upload/s--QcoDFMjr--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:GPT-6.2%2520Astra%25E3%2581%25A8Sol%25E3%2581%25AE%25E9%2581%2595%25E3%2581%2584%25EF%25BC%259A%25E3%2583%2588%25E3%2583%25BC%25E3%2582%25AF%25E3%2583%25B3%25E5%258A%25B9%25E7%258E%2587%25E3%2583%25BB%25E3%2582%25AD%25E3%2583%25A3%25E3%2583%2583%25E3%2582%25B7%25E3%2583%25A5%25E3%2583%25BB%25E6%2596%2599%25E9%2587%2591%25E3%2581%25AE%25E4%25BB%2595%25E7%25B5%2584%25E3%2581%25BF%25E3%2582%2592%25E8%25A7%25A3%25E8%25AA%25AC%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E3%2581%25A1%25E3%2581%25A3%25E3%2581%25A1%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzgzMDYyMzRhYzguanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE"
-    },
-    {
-      "id": "n_110b081d361c9e5f",
-      "title": {
-        "en": "Poland to create no-fly zone at border after repeated airspace violations",
-        "zh": "Poland to create no-fly zone at border after repeated airspace violations",
-        "original": "Poland to create no-fly zone at border after repeated airspace violations"
-      },
-      "lang": "en",
-      "url": "https://www.france24.com/en/poland-says-will-create-no-fly-zone-at-ukraine-border-after-repeated-airspace-violations",
-      "source": "Hacker News",
-      "topic": "general",
-      "published_at": "2026-11-26T19:09:14.000Z",
-      "image": "https://s.france24.com/media/display/008c6c02-e905-11f1-b02d-1991d4929b54/w:1280/p:16x9/EN-20261125-200844-201037-CS.jpg"
-    },
-    {
-      "id": "n_832ab4e47f91928a",
-      "title": {
-        "en": "Z.ai clarifies GLM-5.5 has not been delayed, scheduled for December launch",
-        "zh": "Z.ai clarifies GLM-5.5 has not been delayed, scheduled for December launch",
-        "original": "Z.ai clarifies GLM-5.5 has not been delayed, scheduled for December launch"
-      },
-      "lang": "en",
-      "url": "https://reddit.com/r/LocalLLaMA/comments/1y6260i/zai_clarifies_glm55_has_not_been_delayed/",
-      "source": "Hacker News",
-      "topic": "general",
-      "published_at": "2026-11-26T17:55:10.000Z"
-    },
-    {
-      "id": "n_1e8d620dd91d1f00",
-      "title": {
-        "en": "'AI' might be the end of our careers",
-        "zh": "“人工智能”可能是我们职业生涯的终结",
-        "original": "'AI' might be the end of our careers"
-      },
-      "lang": "en",
-      "url": "https://www.baldurbjarnason.com/2026/08-ai-might-be-the-end-of-our-careers/",
-      "source": "Hacker News",
-      "topic": "general",
-      "published_at": "2026-11-26T17:29:28.000Z",
-      "image": "https://v1.screenshot.11ty.dev/https%3A%2F%2Fwww.baldurbjarnason.com%2F2026%2F08-ai-might-be-the-end-of-our-careers%2F/opengraph/"
-    },
-    {
-      "id": "n_12501ac17b568e8f",
-      "title": {
-        "en": "DeepSeekMath: Pushing the Limits of Mathematical Reasoning",
-        "zh": "DeepSeekMath：推动数学推理的极限",
-        "original": "DeepSeekMath: Pushing the Limits of Mathematical Reasoning"
-      },
-      "lang": "en",
-      "url": "https://github.com/deepseek-ai/deepseek-math",
-      "source": "Hacker News",
-      "topic": "general",
-      "published_at": "2026-11-26T17:21:14.000Z",
-      "image": "https://opengraph.githubassets.com/2ece819d7b8a4ace6c4528f15d075ebbfeb0c4d463ff765c295fce7ffd0f19bc/deepseek-ai/DeepSeek-Math"
-    },
-    {
-      "id": "n_280fc6b8ee711812",
-      "title": {
-        "en": "Tracking Diseases Cured by AI",
-        "zh": "追踪由人工智能治愈的疾病",
-        "original": "Tracking Diseases Cured by AI"
-      },
-      "lang": "en",
-      "url": "https://diseasescuredbyai.com/",
-      "source": "Hacker News",
-      "topic": "general",
-      "published_at": "2026-11-26T17:16:41.000Z"
-    },
-    {
-      "id": "n_1d45997e4997625f",
-      "title": {
-        "en": "AMD Specific Patches for Llama.cpp",
-        "zh": "Llama.cpp的AMD特定补丁",
-        "original": "AMD Specific Patches for Llama.cpp"
-      },
-      "lang": "en",
-      "url": "https://devnull.land/amd-specific-llama-cpp",
-      "source": "Hacker News",
-      "topic": "personal-ai-systems",
-      "published_at": "2026-11-26T17:11:29.000Z"
     },
     {
       "id": "n_98bc69ca3f113784",
@@ -1198,34 +1546,6 @@
       "image": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkYzNjIyOTMyJTJGY2Y3Yjc2NjhmZDNiNDAzOTkwZGEyYzgzYmI1YTBmNTE2OWM0NGIxMSUyRnhfbGFyZ2UucG5nJTNGMTc0ODgyNzA3OD9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9NWYzODIyMDhhMDVlZDYxNTk5NGE5NmI3NDVkZDUzY2U%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D67a4e06191a9b60281f1f1f9e3bcd245?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUU2JTlFJUI2JUU3JUE5JUJBJUUzJTgxJUFFJUU3JUE0JUJFJUU1JTg2JTg1RkFRJTIwMzAlRTUlOTUlOEYlRTMlODElQTclRTMlODMlQUQlRTMlODMlQkMlRTMlODIlQUIlRTMlODMlQUJMTE0lRUYlQkMlODhRd2VuMy42JUVGJUJDJTg5JUUzJTgyJTkyJUU2JUI4JUFDJUUzJTgxJUEzJUUzJTgxJTlGJUUzJTgwJTgyJUU2JTk2JTg3JUU2JTlCJUI4JUUzJTgxJUFBJUUzJTgxJTk3NCUyRjMwJUUzJTgzJUJCJUU2JTk2JTg3JUU2JTlCJUI4JUUzJTgxJTgyJUUzJTgyJThBMjklMkYzMCVFMyU4MCU4MSVFNiU4RSVBMSVFNyU4MiVCOSVFNSVCRCVCOSVFMiU4MCVBNiZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPWJkZDM4ZGVjYzMyMWE0NzRhNjI3YjNlZjgzNWMyMmU4&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBtdWthaTMmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz05OTZhMWZjOGQzZTAwZmJkMThlODA1YjhhMTZhMTdjYw&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=01936d49769d73a365b071436abb491f"
     },
     {
-      "id": "n_f1162232167a2dff",
-      "title": {
-        "en": "Best Apple Black Friday Thanksgiving deals: AirPods, MacBook, Apple Watch, AirTag 2, more",
-        "zh": "苹果最佳黑色星期五感恩节优惠：AirPods、MacBook、Apple Watch、AirTag 2等",
-        "original": "Best Apple Black Friday Thanksgiving deals: AirPods, MacBook, Apple Watch, AirTag 2, more"
-      },
-      "lang": "en",
-      "url": "https://9to5mac.com/2026/11/26/best-apple-black-friday-thanksgiving-deals/",
-      "source": "9to5Mac",
-      "topic": "ai-wearables",
-      "published_at": "2026-11-26T14:05:19.000Z",
-      "image": "https://9to5mac.com/wp-content/uploads/sites/6/2026/11/Best-Black-Friday-Apple-deals-2026.jpg?quality=82&strip=all&resize=1200,628"
-    },
-    {
-      "id": "n_5e1ac3493a0df7b2",
-      "title": {
-        "en": "Sketchy suggestion of ceramic iPhone 20 Pro",
-        "zh": "关于陶瓷版iPhone 20 Pro的模糊暗示",
-        "original": "Sketchy suggestion of ceramic iPhone 20 Pro"
-      },
-      "lang": "en",
-      "url": "https://9to5mac.com/2026/11/26/sketchy-suggestion-of-ceramic-iphone-20-pro/",
-      "source": "9to5Mac",
-      "topic": "mobile-ai",
-      "published_at": "2026-11-26T14:00:25.000Z",
-      "image": "https://9to5mac.com/wp-content/uploads/sites/6/2025/05/iphone-20th-anniversary-FI.jpg?quality=82&strip=all&resize=1200,628"
-    },
-    {
       "id": "n_4abf3f4e7f2dfb5c",
       "title": {
         "en": "FIFA Says Hackers Accessed Personal Data in Cyberattack",
@@ -1238,6 +1558,19 @@
       "topic": "personal-ai-systems",
       "published_at": "2026-11-26T13:42:17.000Z",
       "image": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iakUPTFDW_Ms/v1/1200x799.jpg"
+    },
+    {
+      "id": "n_fb4a41f294bfb16e",
+      "title": {
+        "en": "这个小众软件，治好了我用AI时的出门焦虑...",
+        "zh": "这个小众软件，治好了我用AI时的出门焦虑...",
+        "original": "这个小众软件，治好了我用AI时的出门焦虑..."
+      },
+      "lang": "zh",
+      "url": "https://www.bilibili.com/video/av117682775006958",
+      "source": "Bilibili",
+      "topic": "coding-agents",
+      "published_at": "2026-11-26T13:10:29.000Z"
     },
     {
       "id": "n_a085d574d6976d70",
@@ -1266,20 +1599,6 @@
       "topic": "coding-agents",
       "published_at": "2026-11-26T13:07:51.000Z",
       "image": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnNlY3VyZS5ncmF2YXRhci5jb20lMkZhdmF0YXIlMkY1ZjQ2OWNhMDE5NjIyOTU4MTY0NzA3ODg2MjU3ODg1ZD9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9MDBlNTBjZjg2NzA0YWYzOTU4YzUyZWE0NDAyYjVkZDg%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Db0fb7b518cbe6fd4515b7a3f5b82a516?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9Q2xhdWRlJTIwQ29kZSUyMCUyQiUyME9wZW5DbGF3JTIwJUU0JUJBJThDJUU1JTg4JTgwJUU2JUI1JTgxJUVGJUJDJTlBJUUzJTgyJUIzJUUzJTgzJUJDJUUzJTgzJTg3JUUzJTgyJUEzJUUzJTgzJUIzJUUzJTgyJUIwJUUzJTgxJUE4MjQlRTYlOTklODIlRTklOTYlOTMlRTUlOUYlQjclRTQlQkElOEIlRTMlODElQUUlRTQlQjglQTElRTclQUIlOEImdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz1kMGFmMDdkNjMzODEwZWM4MGZiMDc3ODY0ZjU3NDcyMA&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBmdWt1a2VpMjMmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz1mZjI4OTNiOTM5OTRjYzYzYjBhYWQzNmU1ZGJhOGVlNQ&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=a0f249bfec7788b5530be0fa392d2747"
-    },
-    {
-      "id": "n_bd0becd991cbf549",
-      "title": {
-        "en": "The Character․AI mess underlines the importance of Apple’s approach to AI privacy",
-        "zh": "Character․AI的混乱凸显了苹果对AI隐私保护方法的重要性",
-        "original": "The Character․AI mess underlines the importance of Apple’s approach to AI privacy"
-      },
-      "lang": "en",
-      "url": "https://9to5mac.com/2026/11/26/the-character%e2%80%a4ai-mess-underlines-the-importance-of-apples-approach-to-ai-privacy/",
-      "source": "9to5Mac",
-      "topic": "consumer-ai-apps",
-      "published_at": "2026-11-26T12:58:21.000Z",
-      "image": "https://9to5mac.com/wp-content/uploads/sites/6/2026/11/The-Character%E2%80%A4AI-mess-underlines-the-importance-of-Apples-approach-to-AI-privacy.jpg?quality=82&strip=all&resize=1200,628"
     },
     {
       "id": "n_c4191a36d4b5fb41",
@@ -1583,6 +1902,20 @@
       "published_at": "2026-11-26T00:10:06.000Z"
     },
     {
+      "id": "p_c426683794a6c05e",
+      "title": {
+        "en": "Why I'm Bullish on MCP for 2027",
+        "zh": "Why I'm Bullish on MCP for 2027",
+        "original": "Why I'm Bullish on MCP for 2027"
+      },
+      "lang": "en",
+      "url": "https://www.philschmid.de/mcp-2027",
+      "source": "philschmid.de",
+      "topic": "coding-agents",
+      "published_at": "2026-11-26T00:00:00.000Z",
+      "image": "https://www.philschmid.de/_og/adb76b9639b8-og.jpg"
+    },
+    {
       "id": "p_c82c76b852565895",
       "title": {
         "en": "When I Created an AI-only Business Unit with Claude Code, I Burned Through 69% of Tokens in Two Days and Made Zero Revenue",
@@ -1611,18 +1944,17 @@
       "image": "https://res.cloudinary.com/zenn/image/upload/s--JAjJ88gy--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Adobe%2520MAX%2520%25E3%2581%25A7%25E7%2599%25BA%25E8%25A1%25A8%25E3%2581%2595%25E3%2582%258C%25E3%2581%259F%2520MCP%2520%25E3%2581%25AE%25E3%2581%2586%25E3%2581%25A1%25E3%2580%2581%25E3%2581%25A8%25E3%2582%258A%25E3%2581%2582%25E3%2581%2588%25E3%2581%259AIllustrator%2520%25E3%2582%2592%25E6%25B8%25AC%25E3%2581%25A3%25E3%2581%25A6%25E3%2581%25BF%25E3%2581%259F%2520%25E2%2580%2594%2520%25E4%25BB%258A%25E3%2581%25AF%25E3%2581%25BE%25E3%2581%25A0%2520J...%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E3%2581%2584%25E3%2582%258F%25E3%2581%2584%25E3%2580%2580%25E3%2582%2586%25E3%2581%2586%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jS0NvOVd4M1l6c3JlUms3UlBGQ1g1QmQydVFiZFVkVHJNNEpfN1dWUnlMOW5QMHZGOEM9czk2LWM=%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE"
     },
     {
-      "id": "n_c426683794a6c05e",
+      "id": "p_32b6eb4d64b91e5c",
       "title": {
-        "en": "Why I'm Bullish on MCP for 2027",
-        "zh": "为什么我看好2027年的MCP",
-        "original": "Why I'm Bullish on MCP for 2027"
+        "en": "GigaChat 4: две мощные модели, миллион токенов и новые агентные навыки",
+        "zh": "GigaChat 4: две мощные модели, миллион токенов и новые агентные навыки",
+        "original": "GigaChat 4: две мощные модели, миллион токенов и новые агентные навыки"
       },
-      "lang": "en",
-      "url": "https://www.philschmid.de/mcp-2027",
-      "source": "Philipp Schmid",
+      "lang": "other",
+      "url": "https://giga.chat/blog/posts/gigachat-4",
+      "source": "GigaChat（Sber）",
       "topic": "general",
-      "published_at": "2026-11-26T00:00:00.000Z",
-      "image": "https://www.philschmid.de/_og/adb76b9639b8-og.jpg"
+      "published_at": "2026-11-26T00:00:00.000Z"
     },
     {
       "id": "n_c01600d4160315a4",
@@ -1888,6 +2220,20 @@
       "image": "https://techcrunch.com/wp-content/uploads/2018/11/3-1password.png?w=1200"
     },
     {
+      "id": "n_38d96de02cd0e1d5",
+      "title": {
+        "en": "DRBench Pro: A Knowledge-Centric Benchmark for Professional Deep Research Agents",
+        "zh": "DRBench Pro: A Knowledge-Centric Benchmark for Professional Deep Research Agents",
+        "original": "DRBench Pro: A Knowledge-Centric Benchmark for Professional Deep Research Agents"
+      },
+      "lang": "en",
+      "url": "https://arxiv.org/abs/2611.34852v1",
+      "source": "arXiv cs.AI",
+      "topic": "general",
+      "published_at": "2026-11-25T18:25:30.000Z",
+      "image": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
       "id": "p_ac6e047a01642ff7",
       "title": {
         "en": "SpaceX wins FCC approval to deploy 1 million orbital data center satellites",
@@ -2138,20 +2484,6 @@
       "published_at": "2026-11-25T14:35:29.000Z"
     },
     {
-      "id": "n_c51be909c03db26f",
-      "title": {
-        "en": "Prompt to create a “Muse Usage” space visualizing weekly token usage of Muse",
-        "zh": "创建“Muse使用状况”空间的提示，显示Muse每周词元使用情况",
-        "original": "Museの週間トークン使用率を可視化する「Muse利用状況」スペースを作るプロンプト"
-      },
-      "lang": "ja",
-      "url": "https://qiita.com/d_yan/items/e5fc8ebee3bba4df6123",
-      "source": "Qiita",
-      "topic": "personal-ai-systems",
-      "published_at": "2026-11-25T14:16:02.000Z",
-      "image": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY2OTYzNjQlMkY5MmI0YzgxZmJhZDEwZGNkZjFiZmRjY2NmMWJkNmZlYWIyMjZjOGE1JTJGbGFyZ2UucG5nJTNGMTU5ODEyMjY4MD9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9MGZmMDM0MDIyZmRjMTYyNzQ4OTA1MTE5M2U4MmE3OGI%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D83a27ac13cef4881ac254e19eacaf6e1?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9TXVzZSVFMyU4MSVBRSVFOSU4MCVCMSVFOSU5NiU5MyVFMyU4MyU4OCVFMyU4MyVCQyVFMyU4MiVBRiVFMyU4MyVCMyVFNCVCRCVCRiVFNyU5NCVBOCVFNyU4RSU4NyVFMyU4MiU5MiVFNSU4RiVBRiVFOCVBNiU5NiVFNSU4QyU5NiVFMyU4MSU5OSVFMyU4MiU4QiVFMyU4MCU4Q011c2UlRTUlODglQTklRTclOTQlQTglRTclOEElQjYlRTYlQjMlODElRTMlODAlOEQlRTMlODIlQjklRTMlODMlOUElRTMlODMlQkMlRTMlODIlQjklRTMlODIlOTIlRTQlQkQlOUMlRTMlODIlOEIlRTMlODMlOTclRTMlODMlQUQlRTMlODMlQjMlRTMlODMlOTclRTMlODMlODgmdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz01ZDBlNzY4MTBmMmYyNWE5OGExYzM2MTk3NTBmYjhlZQ&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBkX3lhbiZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPWU5NDgyMDRhNmEzZWJiMjE0ZjhiMDUzMjI4Y2U5OWM2&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=3c3fe6e51eeb8020983e6b3ee98075c2"
-    },
-    {
       "id": "n_36c2735393fa8400",
       "title": {
         "en": "DocSEAM: Bidirectional Cross-Page Encoding for Multi-Page Document Understanding",
@@ -2249,19 +2581,6 @@
       "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/11/vibe_coding_synths_.jpg?quality=90&strip=all&crop=0%2C12.339110464558%2C100%2C75.321779070884&w=1200"
     },
     {
-      "id": "n_4d1133cb4e1172b2",
-      "title": {
-        "en": "Counterpoint: Global Smartphone Shipments Expected to Decline 6% in 2027, Rebound for the First Time in 2028",
-        "zh": "Counterpoint：预计 2027 年全球智能手机出货再降 6%，2028 年迎来首次反弹",
-        "original": "Counterpoint：预计 2027 年全球智能手机出货再降 6%，2028 年迎来首次反弹"
-      },
-      "lang": "zh",
-      "url": "https://www.ithome.com/1/032/475.htm",
-      "source": "IT之家",
-      "topic": "mobile-ai",
-      "published_at": "2026-11-25T12:09:20.000Z"
-    },
-    {
       "id": "p_b0640610b4ecd08c",
       "title": {
         "en": "Treasury CIO Is Vibe Coding a 'Civilization' Clone During Treasury Department Hack",
@@ -2274,32 +2593,6 @@
       "topic": "coding-agents",
       "published_at": "2026-11-25T12:05:00.000Z",
       "image": "https://storage.ghost.io/c/0f/76/0f76b548-bc58-4f25-abc3-3f5ebca07da4/content/images/2026/11/CleanShot-2026-11-25-at-12.33.44-AM@2x.png"
-    },
-    {
-      "id": "n_ff0c1a559de82382",
-      "title": {
-        "en": "Huawei 5A Communication Technology Supports New Device Releases with New Mate 90 Air and Mate X8 Series Phones",
-        "zh": "华为 5A 通信技术支持设备上新，新增 Mate 90 Air、Mate X8 系列手机",
-        "original": "华为 5A 通信技术支持设备上新，新增 Mate 90 Air、Mate X8 系列手机"
-      },
-      "lang": "zh",
-      "url": "https://www.ithome.com/1/032/478.htm",
-      "source": "IT之家",
-      "topic": "mobile-ai",
-      "published_at": "2026-11-25T12:02:27.000Z"
-    },
-    {
-      "id": "n_ea6c8f41e9d2b2b9",
-      "title": {
-        "en": "PS AI Application Disabled: This Adobe Application Is Not Authorized and Cannot Continue to Be Used [Solution Provided]",
-        "zh": "PS AI应用程序已被禁用 此Adobe应用程序未获授权，无法继续使用【处理解决方法】",
-        "original": "PS AI应用程序已被禁用 此Adobe应用程序未获授权，无法继续使用【处理解决方法】"
-      },
-      "lang": "zh",
-      "url": "https://www.bilibili.com/video/av117676902975115",
-      "source": "Bilibili",
-      "topic": "consumer-ai-apps",
-      "published_at": "2026-11-25T11:46:59.000Z"
     },
     {
       "id": "n_1033887459b7433e",
@@ -2328,19 +2621,6 @@
       "topic": "consumer-ai-apps",
       "published_at": "2026-11-25T11:25:14.000Z",
       "image": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/in9A4zaDz1xY/v0/1200x800.jpg"
-    },
-    {
-      "id": "n_80ab293890e06678",
-      "title": {
-        "en": "When Will Smartphones Evolve into ‘Automatic Mode’?",
-        "zh": "智能手机什么时候进化成“自动挡”？",
-        "original": "智能手机什么时候进化成“自动挡”？"
-      },
-      "lang": "zh",
-      "url": "https://www.bilibili.com/video/av117676584211867",
-      "source": "Bilibili",
-      "topic": "mobile-ai",
-      "published_at": "2026-11-25T11:04:27.000Z"
     },
     {
       "id": "n_9a2d977585a641d4",
@@ -2399,18 +2679,18 @@
       "image": "https://wp.technologyreview.com/wp-content/uploads/2026/11/loc-sales2a.jpg?resize=1200,600"
     },
     {
-      "id": "n_35f490fb3adb728b",
+      "id": "p_931d620c7b260979",
       "title": {
-        "en": "Gemini Notebook’s flashcards just got a lot better for studies with three new features",
-        "zh": "Gemini 笔记本的抽认卡新增三大功能，学习体验大幅提升",
-        "original": "Gemini Notebook’s flashcards just got a lot better for studies with three new features"
+        "en": "Introducing Pax and the Pydantic AI Harness beta, on the road to 1.0",
+        "zh": "Introducing Pax and the Pydantic AI Harness beta, on the road to 1.0",
+        "original": "Introducing Pax and the Pydantic AI Harness beta, on the road to 1.0"
       },
       "lang": "en",
-      "url": "https://www.androidauthority.com/gemini-notebook-flashcards-3739247/",
-      "source": "Android Authority",
-      "topic": "consumer-ai-apps",
-      "published_at": "2026-11-25T08:30:56.000Z",
-      "image": "https://www.androidauthority.com/wp-content/uploads/2026/08/Gemini-Notebook-app-opened-on-Galaxy-Z-Fold-8-Ultra.jpg"
+      "url": "https://pydantic.dev/articles/pax-harness-beta",
+      "source": "Pydantic",
+      "topic": "coding-agents",
+      "published_at": "2026-11-25T09:00:00.000Z",
+      "image": "https://pydantic.dev/articles/pax-harness-beta/og.png"
     },
     {
       "id": "p_a2a78bd8bdce5b5f",
@@ -2509,19 +2789,6 @@
       "topic": "personal-ai-systems",
       "published_at": "2026-11-25T00:22:35.000Z",
       "image": "https://rssfile.sspai.com/2026/11/25/article/48a4e38f-00f4-b1e5-9581-c02a5d115f51.png?imageMogr2/auto-orient/format/webp/ignore-error/1"
-    },
-    {
-      "id": "n_86b1debc641fd874",
-      "title": {
-        "en": "After about 3 years, Apple Product (RED) series makes a comeback; red AirPods straps, AirTag, and more expected to launch next month",
-        "zh": "时隔约 3 年苹果 Product (RED) 系列重出江湖，红色 AirPods 腕带、AirTag 等有望下月登场",
-        "original": "时隔约 3 年苹果 Product (RED) 系列重出江湖，红色 AirPods 腕带、AirTag 等有望下月登场"
-      },
-      "lang": "zh",
-      "url": "https://www.ithome.com/1/031/920.htm",
-      "source": "IT之家",
-      "topic": "ai-wearables",
-      "published_at": "2026-11-25T00:03:50.000Z"
     },
     {
       "id": "p_f63f4cad14680799",
@@ -2650,6 +2917,34 @@
       "image": "https://huggingface.co/blog/assets/inkling-2-mini-inference-hillclimb/thumbnail.png"
     },
     {
+      "id": "n_c1c847998ca54958",
+      "title": {
+        "en": "Entangle: Scaling Human-Video In-Context World-Action Models across Unseen Tasks and Contexts",
+        "zh": "Entangle: Scaling Human-Video In-Context World-Action Models across Unseen Tasks and Contexts",
+        "original": "Entangle: Scaling Human-Video In-Context World-Action Models across Unseen Tasks and Contexts"
+      },
+      "lang": "en",
+      "url": "https://arxiv.org/abs/2611.28732",
+      "source": "Hugging Face Daily Papers",
+      "topic": "general",
+      "published_at": "2026-11-25T00:00:00.000Z",
+      "image": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "id": "n_b9a6b5b3831fe4c5",
+      "title": {
+        "en": "StateWeaver: Multi-Agent Coordination of Story-State Transitions for Long-Horizon Video Generation",
+        "zh": "StateWeaver: Multi-Agent Coordination of Story-State Transitions for Long-Horizon Video Generation",
+        "original": "StateWeaver: Multi-Agent Coordination of Story-State Transitions for Long-Horizon Video Generation"
+      },
+      "lang": "en",
+      "url": "https://arxiv.org/abs/2611.34290",
+      "source": "Hugging Face Daily Papers",
+      "topic": "general",
+      "published_at": "2026-11-25T00:00:00.000Z",
+      "image": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
       "id": "n_a59ff07a3a668d46",
       "title": {
         "en": "How my context engineering changed for Gemini 4 Neon",
@@ -2662,6 +2957,20 @@
       "topic": "general",
       "published_at": "2026-11-25T00:00:00.000Z",
       "image": "https://www.philschmid.de/_og/d5ea65ae9ccc-og.jpg"
+    },
+    {
+      "id": "n_335348c4a4316d73",
+      "title": {
+        "en": "ProxyGenBench: Benchmarking Proxy-Guided Video Generation",
+        "zh": "ProxyGenBench: Benchmarking Proxy-Guided Video Generation",
+        "original": "ProxyGenBench: Benchmarking Proxy-Guided Video Generation"
+      },
+      "lang": "en",
+      "url": "https://arxiv.org/abs/2611.34457",
+      "source": "Hugging Face Daily Papers",
+      "topic": "general",
+      "published_at": "2026-11-25T00:00:00.000Z",
+      "image": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
     },
     {
       "id": "n_07891f29af810774",
@@ -2686,6 +2995,20 @@
       },
       "lang": "en",
       "url": "https://arxiv.org/abs/2611.34941",
+      "source": "Hugging Face Daily Papers",
+      "topic": "general",
+      "published_at": "2026-11-25T00:00:00.000Z",
+      "image": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "id": "n_81c7402b92ff6c29",
+      "title": {
+        "en": "OS-Omni: Benchmarking Generalist Computer-Using Agents on Long-Horizon Workflows Across Platforms",
+        "zh": "OS-Omni: Benchmarking Generalist Computer-Using Agents on Long-Horizon Workflows Across Platforms",
+        "original": "OS-Omni: Benchmarking Generalist Computer-Using Agents on Long-Horizon Workflows Across Platforms"
+      },
+      "lang": "en",
+      "url": "https://arxiv.org/abs/2611.34232",
       "source": "Hugging Face Daily Papers",
       "topic": "general",
       "published_at": "2026-11-25T00:00:00.000Z",
@@ -2732,19 +3055,6 @@
       "topic": "general",
       "published_at": "2026-11-24T23:39:04.000Z",
       "image": "https://media.wired.com/photos/6b05a2cb470266bfec0ce9be/master/pass/GettyImages-2306037065.jpg"
-    },
-    {
-      "id": "n_464122cfff58b6df",
-      "title": {
-        "en": "OpenAI: Amateur astronomers plus AI bring exoplanet search into the 'people's era'",
-        "zh": "OpenAI：业余天文学家加 AI，让系外行星搜寻进入“全民时代”",
-        "original": "OpenAI：业余天文学家加 AI，让系外行星搜寻进入“全民时代”"
-      },
-      "lang": "zh",
-      "url": "https://www.ithome.com/1/031/899.htm",
-      "source": "IT之家",
-      "topic": "coding-agents",
-      "published_at": "2026-11-24T23:25:03.000Z"
     },
     {
       "id": "p_6ff348e652c905f1",
@@ -3024,20 +3334,6 @@
       "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/11/ai-label_1c35e3.jpg?quality=90&strip=all&crop=0%2C19.887257893553%2C100%2C60.225484212893&w=1200"
     },
     {
-      "id": "n_f6506208e37cc4a8",
-      "title": {
-        "en": "Mangmi shows off the Air X Pro with Snapdragon 865 and a 5.5-inch 1080p screen",
-        "zh": "Mangmi 展示搭载骁龙865和5.5英寸1080p屏幕的 Air X Pro",
-        "original": "Mangmi shows off the Air X Pro with Snapdragon 865 and a 5.5-inch 1080p screen"
-      },
-      "lang": "en",
-      "url": "https://www.androidauthority.com/mangmi-air-x-pro-specs-display-processor-3738916/",
-      "source": "Android Authority",
-      "topic": "mobile-ai",
-      "published_at": "2026-11-24T16:20:56.000Z",
-      "image": "https://www.androidauthority.com/wp-content/uploads/2026/11/mangmi-air-x-pro.jpg"
-    },
-    {
       "id": "n_3d12a70e860525d0",
       "title": {
         "en": "Lazy Agents Answer Against Their Own Beliefs: Reinforcement Learning with Verifiable Beliefs Teaches Them to Act on What They Believe",
@@ -3162,20 +3458,6 @@
       "image": "https://image.cnbcfm.com/api/v1/image/108555283-1795099651358-gettyimages-2305298415-AFP_D7ZG87L.jpeg"
     },
     {
-      "id": "n_9322190a1e583395",
-      "title": {
-        "en": "HUAWEI’s new Watch Air is slimmer and lighter than any Pixel Watch or Galaxy Watch ever",
-        "zh": "华为新款 Watch Air 比任何 Pixel Watch 或 Galaxy Watch 都更纤薄轻巧",
-        "original": "HUAWEI’s new Watch Air is slimmer and lighter than any Pixel Watch or Galaxy Watch ever"
-      },
-      "lang": "en",
-      "url": "https://www.androidauthority.com/huawei-watch-air-launched-3738764/",
-      "source": "Android Authority",
-      "topic": "ai-wearables",
-      "published_at": "2026-11-24T14:14:37.000Z",
-      "image": "https://www.androidauthority.com/wp-content/uploads/2026/11/huawei-watch-air-silver-and-gold.jpg"
-    },
-    {
       "id": "n_459ee7b37a31e73f",
       "title": {
         "en": "Conheça o novíssimo ChatGPT Modo Voz.",
@@ -3229,20 +3511,6 @@
       "topic": "consumer-ai-apps",
       "published_at": "2026-11-24T12:00:00.000Z",
       "image": "https://9to5google.com/wp-content/uploads/sites/4/2026/11/53552985083_02d1bfc49e_o.jpg?quality=82&strip=all&resize=1200,628"
-    },
-    {
-      "id": "n_84edfb5a38475599",
-      "title": {
-        "en": "Data centers are getting their own natural gas power plants",
-        "zh": "数据中心将拥有自己的天然气发电厂",
-        "original": "Data centers are getting their own natural gas power plants"
-      },
-      "lang": "en",
-      "url": "https://www.technologyreview.com/2026/11/24/1149622/data-centers-natural-gas/",
-      "source": "MIT Technology Review",
-      "topic": "general",
-      "published_at": "2026-11-24T11:00:00.000Z",
-      "image": "https://wp.technologyreview.com/wp-content/uploads/2026/11/AP25350020551834.jpg?resize=1200,600"
     },
     {
       "id": "p_9986080c472745ef",
@@ -3592,34 +3860,6 @@
       "image": "https://opengraph.githubassets.com/5623002f9656b89875896bbccc8a6bf1a8bb79dd5c891369f1b46408b529728a/Imbad0202/academic-research-skills"
     },
     {
-      "id": "n_b0ac2249d7132055",
-      "title": {
-        "en": "ThinkMorph-SSL: Scaling Interleaved Multimodal Reasoning with Pretext Tasks",
-        "zh": "ThinkMorph-SSL：通过预训练任务扩展交错多模态推理",
-        "original": "ThinkMorph-SSL: Scaling Interleaved Multimodal Reasoning with Pretext Tasks"
-      },
-      "lang": "en",
-      "url": "https://arxiv.org/abs/2611.32183",
-      "source": "Hugging Face Daily Papers",
-      "topic": "general",
-      "published_at": "2026-11-24T00:00:00.000Z",
-      "image": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
-    },
-    {
-      "id": "n_a7e535c8332e7a2e",
-      "title": {
-        "en": "PartAgent: Agentic 3D Part Segmentation via Expert Integration and Closed-Loop Refinement",
-        "zh": "PartAgent：通过专家整合与闭环优化实现智能3D部件分割",
-        "original": "PartAgent: Agentic 3D Part Segmentation via Expert Integration and Closed-Loop Refinement"
-      },
-      "lang": "en",
-      "url": "https://arxiv.org/abs/2611.32554",
-      "source": "Hugging Face Daily Papers",
-      "topic": "general",
-      "published_at": "2026-11-24T00:00:00.000Z",
-      "image": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
-    },
-    {
       "id": "n_71996d97862bb6c2",
       "title": {
         "en": "How iFood scales coding agents across 15,000 repositories",
@@ -3717,20 +3957,6 @@
       "image": "https://opengraph.githubassets.com/00b5277fb00f84b1734cdf31b6b8f772bd57e42e7519e085cf8c8058c021fb2a/cathrynlavery/diagram-design"
     },
     {
-      "id": "n_8fd5f0be76b9afc3",
-      "title": {
-        "en": "ICLWorld: Benchmarking In-Context Learning of Agents from Digital to Physical Worlds",
-        "zh": "ICLWorld：数字世界到物理世界的代理上下文学习基准测试",
-        "original": "ICLWorld: Benchmarking In-Context Learning of Agents from Digital to Physical Worlds"
-      },
-      "lang": "en",
-      "url": "https://arxiv.org/abs/2611.32649",
-      "source": "Hugging Face Daily Papers",
-      "topic": "general",
-      "published_at": "2026-11-24T00:00:00.000Z",
-      "image": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
-    },
-    {
       "id": "n_1fb256ce62b78d40",
       "title": {
         "en": "cursor/plugins",
@@ -3813,34 +4039,6 @@
       "topic": "general",
       "published_at": "2026-11-23T22:42:32.000Z",
       "image": "https://pbs.twimg.com/card_img/2125170559524782080/yhxVZhxp?format=jpg&name=medium"
-    },
-    {
-      "id": "n_012a59ac52869d1b",
-      "title": {
-        "en": "Trump engineered a risky comeback for Jensen Huang",
-        "zh": "特朗普策划了黄仁勋的冒险复出",
-        "original": "Trump engineered a risky comeback for Jensen Huang"
-      },
-      "lang": "en",
-      "url": "https://www.theverge.com/ai-artificial-intelligence/1040652/jensen-huang-nvidia-trump-reinstated",
-      "source": "The Verge",
-      "topic": "general",
-      "published_at": "2026-11-23T22:25:12.000Z",
-      "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/11/gettyimages-2297774940.jpg?quality=90&strip=all&crop=0%2C12.22929670334%2C100%2C75.541406593319&w=1200"
-    },
-    {
-      "id": "n_8a87b89b841a347e",
-      "title": {
-        "en": "Claude rolling out updated Android app with Material 3 Expressive redesign",
-        "zh": "Claude 推出采用 Material 3 表现设计的更新版安卓应用",
-        "original": "Claude rolling out updated Android app with Material 3 Expressive redesign"
-      },
-      "lang": "en",
-      "url": "https://9to5google.com/2026/11/23/claude-android-material-3-update/",
-      "source": "9to5Google",
-      "topic": "consumer-ai-apps",
-      "published_at": "2026-11-23T22:15:00.000Z",
-      "image": "https://9to5google.com/wp-content/uploads/sites/4/2026/11/claude-android-m3-3.jpg?quality=82&strip=all&resize=1200,628"
     },
     {
       "id": "p_2766e3f921fedfb6",
@@ -3969,20 +4167,6 @@
       "image": "https://pbs.twimg.com/media/HX2HXu7aMAAkUqr?format=webp&name=large"
     },
     {
-      "id": "n_7067f7e3a4987ff7",
-      "title": {
-        "en": "Nothing’s first AI-native device is the Ear note, and here’s our best look at how it works",
-        "zh": "Nothing’s first AI-native device is the Ear note, and here’s our best look at how it works",
-        "original": "Nothing’s first AI-native device is the Ear note, and here’s our best look at how it works"
-      },
-      "lang": "en",
-      "url": "https://www.androidauthority.com/nothing-ear-note-ai-earbuds-features-3738493/",
-      "source": "Android Authority",
-      "topic": "ai-wearables",
-      "published_at": "2026-11-23T19:11:52.000Z",
-      "image": "https://www.androidauthority.com/wp-content/uploads/2025/09/Nothing-Ear-3-in-case.jpg"
-    },
-    {
       "id": "p_8807ca8c1737791e",
       "title": {
         "en": "Some new details from our reporting",
@@ -4079,34 +4263,6 @@
       "topic": "consumer-ai-apps",
       "published_at": "2026-11-23T17:44:50.000Z",
       "image": "https://pbs.twimg.com/card_img/2124923045508694016/LzqXdbuO?format=jpg&name=medium"
-    },
-    {
-      "id": "n_3e76e70d7a270ac8",
-      "title": {
-        "en": "AI Mode adding Google Drive, Wallet, & Gemini app integration",
-        "zh": "AI 模式新增 Google Drive、Wallet 和 Gemini 应用集成",
-        "original": "AI Mode adding Google Drive, Wallet, & Gemini app integration"
-      },
-      "lang": "en",
-      "url": "https://9to5google.com/2026/11/23/ai-mode-wallet-gemini/",
-      "source": "9to5Google",
-      "topic": "consumer-ai-apps",
-      "published_at": "2026-11-23T17:36:34.000Z",
-      "image": "https://9to5google.com/wp-content/uploads/sites/4/2026/11/AI-Mode-Personal-Intelligence-cover.webp?resize=1200,628"
-    },
-    {
-      "id": "n_1ee9f5994a817a2b",
-      "title": {
-        "en": "A legendary philosopher isn’t buying Anthropic’s consciousness argument",
-        "zh": "一位传奇哲学家不认可Anthropic的意识论证",
-        "original": "A legendary philosopher isn’t buying Anthropic’s consciousness argument"
-      },
-      "lang": "en",
-      "url": "https://www.technologyreview.com/2026/11/23/1149569/a-legendary-philosopher-isnt-buying-anthropics-consciousness-argument/",
-      "source": "MIT Technology Review",
-      "topic": "general",
-      "published_at": "2026-11-23T17:36:08.000Z",
-      "image": "https://wp.technologyreview.com/wp-content/uploads/2026/11/simulacra2a.jpg?resize=1200,600"
     },
     {
       "id": "n_f90dede1d5ed8de7",
@@ -4261,20 +4417,6 @@
       "topic": "general",
       "published_at": "2026-11-23T14:57:42.000Z",
       "image": "https://pbs.twimg.com/media/HX0WG5vacAAuUka.png"
-    },
-    {
-      "id": "n_d631009dc67b4ca2",
-      "title": {
-        "en": "Jensen Huang Is Back as Nvidia CEO",
-        "zh": "黄仁勋重回英伟达CEO职位",
-        "original": "Jensen Huang Is Back as Nvidia CEO"
-      },
-      "lang": "en",
-      "url": "https://www.wired.com/story/jensen-huang-is-back-as-nvidia-ceo/",
-      "source": "Wired",
-      "topic": "general",
-      "published_at": "2026-11-23T14:27:35.000Z",
-      "image": "https://media.wired.com/photos/6b04495d307e146147156b9d/master/pass/GettyImages-2266718431.jpg"
     },
     {
       "id": "n_a2f758739a94c065",
@@ -4541,20 +4683,6 @@
       "topic": "mobile-ai",
       "published_at": "2026-11-23T00:00:00.000Z",
       "image": "https://community.oneplus.com/oneplus.png"
-    },
-    {
-      "id": "n_dbca43068f5c3e90",
-      "title": {
-        "en": "3AGameFactory-Motion: Agentic Rigging and Reliable Complex Motion Generation for Diverse 3D Assets",
-        "zh": "3AGameFactory-Motion：面向多样3D资产的主动绑定与可靠复杂动作生成",
-        "original": "3AGameFactory-Motion: Agentic Rigging and Reliable Complex Motion Generation for Diverse 3D Assets"
-      },
-      "lang": "en",
-      "url": "https://arxiv.org/abs/2611.30013",
-      "source": "Hugging Face Daily Papers",
-      "topic": "general",
-      "published_at": "2026-11-23T00:00:00.000Z",
-      "image": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
     },
     {
       "id": "n_6fd4c32fe34a4cba",
@@ -5285,20 +5413,6 @@
       "image": "https://storage.googleapis.com/gweb-research2023-media/original_images/Duplex1-TasksInGeminiHero.png"
     },
     {
-      "id": "p_c0aef402ff5d9766",
-      "title": {
-        "en": "Between this and The Altruists, I feel like Hollywood does not understand the Bay, does not want to understand the Bay, and will pump out…",
-        "zh": "在这部和《利他主义者》之间，我觉得好莱坞不理解湾区，也不想理解湾区，而且会不断产出……",
-        "original": "Between this and The Altruists, I feel like Hollywood does not understand the Bay, does not want to understand the Bay, and will pump out…"
-      },
-      "lang": "en",
-      "url": "https://x.com/KelseyTuoc/status/2123905873550733350",
-      "source": "X @KelseyTuoc",
-      "topic": "general",
-      "published_at": "2026-11-20T22:26:35.000Z",
-      "image": "https://pbs.twimg.com/profile_images/1957484507730518016/JKtDNrOH_400x400.jpg"
-    },
-    {
       "id": "n_5db536ea0226338d",
       "title": {
         "en": "alesha-pro/inference-optimization-playbook: 97 tested hypotheses on making huge MoE LLMs fast on consumer GPUs (4x RTX 3090 + experts in RAM): what worked, what failed and why. A playbook for people and a ready skill for coding agents.",
@@ -5311,20 +5425,6 @@
       "topic": "coding-agents",
       "published_at": "2026-11-20T22:17:50.000Z",
       "image": "https://opengraph.githubassets.com/12cf1426031790a041746c2487f1323398cec67174d48264141d33cddb59dd41/alesha-pro/inference-optimization-playbook"
-    },
-    {
-      "id": "p_663e6d78ab269cc7",
-      "title": {
-        "en": "Flashback to June 14, 2024.",
-        "zh": "回顾2024年6月14日。",
-        "original": "Flashback to June 14, 2024."
-      },
-      "lang": "en",
-      "url": "https://x.com/fchollet/status/2123898321647571442",
-      "source": "X @fchollet",
-      "topic": "coding-agents",
-      "published_at": "2026-11-20T21:56:34.000Z",
-      "image": "https://pbs.twimg.com/profile_images/2006806326140350470/Kd5oZv-f_400x400.jpg"
     },
     {
       "id": "n_2f9d0bc4d1470e23",
@@ -5381,20 +5481,6 @@
       "topic": "general",
       "published_at": "2026-11-20T21:18:41.000Z",
       "image": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/b6f560cd-a37a-4d62-8d6b-da5b59cf4790/formal-verification-feature.png?t=1795207886"
-    },
-    {
-      "id": "p_dfe9413a242471e4",
-      "title": {
-        "en": "BREAKING: 🇺🇸 $8.9 trillion erased from the US stock market in the past 45 days.",
-        "zh": "突发新闻：🇺🇸 过去45天美国股市蒸发8.9万亿美元。",
-        "original": "BREAKING: 🇺🇸 $8.9 trillion erased from the US stock market in the past 45 days."
-      },
-      "lang": "en",
-      "url": "https://x.com/WatcherGuru/status/2123885416789287181",
-      "source": "X @WatcherGuru",
-      "topic": "general",
-      "published_at": "2026-11-20T21:05:17.000Z",
-      "image": "https://pbs.twimg.com/media/HXmOhzXXwAArAEd.jpg"
     },
     {
       "id": "n_fd59603d89785028",
@@ -5466,104 +5552,6 @@
       "image": "https://blog.cloudflare.com/_emdash/api/media/file/01M7X76DTFTZ4PHVTH5XWJ37KT.png"
     },
     {
-      "id": "p_f78e006f1776aebe",
-      "title": {
-        "en": "We've been working on understanding model capabilities beyond what our prior time horizon tasks could capture.",
-        "zh": "我们一直致力于理解模型能力，超越此前时间范围任务所能捕捉的内容。",
-        "original": "We've been working on understanding model capabilities beyond what our prior time horizon tasks could capture."
-      },
-      "lang": "en",
-      "url": "https://x.com/METR_Evals/status/2123864981506798012",
-      "source": "X @METR_Evals",
-      "topic": "general",
-      "published_at": "2026-11-20T19:44:05.000Z",
-      "image": "https://pbs.twimg.com/media/HXl78dBa4AA8nq9.jpg"
-    },
-    {
-      "id": "p_75e5deb908f6ec73",
-      "title": {
-        "en": "Distillation can reproduce powerful AI capabilities without the safeguards built around them.",
-        "zh": "蒸馏可以在没有周围保障措施的情况下重现强大的AI能力。",
-        "original": "Distillation can reproduce powerful AI capabilities without the safeguards built around them."
-      },
-      "lang": "en",
-      "url": "https://x.com/OpenAI/status/2123862344422088794",
-      "source": "X @OpenAI",
-      "topic": "general",
-      "published_at": "2026-11-20T19:33:37.000Z",
-      "image": "https://pbs.twimg.com/card_img/2123861635983171584/ZI5ZQCaQ?format=jpg&name=medium"
-    },
-    {
-      "id": "p_4e4e9c4435f9ccd7",
-      "title": {
-        "en": "MedChemBench is a new benchmark for AI reasoning in medicinal chemistry.",
-        "zh": "MedChemBench是针对药物化学中AI推理的新基准。",
-        "original": "MedChemBench is a new benchmark for AI reasoning in medicinal chemistry."
-      },
-      "lang": "en",
-      "url": "https://x.com/OpenAI/status/2123856316187975756",
-      "source": "X @OpenAI",
-      "topic": "general",
-      "published_at": "2026-11-20T19:09:39.000Z",
-      "image": "https://pbs.twimg.com/amplify_video_thumb/2123855630335430656/img/4tCLd3eyj5V-Vrdz?format=webp&name=large"
-    },
-    {
-      "id": "p_9a335445ebf6f471",
-      "title": {
-        "en": "I've been building my first iOS app for the past 45 days.",
-        "zh": "过去45天我一直在开发我的第一个iOS应用程序。",
-        "original": "I've been building my first iOS app for the past 45 days."
-      },
-      "lang": "en",
-      "url": "https://x.com/viticci/status/2123856109043929439",
-      "source": "X @viticci",
-      "topic": "coding-agents",
-      "published_at": "2026-11-20T19:08:50.000Z",
-      "image": "https://pbs.twimg.com/media/HXlzoVyXYAAaqV5.png"
-    },
-    {
-      "id": "p_876e5140541872f3",
-      "title": {
-        "en": "Apollo and Goldman Sachs priced $44 billion in senior and subordinated notes to fund @SpaceX's purchase of Nvidia Vera Rubin chips and…",
-        "zh": "Apollo和高盛定价440亿美元的高级和次级债券，以资助@SpaceX购买Nvidia Vera Rubin芯片及……",
-        "original": "Apollo and Goldman Sachs priced $44 billion in senior and subordinated notes to fund @SpaceX's purchase of Nvidia Vera Rubin chips and…"
-      },
-      "lang": "en",
-      "url": "https://x.com/SawyerMerritt/status/2123854923510988838",
-      "source": "X @SawyerMerritt",
-      "topic": "general",
-      "published_at": "2026-11-20T19:04:07.000Z",
-      "image": "https://pbs.twimg.com/media/HXlyRiCXoAAq1v3.jpg"
-    },
-    {
-      "id": "p_694175b6cb03921a",
-      "title": {
-        "en": "most agent runs are not triggered by humans (and i expect this trend to continue)",
-        "zh": "大多数代理运行并非由人为触发（我预计这一趋势将持续）。",
-        "original": "most agent runs are not triggered by humans (and i expect this trend to continue)"
-      },
-      "lang": "en",
-      "url": "https://x.com/hwchase17/status/2123853805276348782",
-      "source": "X @hwchase17",
-      "topic": "general",
-      "published_at": "2026-11-20T18:59:41.000Z",
-      "image": "https://pbs.twimg.com/media/HXln8jOaAAACoRu.png"
-    },
-    {
-      "id": "p_fb8097c660079b48",
-      "title": {
-        "en": "Plus users, welcome to Space 🪐",
-        "zh": "Plus用户，欢迎来到太空🪐。",
-        "original": "Plus users, welcome to Space 🪐"
-      },
-      "lang": "en",
-      "url": "https://x.com/ChatGPT/status/2123850912867471807",
-      "source": "X @ChatGPT",
-      "topic": "consumer-ai-apps",
-      "published_at": "2026-11-20T18:48:11.000Z",
-      "image": "https://pbs.twimg.com/amplify_video_thumb/2123841966643576832/img/9zM68CoiEGaocf5d?format=webp&name=large"
-    },
-    {
       "id": "n_2ef902c4582a1ae8",
       "title": {
         "en": "Advancing Science Together: Highlights From the Open Source AI for Science Summit",
@@ -5578,34 +5566,6 @@
       "image": "https://about.fb.com/wp-content/uploads/2026/11/Highlights-From-the-Open-Source-AI-For-Science-Summit_Social-Share-1.jpg?w=1200"
     },
     {
-      "id": "p_44e71d3cdcc5848b",
-      "title": {
-        "en": "BREAKING: President Trump calls on Jensen Huang to \"make an apology and go back\" to Nvidia, $NVDA, as CEO.",
-        "zh": "突发：特朗普总统呼吁黄仁勋“道歉并回去”担任Nvidia（$NVDA）CEO。",
-        "original": "BREAKING: President Trump calls on Jensen Huang to \"make an apology and go back\" to Nvidia, $NVDA, as CEO."
-      },
-      "lang": "en",
-      "url": "https://x.com/KobeissiLetter/status/2123844337717162044",
-      "source": "X @KobeissiLetter",
-      "topic": "general",
-      "published_at": "2026-11-20T18:22:03.000Z",
-      "image": "https://pbs.twimg.com/profile_images/1975243710846640128/fwYCe67Y_400x400.jpg"
-    },
-    {
-      "id": "p_ef3127375155191e",
-      "title": {
-        "en": "EFFECTIVE SWARM RIDING FOR ENGINEERS",
-        "zh": "工程师高效群体协作指南",
-        "original": "EFFECTIVE SWARM RIDING FOR ENGINEERS"
-      },
-      "lang": "en",
-      "url": "https://x.com/gakonst/status/2123839118409109853",
-      "source": "X @gakonst",
-      "topic": "general",
-      "published_at": "2026-11-20T18:01:19.000Z",
-      "image": "https://pbs.twimg.com/media/HXlizFwakAAmMfj.jpg"
-    },
-    {
       "id": "n_f4550ec57285a09a",
       "title": {
         "en": "An underrated way to use ChatGPT: Finding a doctor",
@@ -5617,34 +5577,6 @@
       "source": "YouTube · OpenAI",
       "topic": "consumer-ai-apps",
       "published_at": "2026-11-20T17:22:23.000Z"
-    },
-    {
-      "id": "p_0f3d4e3002f14a5c",
-      "title": {
-        "en": "DoD official Emil Michael says Anthropic is \"definitely a supply chain risk to the Dept of War because, frankly, they don't want to do the…",
-        "zh": "国防部官员Emil Michael表示Anthropic“绝对是战争部的供应链风险，因为坦率地说，他们不想做这件事……”",
-        "original": "DoD official Emil Michael says Anthropic is \"definitely a supply chain risk to the Dept of War because, frankly, they don't want to do the…"
-      },
-      "lang": "en",
-      "url": "https://x.com/atrupar/status/2123816258218918351",
-      "source": "X @atrupar",
-      "topic": "general",
-      "published_at": "2026-11-20T16:30:29.000Z",
-      "image": "https://pbs.twimg.com/amplify_video_thumb/2123816224337362944/img/LsetcXZnR7brh7DU?format=webp&name=large"
-    },
-    {
-      "id": "p_28dd3fbe5ae70d39",
-      "title": {
-        "en": "Ruby on Rails creator David Heinemeier Hansson says AI is giving small teams a chance to compete with software ecosystems built by…",
-        "zh": "Ruby on Rails创始人大卫·海涅迈尔·汉森表示，人工智能让小型团队有机会与由......构建的软件生态系统竞争。",
-        "original": "Ruby on Rails creator David Heinemeier Hansson says AI is giving small teams a chance to compete with software ecosystems built by…"
-      },
-      "lang": "en",
-      "url": "https://x.com/a16z/status/2123813224504037416",
-      "source": "X @a16z",
-      "topic": "general",
-      "published_at": "2026-11-20T16:18:25.000Z",
-      "image": "https://pbs.twimg.com/amplify_video_thumb/2123812696034287616/img/dbrMFjGB6ULD-ozu?format=webp&name=large"
     },
     {
       "id": "n_04e67ef8cb7f44f9",
@@ -5675,103 +5607,6 @@
       "image": "https://pbs.twimg.com/profile_images/2021179406778073088/rT1rgpxI_400x400.jpg"
     },
     {
-      "id": "n_1bdd2d30c285b2ab",
-      "title": {
-        "en": "Airpods got DESTROYED",
-        "zh": "AirPods被彻底击败",
-        "original": "Airpods got DESTROYED"
-      },
-      "lang": "en",
-      "url": "https://www.youtube.com/shorts/XVH84RKzuOw",
-      "source": "YouTube · Mrwhosetheboss",
-      "topic": "ai-wearables",
-      "published_at": "2026-11-20T13:40:52.000Z"
-    },
-    {
-      "id": "p_29fca3dc76aae143",
-      "title": {
-        "en": "WALL STREET'S AI SELLOFF FLASHES WARNING SIGNS OF THE 2000 DOTCOM CRASH",
-        "zh": "华尔街的人工智能抛售发出2000年互联网泡沫破裂的警示信号。",
-        "original": "WALL STREET'S AI SELLOFF FLASHES WARNING SIGNS OF THE 2000 DOTCOM CRASH"
-      },
-      "lang": "en",
-      "url": "https://x.com/DeItaone/status/2123752238841536536",
-      "source": "X @DeItaone",
-      "topic": "general",
-      "published_at": "2026-11-20T12:16:05.000Z",
-      "image": "https://pbs.twimg.com/media/HXkVZp6W0AABYWN.jpg"
-    },
-    {
-      "id": "p_eff8b47357f405fb",
-      "title": {
-        "en": "Editing interviews and spoken videos is most time-consuming because of repeatedly listening to find and remove pauses, mistakes, and repeated segments.",
-        "zh": "剪辑访谈、口播视频最耗时间的就是一遍遍听，把停顿、口误和说了好几遍的那几句挑出来删掉。",
-        "original": "剪辑访谈、口播视频最耗时间的就是一遍遍听，把停顿、口误和说了好几遍的那几句挑出来删掉。"
-      },
-      "lang": "zh",
-      "url": "https://x.com/GitHub_Daily/status/2123744438317105431",
-      "source": "X @GitHub_Daily",
-      "topic": "coding-agents",
-      "published_at": "2026-11-20T11:45:06.000Z",
-      "image": "https://pbs.twimg.com/media/HXkOTMTbEAAdpTs.jpg"
-    },
-    {
-      "id": "p_f9f7b9e4db49a58a",
-      "title": {
-        "en": "Went on Danish national TV yesterday to advocate for the sensible return of Jensen.",
-        "zh": "昨天上了丹麦国家电视台，呼吁理智地让Jensen回归。",
-        "original": "Went on Danish national TV yesterday to advocate for the sensible return of Jensen."
-      },
-      "lang": "en",
-      "url": "https://x.com/dhh/status/2123737508961730902",
-      "source": "X @dhh",
-      "topic": "general",
-      "published_at": "2026-11-20T11:17:33.000Z",
-      "image": "https://pbs.twimg.com/amplify_video_thumb/2123737080631009280/img/5mLoQgZlRGyI7_Pw?format=webp&name=large"
-    },
-    {
-      "id": "p_8fc03499068016c9",
-      "title": {
-        "en": "Tesla’s AI, running on our little AI4 computer, can now reach Torment II in Diablo",
-        "zh": "特斯拉的人工智能运行在我们的小型AI4计算机上，现在能够达到《暗黑破坏神》中的折磨II关卡。",
-        "original": "Tesla’s AI, running on our little AI4 computer, can now reach Torment II in Diablo"
-      },
-      "lang": "en",
-      "url": "https://x.com/elonmusk/status/2123726569206415815",
-      "source": "X @elonmusk",
-      "topic": "general",
-      "published_at": "2026-11-20T10:34:05.000Z",
-      "image": "https://pbs.twimg.com/profile_images/2122506092437504001/NSS4RHyZ_400x400.jpg"
-    },
-    {
-      "id": "n_1177dfbd92c164db",
-      "title": {
-        "en": "[AINews] Anthropic successfully completes largest IPO in history, valued at $1.5T",
-        "zh": "【人工智能新闻】Anthropic成功完成历史上最大规模的首次公开募股，估值达1.5万亿美元。",
-        "original": "[AINews] Anthropic successfully completes largest IPO in history, valued at $1.5T"
-      },
-      "lang": "en",
-      "url": "https://latent.space/p/ainews-anthropic-successfully-completes-largest-ipo-in-history-valued-at-1-5t/",
-      "source": "Latent Space",
-      "topic": "general",
-      "published_at": "2026-11-20T07:12:24.000Z",
-      "image": "https://latent.space/og/card/post/ainews-anthropic-successfully-completes-largest-ipo-in-history-valued-at-1-5t/f8e51dd638504d7f5c621226c8a155ca94849fa49ed6a1d5ff9e8b82b0176ea9.png"
-    },
-    {
-      "id": "p_4f58165a53e4e289",
-      "title": {
-        "en": "GPT-6.2 Astra understands the physical 3D world better than any other AI.",
-        "zh": "GPT-6.2 Astra比任何其他人工智能更了解物理三维世界。",
-        "original": "GPT-6.2 Astra understands the physical 3D world better than any other AI."
-      },
-      "lang": "en",
-      "url": "https://x.com/andonlabs/status/2123570732575989832",
-      "source": "X @andonlabs",
-      "topic": "general",
-      "published_at": "2026-11-20T00:14:51.000Z",
-      "image": "https://pbs.twimg.com/media/HXhwTE9bMAAW8PI.jpg"
-    },
-    {
       "id": "p_7028b2fdc0ad9e9d",
       "title": {
         "en": "Chinese-nexus actor's Cairn AI agents found a zero-day on their own",
@@ -5784,33 +5619,6 @@
       "topic": "general",
       "published_at": "2026-11-20T00:00:00.000Z",
       "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/11/cairn-banner.jpg"
-    },
-    {
-      "id": "p_60f7567633dc0838",
-      "title": {
-        "en": "NEW: Apple is developing an autonomous AI agent with computer-use capabilities, including device control, app interactions, web browsing…",
-        "zh": "最新：苹果正在开发具备电脑使用能力的自主AI代理，包括设备控制、应用交互、网页浏览等",
-        "original": "NEW: Apple is developing an autonomous AI agent with computer-use capabilities, including device control, app interactions, web browsing…"
-      },
-      "lang": "en",
-      "url": "https://x.com/markgurman/status/2123534050585460964",
-      "source": "X @markgurman",
-      "topic": "coding-agents",
-      "published_at": "2026-11-19T21:49:05.000Z"
-    },
-    {
-      "id": "p_ec3ec6010d45b0d0",
-      "title": {
-        "en": "Software is both art and utility. AI is both an Industrial Revolution and a Renaissance.",
-        "zh": "软件既是艺术也是实用工具。人工智能既是一场工业革命，也是文艺复兴。",
-        "original": "Software is both art and utility. AI is both an Industrial Revolution and a Renaissance."
-      },
-      "lang": "en",
-      "url": "https://x.com/trq212/status/2123524052195463568",
-      "source": "X @trq212",
-      "topic": "coding-agents",
-      "published_at": "2026-11-19T21:09:21.000Z",
-      "image": "https://pbs.twimg.com/media/HXg6OQYXoAAUpd5.jpg"
     },
     {
       "id": "p_f454ea635e39d5fb",
