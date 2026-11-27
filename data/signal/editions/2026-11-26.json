@@ -1,0 +1,67 @@
+{
+  "cover": "editorial",
+  "date": "2026-11-26",
+  "headline": {
+    "en": "What does a finished AI job cost?",
+    "zh": "让 AI 做完一单，到底要花多少？"
+  },
+  "intro": {
+    "en": "A shared usage allowance, an Illustrator edit and two small computers make it possible to count three very different parts of the same bill.",
+    "zh": "共享额度记下模型用量，Illustrator 实测记下工具调用，边缘芯片测试也把没跑通的项目记了下来。把三份账放在一起，才看得见一单活做到交付要花什么。"
+  },
+  "items": [
+    {
+      "id": "p_85c82f0a957177ca",
+      "title": {
+        "en": "When two jobs draw from one allowance",
+        "zh": "两件事开始用同一份额度"
+      },
+      "note": {
+        "en": "OpenAI says ChatGPT and Codex will share a token-based allowance on Plus, Pro and Business starting in December. Instant chat is exempt. The support page explains which work draws from the pool and where to see the reset time. It leaves open how far a specific workload will go.",
+        "zh": "OpenAI 表示，12 月起 Plus、Pro 和 Business 用户的 ChatGPT 与 Codex 将共用一份按 token 计算的额度，Instant 聊天不计入。官方说明列出了哪些用量会计入、重置时间在哪里看。你手头这批工作能跑多少，仍得用自己的任务来量。"
+      },
+      "evidence": "https://help.openai.com/en/articles/20001625-understanding-chatgpt-and-codex-usage-limits",
+      "discovery": "https://help.openai.com/en/articles/20001625-understanding-chatgpt-and-codex-usage-limits"
+    },
+    {
+      "id": "p_3815342d04f7d212",
+      "title": {
+        "en": "The edit is done. Can you save it?",
+        "zh": "文字改好了，原文件能保存吗？"
+      },
+      "note": {
+        "en": "A developer ran each Illustrator task three times with two tool setups. Replacing ten text instances took 14–16 tool calls in the built-in MCP preview versus three with the existing JSX setup. The preview could export a copy, while saving over the original was outside the toolset tested. The result applies to the preview, tools and documents in the write-up.",
+        "zh": "一位开发者用两套工具各跑了三遍相同的 Illustrator 任务。替换十处文字时，内置 MCP 预览版要调用工具 14 到 16 次，原有 JSX 方案用了三次。预览版能导出副本，覆盖保存原文件还得另走一步。这是对当时那套工具和测试文件的实测。"
+      },
+      "evidence": "https://zenn.dev/pepe_3_go/articles/illustrator-three-routes-cost-measured",
+      "discovery": "https://zenn.dev/pepe_3_go/articles/illustrator-three-routes-cost-measured"
+    },
+    {
+      "id": "p_0513f16258fab2da",
+      "title": {
+        "en": "Give the failed runs a row",
+        "zh": "失败的任务也该在表里占一行"
+      },
+      "note": {
+        "en": "Anguoyang published on-device results for RK3588 and QCS6490, with failed runs alongside throughput. In those setups, Qwen3-0.6B decoded about 15.6 and 24.6 tokens per second, respectively. Some vision-language runs failed. The boards, quantization and runtimes are specific to the test. The rates describe decoding, one step in a larger job.",
+        "zh": "开发者 Anguoyang 公布了 RK3588 和 QCS6490 的实机结果，把跑失败的项目也留在表里。按他的测试配置，Qwen3-0.6B 在两块板上的解码速度分别约为每秒 15.6 和 24.6 个 token，部分视觉语言模型则没跑通。速度取决于测试用的板卡、量化和运行环境，而且只量到解码这一步。"
+      },
+      "evidence": "https://qiita.com/anguoyang/items/6ed1f4dd6d0523769720",
+      "discovery": "https://qiita.com/anguoyang/items/6ed1f4dd6d0523769720"
+    }
+  ],
+  "signal": {
+    "claim": {
+      "en": "Count the cost at the point someone can use the result",
+      "zh": "算成本，要算到结果能交出去"
+    },
+    "reasoning": {
+      "en": "Imagine handing an agent twenty Illustrator files and asking for a small text change in each. A progress report with twenty green rows looks good. At handoff, the printer asks for the editable originals. If the agent only exported copies, someone still has to decide which files to deliver, check them and save the work. That time belongs on the bill.\n\nThe three readings show where the bill can grow. A shared allowance means one job can leave less room for the next job. In the Illustrator experiment, the tool's ability to save mattered as much as the cost of asking it to edit. The edge benchmark puts failed runs next to the fast ones. A chip can decode text quickly and still leave the image job to a second system.\n\nFor a recurring workflow, I'd pick a unit the person at the far end can recognize. For the printer it might be an editable file that opens with the requested change in place. I'd count the quota consumed, the time someone spends finishing or checking the files, and the share that make it through. Then I'd choose a workflow based on a batch I can actually send.",
+      "zh": "假设我把二十份 Illustrator 文件交给 Agent，每份只改一小段文字。进度表上二十行全绿，印厂却来要可编辑的原文件。如果 Agent 只导出了副本，接下来还是得有人挑文件、核对改动，再把该存的存好。这段时间也得算进去。\n\n三份材料各记下了一笔容易漏掉的账。共用额度之后，今天一单用掉多少，会影响下一单还能用多少。Illustrator 实测里，能不能把改动存回原文件，和改字本身花多少一样重要。边缘芯片的测试则把没跑通的模型留在了快的那几行旁边。一块板能快速生成文字，碰到图片任务，最后可能还得借另一台机器。\n\n如果这活每周都要做，我会从接收文件的人那里倒推怎么算一单。对印厂来说，一份能打开、文字也改对了的可编辑文件，就算交付一份。再把耗掉的额度、人工检查和收尾的时间，以及真正交出去的份数放在一起算。到那时，我才知道下一批该走哪条流程。"
+    },
+    "nextCheck": {
+      "en": "Run both tool setups on the same set of real files. Ask the recipient to verify them without knowing which setup made them. Log the allowance consumed, human minutes and files accepted on the first pass. If the preview earns the same acceptance rate with less total review and rework on the next few batches, I'd move the workflow over.",
+      "zh": "拿同一批真实文件让两套工具各跑一遍，请接收人验收时别告诉他文件是哪套工具做的。记下各自用掉的额度、人工花了几分钟，还有多少份一次就过。如果接下来几批的首轮通过率相当，而预览版能持续省下检查和返工时间，我就把这项工作切过去。"
+    }
+  }
+}

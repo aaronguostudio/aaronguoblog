@@ -79,6 +79,11 @@
     "image": "https://opengraph.githubassets.com/bac1bd902f6329f88ffc4ec25e379d9210f9c177ddfdbc885021096cbe338d77/duzhenxun/pop-agent",
     "checked_at": 1795726953055
   },
+  "n_110b081d361c9e5f": {
+    "url": "https://www.france24.com/en/poland-says-will-create-no-fly-zone-at-ukraine-border-after-repeated-airspace-violations",
+    "image": "https://s.france24.com/media/display/008c6c02-e905-11f1-b02d-1991d4929b54/w:1280/p:16x9/EN-20261125-200844-201037-CS.jpg",
+    "checked_at": 1795746637148
+  },
   "n_1177dfbd92c164db": {
     "url": "https://latent.space/p/ainews-anthropic-successfully-completes-largest-ipo-in-history-valued-at-1-5t/",
     "image": "https://latent.space/og/card/post/ainews-anthropic-successfully-completes-largest-ipo-in-history-valued-at-1-5t/f8e51dd638504d7f5c621226c8a155ca94849fa49ed6a1d5ff9e8b82b0176ea9.png",
@@ -113,6 +118,11 @@
     "url": "https://latent.space/p/ainews-gemini-4-neon-marks-gdm-s-full-return-as-a-frontier-lab/",
     "image": "https://latent.space/og/card/post/ainews-gemini-4-neon-marks-gdm-s-full-return-as-a-frontier-lab/cbe347eb1fb1cb87c986d8fbe2e2206521e0bdecbfd20fbb16e0c4595e118daa.png",
     "checked_at": 1795726953055
+  },
+  "n_19dd4641586dbe86": {
+    "url": "https://janlukas.blog/posts/ai-self-hosting",
+    "image": null,
+    "checked_at": 1795746637148
   },
   "n_1bdd2d30c285b2ab": {
     "url": "https://www.youtube.com/shorts/XVH84RKzuOw",
@@ -158,6 +168,11 @@
     "url": "https://9to5mac.com/2026/11/25/report-apple-gains-ground-as-latin-american-smartphone-shipments-plunge-24-in-q3/",
     "image": "https://9to5mac.com/wp-content/uploads/sites/6/2026/10/iphone-18-pro-glacier-angled.jpg?quality=82&strip=all&resize=1200,628",
     "checked_at": 1795726953055
+  },
+  "n_2540d28ae01bebe7": {
+    "url": "https://9to5mac.com/2026/11/26/south-korea-proceeds-with-case-over-allegedly-misleading-apple-intelligence-ads/",
+    "image": "https://9to5mac.com/wp-content/uploads/sites/6/2026/11/apple-intelligence-iphone-16.jpg?quality=82&strip=all&resize=1200,628",
+    "checked_at": 1795746637148
   },
   "n_27c81692ad37fb7b": {
     "url": "https://qiita.com/rino_yume/items/c520681d7de871c1febb",
@@ -228,6 +243,21 @@
     "url": "https://betterdatacenterproject.com/2026/11/16/how-ai-is-powered-a-breakdown-of-byop-and-grid-power/",
     "image": "https://i0.wp.com/betterdatacenterproject.com/wp-content/uploads/2026/11/anthropic-total-co2.png?fit=1200%2C1065&ssl=1",
     "checked_at": 1795726953055
+  },
+  "n_3c5048b497c52ae5": {
+    "url": "https://9to5mac.com/2026/11/26/report-apple-accounted-for-57-of-us-smartphone-shipments-in-q3/",
+    "image": "https://9to5mac.com/wp-content/uploads/sites/6/2026/09/iphone-18-pro-color-lineup-official.jpg?quality=82&strip=all&resize=1200,628",
+    "checked_at": 1795746637148
+  },
+  "n_3c5883025a1153b6": {
+    "url": "https://www.ithome.com/1/033/150.htm",
+    "image": null,
+    "checked_at": 1795746637148
+  },
+  "n_3cc762c896e402bd": {
+    "url": "https://www.ithome.com/1/033/136.htm",
+    "image": null,
+    "checked_at": 1795746637148
   },
   "n_3d12a70e860525d0": {
     "url": "https://arxiv.org/abs/2611.32884v1",
@@ -324,6 +354,11 @@
     "image": "https://9to5mac.com/wp-content/uploads/sites/6/2025/11/airpods-pro3-holiday.jpg?quality=82&strip=all&resize=1200,628",
     "checked_at": 1795726953055
   },
+  "n_536be0c2a1d62b85": {
+    "url": "https://topcitedscientists.com/figures/ai-at-four-us-companies/",
+    "image": "https://topcitedscientists.com/figures/ai-at-four-us-companies/ai-at-four-us-companies-share.png?v=da0792f5",
+    "checked_at": 1795746637148
+  },
   "n_541e4e5d42928ea6": {
     "url": "https://github.blog/changelog/2026-11-23-issue-statuses-and-repository-boards-are-in-public-preview",
     "image": "https://github.blog/wp-content/uploads/2026/11/716292665-b61bd263-dd28-430c-a147-fa22594ac67f.png",
@@ -379,6 +414,11 @@
     "image": "https://huggingface.co/blog/assets/agentic-evals/thumbnail.png",
     "checked_at": 1795726953055
   },
+  "n_7067f7e3a4987ff7": {
+    "url": "https://www.androidauthority.com/nothing-ear-note-ai-earbuds-features-3738493/",
+    "image": "https://www.androidauthority.com/wp-content/uploads/2025/09/Nothing-Ear-3-in-case.jpg",
+    "checked_at": 1795746637148
+  },
   "n_71996d97862bb6c2": {
     "url": "https://openai.com/index/ifood",
     "image": null,
@@ -428,6 +468,11 @@
     "url": "https://micjm.com/blog/openai-is-in-cost-control-mode/",
     "image": null,
     "checked_at": 1795726953055
+  },
+  "n_832ab4e47f91928a": {
+    "url": "https://reddit.com/r/LocalLLaMA/comments/1y6260i/zai_clarifies_glm55_has_not_been_delayed/",
+    "image": null,
+    "checked_at": 1795746637148
   },
   "n_84edfb5a38475599": {
     "url": "https://www.technologyreview.com/2026/11/24/1149622/data-centers-natural-gas/",
@@ -609,6 +654,11 @@
     "image": "https://rssfile.sspai.com/2026/11/25/afcbfaaf7e161be773c6089616a1b3d4.jpg?imageMogr2/auto-orient/ignore-error/1",
     "checked_at": 1795726953055
   },
+  "n_bb4be8bf4ea68fe1": {
+    "url": "https://qiita.com/nakanokensetsu/items/86cc6bf95fc2465ec077",
+    "image": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0NDU5MTQ2JTJGM2Y3Y2RjOWM5M2UzMjllMTk2MTJkOTg2OTk3ODZiOWM4NDg3NjdjMyUyRmxhcmdlLnBuZyUzRjE3ODI5NzI2NTY_aXhsaWI9cmItNC4xLjEmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPTgwYjE4YTgzZTQ4ZGVjYmEyZDJlZTBiMDk3YTcyZjEz%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3De2b8bfaf8b084aae3ba70328b003ed30?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgwJTkwJUU5JTgwJTlGJUU1JUEwJUIxJUUzJTgwJTkxbGxhbWEuY3BwJUUzJTgwJThDdjEuMS4wJUUzJTgwJThEJUU1JTg1JUFDJUU5JTk2JThCJTIwJUUyJTgwJTk0JTIwJUU3JTlCJUFFJUU2JUE4JTk5JUUzJTgyJUI1JUUzJTgyJUE0JUUzJTgyJUJBJUU2JThDJTg3JUU1JUFFJTlBJUUzJTgxJUFFJUU4JTg3JUFBJUU1JThCJTk1JUU5JTg3JThGJUU1JUFEJTkwJUU1JThDJTk2JUUzJTgxJUE4JUU2JThBJTk1JUU2JUE5JTlGJUU3JTlBJTg0JUUzJTgzJTg3JUUzJTgyJUIzJUUzJTgzJUJDJUUzJTgzJTg5NCVFNiU5NiVCOSVFNSVCQyU4RiVFMyU4MCU4MSVFNiU5NiVCMFVJJUUzJTgwJThDTGxhbSVFMiU4MCVBNiZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPTk0N2I5OTEwMDYyMjkzZThiYjc5NmM5MjU3YzQ5NmQx&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBuYWthbm9rZW5zZXRzdSZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTMzYWNhYTY5OGE4ZjI1NGQ5NzM3ZTU2NzExZDdkMGMz&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=c8faa3314a8467dc85643f3cd6155103",
+    "checked_at": 1795746637148
+  },
   "n_bba4c065b3f8ce22": {
     "url": "https://github.com/Imbad0202/academic-research-skills",
     "image": "https://opengraph.githubassets.com/5623002f9656b89875896bbccc8a6bf1a8bb79dd5c891369f1b46408b529728a/Imbad0202/academic-research-skills",
@@ -673,6 +723,11 @@
     "url": "https://techcrunch.com/2026/11/26/nvidia-hits-pause-on-chip-shipments-to-southeast-asia/",
     "image": "https://techcrunch.com/wp-content/uploads/2026/11/Taiwan-Nvidia.jpg?w=1024",
     "checked_at": 1795726953055
+  },
+  "n_ca7fd6f0016afc5f": {
+    "url": "https://qiita.com/charge0315/items/2a0dcd87175afc963e81",
+    "image": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkYzNDc3ODE1JTJGZmE4MDEyYmI1YzEyNWNmYzBlZDRjMGVmYjMzYjY1NWUyOGUzZGRlOCUyRnhfbGFyZ2UucG5nJTNGMTc5NTA1Nzk1OT9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9OGYxYjZjMmNjZmU4MWNkMjMwODM4NDIwOTBkN2U0ODI%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D748fe073030bcf40a2ef7257b2d6f866?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9QUklRTMlODElQUIlRTUlODYlOEQlRTUlQkIlQkElRTglQTglODglRTclOTQlQkIlRTMlODIlOTIlRTklQTAlQkMlRTMlODIlODAlRTMlODElQUElRTMlODIlODklRTMlODAlOEMlRTQlQkYlQUUlRTYlQUQlQTMlRTMlODElQUYlRTMlODElOTclRTMlODElQUElRTMlODElODQlRTMlODElQTclRTMlODAlOEQlRTMlODElOEIlRTMlODIlODklRUYlQkMlOUFDbGF1ZGUlMjBDb2RlJTIwJUUzJTgxJThDODIlRTQlQkIlQjYlRTMlODElQUVJc3N1ZSVFMyU4MiU5MiVFNiU5QiVCOCVFMyU4MSU4NCVFMyU4MSVBNiVFNiVBRCVBMiVFMyU4MSVCRSVFMyU4MSVBMyVFMyU4MSU5RiVFOCVBOCU5OCVFOSU4QyVCMiZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPTk1ZTRiMTI3ZjY0OWMwMTJjMjcwMTlhMjMzZTg2ZDBj&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBjaGFyZ2UwMzE1JnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9OTMzYWJiMDBkOTczMjcxYjNhMGQzYjAzMDE3OTlkYjU&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=3c40cec0329f788313eed3dfd19f53d3",
+    "checked_at": 1795746637148
   },
   "n_cbd75850d76cf853": {
     "url": "https://github.blog/changelog/2026-11-23-code-coverage-uploads-now-flag-invalid-report-formats",
@@ -763,6 +818,11 @@
     "url": "https://techcrunch.com/2026/11/25/jensen-huang-broke-nvidias-code-of-conduct-and-his-employees-may-not-forget-it/",
     "image": "https://techcrunch.com/wp-content/uploads/2025/08/GettyImages-2227140868.jpg?w=1024",
     "checked_at": 1795726953055
+  },
+  "n_e88467598abcad61": {
+    "url": "https://qiita.com/quotidia/items/5e35b5ad248041e937e5",
+    "image": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkYwJTJGNDQzMzI3MSUyRnByb2ZpbGUtaW1hZ2VzJTJGMTc3OTAwNzIzNT9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9YWY5NDIyNzdmMjZlOGJhMzVmYmZlY2IwOGU2ZWQ2NTA%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Df59d4b48280797c581d3f62880665fc3?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgyJUJEJUUzJTgzJTk1JUUzJTgzJTg4JUUzJTgzJTkwJUUzJTgzJUIzJUUzJTgyJUFGJUUzJTgxJThDJUU4JTgxJUI0JUU4JUE2JTlBJUU5JTlBJTlDJUUzJTgxJThDJUUzJTgxJTg0JUUzJTgxJUFFJUUzJTgxJTgyJUUzJTgyJThCJUU1JUJFJTkzJUU2JUE1JUFEJUU1JTkzJUExJUUzJTgxJUFCJUU5JTg1JThEJUUzJTgxJUEzJUUzJTgxJTlGJUUzJTgyJUI5JUUzJTgzJTlFJUUzJTgzJUJDJUUzJTgzJTg4JUUzJTgyJUIwJUUzJTgzJUE5JUUzJTgyJUI5JUUzJTgxJUFGJUUzJTgwJTgxJUU4JTgxJUI3JUU1JUEwJUI0JUUzJTgxJUE3JUUzJTgxJUE5JUUzJTgxJTkzJUUzJTgxJUJFJUUzJTgxJUE3JUU0JUJEJUJGJUUzJTgxJTg4JUUzJTgxJTlGJUUzJTgxJThCJnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9NzdiYzgxMTQ5ZjM1YTdhOTI5OWU5OWIxNGEyYmM4NWY&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBxdW90aWRpYSZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTRhNjI0NjUzMTU4ODhjZWUzZDIxNjI0N2Q4Y2JjZDY2&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=ddc3b8659de5897e2ccaac3f3b7cdd9a",
+    "checked_at": 1795746637148
   },
   "n_ea6c8f41e9d2b2b9": {
     "url": "https://www.bilibili.com/video/av117676902975115",
@@ -863,6 +923,11 @@
     "url": "https://x.com/Tesla/status/2124222447855743019",
     "image": "https://pbs.twimg.com/amplify_video_thumb/2124221674111512576/img/jtjoJUSLKl6Nz6dX?format=webp&name=large",
     "checked_at": 1795726953055
+  },
+  "p_0513f16258fab2da": {
+    "url": "https://qiita.com/anguoyang/items/6ed1f4dd6d0523769720",
+    "image": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRmxoMy5nb29nbGV1c2VyY29udGVudC5jb20lMkZhJTJGQUNnOG9jSXJmQWczU2RDNnljRDVMWGVaak40ektYZkRtZDJ6YUNDblRqT2dqWFlfTUJJb0hkdyUzRHM5Ni1jP2l4bGliPXJiLTQuMS4xJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZiZz1GRkZGRkYmZm09cG5nMzImcz1hYmJmYzI2M2ZlZjFlOTc2MDQyMWY4ZGQ5ZWQ2MWZiOA%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D4a8206ce483a5df39b6d1124b02e29c9?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9UkszNTg4JTIwJUUzJTgxJUE4JTIwUUNTNjQ5MCUyMCVFMyU4MSVBRSUyMExMTSUyRlZMTSUyMCVFNSVBRSU5RiVFNiVCOCVBQyVFMyU4MyVBQSVFMyU4MyVCQyVFMyU4MyU4MCVFMyU4MyVCQyVFMyU4MyU5QyVFMyU4MyVCQyVFMyU4MyU4OSVFMyU4MiU5MiVFNSU4NSVBQyVFOSU5NiU4QiVFMyU4MSU5NyVFMyU4MSU5RiVFMiU4MCU5NCVFMiU4MCU5NCVFNSVBNCVCMSVFNiU5NSU5NyVFOCVBMSU4QyVFMyU4MSVBNCVFMyU4MSU4RCVFMyU4MSVBNyZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPWEzZWM3ZDM5ODQwMGNlZTIyZmQxNDI1Y2E0MWY2OWZk&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBhbmd1b3lhbmcmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz0xNjkyODBhMDBlZGVlZTNiM2M3ZjhiMTIyMTFiODRjMQ&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=329b55d6d9a29390c0c6edfb5fb55c0a",
+    "checked_at": 1795746637148
   },
   "p_07e4d185180e82a5": {
     "url": "https://www.anthropic.com/research/migrating-api-to-rust",
@@ -1004,6 +1069,11 @@
     "image": "https://pbs.twimg.com/profile_images/2093715898204884992/goERjC9G_400x400.jpg",
     "checked_at": 1795726953055
   },
+  "p_3f9d7022b2a924a0": {
+    "url": "https://huggingface.co/inclusionAI/Ming-Image-0.2-Design",
+    "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/inclusionAI/Ming-Image-0.2-Design.png",
+    "checked_at": 1795746637148
+  },
   "p_4350469e0129fd2d": {
     "url": "https://x.com/davidsenra/status/2124518974197321782",
     "image": "https://pbs.twimg.com/amplify_video_thumb/2124397993713713152/img/Nl-SAM25ZKyA5AZX?format=webp&name=large",
@@ -1023,6 +1093,11 @@
     "url": "https://www.thebureauinvestigates.com/stories/2026-11-24/talkie-china-chatbot-children",
     "image": "https://www.thebureauinvestigates.com/cdn-cgi/image/width=1200,height=630,quality=82,format=auto,fit=cover/filestore/images/Talkie-banner-image.png?mtime=1795022750",
     "checked_at": 1795726953055
+  },
+  "p_4d5efdd3f0afc65c": {
+    "url": "https://community.oneplus.com/thread/2265099339292475398",
+    "image": "https://community.oneplus.com/oneplus.png",
+    "checked_at": 1795746637148
   },
   "p_4e4e9c4435f9ccd7": {
     "url": "https://x.com/OpenAI/status/2123856316187975756",
@@ -1118,6 +1193,11 @@
     "url": "https://qiita.com/mukai3/items/85d389e13ae490ba71ad",
     "image": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkYzNjIyOTMyJTJGY2Y3Yjc2NjhmZDNiNDAzOTkwZGEyYzgzYmI1YTBmNTE2OWM0NGIxMSUyRnhfbGFyZ2UucG5nJTNGMTc0ODgyNzA3OD9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9NWYzODIyMDhhMDVlZDYxNTk5NGE5NmI3NDVkZDUzY2U%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D67a4e06191a9b60281f1f1f9e3bcd245?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUU2JTlFJUI2JUU3JUE5JUJBJUUzJTgxJUFFJUU3JUE0JUJFJUU1JTg2JTg1RkFRJTIwMzAlRTUlOTUlOEYlRTMlODElQTclRTMlODMlQUQlRTMlODMlQkMlRTMlODIlQUIlRTMlODMlQUJMTE0lRUYlQkMlODhRd2VuMy42JUVGJUJDJTg5JUUzJTgyJTkyJUU2JUI4JUFDJUUzJTgxJUEzJUUzJTgxJTlGJUUzJTgwJTgyJUU2JTk2JTg3JUU2JTlCJUI4JUUzJTgxJUFBJUUzJTgxJTk3NCUyRjMwJUUzJTgzJUJCJUU2JTk2JTg3JUU2JTlCJUI4JUUzJTgxJTgyJUUzJTgyJThBMjklMkYzMCVFMyU4MCU4MSVFNiU4RSVBMSVFNyU4MiVCOSVFNSVCRCVCOSVFMiU4MCVBNiZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPWJkZDM4ZGVjYzMyMWE0NzRhNjI3YjNlZjgzNWMyMmU4&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBtdWthaTMmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz05OTZhMWZjOGQzZTAwZmJkMThlODA1YjhhMTZhMTdjYw&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=01936d49769d73a365b071436abb491f",
     "checked_at": 1795726953055
+  },
+  "p_85c82f0a957177ca": {
+    "url": "https://help.openai.com/en/articles/20001625-understanding-chatgpt-and-codex-usage-limits",
+    "image": "https://help.openai.com/og-image.png",
+    "checked_at": 1795746637148
   },
   "p_862eb19590a8ed18": {
     "url": "https://www.bacs.admin.ch/en/26-ki-agenten-1-en",
@@ -1354,6 +1434,11 @@
     "image": "https://pbs.twimg.com/amplify_video_thumb/2123841966643576832/img/9zM68CoiEGaocf5d?format=webp&name=large",
     "checked_at": 1795726953055
   },
+  "p_fc0cfbdacb9aa5ae": {
+    "url": "https://live.euronext.com/en/financial-news/situational-awareness-lost-65-after-fees-third-quarter-wsj-reports",
+    "image": null,
+    "checked_at": 1795746637148
+  },
   "p_fc97279347f48ce1": {
     "url": "https://x.com/FT/status/2124997050789986717",
     "image": "https://pbs.twimg.com/card_img/2125170559524782080/yhxVZhxp?format=jpg&name=medium",
@@ -1363,5 +1448,10 @@
     "url": "https://x.com/thinkymachines/status/2123871643797995872",
     "image": "https://pbs.twimg.com/card_img/2123870055498940416/GIja54ZR?format=png&name=medium",
     "checked_at": 1795726953055
+  },
+  "p_fdb53e3262fb5afe": {
+    "url": "https://www.reddit.com/r/ClaudeCode/comments/1y4qm5o/heads_up_if_you_wire_notions_official_mcp_into/",
+    "image": null,
+    "checked_at": 1795746637148
   }
 }
