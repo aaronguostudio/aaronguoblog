@@ -1,0 +1,67 @@
+{
+  "cover": "editorial",
+  "date": "2026-11-27",
+  "headline": {
+    "en": "When is one part worth replacing?",
+    "zh": "AI 系统里换一个零件，什么才算赚到？"
+  },
+  "intro": {
+    "en": "A terminal that can lose its coding tools, a drafter that shares the main model’s cache, and a Rust benchmark that puts file opening back on the clock.",
+    "zh": "一个能卸下编程工具的终端，一个借用主模型缓存的起草模型，还有一次把打开文件也算进耗时的 Rust 实测。"
+  },
+  "items": [
+    {
+      "id": "p_931d620c7b260979",
+      "title": {
+        "en": "Make the coding tools removable",
+        "zh": "把编程工具做成可拔掉的插件"
+      },
+      "note": {
+        "en": "Pax keeps its terminal interface when you disable its coding plugin. In the default setup, it then works as a chat client without file and shell tools. Pydantic also lets teams load their own agent into the same terminal. The beta shows what its interface can separate. The usefulness of a smaller setup depends on the task.",
+        "zh": "在 Pax 的默认配置里，关掉编程插件，终端界面还在，文件和命令行工具就不再提供。团队也能把自己的 Pydantic AI agent 接进同一个终端。这份预览能看出哪些部件可以独立替换，至于少配一组工具以后工作还能不能做完，得看任务。"
+      },
+      "evidence": "https://pydantic.dev/articles/pax-harness-beta",
+      "discovery": "https://pydantic.dev/articles/pax-harness-beta"
+    },
+    {
+      "id": "p_430723741ce7dbb1",
+      "title": {
+        "en": "Let the drafter borrow what the model already kept",
+        "zh": "让起草模型借用已有的缓存"
+      },
+      "note": {
+        "en": "In speculative decoding, a drafter proposes several tokens and the main model checks them. Tencent’s DFly2 reuses the main model’s sparse attention selections and KV cache, avoiding a separate cache for the drafter. That limits how much context each draft token attends to on compatible models. Serving latency still depends on verification and how many proposed tokens the main model accepts.",
+        "zh": "投机解码让小模型先拟出几个 token，再由主模型核验。腾讯 DFly2 复用主模型的稀疏注意力选出的内容和 KV 缓存，起草模型不用再备一份缓存。在兼容的模型上，每个草稿 token 要看的上下文因此有了上限。整个服务快多少，还取决于主模型验得多快、能接受多少草稿。"
+      },
+      "evidence": "https://arxiv.org/abs/2611.34776",
+      "discovery": "https://github.com/Tencent/AngelSpec"
+    },
+    {
+      "id": "p_ccfc34161a68684d",
+      "title": {
+        "en": "Time it where the user runs it",
+        "zh": "在用户真正用的地方计时"
+      },
+      "note": {
+        "en": "Max Woolf reports further speedups across several Rust projects he had already tuned. His text-search comparison is the detail worth keeping. In-memory synthetic tests exclude the file-opening cost that appears when someone runs the CLI, so he measured the CLI on synthetic inputs and real datasets. This is one author’s code and hardware, with successive changes rather than a controlled ranking of models.",
+        "zh": "Max Woolf 又把几个早就调过性能的 Rust 项目加速了一轮。值得细读的是他的文本搜索对照：内存里的合成测试省掉了打开文件这一步，用户实际跑命令行时却得等它。他于是用合成数据和真实数据都跑了命令行测试。这是他自己的代码和硬件，改动也是一轮轮叠加的，结果不能拿来给模型排座次。"
+      },
+      "evidence": "https://minimaxir.com/2026/11/opus-fable/",
+      "discovery": "https://minimaxir.com/2026/11/opus-fable/"
+    }
+  ],
+  "signal": {
+    "claim": {
+      "en": "Swap at a clear interface, then measure from the user’s side",
+      "zh": "零件可以单独换，收益要从用户那头量"
+    },
+    "reasoning": {
+      "en": "Suppose a teammate says the text search in our coding agent is twice as fast. I’d ask her to start a timer when she sends the request and stop it when she sees the first useful result. It’s worth knowing that the search loop is faster. I also want to know how much of the wait was in opening files, starting a process or giving the results back to the model.\n\nEach of today’s examples gives me a different place to look. Pydantic shows what happens when the coding tools move behind a plugin boundary. With DFly2, a new drafter can borrow work the main model already did, and the main model still checks its proposals. Max Woolf’s CLI comparison shows why the test has to include the work the user waits for. Taken together, they suggest a way to improve a system without reopening every decision that went into it.\n\nFor a repo-review agent, I’d leave its instructions and report format in place and try the faster search tool on the same repositories. I’d look at time to the first finding the reviewer can use, how often the tool falls back, and whether the important files still show up. That gives us something concrete to ask about when the speedup in the benchmark disappears in a real session.",
+      "zh": "假设同事说，编程 Agent 里的文本搜索快了一倍。我会请她从发出请求开始计时，到看见第一条能用的结果为止。搜索循环快了当然值得知道。我还想知道，用户等的这几秒里，有多少花在打开文件、启动进程，或是把结果交回给模型。\n\n这三份材料各提醒我看一个地方。Pax 把编程工具放进能独立装卸的插件，终端还可以照常用。DFly2 的起草模型能借主模型已经做过的活，草稿仍交给主模型核验。Max Woolf 的命令行对照则提醒我，用户要等的步骤得一起算进去。三件事放在一起看，改善一个系统时，可以先保留已经做好的决定，只动你想检验的那一块。\n\n比如给代码评审 Agent 换搜索工具，我会保留原来的指令和报告格式，用同一批仓库各跑一次。看第一条可用发现要等多久，工具有多常需要退回旧方案，重要文件是否还找得到。如果跑分涨了，实际用起来却没快，我们就知道该回头查哪一步。"
+    },
+    "nextCheck": {
+      "en": "I’d include both small repositories and large, cold workspaces. If the tool wins on its own timer but makes little difference to end-to-end waiting time, I’d keep the simpler setup. If it steadily gets the first useful result to reviewers sooner without losing relevant files, I’d ship the change.",
+      "zh": "我会同时测小仓库和还没预热的大工作区。如果工具自己计时赢了，实际等待却没短多少，我会保留更简单的配置。如果几轮下来，评审都能更早看到可用结果，也没有少找到相关文件，我就会把新工具上线。"
+    }
+  }
+}

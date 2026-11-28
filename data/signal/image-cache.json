@@ -29,6 +29,11 @@
     "image": "https://herecomesthemoon.net/2026/11/whats-claudes-fursona/images/dithers/claude-fable-header_dithered.png",
     "checked_at": 1795790013139
   },
+  "n_0283011ad60b769d": {
+    "url": "https://www.bilibili.com/video/av117682137534805",
+    "image": null,
+    "checked_at": 1795833323886
+  },
   "n_02a088434703556c": {
     "url": "https://huggingface.co/blog/ggml-org/llamacpp-amd-bench",
     "image": "https://cdn-uploads.huggingface.co/production/uploads/67289c93ff90038d9a6e5675/tbIvyMSISXCm64WYP3atl.png",
@@ -48,6 +53,11 @@
     "url": "https://www.ft.com/content/80a5266d-72e1-4f55-976f-e169b440066b",
     "image": null,
     "checked_at": 1795790013139
+  },
+  "n_061346cb2f74644b": {
+    "url": "https://runtimenotes.com/blog/getting-101-tok-s-from-inkling-2-mini-in-vllm-on-one-gb10/",
+    "image": null,
+    "checked_at": 1795833323886
   },
   "n_069f94445fa0f593": {
     "url": "https://simonwillison.net/2026/Nov/26/jack-despain-zhou/",
@@ -78,6 +88,16 @@
     "url": "https://www.cnbc.com/2026/11/23/oregon-virginia-spacex-grok-deepfake-lawsuits.html",
     "image": "https://image.cnbcfm.com/api/v1/image/108282790-1774443628624-gettyimages-2265843824-raa-grokaieu260313_np8wx.jpeg?v=1774443657&w=1920&h=1080",
     "checked_at": 1795726953055
+  },
+  "n_0ebd410db6d9c1de": {
+    "url": "https://9to5mac.com/2026/11/27/9to5mac-overtime-092-the-obvious-answer-is-airpods-pro-3/",
+    "image": "https://9to5mac.com/wp-content/uploads/sites/6/2026/11/9to5Mac-Overtime-092.jpg?quality=82&strip=all&resize=1200,628",
+    "checked_at": 1795833323886
+  },
+  "n_0f865f5397e0a409": {
+    "url": "https://www.ithome.com/1/033/784.htm",
+    "image": null,
+    "checked_at": 1795833323886
   },
   "n_0fa0232fce0d48b0": {
     "url": "https://github.com/awslabs/cli-agent-orchestrator",
@@ -123,6 +143,11 @@
     "url": "https://arstechnica.com/reviews/2026/11/review-the-asus-proart-p16-offers-a-glimpse-of-a-future-powered-by-local-ai/",
     "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/11/Asus-P16-3-1152x648.jpg",
     "checked_at": 1795726953055
+  },
+  "n_1799f4d1d7a5d27a": {
+    "url": "https://thequantuminsider.com/2026/11/26/stanford-physicist-uses-ai-to-tackle-quantum-gravity-problem/",
+    "image": "https://thequantuminsider.com/wp-content/uploads/2026/11/Black-Hole-Shadow-Causal-Diamonds-1.png",
+    "checked_at": 1795833323886
   },
   "n_190619a69a1b2dac": {
     "url": "https://latent.space/p/ainews-gemini-4-neon-marks-gdm-s-full-return-as-a-frontier-lab/",
@@ -189,6 +214,11 @@
     "image": "https://9to5mac.com/wp-content/uploads/sites/6/2026/11/apple-intelligence-iphone-16.jpg?quality=82&strip=all&resize=1200,628",
     "checked_at": 1795746637148
   },
+  "n_26cd3abe446d7318": {
+    "url": "https://github.com/eust-w/open-robotics-plugin",
+    "image": "https://opengraph.githubassets.com/d13d59db636991a9d9acd819a21ea2a810093e3d9512965812612e6078b371fc/eust-w/open-robotics-plugin",
+    "checked_at": 1795833323886
+  },
   "n_27c81692ad37fb7b": {
     "url": "https://qiita.com/rino_yume/items/c520681d7de871c1febb",
     "image": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkYwJTJGMjM2NTE4JTJGcHJvZmlsZS1pbWFnZXMlMkYxNzg4Mzk0NTQxP2l4bGliPXJiLTQuMS4xJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZiZz1GRkZGRkYmZm09cG5nMzImcz1mYTVhNWI2MzRkNzNmNTE1MDk5MzM4NmY3OGUzZmY1ZA%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Df995690790619f7268feb1ec40120e3b?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9bGxtLmFzbSVFMyU4MSVBRSVFNCVCQiU5NSVFNyVCNSU4NCVFMyU4MSVCRiVFMyU4MSVBOCVFNSVBRSU5RiVFOCVBMSU4QyVFNyU5MiVCMCVFNSVBMiU4MyVFMyU4MSVBRSVFNiVCQSU5NiVFNSU4MiU5OSUyMHIwMDElMjAlRTIlODAlOTUlMjAlRTMlODIlQTIlRTMlODIlQkIlRTMlODMlQjMlRTMlODMlOTYlRTMlODMlQUElRTMlODElQTclRTUlQUUlOUYlRTglQTMlODUlRTMlODElOTUlRTMlODIlOEMlRTMlODElOUZMTE0lRTYlOEUlQTglRTglQUIlOTYlRTMlODMlQkIlRTUlQjAlODIlRTclOTQlQThPUyVFMyU4MyVCQkdQVCVFNSVBRCVBNiVFNyVCRiU5MiZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPWM0NTkyYmRmMWFiMWM4Mzk2NzI3MWQ5YmRmZGRkODg3&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDByaW5vX3l1bWUmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz00YzUxNmY1NjMwYjhjYzJkZTg0ZTEzMTZkMTU3NjQ2Ng&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=e488901534dc1b5cfbc75ee073590e98",
@@ -243,6 +273,11 @@
     "url": "https://arxiv.org/abs/2611.34457",
     "image": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png",
     "checked_at": 1795790013139
+  },
+  "n_33e67e45be67ef0e": {
+    "url": "https://9to5mac.com/2026/11/27/here-are-the-best-apple-watch-deals-for-black-friday/",
+    "image": "https://9to5mac.com/wp-content/uploads/sites/6/2026/09/apple-watch-series-12-ceramic1.jpeg?quality=82&strip=all&resize=1200,628",
+    "checked_at": 1795833323886
   },
   "n_34b662796b05f9c0": {
     "url": "https://www.ithome.com/1/033/618.htm",
@@ -314,6 +349,11 @@
     "image": "https://9to5google.com/wp-content/uploads/sites/4/2026/11/AI-Mode-Personal-Intelligence-cover.webp?resize=1200,628",
     "checked_at": 1795726953055
   },
+  "n_3e960a4ccfd52f2d": {
+    "url": "https://9to5mac.com/2026/11/27/apple-black-friday-deals-airpods-macbook-watch/",
+    "image": "https://9to5mac.com/wp-content/uploads/sites/6/2026/11/Apple-official-Black-Friday-deals-2026.jpg?quality=82&strip=all&resize=1200,628",
+    "checked_at": 1795833323886
+  },
   "n_3f1d78ba49c95d7b": {
     "url": "https://9to5google.com/2026/11/27/all-xreal-glasses-black-friday-sale-2026/",
     "image": "https://9to5google.com/wp-content/uploads/sites/4/2026/11/xreal-one-pro-vs-xreal-one-pro-plus-01-1.jpg?quality=82&strip=all&resize=1200,628",
@@ -323,6 +363,11 @@
     "url": "https://www.bilibili.com/video/av117680610871877",
     "image": null,
     "checked_at": 1795726953055
+  },
+  "n_42792ea1ec910a69": {
+    "url": "https://github.com/skeeto/prospero",
+    "image": "https://opengraph.githubassets.com/bdebf9f642685060cd2fe43a88240bb6ed80d569770750c0129ff72492086f27/skeeto/prospero",
+    "checked_at": 1795833323886
   },
   "n_428631f9a0709dac": {
     "url": "https://www.theverge.com/entertainment/1041417/david-fincher-netflix-cliff-booth-ai-interpositive",
@@ -349,6 +394,11 @@
     "image": "https://9to5mac.com/wp-content/uploads/sites/6/2026/11/Apple-Thanksgiving-Black-Friday-deals-1.jpg?quality=82&strip=all&resize=1200,628",
     "checked_at": 1795726953055
   },
+  "n_4735b4ce4ae15873": {
+    "url": "https://9to5mac.com/2026/11/27/apple-faces-potential-80-million-fine-and-app-store-overhaul-in-chile/",
+    "image": "https://9to5mac.com/wp-content/uploads/sites/6/2026/06/app-store-app-icon-ios-27.jpg?quality=82&strip=all&resize=1200,628",
+    "checked_at": 1795833323886
+  },
   "n_4781b265526c6a90": {
     "url": "https://github.com/tarqmamdouh/agent-theater",
     "image": "https://opengraph.githubassets.com/4bea70b3f9449939485e9d6663735908fc822fd0b298b918c91f9b35a2273e03/tarqmamdouh/agent-theater",
@@ -368,6 +418,11 @@
     "url": "https://www.bloomberg.com/news/articles/2026-11-26/fifa-says-hackers-accessed-personal-data-in-cyberattack",
     "image": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iakUPTFDW_Ms/v1/1200x799.jpg",
     "checked_at": 1795726953055
+  },
+  "n_4b225bacf923f83e": {
+    "url": "https://9to5google.com/2026/11/27/black-friday-deals-fold-8-echo-smart-display-pixel-watch-5/",
+    "image": "https://9to5google.com/wp-content/uploads/sites/4/2026/11/9to5Google-Nov-27-2.webp?resize=1200,628",
+    "checked_at": 1795833323886
   },
   "n_4c44ce30146b120b": {
     "url": "https://techcrunch.com/2026/11/25/openai-says-heavy-chatgpt-users-may-hit-limits-sooner-as-it-merges-chat-and-work/",
@@ -393,6 +448,11 @@
     "url": "https://www.bloomberg.com/news/articles/2026-11-25/anthropic-expands-in-zurich-moving-to-tap-city-s-ai-talent-pool",
     "image": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/in9A4zaDz1xY/v0/1200x800.jpg",
     "checked_at": 1795726953055
+  },
+  "n_5111c2e55977b660": {
+    "url": "https://slate.com/business/2026/11/dumb-cars-cheap-low-tech.html",
+    "image": "https://compote.slate.com/images/1d7e3cb7-7a8e-4607-85c0-214cdabcb78a.jpeg?crop=1560%2C1040%2Cx0%2Cy0&width=1560",
+    "checked_at": 1795833323886
   },
   "n_528d6924cf9afd0d": {
     "url": "https://www.noemamag.com/the-mythology-of-conscious-ai/",
@@ -449,6 +509,11 @@
     "image": "https://cdn.comentr.com/0150CPNGZR000000000C0MENTR/media/content_image/v1/bff5d66072971917ceddac67792e86c36ea69bdec2ba9cb46d7994c29d79c5ad.44HS7JCKCR7PGP5YRJ884468FT/p1-s2024x1956/w1080.webp",
     "checked_at": 1795726953055
   },
+  "n_60fe99fe03e07da5": {
+    "url": "https://sessiongraph.ai/",
+    "image": null,
+    "checked_at": 1795833323886
+  },
   "n_62b3e935cc192d77": {
     "url": "https://github.com/SWE-agent/mini-swe-agent",
     "image": "https://opengraph.githubassets.com/131df19341c5e9195988408bd96d9182612d11e308b1148367ba791a89280168/SWE-agent/mini-swe-agent",
@@ -489,6 +554,16 @@
     "image": "https://images.ctfassets.net/kftzwdyauwt9/4aVhQ1EicxWg7i6lIkBrLQ/cdabc180f7e5f780dbb43c302e7163d8/richpanel-social.png?w=1600&h=900&fit=fill",
     "checked_at": 1795726953055
   },
+  "n_68cfb35a007a7c13": {
+    "url": "https://simonwillison.net/2026/Nov/27/datasette-charts/",
+    "image": null,
+    "checked_at": 1795833323886
+  },
+  "n_6936c05cb3c0a61f": {
+    "url": "https://9to5mac.com/2026/11/27/airpods-pro-black-friday-deals-pirces/",
+    "image": "https://9to5mac.com/wp-content/uploads/sites/6/2025/11/airpods-pro3-holiday.jpg?quality=82&strip=all&resize=1200,628",
+    "checked_at": 1795833323886
+  },
   "n_6b594a6e6fc7fbb8": {
     "url": "https://www.testingcatalog.com/testers-share-early-results-possible-claude-opus-5-6/",
     "image": "https://storage.ghost.io/c/2a/1b/2a1b1782-8506-4d7d-bf53-ad3fb52e2a0f/content/images/size/w1200/2026/11/claude-opus-text-official-hero.webp",
@@ -499,10 +574,20 @@
     "image": "https://the-decoder.com/wp-content/uploads/2026/11/gemini-4-neon__blog-header__sm.width-1600.format-webp.webp",
     "checked_at": 1795790013139
   },
+  "n_6f21b3d6a3bb4aac": {
+    "url": "https://qiita.com/kk01298/items/32db0b8c2f36980f590a",
+    "image": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0NTI3NjAxJTJGYzAwOGQ1YTZjYzg1YjEwYzg2NTkyMGFlMmJmNTVjM2Y1YzQ3NDA4MiUyRmxhcmdlLnBuZyUzRjE3OTQxMDMzNjc_aXhsaWI9cmItNC4xLjEmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPThlNDNjN2QzNmNkYTczMTU4Mjc4YjdkYjUzMjI4Yjdl%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Da55d56adb06331faff8d4b1a0a07cd6e?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9VlNjb2RlJUUzJTgxJUFFJUU2JThCJUExJUU1JUJDJUI1JUU2JUE5JTlGJUU4JTgzJUJEJUUzJTgxJUE3JUU4JTg3JUFBJUU1JTg5JThEJTIwU1NMJTIwJUU4JUE4JUJDJUU2JTk4JThFJUU2JTlCJUI4JUUzJTgyJTkyJUU0JUJGJUExJUU5JUEwJUJDJUUzJTgxJTk5JUUzJTgyJThCJUU2JTk2JUI5JUU2JUIzJTk1JnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9NTcyODdkOWVhY2U3NmI5NDVkOTM3NGM4ZmFkMDM1MzQ&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBrazAxMjk4JnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9NDRkODE1MWVjZGRlMjQ3M2ZlMGExY2QyMDk5NWZkYmQ&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=045e4f35bf0f5a93b88a708cb57613b6",
+    "checked_at": 1795833323886
+  },
   "n_6fd4c32fe34a4cba": {
     "url": "https://huggingface.co/blog/agentic-evals",
     "image": "https://huggingface.co/blog/assets/agentic-evals/thumbnail.png",
     "checked_at": 1795726953055
+  },
+  "n_70361e7e1861a083": {
+    "url": "https://9to5toys.com/2026/11/27/google-play-black-friday-deals/",
+    "image": "https://9to5toys.com/wp-content/uploads/sites/5/2026/11/Google-Play-collage-8fefe7.webp?resize=1200,628",
+    "checked_at": 1795833323886
   },
   "n_7067f7e3a4987ff7": {
     "url": "https://www.androidauthority.com/nothing-ear-note-ai-earbuds-features-3738493/",
@@ -523,6 +608,11 @@
     "url": "https://sspai.com/post/119527",
     "image": "https://rssfile.sspai.com/2026/11/25/article/48a4e38f-00f4-b1e5-9581-c02a5d115f51.png?imageMogr2/auto-orient/format/webp/ignore-error/1",
     "checked_at": 1795726953055
+  },
+  "n_75d919a963d0d6b3": {
+    "url": "https://9to5mac.com/2026/11/27/three-new-iphones-will-launch-early-next-year-heres-whats-coming/",
+    "image": "https://9to5mac.com/wp-content/uploads/sites/6/2025/11/iphone-air-2-camera-concept-yellow.jpg?quality=82&strip=all&resize=1200,628",
+    "checked_at": 1795833323886
   },
   "n_79a22f2e5650c7d0": {
     "url": "https://www.technologyreview.com/2026/11/25/1149808/the-download-ai-open-records-permafrost-fires/",
@@ -564,6 +654,11 @@
     "image": null,
     "checked_at": 1795726953055
   },
+  "n_831530802feb2d3e": {
+    "url": "https://9to5mac.com/2026/11/27/airpods-pro-3-one-year-later/",
+    "image": "https://9to5mac.com/wp-content/uploads/sites/6/2025/09/AirPods-Pro-3-review0004.jpg?quality=82&strip=all&resize=1200,628",
+    "checked_at": 1795833323886
+  },
   "n_832ab4e47f91928a": {
     "url": "https://reddit.com/r/LocalLLaMA/comments/1y6260i/zai_clarifies_glm55_has_not_been_delayed/",
     "image": null,
@@ -573,6 +668,11 @@
     "url": "https://www.technologyreview.com/2026/11/24/1149622/data-centers-natural-gas/",
     "image": "https://wp.technologyreview.com/wp-content/uploads/2026/11/AP25350020551834.jpg?resize=1200,600",
     "checked_at": 1795726953055
+  },
+  "n_86b16d1b32dcca07": {
+    "url": "https://arxiv.org/abs/2611.34813v1",
+    "image": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png",
+    "checked_at": 1795833323886
   },
   "n_86b1debc641fd874": {
     "url": "https://www.ithome.com/1/031/920.htm",
@@ -674,6 +774,16 @@
     "image": "https://9to5mac.com/wp-content/uploads/sites/6/2027/11/macbook-pro-proled-xdr-touch-09.jpg?quality=82&strip=all&resize=1200,628",
     "checked_at": 1795726953055
   },
+  "n_9f2b81be416076f1": {
+    "url": "https://9to5google.com/2026/11/27/like-clockwork-the-pixel-11-is-a-way-better-buy-after-a-few-months-video/",
+    "image": "https://9to5google.com/wp-content/uploads/sites/4/2026/09/Pixel-11-design-6.jpg?quality=82&strip=all&resize=1200,628",
+    "checked_at": 1795833323886
+  },
+  "n_9f7393d3aca32511": {
+    "url": "https://qiita.com/joinclass/items/2042e685ee7a426047dc",
+    "image": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0MjA2ODkxJTJGNzhmNWJiNzA1YjdlZjlkYWVjZWRhOGI2ODdlNTU5ZjA5YzI1YmYzZSUyRnhfbGFyZ2UucG5nJTNGMTc3NDUxODE0Nz9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9M2ZhMWQ1NDMyODQzNzkzNTIyNzRiMzk2ZDdmYmJmMTk%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Dd9c2258cfe819f9c4489a1d86672b88f?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9dWx0cmF0aGluayUyMCVFMyU4MSVBOCUyMC0tZWZmb3J0JTIweGhpZ2glMjAlRTMlODElQUUlRTQlQkQlQkYlRTMlODElODQlRTUlODglODYlRTMlODElOTElMjAlRTIlODAlOTQlMjAlRTglQTglQUQlRTglQTglODglRTMlODMlQUMlRTMlODMlOTMlRTMlODMlQTUlRTMlODMlQkMlRTMlODMlQkIlRTMlODMlQUElRTMlODMlOTUlRTMlODIlQTElRTMlODIlQUYlRTMlODIlQkYlRTMlODMlQkIlRTUlQUUlOUElRTUlOUUlOEIlRTQlQkQlOUMlRTYlQTUlQUQlRTMlODElQTclRTYlOEUlQTglRTglQUIlOTYlRTklODclOEYlRTMlODIlOTIlRTUlQTQlODklRTMlODElODglRTMlODElQTYlRTYlOTklODIlRTklOTYlOTMlRTMlODElQTglRTIlODAlQTYmdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz0wMTE2N2IwY2E1MzE3NjQ0NjkzYjA5YmRhMjdjZTNmMw&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBqb2luY2xhc3MmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz02MTk0ZGNhMTQxZGVmYmVkMzIyZTJlNjgwN2VlNDI0ZQ&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=c5382131907c27c6137f6a0b3b6d9bd9",
+    "checked_at": 1795833323886
+  },
   "n_a085d574d6976d70": {
     "url": "https://www.technologyreview.com/2026/11/26/1149934/the-download-better-bionic-hands-ai-natural-gas-boom/",
     "image": "https://wp.technologyreview.com/wp-content/uploads/2026/11/261124_ProsetheticHand_Lede_cb1337.jpg?resize=1200,600",
@@ -688,6 +798,11 @@
     "url": "https://www.technologyreview.com/2026/11/24/1148091/raising-the-stakes-for-enterprise-networks-with-ai-modernization/",
     "image": null,
     "checked_at": 1795726953055
+  },
+  "n_a1fb56ae5adb65c5": {
+    "url": "https://qiita.com/saitoko/items/6303bca4d49644f844c8",
+    "image": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkYxNjYxMjglMkY4ZTY3MjdjZTRkZjI1MjkxYTJjMGU1NmZhMmY5OTAwNzM5NTU3YjM5JTJGbGFyZ2UucG5nJTNGMTc3NjMzMDg2Mz9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9MGIzMmMxNDc4YTZiYmZjMmU0ODM2ZjM5NTk3MWU1ZDU%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Dfcdea8077f1807ee997b0c59c93575fb?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9Q2xhdWRlJTIwQ29kZSUyMCVFMyU4MyU4NyVFMyU4MiVCOSVFMyU4MiVBRiVFMyU4MyU4OCVFMyU4MyU4MyVFMyU4MyU5NyVFMyU4MSVBRSUyMFNTSCUyMCVFNiU4RSVBNSVFNyVCNiU5QSVFMyU4MSVBNyVFOCU4NyVBQSVFNSVBRSU4NSUyME1hYyUyMG1pbmklMjAlRTMlODIlOTIlRTUlQTQlOTYlRTMlODElOEIlRTMlODIlODklRTQlQkQlQkYlRTMlODElODYlRTIlODAlOTQlRTIlODAlOTQlRTclOTIlQjAlRTUlQTIlODMlRTMlODIlOTIlRTUlOTAlOEMlRTYlOUMlOUYlRTMlODElOTclRTMlODElQUElRTMlODElODQyJUU1JThGJUIwJUU5JTgxJThCJUU3JTk0JUE4JnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9YzI4MDYwMzc0Y2FlNzE1ZjA1NzlmZGVhNDNlZGFmNWY&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBzYWl0b2tvJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9MjdiODdhMzFhZDFkMzNhMzBkNzUwMGJmNGI4MzAzNzA&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=6f73f8c71f4e300d1840b0ca7f3282bb",
+    "checked_at": 1795833323886
   },
   "n_a2f758739a94c065": {
     "url": "https://github.com/ertembiyik/xcslot",
@@ -704,6 +819,11 @@
     "image": "https://www.philschmid.de/_og/d5ea65ae9ccc-og.jpg",
     "checked_at": 1795726953055
   },
+  "n_a628d534a141df3f": {
+    "url": "https://simonwillison.net/2026/Nov/27/datasette-mcp/",
+    "image": null,
+    "checked_at": 1795833323886
+  },
   "n_a7e535c8332e7a2e": {
     "url": "https://arxiv.org/abs/2611.32554",
     "image": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png",
@@ -718,6 +838,11 @@
     "url": "https://www.theverge.com/ai-artificial-intelligence/1040081/vibe-coding-open-source-music-firmware",
     "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/11/vibe_coding_synths_.jpg?quality=90&strip=all&crop=0%2C12.339110464558%2C100%2C75.321779070884&w=1200",
     "checked_at": 1795726953055
+  },
+  "n_aa5274859672a449": {
+    "url": "https://www.oag.state.va.us/media-center/news-releases/jay-jones/3162-attorneys-general-jones-and-rayfield-file-suit-against-spacex-parent-company-of-x-xai-and-grok-over-creation-and-promotion-of-child-exploitation-and-non-consensual-images-on-platform",
+    "image": "https://www.oag.state.va.us/images/OAG-Tile-Image-Jones_20260121.jpg?20220117",
+    "checked_at": 1795833323886
   },
   "n_ab625f6493db360a": {
     "url": "https://9to5toys.com/2026/11/24/today-google-play-deals-grand-theft-auto/",
@@ -763,6 +888,11 @@
     "url": "https://www.ithome.com/1/033/718.htm",
     "image": null,
     "checked_at": 1795790013139
+  },
+  "n_b97a9c9fe407c22b": {
+    "url": "https://9to5mac.com/2026/11/27/apple-claims-six-of-chinas-10-bestselling-smartphones-during-singles-day/",
+    "image": "https://9to5mac.com/wp-content/uploads/sites/6/2026/09/Craig-Federighi-on-how-Apple-helps-developers-make-the-most-of-the-iPhone-Duo.jpg?quality=82&strip=all&resize=1200,628",
+    "checked_at": 1795833323886
   },
   "n_b9a6b5b3831fe4c5": {
     "url": "https://arxiv.org/abs/2611.34290",
@@ -863,6 +993,11 @@
     "url": "https://qiita.com/charge0315/items/2a0dcd87175afc963e81",
     "image": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkYzNDc3ODE1JTJGZmE4MDEyYmI1YzEyNWNmYzBlZDRjMGVmYjMzYjY1NWUyOGUzZGRlOCUyRnhfbGFyZ2UucG5nJTNGMTc5NTA1Nzk1OT9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9OGYxYjZjMmNjZmU4MWNkMjMwODM4NDIwOTBkN2U0ODI%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D748fe073030bcf40a2ef7257b2d6f866?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9QUklRTMlODElQUIlRTUlODYlOEQlRTUlQkIlQkElRTglQTglODglRTclOTQlQkIlRTMlODIlOTIlRTklQTAlQkMlRTMlODIlODAlRTMlODElQUElRTMlODIlODklRTMlODAlOEMlRTQlQkYlQUUlRTYlQUQlQTMlRTMlODElQUYlRTMlODElOTclRTMlODElQUElRTMlODElODQlRTMlODElQTclRTMlODAlOEQlRTMlODElOEIlRTMlODIlODklRUYlQkMlOUFDbGF1ZGUlMjBDb2RlJTIwJUUzJTgxJThDODIlRTQlQkIlQjYlRTMlODElQUVJc3N1ZSVFMyU4MiU5MiVFNiU5QiVCOCVFMyU4MSU4NCVFMyU4MSVBNiVFNiVBRCVBMiVFMyU4MSVCRSVFMyU4MSVBMyVFMyU4MSU5RiVFOCVBOCU5OCVFOSU4QyVCMiZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPTk1ZTRiMTI3ZjY0OWMwMTJjMjcwMTlhMjMzZTg2ZDBj&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBjaGFyZ2UwMzE1JnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9OTMzYWJiMDBkOTczMjcxYjNhMGQzYjAzMDE3OTlkYjU&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=3c40cec0329f788313eed3dfd19f53d3",
     "checked_at": 1795746637148
+  },
+  "n_cb059c8abe4ec7fc": {
+    "url": "https://www.reuters.com/world/hackers-breach-us-air-force-flagship-cloud-one-computing-platform-2026-11-27/",
+    "image": null,
+    "checked_at": 1795833323886
   },
   "n_cbd75850d76cf853": {
     "url": "https://github.blog/changelog/2026-11-23-code-coverage-uploads-now-flag-invalid-report-formats",
@@ -994,6 +1129,11 @@
     "image": "https://9to5mac.com/wp-content/uploads/sites/6/2026/11/Best-Black-Friday-Apple-deals-2026.jpg?quality=82&strip=all&resize=1200,628",
     "checked_at": 1795726953055
   },
+  "n_f21d90605390562e": {
+    "url": "https://thesoapbox.email/archive/3",
+    "image": null,
+    "checked_at": 1795833323886
+  },
   "n_f27e0de9d097fe05": {
     "url": "https://techcrunch.com/2026/11/25/sp-considers-nvidia-credit-downgrade-over-governance-and-key-man-risks/",
     "image": "https://techcrunch.com/wp-content/uploads/2026/01/GettyImages-2256813240.jpg?resize=1200,800",
@@ -1019,6 +1159,11 @@
     "image": "https://www.androidauthority.com/wp-content/uploads/2026/11/mangmi-air-x-pro.jpg",
     "checked_at": 1795726953055
   },
+  "n_f73dd4428f05a7b2": {
+    "url": "https://qiita.com/palafonda67/items/e3cea9a483a4335f9e6c",
+    "image": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRmxoMy5nb29nbGV1c2VyY29udGVudC5jb20lMkZhJTJGQUNnOG9jSUxjUER5cEs0S3plRU1TS1BXQ215MHB3bkt3cDZpWC1EWmd6djFJd3dQeWR4WmhlR3AlM0RzOTYtYz9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9YjkzOTAzZTkzYjlkYTJmZDAwM2UzNzc1ZDZlNzE3ZTg%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D31f4f664072d640fa1a5a4bdd3f0e0d4?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9Q2xhdWRlJTIwQ29kZSUyMCVFMyU4MSVBRSUyMFNraWxsJTIwJUUzJTgxJUE3JUUzJTgwJThDJUU2JUEwJUI5JUU2JThCJUEwJUUzJTgxJUFFJUUzJTgxJUFBJUUzJTgxJTg0JUU2JThDJTg3JUU2JTkxJTk4JUUzJTgwJThEJUUzJTgyJTkyJUU1JTg3JUJBJUUzJTgxJTk1JUUzJTgxJUFBJUUzJTgxJTg0JTIwU0VPJTIwJUU3JTlCJUEzJUU2JTlGJUJCJUUzJTgyJTkyJUU0JUJEJTlDJUUzJTgyJThCJUVGJUJDJTg4U0tJTEwubWQlMjAlRTMlODElQTglRTYlQTQlOUMlRTglQTglQkMlRTMlODIlQjklRTMlODIlQUYlRTMlODMlQUElRTMlODMlOTclRTMlODMlODglRTIlODAlQTYmdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz0wZTUxYzBkNGE2MTIxNGZiNmY4MWQ5MjkwNjcxNzY5MQ&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBwYWxhZm9uZGE2NyZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPWMzMDNmNDMwZTBhMGFkNzM2YjE0YzRhYzAyMjZmZTMx&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=796cae065df41ca1df94d769422dd2e4",
+    "checked_at": 1795833323886
+  },
   "n_f80a2ca99611f81f": {
     "url": "https://arstechnica.com/tech-policy/2026/11/surveillance-pricing-uses-our-personal-data-to-make-us-pay-more/",
     "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/11/GettyImages-1527415822-1152x648.jpg",
@@ -1033,6 +1178,11 @@
     "url": "https://github.com/uxpilot-ai/user-interview-skill",
     "image": "https://opengraph.githubassets.com/0809343d5240862480d533bc119c4e0fb7dab4c0101469a98b1c92ec8b69f6b8/uxpilot-ai/user-interview-skill",
     "checked_at": 1795726953055
+  },
+  "n_f965d46eeeec9968": {
+    "url": "https://www.theverge.com/gadgets/1043935/best-black-friday-apple-deals-2026",
+    "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/10/268836_MacBook_Pro_touchscreen_OLED_handson_ADiBenedetto_0048.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
+    "checked_at": 1795833323886
   },
   "n_fb4a41f294bfb16e": {
     "url": "https://www.bilibili.com/video/av117682775006958",
@@ -1229,6 +1379,11 @@
     "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/inclusionAI/Ming-Image-0.2-Design.png",
     "checked_at": 1795746637148
   },
+  "p_430723741ce7dbb1": {
+    "url": "https://github.com/Tencent/AngelSpec",
+    "image": "https://opengraph.githubassets.com/4c3a420a4877ce6fa94460f7ff3e0bdaf6291b53210de9bd78cdf47a36677d1a/Tencent/AngelSpec",
+    "checked_at": 1795833323886
+  },
   "p_4350469e0129fd2d": {
     "url": "https://x.com/davidsenra/status/2124518974197321782",
     "image": "https://pbs.twimg.com/amplify_video_thumb/2124397993713713152/img/Nl-SAM25ZKyA5AZX?format=webp&name=large",
@@ -1313,6 +1468,11 @@
     "url": "https://qiita.com/suwa_nobu/items/3bcba393673985c9b8ed",
     "image": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0NDMwNjExJTJGYTRlNGFiZDZjNWNkZmM5NzkzMTk2ZmUwZDFjZjYyMGY1ZWYxMTY5NCUyRnhfbGFyZ2UucG5nJTNGMTc4NTI4OTU5Nj9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9NGE5ZmNiZmE4OTM5NWU1MWY1N2FiYjJkYzI1ZTFmZDQ%26blend-x%3D120%26blend-y%3D462%26blend-w%3D90%26blend-h%3D90%26blend-mode%3Dnormal%26mark64%3DaHR0cHM6Ly9xaWl0YS1vcmdhbml6YXRpb24taW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1vcmdhbml6YXRpb24taW1hZ2UlMkYyMDc3NzA2NTMzODkzMmUyMWVjMjk3MjI5ZDVkZmI5NDk5MWI5YzFhJTJGb3JpZ2luYWwuanBnJTNGMTc2OTAwMDk3MD9peGxpYj1yYi00LjEuMSZ3PTQ0Jmg9NDQmZml0PWNyb3AmbWFzaz1jb3JuZXJzJmNvcm5lci1yYWRpdXM9OCZiZz1GRkZGRkYmYm9yZGVyPTIlMkNGRkZGRkYmZm09cG5nMzImcz1lYjc1ZTQzMzAzYTdlNTkzNDQ4Yjc4NDZiMjljYTgxZA%26mark-x%3D186%26mark-y%3D515%26mark-w%3D40%26mark-h%3D40%26s%3D237198914e54e0e7e727d16c4cfb7823?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgwJThDZ2l0JTIwcHVzaCUyMCVFMyU4MSU4QyVFOSU4MCU5QSVFMyU4MiU4OSVFMyU4MSVBQSVFMyU4MSU4NCVFMyU4MSVBRSVFMyU4MSVBNyVFOCVBQSVCRiVFMyU4MSVCOSVFMyU4MSVBNiVFMyU4MCU4RCVFMyU4MSVBOCVFOSVBMCVCQyVFMyU4MiU4MCVFMyU4MSVBOCVFMyU4MCU4MUNvZGV4JTIwJUUzJTgxJUFGJUU0JUJEJTlDJUU2JUE1JUFEJUUzJTgzJTk1JUUzJTgyJUE5JUUzJTgzJUFCJUUzJTgzJTgwJUUzJTgxJUFFJUU1JUE0JTk2JUUzJTgxJUFFJTIwfiUyRi5zc2glMjAlRTMlODIlOTIlRTglQUElQUQlRTMlODIlOTMlRTMlODElQTAlRTMlODAlODJDbGF1ZGUlMjBDJUUyJTgwJUE2JnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9MjA3Yjc5YjlmOGE5ODM0YTY2YzRhYjFjNWUxZjJkZjc&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBzdXdhX25vYnUmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz1iZTVkNGQ3ZjgwNDY4YWQwMGMxZTkyMjA3YzFjYWMxMw&blend-x=242&blend-y=454&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&txt64=5qCq5byP5Lya56S-SlFJVA&txt-x=242&txt-y=539&txt-width=838&txt-clip=end%2Cellipsis&txt-color=%231E2121&txt-font=Hiragino%20Sans%20W6&txt-size=28&s=3fc562d2b391a422e16e4b6c9f5c7451",
     "checked_at": 1795726953055
+  },
+  "p_6acd918e33396a3c": {
+    "url": "https://neuralnetworksanddeeplearning.com/",
+    "image": null,
+    "checked_at": 1795833323886
   },
   "p_6ff348e652c905f1": {
     "url": "https://simonwillison.net/2026/Nov/24/llm-inflection-points/",
@@ -1419,6 +1579,11 @@
     "image": "https://pbs.twimg.com/profile_images/819210652564615168/NNNeTcef_400x400.jpg",
     "checked_at": 1795726953055
   },
+  "p_9ef2e5853690df9e": {
+    "url": "https://x.com/rauchg/status/2126416223592473046",
+    "image": "https://pbs.twimg.com/amplify_video_thumb/2126415323046019072/img/_7w36L753cVggxQ3?format=webp&name=large",
+    "checked_at": 1795833323886
+  },
   "p_a2a78bd8bdce5b5f": {
     "url": "https://www.androidauthority.com/google-messages-gemini-tasks-3739189/",
     "image": "https://www.androidauthority.com/wp-content/uploads/2026/09/google-messages-app-icon-logo-pixel-11-pro-scaled.jpg",
@@ -1519,10 +1684,20 @@
     "image": "https://cdn.v2ex.com/avatar/5550/764e/580133_xlarge.png?m=1795611705",
     "checked_at": 1795790013139
   },
+  "p_ccfc34161a68684d": {
+    "url": "https://minimaxir.com/2026/11/opus-fable/",
+    "image": "https://minimaxir.com/2026/11/opus-fable/featured.webp",
+    "checked_at": 1795833323886
+  },
   "p_d0ba2a887f0c4ecf": {
     "url": "https://x.com/dhh/status/2124036959223808320",
     "image": "https://pbs.twimg.com/profile_images/2093715898204884992/goERjC9G_400x400.jpg",
     "checked_at": 1795726953055
+  },
+  "p_d39c838950e7a84c": {
+    "url": "https://www.reuters.com/5f374b32b07b/technology/openai-countersues-apple-stealing-trade-secrets-ft-reports-2026-11-27/",
+    "image": "https://www.reuters.com/resizer/v2/FX46DTNPGVKWTK7UJNHYUCDTZY.jpg?auth=de09f9829e08959f3bc4c77e819672d4f4ac992853fc6701594b11aabb6c0e9b&height=1005&width=1920&quality=80&smart=true",
+    "checked_at": 1795833323886
   },
   "p_d4ca14e29065004b": {
     "url": "https://x.com/bojie_li/status/2124398647563706432",
@@ -1603,6 +1778,11 @@
     "url": "https://github.com/lsernau/grh-lean",
     "image": "https://opengraph.githubassets.com/424b2e002fae814ece6c82acfb198963a49e296b2a0d47cc7144c5a62deec70c/lsernau/grh-lean",
     "checked_at": 1795726953055
+  },
+  "p_f9c59777e13f11ce": {
+    "url": "https://help.openai.com/en/articles/20001705-getting-chatgpt-business-credits-on-an-eligible-lenovo-pc",
+    "image": "https://help.openai.com/og-image.png",
+    "checked_at": 1795833323886
   },
   "p_f9f7b9e4db49a58a": {
     "url": "https://x.com/dhh/status/2123737508961730902",

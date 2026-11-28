@@ -2,9 +2,9 @@
   "version": 2,
   "producer": "grokbot",
   "date": "2026-11-27",
-  "generatedAt": "2026-11-27T14:27:26.000Z",
+  "generatedAt": "2026-11-28T00:34:43.000Z",
   "latestRun": {
-    "completedAt": "2026-11-27T14:27:26.000Z"
+    "completedAt": "2026-11-28T00:34:43.000Z"
   },
   "topics": [
     {
@@ -40,12 +40,12 @@
   ],
   "stats": [
     {
-      "source": "GitHub",
-      "count": 13
+      "source": "Android Authority",
+      "count": 12
     },
     {
-      "source": "Android Authority",
-      "count": 11
+      "source": "GitHub",
+      "count": 12
     },
     {
       "source": "Qiita",
@@ -68,11 +68,15 @@
       "count": 9
     },
     {
-      "source": "9to5Google",
+      "source": "IT之家",
       "count": 8
     },
     {
       "source": "9to5Mac",
+      "count": 8
+    },
+    {
+      "source": "9to5Google",
       "count": 8
     },
     {
@@ -84,10 +88,6 @@
       "count": 8
     },
     {
-      "source": "IT之家",
-      "count": 8
-    },
-    {
       "source": "Wired",
       "count": 8
     },
@@ -96,15 +96,23 @@
       "count": 8
     },
     {
-      "source": "YouTube · OpenAI",
-      "count": 8
-    },
-    {
       "source": "Hugging Face Daily Papers",
       "count": 8
     },
     {
+      "source": "Simon Willison",
+      "count": 7
+    },
+    {
       "source": "Latent Space",
+      "count": 6
+    },
+    {
+      "source": "Hacker News (top, 150+ pts)",
+      "count": 6
+    },
+    {
+      "source": "YouTube · OpenAI",
       "count": 6
     },
     {
@@ -116,15 +124,7 @@
       "count": 6
     },
     {
-      "source": "Meta Newsroom",
-      "count": 5
-    },
-    {
-      "source": "Simon Willison",
-      "count": 5
-    },
-    {
-      "source": "GitHub Changelog",
+      "source": "arXiv cs.AI",
       "count": 5
     },
     {
@@ -132,12 +132,12 @@
       "count": 5
     },
     {
-      "source": "Hacker News (top, 150+ pts)",
+      "source": "GitHub Trending",
       "count": 5
     },
     {
-      "source": "GitHub Trending",
-      "count": 5
+      "source": "Meta Newsroom",
+      "count": 4
     },
     {
       "source": "Bloomberg",
@@ -145,14 +145,6 @@
     },
     {
       "source": "X @elonmusk",
-      "count": 4
-    },
-    {
-      "source": "arXiv cs.AI",
-      "count": 4
-    },
-    {
-      "source": "Ars Technica",
       "count": 4
     },
     {
@@ -164,15 +156,23 @@
       "count": 4
     },
     {
+      "source": "X @rauchg",
+      "count": 3
+    },
+    {
       "source": "少数派",
       "count": 3
     },
     {
-      "source": "Google Research",
+      "source": "GitHub Changelog",
       "count": 3
     },
     {
       "source": "X @OpenAI",
+      "count": 3
+    },
+    {
+      "source": "Ars Technica",
       "count": 3
     },
     {
@@ -184,11 +184,19 @@
       "count": 3
     },
     {
+      "source": "GitHub releases ollama/ollama",
+      "count": 2
+    },
+    {
       "source": "The Guardian",
       "count": 2
     },
     {
       "source": "Financial Times",
+      "count": 2
+    },
+    {
+      "source": "Reuters",
       "count": 2
     },
     {
@@ -201,6 +209,10 @@
     },
     {
       "source": "arXiv cs.CL",
+      "count": 2
+    },
+    {
+      "source": "Google Research",
       "count": 2
     },
     {
@@ -220,23 +232,11 @@
       "count": 2
     },
     {
-      "source": "Road to VR",
-      "count": 2
-    },
-    {
-      "source": "GitHub releases ollama/ollama",
-      "count": 2
-    },
-    {
       "source": "X @paulg",
       "count": 2
     },
     {
       "source": "X @FT",
-      "count": 2
-    },
-    {
-      "source": "X @rauchg",
       "count": 2
     },
     {
@@ -252,15 +252,23 @@
       "count": 2
     },
     {
-      "source": "Cloudflare blog",
-      "count": 2
+      "source": "Max Woolf's Blog",
+      "count": 1
     },
     {
       "source": "X @RealAstropulse",
       "count": 1
     },
     {
+      "source": "OpenAI Help Center",
+      "count": 1
+    },
+    {
       "source": "V2EX",
+      "count": 1
+    },
+    {
+      "source": "Michael Nielsen",
       "count": 1
     },
     {
@@ -269,10 +277,6 @@
     },
     {
       "source": "MacRumors",
-      "count": 1
-    },
-    {
-      "source": "Reuters",
       "count": 1
     },
     {
@@ -297,6 +301,10 @@
     },
     {
       "source": "Zenn（Parsetree Tech Blog）",
+      "count": 1
+    },
+    {
+      "source": "GitHub（Tencent/AngelSpec）",
       "count": 1
     },
     {
@@ -397,6 +405,10 @@
     },
     {
       "source": "Reuters (via CNA)",
+      "count": 1
+    },
+    {
+      "source": "Road to VR",
       "count": 1
     },
     {
@@ -638,6 +650,519 @@
   ],
   "items": [
     {
+      "id": "n_68cfb35a007a7c13",
+      "title": {
+        "en": "datasette-charts 0.4a0",
+        "zh": "datasette-charts 0.4a0",
+        "original": "datasette-charts 0.4a0"
+      },
+      "lang": "en",
+      "url": "https://simonwillison.net/2026/Nov/27/datasette-charts/",
+      "source": "Simon Willison",
+      "topic": "general",
+      "published_at": "2026-11-27T23:57:17.000Z"
+    },
+    {
+      "id": "n_f965d46eeeec9968",
+      "title": {
+        "en": "The best Black Friday deals you can still get on AirPods, Macs, and other Apple gear",
+        "zh": "The best Black Friday deals you can still get on AirPods, Macs, and other Apple gear",
+        "original": "The best Black Friday deals you can still get on AirPods, Macs, and other Apple gear"
+      },
+      "lang": "en",
+      "url": "https://www.theverge.com/gadgets/1043935/best-black-friday-apple-deals-2026",
+      "source": "The Verge",
+      "topic": "ai-wearables",
+      "published_at": "2026-11-27T23:53:19.000Z",
+      "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/10/268836_MacBook_Pro_touchscreen_OLED_handson_ADiBenedetto_0048.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200"
+    },
+    {
+      "id": "n_f73dd4428f05a7b2",
+      "title": {
+        "en": "Claude Code の Skill で「根拠のない指摘」を出さない SEO 監査を作る（SKILL.md と検証スクリプト全文）",
+        "zh": "Claude Code の Skill で「根拠のない指摘」を出さない SEO 監査を作る（SKILL.md と検証スクリプト全文）",
+        "original": "Claude Code の Skill で「根拠のない指摘」を出さない SEO 監査を作る（SKILL.md と検証スクリプト全文）"
+      },
+      "lang": "ja",
+      "url": "https://qiita.com/palafonda67/items/e3cea9a483a4335f9e6c",
+      "source": "Qiita",
+      "topic": "coding-agents",
+      "published_at": "2026-11-27T23:46:32.000Z",
+      "image": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRmxoMy5nb29nbGV1c2VyY29udGVudC5jb20lMkZhJTJGQUNnOG9jSUxjUER5cEs0S3plRU1TS1BXQ215MHB3bkt3cDZpWC1EWmd6djFJd3dQeWR4WmhlR3AlM0RzOTYtYz9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9YjkzOTAzZTkzYjlkYTJmZDAwM2UzNzc1ZDZlNzE3ZTg%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D31f4f664072d640fa1a5a4bdd3f0e0d4?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9Q2xhdWRlJTIwQ29kZSUyMCVFMyU4MSVBRSUyMFNraWxsJTIwJUUzJTgxJUE3JUUzJTgwJThDJUU2JUEwJUI5JUU2JThCJUEwJUUzJTgxJUFFJUUzJTgxJUFBJUUzJTgxJTg0JUU2JThDJTg3JUU2JTkxJTk4JUUzJTgwJThEJUUzJTgyJTkyJUU1JTg3JUJBJUUzJTgxJTk1JUUzJTgxJUFBJUUzJTgxJTg0JTIwU0VPJTIwJUU3JTlCJUEzJUU2JTlGJUJCJUUzJTgyJTkyJUU0JUJEJTlDJUUzJTgyJThCJUVGJUJDJTg4U0tJTEwubWQlMjAlRTMlODElQTglRTYlQTQlOUMlRTglQTglQkMlRTMlODIlQjklRTMlODIlQUYlRTMlODMlQUElRTMlODMlOTclRTMlODMlODglRTIlODAlQTYmdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz0wZTUxYzBkNGE2MTIxNGZiNmY4MWQ5MjkwNjcxNzY5MQ&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBwYWxhZm9uZGE2NyZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPWMzMDNmNDMwZTBhMGFkNzM2YjE0YzRhYzAyMjZmZTMx&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=796cae065df41ca1df94d769422dd2e4"
+    },
+    {
+      "id": "n_5111c2e55977b660",
+      "title": {
+        "en": "Why drivers want cheap, dumb cars again",
+        "zh": "Why drivers want cheap, dumb cars again",
+        "original": "Why drivers want cheap, dumb cars again"
+      },
+      "lang": "en",
+      "url": "https://slate.com/business/2026/11/dumb-cars-cheap-low-tech.html",
+      "source": "Hacker News",
+      "topic": "general",
+      "published_at": "2026-11-27T23:39:15.000Z",
+      "image": "https://compote.slate.com/images/1d7e3cb7-7a8e-4607-85c0-214cdabcb78a.jpeg?crop=1560%2C1040%2Cx0%2Cy0&width=1560"
+    },
+    {
+      "id": "n_9f7393d3aca32511",
+      "title": {
+        "en": "ultrathink と --effort xhigh の使い分け — 設計レビュー・リファクタ・定型作業で推論量を変えて時間と精度を測る",
+        "zh": "ultrathink と --effort xhigh の使い分け — 設計レビュー・リファクタ・定型作業で推論量を変えて時間と精度を測る",
+        "original": "ultrathink と --effort xhigh の使い分け — 設計レビュー・リファクタ・定型作業で推論量を変えて時間と精度を測る"
+      },
+      "lang": "ja",
+      "url": "https://qiita.com/joinclass/items/2042e685ee7a426047dc",
+      "source": "Qiita",
+      "topic": "coding-agents",
+      "published_at": "2026-11-27T23:30:06.000Z",
+      "image": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0MjA2ODkxJTJGNzhmNWJiNzA1YjdlZjlkYWVjZWRhOGI2ODdlNTU5ZjA5YzI1YmYzZSUyRnhfbGFyZ2UucG5nJTNGMTc3NDUxODE0Nz9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9M2ZhMWQ1NDMyODQzNzkzNTIyNzRiMzk2ZDdmYmJmMTk%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Dd9c2258cfe819f9c4489a1d86672b88f?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9dWx0cmF0aGluayUyMCVFMyU4MSVBOCUyMC0tZWZmb3J0JTIweGhpZ2glMjAlRTMlODElQUUlRTQlQkQlQkYlRTMlODElODQlRTUlODglODYlRTMlODElOTElMjAlRTIlODAlOTQlMjAlRTglQTglQUQlRTglQTglODglRTMlODMlQUMlRTMlODMlOTMlRTMlODMlQTUlRTMlODMlQkMlRTMlODMlQkIlRTMlODMlQUElRTMlODMlOTUlRTMlODIlQTElRTMlODIlQUYlRTMlODIlQkYlRTMlODMlQkIlRTUlQUUlOUElRTUlOUUlOEIlRTQlQkQlOUMlRTYlQTUlQUQlRTMlODElQTclRTYlOEUlQTglRTglQUIlOTYlRTklODclOEYlRTMlODIlOTIlRTUlQTQlODklRTMlODElODglRTMlODElQTYlRTYlOTklODIlRTklOTYlOTMlRTMlODElQTglRTIlODAlQTYmdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz0wMTE2N2IwY2E1MzE3NjQ0NjkzYjA5YmRhMjdjZTNmMw&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBqb2luY2xhc3MmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz02MTk0ZGNhMTQxZGVmYmVkMzIyZTJlNjgwN2VlNDI0ZQ&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=c5382131907c27c6137f6a0b3b6d9bd9"
+    },
+    {
+      "id": "n_0f865f5397e0a409",
+      "title": {
+        "en": "IT早报 1128：DeepSeek 灰度测试“消耗额度”；有线电视与 IPTV 广告禁令生效；比亚迪海洋网旗舰 MPV 海鲸亮相；市监总局集中约谈 15 家电动自行车企业...",
+        "zh": "IT早报 1128：DeepSeek 灰度测试“消耗额度”；有线电视与 IPTV 广告禁令生效；比亚迪海洋网旗舰 MPV 海鲸亮相；市监总局集中约谈 15 家电动自行车企业...",
+        "original": "IT早报 1128：DeepSeek 灰度测试“消耗额度”；有线电视与 IPTV 广告禁令生效；比亚迪海洋网旗舰 MPV 海鲸亮相；市监总局集中约谈 15 家电动自行车企业..."
+      },
+      "lang": "zh",
+      "url": "https://www.ithome.com/1/033/784.htm",
+      "source": "IT之家",
+      "topic": "mobile-ai",
+      "published_at": "2026-11-27T23:28:45.000Z"
+    },
+    {
+      "id": "n_6f21b3d6a3bb4aac",
+      "title": {
+        "en": "VScodeの拡張機能で自前 SSL 証明書を信頼する方法",
+        "zh": "VScodeの拡張機能で自前 SSL 証明書を信頼する方法",
+        "original": "VScodeの拡張機能で自前 SSL 証明書を信頼する方法"
+      },
+      "lang": "ja",
+      "url": "https://qiita.com/kk01298/items/32db0b8c2f36980f590a",
+      "source": "Qiita",
+      "topic": "coding-agents",
+      "published_at": "2026-11-27T23:13:06.000Z",
+      "image": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0NTI3NjAxJTJGYzAwOGQ1YTZjYzg1YjEwYzg2NTkyMGFlMmJmNTVjM2Y1YzQ3NDA4MiUyRmxhcmdlLnBuZyUzRjE3OTQxMDMzNjc_aXhsaWI9cmItNC4xLjEmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPThlNDNjN2QzNmNkYTczMTU4Mjc4YjdkYjUzMjI4Yjdl%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Da55d56adb06331faff8d4b1a0a07cd6e?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9VlNjb2RlJUUzJTgxJUFFJUU2JThCJUExJUU1JUJDJUI1JUU2JUE5JTlGJUU4JTgzJUJEJUUzJTgxJUE3JUU4JTg3JUFBJUU1JTg5JThEJTIwU1NMJTIwJUU4JUE4JUJDJUU2JTk4JThFJUU2JTlCJUI4JUUzJTgyJTkyJUU0JUJGJUExJUU5JUEwJUJDJUUzJTgxJTk5JUUzJTgyJThCJUU2JTk2JUI5JUU2JUIzJTk1JnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9NTcyODdkOWVhY2U3NmI5NDVkOTM3NGM4ZmFkMDM1MzQ&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBrazAxMjk4JnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9NDRkODE1MWVjZGRlMjQ3M2ZlMGExY2QyMDk5NWZkYmQ&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=045e4f35bf0f5a93b88a708cb57613b6"
+    },
+    {
+      "id": "n_bfa9ad5773fa27fa",
+      "title": {
+        "en": "AIエージェントの原型は3本の論文にあった：ReAct、SWE-bench、SWE-agentを読み解く",
+        "zh": "AIエージェントの原型は3本の論文にあった：ReAct、SWE-bench、SWE-agentを読み解く",
+        "original": "AIエージェントの原型は3本の論文にあった：ReAct、SWE-bench、SWE-agentを読み解く"
+      },
+      "lang": "ja",
+      "url": "https://zenn.dev/kentaro36/articles/ai-agent-foundation-papers",
+      "source": "Zenn",
+      "topic": "coding-agents",
+      "published_at": "2026-11-27T23:07:24.000Z",
+      "image": "https://res.cloudinary.com/zenn/image/upload/s--pGDdqAP2--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:AI%25E3%2582%25A8%25E3%2583%25BC%25E3%2582%25B8%25E3%2582%25A7%25E3%2583%25B3%25E3%2583%2588%25E3%2581%25AE%25E5%258E%259F%25E5%259E%258B%25E3%2581%25AF3%25E6%259C%25AC%25E3%2581%25AE%25E8%25AB%2596%25E6%2596%2587%25E3%2581%25AB%25E3%2581%2582%25E3%2581%25A3%25E3%2581%259F%25EF%25BC%259AReAct%25E3%2580%2581SWE-bench%25E3%2580%2581SWE-agent%25E3%2582%2592%25E8%25AA%25AD%25E3%2581%25BF%25E8%25A7%25A3%25E3%2581%258F%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:SeaOtter%2520%2520%2528Kentaro...%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzUzNjRkZTA1NTMuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE"
+    },
+    {
+      "id": "n_1553ad681e1a6489",
+      "title": {
+        "en": "Claude Code を複数ターミナル＋git worktree で並べて、ほぼ1人で4つの SaaSを作っている話",
+        "zh": "Claude Code を複数ターミナル＋git worktree で並べて、ほぼ1人で4つの SaaSを作っている話",
+        "original": "Claude Code を複数ターミナル＋git worktree で並べて、ほぼ1人で4つの SaaSを作っている話"
+      },
+      "lang": "ja",
+      "url": "https://zenn.dev/newsletterready/articles/4585354b62b688",
+      "source": "Zenn",
+      "topic": "coding-agents",
+      "published_at": "2026-11-27T23:05:14.000Z",
+      "image": "https://res.cloudinary.com/zenn/image/upload/s--w-3rgokT--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Claude%2520Code%2520%25E3%2582%2592%25E8%25A4%2587%25E6%2595%25B0%25E3%2582%25BF%25E3%2583%25BC%25E3%2583%259F%25E3%2583%258A%25E3%2583%25AB%25EF%25BC%258Bgit%2520worktree%2520%25E3%2581%25A7%25E4%25B8%25A6%25E3%2581%25B9%25E3%2581%25A6%25E3%2580%2581%25E3%2581%25BB%25E3%2581%25BC1%25E4%25BA%25BA%25E3%2581%25A74%25E3%2581%25A4%25E3%2581%25AE%2520SaaS%25E3%2582%2592%25E4%25BD%259C%25E3%2581%25A3%25E3%2581%25A6%25E3%2581%2584%25E3%2582%258B%25E8%25A9%25B1%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E4%25B9%25BE%2520%25E5%2592%258C%25E5%25BF%2597%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzg1Nzg1OWY5YjAuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE"
+    },
+    {
+      "id": "n_71dca33fbdf2d373",
+      "title": {
+        "en": "ChatGPTのカスタム指示で商品仕様とFAQを固定し出力ブレを防ぐ設定手順｜4ステップ",
+        "zh": "ChatGPTのカスタム指示で商品仕様とFAQを固定し出力ブレを防ぐ設定手順｜4ステップ",
+        "original": "ChatGPTのカスタム指示で商品仕様とFAQを固定し出力ブレを防ぐ設定手順｜4ステップ"
+      },
+      "lang": "ja",
+      "url": "https://zenn.dev/andyailab/articles/5b19e68f723333",
+      "source": "Zenn",
+      "topic": "consumer-ai-apps",
+      "published_at": "2026-11-27T22:30:52.000Z",
+      "image": "https://res.cloudinary.com/zenn/image/upload/s--oyJeEIcO--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:ChatGPT%25E3%2581%25AE%25E3%2582%25AB%25E3%2582%25B9%25E3%2582%25BF%25E3%2583%25A0%25E6%258C%2587%25E7%25A4%25BA%25E3%2581%25A7%25E5%2595%2586%25E5%2593%2581%25E4%25BB%2595%25E6%25A7%2598%25E3%2581%25A8FAQ%25E3%2582%2592%25E5%259B%25BA%25E5%25AE%259A%25E3%2581%2597%25E5%2587%25BA%25E5%258A%259B%25E3%2583%2596%25E3%2583%25AC%25E3%2582%2592%25E9%2598%25B2%25E3%2581%2590%25E8%25A8%25AD%25E5%25AE%259A%25E6%2589%258B%25E9%25A0%2586%25EF%25BD%259C4%25E3%2582%25B9%25E3%2583%2586%25E3%2583%2583%25E3%2583%2597%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E3%2582%25A2%25E3%2583%25B3%25E3%2583%2587%25E3%2582%25A3%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzFiMGRmNzc4ZGIuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE"
+    },
+    {
+      "id": "n_42f8ff418476e850",
+      "title": {
+        "en": "Inside the AI Training Data Market — Gabe Greenberg, G2i",
+        "zh": "Inside the AI Training Data Market — Gabe Greenberg, G2i",
+        "original": "Inside the AI Training Data Market — Gabe Greenberg, G2i"
+      },
+      "lang": "en",
+      "url": "https://latent.space/p/inside_the_ai_training_data_market_gabe_greenberg_g2i/",
+      "source": "Latent Space",
+      "topic": "general",
+      "published_at": "2026-11-27T22:19:18.000Z",
+      "image": "https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,format=auto,onerror=redirect,quality=80,width=384/uploads/asset/file/0215d0ff-181b-4f75-aef5-94cd873ea1b0/g2i-how-labs-buy-ai-data-podcast.jpg?t=1795817915"
+    },
+    {
+      "id": "n_9e554a28171d67c8",
+      "title": {
+        "en": "Local LLMの重みに知識を焼く vs 記憶カセットを挿す - 重み編集の壁と、キーワードなしの言い換えを99.2%捌くまで",
+        "zh": "Local LLMの重みに知識を焼く vs 記憶カセットを挿す - 重み編集の壁と、キーワードなしの言い換えを99.2%捌くまで",
+        "original": "Local LLMの重みに知識を焼く vs 記憶カセットを挿す - 重み編集の壁と、キーワードなしの言い換えを99.2%捌くまで"
+      },
+      "lang": "ja",
+      "url": "https://zenn.dev/caphtech/articles/kestrom-keyed-to-kv-probes",
+      "source": "Zenn",
+      "topic": "personal-ai-systems",
+      "published_at": "2026-11-27T21:56:59.000Z",
+      "image": "https://res.cloudinary.com/zenn/image/upload/s--7phkTvfc--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Local%2520LLM%25E3%2581%25AE%25E9%2587%258D%25E3%2581%25BF%25E3%2581%25AB%25E7%259F%25A5%25E8%25AD%2598%25E3%2582%2592%25E7%2584%25BC%25E3%2581%258F%2520vs%2520%25E8%25A8%2598%25E6%2586%25B6%25E3%2582%25AB%25E3%2582%25BB%25E3%2583%2583%25E3%2583%2588%25E3%2582%2592%25E6%258C%25BF%25E3%2581%2599%2520-%2520%25E9%2587%258D%25E3%2581%25BF%25E7%25B7%25A8%25E9%259B%2586%25E3%2581%25AE%25E5%25A3%2581%25E3%2581%25A8%25E3%2580%2581%25E3%2582%25AD%25E3%2583%25BC%25E3%2583%25AF%25E3%2583%25BC%25E3%2583%2589%25E3%2581%25AA%25E3%2581%2597%25E3%2581%25AE%25E8%25A8%2580%25E3%2581%2584%25E6%258F%259B%25E3%2581%2588%25E3%2582%259299...%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_34:rizumita%2Cx_220%2Cy_108/bo_3px_solid_rgb:d6e3ed%2Cg_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly96ZW5uLmRldi9pbWFnZXMvZGVmYXVsdC1wdWJsaWNhdGlvbi1hdmF0YXIucG5n%2Cr_20%2Cw_90%2Cx_92%2Cy_102/co_rgb:6e7b85%2Cg_south_west%2Cl_text:notosansjp-medium.otf_30:%25E5%2590%2588%25E5%2590%258C%25E4%25BC%259A%25E7%25A4%25BECAPH%2520TECH%2Cx_220%2Cy_160/bo_4px_solid_white%2Cg_south_west%2Ch_50%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2ZmMTJkNDVhMjAuanBlZw==%2Cr_max%2Cw_50%2Cx_139%2Cy_84/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE"
+    },
+    {
+      "id": "n_b97a9c9fe407c22b",
+      "title": {
+        "en": "Apple claims six of China’s 10 bestselling smartphones during Singles’ Day",
+        "zh": "Apple claims six of China’s 10 bestselling smartphones during Singles’ Day",
+        "original": "Apple claims six of China’s 10 bestselling smartphones during Singles’ Day"
+      },
+      "lang": "en",
+      "url": "https://9to5mac.com/2026/11/27/apple-claims-six-of-chinas-10-bestselling-smartphones-during-singles-day/",
+      "source": "9to5Mac",
+      "topic": "mobile-ai",
+      "published_at": "2026-11-27T21:49:17.000Z",
+      "image": "https://9to5mac.com/wp-content/uploads/sites/6/2026/09/Craig-Federighi-on-how-Apple-helps-developers-make-the-most-of-the-iPhone-Duo.jpg?quality=82&strip=all&resize=1200,628"
+    },
+    {
+      "id": "n_80c5781889137f6e",
+      "title": {
+        "en": "ollama/ollama v0.40.19",
+        "zh": "ollama/ollama v0.40.19",
+        "original": "ollama/ollama v0.40.19"
+      },
+      "lang": "en",
+      "url": "https://github.com/ollama/ollama/releases/tag/v0.40.19",
+      "source": "GitHub releases ollama/ollama",
+      "topic": "personal-ai-systems",
+      "published_at": "2026-11-27T21:47:32.000Z",
+      "image": "https://avatars.githubusercontent.com/in/15368?s=60&v=4"
+    },
+    {
+      "id": "n_60fe99fe03e07da5",
+      "title": {
+        "en": "SessionGraph: Visualize all your coding agent sessions in one interactive graph",
+        "zh": "SessionGraph: Visualize all your coding agent sessions in one interactive graph",
+        "original": "SessionGraph: Visualize all your coding agent sessions in one interactive graph"
+      },
+      "lang": "en",
+      "url": "https://sessiongraph.ai/",
+      "source": "Hacker News",
+      "topic": "coding-agents",
+      "published_at": "2026-11-27T21:07:34.000Z"
+    },
+    {
+      "id": "n_a1fb56ae5adb65c5",
+      "title": {
+        "en": "Claude Code デスクトップの SSH 接続で自宅 Mac mini を外から使う——環境を同期しない2台運用",
+        "zh": "Claude Code デスクトップの SSH 接続で自宅 Mac mini を外から使う——環境を同期しない2台運用",
+        "original": "Claude Code デスクトップの SSH 接続で自宅 Mac mini を外から使う——環境を同期しない2台運用"
+      },
+      "lang": "ja",
+      "url": "https://qiita.com/saitoko/items/6303bca4d49644f844c8",
+      "source": "Qiita",
+      "topic": "coding-agents",
+      "published_at": "2026-11-27T21:01:29.000Z",
+      "image": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkYxNjYxMjglMkY4ZTY3MjdjZTRkZjI1MjkxYTJjMGU1NmZhMmY5OTAwNzM5NTU3YjM5JTJGbGFyZ2UucG5nJTNGMTc3NjMzMDg2Mz9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9MGIzMmMxNDc4YTZiYmZjMmU0ODM2ZjM5NTk3MWU1ZDU%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Dfcdea8077f1807ee997b0c59c93575fb?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9Q2xhdWRlJTIwQ29kZSUyMCVFMyU4MyU4NyVFMyU4MiVCOSVFMyU4MiVBRiVFMyU4MyU4OCVFMyU4MyU4MyVFMyU4MyU5NyVFMyU4MSVBRSUyMFNTSCUyMCVFNiU4RSVBNSVFNyVCNiU5QSVFMyU4MSVBNyVFOCU4NyVBQSVFNSVBRSU4NSUyME1hYyUyMG1pbmklMjAlRTMlODIlOTIlRTUlQTQlOTYlRTMlODElOEIlRTMlODIlODklRTQlQkQlQkYlRTMlODElODYlRTIlODAlOTQlRTIlODAlOTQlRTclOTIlQjAlRTUlQTIlODMlRTMlODIlOTIlRTUlOTAlOEMlRTYlOUMlOUYlRTMlODElOTclRTMlODElQUElRTMlODElODQyJUU1JThGJUIwJUU5JTgxJThCJUU3JTk0JUE4JnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9YzI4MDYwMzc0Y2FlNzE1ZjA1NzlmZGVhNDNlZGFmNWY&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBzYWl0b2tvJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9MjdiODdhMzFhZDFkMzNhMzBkNzUwMGJmNGI4MzAzNzA&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=6f73f8c71f4e300d1840b0ca7f3282bb"
+    },
+    {
+      "id": "p_9ef2e5853690df9e",
+      "title": {
+        "en": "is absolutely unreal. It runs a full Linux kernal and distro in a browser tab.",
+        "zh": "is absolutely unreal. It runs a full Linux kernal and distro in a browser tab.",
+        "original": "is absolutely unreal. It runs a full Linux kernal and distro in a browser tab."
+      },
+      "lang": "en",
+      "url": "https://x.com/rauchg/status/2126416223592473046",
+      "source": "X @rauchg",
+      "topic": "coding-agents",
+      "published_at": "2026-11-27T20:41:49.000Z",
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2126415323046019072/img/_7w36L753cVggxQ3?format=webp&name=large"
+    },
+    {
+      "id": "n_33e67e45be67ef0e",
+      "title": {
+        "en": "Here are the best Apple Watch deals for Black Friday",
+        "zh": "Here are the best Apple Watch deals for Black Friday",
+        "original": "Here are the best Apple Watch deals for Black Friday"
+      },
+      "lang": "en",
+      "url": "https://9to5mac.com/2026/11/27/here-are-the-best-apple-watch-deals-for-black-friday/",
+      "source": "9to5Mac",
+      "topic": "ai-wearables",
+      "published_at": "2026-11-27T20:40:35.000Z",
+      "image": "https://9to5mac.com/wp-content/uploads/sites/6/2026/09/apple-watch-series-12-ceramic1.jpeg?quality=82&strip=all&resize=1200,628"
+    },
+    {
+      "id": "n_594170430df71c32",
+      "title": {
+        "en": "AI に1万円渡して稼がせる実験・最初の10日は0円だった",
+        "zh": "AI に1万円渡して稼がせる実験・最初の10日は0円だった",
+        "original": "AI に1万円渡して稼がせる実験・最初の10日は0円だった"
+      },
+      "lang": "ja",
+      "url": "https://zenn.dev/soremo/articles/d8fc2d86587595",
+      "source": "Zenn",
+      "topic": "coding-agents",
+      "published_at": "2026-11-27T20:34:30.000Z",
+      "image": "https://res.cloudinary.com/zenn/image/upload/s--oJ6ln2M9--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:AI%2520%25E3%2581%25AB1%25E4%25B8%2587%25E5%2586%2586%25E6%25B8%25A1%25E3%2581%2597%25E3%2581%25A6%25E7%25A8%25BC%25E3%2581%258C%25E3%2581%259B%25E3%2582%258B%25E5%25AE%259F%25E9%25A8%2593%25E3%2583%25BB%25E6%259C%2580%25E5%2588%259D%25E3%2581%25AE10%25E6%2597%25A5%25E3%2581%25AF0%25E5%2586%2586%25E3%2581%25A0%25E3%2581%25A3%25E3%2581%259F%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:SOREMO%25E3%2583%2591%25E3%2583%25BC%25E3%2583%2588%25E3%2583%258A%25E3%2583%25BC%25E3%2582%25BA%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jSVRsbTlxWENFU1RaU1JPY2hIdHNQb09rcEptVmZvSWFZUDc5cWxVczVOWWhDckt3PXMyNTAtYw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE"
+    },
+    {
+      "id": "n_4735b4ce4ae15873",
+      "title": {
+        "en": "Apple faces potential $80 million fine and App Store overhaul in Chile",
+        "zh": "Apple faces potential $80 million fine and App Store overhaul in Chile",
+        "original": "Apple faces potential $80 million fine and App Store overhaul in Chile"
+      },
+      "lang": "en",
+      "url": "https://9to5mac.com/2026/11/27/apple-faces-potential-80-million-fine-and-app-store-overhaul-in-chile/",
+      "source": "9to5Mac",
+      "topic": "consumer-ai-apps",
+      "published_at": "2026-11-27T20:31:12.000Z",
+      "image": "https://9to5mac.com/wp-content/uploads/sites/6/2026/06/app-store-app-icon-ios-27.jpg?quality=82&strip=all&resize=1200,628"
+    },
+    {
+      "id": "n_42792ea1ec910a69",
+      "title": {
+        "en": "Prospero: Bloat-free, native AI coding harness with ImGui",
+        "zh": "Prospero: Bloat-free, native AI coding harness with ImGui",
+        "original": "Prospero: Bloat-free, native AI coding harness with ImGui"
+      },
+      "lang": "en",
+      "url": "https://github.com/skeeto/prospero",
+      "source": "Hacker News",
+      "topic": "general",
+      "published_at": "2026-11-27T20:23:14.000Z",
+      "image": "https://opengraph.githubassets.com/bdebf9f642685060cd2fe43a88240bb6ed80d569770750c0129ff72492086f27/skeeto/prospero"
+    },
+    {
+      "id": "p_ccfc34161a68684d",
+      "title": {
+        "en": "Opus 5.5 and Fable 5.2 made my overoptimized Rust code even more overoptimized",
+        "zh": "Opus 5.5 and Fable 5.2 made my overoptimized Rust code even more overoptimized",
+        "original": "Opus 5.5 and Fable 5.2 made my overoptimized Rust code even more overoptimized"
+      },
+      "lang": "en",
+      "url": "https://minimaxir.com/2026/11/opus-fable/",
+      "source": "Max Woolf's Blog",
+      "topic": "coding-agents",
+      "published_at": "2026-11-27T20:10:00.000Z",
+      "image": "https://minimaxir.com/2026/11/opus-fable/featured.webp"
+    },
+    {
+      "id": "n_aa5274859672a449",
+      "title": {
+        "en": "States sue SpaceX to stop Grok from generating child sex images, revenge porn",
+        "zh": "States sue SpaceX to stop Grok from generating child sex images, revenge porn",
+        "original": "States sue SpaceX to stop Grok from generating child sex images, revenge porn"
+      },
+      "lang": "en",
+      "url": "https://www.oag.state.va.us/media-center/news-releases/jay-jones/3162-attorneys-general-jones-and-rayfield-file-suit-against-spacex-parent-company-of-x-xai-and-grok-over-creation-and-promotion-of-child-exploitation-and-non-consensual-images-on-platform",
+      "source": "Hacker News",
+      "topic": "consumer-ai-apps",
+      "published_at": "2026-11-27T19:42:25.000Z",
+      "image": "https://www.oag.state.va.us/images/OAG-Tile-Image-Jones_20260121.jpg?20220117"
+    },
+    {
+      "id": "n_70361e7e1861a083",
+      "title": {
+        "en": "Google Play Black Friday deals: Loads of Android games and apps on sale today",
+        "zh": "Google Play Black Friday deals: Loads of Android games and apps on sale today",
+        "original": "Google Play Black Friday deals: Loads of Android games and apps on sale today"
+      },
+      "lang": "en",
+      "url": "https://9to5toys.com/2026/11/27/google-play-black-friday-deals/",
+      "source": "9to5Google",
+      "topic": "mobile-ai",
+      "published_at": "2026-11-27T19:29:59.000Z",
+      "image": "https://9to5toys.com/wp-content/uploads/sites/5/2026/11/Google-Play-collage-8fefe7.webp?resize=1200,628"
+    },
+    {
+      "id": "n_061346cb2f74644b",
+      "title": {
+        "en": "Show HN: Getting 101 tok/s from Inkling 2 Mini in vLLM on one GB10",
+        "zh": "Show HN: Getting 101 tok/s from Inkling 2 Mini in vLLM on one GB10",
+        "original": "Show HN: Getting 101 tok/s from Inkling 2 Mini in vLLM on one GB10"
+      },
+      "lang": "en",
+      "url": "https://runtimenotes.com/blog/getting-101-tok-s-from-inkling-2-mini-in-vllm-on-one-gb10/",
+      "source": "Hacker News",
+      "topic": "general",
+      "published_at": "2026-11-27T18:59:55.000Z"
+    },
+    {
+      "id": "n_75d919a963d0d6b3",
+      "title": {
+        "en": "Three new iPhones will launch early next year, here’s what’s coming",
+        "zh": "Three new iPhones will launch early next year, here’s what’s coming",
+        "original": "Three new iPhones will launch early next year, here’s what’s coming"
+      },
+      "lang": "en",
+      "url": "https://9to5mac.com/2026/11/27/three-new-iphones-will-launch-early-next-year-heres-whats-coming/",
+      "source": "9to5Mac",
+      "topic": "mobile-ai",
+      "published_at": "2026-11-27T17:57:23.000Z",
+      "image": "https://9to5mac.com/wp-content/uploads/sites/6/2025/11/iphone-air-2-camera-concept-yellow.jpg?quality=82&strip=all&resize=1200,628"
+    },
+    {
+      "id": "n_f21d90605390562e",
+      "title": {
+        "en": "I'm Scared of AI",
+        "zh": "I'm Scared of AI",
+        "original": "I'm Scared of AI"
+      },
+      "lang": "en",
+      "url": "https://thesoapbox.email/archive/3",
+      "source": "Hacker News (top, 150+ pts)",
+      "topic": "general",
+      "published_at": "2026-11-27T17:45:31.000Z"
+    },
+    {
+      "id": "n_4b225bacf923f83e",
+      "title": {
+        "en": "Black Friday deals: Galaxy Z Fold 8 at least $450 off, Echo smart displays $100 off, Pixel Watch 5 $115 off, more",
+        "zh": "Black Friday deals: Galaxy Z Fold 8 at least $450 off, Echo smart displays $100 off, Pixel Watch 5 $115 off, more",
+        "original": "Black Friday deals: Galaxy Z Fold 8 at least $450 off, Echo smart displays $100 off, Pixel Watch 5 $115 off, more"
+      },
+      "lang": "en",
+      "url": "https://9to5google.com/2026/11/27/black-friday-deals-fold-8-echo-smart-display-pixel-watch-5/",
+      "source": "9to5Google",
+      "topic": "mobile-ai",
+      "published_at": "2026-11-27T16:57:55.000Z",
+      "image": "https://9to5google.com/wp-content/uploads/sites/4/2026/11/9to5Google-Nov-27-2.webp?resize=1200,628"
+    },
+    {
+      "id": "n_9f2b81be416076f1",
+      "title": {
+        "en": "Like clockwork, the Pixel 11 is a way better buy after a few months [Video]",
+        "zh": "Like clockwork, the Pixel 11 is a way better buy after a few months [Video]",
+        "original": "Like clockwork, the Pixel 11 is a way better buy after a few months [Video]"
+      },
+      "lang": "en",
+      "url": "https://9to5google.com/2026/11/27/like-clockwork-the-pixel-11-is-a-way-better-buy-after-a-few-months-video/",
+      "source": "9to5Google",
+      "topic": "mobile-ai",
+      "published_at": "2026-11-27T16:45:00.000Z",
+      "image": "https://9to5google.com/wp-content/uploads/sites/4/2026/09/Pixel-11-design-6.jpg?quality=82&strip=all&resize=1200,628"
+    },
+    {
+      "id": "n_3e960a4ccfd52f2d",
+      "title": {
+        "en": "Black Friday deals: AirPods Pro 3 $100 off, M6 MacBook Pro now $250 off, M5 Air $400 off, Series 12, more",
+        "zh": "Black Friday deals: AirPods Pro 3 $100 off, M6 MacBook Pro now $250 off, M5 Air $400 off, Series 12, more",
+        "original": "Black Friday deals: AirPods Pro 3 $100 off, M6 MacBook Pro now $250 off, M5 Air $400 off, Series 12, more"
+      },
+      "lang": "en",
+      "url": "https://9to5mac.com/2026/11/27/apple-black-friday-deals-airpods-macbook-watch/",
+      "source": "9to5Mac",
+      "topic": "ai-wearables",
+      "published_at": "2026-11-27T16:27:22.000Z",
+      "image": "https://9to5mac.com/wp-content/uploads/sites/6/2026/11/Apple-official-Black-Friday-deals-2026.jpg?quality=82&strip=all&resize=1200,628"
+    },
+    {
+      "id": "p_b72ef386bc63c4b5",
+      "title": {
+        "en": "Samsung is holding back these 30+ Galaxy AI features for the Galaxy S27",
+        "zh": "Samsung is holding back these 30+ Galaxy AI features for the Galaxy S27",
+        "original": "Samsung is holding back these 30+ Galaxy AI features for the Galaxy S27"
+      },
+      "lang": "en",
+      "url": "https://www.androidauthority.com/samsung-galaxy-s27-galaxy-ai-features-20271-one-ui-9-5-apk-teardown-3740860/",
+      "source": "Android Authority",
+      "topic": "mobile-ai",
+      "published_at": "2026-11-27T16:26:00.000Z",
+      "image": "https://www.androidauthority.com/wp-content/uploads/2026/11/S26-in-hand-showing-One-UI-9.5-welcome-screen-scaled.jpg"
+    },
+    {
+      "id": "n_831530802feb2d3e",
+      "title": {
+        "en": "AirPods Pro 3 one year later: Still the best, and getting even better",
+        "zh": "AirPods Pro 3 one year later: Still the best, and getting even better",
+        "original": "AirPods Pro 3 one year later: Still the best, and getting even better"
+      },
+      "lang": "en",
+      "url": "https://9to5mac.com/2026/11/27/airpods-pro-3-one-year-later/",
+      "source": "9to5Mac",
+      "topic": "ai-wearables",
+      "published_at": "2026-11-27T15:55:08.000Z",
+      "image": "https://9to5mac.com/wp-content/uploads/sites/6/2025/09/AirPods-Pro-3-review0004.jpg?quality=82&strip=all&resize=1200,628"
+    },
+    {
+      "id": "n_bb146792d55d4ae3",
+      "title": {
+        "en": "AI動画の「カットごとに顔が変わる・尺が合わない・文字が潰れる」を解決する『音声先行クロック＋IDロック』演出術",
+        "zh": "AI動画の「カットごとに顔が変わる・尺が合わない・文字が潰れる」を解決する『音声先行クロック＋IDロック』演出術",
+        "original": "AI動画の「カットごとに顔が変わる・尺が合わない・文字が潰れる」を解決する『音声先行クロック＋IDロック』演出術"
+      },
+      "lang": "ja",
+      "url": "https://zenn.dev/coco666/articles/68a496ecd207c8",
+      "source": "Zenn",
+      "topic": "consumer-ai-apps",
+      "published_at": "2026-11-27T15:40:51.000Z",
+      "image": "https://res.cloudinary.com/zenn/image/upload/s--yUqiIw-F--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:AI%25E5%258B%2595%25E7%2594%25BB%25E3%2581%25AE%25E3%2580%258C%25E3%2582%25AB%25E3%2583%2583%25E3%2583%2588%25E3%2581%2594%25E3%2581%25A8%25E3%2581%25AB%25E9%25A1%2594%25E3%2581%258C%25E5%25A4%2589%25E3%2582%258F%25E3%2582%258B%25E3%2583%25BB%25E5%25B0%25BA%25E3%2581%258C%25E5%2590%2588%25E3%2582%258F%25E3%2581%25AA%25E3%2581%2584%25E3%2583%25BB%25E6%2596%2587%25E5%25AD%2597%25E3%2581%258C%25E6%25BD%25B0%25E3%2582%258C%25E3%2582%258B%25E3%2580%258D%25E3%2582%2592%25E8%25A7%25A3%25E6%25B1%25BA%25E3%2581%2599%25E3%2582%258B%25E3%2580%258E%25E9%259F%25B3%25E5%25A3%25B0%25E5%2585%2588%25E8%25A1%258C%25E3%2582%25AF%25E3%2583%25AD%25E3%2583%2583%25E3%2582%25AF%25EF%25BC%258BID%25E3%2583%25AD%25E3%2583%2583%25E3%2582%25AF%25E3%2580%258F%25E6%25BC%2594%25E5%2587%25BA%25E8%25A1%2593%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:coco%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jS2NpMFJiUy1HUFlDOUtKQW5RVm9Td202TjRITUJYUE5NdlVJMUlfcVFGaWVWdVR3PXMyNTAtYw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE"
+    },
+    {
+      "id": "n_0ebd410db6d9c1de",
+      "title": {
+        "en": "9to5Mac Overtime 092: The obvious answer is AirPods Pro 3",
+        "zh": "9to5Mac Overtime 092: The obvious answer is AirPods Pro 3",
+        "original": "9to5Mac Overtime 092: The obvious answer is AirPods Pro 3"
+      },
+      "lang": "en",
+      "url": "https://9to5mac.com/2026/11/27/9to5mac-overtime-092-the-obvious-answer-is-airpods-pro-3/",
+      "source": "9to5Mac",
+      "topic": "ai-wearables",
+      "published_at": "2026-11-27T15:31:45.000Z",
+      "image": "https://9to5mac.com/wp-content/uploads/sites/6/2026/11/9to5Mac-Overtime-092.jpg?quality=82&strip=all&resize=1200,628"
+    },
+    {
+      "id": "n_1180ca0b6045860d",
+      "title": {
+        "en": "静的サイト251ページのAI検索対応：facts.json・llms-full.txt・.md配信の実装記録",
+        "zh": "静的サイト251ページのAI検索対応：facts.json・llms-full.txt・.md配信の実装記録",
+        "original": "静的サイト251ページのAI検索対応：facts.json・llms-full.txt・.md配信の実装記録"
+      },
+      "lang": "ja",
+      "url": "https://zenn.dev/kurodaschool/articles/e478038976268c",
+      "source": "Zenn",
+      "topic": "consumer-ai-apps",
+      "published_at": "2026-11-27T15:17:00.000Z",
+      "image": "https://res.cloudinary.com/zenn/image/upload/s--Z2SndRw_--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E9%259D%2599%25E7%259A%2584%25E3%2582%25B5%25E3%2582%25A4%25E3%2583%2588251%25E3%2583%259A%25E3%2583%25BC%25E3%2582%25B8%25E3%2581%25AEAI%25E6%25A4%259C%25E7%25B4%25A2%25E5%25AF%25BE%25E5%25BF%259C%25EF%25BC%259Afacts.json%25E3%2583%25BBllms-full.txt%25E3%2583%25BB.md%25E9%2585%258D%25E4%25BF%25A1%25E3%2581%25AE%25E5%25AE%259F%25E8%25A3%2585%25E8%25A8%2598%25E9%258C%25B2%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E9%25BB%2592%25E7%2594%25B0%25E6%25B8%2585%25E5%258F%258B%25EF%25BC%2588%25E9%25BB%2592%25E7%2594%25B0%25E5%25A1%25BE%25E4%25BB%25A3%25E8%25A1%25A8%25EF%25BC%2589%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jSWU4d2FVU0QxQjhFenVTRGtjZkxkMm4wVkphT1Y0MzhwQzB0cW9DZjhiU01Taml3PXMyNTAtYw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE"
+    },
+    {
+      "id": "n_6936c05cb3c0a61f",
+      "title": {
+        "en": "These are the best AirPods deals for Black Friday",
+        "zh": "These are the best AirPods deals for Black Friday",
+        "original": "These are the best AirPods deals for Black Friday"
+      },
+      "lang": "en",
+      "url": "https://9to5mac.com/2026/11/27/airpods-pro-black-friday-deals-pirces/",
+      "source": "9to5Mac",
+      "topic": "ai-wearables",
+      "published_at": "2026-11-27T15:03:06.000Z",
+      "image": "https://9to5mac.com/wp-content/uploads/sites/6/2025/11/airpods-pro3-holiday.jpg?quality=82&strip=all&resize=1200,628"
+    },
+    {
+      "id": "n_1799f4d1d7a5d27a",
+      "title": {
+        "en": "Stanford Physicist Uses AI to Tackle Quantum Gravity Problem",
+        "zh": "Stanford Physicist Uses AI to Tackle Quantum Gravity Problem",
+        "original": "Stanford Physicist Uses AI to Tackle Quantum Gravity Problem"
+      },
+      "lang": "en",
+      "url": "https://thequantuminsider.com/2026/11/26/stanford-physicist-uses-ai-to-tackle-quantum-gravity-problem/",
+      "source": "Hacker News",
+      "topic": "general",
+      "published_at": "2026-11-27T14:55:57.000Z",
+      "image": "https://thequantuminsider.com/wp-content/uploads/2026/11/Black-Hole-Shadow-Causal-Diamonds-1.png"
+    },
+    {
       "id": "n_cc2646aaf0510698",
       "title": {
         "en": "Android’s DIY widgets are a bit of vibe-coding fun",
@@ -666,32 +1191,18 @@
       "image": "https://9to5google.com/wp-content/uploads/sites/4/2026/11/xreal-one-pro-vs-xreal-one-pro-plus-01-1.jpg?quality=82&strip=all&resize=1200,628"
     },
     {
-      "id": "n_217ed121500e192c",
+      "id": "n_f93e6c57a78b06d0",
       "title": {
-        "en": "These are the best Mac Black Friday deals",
-        "zh": "These are the best Mac Black Friday deals",
-        "original": "These are the best Mac Black Friday deals"
+        "en": "Windows の Claude Code で裏の Bash を止めても、中で動かしたものは残り続ける",
+        "zh": "Windows の Claude Code で裏の Bash を止めても、中で動かしたものは残り続ける",
+        "original": "Windows の Claude Code で裏の Bash を止めても、中で動かしたものは残り続ける"
       },
-      "lang": "en",
-      "url": "https://9to5mac.com/2026/11/27/mac-black-friday-deals-roundup/",
-      "source": "9to5Mac",
-      "topic": "ai-wearables",
-      "published_at": "2026-11-27T13:53:28.000Z",
-      "image": "https://9to5mac.com/wp-content/uploads/sites/6/2026/11/macbook-pro-proled-xdr-top-down.jpg?quality=82&strip=all&resize=1200,628"
-    },
-    {
-      "id": "n_c7b23a0525a5be1e",
-      "title": {
-        "en": "Apple Black Friday, Siri AI usage limits, more on HomeView",
-        "zh": "Apple Black Friday, Siri AI usage limits, more on HomeView",
-        "original": "Apple Black Friday, Siri AI usage limits, more on HomeView"
-      },
-      "lang": "en",
-      "url": "https://9to5mac.com/2026/11/27/happy-hour-618/",
-      "source": "9to5Mac",
-      "topic": "mobile-ai",
-      "published_at": "2026-11-27T13:26:05.000Z",
-      "image": "https://9to5mac.com/wp-content/uploads/sites/6/2024/02/9to5mac-happy-hour-lead1.jpg?quality=82&strip=all&resize=1200,628"
+      "lang": "ja",
+      "url": "https://zenn.dev/kamijo_aoto/articles/claude-code-bash-orphan-processes",
+      "source": "Zenn",
+      "topic": "coding-agents",
+      "published_at": "2026-11-27T13:31:36.000Z",
+      "image": "https://res.cloudinary.com/zenn/image/upload/s--BMmjpCkP--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Windows%2520%25E3%2581%25AE%2520Claude%2520Code%2520%25E3%2581%25A7%25E8%25A3%258F%25E3%2581%25AE%2520Bash%2520%25E3%2582%2592%25E6%25AD%25A2%25E3%2582%2581%25E3%2581%25A6%25E3%2582%2582%25E3%2580%2581%25E4%25B8%25AD%25E3%2581%25A7%25E5%258B%2595%25E3%2581%258B%25E3%2581%2597%25E3%2581%259F%25E3%2582%2582%25E3%2581%25AE%25E3%2581%25AF%25E6%25AE%258B%25E3%2582%258A%25E7%25B6%259A%25E3%2581%2591%25E3%2582%258B%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E4%25B8%258A%25E6%259D%25A1%25E7%25A2%25A7%25E6%2596%2597%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2UwNjY3ZGViNGIuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE"
     },
     {
       "id": "n_c9fc113dc229f65e",
@@ -777,6 +1288,19 @@
       "image": "https://www.androidauthority.com/wp-content/uploads/2026/07/Claude-ChatGPT-Gemini-logos-scaled.jpg"
     },
     {
+      "id": "n_cb059c8abe4ec7fc",
+      "title": {
+        "en": "Hackers breach US Air Force flagship Cloud One computing platform",
+        "zh": "Hackers breach US Air Force flagship Cloud One computing platform",
+        "original": "Hackers breach US Air Force flagship Cloud One computing platform"
+      },
+      "lang": "en",
+      "url": "https://www.reuters.com/world/hackers-breach-us-air-force-flagship-cloud-one-computing-platform-2026-11-27/",
+      "source": "Hacker News",
+      "topic": "general",
+      "published_at": "2026-11-27T11:52:53.000Z"
+    },
+    {
       "id": "p_eba636be1474fd82",
       "title": {
         "en": "Nvidia Blackwell Chips Turn Up at China Site Tied to Alice Huang",
@@ -817,34 +1341,6 @@
       "published_at": "2026-11-27T11:12:16.000Z"
     },
     {
-      "id": "n_55060e027bbaf240",
-      "title": {
-        "en": "Fields-winning mathematicians worried about eerie silence over AI and encryption",
-        "zh": "Fields-winning mathematicians worried about eerie silence over AI and encryption",
-        "original": "Fields-winning mathematicians worried about eerie silence over AI and encryption"
-      },
-      "lang": "en",
-      "url": "https://www.thetimes.com/uk/technology-uk/article/ai-making-online-security-useless-smr73d3n8",
-      "source": "Hacker News",
-      "topic": "general",
-      "published_at": "2026-11-27T11:09:04.000Z",
-      "image": "https://www.thetimes.com/imageserver/image/1769afb8-0e9f-496d-96a1-6d5de4ca6640.png?strip=all&format=webp&crop=1600px%2C900px%2C0px%2C0px&resize=1200"
-    },
-    {
-      "id": "n_ed3e282ee182d908",
-      "title": {
-        "en": "「2026年内にこの動画を見れて良かった」Claude基盤責任者が語るAI時代の開発現場",
-        "zh": "「2026年内にこの動画を見れて良かった」Claude基盤責任者が語るAI時代の開発現場",
-        "original": "「2026年内にこの動画を見れて良かった」Claude基盤責任者が語るAI時代の開発現場"
-      },
-      "lang": "ja",
-      "url": "https://zenn.dev/dragon1208/articles/af30cadf665c6a",
-      "source": "Zenn",
-      "topic": "coding-agents",
-      "published_at": "2026-11-27T10:48:52.000Z",
-      "image": "https://res.cloudinary.com/zenn/image/upload/s--b9jGMdy2--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E3%2580%258C2026%25E5%25B9%25B4%25E5%2586%2585%25E3%2581%25AB%25E3%2581%2593%25E3%2581%25AE%25E5%258B%2595%25E7%2594%25BB%25E3%2582%2592%25E8%25A6%258B%25E3%2582%258C%25E3%2581%25A6%25E8%2589%25AF%25E3%2581%258B%25E3%2581%25A3%25E3%2581%259F%25E3%2580%258DClaude%25E5%259F%25BA%25E7%259B%25A4%25E8%25B2%25AC%25E4%25BB%25BB%25E8%2580%2585%25E3%2581%258C%25E8%25AA%259E%25E3%2582%258BAI%25E6%2599%2582%25E4%25BB%25A3%25E3%2581%25AE%25E9%2596%258B%25E7%2599%25BA%25E7%258F%25BE%25E5%25A0%25B4%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:Nao8%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzczYmFlMWUxMzAuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE"
-    },
-    {
       "id": "n_b718ab277d5310d4",
       "title": {
         "en": "字节火山引擎：豆包大模型已服务八成国内头部电视厂商，创维、长虹、海信、TCL 等推出量产电视",
@@ -856,20 +1352,6 @@
       "source": "IT之家",
       "topic": "consumer-ai-apps",
       "published_at": "2026-11-27T10:36:56.000Z"
-    },
-    {
-      "id": "n_bf46dad2eb869d58",
-      "title": {
-        "en": "PC なし、スマホだけで AI DJ ── Claude アプリと分割画面で並べ、クリップボードで曲を受け渡す",
-        "zh": "PC なし、スマホだけで AI DJ ── Claude アプリと分割画面で並べ、クリップボードで曲を受け渡す",
-        "original": "PC なし、スマホだけで AI DJ ── Claude アプリと分割画面で並べ、クリップボードで曲を受け渡す"
-      },
-      "lang": "ja",
-      "url": "https://zenn.dev/meas_nobu/articles/25f405ea939057",
-      "source": "Zenn",
-      "topic": "personal-ai-systems",
-      "published_at": "2026-11-27T10:13:59.000Z",
-      "image": "https://res.cloudinary.com/zenn/image/upload/s--HkwI-tcd--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:PC%2520%25E3%2581%25AA%25E3%2581%2597%25E3%2580%2581%25E3%2582%25B9%25E3%2583%259E%25E3%2583%259B%25E3%2581%25A0%25E3%2581%2591%25E3%2581%25A7%2520AI%2520DJ%2520%25E2%2594%2580%25E2%2594%2580%2520Claude%2520%25E3%2582%25A2%25E3%2583%2597%25E3%2583%25AA%25E3%2581%25A8%25E5%2588%2586%25E5%2589%25B2%25E7%2594%25BB%25E9%259D%25A2%25E3%2581%25A7%25E4%25B8%25A6%25E3%2581%25B9%25E3%2580%2581%25E3%2582%25AF%25E3%2583%25AA%25E3%2583%2583%25E3%2583%2597%25E3%2583%259C%25E3%2583%25BC%25E3%2583%2589%25E3%2581%25A7%25E6%259B%25B2%25E3%2582%2592%25E5%258F%2597%25E3%2581%2591%25E6%25B8%25A1%25E3%2581%2599%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E4%25BB%2595%25E4%25BA%258B%25E3%2581%25AF%25E3%2583%2590%25E3%2583%2583%25E3%2582%25AF%25E3%2582%25A8%25E3%2583%25B3%25E3%2583%2589%25E4%25B8%25AD%25E5%25BF%2583%25E3%2581%25AA%25E3%2582%25B7%25E3%2583%258B%25E3%2582%25A2%25E2%2580%2595%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzA4ZDFhOGViOTQuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE"
     },
     {
       "id": "n_63167c3504ee3f27",
@@ -884,20 +1366,6 @@
       "topic": "general",
       "published_at": "2026-11-27T10:00:00.000Z",
       "image": "https://wp.technologyreview.com/wp-content/uploads/2026/11/Avi-and-Leanne.jpeg?resize=1200,600"
-    },
-    {
-      "id": "n_a18dd176c9bbf224",
-      "title": {
-        "en": "【ローカルLLM】撮った動画をその場でAIが編集してくれる時代に",
-        "zh": "【ローカルLLM】撮った動画をその場でAIが編集してくれる時代に",
-        "original": "【ローカルLLM】撮った動画をその場でAIが編集してくれる時代に"
-      },
-      "lang": "ja",
-      "url": "https://zenn.dev/yukurash/articles/c5ee6ecb076e7e",
-      "source": "Zenn",
-      "topic": "personal-ai-systems",
-      "published_at": "2026-11-27T09:58:58.000Z",
-      "image": "https://res.cloudinary.com/zenn/image/upload/s--s3e8SqLM--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E3%2580%2590%25E3%2583%25AD%25E3%2583%25BC%25E3%2582%25AB%25E3%2583%25ABLLM%25E3%2580%2591%25E6%2592%25AE%25E3%2581%25A3%25E3%2581%259F%25E5%258B%2595%25E7%2594%25BB%25E3%2582%2592%25E3%2581%259D%25E3%2581%25AE%25E5%25A0%25B4%25E3%2581%25A7AI%25E3%2581%258C%25E7%25B7%25A8%25E9%259B%2586%25E3%2581%2597%25E3%2581%25A6%25E3%2581%258F%25E3%2582%258C%25E3%2582%258B%25E6%2599%2582%25E4%25BB%25A3%25E3%2581%25AB%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:yukurash%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzMyNzQxZTc3OTMuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE"
     },
     {
       "id": "p_be4fdb5ba2c783e8",
@@ -927,20 +1395,6 @@
       "published_at": "2026-11-27T09:43:19.000Z"
     },
     {
-      "id": "n_5ac3d60ce2f3178f",
-      "title": {
-        "en": "AIエージェント読書会：『吾輩は猫である』をローカルLLMとClaudeに読ませたらペルソナ無しで座談会が始まった【Muse交換ノート】",
-        "zh": "AIエージェント読書会：『吾輩は猫である』をローカルLLMとClaudeに読ませたらペルソナ無しで座談会が始まった【Muse交換ノート】",
-        "original": "AIエージェント読書会：『吾輩は猫である』をローカルLLMとClaudeに読ませたらペルソナ無しで座談会が始まった【Muse交換ノート】"
-      },
-      "lang": "ja",
-      "url": "https://zenn.dev/mii_mii/articles/dokushokai-soseki",
-      "source": "Zenn",
-      "topic": "personal-ai-systems",
-      "published_at": "2026-11-27T09:36:24.000Z",
-      "image": "https://res.cloudinary.com/zenn/image/upload/s--mzXyt4b4--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:AI%25E3%2582%25A8%25E3%2583%25BC%25E3%2582%25B8%25E3%2582%25A7%25E3%2583%25B3%25E3%2583%2588%25E8%25AA%25AD%25E6%259B%25B8%25E4%25BC%259A%25EF%25BC%259A%25E3%2580%258E%25E5%2590%25BE%25E8%25BC%25A9%25E3%2581%25AF%25E7%258C%25AB%25E3%2581%25A7%25E3%2581%2582%25E3%2582%258B%25E3%2580%258F%25E3%2582%2592%25E3%2583%25AD%25E3%2583%25BC%25E3%2582%25AB%25E3%2583%25ABLLM%25E3%2581%25A8Claude%25E3%2581%25AB%25E8%25AA%25AD%25E3%2581%25BE%25E3%2581%259B%25E3%2581%259F%25E3%2582%2589%25E3%2583%259A%25E3%2583%25AB%25E3%2582%25BD%25E3%2583%258A%25E7%2584%25A1%25E3%2581%2597%25E3%2581%25A7%25E5%25BA%25A7%25E8%25AB%2587%25E4%25BC%259A%25E3%2581%258C%25E5%25A7%258B%25E3%2581%25BE%25E3%2581%25A3%25E3%2581%259F...%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E3%2581%25BF%25E3%2583%25BC%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2FiNDY2MmY5MjcuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE"
-    },
-    {
       "id": "n_34b662796b05f9c0",
       "title": {
         "en": "苹果官网上架 mophie Frost 支架保护壳：适用于 iPhone 17 / 18 Pro / Air 系列机型，398 元",
@@ -966,34 +1420,6 @@
       "topic": "mobile-ai",
       "published_at": "2026-11-27T09:02:29.000Z",
       "image": "https://www.androidauthority.com/wp-content/uploads/2026/05/Samsung-Galaxy-S24-Ultra-Galaxy-AI-scaled.jpg"
-    },
-    {
-      "id": "n_1c5d1d7e7610ea07",
-      "title": {
-        "en": "AI エージェントに Nim を書かせるための指針 BeautifulNim を公開した。例はコンパイラが検査し、穴はエージェントに解かせて",
-        "zh": "AI エージェントに Nim を書かせるための指針 BeautifulNim を公開した。例はコンパイラが検査し、穴はエージェントに解かせて",
-        "original": "AI エージェントに Nim を書かせるための指針 BeautifulNim を公開した。例はコンパイラが検査し、穴はエージェントに解かせて"
-      },
-      "lang": "ja",
-      "url": "https://zenn.dev/jasagiri/articles/e49da96168ddaf",
-      "source": "Zenn",
-      "topic": "coding-agents",
-      "published_at": "2026-11-27T08:53:15.000Z",
-      "image": "https://res.cloudinary.com/zenn/image/upload/s--fb-5L10T--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:AI%2520%25E3%2582%25A8%25E3%2583%25BC%25E3%2582%25B8%25E3%2582%25A7%25E3%2583%25B3%25E3%2583%2588%25E3%2581%25AB%2520Nim%2520%25E3%2582%2592%25E6%259B%25B8%25E3%2581%258B%25E3%2581%259B%25E3%2582%258B%25E3%2581%259F%25E3%2582%2581%25E3%2581%25AE%25E6%258C%2587%25E9%2587%259D%2520BeautifulNim%2520%25E3%2582%2592%25E5%2585%25AC%25E9%2596%258B%25E3%2581%2597%25E3%2581%259F%25E3%2580%2582%25E4%25BE%258B%25E3%2581%25AF%25E3%2582%25B3%25E3%2583%25B3%25E3%2583%2591%25E3%2582%25A4%25E3%2583%25A9%25E3%2581%258C%25E6%25A4%259C%25E6%259F%25BB%25E3%2581%2597%25E3%2580%2581...%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:jasagiri%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly96ZW5uLWRldi5naXRodWIuaW8vZGVmYXVsdC1hdmF0YXJzL2Rhcmsvai5wbmc=%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE"
-    },
-    {
-      "id": "n_3a5666efd79de5d7",
-      "title": {
-        "en": "AIモデル、結局どれが一番強いの？ 全部比べた結果",
-        "zh": "AIモデル、結局どれが一番強いの？ 全部比べた結果",
-        "original": "AIモデル、結局どれが一番強いの？ 全部比べた結果"
-      },
-      "lang": "ja",
-      "url": "https://zenn.dev/myura_jp/articles/3d641dfbca3784",
-      "source": "Zenn",
-      "topic": "coding-agents",
-      "published_at": "2026-11-27T08:30:31.000Z",
-      "image": "https://res.cloudinary.com/zenn/image/upload/s--K9HaADkC--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:AI%25E3%2583%25A2%25E3%2583%2587%25E3%2583%25AB%25E3%2580%2581%25E7%25B5%2590%25E5%25B1%2580%25E3%2581%25A9%25E3%2582%258C%25E3%2581%258C%25E4%25B8%2580%25E7%2595%25AA%25E5%25BC%25B7%25E3%2581%2584%25E3%2581%25AE%25EF%25BC%259F%2520%25E5%2585%25A8%25E9%2583%25A8%25E6%25AF%2594%25E3%2581%25B9%25E3%2581%259F%25E7%25B5%2590%25E6%259E%259C%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E3%2583%259F%25E3%2583%25A5%25E3%2583%25A9%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzI5YTVhZDA1OWEuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE"
     },
     {
       "id": "n_2a502532a89be91d",
@@ -1023,20 +1449,6 @@
       "published_at": "2026-11-27T08:22:14.000Z"
     },
     {
-      "id": "n_64a0fd5dce0c4e9d",
-      "title": {
-        "en": "Apple launches Black Friday Shopping Event: Here’s how much you can save",
-        "zh": "Apple launches Black Friday Shopping Event: Here’s how much you can save",
-        "original": "Apple launches Black Friday Shopping Event: Here’s how much you can save"
-      },
-      "lang": "en",
-      "url": "https://9to5mac.com/2026/11/27/apple-black-friday-shopping-event-deals/",
-      "source": "9to5Mac",
-      "topic": "ai-wearables",
-      "published_at": "2026-11-27T08:10:50.000Z",
-      "image": "https://9to5mac.com/wp-content/uploads/sites/6/2026/11/apple-gifts.webp?resize=1200,628"
-    },
-    {
       "id": "n_e4537b7514180792",
       "title": {
         "en": "Amazon main event Black Friday sale now live! Apple, Google, Anker, LEGO, TVs, more",
@@ -1049,20 +1461,6 @@
       "topic": "ai-wearables",
       "published_at": "2026-11-27T08:02:12.000Z",
       "image": "https://9to5toys.com/wp-content/uploads/sites/5/2026/11/Amazon-Black-Friday-Main-Event-2026-now-live.jpg?quality=82&strip=all&resize=1200,628"
-    },
-    {
-      "id": "n_0dd55b66daf72472",
-      "title": {
-        "en": "スクラムのプランニングで Claude Code をどう使っているか",
-        "zh": "スクラムのプランニングで Claude Code をどう使っているか",
-        "original": "スクラムのプランニングで Claude Code をどう使っているか"
-      },
-      "lang": "ja",
-      "url": "https://zenn.dev/rentio/articles/scrum-planning-with-claude-code",
-      "source": "Zenn",
-      "topic": "coding-agents",
-      "published_at": "2026-11-27T07:11:23.000Z",
-      "image": "https://res.cloudinary.com/zenn/image/upload/s--pxrVdwiK--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E3%2582%25B9%25E3%2582%25AF%25E3%2583%25A9%25E3%2583%25A0%25E3%2581%25AE%25E3%2583%2597%25E3%2583%25A9%25E3%2583%25B3%25E3%2583%258B%25E3%2583%25B3%25E3%2582%25B0%25E3%2581%25A7%2520Claude%2520Code%2520%25E3%2582%2592%25E3%2581%25A9%25E3%2581%2586%25E4%25BD%25BF%25E3%2581%25A3%25E3%2581%25A6%25E3%2581%2584%25E3%2582%258B%25E3%2581%258B%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:Rentio%2520Tech%2520Blog%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzRlMzkyOWE1MjkuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE"
     },
     {
       "id": "n_355eb2e5ee2073ab",
@@ -1079,33 +1477,6 @@
       "image": "https://media.wired.com/photos/6b073e1d34813a006d725bef/master/pass/QANT-CEO-QandA-Business.jpg"
     },
     {
-      "id": "n_48b0d8d3f8cacbd3",
-      "title": {
-        "en": "The group chat where your AI talks behind your back",
-        "zh": "The group chat where your AI talks behind your back",
-        "original": "The group chat where your AI talks behind your back"
-      },
-      "lang": "en",
-      "url": "https://construct22.com/",
-      "source": "Hacker News",
-      "topic": "general",
-      "published_at": "2026-11-27T06:44:34.000Z"
-    },
-    {
-      "id": "n_8a9d964c3bc2289a",
-      "title": {
-        "en": "古いPCにRTX 3060 12GBを載せてローカルLLM環境を作った",
-        "zh": "古いPCにRTX 3060 12GBを載せてローカルLLM環境を作った",
-        "original": "古いPCにRTX 3060 12GBを載せてローカルLLM環境を作った"
-      },
-      "lang": "ja",
-      "url": "https://zenn.dev/mahyon/articles/2ed75199e684cc",
-      "source": "Zenn",
-      "topic": "personal-ai-systems",
-      "published_at": "2026-11-27T06:11:06.000Z",
-      "image": "https://res.cloudinary.com/zenn/image/upload/s--9TgIGqoL--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E5%258F%25A4%25E3%2581%2584PC%25E3%2581%25ABRTX%25203060%252012GB%25E3%2582%2592%25E8%25BC%2589%25E3%2581%259B%25E3%2581%25A6%25E3%2583%25AD%25E3%2583%25BC%25E3%2582%25AB%25E3%2583%25ABLLM%25E7%2592%25B0%25E5%25A2%2583%25E3%2582%2592%25E4%25BD%259C%25E3%2581%25A3%25E3%2581%259F%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E4%25B8%25AD%25E5%25B1%25B1%25E9%259B%2585%25E5%25A4%25AB%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jTHNCMElESU95bVZMREg4RUxPSzh0WE5UUlBKZ2ZMLUp3dDdwMkdubG1HZHI1bk9sNFE9czI1MC1j%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE"
-    },
-    {
       "id": "n_0604a5727aae0e6b",
       "title": {
         "en": "Do I need an AI art adviser?",
@@ -1117,34 +1488,6 @@
       "source": "Financial Times",
       "topic": "consumer-ai-apps",
       "published_at": "2026-11-27T05:00:13.000Z"
-    },
-    {
-      "id": "n_0256b11e8366a051",
-      "title": {
-        "en": "\"What's Claude's Fursona?\" and Other Questions",
-        "zh": "\"What's Claude's Fursona?\" and Other Questions",
-        "original": "\"What's Claude's Fursona?\" and Other Questions"
-      },
-      "lang": "en",
-      "url": "https://herecomesthemoon.net/2026/11/whats-claudes-fursona/",
-      "source": "Hacker News",
-      "topic": "general",
-      "published_at": "2026-11-27T04:56:18.000Z",
-      "image": "https://herecomesthemoon.net/2026/11/whats-claudes-fursona/images/dithers/claude-fable-header_dithered.png"
-    },
-    {
-      "id": "n_c32b53f8cb3b0458",
-      "title": {
-        "en": "New AI research suggests AI bubble bursting and to expect major market collapse",
-        "zh": "New AI research suggests AI bubble bursting and to expect major market collapse",
-        "original": "New AI research suggests AI bubble bursting and to expect major market collapse"
-      },
-      "lang": "en",
-      "url": "https://www.london.edu/think/ai-bubble-about-to-burst",
-      "source": "Hacker News",
-      "topic": "general",
-      "published_at": "2026-11-27T02:44:12.000Z",
-      "image": "https://images.london.edu/hxo16fanegqh/R9pfpICgrfbB9YhwtPo5O/b8a725b7568403dd08ea0e4c57af0e0a/New_research_suggests_AI_bubble_bursting_and_to_expect_major_market_collapse_thumb.jpg?w=1200&h=600"
     },
     {
       "id": "p_b57a6df614de1e16",
@@ -1161,18 +1504,45 @@
       "image": "https://pbs.twimg.com/media/HYF66EGWIAAF9lx.jpg"
     },
     {
-      "id": "n_6bac70b0e1802a36",
+      "id": "n_a628d534a141df3f",
       "title": {
-        "en": "AI agents now control part of DeepMind's compute for Gemini experiments",
-        "zh": "AI agents now control part of DeepMind's compute for Gemini experiments",
-        "original": "AI agents now control part of DeepMind's compute for Gemini experiments"
+        "en": "datasette-mcp 0.4",
+        "zh": "datasette-mcp 0.4",
+        "original": "datasette-mcp 0.4"
       },
       "lang": "en",
-      "url": "https://the-decoder.com/ai-agents-now-control-part-of-deepminds-compute-for-gemini-experiments-but-recursive-self-improvement-remains-distant/",
-      "source": "Hacker News",
+      "url": "https://simonwillison.net/2026/Nov/27/datasette-mcp/",
+      "source": "Simon Willison",
       "topic": "general",
-      "published_at": "2026-11-27T00:03:18.000Z",
-      "image": "https://the-decoder.com/wp-content/uploads/2026/11/gemini-4-neon__blog-header__sm.width-1600.format-webp.webp"
+      "published_at": "2026-11-27T00:26:17.000Z"
+    },
+    {
+      "id": "p_f9c59777e13f11ce",
+      "title": {
+        "en": "Getting ChatGPT Business credits on an eligible Lenovo PC",
+        "zh": "Getting ChatGPT Business credits on an eligible Lenovo PC",
+        "original": "Getting ChatGPT Business credits on an eligible Lenovo PC"
+      },
+      "lang": "en",
+      "url": "https://help.openai.com/en/articles/20001705-getting-chatgpt-business-credits-on-an-eligible-lenovo-pc",
+      "source": "OpenAI Help Center",
+      "topic": "consumer-ai-apps",
+      "published_at": "2026-11-27T00:00:00.000Z",
+      "image": "https://help.openai.com/og-image.png"
+    },
+    {
+      "id": "p_d39c838950e7a84c",
+      "title": {
+        "en": "OpenAI countersues Apple for stealing trade secrets",
+        "zh": "OpenAI countersues Apple for stealing trade secrets",
+        "original": "OpenAI countersues Apple for stealing trade secrets"
+      },
+      "lang": "en",
+      "url": "https://www.reuters.com/5f374b32b07b/technology/openai-countersues-apple-stealing-trade-secrets-ft-reports-2026-11-27/",
+      "source": "Reuters",
+      "topic": "general",
+      "published_at": "2026-11-27T00:00:00.000Z",
+      "image": "https://www.reuters.com/resizer/v2/FX46DTNPGVKWTK7UJNHYUCDTZY.jpg?auth=de09f9829e08959f3bc4c77e819672d4f4ac992853fc6701594b11aabb6c0e9b&height=1005&width=1920&quality=80&smart=true"
     },
     {
       "id": "p_cb188aa8ca10b42b",
@@ -1187,6 +1557,19 @@
       "topic": "coding-agents",
       "published_at": "2026-11-27T00:00:00.000Z",
       "image": "https://cdn.v2ex.com/avatar/5550/764e/580133_xlarge.png?m=1795611705"
+    },
+    {
+      "id": "p_6acd918e33396a3c",
+      "title": {
+        "en": "Neural Networks and Deep Learning（下架声明）",
+        "zh": "Neural Networks and Deep Learning（下架声明）",
+        "original": "Neural Networks and Deep Learning（下架声明）"
+      },
+      "lang": "zh",
+      "url": "https://neuralnetworksanddeeplearning.com/",
+      "source": "Michael Nielsen",
+      "topic": "general",
+      "published_at": "2026-11-27T00:00:00.000Z"
     },
     {
       "id": "n_2d7f8b4f8454af31",
@@ -1230,20 +1613,6 @@
       "image": "https://i.ytimg.com/vi/qjPcaZf_plo/maxresdefault.jpg"
     },
     {
-      "id": "n_2540d28ae01bebe7",
-      "title": {
-        "en": "South Korea proceeds with case over allegedly misleading Apple Intelligence ads",
-        "zh": "South Korea proceeds with case over allegedly misleading Apple Intelligence ads",
-        "original": "South Korea proceeds with case over allegedly misleading Apple Intelligence ads"
-      },
-      "lang": "en",
-      "url": "https://9to5mac.com/2026/11/26/south-korea-proceeds-with-case-over-allegedly-misleading-apple-intelligence-ads/",
-      "source": "9to5Mac",
-      "topic": "mobile-ai",
-      "published_at": "2026-11-26T22:56:12.000Z",
-      "image": "https://9to5mac.com/wp-content/uploads/sites/6/2026/11/apple-intelligence-iphone-16.jpg?quality=82&strip=all&resize=1200,628"
-    },
-    {
       "id": "n_3cc762c896e402bd",
       "title": {
         "en": "三星 Galaxy S27 Pro / Ultra 手机机模再曝：矩阵相机岛设计",
@@ -1285,32 +1654,6 @@
       "image": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0NDU5MTQ2JTJGM2Y3Y2RjOWM5M2UzMjllMTk2MTJkOTg2OTk3ODZiOWM4NDg3NjdjMyUyRmxhcmdlLnBuZyUzRjE3ODI5NzI2NTY_aXhsaWI9cmItNC4xLjEmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPTgwYjE4YTgzZTQ4ZGVjYmEyZDJlZTBiMDk3YTcyZjEz%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3De2b8bfaf8b084aae3ba70328b003ed30?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgwJTkwJUU5JTgwJTlGJUU1JUEwJUIxJUUzJTgwJTkxbGxhbWEuY3BwJUUzJTgwJThDdjEuMS4wJUUzJTgwJThEJUU1JTg1JUFDJUU5JTk2JThCJTIwJUUyJTgwJTk0JTIwJUU3JTlCJUFFJUU2JUE4JTk5JUUzJTgyJUI1JUUzJTgyJUE0JUUzJTgyJUJBJUU2JThDJTg3JUU1JUFFJTlBJUUzJTgxJUFFJUU4JTg3JUFBJUU1JThCJTk1JUU5JTg3JThGJUU1JUFEJTkwJUU1JThDJTk2JUUzJTgxJUE4JUU2JThBJTk1JUU2JUE5JTlGJUU3JTlBJTg0JUUzJTgzJTg3JUUzJTgyJUIzJUUzJTgzJUJDJUUzJTgzJTg5NCVFNiU5NiVCOSVFNSVCQyU4RiVFMyU4MCU4MSVFNiU5NiVCMFVJJUUzJTgwJThDTGxhbSVFMiU4MCVBNiZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPTk0N2I5OTEwMDYyMjkzZThiYjc5NmM5MjU3YzQ5NmQx&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBuYWthbm9rZW5zZXRzdSZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTMzYWNhYTY5OGE4ZjI1NGQ5NzM3ZTU2NzExZDdkMGMz&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=c8faa3314a8467dc85643f3cd6155103"
     },
     {
-      "id": "n_19dd4641586dbe86",
-      "title": {
-        "en": "AI made self-hosting fun again",
-        "zh": "AI made self-hosting fun again",
-        "original": "AI made self-hosting fun again"
-      },
-      "lang": "en",
-      "url": "https://janlukas.blog/posts/ai-self-hosting",
-      "source": "Hacker News",
-      "topic": "personal-ai-systems",
-      "published_at": "2026-11-26T21:47:45.000Z"
-    },
-    {
-      "id": "n_5653ffa5475ea55a",
-      "title": {
-        "en": "The US Government Is Under AI Cyberattack",
-        "zh": "The US Government Is Under AI Cyberattack",
-        "original": "The US Government Is Under AI Cyberattack"
-      },
-      "lang": "en",
-      "url": "https://www.forbes.com/sites/the-wiretap/2026/11/25/us-government-under-ai-cyberattack",
-      "source": "Hacker News",
-      "topic": "general",
-      "published_at": "2026-11-26T21:26:33.000Z"
-    },
-    {
       "id": "n_ca7fd6f0016afc5f",
       "title": {
         "en": "AIに再建計画を頼むなら「修正はしないで」から：Claude Code が82件のIssueを書いて止まった記録",
@@ -1325,20 +1668,6 @@
       "image": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkYzNDc3ODE1JTJGZmE4MDEyYmI1YzEyNWNmYzBlZDRjMGVmYjMzYjY1NWUyOGUzZGRlOCUyRnhfbGFyZ2UucG5nJTNGMTc5NTA1Nzk1OT9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9OGYxYjZjMmNjZmU4MWNkMjMwODM4NDIwOTBkN2U0ODI%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D748fe073030bcf40a2ef7257b2d6f866?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9QUklRTMlODElQUIlRTUlODYlOEQlRTUlQkIlQkElRTglQTglODglRTclOTQlQkIlRTMlODIlOTIlRTklQTAlQkMlRTMlODIlODAlRTMlODElQUElRTMlODIlODklRTMlODAlOEMlRTQlQkYlQUUlRTYlQUQlQTMlRTMlODElQUYlRTMlODElOTclRTMlODElQUElRTMlODElODQlRTMlODElQTclRTMlODAlOEQlRTMlODElOEIlRTMlODIlODklRUYlQkMlOUFDbGF1ZGUlMjBDb2RlJTIwJUUzJTgxJThDODIlRTQlQkIlQjYlRTMlODElQUVJc3N1ZSVFMyU4MiU5MiVFNiU5QiVCOCVFMyU4MSU4NCVFMyU4MSVBNiVFNiVBRCVBMiVFMyU4MSVCRSVFMyU4MSVBMyVFMyU4MSU5RiVFOCVBOCU5OCVFOSU4QyVCMiZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPTk1ZTRiMTI3ZjY0OWMwMTJjMjcwMTlhMjMzZTg2ZDBj&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBjaGFyZ2UwMzE1JnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9OTMzYWJiMDBkOTczMjcxYjNhMGQzYjAzMDE3OTlkYjU&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=3c40cec0329f788313eed3dfd19f53d3"
     },
     {
-      "id": "n_3c5048b497c52ae5",
-      "title": {
-        "en": "Report: Apple accounted for 57% of US smartphone shipments in Q3",
-        "zh": "Report: Apple accounted for 57% of US smartphone shipments in Q3",
-        "original": "Report: Apple accounted for 57% of US smartphone shipments in Q3"
-      },
-      "lang": "en",
-      "url": "https://9to5mac.com/2026/11/26/report-apple-accounted-for-57-of-us-smartphone-shipments-in-q3/",
-      "source": "9to5Mac",
-      "topic": "mobile-ai",
-      "published_at": "2026-11-26T21:09:36.000Z",
-      "image": "https://9to5mac.com/wp-content/uploads/sites/6/2026/09/iphone-18-pro-color-lineup-official.jpg?quality=82&strip=all&resize=1200,628"
-    },
-    {
       "id": "n_e88467598abcad61",
       "title": {
         "en": "ソフトバンクが聴覚障がいのある従業員に配ったスマートグラスは、職場でどこまで使えたか",
@@ -1351,20 +1680,6 @@
       "topic": "ai-wearables",
       "published_at": "2026-11-26T21:01:04.000Z",
       "image": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkYwJTJGNDQzMzI3MSUyRnByb2ZpbGUtaW1hZ2VzJTJGMTc3OTAwNzIzNT9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9YWY5NDIyNzdmMjZlOGJhMzVmYmZlY2IwOGU2ZWQ2NTA%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Df59d4b48280797c581d3f62880665fc3?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgyJUJEJUUzJTgzJTk1JUUzJTgzJTg4JUUzJTgzJTkwJUUzJTgzJUIzJUUzJTgyJUFGJUUzJTgxJThDJUU4JTgxJUI0JUU4JUE2JTlBJUU5JTlBJTlDJUUzJTgxJThDJUUzJTgxJTg0JUUzJTgxJUFFJUUzJTgxJTgyJUUzJTgyJThCJUU1JUJFJTkzJUU2JUE1JUFEJUU1JTkzJUExJUUzJTgxJUFCJUU5JTg1JThEJUUzJTgxJUEzJUUzJTgxJTlGJUUzJTgyJUI5JUUzJTgzJTlFJUUzJTgzJUJDJUUzJTgzJTg4JUUzJTgyJUIwJUUzJTgzJUE5JUUzJTgyJUI5JUUzJTgxJUFGJUUzJTgwJTgxJUU4JTgxJUI3JUU1JUEwJUI0JUUzJTgxJUE3JUUzJTgxJUE5JUUzJTgxJTkzJUUzJTgxJUJFJUUzJTgxJUE3JUU0JUJEJUJGJUUzJTgxJTg4JUUzJTgxJTlGJUUzJTgxJThCJnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9NzdiYzgxMTQ5ZjM1YTdhOTI5OWU5OWIxNGEyYmM4NWY&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBxdW90aWRpYSZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTRhNjI0NjUzMTU4ODhjZWUzZDIxNjI0N2Q4Y2JjZDY2&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=ddc3b8659de5897e2ccaac3f3b7cdd9a"
-    },
-    {
-      "id": "n_52c1eb08d709453f",
-      "title": {
-        "en": "PSA: AirPods Pro 3 are in stock, still $149 ($100 off)",
-        "zh": "公告：AirPods Pro 3 有现货，仍然售价149美元（减价100美元）",
-        "original": "PSA: AirPods Pro 3 are in stock, still $149 ($100 off)"
-      },
-      "lang": "en",
-      "url": "https://9to5mac.com/2026/11/26/airpods-pro-3-best-black-friday-price/",
-      "source": "9to5Mac",
-      "topic": "ai-wearables",
-      "published_at": "2026-11-26T20:24:23.000Z",
-      "image": "https://9to5mac.com/wp-content/uploads/sites/6/2025/11/airpods-pro3-holiday.jpg?quality=82&strip=all&resize=1200,628"
     },
     {
       "id": "n_46cd86bf0efb5023",
@@ -1394,20 +1709,6 @@
       "image": "https://techcrunch.com/wp-content/uploads/2026/11/Taiwan-Nvidia.jpg?w=1024"
     },
     {
-      "id": "n_d53b4cd2d75ac1a8",
-      "title": {
-        "en": "Judge orders Apple to produce 3,200 documents in Epic Games dispute",
-        "zh": "法官命令苹果在与Epic Games的纠纷中提交3200份文件",
-        "original": "Judge orders Apple to produce 3,200 documents in Epic Games dispute"
-      },
-      "lang": "en",
-      "url": "https://9to5mac.com/2026/11/26/judge-orders-apple-to-produce-3200-documents-in-epic-games-dispute/",
-      "source": "9to5Mac",
-      "topic": "consumer-ai-apps",
-      "published_at": "2026-11-26T19:52:24.000Z",
-      "image": "https://9to5mac.com/wp-content/uploads/sites/6/2024/03/epic-app-store.jpg?quality=82&strip=all&resize=1200,628"
-    },
-    {
       "id": "n_98bc69ca3f113784",
       "title": {
         "en": "A month with the iPhone Duo has changed how I use my phone",
@@ -1420,20 +1721,6 @@
       "topic": "mobile-ai",
       "published_at": "2026-11-26T17:00:00.000Z",
       "image": "https://techcrunch.com/wp-content/uploads/2026/11/iphone-duo-GettyImages-2301595744.jpg?w=1024"
-    },
-    {
-      "id": "n_472352b868b7123a",
-      "title": {
-        "en": "Thanksgiving deals: M5 MacBook Air $400 off, MacBook Neo $100 off, Apple Watch Ultra 4 $150 off, more",
-        "zh": "感恩节优惠：M5 MacBook Air 减400美元，MacBook Neo 减100美元，Apple Watch Ultra 4 减150美元，更多优惠",
-        "original": "Thanksgiving deals: M5 MacBook Air $400 off, MacBook Neo $100 off, Apple Watch Ultra 4 $150 off, more"
-      },
-      "lang": "en",
-      "url": "https://9to5mac.com/2026/11/26/deals-macbook-air-neo-apple-watch-ultra-4/",
-      "source": "9to5Mac",
-      "topic": "ai-wearables",
-      "published_at": "2026-11-26T16:29:40.000Z",
-      "image": "https://9to5mac.com/wp-content/uploads/sites/6/2026/11/Apple-Thanksgiving-Black-Friday-deals-1.jpg?quality=82&strip=all&resize=1200,628"
     },
     {
       "id": "n_6b34fd1861b57ed2",
@@ -1518,20 +1805,6 @@
       "published_at": "2026-11-26T14:59:17.000Z"
     },
     {
-      "id": "n_27c81692ad37fb7b",
-      "title": {
-        "en": "Structure of llm.asm and Preparation of Execution Environment r001 — LLM inference implemented in assembly language, dedicated OS, GPT training",
-        "zh": "llm.asm的结构与执行环境准备 r001 — 用汇编语言实现的LLM推理，专用操作系统，GPT训练",
-        "original": "llm.asmの仕組みと実行環境の準備 r001 ― アセンブリで実装されたLLM推論・専用OS・GPT学習"
-      },
-      "lang": "ja",
-      "url": "https://qiita.com/rino_yume/items/c520681d7de871c1febb",
-      "source": "Qiita",
-      "topic": "personal-ai-systems",
-      "published_at": "2026-11-26T14:38:39.000Z",
-      "image": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkYwJTJGMjM2NTE4JTJGcHJvZmlsZS1pbWFnZXMlMkYxNzg4Mzk0NTQxP2l4bGliPXJiLTQuMS4xJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZiZz1GRkZGRkYmZm09cG5nMzImcz1mYTVhNWI2MzRkNzNmNTE1MDk5MzM4NmY3OGUzZmY1ZA%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Df995690790619f7268feb1ec40120e3b?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9bGxtLmFzbSVFMyU4MSVBRSVFNCVCQiU5NSVFNyVCNSU4NCVFMyU4MSVCRiVFMyU4MSVBOCVFNSVBRSU5RiVFOCVBMSU4QyVFNyU5MiVCMCVFNSVBMiU4MyVFMyU4MSVBRSVFNiVCQSU5NiVFNSU4MiU5OSUyMHIwMDElMjAlRTIlODAlOTUlMjAlRTMlODIlQTIlRTMlODIlQkIlRTMlODMlQjMlRTMlODMlOTYlRTMlODMlQUElRTMlODElQTclRTUlQUUlOUYlRTglQTMlODUlRTMlODElOTUlRTMlODIlOEMlRTMlODElOUZMTE0lRTYlOEUlQTglRTglQUIlOTYlRTMlODMlQkIlRTUlQjAlODIlRTclOTQlQThPUyVFMyU4MyVCQkdQVCVFNSVBRCVBNiVFNyVCRiU5MiZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPWM0NTkyYmRmMWFiMWM4Mzk2NzI3MWQ5YmRmZGRkODg3&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDByaW5vX3l1bWUmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz00YzUxNmY1NjMwYjhjYzJkZTg0ZTEzMTZkMTU3NjQ2Ng&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=e488901534dc1b5cfbc75ee073590e98"
-    },
-    {
       "id": "p_815467b1bf2b8535",
       "title": {
         "en": "Measured a local LLM (Qwen3.6) with 30 fictitious internal FAQ questions. 4/30 without documents, 29/30 with documents, AI grader's judgment was corrected by humans on 6 questions (evaluation tool self-made in C#)",
@@ -1587,18 +1860,17 @@
       "image": "https://wp.technologyreview.com/wp-content/uploads/2026/11/261124_ProsetheticHand_Lede_cb1337.jpg?resize=1200,600"
     },
     {
-      "id": "n_dcda5578eaa6d204",
+      "id": "n_0283011ad60b769d",
       "title": {
-        "en": "Claude Code + OpenClaw dual wield: Balancing coding and 24-hour butler service",
-        "zh": "Claude Code + OpenClaw双剑合璧：兼顾编码与24小时管家服务",
-        "original": "Claude Code + OpenClaw 二刀流：コーディングと24時間執事の両立"
+        "en": "Claude 封号克星：把大小姐关进一台虚拟机",
+        "zh": "Claude 封号克星：把大小姐关进一台虚拟机",
+        "original": "Claude 封号克星：把大小姐关进一台虚拟机"
       },
-      "lang": "ja",
-      "url": "https://qiita.com/fukukei23/items/268483aea15655819236",
-      "source": "Qiita",
+      "lang": "zh",
+      "url": "https://www.bilibili.com/video/av117682137534805",
+      "source": "Bilibili",
       "topic": "coding-agents",
-      "published_at": "2026-11-26T13:07:51.000Z",
-      "image": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnNlY3VyZS5ncmF2YXRhci5jb20lMkZhdmF0YXIlMkY1ZjQ2OWNhMDE5NjIyOTU4MTY0NzA3ODg2MjU3ODg1ZD9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9MDBlNTBjZjg2NzA0YWYzOTU4YzUyZWE0NDAyYjVkZDg%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Db0fb7b518cbe6fd4515b7a3f5b82a516?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9Q2xhdWRlJTIwQ29kZSUyMCUyQiUyME9wZW5DbGF3JTIwJUU0JUJBJThDJUU1JTg4JTgwJUU2JUI1JTgxJUVGJUJDJTlBJUUzJTgyJUIzJUUzJTgzJUJDJUUzJTgzJTg3JUUzJTgyJUEzJUUzJTgzJUIzJUUzJTgyJUIwJUUzJTgxJUE4MjQlRTYlOTklODIlRTklOTYlOTMlRTUlOUYlQjclRTQlQkElOEIlRTMlODElQUUlRTQlQjglQTElRTclQUIlOEImdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz1kMGFmMDdkNjMzODEwZWM4MGZiMDc3ODY0ZjU3NDcyMA&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBmdWt1a2VpMjMmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz1mZjI4OTNiOTM5OTRjYzYzYjBhYWQzNmU1ZGJhOGVlNQ&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=a0f249bfec7788b5530be0fa392d2747"
+      "published_at": "2026-11-26T12:00:00.000Z"
     },
     {
       "id": "n_c4191a36d4b5fb41",
@@ -1930,6 +2202,20 @@
       "image": "https://res.cloudinary.com/zenn/image/upload/s--4JGD2G1i--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Claude%2520Code%25E3%2581%25A7AI%25E3%2581%25A0%25E3%2581%2591%25E3%2581%25AE%25E4%25BA%258B%25E6%25A5%25AD%25E9%2583%25A8%25E3%2582%2592%25E4%25BD%259C%25E3%2581%25A3%25E3%2581%259F%25E3%2582%2589%25E3%2580%25812%25E6%2597%25A5%25E3%2581%25A7%25E3%2583%2588%25E3%2583%25BC%25E3%2582%25AF%25E3%2583%25B369%2525%25E3%2582%2592%25E6%25BA%25B6%25E3%2581%258B%25E3%2581%2597%25E3%2581%25A6%25E5%25A3%25B2%25E4%25B8%258A0%25E5%2586%2586%25E3%2581%25A0%25E3%2581%25A3%25E3%2581%259F%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_34:parsetree_biz%2Cx_220%2Cy_108/bo_3px_solid_rgb:d6e3ed%2Cg_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzJhNTRkMWU0NDUuanBlZw==%2Cr_20%2Cw_90%2Cx_92%2Cy_102/co_rgb:6e7b85%2Cg_south_west%2Cl_text:notosansjp-medium.otf_30:Parsetree%2520Tech%2520Blog%2Cx_220%2Cy_160/bo_4px_solid_white%2Cg_south_west%2Ch_50%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jSVl4SF83dHVMV0ZLOWRYeG01eF9DWmUzeWY0akRzVGJQS1pYdVhMMGw5SWNCcWp1UW49czI1MC1j%2Cr_max%2Cw_50%2Cx_139%2Cy_84/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE"
     },
     {
+      "id": "p_430723741ce7dbb1",
+      "title": {
+        "en": "AngelSpec: DFly2 open-sourced (weights, training code, technical report)",
+        "zh": "AngelSpec: DFly2 open-sourced (weights, training code, technical report)",
+        "original": "AngelSpec: DFly2 open-sourced (weights, training code, technical report)"
+      },
+      "lang": "en",
+      "url": "https://github.com/Tencent/AngelSpec",
+      "source": "GitHub（Tencent/AngelSpec）",
+      "topic": "general",
+      "published_at": "2026-11-26T00:00:00.000Z",
+      "image": "https://opengraph.githubassets.com/4c3a420a4877ce6fa94460f7ff3e0bdaf6291b53210de9bd78cdf47a36677d1a/Tencent/AngelSpec"
+    },
+    {
       "id": "p_3815342d04f7d212",
       "title": {
         "en": "Among MCPs Announced at Adobe MAX, I Tried Testing Illustrator First — It Still Can’t Reach JSX Yet",
@@ -1969,47 +2255,6 @@
       "topic": "general",
       "published_at": "2026-11-26T00:00:00.000Z",
       "image": "https://huggingface.co/blog/assets/training-swarms/thumbnail.png"
-    },
-    {
-      "id": "n_23d0bd9b1bf921f9",
-      "title": {
-        "en": "Before making AI read huge business systems, create a 'map'【Claude Code】",
-        "zh": "在让AI读取庞大业务系统之前，先制作“地图”【Claude Code】",
-        "original": "巨大な業務システムをAIに読ませる前に、「地図」を作る【Claude Code】"
-      },
-      "lang": "ja",
-      "url": "https://qiita.com/aoka2/items/544ac16603e3eacdb744",
-      "source": "Qiita",
-      "topic": "coding-agents",
-      "published_at": "2026-11-25T23:58:53.000Z",
-      "image": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkYwJTJGMzc1NTE2NyUyRnByb2ZpbGUtaW1hZ2VzJTJGMTc5MzUxMjk3Mz9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9OTI2Mjc5YzI0ZjE0MDFlNmJmY2U5Nzk1NDk4OWIyMTY%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D1560c1ed53be03c04ef3e298ea33ac7f?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUU1JUI3JUE4JUU1JUE0JUE3JUUzJTgxJUFBJUU2JUE1JUFEJUU1JThCJTk5JUUzJTgyJUI3JUUzJTgyJUI5JUUzJTgzJTg2JUUzJTgzJUEwJUUzJTgyJTkyQUklRTMlODElQUIlRTglQUElQUQlRTMlODElQkUlRTMlODElOUIlRTMlODIlOEIlRTUlODklOEQlRTMlODElQUIlRTMlODAlODElRTMlODAlOEMlRTUlOUMlQjAlRTUlOUIlQjMlRTMlODAlOEQlRTMlODIlOTIlRTQlQkQlOUMlRTMlODIlOEIlRTMlODAlOTBDbGF1ZGUlMjBDb2RlJUUzJTgwJTkxJnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9NThiZjFiZmM0YjM5MzI1ZTcyNmZhYzg0NDY1NWNhMDk&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBhb2thMiZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTQ3ZTFmYzllMjg2YTFkNTIxNjk3ZTgzYjRjNmU2ZDk3&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=425d721bc8497538f594a45457f1566d"
-    },
-    {
-      "id": "n_86c956ca3b4a1b26",
-      "title": {
-        "en": "Local AI Build Record ⑥ Tried running mem0 OSS 2.2.1 without using OpenAI API",
-        "zh": "本地AI构建记 ⑥ 尝试在不使用OpenAI API的情况下运行mem0 OSS 2.2.1",
-        "original": "ローカルAI構築記 ⑥ OpenAI APIを使わずにmem0 OSS 2.2.1を動かしてみた"
-      },
-      "lang": "ja",
-      "url": "https://qiita.com/ahaya/items/3f602ef9122ec7f38c73",
-      "source": "Qiita",
-      "topic": "personal-ai-systems",
-      "published_at": "2026-11-25T23:32:14.000Z",
-      "image": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRmxoMy5nb29nbGV1c2VyY29udGVudC5jb20lMkZhJTJGQUNnOG9jS3VmSkZhVnRrcW1sSGI3ZWVmU3ZuRTRacVA5MTBabHpNM2d1WjRIbjZoMHNJcmRRJTNEczk2LWM_aXhsaWI9cmItNC4xLjEmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPTk2YzFjZjAzYWQ3Zjk2ZWI5MTQyZTliZWU3OWE0M2M0%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D6b9d1b135b0633c8b93e5505b4714563?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgzJUFEJUUzJTgzJUJDJUUzJTgyJUFCJUUzJTgzJUFCQUklRTYlQTclOEIlRTclQUYlODklRTglQTglOTglRTMlODAlODAlRTIlOTElQTUlMjBPcGVuQUklMjBBUEklRTMlODIlOTIlRTQlQkQlQkYlRTMlODIlOEYlRTMlODElOUElRTMlODElQUJtZW0wJTIwT1NTJTIwMi4yLjElRTMlODIlOTIlRTUlOEIlOTUlRTMlODElOEIlRTMlODElOTclRTMlODElQTYlRTMlODElQkYlRTMlODElOUYmdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz00NWE3MGI4MjBhYWEyZmY2Y2EyMzI1YTg5NDA1MDcxZA&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBhaGF5YSZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPWY3ODgzYjk4YTdiMzI2YzdkMzE3MmQ3NWUzNzMxMDNk&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=c5543458a8f6b788588908e6e1d6cd4e"
-    },
-    {
-      "id": "n_005f3115e4667b57",
-      "title": {
-        "en": "South Korea launches Detect AI anti-cheating system for exam halls: identifies AI smart glasses using radio waves, debuting on December 9",
-        "zh": "韩国推出考场反作弊系统 Detect AI：靠无线电波识别 AI 智能眼镜，12 月 9 日首秀",
-        "original": "韩国推出考场反作弊系统 Detect AI：靠无线电波识别 AI 智能眼镜，12 月 9 日首秀"
-      },
-      "lang": "zh",
-      "url": "https://www.ithome.com/1/032/542.htm",
-      "source": "IT之家",
-      "topic": "ai-wearables",
-      "published_at": "2026-11-25T23:28:31.000Z"
     },
     {
       "id": "n_04a9805dfa556873",
@@ -2290,6 +2535,20 @@
       "image": "https://techcrunch.com/wp-content/uploads/2026/11/GettyImages-2237660127.jpg?resize=1200,800"
     },
     {
+      "id": "n_86b16d1b32dcca07",
+      "title": {
+        "en": "Solve Vision with Code: Coding Agents Are Stronger Visual Reasoners Than Video Models",
+        "zh": "Solve Vision with Code: Coding Agents Are Stronger Visual Reasoners Than Video Models",
+        "original": "Solve Vision with Code: Coding Agents Are Stronger Visual Reasoners Than Video Models"
+      },
+      "lang": "en",
+      "url": "https://arxiv.org/abs/2611.34813v1",
+      "source": "arXiv cs.AI",
+      "topic": "coding-agents",
+      "published_at": "2026-11-25T18:01:22.000Z",
+      "image": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
       "id": "n_13c65860eb5343c2",
       "title": {
         "en": "The Fairphone 6 Plus is modular, repairable, and $100 off right now",
@@ -2316,6 +2575,20 @@
       "topic": "general",
       "published_at": "2026-11-25T17:59:24.000Z",
       "image": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "id": "n_26cd3abe446d7318",
+      "title": {
+        "en": "eust-w/open-robotics-plugin: Robotics agent skills (MuJoCo, perception, planning, sim2real, bring-up) for Claude Code, Antigravity, Codex, Gemini CLI, Cursor and more. Adapted from google-deepmind/robotics-antigravity-plugin (Apache-2.0).",
+        "zh": "eust-w/open-robotics-plugin: Robotics agent skills (MuJoCo, perception, planning, sim2real, bring-up) for Claude Code, Antigravity, Codex, Gemini CLI, Cursor and more. Adapted from google-deepmind/robotics-antigravity-plugin (Apache-2.0).",
+        "original": "eust-w/open-robotics-plugin: Robotics agent skills (MuJoCo, perception, planning, sim2real, bring-up) for Claude Code, Antigravity, Codex, Gemini CLI, Cursor and more. Adapted from google-deepmind/robotics-antigravity-plugin (Apache-2.0)."
+      },
+      "lang": "en",
+      "url": "https://github.com/eust-w/open-robotics-plugin",
+      "source": "GitHub",
+      "topic": "coding-agents",
+      "published_at": "2026-11-25T17:42:27.000Z",
+      "image": "https://opengraph.githubassets.com/d13d59db636991a9d9acd819a21ea2a810093e3d9512965812612e6078b371fc/eust-w/open-robotics-plugin"
     },
     {
       "id": "p_f5c267f93630a32d",
@@ -2469,19 +2742,6 @@
       "topic": "consumer-ai-apps",
       "published_at": "2026-11-25T15:06:17.000Z",
       "image": "https://www.androidauthority.com/wp-content/uploads/2026/02/Samsung-Galaxy-S26-Ultra-Digital-AI-Assistants-Google-Perplexity.jpg"
-    },
-    {
-      "id": "n_fef6ad17c8f1efeb",
-      "title": {
-        "en": "🚀Surpassing Codex! Antigravity's three major new features tested: Powered by Gemini 4 Neon! Dual-model relay, Swarm collaboration, and dynamic workflow! Efficiency doubled and more token saving",
-        "zh": "🚀超越Codex！Antigravity三大新特性实测：Gemini 4 Neon加持！双模型接力、Swarm蜂群协作与动态工作流！效率倍增还更省Token",
-        "original": "🚀超越Codex！Antigravity三大新特性实测：Gemini 4 Neon加持！双模型接力、Swarm蜂群协作与动态工作流！效率倍增还更省Token"
-      },
-      "lang": "zh",
-      "url": "https://www.bilibili.com/video/av117677557291447",
-      "source": "Bilibili",
-      "topic": "coding-agents",
-      "published_at": "2026-11-25T14:35:29.000Z"
     },
     {
       "id": "n_36c2735393fa8400",
@@ -3320,20 +3580,6 @@
       "published_at": "2026-11-24T16:45:44.000Z"
     },
     {
-      "id": "n_b6222c5bc341b130",
-      "title": {
-        "en": "Jensen Huang deepfakes are the hot new AI slop",
-        "zh": "黄仁勋深度伪造视频成为最新热门AI垃圾内容",
-        "original": "Jensen Huang deepfakes are the hot new AI slop"
-      },
-      "lang": "en",
-      "url": "https://www.theverge.com/tech/1041222/jensen-huang-nvidia-scandal-deepfakes",
-      "source": "The Verge",
-      "topic": "general",
-      "published_at": "2026-11-24T16:30:00.000Z",
-      "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/11/ai-label_1c35e3.jpg?quality=90&strip=all&crop=0%2C19.887257893553%2C100%2C60.225484212893&w=1200"
-    },
-    {
       "id": "n_3d12a70e860525d0",
       "title": {
         "en": "Lazy Agents Answer Against Their Own Beliefs: Reinforcement Learning with Verifiable Beliefs Teaches Them to Act on What They Believe",
@@ -3416,20 +3662,6 @@
       "published_at": "2026-11-24T15:15:16.000Z"
     },
     {
-      "id": "n_c73d9d8306379114",
-      "title": {
-        "en": "Samsung officially starts rolling out Wear OS 7 to these older Galaxy Watch models",
-        "zh": "三星正式开始向这些较旧的 Galaxy Watch 机型推送 Wear OS 7",
-        "original": "Samsung officially starts rolling out Wear OS 7 to these older Galaxy Watch models"
-      },
-      "lang": "en",
-      "url": "https://9to5google.com/2026/11/24/samsung-galaxy-watch-wear-os-7-rollout/",
-      "source": "9to5Google",
-      "topic": "ai-wearables",
-      "published_at": "2026-11-24T14:55:00.000Z",
-      "image": "https://9to5google.com/wp-content/uploads/sites/4/2025/08/Galaxy-Watch-8-Classic-1.jpg?quality=82&strip=all&resize=1200,628"
-    },
-    {
       "id": "n_811c0e0bd337671c",
       "title": {
         "en": "The Best Early Black Friday XR Deals",
@@ -3497,20 +3729,6 @@
       "topic": "coding-agents",
       "published_at": "2026-11-24T13:01:30.000Z",
       "image": "https://pbs.twimg.com/media/HX5BE8cWcAEYigq?format=webp&name=large"
-    },
-    {
-      "id": "n_f3d486780977666b",
-      "title": {
-        "en": "Nvidia proves it’s too big to fail",
-        "zh": "英伟达证明了它的重要性无人能替代",
-        "original": "Nvidia proves it’s too big to fail"
-      },
-      "lang": "en",
-      "url": "https://9to5google.com/2026/11/24/nvidia-proves-its-too-big-to-fail/",
-      "source": "9to5Google",
-      "topic": "consumer-ai-apps",
-      "published_at": "2026-11-24T12:00:00.000Z",
-      "image": "https://9to5google.com/wp-content/uploads/sites/4/2026/11/53552985083_02d1bfc49e_o.jpg?quality=82&strip=all&resize=1200,628"
     },
     {
       "id": "p_9986080c472745ef",
@@ -3692,20 +3910,6 @@
       "topic": "general",
       "published_at": "2026-11-24T00:06:06.000Z",
       "image": "https://pbs.twimg.com/profile_images/1592990461517389824/iln8hi1f_400x400.jpg"
-    },
-    {
-      "id": "n_bcdaf5dcf5d76c4c",
-      "title": {
-        "en": "What’s new in Android’s November 2026 Google System Updates [U]",
-        "zh": "Android 2026年11月谷歌系统更新的新内容【更新】",
-        "original": "What’s new in Android’s November 2026 Google System Updates [U]"
-      },
-      "lang": "en",
-      "url": "https://9to5google.com/2026/11/23/november-2026-google-system-updates/",
-      "source": "9to5Google",
-      "topic": "consumer-ai-apps",
-      "published_at": "2026-11-24T00:04:00.000Z",
-      "image": "https://9to5google.com/wp-content/uploads/sites/4/2025/01/google-play-services-1.jpg?quality=82&strip=all&resize=1200,628"
     },
     {
       "id": "p_fdb53e3262fb5afe",
@@ -4067,20 +4271,6 @@
       "topic": "coding-agents",
       "published_at": "2026-11-23T21:37:07.000Z",
       "image": "https://pbs.twimg.com/media/HX1vOUNXwAESQQN.jpg"
-    },
-    {
-      "id": "n_972640f78a70025d",
-      "title": {
-        "en": "States sue SpaceX to stop Grok from generating child sex images, revenge porn",
-        "zh": "各州起诉 SpaceX，阻止 Grok 生成儿童性图片及报复性色情内容",
-        "original": "States sue SpaceX to stop Grok from generating child sex images, revenge porn"
-      },
-      "lang": "en",
-      "url": "https://arstechnica.com/tech-policy/2026/11/states-sue-spacex-to-stop-grok-from-generating-child-sex-images-revenge-porn/",
-      "source": "Ars Technica",
-      "topic": "consumer-ai-apps",
-      "published_at": "2026-11-23T21:30:44.000Z",
-      "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/11/GettyImages-2284791219-1024x648.jpg"
     },
     {
       "id": "p_a6edca5eb3aa22e6",
@@ -5385,76 +5575,6 @@
       "image": "https://latent.space/og/card/post/ainews-riemann-hypothesis-proved-twice-independently/e5a84487c10f6433d047c718980d15e3da91212ba6d34d2720d3eb1a90a457ba.png"
     },
     {
-      "id": "n_6dc7986520ffe69a",
-      "title": {
-        "en": "ollama/ollama v0.40.17",
-        "zh": "ollama/ollama v0.40.17",
-        "original": "ollama/ollama v0.40.17"
-      },
-      "lang": "en",
-      "url": "https://github.com/ollama/ollama/releases/tag/v0.40.17",
-      "source": "GitHub releases ollama/ollama",
-      "topic": "personal-ai-systems",
-      "published_at": "2026-11-21T04:05:14.000Z",
-      "image": "https://avatars.githubusercontent.com/in/15368?s=60&v=4"
-    },
-    {
-      "id": "n_565159543ba42dea",
-      "title": {
-        "en": "How Google Duplex evolved to also call businesses for you in Gemini",
-        "zh": "Google Duplex 如何发展到在 Gemini 中也为您拨打商家电话",
-        "original": "How Google Duplex evolved to also call businesses for you in Gemini"
-      },
-      "lang": "en",
-      "url": "https://research.google/blog/how-google-duplex-evolved-to-also-call-businesses-for-you-in-gemini/",
-      "source": "Google Research",
-      "topic": "general",
-      "published_at": "2026-11-20T23:30:30.000Z",
-      "image": "https://storage.googleapis.com/gweb-research2023-media/original_images/Duplex1-TasksInGeminiHero.png"
-    },
-    {
-      "id": "n_5db536ea0226338d",
-      "title": {
-        "en": "alesha-pro/inference-optimization-playbook: 97 tested hypotheses on making huge MoE LLMs fast on consumer GPUs (4x RTX 3090 + experts in RAM): what worked, what failed and why. A playbook for people and a ready skill for coding agents.",
-        "zh": "alesha-pro/inference-optimization-playbook：在消费者GPU（4x RTX 3090 + 内存中的专家）上让巨型MoE大语言模型加速的97个测试假设：哪些有效，哪些失败及原因。为人们准备的操作手册和可用的编码代理技能。",
-        "original": "alesha-pro/inference-optimization-playbook: 97 tested hypotheses on making huge MoE LLMs fast on consumer GPUs (4x RTX 3090 + experts in RAM): what worked, what failed and why. A playbook for people and a ready skill for coding agents."
-      },
-      "lang": "en",
-      "url": "https://github.com/alesha-pro/inference-optimization-playbook",
-      "source": "GitHub",
-      "topic": "coding-agents",
-      "published_at": "2026-11-20T22:17:50.000Z",
-      "image": "https://opengraph.githubassets.com/12cf1426031790a041746c2487f1323398cec67174d48264141d33cddb59dd41/alesha-pro/inference-optimization-playbook"
-    },
-    {
-      "id": "n_2f9d0bc4d1470e23",
-      "title": {
-        "en": "Security advisory permissions are now generally available",
-        "zh": "安全咨询权限现已普遍开放。",
-        "original": "Security advisory permissions are now generally available"
-      },
-      "lang": "en",
-      "url": "https://github.blog/changelog/2026-11-20-security-advisory-permissions-are-now-generally-available",
-      "source": "GitHub Changelog",
-      "topic": "general",
-      "published_at": "2026-11-20T21:49:29.000Z",
-      "image": "https://github.blog/wp-content/uploads/2026/11/711393264-910d7f23-663a-4aca-a2bc-31315dbade37.jpg"
-    },
-    {
-      "id": "n_4781b265526c6a90",
-      "title": {
-        "en": "tarqmamdouh/agent-theater: Your AI agents, live on a pixel-art stage. Works with Claude Code.",
-        "zh": "tarqmamdouh/agent-theater：您的AI代理，实时呈现在像素艺术舞台上。兼容Claude Code。",
-        "original": "tarqmamdouh/agent-theater: Your AI agents, live on a pixel-art stage. Works with Claude Code."
-      },
-      "lang": "en",
-      "url": "https://github.com/tarqmamdouh/agent-theater",
-      "source": "GitHub",
-      "topic": "coding-agents",
-      "published_at": "2026-11-20T21:41:37.000Z",
-      "image": "https://opengraph.githubassets.com/4bea70b3f9449939485e9d6663735908fc822fd0b298b918c91f9b35a2273e03/tarqmamdouh/agent-theater"
-    },
-    {
       "id": "p_27ad6a3fe790513e",
       "title": {
         "en": "Playing GTA VI with a Neuralink",
@@ -5469,61 +5589,6 @@
       "image": "https://pbs.twimg.com/amplify_video_thumb/2123890210454777856/img/CBz2BthFtiKRAVhn?format=webp&name=large"
     },
     {
-      "id": "n_c989db0d32fd28d8",
-      "title": {
-        "en": "The War Against Slop and an Emerging Weapon to Fight it: Formal Verification",
-        "zh": "对抗漏洞的战争及其新兴武器：形式验证。",
-        "original": "The War Against Slop and an Emerging Weapon to Fight it: Formal Verification"
-      },
-      "lang": "en",
-      "url": "https://latent.space/p/formal-verification/",
-      "source": "Latent Space",
-      "topic": "general",
-      "published_at": "2026-11-20T21:18:41.000Z",
-      "image": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/b6f560cd-a37a-4d62-8d6b-da5b59cf4790/formal-verification-feature.png?t=1795207886"
-    },
-    {
-      "id": "n_fd59603d89785028",
-      "title": {
-        "en": "How to claim your business in ChatGPT with Shopify",
-        "zh": "如何通过Shopify在ChatGPT中认领您的业务。",
-        "original": "How to claim your business in ChatGPT with Shopify"
-      },
-      "lang": "en",
-      "url": "https://www.youtube.com/watch?v=mX7wHNnsghs",
-      "source": "YouTube · OpenAI",
-      "topic": "consumer-ai-apps",
-      "published_at": "2026-11-20T20:48:27.000Z"
-    },
-    {
-      "id": "n_8f3afc444413b673",
-      "title": {
-        "en": "GitHub Enterprise Server 3.23 release candidate",
-        "zh": "GitHub 企业服务器 3.23 候选发布版。",
-        "original": "GitHub Enterprise Server 3.23 release candidate"
-      },
-      "lang": "en",
-      "url": "https://github.blog/changelog/2026-11-20-github-enterprise-server-3-23-release-candidate",
-      "source": "GitHub Changelog",
-      "topic": "general",
-      "published_at": "2026-11-20T20:41:26.000Z",
-      "image": "https://github.blog/wp-content/themes/github-2021-child/dist/img/social-v3-new-releases.jpg"
-    },
-    {
-      "id": "n_f93ea93941f60201",
-      "title": {
-        "en": "How Cloudflare WAF protects against ruby2shell (CVE-2026-132825)",
-        "zh": "Cloudflare WAF 如何防御 ruby2shell 漏洞（CVE-2026-132825）。",
-        "original": "How Cloudflare WAF protects against ruby2shell (CVE-2026-132825)"
-      },
-      "lang": "en",
-      "url": "https://blog.cloudflare.com/ruby2shell-waf-protection/",
-      "source": "Cloudflare blog",
-      "topic": "general",
-      "published_at": "2026-11-20T20:24:38.000Z",
-      "image": "https://blog.cloudflare.com/_emdash/api/media/file/01M7X91CB1DQF7DRZ96WG5VETW.png"
-    },
-    {
       "id": "p_fd589dffda11bf2b",
       "title": {
         "en": "Some of you thought that Inkling 2 Small was too big at 594B parameters.",
@@ -5536,61 +5601,6 @@
       "topic": "personal-ai-systems",
       "published_at": "2026-11-20T20:10:34.000Z",
       "image": "https://pbs.twimg.com/card_img/2123870055498940416/GIja54ZR?format=png&name=medium"
-    },
-    {
-      "id": "n_7066f202a884aec0",
-      "title": {
-        "en": "How Cloudflare WAF helps protect against phpAfterShell and other critical PHP flaws",
-        "zh": "Cloudflare WAF 如何帮助防护 phpAfterShell 及其他关键PHP漏洞。",
-        "original": "How Cloudflare WAF helps protect against phpAfterShell and other critical PHP flaws"
-      },
-      "lang": "en",
-      "url": "https://blog.cloudflare.com/phpaftershell-waf-protection/",
-      "source": "Cloudflare blog",
-      "topic": "general",
-      "published_at": "2026-11-20T20:00:45.000Z",
-      "image": "https://blog.cloudflare.com/_emdash/api/media/file/01M7X76DTFTZ4PHVTH5XWJ37KT.png"
-    },
-    {
-      "id": "n_2ef902c4582a1ae8",
-      "title": {
-        "en": "Advancing Science Together: Highlights From the Open Source AI for Science Summit",
-        "zh": "共同推动科学进步：开源科学人工智能峰会亮点",
-        "original": "Advancing Science Together: Highlights From the Open Source AI for Science Summit"
-      },
-      "lang": "en",
-      "url": "https://about.fb.com/news/2026/11/advancing-science-together-highlights-from-the-open-source-ai-for-science-summit/",
-      "source": "Meta Newsroom",
-      "topic": "general",
-      "published_at": "2026-11-20T18:30:45.000Z",
-      "image": "https://about.fb.com/wp-content/uploads/2026/11/Highlights-From-the-Open-Source-AI-For-Science-Summit_Social-Share-1.jpg?w=1200"
-    },
-    {
-      "id": "n_f4550ec57285a09a",
-      "title": {
-        "en": "An underrated way to use ChatGPT: Finding a doctor",
-        "zh": "ChatGPT的一个被低估的用途：寻找医生",
-        "original": "An underrated way to use ChatGPT: Finding a doctor"
-      },
-      "lang": "en",
-      "url": "https://www.youtube.com/shorts/X19Q12hmRjY",
-      "source": "YouTube · OpenAI",
-      "topic": "consumer-ai-apps",
-      "published_at": "2026-11-20T17:22:23.000Z"
-    },
-    {
-      "id": "n_04e67ef8cb7f44f9",
-      "title": {
-        "en": "Meta Slashes Smart Glasses by 25% for Black Friday, Including Ray-Ban & Oakley Frames",
-        "zh": "Meta黑色星期五智能眼镜降价25%，涵盖Ray-Ban及Oakley镜架。",
-        "original": "Meta Slashes Smart Glasses by 25% for Black Friday, Including Ray-Ban & Oakley Frames"
-      },
-      "lang": "en",
-      "url": "https://roadtovr.com/meta-glasses-ray-ban-black-friday-2026-sale/",
-      "source": "Road to VR",
-      "topic": "ai-wearables",
-      "published_at": "2026-11-20T14:34:21.000Z",
-      "image": "https://roadtovr.com/wp-content/uploads/2026/04/ray-ban-prescription.jpg"
     },
     {
       "id": "p_07ff4ead4adab3de",
