@@ -9,7 +9,7 @@
         "thumbnail": "https://yt3.ggpht.com/SWdh-WpG7y2zncoqDb4WKIyph24NRRz8ep6XxJdAdU08zGSegMMfPuLvEo1zCVpGvVlsqVIgmw=s800-c-k-c0x00ffffff-no-rj",
         "subscriberCount": 218,
         "videoCount": 126,
-        "viewCount": 100260,
+        "viewCount": 100263,
         "bannerUrl": null
       },
       "videos": [
@@ -75,7 +75,7 @@
           "duration": "PT13S",
           "durationSeconds": 13,
           "isShort": true,
-          "viewCount": 1966,
+          "viewCount": 1967,
           "likeCount": 16,
           "commentCount": 0
         },
@@ -395,7 +395,7 @@
           "duration": "PT33S",
           "durationSeconds": 33,
           "isShort": true,
-          "viewCount": 748,
+          "viewCount": 749,
           "likeCount": 15,
           "commentCount": 4
         },
@@ -636,7 +636,7 @@
           "durationSeconds": 25,
           "isShort": true,
           "viewCount": 1507,
-          "likeCount": 21,
+          "likeCount": 20,
           "commentCount": 0
         },
         {
@@ -830,11 +830,27 @@
         "customUrl": "@ai-native-builder",
         "thumbnail": "https://yt3.ggpht.com/-Ysz0GWR4v56xMiXznz2_2buYJnkeTdXUGM643yrBm8xi2Ix9EC2J3S-LTr_HAHoMjrGTkLj=s800-c-k-c0x00ffffff-no-rj",
         "subscriberCount": 197,
-        "videoCount": 30,
-        "viewCount": 16919,
+        "videoCount": 31,
+        "viewCount": 16971,
         "bannerUrl": null
       },
       "videos": [
+        {
+          "id": "Hw84mmEu5FU",
+          "title": "Claude Maps America; OpenAI Plans Shared Limits | The AI Brief, Nov 26",
+          "description": "A Civilization-style map built with Claude, OpenAI’s planned shared ChatGPT/Codex allowance, governed Workspace access, an Illustrator comparison, attributed mathematics claims, Anthropic’s Rust migration and Ming Image’s design-model release.\n\nThe AI Brief | November 26, 2026\n\n00:00 Headlines\n00:15 America becomes a strategy map\n01:31 ChatGPT and Codex share an allowance\n02:28 Google sets the agent entrance\n03:55 A connector meets a measured comparison\n04:52 New factoring claims need review\n06:00 Anthropic describes a verified Rust migration\n06:35 Ming Image publishes a design model\n\nPrimary sources, in running order\nhttps://x.com/karpathy/status/2125779541952246039\nhttps://karpathy.ai/usaciv/\nhttps://help.openai.com/en/articles/20001625-understanding-chatgpt-and-codex-usage-limits\nhttps://x.com/thsottiaux/status/2125784147889393806\nhttps://workspace.google.com/blog/product-announcements/built-for-trust-and-control-new-ai-agent-protections-and-developer-tools-in-google-workspace\nhttps://workspace.google.com/terms/ai-tools/\nhttps://zenn.dev/pepe_3_go/articles/illustrator-three-routes-cost-measured\nhttps://raw.githubusercontent.com/google-research/google-research/master/cogentic_research_papers/README.md\nhttps://raw.githubusercontent.com/google-research/google-research/master/cogentic_research_papers/integer_factorization/paper.pdf\nhttps://github.com/google-research/google-research/tree/master/cogentic_research_papers/integer_factorization\nhttps://www.anthropic.com/research/migrating-api-to-rust\nhttps://huggingface.co/inclusionAI/Ming-Image-0.2-Design\nhttps://github.com/inclusionAI/Ming-Image\n\naaronguo.com",
+          "thumbnail": "https://i.ytimg.com/vi/Hw84mmEu5FU/maxresdefault.jpg",
+          "thumbnailWidth": 1280,
+          "thumbnailHeight": 720,
+          "thumbnailQuality": "maxres",
+          "publishedAt": "2026-11-28T00:15:51Z",
+          "duration": "PT7M23S",
+          "durationSeconds": 443,
+          "isShort": false,
+          "viewCount": 1,
+          "likeCount": 1,
+          "commentCount": 0
+        },
         {
           "id": "Gd_4Odknrew",
           "title": "Claude Artifacts Become Desktop Apps | The AI Brief, Nov 25",
@@ -847,7 +863,7 @@
           "duration": "PT7M36S",
           "durationSeconds": 456,
           "isShort": false,
-          "viewCount": 110,
+          "viewCount": 111,
           "likeCount": 3,
           "commentCount": 0
         },
@@ -863,7 +879,7 @@
           "duration": "PT6M32S",
           "durationSeconds": 392,
           "isShort": false,
-          "viewCount": 673,
+          "viewCount": 707,
           "likeCount": 3,
           "commentCount": 0
         },
@@ -879,7 +895,7 @@
           "duration": "PT5M59S",
           "durationSeconds": 359,
           "isShort": false,
-          "viewCount": 279,
+          "viewCount": 280,
           "likeCount": 4,
           "commentCount": 0
         },
@@ -1055,7 +1071,7 @@
           "duration": "PT10M7S",
           "durationSeconds": 607,
           "isShort": false,
-          "viewCount": 11665,
+          "viewCount": 11672,
           "likeCount": 226,
           "commentCount": 15
         },
@@ -1071,7 +1087,7 @@
           "duration": "PT9M48S",
           "durationSeconds": 588,
           "isShort": false,
-          "viewCount": 152,
+          "viewCount": 153,
           "likeCount": 8,
           "commentCount": 1
         },
@@ -1281,7 +1297,7 @@
           "duration": "PT45S",
           "durationSeconds": 45,
           "isShort": true,
-          "viewCount": 115,
+          "viewCount": 116,
           "likeCount": 4,
           "commentCount": 0
         },
@@ -1319,8 +1335,8 @@
         }
       ],
       "stats": {
-        "totalVideos": 30,
-        "regularVideosCount": 25,
+        "totalVideos": 31,
+        "regularVideosCount": 26,
         "shortsCount": 5
       }
     },
@@ -1333,7 +1349,7 @@
         "thumbnail": "https://yt3.ggpht.com/v8UM-QMMgWUGiVzdg3H4fw6TJcqcPdX11HaU1UkpnJIrfJgTsxCmGVQNBSYeCsCS43W_DZJepg=s800-c-k-c0x00ffffff-no-rj",
         "subscriberCount": 56,
         "videoCount": 100,
-        "viewCount": 25817,
+        "viewCount": 25829,
         "bannerUrl": null
       },
       "videos": [
@@ -1349,7 +1365,7 @@
           "duration": "PT1M15S",
           "durationSeconds": 75,
           "isShort": false,
-          "viewCount": 14,
+          "viewCount": 19,
           "likeCount": 1,
           "commentCount": 0
         },
@@ -1557,7 +1573,7 @@
           "duration": "PT10M1S",
           "durationSeconds": 601,
           "isShort": false,
-          "viewCount": 123,
+          "viewCount": 124,
           "likeCount": 2,
           "commentCount": 0
         },
@@ -1623,7 +1639,7 @@
           "duration": "PT34S",
           "durationSeconds": 34,
           "isShort": true,
-          "viewCount": 647,
+          "viewCount": 652,
           "likeCount": 8,
           "commentCount": 0
         },
@@ -1655,7 +1671,7 @@
           "duration": "PT33S",
           "durationSeconds": 33,
           "isShort": true,
-          "viewCount": 90,
+          "viewCount": 91,
           "likeCount": 2,
           "commentCount": 0
         },
@@ -1687,7 +1703,7 @@
           "duration": "PT30S",
           "durationSeconds": 30,
           "isShort": true,
-          "viewCount": 41,
+          "viewCount": 42,
           "likeCount": 1,
           "commentCount": 0
         },
@@ -2148,6 +2164,6 @@
     }
   },
   "metadata": {
-    "fetchedAt": "2026-11-27T08:29:13.988Z"
+    "fetchedAt": "2026-11-28T00:18:23.717Z"
   }
 }
